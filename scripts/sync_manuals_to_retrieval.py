@@ -38,6 +38,8 @@ def document_headers(path: Path) -> dict[str, str]:
     content_type = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
     return {
         "Authorization": f"Bearer {TOKEN}",
+        "User-Agent": "MotorNote-Manual-Sync/1.0 (+https://github.com/5cxxpb2yrr-ui/motornote-manual-library)",
+        "Accept": "application/json",
         "Content-Type": content_type,
         "X-Document-Key": f"{digest}{suffix}",
         "X-Source-Path": f"manuals/{relative}",
