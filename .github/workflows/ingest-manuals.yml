@@ -15,6 +15,11 @@ on:
         required: false
         type: boolean
         default: false
+      upload_limit:
+        description: "Maximum documents for a manual test upload"
+        required: true
+        type: number
+        default: 20
 
 permissions:
   contents: write
@@ -90,7 +95,12 @@ jobs:
         env:
           MOTORNOTE_API_URL: https://motornote-manual-retrieval.phillipstg.workers.dev
           MOTORNOTE_API_TOKEN: ${{ secrets.MOTORNOTE_API_TOKEN }}
-        run: python scripts/sync_manuals_to_retrieval.py
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            python scripts/sync_manuals_to_retrieval.py --limit "${{ inputs.upload_limit }}"
+          else
+            python scripts/sync_manuals_to_retrieval.py
+          fi
 
       - name: Remove successfully ingested ZIP assets from release
         if: github.event_name == 'release'
