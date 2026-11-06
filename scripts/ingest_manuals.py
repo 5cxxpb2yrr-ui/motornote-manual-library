@@ -170,11 +170,11 @@ def clean_manual_html(path: Path) -> bool:
     cleaned = "".join(parser.output)
     # Remove mirror attribution retained in document titles and discard list
     # wrappers left empty after dead mirror-only links are removed.
-    cleaned = re.sub(r"\\s*~\\s*Dogeware Lemon Mirror", "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"<li\\b[^>]*>\\s*</li>", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s*~\s*Dogeware Lemon Mirror", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"<li\b[^>]*>\s*</li>", "", cleaned, flags=re.IGNORECASE)
     # Some LEMON mirrors leave a download icon without a working download link.
     cleaned = re.sub(
-        r"""<li\\b[^>]*>\\s*<img\\b(?=[^>]*\\bsrc\\s*=\\s*['"][^'"]*download\\.svg)[^>]*>\\s*</li>""",
+        r"""<li\b[^>]*>\s*<img\b(?=[^>]*\bsrc\s*=\s*['"][^'"]*download\.svg)[^>]*>\s*</li>""",
         "",
         cleaned,
         flags=re.IGNORECASE,
@@ -265,7 +265,7 @@ def extract_pdf_pages(path: Path, manual_id: str) -> list[dict]:
                     "manual": manual_id,
                     "file": path.relative_to(ROOT).as_posix(),
                     "page": page_no,
-                    "text": re.sub(r"\\s+", " ", text),
+                    "text": re.sub(r"\s+", " ", text),
                 })
     return records
 
