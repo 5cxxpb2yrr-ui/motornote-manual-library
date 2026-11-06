@@ -19,7 +19,7 @@ Authorization: Bearer <MOTORNOTE_API_TOKEN>
   - `x-make`, `x-model`, `x-document-type`: optional metadata
   - `content-type`: actual file MIME type
 
-The ingestion route accepts HTML, text, Markdown, PDF, and common image files up to 20 MiB each. Uploads are queued for indexing; a 202 response means accepted, not yet searchable.
+The ingestion route accepts HTML, text, Markdown, and OCR-enabled PDF files up to 10 MiB; common image files are limited to 4 MiB. Uploads are queued for indexing; a 202 response means accepted, not yet searchable. AI Search currently allows 100,000 files per instance on the Workers Free plan. Monthly included usage is 5 million ingestion tokens, 10 GB-month storage, 1,000 semantic queries, and 1,000 full-text queries; usage beyond those amounts is billed. Current pricing and limits: https://developers.cloudflare.com/ai-search/platform/limits-pricing/.
 
 ## Deployment
 
