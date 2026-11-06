@@ -168,6 +168,10 @@ def clean_manual_html(path: Path) -> bool:
     parser.feed(source)
     parser.close()
     cleaned = "".join(parser.output)
+    # Remove mirror attribution retained in document titles and discard list
+    # wrappers left empty after dead mirror-only links are removed.
+    cleaned = re.sub(r"\\s*~\\s*Dogeware Lemon Mirror", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"<li\\b[^>]*>\\s*</li>", "", cleaned, flags=re.IGNORECASE)
     if cleaned == source:
         return False
 
