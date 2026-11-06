@@ -6,6 +6,7 @@ import argparse
 import concurrent.futures
 import hashlib
 import mimetypes
+import re
 import os
 import sys
 import time
@@ -122,7 +123,11 @@ def main() -> int:
             parser.error(f"path list not found: {args.paths_from_file}")
         requested = []
         seen = set()
-        for line_number, raw in enumerate(args.paths_from_file.read_text(encoding="utf-8").splitlines(), 1):
+        raw_paths = args.paths_from_file.read_text(encoding="utf-8")
+        # GitHub's workflow-dispatch text input can flatten pasted newlines.
+        # Split at each known manual-root prefix as well as ordinary newlines.
+        path_entries = re.split(r"(?=(?:scion|subaru)-service-manual/)", raw_paths)
+        for line_number, raw in enumerate(path_entries, 1):
             value = raw.strip()
             if not value or value.startswith("#"):
                 continue
