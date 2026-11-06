@@ -353,7 +353,21 @@ def main() -> int:
         *INCOMING.rglob("*.ZIP"),
     })
     if not archives:
-        print("No ZIP archives found under incoming/.")
+        if "--clean-existing" not in sys.argv:
+            print("No ZIP archives found under incoming/.")
+            return 0
+
+        cleaned = 0
+        for manual_root in sorted(p for p in MANUALS.iterdir() if p.is_dir() and not p.name.startswith(".")):
+            for html_path in manual_root.rglob("*"):
+                if html_path.is_file() and html_path.suffix.lower() in {".html", ".htm"}:
+                    cleaned += int(clean_manual_html(html_path))
+
+        previous = load_previous_catalog()
+        catalog, pages = build_catalog(previous, {})
+        stamp = datetime.now(timezone.utc).isoformat()
+        write_indexes(catalog, pages, stamp)
+        print(f"Cleaned {cleaned} existing HTML files and rebuilt the catalog.")
         return 0
 
     previous = load_previous_catalog()
