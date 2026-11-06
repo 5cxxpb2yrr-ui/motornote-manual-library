@@ -97,13 +97,13 @@ class ManualHTMLCleaner(HTMLParser):
 
         if tag.lower() == "a" and is_breadcrumb and href.endswith("404.html"):
             span_tag = re.sub(
-                r"\\s+href\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s>]+)",
+                r"\s+href\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)",
                 "",
                 raw,
                 count=1,
                 flags=re.IGNORECASE,
             )
-            self.output.append(re.sub(r"^<a\\b", "<span", span_tag, count=1, flags=re.IGNORECASE))
+            self.output.append(re.sub(r"^<a\b", "<span", span_tag, count=1, flags=re.IGNORECASE))
             self.span_depth += 1
             return
 
