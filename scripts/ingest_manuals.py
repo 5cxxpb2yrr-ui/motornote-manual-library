@@ -7,6 +7,8 @@ Existing manuals remain in place when another archive is ingested.
 from __future__ import annotations
 
 import hashlib
+from html.parser import HTMLParser
+
 import json
 import re
 import shutil
@@ -60,6 +62,114 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+class ManualHTMLCleaner(HTMLParser):
+    """Remove mirror chrome while preserving manual content and navigation."""
+
+    REMOVED_CLASSES = {"branding", "other-announcement", "footer"}
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=False)
+        self.output: list[str] = []
+        self.skip_depth = 0
+        self.span_depth = 0
+        self.drop_link_depth = 0
+
+    @staticmethod
+    def classes(attrs: list[tuple[str, str | None]]) -> set[str]:
+        value = next((v for k, v in attrs if k.lower() == "class"), "") or ""
+        return set(value.split())
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        raw = self.get_starttag_text()
+        if self.skip_depth:
+            if tag not in {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}:
+                self.skip_depth += 1
+            return
+
+        classes = self.classes(attrs)
+        if classes & self.REMOVED_CLASSES:
+            self.skip_depth = 1
+            return
+
+        attr_map = {k.lower(): v for k, v in attrs}
+        href = (attr_map.get("href") or "").strip().lower()
+        is_breadcrumb = "breadcrumb-part" in classes
+
+        if tag.lower() == "a" and is_breadcrumb and href.endswith("404.html"):
+            self.output.append(raw.replace("<a", "<span", 1).replace("</a>", "</span>"))
+            self.span_depth += 1
+            return
+
+        if tag.lower() == "a" and href.endswith("404.html"):
+            self.drop_link_depth = 1
+            return
+
+        self.output.append(raw)
+
+    def handle_endtag(self, tag: str) -> None:
+        if self.skip_depth:
+            if tag not in {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}:
+                self.skip_depth -= 1
+            return
+        if self.drop_link_depth:
+            if tag.lower() == "a":
+                self.drop_link_depth = 0
+            return
+        if self.span_depth and tag.lower() == "a":
+            self.output.append("</span>")
+            self.span_depth -= 1
+            return
+        self.output.append(f"</{tag}>")
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if not self.skip_depth:
+            self.output.append(self.get_starttag_text())
+
+    def handle_data(self, data: str) -> None:
+        if not self.skip_depth and not self.drop_link_depth:
+            self.output.append(data)
+
+    def handle_entityref(self, name: str) -> None:
+        if not self.skip_depth and not self.drop_link_depth:
+            self.output.append(f"&{name};")
+
+    def handle_charref(self, name: str) -> None:
+        if not self.skip_depth and not self.drop_link_depth:
+            self.output.append(f"&#{name};")
+
+    def handle_comment(self, data: str) -> None:
+        if not self.skip_depth and not self.drop_link_depth:
+            self.output.append(f"<!--{data}-->")
+
+    def handle_decl(self, decl: str) -> None:
+        if not self.skip_depth:
+            self.output.append(f"<!{decl}>")
+
+    def unknown_decl(self, data: str) -> None:
+        if not self.skip_depth:
+            self.output.append(f"<![{data}]>")
+
+
+def clean_manual_html(path: Path) -> bool:
+    """Strip third-party mirror chrome without changing manual assets or scripts."""
+    try:
+        source = path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return False
+
+    parser = ManualHTMLCleaner()
+    parser.feed(source)
+    parser.close()
+    cleaned = "".join(parser.output)
+    if cleaned == source:
+        return False
+
+    temp = path.with_name(path.name + ".cleaning")
+    temp.write_text(cleaned, encoding="utf-8")
+    temp.replace(path)
+    return True
+
+
 def extract_to_staging(archive: Path, staging: Path) -> list[Path]:
     if staging.exists():
         shutil.rmtree(staging)
@@ -109,6 +219,15 @@ def extract_to_staging(archive: Path, staging: Path) -> list[Path]:
             if written != member.file_size:
                 raise ValueError(f"Truncated archive member: {member.filename!r}.")
             extracted.append(target)
+
+    # Clean mirror chrome in HTML while the archive is still staged. The original
+    # archive remains untouched if extraction or cleanup fails.
+    cleaned_html = 0
+    for html_path in extracted:
+        if html_path.suffix.lower() in {".html", ".htm"}:
+            cleaned_html += int(clean_manual_html(html_path))
+    if cleaned_html:
+        print(f"{archive.name}: cleaned mirror branding/navigation in {cleaned_html} HTML files.")
 
     return extracted
 
