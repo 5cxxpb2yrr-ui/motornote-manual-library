@@ -6,6 +6,8 @@ on:
     paths:
       - "incoming/**/*.zip"
       - "incoming/*.zip"
+  release:
+    types: [published]
   workflow_dispatch:
 
 permissions:
@@ -17,14 +19,28 @@ concurrency:
 
 jobs:
   ingest:
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'release' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository with Git LFS
         uses: actions/checkout@v4
         with:
+          ref: main
           lfs: true
           fetch-depth: 0
+
+      - name: Download ZIP assets from published release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p incoming
+          tag="${{ github.event.release.tag_name }}"
+          gh release download "$tag" --repo "$GITHUB_REPOSITORY" --dir incoming --pattern "*.zip" --pattern "*.ZIP" --clobber
+          find incoming -type f \( -iname '*.zip' \) -print -quit | grep -q . || {
+            echo "No ZIP assets found in release $tag."
+            exit 1
+          }
 
       - name: Install Git LFS
         run: |
@@ -49,7 +65,22 @@ jobs:
           git add .gitattributes manuals index incoming
           if git diff --cached --quiet; then
             echo "No ingestion changes to commit."
-            exit 0
+          else
+            git commit -m "Ingest service manual archive"
+            git push origin HEAD:main
           fi
-          git commit -m "Ingest service manual archive"
-          git push
+
+      - name: Remove successfully ingested ZIP assets from release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${{ github.event.release.tag_name }}"
+          gh release view "$tag" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' |
+            while IFS= read -r asset; do
+              case "$asset" in
+                *.zip|*.ZIP)
+                  gh release delete-asset "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --yes
+                  ;;
+              esac
+            done
