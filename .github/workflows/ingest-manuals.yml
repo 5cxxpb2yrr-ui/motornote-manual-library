@@ -55,8 +55,13 @@ jobs:
       - name: Install PDF text extraction
         run: python -m pip install --upgrade pymupdf
 
-      - name: Extract and index uploaded ZIP files
-        run: python scripts/ingest_manuals.py
+      - name: Extract, clean, and index manuals
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            python scripts/ingest_manuals.py --clean-existing
+          else
+            python scripts/ingest_manuals.py
+          fi
 
       - name: Commit extracted manuals and search index
         run: |
