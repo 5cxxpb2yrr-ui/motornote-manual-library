@@ -23,6 +23,8 @@ LIMIT_MIB = {
     ".png": 4, ".jpg": 4, ".jpeg": 4, ".webp": 4, ".svg": 4,
 }
 EXTENSIONS = set(LIMIT_MIB)
+TEXT_FIRST_EXTENSIONS = {'.html', '.htm', '.txt', '.md', '.pdf'}
+IMAGE_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.webp', '.svg'}
 
 
 def document_headers(path: Path) -> dict[str, str]:
@@ -75,6 +77,7 @@ def upload(path: Path) -> tuple[bool, str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="report file counts and sizes without uploading")
+    parser.add_argument("--include-images", action="store_true", help="also upload image and SVG assets; excluded by default")
     args = parser.parse_args()
 
     if not MANUALS.is_dir():
@@ -84,6 +87,8 @@ def main() -> int:
     files = [p for p in MANUALS.rglob("*") if p.is_file() and p.suffix.lower() in EXTENSIONS]
     counts, sizes, oversized = Counter(), Counter(), Counter()
     eligible = []
+    selected_extensions = TEXT_FIRST_EXTENSIONS | (IMAGE_EXTENSIONS if args.include_images else set())
+    excluded_count = excluded_bytes = 0
     for path in files:
         ext = path.suffix.lower()
         size = path.stat().st_size
@@ -91,12 +96,19 @@ def main() -> int:
         sizes[ext] += size
         if size == 0 or size > LIMIT_MIB[ext] * 1024 * 1024:
             oversized[ext] += 1
-        else:
+        elif ext in selected_extensions:
             eligible.append(path)
+        else:
+            excluded_count += 1
+            excluded_bytes += size
 
     total_bytes = sum(sizes.values())
     print(f"Supported files: {len(files)} | eligible: {len(eligible)} | oversized/empty: {sum(oversized.values())}")
     print(f"Total supported-file size: {total_bytes / (1024 * 1024):.1f} MiB")
+    selected_bytes = sum(path.stat().st_size for path in eligible)
+    mode = "text + image" if args.include_images else "text-first"
+    print(f"Selected for {mode}: {len(eligible)} files, {selected_bytes / (1024 * 1024):.1f} MiB")
+    print(f"Excluded by text-first policy: {excluded_count} files, {excluded_bytes / (1024 * 1024):.1f} MiB")
     print("By extension:")
     for ext in sorted(counts):
         print(f"  {ext}: {counts[ext]} files, {sizes[ext] / (1024 * 1024):.1f} MiB, skipped={oversized[ext]}")
