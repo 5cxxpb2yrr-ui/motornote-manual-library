@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Upload searchable service-manual files to the authenticated MotorNote API."""
+"""Preview or upload searchable service-manual files to MotorNote retrieval."""
 from __future__ import annotations
 
+import argparse
 import concurrent.futures
 import hashlib
 import mimetypes
@@ -10,14 +11,18 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUALS = ROOT / "manuals"
 BASE_URL = os.environ.get("MOTORNOTE_API_URL", "").rstrip("/")
 TOKEN = os.environ.get("MOTORNOTE_API_TOKEN", "")
-MAX_BYTES = 20 * 1024 * 1024
-EXTENSIONS = {".html", ".htm", ".txt", ".md", ".pdf", ".png", ".jpg", ".jpeg", ".webp", ".svg"}
+LIMIT_MIB = {
+    ".html": 10, ".htm": 10, ".txt": 10, ".md": 10, ".pdf": 10,
+    ".png": 4, ".jpg": 4, ".jpeg": 4, ".webp": 4, ".svg": 4,
+}
+EXTENSIONS = set(LIMIT_MIB)
 
 
 def document_headers(path: Path) -> dict[str, str]:
@@ -41,48 +46,70 @@ def document_headers(path: Path) -> dict[str, str]:
 
 
 def upload(path: Path) -> tuple[bool, str]:
+    relative = path.relative_to(MANUALS).as_posix()
     try:
-        size = path.stat().st_size
-        if size <= 0 or size > MAX_BYTES:
-            return False, f"skipped size={size} path={path.relative_to(MANUALS)}"
-        headers = document_headers(path)
         request = urllib.request.Request(
             f"{BASE_URL}/v1/documents",
             data=path.read_bytes(),
-            headers=headers,
+            headers=document_headers(path),
             method="PUT",
         )
         for attempt in range(4):
             try:
                 with urllib.request.urlopen(request, timeout=120) as response:
-                    return True, f"{response.status} {path.relative_to(MANUALS)}"
+                    return True, f"{response.status} {relative}"
             except urllib.error.HTTPError as error:
                 detail = error.read().decode("utf-8", "replace")[:500]
                 if error.code not in (429, 500, 502, 503, 504) or attempt == 3:
-                    return False, f"HTTP {error.code} {path.relative_to(MANUALS)}: {detail}"
+                    return False, f"HTTP {error.code} {relative}: {detail}"
                 time.sleep(2 ** attempt)
             except (urllib.error.URLError, TimeoutError) as error:
                 if attempt == 3:
-                    return False, f"network {path.relative_to(MANUALS)}: {error}"
+                    return False, f"network {relative}: {error}"
                 time.sleep(2 ** attempt)
     except OSError as error:
-        return False, f"file {path}: {error}"
-    return False, f"failed {path}"
+        return False, f"file {relative}: {error}"
+    return False, f"failed {relative}"
 
 
 def main() -> int:
-    if not BASE_URL or not TOKEN:
-        print("MotorNote sync skipped: MOTORNOTE_API_URL or MOTORNOTE_API_TOKEN is missing.")
-        return 0
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true", help="report file counts and sizes without uploading")
+    args = parser.parse_args()
+
     if not MANUALS.is_dir():
         print("No manuals directory found.")
         return 1
 
     files = [p for p in MANUALS.rglob("*") if p.is_file() and p.suffix.lower() in EXTENSIONS]
-    print(f"Queueing {len(files)} searchable manual files.")
+    counts, sizes, oversized = Counter(), Counter(), Counter()
+    eligible = []
+    for path in files:
+        ext = path.suffix.lower()
+        size = path.stat().st_size
+        counts[ext] += 1
+        sizes[ext] += size
+        if size == 0 or size > LIMIT_MIB[ext] * 1024 * 1024:
+            oversized[ext] += 1
+        else:
+            eligible.append(path)
+
+    total_bytes = sum(sizes.values())
+    print(f"Supported files: {len(files)} | eligible: {len(eligible)} | oversized/empty: {sum(oversized.values())}")
+    print(f"Total supported-file size: {total_bytes / (1024 * 1024):.1f} MiB")
+    print("By extension:")
+    for ext in sorted(counts):
+        print(f"  {ext}: {counts[ext]} files, {sizes[ext] / (1024 * 1024):.1f} MiB, skipped={oversized[ext]}")
+    if args.dry_run:
+        print("Dry run only; no documents were uploaded.")
+        return 0
+    if not BASE_URL or not TOKEN:
+        print("Upload requires MOTORNOTE_API_URL and MOTORNOTE_API_TOKEN.", file=sys.stderr)
+        return 2
+
     succeeded = failed = 0
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
-        futures = [pool.submit(upload, path) for path in files]
+        futures = [pool.submit(upload, path) for path in eligible]
         for index, future in enumerate(concurrent.futures.as_completed(futures), 1):
             ok, message = future.result()
             if ok:
@@ -90,9 +117,9 @@ def main() -> int:
             else:
                 failed += 1
                 print(message, file=sys.stderr)
-            if index % 100 == 0 or index == len(files):
-                print(f"Progress {index}/{len(files)} | accepted={succeeded} | failed/skipped={failed}")
-    print(f"MotorNote sync complete: accepted={succeeded}, failed/skipped={failed}.")
+            if index % 100 == 0 or index == len(futures):
+                print(f"Progress {index}/{len(futures)} | accepted={succeeded} | failed={failed}")
+    print(f"MotorNote sync complete: accepted={succeeded}, failed={failed}, skipped={sum(oversized.values())}.")
     return 1 if failed else 0
 
 
