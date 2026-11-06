@@ -1,0 +1,522 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Tech Tips (TIPS_SE_JULY2022) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/617.html">Tech Tips</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31721.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31721.html#Auxiliary%20Emission%20Control%20Systems/">Auxiliary Emission Control Systems</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31727.html">Tech Tips (TIPS_SE_JULY2022)</a></div><div class="main"><h1>Tech Tips (TIPS_SE_JULY2022)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2022-08-01<br>Reference number: TIPS_SE_JULY2022<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>TECH TIPS</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>TECH TIPS</h2>
+    <h2>TECHNICAL INFORMATION TIPS</h2>
+    <div id="idTecHead">Reference Number(s): TIPS_SE_July2022, Date of Issue: 
+				August 01, 2022<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>2012-Current All Model</td>
+        </tr>
+      </table>
+    </div><h3>SERVICE INFORMATION</h3>
+    
+    <p><span class="clsEmphBOLD">SPECIAL EDITION </span></p>
+    <p><span class="clsEmphBOLD">2012-Current Model Subaru Evaporative Diagnostics &amp; Smoke Testing </span></p><a name="S257292766720220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="left" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734638">
+              <div class="imageHeader"><a name="S40647717272022082200000"></a></div><img alt="G14734638" src="../images/G14734638.jpeg" name="G14734638"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>When faced with an Evaporative Emissions DTC (P0441-P0459, P2404 etc.), the first thing most Technicians do is reach for the smoke machine to check for leaks.</p>
+    <p><span class="clsEmphBOLD">This should no longer be a Technicians first step for diagnosis </span>
+.</p>
+    <p>Never put pressure into the ELCM or <span class="clsEmphBOLD">use smoke as residual oil in the smoke can contaminate the ELCM and cause internal </span>
+ components to malfunction.</p>
+    <p>Instead, the first step for diagnosis should be a forced self-test of the evaporative emission system, recording the test results, then graphing the test to determine where the problem is.</p>
+    <p>Late model Subaru vehicles are equipped with an Electronic Leak Check Module (ELCM) in their evaporative system. The ELCM is a very sensitive and delicate piece of electronic equipment that has the capability of performing self-tests to inspect the systems integrity for leaks and operation.</p>
+    <p>These systems operate on vacuum, <span class="clsEmphBOLD">not pressure </span>
+, when performing their self-test.</p>
+    <p>Follow the outlined directions in this document for performing the ELCM forced self-test, then use the diagnosis procedure found in STIS to identify where the problem is. Technicians can graph the recorded self test and compare it to the diagnosis chart. This chart is in the General Description tab or located at the bottom of most Evap DTC Trouble Trees in STIS. This article also includes a reference chart, along with examples of completed graphs with a set DTC. The Subaru smoke machine tool kit comes with the correct quick disconnect plugs to be able to block off the disconnected lines. Below are step-by-step directions for performing the ELCM force test, saving that test data and using it to diagnose the concern.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>For diagnosing Evaporative codes on 2011-2014 models, the following testing may not apply. Please see TechTIPS from 3/17 and/or 10/19 for performing this testing.</span></div>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>This testing does not work on STI models. Always follow the testing methods outlined in the Service Manual for STI models.</span></div><a name="S257292766720220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">2013MY to Current Legacy and Outback </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">2012MY to Current Impreza </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">2013MY to Current XV Crosstrek </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">2014MY to Current Forester </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">2013MY-2014MY Tribeca </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">2015MY to Current WRX </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">2013MY to Current BRZ </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">2019MY to Current Ascent </span></td>
+        </tr>
+      </tbody>
+    </table><h3>OVERVIEW OF EVAPORATIVE SYSTEM</h3>
+    
+    <ul class="BULLET">
+      <li>The ELCM is a device installed in the evaporative system to detect leaks and blockages.</li>
+      <li>According to legal regulations, leaks of 0.02 inch or more need to be detectable.</li>
+    </ul><a name="S054512032020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734639">
+              <div class="imageHeader"><a name="S25293368722022082200000"></a></div><img alt="G14734639" src="../images/G14734639.png" name="G14734639"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S054512032020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734640">
+              <div class="imageHeader"><a name="S38467995562022082200000"></a></div><img alt="G14734640" src="../images/G14734640.png" name="G14734640"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><h3>SUMMARY OF EVAP LEAK DIAGNOSIS</h3>
+    
+    <ul class="BULLET">
+      <li>EVAP Leak diagnosis is conducted during soak (5~7h after engine stop).</li>
+      <li>The ELCM draws a vacuum in the Evaporative line and determines the leak by the <span class="clsEmphBOLD">level of negative pressure. </span></li>
+    </ul>
+    <p>To find a 0.02-inch leak, the ELCM measures two types of pressure:</p>
+    <ol class="ARABICNUM">
+      <li><span class="clsEmphBOLD">Reference pressure </span>
+: pressure at the occurrence of a 0.02-inch leak</li>
+      <li><span class="clsEmphBOLD">Tank pressure: </span>
+ pressure in the EVAP line<p>While measuring pressures 1) and 2), a P code is established according to the location of the abnormality.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+          <colgroup></colgroup>
+          <tbody>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">
+                <div class="imageHolder" id="container_G14734641">
+                  <div class="imageHeader"><a name="S42711833312022082200000"></a></div><img alt="G14734641" src="../images/G14734641.png" name="G14734641"><span class="imageCourtesyNote"></span></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ol>
+    <p>The conditions needed to perform the test are as follows:</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">Vehicle</th>
+          <th valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">Model Year</th>
+          <th colspan="2" align="center" class="clsCellNormal">Engine Coolant Temperature</th>
+          <th align="center" class="clsCellNormal">Engine Oil Temp</th>
+          <th align="center" class="clsCellNormal">Intake Air Temp</th>
+          <th align="center" class="clsCellNormal">Battery Voltage</th>
+        </tr>
+        <tr class="clsTblHead">
+          <th align="center" class="clsCellNormal">F°</th>
+          <th align="center" class="clsCellNormal">F°</th>
+          <th align="center" class="clsCellNormal">F°</th>
+          <th align="center" class="clsCellNormal">F°</th>
+          <th align="center" class="clsCellNormal">V</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">Impreza/Crosstrek </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">13MY - 22MY </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">&lt; 113 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 10.9 </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">Outback/Legacy </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">15MY - 22MY </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">&lt; 113 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 10.9 </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">Forester </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">14MY - 22MY </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">&lt; 113 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 10.9 </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">Ascent </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">ALL </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">&lt; 113 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 10.9 </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">WRX </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">15MY - 22MY </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">&lt; 113 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 10.9 </span></td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal"><span class="clsEmphBOLD">BRZ </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">13MY - 20MY </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">&lt; 113 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 10.9 </span></td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">22MY </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">&lt; 95 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="center" class="clsCellNormal"><span class="clsEmphBOLD">≥ 10.9 </span></td>
+        </tr>
+        <tr>
+          <td align="" class="clsCellNormal"><span class="clsEmphBOLD">Tribeca </span></td>
+          <td align="" class="clsCellNormal"><span class="clsEmphBOLD">13MY-14MY </span></td>
+          <td align="" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="" class="clsCellNormal"><span class="clsEmphBOLD">&lt; 113 </span></td>
+          <td align="" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="" class="clsCellNormal"><span class="clsEmphBOLD">≥ 40 </span></td>
+          <td align="" class="clsCellNormal"><span class="clsEmphBOLD">≥ 10.9 </span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>There is no fuel level standard for test conditions other than the tank cannot be full.<br>The IGN must be <span class="clsEmphBOLD">ON </span>
+ with the engine <span class="clsEmphBOLD">OFF </span>
+ when performing the test. The self-test will take 15-30 minutes. Using the DCA-8000 in power supply mode is always recommended.</span></div>
+    <div class="CAUTION"><span class="CAUTION_label">
+              CAUTION:
+            </span><span>Test results may be unstable or inaccurate when fuel levels are 100%.</span></div>
+    <p><span class="clsEmphBOLD">From the SSM4 Menu: </span></p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734642">
+              <div class="imageHeader"><a name="S23295158002022082200000"></a></div><img alt="G14734642" src="../images/G14734642.png" name="G14734642"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734643">
+              <div class="imageHeader"><a name="S38299163452022082200000"></a></div><img alt="G14734643" src="../images/G14734643.png" name="G14734643"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734644">
+              <div class="imageHeader"><a name="S14199449452022082200000"></a></div><img alt="G14734644" src="../images/G14734644.png" name="G14734644"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734645">
+              <div class="imageHeader"><a name="S30741660172022082200000"></a></div><img alt="G14734645" src="../images/G14734645.png" name="G14734645"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734646">
+              <div class="imageHeader"><a name="S35365672222022082200000"></a></div><img alt="G14734646" src="../images/G14734646.png" name="G14734646"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734647">
+              <div class="imageHeader"><a name="S06552474452022082200000"></a></div><img alt="G14734647" src="../images/G14734647.png" name="G14734647"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734648">
+              <div class="imageHeader"><a name="S25306071302022082200000"></a></div><img alt="G14734648" src="../images/G14734648.png" name="G14734648"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Technicians will now be able to watch the test as it is being performed.</p>
+    <p>As the test runs, it will perform different phases.</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th align="center" class="clsCellNormal">Phase</th>
+          <th align="left" class="clsCellNormal">Explaination of Phase</th>
+          <th align="center" class="clsCellNormal">Diagnosis period</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center" class="clsCellNormal">A</td>
+          <td align="left" class="clsCellNormal">Vacuum pump operation confirmation and characteristics stability</td>
+          <td align="center" class="clsCellNormal">7 s or less</td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal">B</td>
+          <td align="left" class="clsCellNormal">Measurement of reference pressure for setting the target negative pressure</td>
+          <td align="center" class="clsCellNormal">350 s or less</td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal">C</td>
+          <td align="left" class="clsCellNormal">Switching valve operation confirmation</td>
+          <td align="center" class="clsCellNormal">12 s or less</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">D</td>
+          <td align="left" class="clsCellNormal">0.04 inch leak pressure measurement</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">900 s or less</td>
+        </tr>
+        <tr>
+          <td align="left" class="clsCellNormal">0.02 inch leak pressure measurement</td>
+        </tr>
+        <tr>
+          <td align="" class="clsCellNormal">Clogging of pipe diagnosis and leak pressure measurement</td>
+        </tr>
+        <tr>
+          <td align="" class="clsCellNormal">E</td>
+          <td align="" class="clsCellNormal">Reference pressure measurement for judgment</td>
+          <td align="" class="clsCellNormal">50 s or less</td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734649">
+              <div class="imageHeader"><a name="S11060651432022082200000"></a></div><img alt="G14734649" src="../images/G14734649.png" name="G14734649"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="clsEmphBOLD">Phase A </span></p>
+    <p>The ECM uses this phase to check the operation of the vacuum pump.</p>
+    <p>The ECM simulates a 0.02 leak by using the reference pressure as the vacuum pump is running.</p>
+    <p>The switching valve is in the 'open' position. This allows ambient air to enter the ELCM.</p>
+    <p><span class="clsEmphBOLD">Phase B </span></p>
+    <p>The ECM measures the pressure and calculates the limit of negative pressure based on the reference.</p>
+    <p><span class="clsEmphBOLD">Phase C </span></p>
+    <p>The switching valve closes, and ECM measures the evaporative side pressure. The jump in pressure is caused by the movement of the switching valve. This also seals the system from ambient air.</p>
+    <p><span class="clsEmphBOLD">Phase D </span></p>
+    <p>With the switching valve closed, the ECM measures the pressure in the EVAP system in relation to the amount of time it takes to reach maximum vacuum.</p>
+    <p><span class="clsEmphBOLD">Phase E </span></p>
+    <p>The ECM measures the reference pressure again with the 0.02 simulated leak (ELCM orifice). During this phase, the ECM is determining the size of any leaks. Pressure during this phase is compared to pressure during phase B and should be very similar.</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734650">
+              <div class="imageHeader"><a name="S04302260062022082200000"></a></div><img alt="G14734650" src="../images/G14734650.png" name="G14734650"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734651">
+              <div class="imageHeader"><a name="S28498073352022082200000"></a></div><img alt="G14734651" src="../images/G14734651.png" name="G14734651"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734652">
+              <div class="imageHeader"><a name="S14029920482022082200000"></a></div><img alt="G14734652" src="../images/G14734652.png" name="G14734652"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Turbocharged vehicles will NOT set DTC P04AE after performing the self-test.</span></div>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>On turbocharged vehicles, after performing the ELCM self-test, without turning the key off, perform an all DTC scan to verify there are no DTC's set. This is a problem with the SSM4 software that will be corrected with a future software update.</span></div>
+    <p>This is an example of a completed self-test, with &quot;<span class="clsEmphBOLD">No DTC </span>
+&quot; set after being performed:</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734653">
+              <div class="imageHeader"><a name="S41999860762022082200000"></a></div><img alt="G14734653" src="../images/G14734653.png" name="G14734653"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>This is an example of a completed self-test, with &quot;<span class="clsEmphBOLD">P0455 </span>
+&quot; set after being performed:</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734654">
+              <div class="imageHeader"><a name="S17109294402022082200000"></a></div><img alt="G14734654" src="../images/G14734654.png" name="G14734654"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>This is an example of a completed self-test, with <span class="clsEmphBOLD">&quot;P0456&quot; </span>
+ set after being performed:</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734655">
+              <div class="imageHeader"><a name="S26352504592022082200000"></a></div><img alt="G14734655" src="../images/G14734655.png" name="G14734655"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>This is an example of a completed self-test, with <span class="clsEmphBOLD">&quot;P2404&quot; </span>
+ set after being performed: Evap System Absolute Pressure (Phase A) was not changed.</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734656">
+              <div class="imageHeader"><a name="S29800636802022082200000"></a></div><img alt="G14734656" src="../images/G14734656.png" name="G14734656"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Evap System Absolute Pressure (Phase A) was too high.</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734657">
+              <div class="imageHeader"><a name="S14437803222022082200000"></a></div><img alt="G14734657" src="../images/G14734657.png" name="G14734657"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Evap System Absolute Pressure (Phase A) was too low.</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734658">
+              <div class="imageHeader"><a name="S03753629462022082200000"></a></div><img alt="G14734658" src="../images/G14734658.png" name="G14734658"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734659">
+              <div class="imageHeader"><a name="S35783745092022082200000"></a></div><img alt="G14734659" src="../images/G14734659.png" name="G14734659"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Above is a picture from STIS showing the basic outline for diagnosis in the ELCM force test. This will be useful in a comparison to the data graphed from the force test if a DTC is found.</p><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734660">
+              <div class="imageHeader"><a name="S08809664302022082200000"></a></div><img alt="G14734660" src="../images/G14734660.png" name="G14734660"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734661">
+              <div class="imageHeader"><a name="S40696080032022082200000"></a></div><img alt="G14734661" src="../images/G14734661.png" name="G14734661"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734662">
+              <div class="imageHeader"><a name="S19438495232022082200000"></a></div><img alt="G14734662" src="../images/G14734662.png" name="G14734662"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S216848764020220822000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G14734663">
+              <div class="imageHeader"><a name="S41007902642022082200000"></a></div><img alt="G14734663" src="../images/G14734663.png" name="G14734663"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

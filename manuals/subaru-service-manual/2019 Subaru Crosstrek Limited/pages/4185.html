@@ -1,0 +1,159 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>The Steering Lock Is Not Released — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Body%20%26%20Frame/">Body &amp; Frame</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Body%20%26%20Frame/Door%20Locks/">Door Locks</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31381.html">Security And Locks - Keyless Access (W/Push Button Start) (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31381.html#Diagnostics%20with%20Phenomenon/">Diagnostics with Phenomenon</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31381.html#Diagnostics%20with%20Phenomenon/Inspection/">Inspection</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/4185.html">The Steering Lock Is Not Released</a></div><div class="main"><h1>The Steering Lock Is Not Released</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S20030000082020102700000">
+  <p><span class="clsEmphBOLD">Trouble causes: </span></p>
+  <ul class="BULLET">
+    <li>ECM failure (except for hybrid model) Hybrid vehicle control computer malfunction (hybrid model)</li>
+    <li>Steering lock circuit malfunction</li>
+    <li>Steering lock control module malfunction</li>
+    <li>Keyless access control module malfunction</li>
+  </ul>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+        <li>For replacement procedure of keyless access control module or steering lock control module, refer to the &quot;REGISTRATION INSTRUCTIONS FOR IMMOBILIZER&quot; provided as a separate volume.</li>
+        <li>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/19301.html#General%20Description/Caution/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S35428185312020102800000"></a><span class="clsEmphBOLD">CHECK OPERATION. </span><ol class="ARABICNUM">
+        <li>Depress the brake pedal.</li>
+        <li>While turning the steering wheel lightly to the left and right, press the push button ignition switch.</li>
+        <li>Confirm that the steering lock is released and engine (except for hybrid model) or hybrid system (hybrid model) starts.</li>
+      </ol>
+      <p>Does the engine (except for hybrid model) or hybrid system (hybrid model) fail to start with the steering lock released?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ For models except for hybrid model, perform the diagnosis for engine system. Refer to <a href="../pages/14651.html#Diagnostics%20With%20Phenomenon/">ENGINE (DIAGNOSTICS) (H4DO (EXCEPT FOR HEV))&gt;DIAGNOSTICS WITH PHENOMENON</a>
+.</p>
+      <p>For hybrid model, perform the diagnosis for the hybrid system. Refer to <a href="../pages/14304.html#Diagnostics%20with%20Phenomenon/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTICS WITH PHENOMENON</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S15057015672020102800000" location="/api/article/getcontent?articleId=A01114239_S15057015672020102800000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S15057015672020102800000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Read the DTC of [Keyless Access with Push Button Start] using the Subaru Select Monitor. Refer to <a href="../pages/19301.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Are any DTCs displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis for the displayed DTCs.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S26380557882020102800000" location="/api/article/getcontent?articleId=A01114239_S26380557882020102800000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S26380557882020102800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, check the following items in the [Data Monitor] of [Keyless Access with Push Button Start]. Refer to <a href="../pages/19301.html#Data%20Monitor/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DATA MONITOR</a> .<ul class="BULLET">
+            <li>Steering lock unlock request reception status and</li>
+            <li>Steering lock lock/unlock command reception history</li>
+          </ul>
+        </li>
+        <li>Read the data when the push button ignition switch is pressed while carrying the access key. (Maintain for 10 seconds after switch operation)</li>
+      </ol>
+      <p>Does the data change from &quot;Not yet received&quot; to &quot;Received&quot;, and from &quot;No&quot; to &quot;Yes&quot;?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S28006888672020102800000" location="/api/article/getcontent?articleId=A01114239_S28006888672020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S29820286402020102800000" location="/api/article/getcontent?articleId=A01114239_S29820286402020102800000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S28006888672020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (OPEN CIRCUIT). </span><ol class="ARABICNUM">
+        <li>Disconnect the steering lock control module connector.</li>
+        <li>Using a tester, measure the voltage between the steering lock control module connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i47) No. 7 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage 10 V or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S33403952662020102800000" location="/api/article/getcontent?articleId=A01114239_S33403952662020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the open circuit of harness.</p>
+    </li>
+    <li><a name="S33403952662020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (OPEN CIRCUIT). </span><p>Using a tester, check continuity between the steering lock control module connector and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(i47) No. 1 - Chassis ground:</p>
+      <p>Is there continuity?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S23357754352020102800000" location="/api/article/getcontent?articleId=A01114239_S23357754352020102800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the open circuit of harness.</p>
+    </li>
+    <li><a name="S23357754352020102800000"></a><span class="clsEmphBOLD">CHECK STEERING LOCK control module. </span><ol class="ARABICNUM">
+        <li>Connect the disconnected connectors.</li>
+        <li>Using a tester, measure the voltage between steering lock control module terminals right after the ignition switch is turned to ON.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i47) No. 3 (+) - (i47) No. 1 (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage 1 V or less right after the ignition ON?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the steering lock control module. Refer to <a href="../pages/14659.html#Steering%20Lock%20Control%20Module/">SECURITY AND LOCKS&gt;STEERING LOCK control module</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the open circuit of harness.</p>
+    </li>
+    <li><a name="S29820286402020102800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><p>Using the Subaru Select Monitor, check the following items in the [Data Monitor] of [Keyless Access with Push Button Start]. Refer to <a href="../pages/19301.html#Data%20Monitor/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <ul class="BULLET">
+        <li>Code collation result between smart ECM and ID code box</li>
+      </ul>
+      <p>Is data displayed as being normal?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S26202634982020102800000" location="/api/article/getcontent?articleId=A01114239_S26202634982020102800000_LSTITM">9</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S03944042592020102800000" location="/api/article/getcontent?articleId=A01114239_S03944042592020102800000_LSTITM">8</a>.</p>
+    </li>
+    <li><a name="S03944042592020102800000"></a><span class="clsEmphBOLD">CHECK ID CODE BOX. </span><ol class="ARABICNUM">
+        <li>Replace with a properly functioning or new ID code box. Refer to <a href="../pages/14659.html#ID%20Code%20Box/">SECURITY AND LOCKS&gt;ID CODE BOX</a>
+.</li>
+        <li>Using the Subaru Select Monitor, check the following items in the [Data Monitor] of [Keyless Access with Push Button Start]. Refer to <a href="../pages/19301.html#Data%20Monitor/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DATA MONITOR</a> .<ul class="BULLET">
+            <li>Code collation result between smart ECM and ID code box</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Is data displayed as being normal?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ The circuit has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the keyless access control module. Refer to <a href="../pages/14659.html#Keyless%20Access%20Control%20Module/">SECURITY AND LOCKS&gt;KEYLESS ACCESS control module</a>
+.</p>
+    </li>
+    <li><a name="S26202634982020102800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><p>Using the Subaru Select Monitor, check the following items in the [Data Monitor] of [Keyless Access with Push Button Start]. Refer to <a href="../pages/19301.html#Data%20Monitor/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <ul class="BULLET">
+        <li>Code collation result between steering locked ECM and ID code box</li>
+      </ul>
+      <p>Is data displayed as being normal?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ The circuit has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S34814671142020102800000" location="/api/article/getcontent?articleId=A01114239_S34814671142020102800000_LSTITM">10</a>.</p>
+    </li>
+    <li><a name="S34814671142020102800000"></a><span class="clsEmphBOLD">CHECK STEERING LOCK control module. </span><ol class="ARABICNUM">
+        <li>Replace with a properly functioning or new steering lock control module. Refer to <a href="../pages/14659.html#Steering%20Lock%20Control%20Module/">SECURITY AND LOCKS&gt;STEERING LOCK control module</a>
+.</li>
+        <li>After registering, the steering lock operates when the ignition is turned to OFF and the driver's door is opened and closed.</li>
+        <li>Turn the ignition to ON.</li>
+        <li>Operate the steering and check for whether the steering lock is released.</li>
+      </ol>
+      <p>Does the engine (except for hybrid model) or hybrid system (hybrid model) start with the steering lock released?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the steering lock control module. Refer to <a href="../pages/14659.html#Steering%20Lock%20Control%20Module/">SECURITY AND LOCKS&gt;STEERING LOCK control module</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S07148090532020102800000" location="/api/article/getcontent?articleId=A01114239_S07148090532020102800000_LSTITM">11</a>.</p>
+    </li>
+    <li><a name="S07148090532020102800000"></a><span class="clsEmphBOLD">CHECK ID CODE BOX. </span><ol class="ARABICNUM">
+        <li>Replace with a properly functioning or new ID code box. Refer to <a href="../pages/19428.html">SECURITY AND LOCKS&gt;ID CODE BOX&gt;NOTE</a>
+.</li>
+        <li>Using the Subaru Select Monitor, check the following items in the [Data Monitor] of [Keyless Access with Push Button Start]. Refer to <a href="../pages/19301.html#Data%20Monitor/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DATA MONITOR</a> .<ul class="BULLET">
+            <li>Code collation result between steering locked ECM and ID code box</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Is data displayed as being normal?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ The circuit has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the keyless access control module. Refer to <a href="../pages/14659.html#Keyless%20Access%20Control%20Module/">SECURITY AND LOCKS&gt;KEYLESS ACCESS control module</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

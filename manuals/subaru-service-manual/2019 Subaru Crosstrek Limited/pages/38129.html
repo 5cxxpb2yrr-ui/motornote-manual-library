@@ -1,0 +1,861 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnostic Information - Testing Telematics Systems For Dark/Standby Current (15-308-23R) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31764.html">Technical Service Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/38079.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/38079.html#Body%20Interior/">Body Interior</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/38129.html">Diagnostic Information - Testing Telematics Systems For Dark/Standby Current (15-308-23R)</a></div><div class="main"><h1>Diagnostic Information - Testing Telematics Systems For Dark/Standby Current (15-308-23R)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2024-09-10<br>Reference number: 15-308-23R<br>Supersedes refnos: 15-308-23<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>DIAGNOSTIC INFORMATION - TESTING TELEMATICS SYSTEMS FOR DARK/STANDBY CURRENT</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>DIAGNOSTIC INFORMATION - TESTING TELEMATICS SYSTEMS FOR DARK/STANDBY CURRENT</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): 15-308-23R, Date of Issue: 
+				September 10, 2024<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>See Chart Below</td>
+        </tr>
+      </table>
+    </div><h3>APPLICABILITY</h3>
+    
+    <p>All Telematics Equipped Models Except Solterra</p><h3>INTRODUCTION</h3>
+    
+    <p>This Service Information Bulletin announces important diagnostic information to utilize when the Data Communication Module (DCM) is being tested as a dark current/standby current source. When a DCM is the suspected root cause of an excessive dark/standby current draw, the coverage, and the signal strength PID are verified prior to the DCM being condemned. The DCM is constantly searching for a network to attach to when it first starts or is in an area of poor coverage. If an excessive DCM dark/standby current draw is confirmed, it is necessary also to ensure signal strength is approximately 23% or greater. In cases where signal strength is close to or at zero and DCM dark/standby draw is suspected, moving the car to an area with better coverage would be helpful with confirmation and duplication of test results. On vehicles with a subscribed or unsubscribed subscription status, a non-varying signal strength of 0% is a problem. Efforts should be made to ensure the Telematics system is working within the expected parameters. The presence of Telematics DTCs, a compromised primary antenna, or a non-communicating DCM should be addressed accordingly. When a DTC is current, or the antenna path is compromised, DCM replacement may not repair the parasitic draw. A customer interview will be valuable to aid in diagnosis. Vehicles that park in areas of a low signal strength may experience an excessive DCM dark/standby draw, for example, when parked in an underground parking lot but not while at the retailer. Understanding where the customer parks their car is beneficial in understanding how the DCM may contribute to battery load and state of charge. It is always important to inform the customer what outcome these scenarios may cause. The low signal will cause the DCM to always be awake and seeking a network connection for up to 14 days until the DCM hibernates.</p><h3>GENERATION INFORMATION</h3>
+    <a name="S176618694620230830000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Carline</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2016</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2017</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2018</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2019</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2020</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2021</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2022</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2023</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2024</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2025</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Ascent</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3+</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Crosstrek</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Crosstrek Hybrid</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Forester</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3+</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Impreza</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Legacy</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Outback</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">WRX</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3+</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">BRZ</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">1 Gen 2+</td>
+        </tr>
+      </tbody>
+    </table><a name="S176618694620230830000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Carline</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2023</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY 2024</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Ascent</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Crosstrek</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Crosstrek Hybrid</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Forester</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Impreza</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Legacy</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Outback</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">WRX</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 3</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">BRZ</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Gen 2+</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="clsEmphBOLD">Gen 1 ONLY: </span>
+ Vehicles equipped with Gen 1 Telematics will be covered under the Warranty Extension are to use the information provided below for diagnostic purposes to ensure a dark current concern is accurately identified. ALWAYS refer to the relevant Warranty Extension TSBs for labor time and fail code information.</p>
+    <p><span class="clsEmphBOLD">Gen 3 ONLY: </span>
+ Effective 07/15/2024, Gen 3 DCMs will be on hold and a QMR submission with fail code PZZ-42 with it information outlined below will be required for the release of the part. Technician's role is pivotal in diagnosing and determining the need of replacement of a DCM. SOA is recommending the technician submit a QMR with ALL the following information for expedient release of the part.</p>
+    <p>Review QMR requirements:</p>
+    <ol class="ARABICNUM">
+      <li>The fail code PZZ-42 must be used while submitting the QMR ONLY FOR CARS THAT HAVE CONFIRMED PARASITIC DRAW. ANY OTHER DCM REPLACEMENT SHOULD BE SUBMITTED UNDER THE ZQQ FAIL CODE.</li>
+      <li><a name="S42097681412024112500000"></a>SSM project file for all system DTC scans, ALL PIDs DCM Telematics Data scan, SSM4 CCU data ALL PIDs, and SSM4 Central Gateway data ALL PIDs.</li>
+      <li>Retrieve the CCU log following 15-304-22 and attach the log to the QMR.</li>
+      <li>Battery Test results from the Midtronics Battery Test.</li>
+      <li>A photo of the DVOM measurement confirming the parasitic draw. (Refer to Step  <a class="clsListItemLink" href="#S05256614082024112500000" location="/api/article/getcontent?articleId=_S05256614082024112500000_LSTITM">8</a> of the PREPARATION AND MEASUREMENT OVERVIEW section of this bulletin)</li>
+      <li>A photo of the DVOM measurement confirms the parasitic draw's isolation from the DCM (Refer to Step  <a class="clsListItemLink" href="#S42097681412024112500000" location="/api/article/getcontent?articleId=_S42097681412024112500000_LSTITM">2</a> of the TEST RESULTS section of this bulletin).</li>
+      <li>Part Order Number: Provide the part order number for the replacement DCM. NOT THE DCM PART NUMBER, THE ORDER NUMBER THE DCM PART IS ORDERED UNDER.</li>
+    </ol>
+    <p><span class="clsEmphBOLD">REMINDER: </span></p>
+    <p>To ensure efficient QMR review and claim processing of the claim, please note the following:</p>
+    <ul class="BULLET">
+      <li><span class="clsEmphBOLD">Vehicles with a customer concern of parasitic draw </span>
+ requiring DCM replacement should follow procedure 15-308-23R and use fail code PZZ.</li>
+      <li><span class="clsEmphBOLD">All other DCM replacement QMRs </span>
+ should adhere to the QMR Requirements Checklist and utilize fail code ZQQ.</li>
+    </ul>
+    <p>SOA will review the QMR and required attachments, and if approved, the PICs for your retailer will release a parts order for the DCM. Orders will only be released if a QMR is submitted with the required attachments and SOA can confirm the diagnosis of a defect requiring replacement of the DCM. Sometimes, the DSQM may be requested to verify the findings before releasing the part.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Note using the correct fail code or not providing all the required information will cause delay in the part release.</span></div><h3>DIAGNOSTIC INFORMATION</h3>
+    
+    <p>Dark current or standby current is any electrical current used with the ignition turned off to maintain volatile memory in modules, maintain clock time, and await the approach or press of a key fob button. An excessive amount of current drain on the battery will cause it to discharge and may lead to a no-start condition.</p>
+    <p>The DCM <span class="clsEmphBOLD">MUST </span>
+ be clear of all Telematics DTCs before starting diagnosis for dark/standby current draw. The presence of any DTC in the DCM will skew diagnostic test results as DCM behavior differs when DTCs are current. The DCM will consume more power and delay powering down until all DTCs have been cleared.</p>
+    <p><span class="clsEmphBOLD">CRITICAL: </span>
+ DCM voltage draws pulses between periods of low and higher usage as it attempts a connection to the network. This pulsation MUST NOT be mistaken as dark/standby draw. When looking for DCM dark/standby current draw, a non-oscillating pull of higher than expected current. Using a DVOM with a graph function is the preferred method to identify this pulsation behavior and calculate the average dark/standby current draw. Refer to the figure below for reference to DCM pulsation characteristics. If there is doubt the total dark/standby current draw is caused solely by the DCM, isolate testing to just the DCM to determine how much the DCM contributes to the entire vehicle dark/standby current draw.</p>
+    <p>The DCM has six possible states of amperage current waveform patterns. The DCM will shut down after a 15-day time period without the ignition being turned on. During Factory Mode (*) the DCM will shut down after approximately 30 seconds. When the DCM cannot receive a radio wave signal, it will attempt to find a signal once a minute causing an increase in current draw (detailed in red below).</p><a name="S193563386520230830000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th colspan="2" valign="BOTTOM" align="center" class="clsCellNormal">DCM</th>
+          <th colspan="2" valign="BOTTOM" align="center" class="clsCellNormal">Radio wave</th>
+        </tr>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Status</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mode</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Receive</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Unrecetve</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">Factory</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Standby</td>
+          <td valign="TOP" align="center" class="clsCellNormal">-</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No.1*</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Shutdown</td>
+          <td valign="TOP" align="center" class="clsCellNormal">-</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No-3</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">Unsubscribed</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Standby</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No.2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No.1</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Shutdown</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No.3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No.3</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">Subscribed</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Standby</td>
+          <td valign="TOP" align="center" class="clsCellNormal">NO-2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No.1</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Shutdown</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No.3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No-3</td>
+        </tr>
+      </tbody>
+    </table><a name="S193563386520230830000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G16663447">
+              <div class="imageHeader"><a name="S42640292122024112500000"></a></div><img alt="G16663447" src="../images/G16663447.png" name="G16663447"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><h3>PREPARATION AND MEASUREMENT OVERVIEW</h3>
+    
+    <p>Through dark/standby draw testing, determine the source of the draw following the procedure below. If it is determined the root cause of the dark/standby draw is the DCM, it must be replaced to repair the draw in the Telematics system.</p>
+    <ol class="ARABICNUM">
+      <li>Prepare the DVOM with capability to measure down to 1mA.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>The battery health state can influence the dark/standby current test results. Determining the battery condition prior to testing can be vital. Additional battery testing and charging information can be found in TSB <span class="clsEmphBOLD">07-178-21R. </span></span></div>
+      </li>
+      <li>Remove or disconnect any aftermarket electrical accessories. This includes cameras, non-Subaru remote start equipment, insurance trackers, etc. Always check all USB ports for connected devices.</li>
+      <li>Start the engine and set the switch positions for each system as shown in the table below.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+          <colgroup></colgroup>
+          <thead>
+            <tr class="clsTblHead">
+              <th valign="BOTTOM" align="center" class="clsCellNormal">System</th>
+              <th valign="BOTTOM" align="center" class="clsCellNormal">Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Headlight</td>
+              <td valign="TOP" align="center" class="clsCellNormal">ON or Auto</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Fog light</td>
+              <td valign="TOP" align="center" class="clsCellNormal">ON</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Wiper (front and rear)</td>
+              <td valign="TOP" align="center" class="clsCellNormal">ON or Low speed</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Audio and navigation system</td>
+              <td valign="TOP" align="center" class="clsCellNormal">ON</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Rear defogger</td>
+              <td valign="TOP" align="center" class="clsCellNormal">ON</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Room light</td>
+              <td valign="TOP" align="center" class="clsCellNormal">DOOR</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Luggage light</td>
+              <td valign="TOP" align="center" class="clsCellNormal">DOOR</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Map light</td>
+              <td valign="TOP" align="center" class="clsCellNormal">OFF</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Auto A/C</td>
+              <td valign="TOP" align="center" class="clsCellNormal">ON (AUTO)</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Manual A/C</td>
+              <td valign="TOP" align="center" class="clsCellNormal">ON (Speed 1)</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Electronic parking brake</td>
+              <td valign="TOP" align="center" class="clsCellNormal">ON</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Electrical parts other than listed above (electrical parts that users can confirm the operation with the key removed)</td>
+              <td valign="TOP" align="center" class="clsCellNormal">OFF</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>Turn the ignition switch to OFF.</li>
+      <li>Operate the front hood lock release lever to unlock the front hood.</li>
+      <li>Close all the doors (including the rear gate and trunk lid) then lock the doors. (Security alarm is in set condition)</li>
+      <li><span class="clsEmphBOLD">Wait at least 55 minutes before continuing for the most accurate test results. Performing this step is CRITICAL. </span></li>
+      <li><a name="S05256614082024112500000"></a>Measure the amount of current drawn from the battery.</li>
+    </ol>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+          <li><span class="clsEmphBOLD">ALWAYS </span>
+ store the access key fob at least <span class="clsEmphBOLD">15 feet </span>
+ away from the vehicle after the doors are locked. The access key fob <span class="clsEmphBOLD">MUST NOT </span>
+ be stored adjacent to the vehicle during dark/standby current testing.</li>
+          <li>The Electronic Power Steering System (EPS) may still be active 55 minutes after turning the ignition switch to the OFF position.</li>
+          <li>For a model with a keyless access function, the dark/standby current can change periodically because the keyless access system is continuously searching for the access key (polling).</li>
+          <li>When measuring the standby current with a graphing DVOM, the reading may oscillate. Read the average value (median value).</li>
+          <li>The standby current may become significant when the vehicle system (ELCM) is activated five times at 30-minute intervals or 5 hours after turning the ignition switch to OFF. The measurement should be completed in 20 minutes. If it takes more than 20 minutes, start the engine once, stop the engine, then perform the inspection.</li>
+        </ul></span></div><h3>TEST RESULTS</h3>
+    
+    <p><span class="clsEmphBOLD">If the maximum measurement value is less than 70mA Standby current is normal. </span></p>
+    <p><span class="clsEmphBOLD">If the maximum measurement value is 70mA or more, Perform the following steps. </span></p>
+    <ol class="ARABICNUM">
+      <li>If excessive current draw is recorded, remove all fuses one by one to identify which system changes the standby current value significantly.</li>
+      <li>The chart below lists the fuses feeding the Telematics system. If removing one of these fuses causes the dark/standby draw to move from a reading greater than 70mA to a value less than 70 mA, DCM replacement would be indicated.<div class="IMPORTANT"><span class="IMPORTANT_label">
+									IMPORTANT:
+								</span><span>If removal of the fuses below does not adjust DVOM readings below 70 mA, the <span class="clsEmphBOLD">DCM IS NOT </span>
+ the root cause of the dark/standby draw and replacement is not required.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+          <colgroup></colgroup>
+          <thead>
+            <tr class="clsTblHead">
+              <th valign="BOTTOM" align="center" class="clsCellNormal">Model</th>
+              <th valign="BOTTOM" align="center" class="clsCellNormal">Year</th>
+              <th valign="BOTTOM" align="center" class="clsCellNormal">ACC Fuse</th>
+              <th valign="BOTTOM" align="center" class="clsCellNormal">IG Fuse</th>
+              <th valign="BOTTOM" align="center" class="clsCellNormal">Batt Fuse</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Ascent</td>
+              <td valign="TOP" align="center" class="clsCellNormal">19-22</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FE-54 Fuse #4</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-44 Fuse #8</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-40 Fuse #5</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Forester</td>
+              <td valign="TOP" align="center" class="clsCellNormal">19-22</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FE-54 Fuse #4</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-44 Fuse #8</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-41 Fuse #5</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Imprezza</td>
+              <td valign="TOP" align="center" class="clsCellNormal">17-22</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FE-54 Fuse #4</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-44 Fuse #8</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-41 Fuse#18</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Legacy/Outback</td>
+              <td valign="TOP" align="center" class="clsCellNormal">20-22</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-51 Fuse #4</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-41 Fuse #8</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-1 SBF-3</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Crosstrek ICE/Hybrid</td>
+              <td valign="TOP" align="center" class="clsCellNormal">13-23</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FE-54 Fuse #4</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-44 Fuse #8</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-41 use #18</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">WRX</td>
+              <td valign="TOP" align="center" class="clsCellNormal">22-23</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-51 Fuse #4</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-41 Fuse #8</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-1 SBF-3</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">BRZ</td>
+              <td valign="TOP" align="center" class="clsCellNormal">22-23</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-28 Fuse #13</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-70 Fuse #29</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-23 Fuse #9</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Crosstrek ICE/Hybrid</td>
+              <td valign="TOP" align="center" class="clsCellNormal">16-17</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-25 Fuse #24</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-37 Fuse #12</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-34</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Imprezza</td>
+              <td valign="TOP" align="center" class="clsCellNormal">16</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-25 Fuse #24</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-37 Fuse #12</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-34</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Legacy/Outback</td>
+              <td valign="TOP" align="center" class="clsCellNormal">16-19</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FE-48 Fuse #4</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-58 Fuse #5</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-52 Fuse #9</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">Forester</td>
+              <td valign="TOP" align="center" class="clsCellNormal">16-13</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-25 Fuse #24</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-37 Fuse #12</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-34</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">WRX</td>
+              <td valign="TOP" align="center" class="clsCellNormal">17-21</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-25 Fuse #24</td>
+              <td valign="TOP" align="center" class="clsCellNormal">FB-37 Fuse #12</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-34</td>
+            </tr>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">WRX</td>
+              <td valign="TOP" align="center" class="clsCellNormal">17-21</td>
+              <td valign="TOP" align="center" class="clsCellNormal">X</td>
+              <td valign="TOP" align="center" class="clsCellNormal">X</td>
+              <td valign="TOP" align="center" class="clsCellNormal">MB-33</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>Check related parts, harnesses, and connectors of the system whose standby current has changed significantly. A component left on or stuck on, shorts to power, and shorts to ground can cause an excessive dark current draw.</li>
+    </ol><h3>SERVICE PROCEDURE/INFORMATION</h3>
+    
+    <ul class="BULLET">
+      <li>The work procedure for dark/standby current has not changed. Refer to the applicable vehicle Service Manual: STARTING/CHARGING SYSTEMS &gt; Battery</li>
+      <li>MY 20-22 Legacy/Outback refer to TechTip May 2022 pg. 3 section 1: Replacement components on the CAN network and Central Gateway Control module LAN registration.</li>
+      <li>All Models and Years refer to TechTip April 2022, pg. 7 section 15: The Telematics LED: When green does not mean GO.</li>
+      <li>All Models and Years refer to TechTip Sept. 2019, pg. 5 section 15: Telematics RES feature inoperative and revised B2A16 diagnostics.</li>
+      <li>For all Models and Years with currently active STARLINK Subscription, refer to TSB <span class="clsEmphBOLD">15-266-20R </span>
+ for minimum testing requirements post DCM replacement.</li>
+      <li>MY 20-21 Legacy/Outback, MY19-21 Forester, MY19-21 Ascent refer to TSB <span class="clsEmphBOLD">07-199-21R. </span></li>
+    </ul><h3>WARRANTY/CLAIM INFORMATION</h3>
+    
+    <p><span class="clsEmphBOLD">REQUIRED CLAIM DATA COLLECTION: </span>
+ In our ongoing commitment to quality and continuous improvement, Subaru closely monitors repairs related to parasitic draw in the telematics system. Retailer-supplied data is crucial. To ensure the effectiveness of these efforts, we request valuable retailer assistance in capturing critical diagnostic information.</p>
+    <p>All Warranty claims submitted for a Diagnostic Control Module (DCM) replacement in cases when the DCM is identified as the root cause of failure MUST be diagnosed using the procedures outlined within this Service Information Bulletin. Include the following data within the miscellaneous information section of the claim submission:</p>
+    <ul class="BULLET">
+      <li>Recorded parasitic draw amperage <span class="clsEmphBOLD">BEFORE </span>
+ DCM replacement.</li>
+      <li>Recorded parasitic draw amperage <span class="clsEmphBOLD">AFTER </span>
+ DCM replacement.</li>
+    </ul>
+    <p>This information <span class="clsEmphBOLD">MUST </span>
+ be included to avoid claim rejection. Consistent and accurate data collection will continue to improve the quality and reliability of our vehicles. For vehicles within the Basic New Car Limited Warranty period or covered by an active SAS Gold Plan, this repair may be submitted using the following claim information:</p><a name="S279048481520240927000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Description</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Operation #</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Time</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Fail Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">15-308-23 DARK CURRENT TESTING AND DCM R&amp;R</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A067-986<a class="clsFootnoteLink" href="#S27102098512024112500000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal">1.2H</td>
+          <td valign="TOP" align="center" class="clsCellNormal">PZZ-42</td>
+        </tr>
+        <tr class="clsFootnoteRow">
+          <td colspan="4" valign="TOP" align="left" class="clsCellNormal">
+            <table class="clsFootnoteTable" width="100%">
+              <tr valign="top">
+                <td width="10px"><a name="S27102098512024112500000"><sup>(1)</sup></a></td>
+                <td>Dark current measurements recorded before and after repair will be required for claim entry.</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table><h3>APPENDIX A: ALTERNATE DARK CURRENT/STANDBY CURRENT DRAW TEST PROCEDURE</h3>
+    
+    <p>Old Technique vs New Technique</p>
+    <p>The traditional method detailed in the body of this TSB - disconnecting the battery, putting the multimeter in series, and pulling fuses until the draw source is found - is the method detailed in STIS but may not always be the most efficient method of finding dark/standby draw. This inefficiency is because the very disconnection of the battery may temporarily fix the issue by sending the system to sleep along with the error or having to wait an excessive time for the module to go back to sleep. This behavior can complicate isolation testing and make recorded results confusing.</p>
+    <p>An alternative diagnostic method of dark/standby current draw testing can be performed by measuring the voltage drop across the fuses. This can be done by using the test points on the fuses without breaking the battery connection, pulling fuses, disturbing the circuit, or awakening any modules. What you are looking for is a voltage drop in the millivolts range. This is caused by an increase in resistance brought about by heating the fuse through the movement of current.</p>
+    <p>Different sized fuses will show different voltage drops. For example, a 10A fuse with 175 mA flowing through it will show a voltage drop of 1.5mV. When measuring the same fuse with no current flow, it would be more like 0.1mV or 0.2mV.</p>
+    <p>While using this dark/standby draw isolation method, excessive mV readings indicate the need for further root cause isolation. Disconnecting components fed by the fuse until mV readings come within expected tolerances.</p><a name="S377539918320240927000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Fuse Color</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Grey</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Violet</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Pink</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Tan</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Brown</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Red</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Blue</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Yellow</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Clear</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Green</th>
+        </tr>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Measurement mV</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mini 2 Amp</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mint 3 Amp</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mini 4 Amp</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mini 5 Amp</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mini 7.5 Amp</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mini 10 Amp</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mini 15 Amp</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mini 20 Amp</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mini 25 Amp</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Mini 30 Amp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">0.1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">4</td>
+          <td valign="TOP" align="center" class="clsCellNormal">6</td>
+          <td valign="TOP" align="center" class="clsCellNormal">9</td>
+          <td valign="TOP" align="center" class="clsCellNormal">13</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22</td>
+          <td valign="TOP" align="center" class="clsCellNormal">31</td>
+          <td valign="TOP" align="center" class="clsCellNormal">42</td>
+          <td valign="TOP" align="center" class="clsCellNormal">54</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">0.2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">4</td>
+          <td valign="TOP" align="center" class="clsCellNormal">6</td>
+          <td valign="TOP" align="center" class="clsCellNormal">9</td>
+          <td valign="TOP" align="center" class="clsCellNormal">11</td>
+          <td valign="TOP" align="center" class="clsCellNormal">18</td>
+          <td valign="TOP" align="center" class="clsCellNormal">27</td>
+          <td valign="TOP" align="center" class="clsCellNormal">44</td>
+          <td valign="TOP" align="center" class="clsCellNormal">62</td>
+          <td valign="TOP" align="center" class="clsCellNormal">35</td>
+          <td valign="TOP" align="center" class="clsCellNormal">108</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">0.3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">5</td>
+          <td valign="TOP" align="center" class="clsCellNormal">9</td>
+          <td valign="TOP" align="center" class="clsCellNormal">13</td>
+          <td valign="TOP" align="center" class="clsCellNormal">17</td>
+          <td valign="TOP" align="center" class="clsCellNormal">28</td>
+          <td valign="TOP" align="center" class="clsCellNormal">40</td>
+          <td valign="TOP" align="center" class="clsCellNormal">W</td>
+          <td valign="TOP" align="center" class="clsCellNormal">93</td>
+          <td valign="TOP" align="center" class="clsCellNormal">127</td>
+          <td valign="TOP" align="center" class="clsCellNormal">162</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">0.4</td>
+          <td valign="TOP" align="center" class="clsCellNormal">7</td>
+          <td valign="TOP" align="center" class="clsCellNormal">12</td>
+          <td valign="TOP" align="center" class="clsCellNormal">17</td>
+          <td valign="TOP" align="center" class="clsCellNormal">23</td>
+          <td valign="TOP" align="center" class="clsCellNormal">37</td>
+          <td valign="TOP" align="center" class="clsCellNormal">54</td>
+          <td valign="TOP" align="center" class="clsCellNormal">87</td>
+          <td valign="TOP" align="center" class="clsCellNormal">125</td>
+          <td valign="TOP" align="center" class="clsCellNormal">169</td>
+          <td valign="TOP" align="center" class="clsCellNormal">216</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">0.5</td>
+          <td valign="TOP" align="center" class="clsCellNormal">9</td>
+          <td valign="TOP" align="center" class="clsCellNormal">15</td>
+          <td valign="TOP" align="center" class="clsCellNormal">21</td>
+          <td valign="TOP" align="center" class="clsCellNormal">28</td>
+          <td valign="TOP" align="center" class="clsCellNormal">46</td>
+          <td valign="TOP" align="center" class="clsCellNormal">67</td>
+          <td valign="TOP" align="center" class="clsCellNormal">109</td>
+          <td valign="TOP" align="center" class="clsCellNormal">156</td>
+          <td valign="TOP" align="center" class="clsCellNormal">212</td>
+          <td valign="TOP" align="center" class="clsCellNormal">270</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">0 6</td>
+          <td valign="TOP" align="center" class="clsCellNormal">11</td>
+          <td valign="TOP" align="center" class="clsCellNormal">IS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">9</td>
+          <td valign="TOP" align="center" class="clsCellNormal">34</td>
+          <td valign="TOP" align="center" class="clsCellNormal">55</td>
+          <td valign="TOP" align="center" class="clsCellNormal">01</td>
+          <td valign="TOP" align="center" class="clsCellNormal">131</td>
+          <td valign="TOP" align="center" class="clsCellNormal">187</td>
+          <td valign="TOP" align="center" class="clsCellNormal">254</td>
+          <td valign="TOP" align="center" class="clsCellNormal">324</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">0.7</td>
+          <td valign="TOP" align="center" class="clsCellNormal">13</td>
+          <td valign="TOP" align="center" class="clsCellNormal">21</td>
+          <td valign="TOP" align="center" class="clsCellNormal">30</td>
+          <td valign="TOP" align="center" class="clsCellNormal">39</td>
+          <td valign="TOP" align="center" class="clsCellNormal">65</td>
+          <td valign="TOP" align="center" class="clsCellNormal">94</td>
+          <td valign="TOP" align="center" class="clsCellNormal">153</td>
+          <td valign="TOP" align="center" class="clsCellNormal">2 IS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">297</td>
+          <td valign="TOP" align="center" class="clsCellNormal">378</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">0.3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">14</td>
+          <td valign="TOP" align="center" class="clsCellNormal">in</td>
+          <td valign="TOP" align="center" class="clsCellNormal">34</td>
+          <td valign="TOP" align="center" class="clsCellNormal">45</td>
+          <td valign="TOP" align="center" class="clsCellNormal">74</td>
+          <td valign="TOP" align="center" class="clsCellNormal">103</td>
+          <td valign="TOP" align="center" class="clsCellNormal">175</td>
+          <td valign="TOP" align="center" class="clsCellNormal">249</td>
+          <td valign="TOP" align="center" class="clsCellNormal">339</td>
+          <td valign="TOP" align="center" class="clsCellNormal">432</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">0.9</td>
+          <td valign="TOP" align="center" class="clsCellNormal">16</td>
+          <td valign="TOP" align="center" class="clsCellNormal">21</td>
+          <td valign="TOP" align="center" class="clsCellNormal">as</td>
+          <td valign="TOP" align="center" class="clsCellNormal">51</td>
+          <td valign="TOP" align="center" class="clsCellNormal">83</td>
+          <td valign="TOP" align="center" class="clsCellNormal">121</td>
+          <td valign="TOP" align="center" class="clsCellNormal">197</td>
+          <td valign="TOP" align="center" class="clsCellNormal">280</td>
+          <td valign="TOP" align="center" class="clsCellNormal">381</td>
+          <td valign="TOP" align="center" class="clsCellNormal">486</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">18</td>
+          <td valign="TOP" align="center" class="clsCellNormal">30</td>
+          <td valign="TOP" align="center" class="clsCellNormal">43</td>
+          <td valign="TOP" align="center" class="clsCellNormal">56</td>
+          <td valign="TOP" align="center" class="clsCellNormal">92</td>
+          <td valign="TOP" align="center" class="clsCellNormal">135</td>
+          <td valign="TOP" align="center" class="clsCellNormal">213</td>
+          <td valign="TOP" align="center" class="clsCellNormal">312</td>
+          <td valign="TOP" align="center" class="clsCellNormal">424</td>
+          <td valign="TOP" align="center" class="clsCellNormal">541</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1.1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">30</td>
+          <td valign="TOP" align="center" class="clsCellNormal">33</td>
+          <td valign="TOP" align="center" class="clsCellNormal">47</td>
+          <td valign="TOP" align="center" class="clsCellNormal">62</td>
+          <td valign="TOP" align="center" class="clsCellNormal">101</td>
+          <td valign="TOP" align="center" class="clsCellNormal">143</td>
+          <td valign="TOP" align="center" class="clsCellNormal">240</td>
+          <td valign="TOP" align="center" class="clsCellNormal">343</td>
+          <td valign="TOP" align="center" class="clsCellNormal">466</td>
+          <td valign="TOP" align="center" class="clsCellNormal">595</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1.2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22</td>
+          <td valign="TOP" align="center" class="clsCellNormal">36</td>
+          <td valign="TOP" align="center" class="clsCellNormal">51</td>
+          <td valign="TOP" align="center" class="clsCellNormal">08</td>
+          <td valign="TOP" align="center" class="clsCellNormal">111</td>
+          <td valign="TOP" align="center" class="clsCellNormal">162</td>
+          <td valign="TOP" align="center" class="clsCellNormal">262</td>
+          <td valign="TOP" align="center" class="clsCellNormal">374</td>
+          <td valign="TOP" align="center" class="clsCellNormal">508</td>
+          <td valign="TOP" align="center" class="clsCellNormal">649</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1.3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">33</td>
+          <td valign="TOP" align="center" class="clsCellNormal">39</td>
+          <td valign="TOP" align="center" class="clsCellNormal">55</td>
+          <td valign="TOP" align="center" class="clsCellNormal">73</td>
+          <td valign="TOP" align="center" class="clsCellNormal">120</td>
+          <td valign="TOP" align="center" class="clsCellNormal">175</td>
+          <td valign="TOP" align="center" class="clsCellNormal">234</td>
+          <td valign="TOP" align="center" class="clsCellNormal">405</td>
+          <td valign="TOP" align="center" class="clsCellNormal">551</td>
+          <td valign="TOP" align="center" class="clsCellNormal">703</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1.4</td>
+          <td valign="TOP" align="center" class="clsCellNormal">25</td>
+          <td valign="TOP" align="center" class="clsCellNormal">41</td>
+          <td valign="TOP" align="center" class="clsCellNormal">60</td>
+          <td valign="TOP" align="center" class="clsCellNormal">79</td>
+          <td valign="TOP" align="center" class="clsCellNormal">129</td>
+          <td valign="TOP" align="center" class="clsCellNormal">139</td>
+          <td valign="TOP" align="center" class="clsCellNormal">306</td>
+          <td valign="TOP" align="center" class="clsCellNormal">436</td>
+          <td valign="TOP" align="center" class="clsCellNormal">593</td>
+          <td valign="TOP" align="center" class="clsCellNormal">757</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1.5</td>
+          <td valign="TOP" align="center" class="clsCellNormal">27</td>
+          <td valign="TOP" align="center" class="clsCellNormal">44</td>
+          <td valign="TOP" align="center" class="clsCellNormal">64</td>
+          <td valign="TOP" align="center" class="clsCellNormal">85</td>
+          <td valign="TOP" align="center" class="clsCellNormal">133</td>
+          <td valign="TOP" align="center" class="clsCellNormal">202</td>
+          <td valign="TOP" align="center" class="clsCellNormal">328</td>
+          <td valign="TOP" align="center" class="clsCellNormal">467</td>
+          <td valign="TOP" align="center" class="clsCellNormal">636</td>
+          <td valign="TOP" align="center" class="clsCellNormal">811</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1.6</td>
+          <td valign="TOP" align="center" class="clsCellNormal">29</td>
+          <td valign="TOP" align="center" class="clsCellNormal">47</td>
+          <td valign="TOP" align="center" class="clsCellNormal">68</td>
+          <td valign="TOP" align="center" class="clsCellNormal">90</td>
+          <td valign="TOP" align="center" class="clsCellNormal">147</td>
+          <td valign="TOP" align="center" class="clsCellNormal">316</td>
+          <td valign="TOP" align="center" class="clsCellNormal">349</td>
+          <td valign="TOP" align="center" class="clsCellNormal">493</td>
+          <td valign="TOP" align="center" class="clsCellNormal">678</td>
+          <td valign="TOP" align="center" class="clsCellNormal">865</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1.7</td>
+          <td valign="TOP" align="center" class="clsCellNormal">31</td>
+          <td valign="TOP" align="center" class="clsCellNormal">50</td>
+          <td valign="TOP" align="center" class="clsCellNormal">72</td>
+          <td valign="TOP" align="center" class="clsCellNormal">56</td>
+          <td valign="TOP" align="center" class="clsCellNormal">157</td>
+          <td valign="TOP" align="center" class="clsCellNormal">229</td>
+          <td valign="TOP" align="center" class="clsCellNormal">371</td>
+          <td valign="TOP" align="center" class="clsCellNormal">530</td>
+          <td valign="TOP" align="center" class="clsCellNormal">720</td>
+          <td valign="TOP" align="center" class="clsCellNormal">919</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1.8</td>
+          <td valign="TOP" align="center" class="clsCellNormal">32</td>
+          <td valign="TOP" align="center" class="clsCellNormal">53</td>
+          <td valign="TOP" align="center" class="clsCellNormal">77</td>
+          <td valign="TOP" align="center" class="clsCellNormal">101</td>
+          <td valign="TOP" align="center" class="clsCellNormal">166</td>
+          <td valign="TOP" align="center" class="clsCellNormal">243</td>
+          <td valign="TOP" align="center" class="clsCellNormal">393</td>
+          <td valign="TOP" align="center" class="clsCellNormal">561</td>
+          <td valign="TOP" align="center" class="clsCellNormal">763</td>
+          <td valign="TOP" align="center" class="clsCellNormal">973</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">1.9</td>
+          <td valign="TOP" align="center" class="clsCellNormal">34</td>
+          <td valign="TOP" align="center" class="clsCellNormal">56</td>
+          <td valign="TOP" align="center" class="clsCellNormal">81</td>
+          <td valign="TOP" align="center" class="clsCellNormal">107</td>
+          <td valign="TOP" align="center" class="clsCellNormal">175</td>
+          <td valign="TOP" align="center" class="clsCellNormal">256</td>
+          <td valign="TOP" align="center" class="clsCellNormal">415</td>
+          <td valign="TOP" align="center" class="clsCellNormal">592</td>
+          <td valign="TOP" align="center" class="clsCellNormal">805</td>
+          <td valign="TOP" align="center" class="clsCellNormal">1027</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">36</td>
+          <td valign="TOP" align="center" class="clsCellNormal">59</td>
+          <td valign="TOP" align="center" class="clsCellNormal">85</td>
+          <td valign="TOP" align="center" class="clsCellNormal">113</td>
+          <td valign="TOP" align="center" class="clsCellNormal">134</td>
+          <td valign="TOP" align="center" class="clsCellNormal">270</td>
+          <td valign="TOP" align="center" class="clsCellNormal">437</td>
+          <td valign="TOP" align="center" class="clsCellNormal">623</td>
+          <td valign="TOP" align="center" class="clsCellNormal">847</td>
+          <td valign="TOP" align="center" class="clsCellNormal">1081</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

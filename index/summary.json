@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-06T18:38:32.349721+00:00",
-  "manual_count": 2,
-  "file_count": 12780,
+  "generated_at": "2026-11-06T19:00:57.771287+00:00",
+  "manual_count": 3,
+  "file_count": 59328,
   "indexed_pdf_pages_with_text": 0,
   "manuals": [
     {
@@ -13,6 +13,11 @@
       "id": "scion-workflow-test",
       "make": "scion",
       "file_count": 1
+    },
+    {
+      "id": "subaru-service-manual",
+      "make": "subaru",
+      "file_count": 46548
     }
   ]
 }

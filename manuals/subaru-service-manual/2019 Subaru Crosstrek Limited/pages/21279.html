@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnostic Procedure For Subaru Select Monitor Communication: Inspection — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18899.html">Section 22 (P-HEV Drive Motor System (Diagnostics))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18899.html#Diagnostic%20Procedure%20For%20Subaru%20Select%20Monitor%20Communication/">Diagnostic Procedure For Subaru Select Monitor Communication</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/21279.html">Inspection</a></div><div class="main"><h1>Diagnostic Procedure For Subaru Select Monitor Communication: Inspection</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S18952416902020102700000">
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>Cannot communicate with [P-HEV Drive Motor].</p>
+  <p><span class="clsEmphBOLD">Detecting condition: </span></p>
+  <ul class="BULLET">
+    <li>Defective Wire harness connector</li>
+    <li>Power supply circuit malfunction</li>
+    <li>Inverter with converter assembly malfunctioning</li>
+    <li>Defective CAN communication circuit</li>
+    <li>Defective Subaru Select Monitor</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Hybrid system. Refer to <a href="../pages/14207.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;HYBRID ELECTRIC VEHICLE SYSTEM&gt;WIRING DIAGRAM</a>
+.</p><a name="S189524169020201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13238137">
+            <div class="imageHeader"><a name="S28338362942020102800000"></a></div><img alt="G13238137" src="../images/G13238137.png" name="G13238137"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/18899.html#General%20Description/Caution/">P-HEV DRIVE MOTOR (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S29777066572020102800000"></a><span class="clsEmphBOLD">CHECK FUSE. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Check the fuse. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+. Is there any fault?<p>Replace the fuse. If the replaced fuse blows out easily, repair the short circuit to ground in the Wire harness between the fuse and the - Inverter with converter assembly.</p>
+          <p>Go to  <a class="clsListItemLink" href="#S06484162152020102800000" location="/api/article/getcontent?articleId=A01114290_S06484162152020102800000_LSTITM">2</a>.</p>
+        </li>
+      </ol>
+    </li>
+    <li><a name="S06484162152020102800000"></a><span class="clsEmphBOLD">CHECK POWER SUPPLY CIRCUIT (OPEN). </span><ol class="ARABICNUM">
+        <li>Disconnect the Inverter with converter assembly connector.</li>
+        <li>Turn the ignition switch to ON.</li>
+        <li>Using a tester, measure the voltage between Inverter with converter assembly connector and chassis ground.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV23) No. 1 (+) - Chassis ground (-):</p>
+      <p>(HV23) No. 5 (+) - Chassis ground (-):</p>
+      <p>Is the voltage 10 V or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S15379203522020102800000" location="/api/article/getcontent?articleId=A01114290_S15379203522020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the open circuit in Wire harness between fuse -Inverter with converter assembly.</p>
+    </li>
+    <li><a name="S15379203522020102800000"></a><span class="clsEmphBOLD">CHECK GROUND CIRCUIT (OPEN). </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Using a tester, measure the resistance between Inverter with converter assembly connector and chassis ground.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV23) No. 4 - Chassis ground:</p>
+      <p>(HV23) No. 8 - Chassis ground:</p>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S34631344912020102800000" location="/api/article/getcontent?articleId=A01114290_S34631344912020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair the open circuit in Wire harness between Inverter with converter assembly - chassis ground.</p>
+    </li>
+    <li><a name="S34631344912020102800000"></a><span class="clsEmphBOLD">CHECK LAN SYSTEM. </span><ol class="ARABICNUM">
+        <li>Connect the Inverter with converter assembly connector.</li>
+        <li>Inspect LAN system. Refer to <a href="../pages/16770.html">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;BASIC DIAGNOSTIC PROCEDURE&gt;PROCEDURE</a>
+.</li>
+      </ol>
+      <p>Is there any fault?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the inspection according to the diagnosis for LAN system.</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S30835847542020102800000" location="/api/article/getcontent?articleId=A01114290_S30835847542020102800000_LSTITM">5</a>.</p>
+    </li>
+    <li><a name="S30835847542020102800000"></a><span class="clsEmphBOLD">CHECK Inverter with converter assembly. </span><p>Communicate with [P-HEV Drive Motor].</p>
+      <p>Is communication possible?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ The circuit has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of Wire harness may be the cause.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Telematics System Automatic Collision Notification (ACN) And Advanced Automatic Collision Notification (AACN) Feature Operation, Diagnostic Tips And Best Practices (15-267-20R) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31764.html">Technical Service Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/38079.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/38079.html#Infotainment/">Infotainment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/38250.html">Telematics System Automatic Collision Notification (ACN) And Advanced Automatic Collision Notification (AACN) Feature Operation, Diagnostic Tips And Best Practices (15-267-20R)</a></div><div class="main"><h1>Telematics System Automatic Collision Notification (ACN) And Advanced Automatic Collision Notification (AACN) Feature Operation, Diagnostic Tips And Best Practices (15-267-20R)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2024-04-08<br>Reference number: 15-267-20R<br>Supersedes refnos: 15-267-20<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>TELEMATICS SYSTEM AUTOMATIC COLLISION NOTIFICATION (ACN) AND ADVANCED AUTOMATIC COLLISION NOTIFICATION (AACN) FEATURE OPERATION, DIAGNOSTIC TIPS AND BEST PRACTICES</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>TELEMATICS SYSTEM AUTOMATIC COLLISION NOTIFICATION (ACN) AND ADVANCED AUTOMATIC COLLISION NOTIFICATION (AACN) FEATURE OPERATION, DIAGNOSTIC TIPS AND BEST PRACTICES</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): 15-267-20R, Date of Issue: 
+				April 08, 2024<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>All Telematics Enabled Vehicles</td>
+        </tr>
+      </table>
+    </div><h3>APPLICABILITY</h3>
+    
+    <p>All Telematics Enabled Vehicles</p><h3>INTRODUCTION</h3>
+    
+    <div id="S18191047552024042200000" class="infoObjPrint"><h4>Telematics System Applicability Chart</h4>
+      <a name="S181910475520240422000001"></a><table cellspacing="0" class="clsArticleTable">
+        <colgroup></colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G16387088">
+                <div class="imageHeader"><a name="S06706511862024042200000"></a></div><img alt="G16387088" src="../images/G16387088.png" name="G16387088"><span class="imageCourtesyNote"></span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>This document discusses some of the conditions that may trigger an Automatic Collision Notification (ACN) (Gen1) or Advanced Automatic Collision Notification (AACN) (Gen2), without a collision, airbag deployment, or accident taking place.</p>
+      <p>ACN is the cornerstone of the STARLINK Telematics System for emergency response situations. When retailer personnel and Technicians are speaking to customers about this feature, it is important to understand proper system behavior and explain its operation accurately. It is important to empathize with the customer's feelings during these conversations as conditions that initiate ACN may be some of the most frightening moments of their lives. In doing so, however, do not express any conclusions regarding the functioning of the system. For example, the following is an empathetic statement: &quot;That certainly sounds like a frightening experience for you&quot;. Contrast that statement with a conclusion such as, &quot;You're right I wouldn't expect it to happen that way either&quot;. The first statement acknowledges what the customer is feeling, while the second may be incorrect, and serves only to increase the customer's anxiety about the vehicle function or operation.</p>
+      <p>There is no function check a Technician can perform to confirm proper operation of the ACN/AACN feature. If the Telematics system on a subscribed vehicle is DTC free and the <span class="clsEmphBOLD">GREEN TELEMATICS LED IS ILLUMINATED </span>
+, there is nothing to prevent the successful operation of ACN. There is essential documentation reiterated on STIS, in TSBs and TechTIPS reminding Technicians to <span class="clsEmphBOLD">NEVER </span>
+ swap a DCM between vehicles for any reason. There is also similar documentation reiterating the importance of completing a thorough test to confirm proper Telematics operation whenever repairs to the system have been performed. ACN provides information for emergency response and in many situations a DCM swap WILL preclude operation of this potentially life-saving feature. In addition, if the DCM is swapped, the GREEN LED <span class="clsEmphBOLD">WILL NOT </span>
+ illuminate indicating a problem currently exists with the Telematics system.</p>
+      <p><span class="clsEmphBOLD">VERY IMPORTANT: Any Technician or other retailer personnel who, despite service documentation and training to the contrary, performs a DCM swap on a subscribed vehicle should NEVER release that vehicle back to the customer until after confirming the proper operation of the Telematics system. If the issue is first discovered only after the vehicle has been released to the customer, then the retailer MUST contact the customer immediately to inform the customer the ACN/AACN feature may not be functioning properly, and that the vehicle must be returned for inspection as soon as possible. </span></p>
+      <p>Gen1 Telematics equipped vehicles include the ACN feature. For ACN and SOS button push support, Sirius-XM (SXM) is the Customer Care Team who receives the customer contact and determines the nature of the emergency. Both these features provide the SXM Operator with the vehicle location when the Telematics system is functioning properly. Therefore retailers <span class="clsEmphBOLD">MUST </span>
+ request and confirm the vehicle location and VIN information when making test calls to the SXM call center. <span class="clsEmphBOLD">Pushing the SOS or iButton and not connecting to an Operator to confirm the VIN and vehicle location is an INCOMPLETE Telematics system function check. </span></p>
+      <p><span class="clsEmphBOLD">Gen2 </span>
+ vehicles feature Advanced Automatic Collision Notification (AACN). For AACN and SOS button push, the STARLINK call center is the STARLINK Customer Care Team who receives the customer contact and determines the nature of the emergency. With AACN, there is more data sent to the STARLINK call center to help identify vehicle status in addition to the location. Again, retailers MUST request and confirm the vehicle location and VIN information when making test calls to the STARLINK call center. <span class="clsEmphBOLD">Pushing the SOS or iButton and not connecting to an operator to confirm VIN and vehicle location is an INCOMPLETE Telematics system function check. </span></p>
+      <p><span class="clsEmphBOLD">When Does ACN or AACN trigger a communication from the vehicle to SXM/STARLINK? </span></p>
+      <ol class="ARABICNUM">
+        <li>A collision is detected. This could be frontal, side or rear end. Severity of the impact determines if ACN is sent or not.</li>
+        <li>An Airbag deployment occurs.</li>
+        <li>An unusual, unexpected or severe driving event occurs even without a collision or airbag deployment. Examples: sudden changes in terrain, loss of vehicle control, near rollover, off-road operation or aggressive driving maneuvers.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">What should the retailer do when a customer reports concerns involving ACN or AACN with NO COLLISION or NO AIRBAG DEPLOYMENT? </span></p>
+      <ol class="ARABICNUM">
+        <li>Obtain a detailed report from the customer outlining events leading up to receiving the ACN/AACN contact.</li>
+        <li>Were there any operational concerns with the vehicle with or without a malfunction indicator or other warning lamp(s) illuminating?</li>
+        <li>Was there any difficulty controlling the operation of the vehicle?</li>
+        <li>What were the driving/road conditions? Weather? Terrain? Time of Day?</li>
+        <li>Did the driver make any aggressive driving maneuvers, or experience any sudden changes in speed, direction, or terrain?</li>
+        <li>What happened during the ACN/AACN contact?<ol class="LOWERALPHA">
+            <li>What did the STARLINK Operator indicate to the customer?</li>
+            <li>Was the car performing as the customer expected?</li>
+          </ol>
+        </li>
+        <li>Did the vehicle continue to perform as expected after the ACN/AACN contact?</li>
+      </ol>
+      <p><span class="clsEmphBOLD">What should Technicians be looking for on ACN/AACN concerns when there has been NO COLLISION or NO AIRBAG DEPLOYMENT? </span></p>
+      <ol class="ARABICNUM">
+        <li>Verify no current Malfunction indicator lamp(s) are illuminated including the red Telematics LED located between the SOS and iButtons.</li>
+        <li>Use the SSM4 to verify no DTCs are present by checking each system individually WITHOUT using All System Scan.</li>
+        <li>While reviewing the SSM4 data, make notes of any historical DTCs and the retain any related Freeze Frame Data. If the ignition cycle of any history DTCs/FFD coincides with when the customer indicates the ACN/AACN contact occurred, an in-depth review of that data will be necessary.</li>
+        <li>Ask the customer if there have been any previous body repairs or any recent service work performed including maintenance?<ol class="LOWERALPHA">
+            <li>If the customer reports having previous body repairs, inspect those areas closely for proper assembly and fit.</li>
+            <li>Ensure any previous repairs and operation of affected systems meet Subaru repair standards. As examples, if the windshield was recently replaced, was the EyeSight system recalibrated afterward or, if the rear bumper was replaced, were the rear facing radar modules properly recalibrated (Blind Spot Detection/Rear Cross Traffic Alert)?</li>
+          </ol>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">IMPORTANT NOTES: </span></p>
+      <ul class="BULLET">
+        <li>While reviewing the SSM4 data, Technicians should be looking for DTCs or FFD occurring at the same time of the reported ACN/AACN contact. If there is NO data indicated at the time of the contact, then ACN/AACN was most likely triggered by an &quot;unusual, unexpected or severe driving&quot; event. The lack of a collision, airbag deployment, a reported fault with the Telematics system, other vehicle system(s) or general operation excludes the vehicle itself as being the prompter of the ACN/AACN contact. This leaves unusual, unexpected or severe driver input as the source.</li>
+      </ul>
+      <ul class="BULLET">
+        <li>As previously mentioned, while reviewing the SSM4 data, Technicians should be looking for DTCs or FFD that occurred at the time of the reported contact. If information is present that coincides with the time of customer ACN/AACN contact, the Technician should use an abundance of care when reviewing this important data. Technicians should be looking for data which could mislead the Telematics system into thinking there was a collision or airbag deployment. Use every information resource available including STIS, TSBs, TechTIPS, FSE contact, and/or Techline to verify the proper functioning of these systems. If the Technician cannot confirm proper functionality after a full review, Techline must then be contacted with all details prior to any release of the vehicle back to the customer.</li>
+        <li><span class="clsEmphBOLD">ALWAYS ensure all safety systems are working properly BEFORE clearing any historical data and releasing the vehicle back to the customer. </span></li>
+      </ul>
+      <p><span class="clsEmphBOLD">Customer Concern: &quot;The STARLINK call center contacted me and said I was in an accident, but I was not in an accident&quot;. </span></p>
+      <p>First and foremost, the STARLINK Operator knows only that an ACN/AACN has been triggered; not the cause of that trigger. The Operator will assume there has been an accident or airbag deployment until informed otherwise. They do not review the data received from the vehicle to adjust their greeting when making the contact. Call Center Team members act with urgency to provide the highest level of customer care and, if necessary, to alert first responders.</p>
+      <p>Earlier in this document, it was highlighted that unusual, unexpected or severe driving conditions may trigger an ACN/AACN even in the absence of collision or airbag deployment. In that case, customer contact from STARLINK remains the expected behavior. When presented to a retailer after this type of ACN/AACN, the vehicle MUST be thoroughly inspected to ensure there are no current or historical concerns with any safety system, and that the Telematics system is functioning properly BEFORE releasing the vehicle back to the customer.</p>
+      <p><span class="clsEmphBOLD">Customer indicates they were involved in an Accident: </span></p>
+      <p>When a customer presents their vehicle to a retailer stating that it has been in an accident (regardless of whether or not anyone was injured), and the customer asserts either (1) incorrect or unexpected vehicle operation may have contributed to the accident, or (2) the vehicle or STARLINK did not respond the way the customer expected, retailer personnel must follow these protocols while keeping the customer's needs and feelings in mind:</p>
+      <ol class="ARABICNUM">
+        <li>The retailer must immediately complete and submit an Urgent Request for Customer Assistance (URFCA) and,</li>
+        <li>The retailer should advise the customer to contact the SOA Customer Advocacy Department (CAD) to document and provide details regarding the accident.</li>
+      </ol>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If a customer presents the vehicle after it has been an accident, but the customer is not alleging any concern with the vehicle or vehicle systems in relation to the accident, then there is no need to complete an URFCA or contact CAD. If you have any questions or concerns regarding when an URFCA is required in these types of situations, please contact your DPSM or FSE for guidance.</span></div>
+      <p><span class="clsEmphBOLD">IMPORTANT REMINDERS: </span></p>
+      <ul class="BULLET">
+        <li>SOA strongly discourages the printing and/or local storage of service information as previously released information and electronic publications may be updated at any time.</li>
+        <li>Always check for any open recalls or campaigns anytime a vehicle is in for servicing.</li>
+        <li>Always refer to STIS for the latest service information before performing any repairs.</li>
+      </ul>
+    </div>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

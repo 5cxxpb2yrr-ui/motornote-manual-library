@@ -1,0 +1,337 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P314A-31: Motor Electronics Coolant Pump &quot;A&quot; No Signal: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18910.html">Section 28 (P-HEV Hybrid Powertrain Control System (Diagnostics) (4 Of 4))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18910.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18910.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P314A-31%3A%20Motor%20Electronics%20Coolant%20Pump%20%22A%22%20No%20Signal/">DTC P314A-31: Motor Electronics Coolant Pump &quot;A&quot; No Signal</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18968.html">Notes</a></div><div class="main"><h1>DTC P314A-31: Motor Electronics Coolant Pump &quot;A&quot; No Signal: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S11378164812024020800000">
+  
+  <p><span class="clsEmphBOLD">1. - </span></p>
+  <p><span class="clsEmphBOLD">Outline of diagnosis: </span></p>
+  <p>With READY ON, revolution speed of Inverter water pump is not transmitted to Hybrid vehicle control ECU assembly</p>
+  <ul class="BULLET">
+    <li>Connection fault of +B or revolution speed signal line to Inverter water pump</li>
+    <li>Power supply circuit fault in Inverter water pump, or Hybrid vehicle control ECU assembly</li>
+  </ul>
+  <p>(1 trip detection logic)</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>Normal driving</p>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Hybrid system Refer to <a href="../pages/14207.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;HYBRID ELECTRIC VEHICLE SYSTEM&gt;WIRING DIAGRAM</a>
+.</p><a name="S113781648120240208000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13237968">
+            <div class="imageHeader"><a name="S06654093802024020800000"></a></div><img alt="G13237968" src="../images/G13237968.png" name="G13237968"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14209.html#General%20Description/Caution/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a>
+.</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S13264082812024020800000"></a><span class="clsEmphBOLD">PERFORM ACTIVE TEST (Inverter water pump) </span>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>Check that coolant water is filled up to the Low level or more in the inverter reservoir tank assembly.</li>
+            <li>Inverter water pump may stop due to Battery (12V) voltage decrease. Therefore, be sure to perform the inspection with Battery (12V) voltage at 11 V or more.</li>
+            <li>Perform the inspection when the inverter coolant temperature is at -15 - 65°C (5 - 149°F).</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform the clear memory of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Using the Subaru Select Monitor, select the following items in the [Active Test] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Active%20Test/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;ACTIVE TEST</a>
+.<ul class="BULLET">
+            <li>Active test item: Activate the Inverter Water Pump</li>
+          </ul>
+        </li>
+        <li>With the active test [Activate the Inverter Water Pump] being performed, check that Inverter water pump is operating (vibrating).</li>
+      </ol>
+      <p>Is Inverter water pump operating?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S22576499382024020800000" location="/api/article/getcontent?articleId=A01463686_S22576499382024020800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S15557812262024020800000" location="/api/article/getcontent?articleId=A01463686_S15557812262024020800000_LSTITM">8</a>.</p>
+    </li>
+    <li><a name="S22576499382024020800000"></a><span class="clsEmphBOLD">CHECK CONNECTION CONDITION OF CONNECTOR (Hybrid vehicle control ECU assembly CONNECTOR) </span>
+.<p>Check the connecting condition of connectors (B606) and (i369) in Hybrid vehicle control ECU assembly, and check the relevant terminals for contact pressure, deformation and intrusion of water or foreign matter. Refer to <a href="../pages/14210.html#Hybrid%20Powertrain%20Control%20Module/">HYBRID ELECTRIC VEHICLE&gt;HYBRID POWERTRAIN CONTROL MODULE</a>
+.</p>
+      <p>Is there looseness at the connector mating, or any poor contact, deformation or intrusion of water or foreign matter at the relevant terminals?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Connect the connector securely. Or repair the poor contact of connector.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S32930007122024020800000" location="/api/article/getcontent?articleId=A01463686_S32930007122024020800000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S32930007122024020800000"></a><span class="clsEmphBOLD">CHECK CONNECTION CONDITION OF CONNECTOR (Inverter water pump CONNECTOR) </span>
+.<p>Check the connecting condition of connector (B659) in Inverter water pump and check the relevant terminals for contact pressure, deformation and intrusion of water or foreign matter. Refer to <a href="../pages/16063.html#Inverter%20Water%20Pump/">COOLING (H4DO (HEV))&gt;INVERTER WATER PUMP</a>
+.</p>
+      <p>Is there looseness at the connector mating, or any poor contact, deformation or intrusion of water or foreign matter at the relevant terminals?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Connect the connector securely. Or repair the poor contact of connector.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S16836160662024020800000" location="/api/article/getcontent?articleId=A01463686_S16836160662024020800000_LSTITM">4</a>.</p>
+    </li>
+    <li><a name="S16836160662024020800000"></a><span class="clsEmphBOLD">CHECK Wire harness AND CONNECTOR (Hybrid vehicle control ECU assembly - Inverter water pump) (OPEN) </span>
+.<ol class="ARABICNUM">
+        <li>Turn the ignition to OFF.</li>
+        <li>Disconnect Hybrid vehicle control ECU assembly connector (B606).</li>
+        <li>Disconnect the Inverter water pump connector A7.</li>
+        <li>Using a tester, measure the resistance between Hybrid vehicle control ECU assembly connector and Inverter water pump connector.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(B606) No. 10 - (B659) No. 2:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S06967245922024020800000" location="/api/article/getcontent?articleId=A01463686_S06967245922024020800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the Wire harness between Hybrid vehicle control ECU assembly connector and Inverter water pump connector.</p>
+    </li>
+    <li><a name="S06967245922024020800000"></a><span class="clsEmphBOLD">CHECK Wire harness AND CONNECTOR (Hybrid vehicle control ECU assembly - Inverter water pump) (SHORT TO GROUND OR LINE-TO-LINE SHORT) </span>
+.<p>Using a tester, measure the resistance between terminals in Hybrid vehicle control ECU assembly connector, and between Hybrid vehicle control ECU assembly connector and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(B606) No. 10 - (B606) No. 1 - 35:</p>
+      <p>(B606) No. 10 - Chassis ground:</p>
+      <p>Is the resistance 10 kΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S36370632472024020800000" location="/api/article/getcontent?articleId=A01463686_S36370632472024020800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the Wire harness between Hybrid vehicle control ECU assembly connector and Inverter water pump connector.</p>
+    </li>
+    <li><a name="S36370632472024020800000"></a><span class="clsEmphBOLD">CHECK Hybrid vehicle control ECU assembly </span>
+.<ol class="ARABICNUM">
+        <li>Connect the connector (B606) of Hybrid vehicle control ECU assembly.</li>
+        <li>Turn to IG ON.</li>
+        <li>Using a tester, measure the voltage between Hybrid vehicle control ECU assembly connector terminals.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(B606) No. 10 (+) - (i369) No. 6 (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage 11 - 14 V?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S02588348672024020800000" location="/api/article/getcontent?articleId=A01463686_S02588348672024020800000_LSTITM">7</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Hybrid vehicle control ECU assembly. Refer to <a href="../pages/14210.html#Hybrid%20Powertrain%20Control%20Module/">HYBRID ELECTRIC VEHICLE&gt;HYBRID POWERTRAIN CONTROL MODULE</a>
+.</p>
+    </li>
+    <li><a name="S02588348672024020800000"></a><span class="clsEmphBOLD">PERFORM ACTIVE TEST (Inverter water pump) </span>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>Check that coolant water is filled up to the Low level or more in the inverter reservoir tank assembly.</li>
+            <li>Inverter water pump may stop due to Battery (12V) voltage decrease. Therefore, be sure to perform the inspection with Battery (12V) voltage at 11 V or more.</li>
+            <li>Perform the inspection when the inverter coolant temperature is at -15 - 65°C (5 - 149°F).</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform the clear memory of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Restore the vehicle to its original state.</li>
+        <li>Using the Subaru Select Monitor, select the following items in the [Active Test] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Active%20Test/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;ACTIVE TEST</a>
+.<ul class="BULLET">
+            <li>Active test item: Activate the Inverter Water Pump</li>
+          </ul>
+        </li>
+        <li>Using an oscilloscope, measure the waveform between Hybrid vehicle control ECU assembly connector terminals. (With the connector connected)<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(B606) No. 10 - (i369) No. 6:</p>
+          <p>Gauge set: 5 V/DIV, 50 ms/DIV</p>
+          <p>Measuring condition:</p>
+          <ul class="BULLET">
+            <li>IG ON</li>
+            <li>Active test Activate the Inverter Water Pump being performed</li>
+          </ul><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">
+                  <div class="imageHolder" id="container_G13238086">
+                    <div class="imageHeader"><a name="S16500090972024020800000"></a></div><img alt="G13238086" src="../images/G13238086.png" name="G13238086"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p>Is the waveform cycle 300 ms or less?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace Hybrid vehicle control ECU assembly. Refer to <a href="../pages/14210.html#Hybrid%20Powertrain%20Control%20Module/">HYBRID ELECTRIC VEHICLE&gt;HYBRID POWERTRAIN CONTROL MODULE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Inverter water pump. Refer to <a href="../pages/16063.html#Inverter%20Water%20Pump/">COOLING (H4DO (HEV))&gt;INVERTER WATER PUMP</a>
+.</p>
+    </li>
+    <li><a name="S15557812262024020800000"></a><span class="clsEmphBOLD">CHECK CONNECTION CONDITION OF CONNECTOR (Inverter water pump CONNECTOR) </span>
+.<p>Check the connecting condition of connector in Inverter water pump and check the relevant terminals for contact pressure, deformation and intrusion of water or foreign matter. Refer to <a href="../pages/16063.html#Inverter%20Water%20Pump/">COOLING (H4DO (HEV))&gt;INVERTER WATER PUMP</a>
+.</p>
+      <p>Is there looseness at the connector mating, or any poor contact, deformation or intrusion of water or foreign matter at the relevant terminals?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S05960183102024020800000" location="/api/article/getcontent?articleId=A01463686_S05960183102024020800000_LSTITM">11</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S41896822472024020800000" location="/api/article/getcontent?articleId=A01463686_S41896822472024020800000_LSTITM">9</a>.</p>
+    </li>
+    <li><a name="S41896822472024020800000"></a><span class="clsEmphBOLD">CHECK Wire harness AND CONNECTOR (Inverter water pump - IGCT IG relay) </span>
+.<ol class="ARABICNUM">
+        <li>Remove the IGCT IG relay from the Relay holder. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Disconnect Inverter water pump connector (B659).</li>
+        <li>Using a tester, measure the resistance between Inverter water pump connector and IGCT IG relay terminals.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(B659) No. 1 - (B225) No. 33:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S30643702562024020800000" location="/api/article/getcontent?articleId=A01463686_S30643702562024020800000_LSTITM">10</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S38031157812024020800000" location="/api/article/getcontent?articleId=A01463686_S38031157812024020800000_LSTITM">12</a>.</p>
+    </li>
+    <li><a name="S30643702562024020800000"></a><span class="clsEmphBOLD">CHECK Wire harness AND CONNECTOR (Inverter water pump - CHASSIS GROUND) </span>
+.<ol class="ARABICNUM">
+        <li>Attach the IGCT IG relay. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Using a tester, measure the resistance between Inverter water pump connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(B659) No. 3 - Chassis ground:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace Inverter water pump. Refer to <a href="../pages/16063.html#Inverter%20Water%20Pump/">COOLING (H4DO (HEV))&gt;INVERTER WATER PUMP</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace Wire harness between Inverter water pump connector and chassis ground.</p>
+    </li>
+    <li><a name="S05960183102024020800000"></a><span class="clsEmphBOLD">CHECK FUSE (INV W/PMP) </span>
+.<ol class="ARABICNUM">
+        <li>Remove the Inverter water pump fuse from the Relay &amp; fuse box (F/B). Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Check Inverter water pump fuse.</li>
+      </ol>
+      <p>Is the fuse OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Connect the Inverter water pump connector securely.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Connect the Inverter water pump connector securely, and replace Inverter water pump fuse.</p>
+    </li>
+    <li><a name="S38031157812024020800000"></a><span class="clsEmphBOLD">CHECK INSTALLATION CONDITION (Inverter water pump fuse) </span>
+.<p>Check installation condition of Inverter water pump fuse.</p>
+      <p>Is Inverter water pump fuse securely installed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S19429239592024020800000" location="/api/article/getcontent?articleId=A01463686_S19429239592024020800000_LSTITM">13</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S25042971592024020800000" location="/api/article/getcontent?articleId=A01463686_S25042971592024020800000_LSTITM">16</a>.</p>
+    </li>
+    <li><a name="S19429239592024020800000"></a><span class="clsEmphBOLD">CHECK Wire harness AND CONNECTOR (Inverter water pump CIRCUIT) (OPEN CIRCUIT) </span>
+.<ol class="ARABICNUM">
+        <li>Remove the Inverter water pump fuse from the Relay &amp; fuse box (F/B). Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Remove the IGCT IG relay from the Relay holder. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Disconnect Inverter water pump connector (B659).</li>
+        <li>Using a tester, measure the resistance between Inverter water pump connector and Inverter water pump fuse, and between IGCT IG relay terminal and Inverter water pump fuse.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>Inverter water pump fuse terminal 2 - A7-4 (+BWP):</p>
+          <p>Inverter water pump fuse terminal 1 - IGCT IG relay terminal 5:</p>
+          <p>(B659) No. 1 - (i137) No. 5:</p>
+          <p>(B159) No. 1 - (B225) No. 33:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S26367600062024020800000" location="/api/article/getcontent?articleId=A01463686_S26367600062024020800000_LSTITM">14</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace Wire harness between Inverter water pump connector and Inverter water pump fuse, or between IGCT IG relay and Inverter water pump fuse.</p>
+    </li>
+    <li><a name="S26367600062024020800000"></a><span class="clsEmphBOLD">CHECK Wire harness AND CONNECTOR (Inverter water pump CIRCUIT) (SHORT TO GROUND OR LINE-TO-LINE SHORT) </span>
+.<p>Using a tester, measure the resistance between terminals in Inverter water pump connector, and between Inverter water pump connector and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>A7-4 (+BWP) - between other terminals and chassis ground:</p>
+      <p>(B659) No. 1 - (B659) No. 1 - 4:</p>
+      <p>(B659) No. 1 - Chassis ground:</p>
+      <p>Is the resistance 10 kΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S39769617492024020800000" location="/api/article/getcontent?articleId=A01463686_S39769617492024020800000_LSTITM">15</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S30478081802024020800000" location="/api/article/getcontent?articleId=A01463686_S30478081802024020800000_LSTITM">18</a>.</p>
+    </li>
+    <li><a name="S39769617492024020800000"></a><span class="clsEmphBOLD">CHECK FUSE (INV W/PMP) </span>
+.<ol class="ARABICNUM">
+        <li>Remove the Inverter water pump fuse from the Relay &amp; fuse box (F/B). Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Check Inverter water pump fuse.</li>
+      </ol>
+      <p>Is the fuse OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair or replace the installation terminal of Inverter water pump fuse.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S35181892122024020800000" location="/api/article/getcontent?articleId=A01463686_S35181892122024020800000_LSTITM">19</a>.</p>
+    </li>
+    <li><a name="S25042971592024020800000"></a><span class="clsEmphBOLD">CHECK INSTALLATION TERMINAL (Inverter water pump fuse) </span>
+.<p>Check the installation terminal of Inverter water pump fuse.</p>
+      <p>Is there bend, looseness or corrosion in the installation terminal of Inverter water pump fuse?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S05010244732024020800000" location="/api/article/getcontent?articleId=A01463686_S05010244732024020800000_LSTITM">21</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S42763590232024020800000" location="/api/article/getcontent?articleId=A01463686_S42763590232024020800000_LSTITM">17</a>.</p>
+    </li>
+    <li><a name="S42763590232024020800000"></a><span class="clsEmphBOLD">CHECK FUSE (INV W/PMP) </span>
+.<ol class="ARABICNUM">
+        <li>Remove the Inverter water pump fuse from the Relay &amp; fuse box (F/B). Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Check Inverter water pump fuse.</li>
+      </ol>
+      <p>Is the fuse OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Install the fuse securely.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the fuse.</p>
+    </li>
+    <li><a name="S30478081802024020800000"></a><span class="clsEmphBOLD">CHECK FUSE (INV W/PMP) </span>
+.<ol class="ARABICNUM">
+        <li>Remove the Inverter water pump fuse from the Relay &amp; fuse box (F/B). Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Check Inverter water pump fuse.</li>
+      </ol>
+      <p>Is the fuse OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair or replace Wire harness.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S35181892122024020800000" location="/api/article/getcontent?articleId=A01463686_S35181892122024020800000_LSTITM">19</a>.</p>
+    </li>
+    <li><a name="S35181892122024020800000"></a><span class="clsEmphBOLD">CHECK Wire harness AND CONNECTOR (Inverter water pump - CHASSIS GROUND) (OPEN) </span>
+.<ol class="ARABICNUM">
+        <li>Attach the Inverter water pump fuse. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Disconnect Inverter water pump connector (B659).</li>
+        <li>Using a tester, measure the resistance between Inverter water pump connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(B659) No. 3 - Chassis ground:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S39666047902024020800000" location="/api/article/getcontent?articleId=A01463686_S39666047902024020800000_LSTITM">20</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace Wire harness between Inverter water pump connector and chassis ground and the installation terminal of Inverter water pump fuse, and replace Inverter water pump fuse.</p>
+    </li>
+    <li><a name="S39666047902024020800000"></a><span class="clsEmphBOLD">CHECK INSTALLATION TERMINAL (Inverter water pump fuse) </span>
+.<p>Check the installation terminal of Inverter water pump fuse. Refer to <a href="../pages/16063.html#Inverter%20Water%20Pump/">COOLING (H4DO (HEV))&gt;INVERTER WATER PUMP</a>
+.</p>
+      <p>Is there bend, looseness or corrosion in the installation terminal of Inverter water pump fuse?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace Inverter water pump and Inverter water pump fuse. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the installation terminal of Inverter water pump fuse, and replace Inverter water pump fuse.</p>
+    </li>
+    <li><a name="S05010244732024020800000"></a><span class="clsEmphBOLD">CHECK FUSE (INV W/PMP) </span>
+.<ol class="ARABICNUM">
+        <li>Remove the Inverter water pump fuse from the Relay &amp; fuse box (F/B). Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+        <li>Check Inverter water pump fuse.</li>
+      </ol>
+      <p>Is the fuse OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair or replace the installation terminal of Inverter water pump fuse.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the installation terminal of Inverter water pump fuse, and replace Inverter water pump fuse.</p>
+    </li>
+  </ol>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

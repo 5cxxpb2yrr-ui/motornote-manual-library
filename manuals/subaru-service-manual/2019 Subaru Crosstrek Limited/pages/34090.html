@@ -1,0 +1,132 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Time Stamp: General Description — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/">Engine Performance</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/System/">System</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31821.html">Common Diagnostic Operations</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31821.html#Time%20Stamp/">Time Stamp</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/34090.html">General Description</a></div><div class="main"><h1>Time Stamp: General Description</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S34713002742020102700000">
+  <p>There are three types of record data for the information of time stamp, and they are stored together with diagnostic codes.</p>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Depending on DTCs, time stamp may not be stored.</span></div>
+  <ol class="LOWERALPHA">
+    <li><span class="clsEmphBOLD">Trip Count [count] </span><p>This indicates the number of times that the ignition has been turned to ON since the vehicle was manufactured. The ignition ON count of when the diagnostic code is stored is displayed on the diagnostic code check screen.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Subaru Select Monitor 4 screen (A/C system diagnostic code and time stamp)</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+          <col span="1" id="COL4" align="left">
+          <col span="1" id="COL5" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Code</th>
+            <th align="center" class="clsCellNormal">Description &amp; trouble part</th>
+            <th align="center" class="clsCellNormal">Trip Count [count]</th>
+            <th align="center" class="clsCellNormal">Time Count</th>
+            <th align="center" class="clsCellNormal">Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">B14E1</td>
+            <td align="left" class="clsCellNormal">AIR MIX DOOR ACTUATOR STEPPING MOTOR CIRCUIT WIRE BREAK (DRIVER'S SEAT)</td>
+            <td align="left" class="clsCellNormal"><span class="clsEmphBOLD">983 </span></td>
+            <td align="left" class="clsCellNormal">18000</td>
+            <td align="left" class="clsCellNormal">Common</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">B14E7</td>
+            <td align="left" class="clsCellNormal">HEATER CORE REAR SENSOR CIRCUIT WIRE BREAK</td>
+            <td align="left" class="clsCellNormal"><span class="clsEmphBOLD">984 </span></td>
+            <td align="left" class="clsCellNormal">117800</td>
+            <td align="left" class="clsCellNormal">Common</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Furthermore, the current IG ON count (times) can be checked at the data monitor of body control.</p>
+      <p>By comparing the current Trip Count and the Trip Count of when the diagnostic code was stored, it is possible to determine that it is how many ignition-ON operations ago that DTC was stored.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Time Count </span><p>The elapsed time from when the ignition is turned to ON to when the diagnostic code is stored is displayed on the diagnostic code check screen. It is possible to determine the length of time that passed between when the user started driving and when the diagnostic code was stored.</p>
+      <p>Therefore, if Trip Count until the vehicle-received-date is determined by interviewing the user, it is possible to estimate where the user was driving when the diagnostic code was stored, using the information such as Trip Count and Time Count. This estimate is useful information to perform diagnosis including checking of repeatability.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Subaru Select Monitor 4 screen (A/C system diagnostic code and time stamp)</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+          <col span="1" id="COL4" align="left">
+          <col span="1" id="COL5" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Code</th>
+            <th align="center" class="clsCellNormal">Description &amp; trouble part</th>
+            <th align="center" class="clsCellNormal">Trip Count [count]</th>
+            <th align="center" class="clsCellNormal">Time [msec]</th>
+            <th align="center" class="clsCellNormal">Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">B14E1</td>
+            <td align="left" class="clsCellNormal">AIR MIX DOOR ACTUATOR STEPPING MOTOR CIRCUIT WIRE BREAK (DRIVER'S SEAT)</td>
+            <td align="left" class="clsCellNormal">983</td>
+            <td align="left" class="clsCellNormal"><span class="clsEmphBOLD">18000 </span></td>
+            <td align="left" class="clsCellNormal">Common</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">B14E7</td>
+            <td align="left" class="clsCellNormal">HEATER CORE REAR SENSOR CIRCUIT WIRE BREAK</td>
+            <td align="left" class="clsCellNormal">984</td>
+            <td align="left" class="clsCellNormal"><span class="clsEmphBOLD">117800 </span></td>
+            <td align="left" class="clsCellNormal">Common</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>When multiple diagnostic codes are recorded for one trouble, it is extremely important to determine the diagnostic code that was stored first. (It is important to perform the diagnosis for the first recorded diagnostic code.) In this case, it is also possible to immediately determine which diagnostic code was recorded first, using the information such as Trip Count and Time Count.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Group </span><p>Each unit individually counts the elapsed time since the ignition is turned to ON. However, these time counts may have some errors, and therefore, the control modules need to be adjusted to the time carried by the master-time unit (the body integrated unit). When the count is set as common, it means that each control module is already adjusted to the master time, and the display for the master integrated unit is always indicated as Common. When the count is indicated as Originally, it means that the time is not synchronized with the master time. In this case, check the communication between the corresponding control module and integrated unit. When all controls other than the body integrated unit is indicated as Originally, perform the basic inspection for the body integrated unit. Refer to <a href="../pages/14646.html">BODY CONTROL (DIAGNOSTICS)&gt;BASIC DIAGNOSTIC PROCEDURE&gt;PROCEDURE</a>
+.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Subaru Select Monitor 4 screen (A/C system diagnostic code and time stamp)</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+          <col span="1" id="COL4" align="left">
+          <col span="1" id="COL5" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Code</th>
+            <th align="center" class="clsCellNormal">Description &amp; trouble part</th>
+            <th align="center" class="clsCellNormal">Trip Count [count]</th>
+            <th align="center" class="clsCellNormal">Time Count [msec]</th>
+            <th align="center" class="clsCellNormal">Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">B14E1</td>
+            <td align="left" class="clsCellNormal">AIR MIX DOOR ACTUATOR STEPPING MOTOR CIRCUIT WIRE BREAK (DRIVER'S SEAT)</td>
+            <td align="left" class="clsCellNormal">983</td>
+            <td align="left" class="clsCellNormal">18000</td>
+            <td align="left" class="clsCellNormal"><span class="clsEmphBOLD">Common </span></td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">B14E7</td>
+            <td align="left" class="clsCellNormal">HEATER CORE REAR SENSOR CIRCUIT WIRE BREAK</td>
+            <td align="left" class="clsCellNormal">984</td>
+            <td align="left" class="clsCellNormal">117800</td>
+            <td align="left" class="clsCellNormal"><span class="clsEmphBOLD">Common </span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Even when multiple diagnostic codes are stored in multiple control modules, it is possible to determine the code stored first through the count function.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Troubleshooting for CAN system U-code occurrence<br>When the first stored diagnostic code is a U-code for CAN system, perform the troubleshooting as a U code combination, instead of a U code alone. In addition, when CAN open circuit occurs, communication of the diagnostic device itself becomes impossible beyond the particular areas. However, trouble positions can also be determined by the combination of initial communication success/failure.<br>Thus, by performing the basic diagnostic procedure in LAN system, trouble positions can be determined efficiently on the principle above. Refer to <a href="../pages/14647.html">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;BASIC DIAGNOSTIC PROCEDURE&gt;PROCEDURE</a>
+.</span></div>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

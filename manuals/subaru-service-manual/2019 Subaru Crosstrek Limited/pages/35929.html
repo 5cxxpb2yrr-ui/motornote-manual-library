@@ -1,0 +1,154 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C1242: Rear Left Abs Sensor Signal — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Brakes/">Brakes</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Brakes/Anti-Lock%20Brakes/">Anti-Lock Brakes</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31797.html">Brake Control System (Diagnostics) (Except For HEV)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31797.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure with Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/35929.html">DTC C1242: Rear Left Abs Sensor Signal</a></div><div class="main"><h1>DTC C1242: Rear Left Abs Sensor Signal</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S08662766252020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <ul class="BULLET">
+    <li>A fault is detected if the time of decompression or hold exceeds the predetermined time.</li>
+    <li>A fault is detected if noise of the wheel speed sensor signal is detected.</li>
+    <li>A fault is detected if the wheel speed sensor signal is lost, or the wheel speed sensor signal continuously indicates significantly low speed by calculating the difference between maximum speed and minimum speed among the four wheels.</li>
+    <li>A fault is detected if the wheel speed sensor signal continuously indicates excessively high or low speed.</li>
+    <li>A fault is detected if the wheel speed sensor signal changes irregularly.</li>
+    <li>A fault is detected if the wheel speed sensor signal drops cyclically.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>ABS does not operate.</li>
+    <li>VDC does not operate.</li>
+    <li>Hill start assist does not operate.</li>
+    <li>EyeSight does not operate. (Models with EyeSight)</li>
+  </ul>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/17452.html#General%20Description/Caution/">BRAKE CONTROL (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>This DTC may be stored when the wheel speed sensor connector is disconnected regardless of the ignition switch condition (ON/OFF). Perform the Clear Memory Mode after diagnosis if a DTC is recorded. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S03481943182020102800000"></a><span class="clsEmphBOLD">CHECK ABS WHEEL SPEED SENSOR AND FREEZE FRAME DATA USING SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, check the freeze frame data when DTC is detected. Refer to <a href="../pages/17452.html#Freeze%20Frame%20Data/">BRAKE CONTROL (DIAGNOSTICS)&gt;FREEZE FRAME DATA</a> .</li>
+        <li>Compare [FR Wheel Speed], [FL Wheel Speed], [RR Wheel Speed] and [RL Wheel Speed] to determine a sensor that is not indicating the same value.</li>
+        <li>Check the data monitor of the wheel speed sensor that is not indicating the same value. Refer to <a href="../pages/17452.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+      </ol>
+      <p>Does the speed indicated on the current data change in response to the speedometer reading during acceleration/deceleration when the steering wheel is in the straight-ahead position? And, are the values on the freeze frame data of the vehicle speed from the four wheels indicated as almost identical?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S10945720432020102800000" location="/api/article/getcontent?articleId=A01114228_S10945720432020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S14160579072020102800000" location="/api/article/getcontent?articleId=A01114228_S14160579072020102800000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S10945720432020102800000"></a><span class="clsEmphBOLD">CHECK POOR CONTACT OF CONNECTOR. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Check for poor contact of the connector between VDC Contol Module &amp; H/U and ABS wheel speed sensor.</li>
+      </ol>
+      <p>Is there poor contact of connectors between VDC Contol Module &amp; H/U and ABS wheel speed sensor?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair the connector.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S37346832942020102800000" location="/api/article/getcontent?articleId=A01114228_S37346832942020102800000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S37346832942020102800000"></a><span class="clsEmphBOLD">CHECK CAUSE OF SIGNAL NOISE. </span><p>Make sure the radio wave devices and electronic components are installed correctly.</p>
+      <p>Are the radio wave devices and electronic components installed correctly?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S12542432232020102800000" location="/api/article/getcontent?articleId=A01114228_S12542432232020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Install the radio wave devices and electronic components properly.</p>
+    </li>
+    <li><a name="S12542432232020102800000"></a><span class="clsEmphBOLD">CHECK CAUSE OF SIGNAL NOISE. </span><p>Check if the noise sources (such as an antenna) are installed near the sensor harness.</p>
+      <p>Are noise sources installed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Install the noise sources apart from sensor harness.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S37971583442020102800000" location="/api/article/getcontent?articleId=A01114228_S37971583442020102800000_LSTITM">5</a>.</p>
+    </li>
+    <li><a name="S37971583442020102800000"></a><span class="clsEmphBOLD">CHECK VDC CONTOL MODULE &amp; H/U. </span><ol class="ARABICNUM">
+        <li>Connect all connectors.</li>
+        <li>Using the Subaru Select Monitor, perform the clear memory. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Execute the inspection mode. Refer to <a href="../pages/17452.html#Inspection%20Mode/">BRAKE CONTROL (DIAGNOSTICS)&gt;INSPECTION MODE</a> .</li>
+        <li>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is the same DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the VDC Contol Module &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S32769868342020102800000" location="/api/article/getcontent?articleId=A01114228_S32769868342020102800000_LSTITM">6</a>.</p>
+    </li>
+    <li><a name="S32769868342020102800000"></a><span class="clsEmphBOLD">CHECK DETECTION OF OTHER DTCS FOR VDC. </span><p>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Is any other DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/17493.html">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Currently, it is normal. There may have been a temporary poor contact in the harness and connector or a temporary noise interference.</p>
+    </li>
+    <li><a name="S14160579072020102800000"></a><span class="clsEmphBOLD">CHECK INSTALLATION OF ABS WHEEL SPEED SENSOR. </span><p>Are the ABS wheel speed sensor installation bolts tightened to 7.5 N.m (0.76 kgf-m, 5.5 ft-lb)?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S10559813782020102800000" location="/api/article/getcontent?articleId=A01114228_S10559813782020102800000_LSTITM">8</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Tighten the ABS wheel speed sensor installation bolts.</p>
+    </li>
+    <li><a name="S10559813782020102800000"></a><span class="clsEmphBOLD">CHECK ABS WHEEL SPEED SENSOR. </span><p>Check the ABS wheel speed sensor. Refer to <a href="../pages/17388.html#Front%20ABS%20Wheel%20Speed%20Sensor/Inspection/">VEHICLE DYNAMICS CONTROL (VDC)&gt;FRONT ABS WHEEL SPEED SENSOR&gt;INSPECTION</a>
+. Refer to <a href="../pages/17388.html#Rear%20ABS%20Wheel%20Speed%20Sensor/Inspection/">VEHICLE DYNAMICS CONTROL (VDC)&gt;REAR ABS WHEEL SPEED SENSOR&gt;INSPECTION</a>
+.</p>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S08734003542020102800000" location="/api/article/getcontent?articleId=A01114228_S08734003542020102800000_LSTITM">10</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S33831296572020102800000" location="/api/article/getcontent?articleId=A01114228_S33831296572020102800000_LSTITM">9</a>.</p>
+    </li>
+    <li><a name="S33831296572020102800000"></a><span class="clsEmphBOLD">CHECK ABS WHEEL SPEED SENSOR OR MAGNETIC ENCODER. </span><p>Are there foreign matters adhered to the tip of ABS wheel speed sensor or magnetic encoder? Or is there any breakage or damage?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Remove dirt thoroughly. Also replace the ABS wheel speed sensor or magnetic encoder as a unit with hub unit bearing if it is broken or damaged.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S08734003542020102800000" location="/api/article/getcontent?articleId=A01114228_S08734003542020102800000_LSTITM">10</a>.</p>
+    </li>
+    <li><a name="S08734003542020102800000"></a><span class="clsEmphBOLD">CHECK CAUSE OF SIGNAL NOISE. </span><p>Make sure the radio wave devices and electronic components are installed correctly.</p>
+      <p>Are the radio wave devices and electronic components installed correctly?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S04709987672020102800000" location="/api/article/getcontent?articleId=A01114228_S04709987672020102800000_LSTITM">11</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Install the radio wave devices and electronic components properly.</p>
+    </li>
+    <li><a name="S04709987672020102800000"></a><span class="clsEmphBOLD">CHECK CAUSE OF SIGNAL NOISE. </span><p>Check if the noise sources (such as an antenna) are installed near the sensor harness.</p>
+      <p>Are noise sources installed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Install the noise sources apart from sensor harness.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S33573494222020102800000" location="/api/article/getcontent?articleId=A01114228_S33573494222020102800000_LSTITM">12</a>.</p>
+    </li>
+    <li><a name="S33573494222020102800000"></a><span class="clsEmphBOLD">CHECK VDC CONTOL MODULE &amp; H/U. </span><ol class="ARABICNUM">
+        <li>Connect all connectors.</li>
+        <li>Using the Subaru Select Monitor, perform the clear memory. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Execute the inspection mode. Refer to <a href="../pages/17452.html#Inspection%20Mode/">BRAKE CONTROL (DIAGNOSTICS)&gt;INSPECTION MODE</a> .</li>
+        <li>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is the same DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S29049466072020102800000" location="/api/article/getcontent?articleId=A01114228_S29049466072020102800000_LSTITM">13</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S34964902762020102800000" location="/api/article/getcontent?articleId=A01114228_S34964902762020102800000_LSTITM">14</a>.</p>
+    </li>
+    <li><a name="S29049466072020102800000"></a><span class="clsEmphBOLD">CHECK FREEZE FRAME DATA OF ABS WHEEL SPEED SENSOR USING SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, select Freeze frame data. Refer to <a href="../pages/17452.html#Freeze%20Frame%20Data/">BRAKE CONTROL (DIAGNOSTICS)&gt;FREEZE FRAME DATA</a> .</li>
+        <li>Read the ABS wheel speed sensor output.</li>
+      </ol>
+      <p>Is the ABS wheel speed sensor output different compared with other wheels?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the ABS wheel speed sensor which has a difference. Refer to <a href="../pages/17388.html#Front%20ABS%20Wheel%20Speed%20Sensor/">VEHICLE DYNAMICS CONTROL (VDC)&gt;FRONT ABS WHEEL SPEED SENSOR</a>
+. Refer to <a href="../pages/17388.html#Rear%20ABS%20Wheel%20Speed%20Sensor/">VEHICLE DYNAMICS CONTROL (VDC)&gt;REAR ABS WHEEL SPEED SENSOR</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the VDC Contol Module &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+    </li>
+    <li><a name="S34964902762020102800000"></a><span class="clsEmphBOLD">CHECK DETECTION OF OTHER DTCS FOR VDC. </span><p>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Is any other DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/17493.html">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Currently, it is normal. There may have been a temporary poor contact in the harness and connector or a temporary noise interference.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Though the ABS warning light may remain on at this time, this is normal. Drive the vehicle at 40 km/h (25 MPH) or more in order to turn ABS warning light off. Be sure to drive the vehicle and check that the warning light goes off.</span></div>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

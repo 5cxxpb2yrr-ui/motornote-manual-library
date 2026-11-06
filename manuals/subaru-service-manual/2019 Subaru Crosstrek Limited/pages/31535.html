@@ -1,0 +1,290 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>ECM Reprogramming For DTC P1603/Engine Idle Drop Or Stall (WTT-79R) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/618.html">Technical Service Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html#Engine%20Control%20Systems/">Engine Control Systems</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31535.html">ECM Reprogramming For DTC P1603/Engine Idle Drop Or Stall (WTT-79R)</a></div><div class="main"><h1>ECM Reprogramming For DTC P1603/Engine Idle Drop Or Stall (WTT-79R)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2018-09-20<br>Reference number: WTT-79R<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ECM REPROGRAMMING FOR DTC P1603/ENGINE IDLE DROP OR STALL</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>ECM REPROGRAMMING FOR DTC P1603/ENGINE IDLE DROP OR STALL</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): WTT-79R, Date of Issue: 
+				September 20, 2018<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>2017-2018 Impreza; 2018-2019 Crosstrek</td>
+        </tr>
+      </table>
+    </div><h3>APPLICABILITY</h3>
+    
+    <p>2017-2018MY Impreza</p>
+    <p>2018-2019 Crosstrek</p><h3>INTRODUCTION</h3>
+    
+    <p>Subaru of America, Inc. (SOA) is initiating a service program for certain 2017-2018 MY Impreza vehicles, and certain 2018-2019 MY Crosstrek vehicles. This service program involves installation of reprogramming files to optimize the ECM.</p>
+    <p>Subaru has determined that due to an engine programming issue, the affected vehicles may stall when coming to a stop or driving at a low speed (under 15 MPH) when the air conditioning is operating at maximum capacity.</p>
+    <p>Under certain hot weather conditions, when the vehicle's air conditioning is running at full capacity, the engine programming may not account for the additional load placed on the engine when slowing down or coming to a stop. In some cases, this could cause the engine to stall requiring the driver to immediately restart the vehicle.</p>
+    <p><span class="clsEmphBOLD">AFFECTED VEHICLES: </span></p>
+    <p>Certain 2017-2018 MY Impreza* and certain 2018-2019 Crosstrek* CVT models equipped with A/C variable compressor.</p>
+    <p><span class="clsEmphITAL">* The 2017-2018 MY Impreza and 2018 MY Crosstrek vehicles included in this campaign have been identified through warranty history records of reprogramming using certain previous PAK file data. </span></p>
+    <p>Coverage for all affected vehicles must be confirmed by using the Vehicle Coverage Inquiry function on subarunet.com. This data is now available.</p><h3>OWNER NOTIFICATION</h3>
+    
+    <p>Subaru will notify affected vehicle owners by first class mail. Owners with a valid email address on file with MySubaru.com will also be notified by email. Owner notification is expected to occur in September, and retailers will be advised when the notification begins.</p><h3>RETAILER PROGRAM RESPONSIBILITY</h3>
+    
+    <p>Any vehicles listed in a recall or campaign that are in retailer stock must be:</p>
+    <ul class="BULLET">
+      <li>Immediately identified.</li>
+      <li>Tagged or otherwise marked to prevent their delivery or use prior to inspection and/or repair.</li>
+      <li>Repaired in accordance with the repair procedures outlined in the applicable bulletin.</li>
+    </ul><h3>RETAILER AFFECTED VIN LISTS</h3>
+    
+    <p>Each Subaru retailer will receive an affected VIN list from their Zone Office when owner notification begins. Vehicles will be assigned to retailers in the affected VIN list as follows:</p>
+    <ul class="BULLET">
+      <li>Original vehicle owners are assigned to the original selling retailer when their current address is within a 100-mile radius of that retailer.</li>
+      <li>If the original selling retailer is inactive, the VIN has been assigned to the nearest active retailer.</li>
+      <li>For any new owners or when original owners live more than 100 miles from the original selling retailer, the VIN has been assigned to the nearest active retailer.</li>
+    </ul>
+    <div class="IMPORTANT"><span class="IMPORTANT_label">
+									IMPORTANT:
+								</span><span>Retailer affected VIN lists include information for vehicles affected by this service program. This information will enable retailers to follow up with owners of potentially affected vehicles. The lists contain owners' names and phone numbers obtained from State Motor Vehicle Registration Records. The use of such motor vehicle registration data for any other purpose is unlawful. Accordingly, retailers are required to limit the use of these lists for the purpose of completion of this service program.</span></div><h3>PACK FILE APPLICABILITY</h3>
+    
+    <p>The new PAK files address an engine idle drop or in some cases, a stall condition which may occur as the vehicle is coming to a stop and an engine load is applied simultaneously. These files also include new logic for DTC P060A &quot;Internal Control Module Monitoring Processor Performance.&quot; The A/F Correction logic and Ignition Timing control logic have been enhanced for improved driveability.</p><a name="S108062995120180920000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Model</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">PAK File Name</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">New ECM Part Number</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Old ECM Part Numbers</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Decryption Keyword</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">New CID Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2017MY Impreza CVT CAL w/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60F.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60F</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60A, B, C, D &amp; E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">6E5D28A8*</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J261D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2017-18MY Impreza CVT CAL w/o AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71f.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71F</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71A, B, C, D &amp; E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">01439B4E*</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J261B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2018MY Impreza CVT CAL w/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28D.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28A, B &amp; C</td>
+          <td valign="TOP" align="center" class="clsCellNormal">C4C8776B*</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J601D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2018MY Crosstrek CVT CAL w/o AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ623.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ623</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ620, 621 &amp; 622</td>
+          <td valign="TOP" align="center" class="clsCellNormal">60483C97*</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J261F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY Impreza CVT CAL w/o AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67B.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">49DEB664</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3N101B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY Impreza CVT CAL w/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66B.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">9FA6DB82</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3N101D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY Crosstrek CVT CAL w/o AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM821.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM821</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM820</td>
+          <td valign="TOP" align="center" class="clsCellNormal">BD65FF81</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3N101F</td>
+        </tr>
+        <tr>
+          <td colspan="6" valign="TOP" align="center" class="clsCellNormal">*As of 8/28/2018, contact Nuspire if update has not been received.</td>
+        </tr>
+      </tbody>
+    </table><h3>SERVICE PROCEDURE</h3>
+    
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+
+ Customer satisfaction and retention starts with performing quality repairs.</p>
+    <ul class="BULLET">
+      <li>Reprogram the ECM following the normal FlashWrite procedure.</li>
+    </ul>
+    <p>Subaru of America, Inc. (SOA) highly recommends connecting the Subaru Midtronics GR8 Diagnostic Battery Charger to the vehicle and utilizing the Power Supply Mode feature anytime a vehicle control module is being reprogrammed. Follow the procedure as outlined in document GR8-1100 on STIS for use of the GR8's Power Supply Mode:</p>
+    <ul class="BULLET">
+      <li>Confirm all electrical loads such as lights, audio, HVAC, seat heaters, and rear defroster are all switched <span class="clsEmphBOLD">OFF </span>
+
+ before setting up for Power Supply Mode.</li>
+      <li>Select the correct battery type (Flooded, AGM or AGM Spiral).</li>
+      <li>Select the CCA which matches the vehicle's battery<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>OE and replacement batteries have different CCA ratings. Always confirm the battery rating before proceeding.</span></div>
+      </li>
+      <li>If the &quot;Charge Battery&quot; <span class="clsEmphBOLD">WARNING </span>
+
+ appears, the battery <span class="clsEmphBOLD">MUST </span>
+
+ be charged before attempting reprogramming.</li>
+      <li><span class="clsEmphBOLD">DO NOT </span>
+
+ connect the DSTi or SDI until the GR8 Power Supply mode has completed its battery test mode and the Charging Voltage has dropped to a steady 13.5 Volts on the display.</li>
+      <li>If the GR8 &quot;beeps&quot; or the Status Light flashes, a diagnostic charge should be performed on the battery before proceeding further.</li>
+      <li>Once Power Supply Mode reaches a steady 13.5 volts, connect the DSTi or SDI to the OBD connector and initiate the reprogramming process.</li>
+      <li>Amperage will fluctuate based upon the vehicle's demand for power.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If the voltage rises beyond 14V while programming is in process, the procedure will abort. This can indicate a need to test or charge the vehicle battery before any further attempt at programming.</span></div>
+      </li>
+    </ul>
+    <div class="IMPORTANT"><span class="IMPORTANT_label">
+									IMPORTANT:
+								</span><span>This information is applicable to the Midtronics GR8 Diagnostic Battery Charger <span class="clsEmphBOLD">ONLY </span>
+
+. It does not apply to any other brand/type of &quot;generic&quot; battery charger whatsoever. <span class="clsEmphBOLD">ONLY </span>
+
+ the GR8 and its Power Supply Mode feature has been tested and approved by SOA.</span></div>
+    <p>Once the GR8 is connected to the vehicle, as <span class="clsEmphBOLD">long as the battery is fully charged </span>
+
+, it takes less than 3 minutes to boot-up the charger, select Power Supply Mode, and have the battery voltage stabilized and ready for reprogramming.</p>
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+
+ If the GR8 indicates the vehicle's battery must be charged, charge the battery using the GR8 before proceeding to reprogram the vehicle.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Control module failures as a result of battery discharge during reprogramming are not a matter for warranty. Should any DTCs reset after the reprogramming update is performed, diagnose per the procedure outlined in the applicable Service Manual.</span></div><h3>SERVICE PROGRAM IDENTIFICATION LABEL</h3>
+    
+    <p>Type or print the necessary information on a Campaign Identification Label. The completed label should be attached to the vehicle's upper radiator support.</p>
+    <p>Additional labels are available through normal parts ordering channels. The part number is MSA6P1302, which comes as one sheet of 20 labels.</p><a name="S231653163620180920000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Part Number</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Applicability</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Description</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Order Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">MSA6P1302</td>
+          <td valign="TOP" align="center" class="clsCellNormal">All models</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Campaign Completion Labels (contains one sheet of 20 labels)</td>
+          <td valign="TOP" align="center" class="clsCellNormal">1</td>
+        </tr>
+      </tbody>
+    </table><a name="S231653163620180920000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G12051637">
+              <div class="imageHeader"><a name="S23786354322018092000000"></a></div><img alt="G12051637" src="../images/G12051637.png" name="G12051637"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><h3>CLAIM REIMBURSEMENT AND ENTRY PROCEDURES</h3>
+    
+    <p>Credit to perform this recall will be based on properly completed repair order information. Retailers may submit claims through Subarunet.com.</p><a name="S412673313420180920000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Description</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Operation #</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Time</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Fail Code</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Claim Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">WTT-79 MFI OBDII ECM REPROGRAMMING</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A145-548</td>
+          <td valign="TOP" align="center" class="clsCellNormal">0.4</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">WTT-79</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">RC</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">WTT-79 CID NUMBER INSPECTION ONLY*</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A145-540</td>
+          <td valign="TOP" align="center" class="clsCellNormal">0.2</td>
+        </tr>
+        <tr>
+          <td colspan="5" valign="TOP" align="center" class="clsCellNormal">*Applicable for Certain 2019 Crosstrek and 2018 Impreza.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="IMPORTANT"><span class="IMPORTANT_label">
+									IMPORTANT:
+								</span><span><span class="clsEmphBOLD">Always </span>
+
+ note the original Calibration Identification number (CID) the vehicle came in with on the repair order <span class="clsEmphBOLD">before </span>
+
+ reprogramming and, make sure to list the <span class="clsEmphBOLD">NEW </span>
+
+ CID for any newly-installed programming (as confirmed from the actual control module <span class="clsEmphBOLD">AFTER </span>
+
+ installation). The <span class="clsEmphBOLD">NEW </span>
+
+ CID <span class="clsEmphBOLD">MUST </span>
+
+ also be noted on the repair order as this information is required for entry in the Miscellaneous Detail field during claim submission.</span></div>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>The pack file listings provided in this bulletin are the latest available at the time of publishing. Updates are often released thereafter without revision to the original bulletin. For this reason, it is critical to always have the latest version of Select Monitor software installed on your system. You can confirm if a later version is available by entering the CID listed in this bulletin into FlashWrite. If a newer CID is shown as available in FlashWrite, reprogram using that file.</span></div>
+    <p><span class="clsEmphBOLD">IMPORTANT REMINDERS: </span></p>
+    <ul class="BULLET">
+      <li>SOA strongly discourages the printing and/or local storage of service information as previously released information and electronic publications may be updated at any time.</li>
+      <li>Always check for any open recalls or campaigns anytime a vehicle is in for servicing.</li>
+      <li>Always refer to STIS for the latest service information before performing any repairs.</li>
+    </ul><h3>OWNER NOTIFICATION LETTER</h3>
+    
+    <p><span class="clsEmphBOLD">Dear Subaru Owner: </span></p>
+    <p>We would like to thank you for your selection of a Subaru vehicle. We take pride in our products and are committed to your continued satisfaction.</p>
+    <p>Subaru has determined that due to an engine programming issue, your vehicle could stall when coming to a stop or driving at low speed (under 15 mph) when the air conditioning is operating at maximum capacity.</p>
+    <p>You received this notice because our records indicate that you currently own one of these vehicles. In the interest of your continued satisfaction, we would like to provide a FREE software update for your vehicle to avoid any future potential concerns.</p>
+    <p><span class="clsEmphBOLD">DESCRIPTION </span></p>
+    <p>Under certain hot weather conditions, when the vehicle's air conditioning is running at full capacity, the engine programming may not account for the additional load placed on the engine when slowing down or coming to a stop. In some cases, this could cause the engine to stall requiring the driver to immediately restart the vehicle.</p>
+    <p><span class="clsEmphBOLD">REPAIR </span></p>
+    <p>Subaru will reprogram your vehicle's Engine Control Module with an updated software program FREE of charge.</p>
+    <p><span class="clsEmphBOLD">WHAT YOU SHOULD DO </span></p>
+    <p>You should immediately contact your Subaru retailer (dealer) for an appointment to have this update performed.</p>
+    <p><span class="clsEmphBOLD">HOW LONG WILL THE REPAIR TAKE? </span></p>
+    <p>The time to reprogram the ECU is under 30 minutes. However, it may be necessary to leave your vehicle for a longer period of time on the day of your scheduled appointment to allow your Subaru retailer flexibility in scheduling.</p>
+    <p><span class="clsEmphBOLD">CHANGED YOUR ADDRESS OR SOLD YOUR SUBARU? </span></p>
+    <p>If you have moved or sold your vehicle, please complete the enclosed prepaid postcard and mail it to us. Or if you prefer to update this information online, please go to www.subaru.com, select 'Customer Support,' then select 'Address Update' or 'Ownership Update' from the drop down menu.</p>
+    <p><span class="clsEmphBOLD">IF YOU NEED FURTHER ASSISTANCE: </span></p>
+    <p>To locate the nearest Subaru retailer, you can access our website at www.subaru.com and select 'Find a Retailer.'</p>
+    <p>For additional information, please go to: http://www.wtt79.service-campaign.com.</p>
+    <p>If you need additional assistance, please contact us directly:</p>
+    <ul class="BULLET">
+      <li>By e-mail: Go to www.subaru.com and select &quot;Contact Us&quot;</li>
+      <li>By telephone: 1-844-373-6614 Monday through Friday between 8:00 a.m. and 7:00 p.m. ET</li>
+      <li>By U.S. Postal mail: Write us at Subaru of America, Inc. Attn: Customer-Retailer Services Department P.O. Box 9800, Camden, NJ 08103-9800</li>
+    </ul>
+    <p>Please contact us immediately if the Subaru retailer fails or is unable to make the necessary repairs free of charge.</p>
+    <p>Your continued satisfaction with your Subaru is important to us. Please understand that we have taken this action in the interest of your vehicle's proper operation. We sincerely apologize for any inconvenience this matter may cause and urge you to schedule an appointment as soon as possible to have this repair performed.</p>
+    <p>Sincerely,</p>
+    <p>Subaru of America, Inc.</p>
+    <p><span class="clsEmphBOLDITAL">Notice to Lessors: </span><span class="clsEmphITAL">Under Federal law the lessor of a vehicle who receives this letter must provide a copy of it to the vehicle lessee(s) within 10 business days from receipt. The lessor must also keep a record of the lessee(s) to whom this letter is sent, the date sent, and the applicable vehicle identification number (VIN). (For the purposes of this section, a lessor means a person or entity that in the last twelve months prior to the date of this notification has been the owner, as referenced on the vehicle's title, of any five or more leased vehicles. A leased vehicle is a vehicle leased to another person for a term of at least four months.) </span></p>
+    <p><span class="clsEmphITAL">A subsidiary of SUBARU CORPORATION </span></p>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>STARLINK Remote Engine Start (Res) Diagnostic Information (15-282-21R) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/618.html">Technical Service Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html#Starter/">Starter</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31686.html">STARLINK Remote Engine Start (Res) Diagnostic Information (15-282-21R)</a></div><div class="main"><h1>STARLINK Remote Engine Start (Res) Diagnostic Information (15-282-21R)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2023-08-31<br>Reference number: 15-282-21R<br>Supersedes refnos: 15-282-21<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>STARLINK REMOTE ENGINE START (RES) DIAGNOSTIC INFORMATION</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>STARLINK REMOTE ENGINE START (RES) DIAGNOSTIC INFORMATION</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): 15-282-21R, Date of Issue: 
+				August 31, 2023<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>2019-24 All Models</td>
+        </tr>
+      </table>
+    </div><h3>APPLICABILITY</h3>
+    
+    <p>ALL 2019-24MY Vehicles Equipped with Gen2 and Gen3 Telematics</p><h3>INTRODUCTION</h3>
+    
+    <p>This Service Information Bulletin announces additional diagnostic procedures and a detailed flow chart to be used when diagnosing customer concerns regarding the operation of the STARLINK Remote Engine Start (RES) feature.</p>
+    <p>RES is the STARLINK Telematics system's most commonly used remote service, averaging as many as two million requests per month. With this amount of usage utilized by Subaru customers, it is also the number one reason they return to the retailer with Telematics concerns.</p>
+    <p>Due to the system's complexity, a broad view of other systems in the vehicle is required to ensure proper function of the RES feature. This document will aid in the diagnosis and repair of RES concerns. This information is to be used in conjunction with the diagnostic information found on STIS and TechTIPs. Techline and, when required, the assist of RES functionality and/or clarification of testing procedures provided by District Service Quality Managers (DSQMs).</p><h3>SERVICE PROCEDURE/INFORMATION</h3>
+    
+    <p><span class="clsEmphBOLD">USING RES AND RES WITH AUTOMATIC CLIMATE CONTROL ON GASOLINE ENGINE (NON-HYBRID) VEHICLES: </span></p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+          <li>When using RES on a vehicle with automatic climate control (a.k.a. Auto A/C), the interior temperature may not reach the desired setting depending on environmental conditions or air conditioner performance.</li>
+          <li>For remote management of the seat heaters, the vehicle must be equipped with a 3-Mode (low-med-high) seat heater.</li>
+          <li>RES will only operate for 20 minutes before the vehicle shuts off and need a push button start from within the car. (Example: 5 Minutes + 5 Minutes + 10 Minutes = 20 minutes total run time).</li>
+          <li>Any interruption of a RES runtime will start a 5-minute timer requiring 5 minutes to elapse or a manual push button start to occur before another remote RES request can be made.</li>
+          <li>The RES system will always change the vehicle's climate setting when equipped with Auto A/C.</li>
+        </ul></span></div>
+    <p>Customers who describe custom climate settings for use during RES must provide all parameters presented for selection. Failure to obtain the described parameters will result in a failed RES request when selecting the custom setting. Understanding how the customer is making a request and using a predefined climate setting will verify if there is a problem with the customer profile the customer set.</p><h3>ADDITIONAL RES CLIMATE CONTROL INFORMATION</h3>
+    
+    <ul class="BULLET">
+      <li>The default setting for automatic climate control post-RES will always be AUTO. The Auto setting cannot be changed from the MySubaru App or the Customer Web Portal.</li>
+      <li>The only purpose of the &quot;Manual&quot; button on the MySubaru App or Customer Web Portal is to provide the user with more choices for climate customization during RES operation. It does not turn off the FULL AUTO or AUTO lamps on the automatic climate control panel or put the automatic climate control into manual mode.</li>
+      <li>Even if the automatic climate controls are in manual mode upon exiting the vehicle (FULL AUTO and AUTO are not illuminated), using RES with or without climate control modification will return the automatic climate controls to the AUTO mode.</li>
+      <li>In AUTO mode, the air conditioning request signal is controlled automatically by the automatic climate control system's operating parameters.</li>
+      <li>Any modification to climate settings using the MySubaru App or Customer Web Portal will become the current automatic climate control settings upon the next entry into the vehicle.</li>
+    </ul><h3>BEST PRACTICES</h3>
+    
+    <ol class="ARABICNUM">
+      <li>Make every effort to verify the RES concern with the customer at the vehicle write-up. Observe the vehicle behavior in question and document it with pictures or videos if necessary to ensure complete understanding.</li>
+      <li>Most repeat repairs result from failing to fully understand the customer's concern or a failure to verify the condition has been successfully addressed post-repair.</li>
+      <li>Perform a direct test of the customer's concern to confirm the condition as reported. For example, if the customer says there is a RES problem, always verify the trouble while attempting the remote service request.</li>
+      <li>After any repair to the telematics system, the Technicians must thoroughly test and verify operation before releasing the car back to the customer. Unfortunately, the only postreplacement repair verification most often performed is an i-Button push. Pushing the i-Button and connecting with an Operator ONLY confirms the new DCM can access the voice network. A successful i-Button push DOES NOT guarantee the DCM's ability to perform remote service requests.</li>
+    </ol>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Refer to TSB 15-266-20R for testing requirements and procedures.</span></div>
+    <p><span class="clsEmphBOLD">IMPORTANT REMINDER: </span>
+ Voice service (an Operator answering after pressing the i-button) is NOT an indicator of the Telematics system's ability to perform remote service requests. The i-Button push test aims to reach an Operator and confirm VIN and vehicle location information. Pushing the i-Button and canceling the call once the ring-back tone is heard does NOT validate a fully functioning Telematics system.</p><h3>REQUESTING A REMOTE ENGINE START USING THE IBUTTON</h3>
+    
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>CONFIRM the vehicle is outside with an unobstructed view of the sky.</span></div>
+    <ol class="ARABICNUM">
+      <li>It is essential that the testing occurs within 1500 feet of the Subaru Service Center address on record with Subaru of America.<ol class="LOWERALPHA">
+          <li>Please understand that this address may be the showroom street address, not the service center location if both are in multiple places. If a request fails, it would be beneficial to perform the test again closer to the showroom to ensure there is no location discrepancy preventing RES.</li>
+        </ol>
+      </li>
+      <li>Vehicle in Park with parking brake set (EPB on).</li>
+      <li>The ignition is switched to ON with the engine OFF.</li>
+      <li>All doors (and the rear gate/hood) must be closed.</li>
+      <li>Push the i-Button. When the Operator connects:<ol class="LOWERALPHA">
+          <li>Identify as working at a Subaru Retailer, providing your retailer code.</li>
+          <li>Request the Operator confirm the last eight characters of the VIN and the vehicle's location.</li>
+          <li>Request a Remote Engine Start command be sent to the vehicle.</li>
+          <li>There is a two-minute delay until the command will complete.<ol class="LOWERROMAN">
+              <li>Ensure the ignition is switched off.</li>
+              <li>Open the driver's door and exit or close it again to remain in the vehicle for the test completion.</li>
+              <li>Ensure you do not have your foot on the brake pedal if you remain in the vehicle.</li>
+              <li>After two minutes, the horn should honk, and then the engine starts.</li>
+              <li>If the Remote Engine Start fails, continue the diagnosis.</li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>The Telematics system is fully operational if the VIN, Vehicle Location, and Remote Engine Start requests are successful.</li>
+    </ol>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Remote Engine Start operation requires additional vehicle system input for the feature to perform as expected. If the customer's concern is focused on a RES failure, testing, and successful operation, this feature MUST occur with the customer before releasing the vehicle.</span></div>
+    <div id="S23002042312023102600000" class="infoObjPrint"><h4>Additional Information</h4>
+      
+      <p>Also contained in this document is a table of Error Messages which may be experienced while using the MySubaru App or Customer Web Portal. The purpose of this table is to offer what can be done to move past the error. In some cases, due to an interruption in network connectivity or application support infrastructure, there is no way to move past those errors until full operational service has been restored. Other failures due to customer password or account issues instruct the Technician to contact one of the support centers most prepared to handle the customer concern. Due to corporate security policies, some circumstances require a certain amount of time to pass before an account can be unlocked or working through multiple verification steps may be an option. Although these processes can sometimes be confusing and frustrating, they intend to provide the highest level of security for the customer.</p>
+    </div>
+    <div id="S28855047032023102600000" class="infoObjPrint"><h4>The Importance of Park Switch to RES Operation</h4>
+      
+      <p>An often-overlooked essential input for the successful operation of RES is verifying the Park Switch output. The Park Switch must be confirmed in the &quot;park position&quot; by reviewing PIDs within the BIU and KACM. Both the &quot;P SW&quot; PID in the BIU and the &quot;Shift P signal&quot; PID in the KACM must indicate &quot;ON&quot; when the gear selector is in the park position.</p>
+      <p>Any time there is a customer complaint of no start after RES request, technicians must take the time to ensure that the park switch is operating as expected before investigating other possible root cause points of failure.</p>
+      <p>Keyless Access Control Module (KACM)</p><a name="S288550470320231026000001"></a><table cellspacing="0" class="clsArticleTable">
+        <colgroup></colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G16054919">
+                <div class="imageHeader"><a name="S14640974872023102600000"></a></div><img alt="G16054919" src="../images/G16054919.png" name="G16054919"><span class="imageCourtesyNote"></span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>BIU</p><a name="S288550470320231026000001"></a><table cellspacing="0" class="clsArticleTable">
+        <colgroup></colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G16054920">
+                <div class="imageHeader"><a name="S23718880082023102600000"></a></div><img alt="G16054920" src="../images/G16054920.png" name="G16054920"><span class="imageCourtesyNote"></span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="S03990703782023102600000" class="infoObjPrint"><h4>Technician Support</h4>
+      
+      <p>Many systems provide inputs to the telematics system to enable successful Remote Engine Start. Due to the complexity of the repairs and lack of diagnostic tools, there is a high incidence of unnecessary parts replacement. Technicians that are unable to identify a root cause of failure should not replace any components until they review this TSB and their diagnostic findings with Techline or their DSQM.</p>
+      <p>When contacting Techline, please have the detailed testing results from this TSB as well as any SSM4 data containing PIDs from the DCM, KACM, and the BIU.</p>
+      <p><span class="clsEmphBOLD">IMPORTANT REMINDERS: </span></p>
+      <ul class="BULLET">
+        <li>SOA strongly discourages the printing and/or local storage of service information as previously released information and electronic publications may be updated at any time.</li>
+        <li>Always check for any open recalls or campaigns anytime a vehicle is in for servicing.</li>
+        <li>Always refer to STIS for the latest service information before performing any repairs.</li>
+      </ul>
+    </div>
+    <div id="S19533488892023102600000" class="infoObjPrint"><h4>Flow Chart</h4>
+      <a name="S195334888920231026000001"></a><table cellspacing="0" class="clsArticleTable">
+        <colgroup></colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G16054921">
+                <div class="imageHeader"><a name="S12288023672023102600000"></a></div><img alt="G16054921" src="../images/G16054921.png" name="G16054921"><span class="imageCourtesyNote"></span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table><a name="S195334888920231026000001"></a><table cellspacing="0" class="clsArticleTable">
+        <colgroup></colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G16054922">
+                <div class="imageHeader"><a name="S31647114692023102600000"></a></div><img alt="G16054922" src="../images/G16054922.png" name="G16054922"><span class="imageCourtesyNote"></span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table><a name="S195334888920231026000001"></a><table cellspacing="0" class="clsArticleTable">
+        <colgroup></colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G16054923">
+                <div class="imageHeader"><a name="S06242957822023102600000"></a></div><img alt="G16054923" src="../images/G16054923.png" name="G16054923"><span class="imageCourtesyNote"></span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

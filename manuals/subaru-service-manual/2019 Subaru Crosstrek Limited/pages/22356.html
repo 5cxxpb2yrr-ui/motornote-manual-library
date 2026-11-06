@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C1C00: Reservoir Level Switch Circuit Open: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Brakes/">Brakes</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Brakes/Traction%20Control/">Traction Control</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18887.html">Electric Brake Booster System (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18887.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18887.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20C1C00%3A%20Reservoir%20Level%20Switch%20Circuit%20Open/">DTC C1C00: Reservoir Level Switch Circuit Open</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/22356.html">Notes</a></div><div class="main"><h1>DTC C1C00: Reservoir Level Switch Circuit Open: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S40901501482020102700000">
+  
+  <p><span class="clsEmphBOLD">1. - </span></p>
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>Open circuit condition of the fluid level warning switch inside the brake booster assembly (with master cylinder) continues for 2 seconds or more.</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>Regenerative brake cannot be controlled.</li>
+    <li>Brake assist does not operate.</li>
+    <li>EyeSight functions (ACC/PCS) do not operate.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Electronic controlled brake system Ref. to <a href="../pages/16554.html#Electric%20Control%20Brake%20System/">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;ELECTRIC CONTROL BRAKE SYSTEM</a>
+.</p><a name="S409015014820201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13245421">
+            <div class="imageHeader"><a name="S35104083102020102800000"></a></div><img alt="G13245421" src="../images/G13245421.png" name="G13245421"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ol class="ARABICNUM">
+    <li><a name="S27738581052020102800000"></a><span class="clsEmphBOLD">CHECK BRAKE FLUID LEAKAGE. </span><p>Check the brake booster assembly (with master cylinder), brake accumulator assembly, and brake calipers for brake fluid leakage. (Connections, piping)</p>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S32539873652020102800000" location="/api/article/getcontent?articleId=A01114202_S32539873652020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the brake fluid leakage.</p>
+    </li>
+    <li><a name="S32539873652020102800000"></a><span class="clsEmphBOLD">AIR BLEEDING FROM BRAKE SYSTEM. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform the clear memory. Ref. to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Using the Subaru Select Monitor, perform [Air Bleeding from Brake System] under [Brake System Bleeding] in [Work Support]. Ref. to <a href="../pages/18887.html#Work%20Support/">ELECTRIC BRAKE BOOSTER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .</li>
+      </ol>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S16445300122020102800000" location="/api/article/getcontent?articleId=A01114202_S16445300122020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S16445300122020102800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Disconnect the brake stroke sensor connector.</li>
+        <li>Using Subaru Select Monitor, display [Accumulator Pressure] in [Data monitor]. Ref. to <a href="../pages/18887.html#Data%20Monitor/">ELECTRIC BRAKE BOOSTER (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+        <li>Depress the brake pedal several times so that the pump motor operates, then wait until it stops.</li>
+        <li>Wait for 30 seconds from the moment the pump motor stops, then check the amount of [Accumulator Pressure] drop and the condition of the pump motor.</li>
+      </ol>
+      <p>Is the amount of [Accumulator Pressure] drop after 30 seconds less than 2.50 MPa, and does the pump motor fail to start operating within 30 seconds?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S31017028012020102800000" location="/api/article/getcontent?articleId=A01114202_S31017028012020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the brake fluid leakage.</p>
+    </li>
+    <li><a name="S31017028012020102800000"></a><span class="clsEmphBOLD">CHECK CONNECTOR. </span><p>Check the connecting condition of the brake fluid sensor connector.</p>
+      <p>Is there looseness, deformation, or corrosion at the connectors?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair or replace the connector.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S13875506752020102800000" location="/api/article/getcontent?articleId=A01114202_S13875506752020102800000_LSTITM">5</a>.</p>
+    </li>
+    <li><a name="S13875506752020102800000"></a><span class="clsEmphBOLD">CHECK BRAKE FLUID SENSOR. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Connect the brake stroke sensor connector.</li>
+        <li>Disconnect the brake fluid sensor connector.</li>
+        <li>Measure the resistance between brake fluid sensor terminals.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">Terminal </span></p>
+      <p>No. 1 - No. 2:</p>
+      <p>During Switch OFF (Float up) state, is the resistance within 1.84 - 2.16 kΩ range?</p>
+      <p>During Switch ON (Float down) state, is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S07570979142020102800000" location="/api/article/getcontent?articleId=A01114202_S07570979142020102800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the brake booster assembly (with the master cylinder). Ref. to <a href="../pages/15597.html#Brake%20Booster/">BRAKE&gt;BRAKE BOOSTER</a>
+.</p>
+    </li>
+    <li><a name="S07570979142020102800000"></a><span class="clsEmphBOLD">CHECK CONNECTOR. </span><p>Check the connecting condition of the EBB Control Module connector.</p>
+      <p>Is there looseness, deformation, or corrosion at the connectors?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair or replace the connector.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S14146333872020102800000" location="/api/article/getcontent?articleId=A01114202_S14146333872020102800000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S14146333872020102800000"></a><span class="clsEmphBOLD">CHECK EBB Control Module. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Disconnect the EBB Control Module connector.</li>
+        <li>Measure the resistance between EBB Control Module connector and brake fluid sensor connector and chassis ground.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(AD82) No. 23 - (AD83) No. 2: (Resistance: Less than 1 Ω)</p>
+      <p>(AD82) No. 23 - Chassis ground: (Resistance: 10 kΩ or more)</p>
+      <p>(AD83) No. 1 - Chassis ground: (Resistance: Less than 1 Ω)</p>
+      <p>Does the resistance indicate the standard value?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S02698468562020102800000" location="/api/article/getcontent?articleId=A01114202_S02698468562020102800000_LSTITM">8</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the harness.</p>
+    </li>
+    <li><a name="S02698468562020102800000"></a><span class="clsEmphBOLD">CHECK DISC ROTOR. </span><ol class="ARABICNUM">
+        <li>Connect the EBB Control Module connector.</li>
+        <li>Connect the brake fluid sensor connector.</li>
+        <li>Disconnect the brake stroke sensor connector.</li>
+        <li>Repeat driving and braking tests based on result from the interview or freeze frame data.</li>
+      </ol>
+      <p>Does brake pedal vibrate when depressed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Resurface or replace the disc rotor.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S03855604512020102800000" location="/api/article/getcontent?articleId=A01114202_S03855604512020102800000_LSTITM">9</a>.</p>
+    </li>
+    <li><a name="S03855604512020102800000"></a><span class="clsEmphBOLD">CHECK DTC. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Connect the brake stroke sensor connector.</li>
+        <li>Using the Subaru Select Monitor, perform the clear memory. Ref. to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Read the DTC using Subaru Select Monitor. Ref. to <a href="../pages/18887.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ELECTRIC BRAKE BOOSTER (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is DTC C1C00 displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the brake booster assembly (with the master cylinder). Ref. to <a href="../pages/15597.html#Brake%20Booster/">BRAKE&gt;BRAKE BOOSTER</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Currently, it is normal. There may have been a temporary poor contact in the harness and connector or a temporary noise interference.</p>
+    </li>
+  </ol>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

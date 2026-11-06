@@ -1,0 +1,42 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnostic Method — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14039.html">Section 18 (Engine Control System (Diagnostics) (HEV) (2 Of 4))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14039.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure with Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14039.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0400%3A%20EGR%20%22A%22%20Flow/">DTC P0400: EGR &quot;A&quot; Flow</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14039.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0400%3A%20EGR%20%22A%22%20Flow/General%20Description/">General Description</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/28381.html">Diagnostic Method</a></div><div class="main"><h1>Diagnostic Method</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S00254371952020102700000">
+  <p>Measure the pressure values when the enable conditions are established, and perform diagnosis by calculating those results.</p>
+  <ol class="ARABICNUM">
+    <li>Label the intake manifold pressure value as PMOF1, which is observed when the enable conditions are established, and set the EGR target step to 68step(s) (nearly full open).</li>
+    <li>Label the intake manifold pressure value as PMON, which is observed after 1000 ms has passed since EGR target step was set to 68step(s) (when the enable conditions were established), and set the EGR target step to 0.</li>
+    <li>Label the intake manifold pressure as PMOF2, which is observed after 1000 ms has passed since EGR target step was set to 0 (after (1000 ms + 1000 ms) have passed since the enable conditions were established).</li>
+  </ol>
+  <p>Judge as NG when the following conditions are established.</p><a name="S02364759732020102800000"></a><div class="clsTableTitle">JUDGMENT VALUE SPECIFICATION</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+        <th align="center" class="clsCellNormal">Threshold Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">PMON - (PMOF1 + PMOF2)/2</td>
+        <td align="left" class="clsCellNormal">Less than 2.48 kPa (18.6 mmHg, 0.7 inHg)</td>
+      </tr>
+    </tbody>
+  </table><a name="S002543719520201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13237432">
+            <div class="imageHeader"><a name="S33426267012020102800000"></a></div><img alt="G13237432" src="../images/G13237432.png" name="G13237432"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p><span class="clsEmphBOLD">Time needed for diagnosis: </span>
+ 1000 ms x 2</p>
+  <p><span class="clsEmphBOLD">Malfunction indicator light illumination: </span>
+ Illuminates when malfunction occurs in 2 continuous driving cycles.</p>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Reprogramming File Availability For Hard Starting In Sub-Freezing Temperatures, DTC P0400 And Surging In High Altitudes (11-200-20R) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/618.html">Technical Service Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html#Cruise%20Control%20Systems/">Cruise Control Systems</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31510.html">Reprogramming File Availability For Hard Starting In Sub-Freezing Temperatures, DTC P0400 And Surging In High Altitudes (11-200-20R)</a></div><div class="main"><h1>Reprogramming File Availability For Hard Starting In Sub-Freezing Temperatures, DTC P0400 And Surging In High Altitudes (11-200-20R)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2021-02-03<br>Reference number: 11-200-20R<br>Supersedes refnos: 11-200-20<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>REPROGRAMMING FILE AVAILABILITY FOR HARD STARTING IN SUB-FREEZING TEMPERATURES, DTC P0400 AND SURGING IN HIGH ALTITUDES</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>REPROGRAMMING FILE AVAILABILITY FOR HARD STARTING IN SUB-FREEZING TEMPERATURES, DTC P0400 AND SURGING IN HIGH ALTITUDES</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): 11-200-20R, Date of Issue: 
+				February 03, 2021<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>2015-20 Legacy and Outback; 2017-20 Impreza; 2018-20 Crosstrek; 2019-20 Crosstrek Hybrid (PHEV); 2019-20 Forester</td>
+        </tr>
+      </table>
+    </div><h3>APPLICABILITY</h3>
+    
+    <p>2015-20MY Legacy and Outback</p>
+    <p>2017-20MY Impreza</p>
+    <p>2018-20MY Crosstrek</p>
+    <p>2019-20MY Crosstrek Hybrid (PHEV)</p>
+    <p>2019-20MY Forester</p><h3>INTRODUCTION</h3>
+    
+    <p>This bulletin announces the availability of reprogramming files to optimize the Engine Control Module (ECM). The new logic will address customer concerns of:</p>
+    <ul class="BULLET">
+      <li>Hard starting in sub-freezing (below 32 degrees Fahrenheit) conditions: Main Relay contacts may freeze in an &quot;open&quot; condition when turning the engine off after a short trip then attempting to restart.</li>
+      <li>Check Engine light illumination with a DTC P0400 stored in memory: ECM may test the EGR system in error when ambient/intake air temperatures are below freezing.</li>
+      <li>Surging/vibration condition when using the cruise control in high-altitude areas (FORESTER ONLY): Incorrect amount of throttle compensation when EGR is switched on or off.</li>
+    </ul>
+    <p>Operation of the self-shut relay has been changed to minimize the temperature difference inside the relay to prevent condensation/moisture (which may freeze) from occurring. The EGR system parameters have been changed to prevent testing when ambient temperatures do not meet specified criteria. Throttle control software has been optimized to prevent the surging condition.</p><h3>PRODUCTION CHANGE INFORMATION</h3>
+    
+    <p>The new logic was incorporated into production starting with the VINS as listed in the table below:</p><a name="S154339916020200224000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Model</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Starting VIN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Legacy</td>
+          <td valign="TOP" align="center" class="clsCellNormal">L3016625</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Outback</td>
+          <td valign="TOP" align="center" class="clsCellNormal">L3163560</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Impreza 4-Door</td>
+          <td valign="TOP" align="center" class="clsCellNormal">L3609516</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Impreza 5-Door</td>
+          <td valign="TOP" align="center" class="clsCellNormal">L1720389</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Crosstrek</td>
+          <td valign="TOP" align="center" class="clsCellNormal">LH230394</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Forester</td>
+          <td valign="TOP" align="center" class="clsCellNormal">LH506789</td>
+        </tr>
+      </tbody>
+    </table><h3>PACK FILE APPLICABILITY</h3>
+    
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>All the files below are included in the April 2020 SSM software update.</span></div><a name="S181751401820210512000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Model Year, FORESTER</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">PAK File Name</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">New ECM Part Number</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Old ECM Part Numbers</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Decryption Keyword</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">New ECM CID Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY, CAL, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL822.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL822</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL820 &amp; 21</td>
+          <td valign="TOP" align="center" class="clsCellNormal">8A985699</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1F500A</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2020MY, CAL, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN461.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN461</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN460</td>
+          <td valign="TOP" align="center" class="clsCellNormal">09E86955</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1M300a00G</td>
+        </tr>
+      </tbody>
+    </table><a name="S181751401820210512000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Model Year, LEGACY &amp; OUTBACK</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">PAK File Name</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">New ECM Part Number</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Old ECM Part Numbers</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Decryption Keyword</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">New ECM CID Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2015MY, 2.5L FED</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AF35H.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AF35H</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AF35A, B, C, D, E, F &amp; G</td>
+          <td valign="TOP" align="center" class="clsCellNormal">097FFF9A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">EB4GE00B</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2015MY, 2.5L CAL</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AF36H.pak<a class="clsFootnoteLink" href="#S35279537732021051200000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AF36H</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AF36A, B, C, D, E, F &amp; G</td>
+          <td valign="TOP" align="center" class="clsCellNormal">8584EAEC</td>
+          <td valign="TOP" align="center" class="clsCellNormal">EB4GE00C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK16F.pak<a class="clsFootnoteLink" href="#S35279537732021051200000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK16F</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK16A, B, C, D &amp; E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">799C889E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">EB4GE00c</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2015MY, 3.6L FED</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AF45E.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AF45E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AF45A, B, C &amp; D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">164B9740</td>
+          <td valign="TOP" align="center" class="clsCellNormal">DB4GE00D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2016MY, 2.5 CAL</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ14E.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ14E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ14A, B, C &amp; D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">E913C492</td>
+          <td valign="TOP" align="center" class="clsCellNormal">EB4I330C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2016MY, 2.5L FED</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ15E.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ15E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ15A, B, C &amp; D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">2FDB6F85</td>
+          <td valign="TOP" align="center" class="clsCellNormal">EB4I330B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2016MY, 3.6L FED</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ17C.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ17C</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ17A &amp; B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">54B98D9B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">DB4I330D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2017MY, 2.5 CAL</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK48F.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK48F</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK48A, B, C, D &amp; E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">DB5280A2</td>
+          <td valign="TOP" align="center" class="clsCellNormal">EB4I530C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2017MY, 3.6L FED</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK31D.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK31D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK31A, B &amp; C</td>
+          <td valign="TOP" align="center" class="clsCellNormal">15AFB8C6</td>
+          <td valign="TOP" align="center" class="clsCellNormal">DB4I530D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2018MY, 2.5L CAL</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK85C.pak<a class="clsFootnoteLink" href="#S35279537732021051200000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK85C</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK85A &amp; B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">E47AACC1</td>
+          <td valign="TOP" align="center" class="clsCellNormal">EB4T400C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2018MY, 3.6L FED/CAL</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK89B.pak<a class="clsFootnoteLink" href="#S35279537732021051200000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK89B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK89A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">57420773</td>
+          <td valign="TOP" align="center" class="clsCellNormal">DB4T400D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY, 2.5L CAL</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN06B.pak<a class="clsFootnoteLink" href="#S35279537732021051200000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN06B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN06A &amp; B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">84268BD7</td>
+          <td valign="TOP" align="center" class="clsCellNormal">EB4V600C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY, 3.6L FED/CAL</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN11B.pak<a class="clsFootnoteLink" href="#S35279537732021051200000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN11B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN11A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">5DABC6A7</td>
+          <td valign="TOP" align="center" class="clsCellNormal">DB4V600D</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2020MY, 2.5L, CAL</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN20B.pak<a class="clsFootnoteLink" href="#S35279537732021051200000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN20B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN20A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">785362C3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1J300m00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP54B.pak<a class="clsFootnoteLink" href="#S35279537732021051200000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP54B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP54A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">D550925D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1J300n00G</td>
+        </tr>
+        <tr class="clsFootnoteRow">
+          <td colspan="6" valign="TOP" align="left" class="clsCellNormal">
+            <table class="clsFootnoteTable" width="100%">
+              <tr valign="top">
+                <td width="10px"><a name="S35279537732021051200000"><sup>(1)</sup></a></td>
+                <td>Denotes a mid-production running change. For these applications, always choose the applicable reprogramming file based on the ECM's current CID number.</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S181751401820210512000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Model Year, CROSSTREK</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">PAK File Name</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">New ECM Part Number</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Old ECM Part Numbers</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Decryption Keyword</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">New ECM CID Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2018MY, CAL, 6MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ616.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ616</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ610, 11, 12, 13, 14 &amp; 15</td>
+          <td valign="TOP" align="center" class="clsCellNormal">57D5FEEB</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J2C0E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2018MY, CAL, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ626.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ626</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ620, 21, 22, 23, 24 &amp; 25</td>
+          <td valign="TOP" align="center" class="clsCellNormal">E68C3D77</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J2C0F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY, CAL, 6MT W/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM814.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM814</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM810, 11, 12 &amp; 13</td>
+          <td valign="TOP" align="center" class="clsCellNormal">FE2394C0</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3N600E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY, CAL, CVT WO/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM824.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM824</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM820, 21, 22 &amp; 23</td>
+          <td valign="TOP" align="center" class="clsCellNormal">13FBFBAA</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3N600F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2020MY, CAL, 6MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN931.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN931</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN930</td>
+          <td valign="TOP" align="center" class="clsCellNormal">EA61C8CA</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1M300E00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2020MY, CAL, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN951.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN951</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN950</td>
+          <td valign="TOP" align="center" class="clsCellNormal">DA064B0C</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1M300F00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2017-18MY, CAL, MT W/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59J.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59J</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59A, B, C, D, E, F, G &amp; H</td>
+          <td valign="TOP" align="center" class="clsCellNormal">375EE3E7</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J2C0C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2017MY, CAL, CVT W/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60J.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60J</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60A, B, C, D, E, F, G &amp; H</td>
+          <td valign="TOP" align="center" class="clsCellNormal">AEBD0665</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J2COD</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2017-18MY, CAL, MT WO/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK61J.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK61J</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AK61A, B, C, D, E, F, G &amp; H</td>
+          <td valign="TOP" align="center" class="clsCellNormal">245D7FAE</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J2C0A</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2017-18MY, CAL, CVT WO/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71J.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71J</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71A, B, C, D, E, F, G &amp; H</td>
+          <td valign="TOP" align="center" class="clsCellNormal">250AEE3A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3J2C0B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2018MY, CAL, CVT W/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28G.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28G</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28A, B, C, D, E &amp; F</td>
+          <td valign="TOP" align="center" class="clsCellNormal">2EDFFDF3</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3JA00D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY, CAL, MT W/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM64E.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM64E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM64A, B, C &amp; D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">560937AD</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3N600C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY, CAL, MT WO/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM65E.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM65E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM65A, B, C &amp; D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">E0DCCA72</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3N600A</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY, CAL, CVT W/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66E.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66A, B, C &amp; D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">19763752</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3N600D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2019MY, CAL, CVT WO/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67E.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67E</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67A, B, C &amp; D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">5817CB83</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XH3N600B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2020MY, CAL, MT W/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP11B.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP11B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP11A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">66EA658B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1M300C00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2020MY, CAL, MT WO/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP12B.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP12B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP12A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">BA4FC8AA</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1M300A00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2020MY, CAL, CVT W/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP13B.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP13B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP13A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">65AC4429</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1M300D00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2020MY, CAL, CVT WO/AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP14B.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP14B</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP14A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">21F87B2D</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1M300B00G</td>
+        </tr>
+      </tbody>
+    </table><h3>SERVICE PROCEDURE</h3>
+    
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+ Customer satisfaction and retention starts with performing quality repairs.</p>
+    <ul class="BULLET">
+      <li>Reprogram the ECM following the normal FlashWrite procedure.</li>
+    </ul><h3>SERVICE PROCEDURE/INFORMATION</h3>
+    
+    <p>Subaru of America, Inc. (SOA) highly recommends connecting either the Subaru Midtronics DCA-8000 Dynamic Diagnostic Charging System or the Subaru Midtronics GR8-1100 Diagnostic Battery Charger to the vehicle and utilizing the Power Supply Mode feature anytime a vehicle control module is being reprogrammed.</p>
+    <p>Once the Midtronics charger is connected to the vehicle, <span class="clsEmphBOLD">if the battery is fully charged </span>
+, it takes less than three (3) minutes to boot-up the charger, select the Power Supply Mode, and have the battery voltage stabilized and ready for reprogramming.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+          <li>For instructions on using the power supply mode, reference the applicable User Manual for the Midtronics DCA-8000 Dynamic Diagnostic Charging System and the Midtronics GR8-1100 Diagnostic Battery Charger on STIS.</li>
+          <li>Confirm all electrical loads such as lights, audio, HVAC, seat heaters, and rear defroster are all switched <span class="clsEmphBOLD">OFF </span>
+ before setting up the charger for Power Supply Mode.</li>
+          <li>Select the correct battery type (Flooded, EFB, Gel, AGM or AGM Spiral).</li>
+          <li>Input the CCA which matches the vehicle's battery.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>OE and replacement batteries have different CCA ratings. Always confirm the battery's CCA rating before proceeding.</span></div>
+          </li>
+          <li>If using a DCA-8000 Dynamic Diagnostic Charging System, set the power supply voltage to 13.5 volts.</li>
+          <li><span class="clsEmphBOLD">DO NOT </span>
+ connect the DST-i or SDI until the Power Supply mode function has completed its battery test mode and the Charging Voltage has dropped to and shows a steady 13.5 Volts on the display.</li>
+          <li>Once Power Supply Mode reaches a steady 13.5 volts, connect the DST-i or SDI to the OBD connector and proceed with initiating the normal FlashWrite reprogramming process.</li>
+          <li>Amperage will fluctuate based upon the vehicle's demand for power.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If the voltage rises beyond 14V while programming is in process, the procedure will abort. This can indicate a need to test or charge the vehicle battery before any further attempt at programming is made.</span></div>
+          </li>
+        </ul></span></div>
+    <p><span class="clsEmphBOLD">VERY IMPORTANT: </span></p>
+    <p>This information is applicable to the Subaru Midtronics DCA-8000 Dynamic Diagnostic Charging System and the Subaru Midtronics GR8-1100 Diagnostic Battery Charger <span class="clsEmphBOLD">ONLY. </span>
+ It does not apply to any other brand/type of &quot;generic&quot; battery charger whatsoever. <span class="clsEmphBOLD">ONLY </span>
+ the DCA-8000 and the GR8-1100 and their Power Supply Mode feature have been tested and approved by SOA.</p>
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+ If the DCA-8000 or GR8-1100 indicates the vehicle's battery must be charged, charge the battery fully before proceeding to reprogram the vehicle while using the Power Supply Mode.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Control module failures resulting from battery discharge during reprogramming are not a matter for warranty. Should any DTCs reset after the reprogramming update is performed, diagnose per the procedure outlined in the applicable Service Manual.</span></div><h3>WARRANTY/CLAIM INFORMATION</h3>
+    
+    <p>For vehicles within the Basic New Car Limited, an applicable Emission Warranty period or covered by an active Subaru Added Security Classic or Gold plan, this repair may be submitted using the following claim information:</p><a name="S374031098220200324000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Description</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Operation #</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Fail Code</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">MFI OBDII ECM Reprogramming</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A455-288</td>
+          <td valign="TOP" align="center" class="clsCellNormal">UPG-48</td>
+          <td valign="TOP" align="center" class="clsCellNormal">0.4</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="IMPORTANT"><span class="IMPORTANT_label">
+									IMPORTANT:
+								</span><span><span class="clsEmphBOLD">Always </span>
+ note the original Calibration Identification number (CID) the vehicle came in with on the repair order before reprogramming and, make sure to list the <span class="clsEmphBOLD">NEW </span>
+ CID for any newly-installed programming (as confirmed from the actual control module <span class="clsEmphBOLD">AFTER </span>
+ installation). The <span class="clsEmphBOLD">NEW </span>
+ CID <span class="clsEmphBOLD">MUST </span>
+ also be noted on the repair order as this information is required for entry in the Miscellaneous Detail field during claim submission.</span></div>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>The pak file listings provided in this bulletin are the latest available at the time of publishing. Updates are often released thereafter without revision to the original bulletin. For this reason, it is critical to always have the latest version of Select Monitor software installed on your system. You can confirm if a later version is available by entering the CID listed in this bulletin into FlashWrite. If a newer CID is shown as available in FlashWrite, reprogram using that file.</span></div>
+    <p><span class="clsEmphBOLD">IMPORTANT REMINDERS: </span></p>
+    <ul class="BULLET">
+      <li>SOA strongly discourages the printing and/or local storage of service information as previously released information and electronic publications may be updated at any time.</li>
+      <li>Always check for any open recalls or campaigns anytime a vehicle is in for servicing.</li>
+      <li>Always refer to STIS for the latest service information before performing any repairs.</li>
+    </ul>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

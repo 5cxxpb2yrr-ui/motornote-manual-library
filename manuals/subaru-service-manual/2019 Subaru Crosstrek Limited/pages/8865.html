@@ -1,0 +1,186 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnostic Method — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Engine%20Performance/">Engine Performance</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Engine%20Performance/System/">System</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31314.html">Engine Control System (Diagnostics) (Except For HEV) (2 Of 4)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31314.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure with Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31314.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0401%3A%20EGR%20Abnormal%20%28EGR%20Amount%20Too%20Small%29/">DTC P0401: EGR Abnormal (EGR Amount Too Small)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31314.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0401%3A%20EGR%20Abnormal%20%28EGR%20Amount%20Too%20Small%29/General%20Description/">General Description</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/8865.html">Diagnostic Method</a></div><div class="main"><h1>Diagnostic Method</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S08355324552020102700000">
+  <p>The assumed intake manifold pressure (reference pressure) is calculated from engine speed, throttle opening angle and atmospheric pressure when the execution condition is established.</p>
+  <ol class="ARABICNUM">
+    <li>When the execution condition is satisfied and the EGR valve sends the opening command (57 step), EGR under flow rate (P0401) is detected when the difference between the measured intake manifold pressure and the reference pressure (for 57 step) is equal to or more than the judgment value.</li>
+    <li>When the execution condition is satisfied and the EGR valve sends the closing command (0 step), EGR over flow rate (P0402) is detected when the difference between the measured intake manifold pressure and the reference pressure (for 0 step) is equal to or more than the judgment value.</li>
+    <li>Both P0401 and P0402 are detected if both judgment values are exceeded.</li>
+  </ol>
+  <p>If the duration of time while the following conditions are met is longer than the time indicated, judge as NG.</p><a name="S22961501842020102800000"></a><div class="clsTableTitle">JUDGMENT VALUE SPECIFICATION</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+        <th align="center" class="clsCellNormal">Threshold Value</th>
+        <th align="left" class="clsCellNormal">DTC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">&lt;Low flow rate monitor&gt;Intake manifold absolute pressure for reference - Average value of intake manifold absolute pressure</td>
+        <td align="left" class="clsCellNormal">More than value of Map3</td>
+        <td align="left" class="clsCellNormal">P0401</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">&lt;High flow rate monitor&gt;Average value of intake manifold absolute pressure - Intake manifold absolute pressure for reference</td>
+        <td colspan="2" valign="TOP" align="left" class="clsCellNormal">More than value of Map4 P0402</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><span class="clsEmphBOLD">Map3 </span></p><a name="S083553245520201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="center">
+      <col span="1" id="COL3" align="center">
+      <col span="1" id="COL4" align="center">
+      <col span="1" id="COL5" align="center">
+      <col span="1" id="COL6" align="center">
+      <col span="1" id="COL7" align="center">
+      <col span="1" id="COL8" align="center">
+      <col span="1" id="COL9" align="center">
+      <col span="1" id="COL10" align="center">
+      <col span="1" id="COL11" align="center">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th colspan="2" valign="TOP" rowspan="2" align="center" class="clsCellNormal"> </th>
+        <th colspan="9" valign="TOP" align="center" class="clsCellNormal">Engine speed (rpm)</th>
+      </tr>
+      <tr class="clsTblHead">
+        <th valign="TOP" align="center" class="clsCellNormal">1000 rpm</th>
+        <th align="center" class="clsCellNormal">1200 rpm</th>
+        <th align="center" class="clsCellNormal">1400 rpm</th>
+        <th align="center" class="clsCellNormal">1600 rpm</th>
+        <th align="center" class="clsCellNormal">1800 rpm</th>
+        <th align="center" class="clsCellNormal">2000 rpm</th>
+        <th align="center" class="clsCellNormal">2200 rpm</th>
+        <th align="center" class="clsCellNormal">2400 rpm</th>
+        <th align="center" class="clsCellNormal">2600 rpm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Barometric pressure (kPa (mmHg, inHg))</td>
+        <td align="center" class="clsCellNormal">75.1 (563, 22.2 inHg)</td>
+        <td align="center" class="clsCellNormal">32.7 (245, 9.6 inHg)</td>
+        <td align="center" class="clsCellNormal">30 (225, 8.9 inHg)</td>
+        <td align="center" class="clsCellNormal">27.3 (205, 8.1 inHg)</td>
+        <td align="center" class="clsCellNormal">24.7 (185, 7.3 inHg)</td>
+        <td align="center" class="clsCellNormal">22 (165, 6.5 inHg)</td>
+        <td align="center" class="clsCellNormal">20 (150, 5.9 inHg)</td>
+        <td align="center" class="clsCellNormal">18 (135, 5.3 inHg)</td>
+        <td align="center" class="clsCellNormal">16.7 (125, 4.9 inHg)</td>
+        <td align="center" class="clsCellNormal">15.3 (115, 4.5 inHg)</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal"> </td>
+        <td align="center" class="clsCellNormal">86.7 (650, 25.6 inHg)</td>
+        <td align="center" class="clsCellNormal">37.3 (280, 11 inHg)</td>
+        <td align="center" class="clsCellNormal">34.7 (260, 10.2 inHg)</td>
+        <td align="center" class="clsCellNormal">32 (240, 9.4 inHg)</td>
+        <td align="center" class="clsCellNormal">29.3 (220, 8.7 inHg)</td>
+        <td align="center" class="clsCellNormal">26.7 (200, 7.9 inHg)</td>
+        <td align="center" class="clsCellNormal">24 (180, 7.1 in Hg)</td>
+        <td align="center" class="clsCellNormal">21.3 (160, 6.3 inHg)</td>
+        <td align="center" class="clsCellNormal">20 (150, 5.9 inHg)</td>
+        <td align="center" class="clsCellNormal">18.7 (140, 5.5 inHg)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">101.3 (760, 29.9 inHg)</td>
+        <td align="center" class="clsCellNormal">41.3 (310, 12.2 inHg)</td>
+        <td align="center" class="clsCellNormal">38.7 (290, 11.4 inHg)</td>
+        <td align="center" class="clsCellNormal">36 (270, 10.6 inHg)</td>
+        <td align="center" class="clsCellNormal">33.3 (250, 9.8 inHg)</td>
+        <td align="center" class="clsCellNormal">30.7 (230, 9.1 inHg)</td>
+        <td align="center" class="clsCellNormal">28 (210, 8.3 in Hg)</td>
+        <td align="center" class="clsCellNormal">25.3 (190, 7.5 inHg)</td>
+        <td align="center" class="clsCellNormal">24 (180, 7.1 inHg)</td>
+        <td align="center" class="clsCellNormal">22.7 (170, 6.7 inHg)</td>
+      </tr>
+      <tr>
+        <td colspan="11" align="right" class="clsCellNormal">(kPa (mmHg, inHg))</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><span class="clsEmphBOLD">Map4 </span></p><a name="S083553245520201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="center">
+      <col span="1" id="COL3" align="center">
+      <col span="1" id="COL4" align="center">
+      <col span="1" id="COL5" align="center">
+      <col span="1" id="COL6" align="center">
+      <col span="1" id="COL7" align="center">
+      <col span="1" id="COL8" align="center">
+      <col span="1" id="COL9" align="center">
+      <col span="1" id="COL10" align="center">
+      <col span="1" id="COL11" align="center">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th colspan="2" valign="TOP" rowspan="2" align="center" class="clsCellNormal"> </th>
+        <th colspan="9" valign="TOP" align="center" class="clsCellNormal">Engine speed (rpm)</th>
+      </tr>
+      <tr class="clsTblHead">
+        <th valign="TOP" align="center" class="clsCellNormal">1000 rpm</th>
+        <th align="center" class="clsCellNormal">1200 rpm</th>
+        <th align="center" class="clsCellNormal">1400 rpm</th>
+        <th align="center" class="clsCellNormal">1600 rpm</th>
+        <th align="center" class="clsCellNormal">1800 rpm</th>
+        <th align="center" class="clsCellNormal">2000 rpm</th>
+        <th align="center" class="clsCellNormal">2200 rpm</th>
+        <th align="center" class="clsCellNormal">2400 rpm</th>
+        <th align="center" class="clsCellNormal">2600 rpm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Barometric pressure (kPa (mmHg, inHg))</td>
+        <td align="center" class="clsCellNormal">75.1 (563, 22.2 inHg)</td>
+        <td align="center" class="clsCellNormal">15.5 (116, 4.6 inHg)</td>
+        <td align="center" class="clsCellNormal">13.5 (101, 4 inHg)</td>
+        <td align="center" class="clsCellNormal">11.5 (86, 3.4 inHg)</td>
+        <td align="center" class="clsCellNormal">10 (75, 3 inHg)</td>
+        <td align="center" class="clsCellNormal">8.9 (67, 2.6 inHg)</td>
+        <td align="center" class="clsCellNormal">7.9 (59, 2.3 inHg)</td>
+        <td align="center" class="clsCellNormal">7.6 (57, 2.2 inHg)</td>
+        <td align="center" class="clsCellNormal">6.4 (48, 1.9 inHg)</td>
+        <td align="center" class="clsCellNormal">5.1 (38, 1.5 inHg)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">86.7 (650, 25.6 inHg)</td>
+        <td align="center" class="clsCellNormal">16.5 (124, 4.9 inHg)</td>
+        <td align="center" class="clsCellNormal">14.5 (109, 4.3 inHg)</td>
+        <td align="center" class="clsCellNormal">12.5 (94, 3.7 inHg)</td>
+        <td align="center" class="clsCellNormal">11.1 (83, 3.3 inHg)</td>
+        <td align="center" class="clsCellNormal">10 (75, 3 inHg)</td>
+        <td align="center" class="clsCellNormal">8.9 (67, 2.6 inHg)</td>
+        <td align="center" class="clsCellNormal">8.7 (65, 2.6 inHg)</td>
+        <td align="center" class="clsCellNormal">7.5 (56, 2.2 inHg)</td>
+        <td align="center" class="clsCellNormal">6.1 (46, 1.8 inHg)</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">101.3 (760, 29.9 inHg)</td>
+        <td align="" class="clsCellNormal">17.9 (134, 5.3 inHg)</td>
+        <td align="" class="clsCellNormal">15.7 (118, 4.6 inHg)</td>
+        <td align="" class="clsCellNormal">13.7 (103, 4.1 inHg)</td>
+        <td align="" class="clsCellNormal">12.3 (92, 3.6 inHg)</td>
+        <td align="" class="clsCellNormal">11.2 (84, 3.3 inHg)</td>
+        <td align="" class="clsCellNormal">10.1 (76, 3 inHg)</td>
+        <td align="" class="clsCellNormal">9.9 (74, 2.9 inHg)</td>
+        <td align="" class="clsCellNormal">8.7 (65, 2.6 in Hg)</td>
+        <td align="" class="clsCellNormal">7.3 (55, 2.2 inHg)</td>
+      </tr>
+      <tr>
+        <td colspan="11" valign="TOP" align="right" class="clsCellNormal">(kPa (mmHg, inHg))</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><span class="clsEmphBOLD">Time needed for diagnosis: </span>
+ 3200 ms</p>
+  <p><span class="clsEmphBOLD">Malfunction indicator light illumination: </span>
+ Illuminates when malfunction occurs in 2 continuous driving cycles.</p>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

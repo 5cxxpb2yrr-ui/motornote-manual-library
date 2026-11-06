@@ -1,0 +1,362 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Electrical Specification — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18899.html">Section 22 (P-HEV Drive Motor System (Diagnostics))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18899.html#Control%20Module%20I%2FO%20Signal/">Control Module I/O Signal</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/21243.html">Electrical Specification</a></div><div class="main"><h1>Electrical Specification</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S19767105772020102700000">
+  <ul class="BULLET">
+    <li>Inverter with converter assembly</li>
+  </ul>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The connector of Inverter with converter assembly is waterproof, so voltage check and waveform check cannot be performed. Use the voltage and waveform as a reference.</span></div><a name="S197671057720201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13238129">
+            <div class="imageHeader"><a name="S07407998832020102800000"></a></div><img alt="G13238129" src="../images/G13238129.png" name="G13238129"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table><a name="S197671057720201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+      <col span="1" id="COL5" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Terminal No.</th>
+        <th align="left" class="clsCellNormal">Contents</th>
+        <th align="left" class="clsCellNormal">Input/Output</th>
+        <th align="left" class="clsCellNormal">Measuring condition</th>
+        <th align="left" class="clsCellNormal">Standard (V)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV23) No. 1 (+B1) ←→ (HV23) No. 4 (GND1)</td>
+        <td align="left" class="clsCellNormal">MG ECU power supply</td>
+        <td align="left" class="clsCellNormal">Input</td>
+        <td align="left" class="clsCellNormal">IG ON</td>
+        <td align="left" class="clsCellNormal">11 - 14</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV23) No. 2 (IGCT) ←→ (HV23) No. 4 (GND1)</td>
+        <td align="left" class="clsCellNormal">MG ECU power supply</td>
+        <td align="left" class="clsCellNormal">Input</td>
+        <td align="left" class="clsCellNormal">IG ON</td>
+        <td align="left" class="clsCellNormal">11 - 14</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV23) No. 5 (+B2) ←→ (HV23) No. 4 (GND1)</td>
+        <td align="left" class="clsCellNormal">MG ECU power supply</td>
+        <td align="left" class="clsCellNormal">Input</td>
+        <td align="left" class="clsCellNormal">IG ON</td>
+        <td align="left" class="clsCellNormal">11 - 14</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV23) No. 10 (GI) ←→ (HV23) No. 4 (GND1)</td>
+        <td align="left" class="clsCellNormal">Camshaft position signal</td>
+        <td align="left" class="clsCellNormal">Input</td>
+        <td align="left" class="clsCellNormal">READY ON, engine running</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 2)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV23) No. 12 (HSDN) ←→ (HV23) No. 4 (GND1)</td>
+        <td align="left" class="clsCellNormal">MG shutdown signal</td>
+        <td align="left" class="clsCellNormal">Input</td>
+        <td align="left" class="clsCellNormal">READY ON</td>
+        <td align="left" class="clsCellNormal">0 - 1</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV23) No. 20 (HMCH) ←→ (HV23) No. 4 (GND1)</td>
+        <td align="left" class="clsCellNormal">CAN communication signal</td>
+        <td align="left" class="clsCellNormal">Input/Output</td>
+        <td align="left" class="clsCellNormal">IG ON</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 3)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV23) No. 21 (CANH) ←→ (HV23) No. 4 (GND1)</td>
+        <td align="left" class="clsCellNormal">CAN communication signal</td>
+        <td align="left" class="clsCellNormal">Input/Output</td>
+        <td align="left" class="clsCellNormal">IG ON</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 1)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV23) No. 22 (CANL) ←→ (HV23) No. 4 (GND1)</td>
+        <td align="left" class="clsCellNormal">CAN communication signal</td>
+        <td align="left" class="clsCellNormal">Input/Output</td>
+        <td align="left" class="clsCellNormal">IG ON</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 1)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV23) No. 24 (HMCL) ←→ (HV23) No. 4 (GND1)</td>
+        <td align="left" class="clsCellNormal">CAN communication signal</td>
+        <td align="left" class="clsCellNormal">Input/Output</td>
+        <td align="left" class="clsCellNormal">IG ON</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 3)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV24) No. 1 (GSN) ←→ (HV24) No. 5 (GSNG)</td>
+        <td align="left" class="clsCellNormal">Generator resolver signal</td>
+        <td align="left" class="clsCellNormal">Input</td>
+        <td align="left" class="clsCellNormal">When Generator resolver is turning (When Engine not stopped)</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 5)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV24) No. 2 (GRF) ←→ (HV24) No. 8 (GRFG)</td>
+        <td align="left" class="clsCellNormal">Generator resolver signal</td>
+        <td align="left" class="clsCellNormal">Output</td>
+        <td align="left" class="clsCellNormal">When Generator resolver is turning (When Engine not stopped)</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 5)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV24) No. 13 (MCS) ←→ (HV24) No. 10 (MCSG)</td>
+        <td align="left" class="clsCellNormal">Motor resolver signal</td>
+        <td align="left" class="clsCellNormal">Input</td>
+        <td align="left" class="clsCellNormal">When Motor resolver is turning (When the vehicle is driving)</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 4)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV24) No. 3 (MRF) ←→ (HV24) No. 9 (MRFG)</td>
+        <td align="left" class="clsCellNormal">Motor resolver signal</td>
+        <td align="left" class="clsCellNormal">Output</td>
+        <td align="left" class="clsCellNormal">When Motor resolver is turning (When the vehicle is driving)</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 4)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV24) No. 4 (MSN) ←→ (HV24) No. 6 (MSNG)</td>
+        <td align="left" class="clsCellNormal">Motor resolver signal</td>
+        <td align="left" class="clsCellNormal">Input</td>
+        <td align="left" class="clsCellNormal">When Motor resolver is turning (When the vehicle is driving)</td>
+        <td align="left" class="clsCellNormal">Pulse generation (waveform 4)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(HV24) No. 11 (GCS) ←→ (HV24) No. 7 (GCSG)</td>
+        <td align="left" class="clsCellNormal">Generator resolver signal</td>
+        <td align="left" class="clsCellNormal">Input</td>
+        <td align="left" class="clsCellNormal">When Generator resolver is turning (When Engine not stopped)</td>
+        <td align="left" class="clsCellNormal">Pulse generation (Waveform 5)</td>
+      </tr>
+    </tbody>
+  </table>
+  <ol class="LOWERALPHA">
+    <li>Oscilloscope waveform<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Oscilloscope waveform illustrated here is an example for reference. Noise and chattering in waveform are omitted.</span></div>
+      <ol class="LOWERROMAN">
+        <li>Waveform 1 (CAN communication signal)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">
+                  <div class="imageHolder" id="container_G13237885">
+                    <div class="imageHeader"><a name="S29409139962020102800000"></a></div><img alt="G13237885" src="../images/G13237885.png" name="G13237885"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Waveforms vary depending on the communication contents.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Item</th>
+                <th align="left" class="clsCellNormal">Contents</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">Measured terminal</td>
+                <td align="left" class="clsCellNormal">CH1: (HV23) No. 21 (CANH) ←→ (HV23) No. 4 (GND1)<br>CH2: (HV23) No. 22 (CANL) ←→ (HV23) No. 4 (GND1)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Equipment setting</td>
+                <td align="left" class="clsCellNormal">1 V/DIV, 50 μs/DIV</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Measuring condition</td>
+                <td align="left" class="clsCellNormal">IG ON</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Waveform 2 (camshaft position signal)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">
+                  <div class="imageHolder" id="container_G13238131">
+                    <div class="imageHeader"><a name="S41427970562020102800000"></a></div><img alt="G13238131" src="../images/G13238131.png" name="G13238131"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>As the engine speed increases, the cycle becomes shorter.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Item</th>
+                <th align="left" class="clsCellNormal">Contents</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">Measured terminal</td>
+                <td align="left" class="clsCellNormal">(HV23) No. 10 (GI) ←→ (HV23) No. 4 (GND1)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Equipment setting</td>
+                <td align="left" class="clsCellNormal">5 V/DIV, 20 ms/DIV</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Measuring condition</td>
+                <td align="left" class="clsCellNormal">READY ON, engine running</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Waveform 3 (CAN communication signal)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">
+                  <div class="imageHolder" id="container_G13237885">
+                    <div class="imageHeader"><a name="S09304090472020102800000"></a></div><img alt="G13237885" src="../images/G13237885.png" name="G13237885"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Waveforms vary depending on the communication contents.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Item</th>
+                <th align="left" class="clsCellNormal">Contents</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">Measured terminal</td>
+                <td align="left" class="clsCellNormal">CH1: (HV23) No. 24 (HMCL) ←→ (HV23) No. 4 (GND1)<br>CH2: (HV23) No. 20 (HMCH) ←→ (HV23) No. 4 (GND1)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Equipment setting</td>
+                <td align="left" class="clsCellNormal">1 V/DIV, 50 μs/DIV</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Measuring condition</td>
+                <td align="left" class="clsCellNormal">IG ON</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Waveform 4 (Motor resolver signal)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">
+                  <div class="imageHolder" id="container_G13238133">
+                    <div class="imageHeader"><a name="S35619555412020102800000"></a></div><img alt="G13238133" src="../images/G13238133.png" name="G13238133"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>As the rotor speed increases, the length A in the figure becomes shorter.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Item</th>
+                <th align="left" class="clsCellNormal">Contents</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">Measured terminal</td>
+                <td align="left" class="clsCellNormal">CH1: (HV24) No. 3 (MRF) ←→ (HV24) No. 9 (MRFG)<br>CH2: (HV24) No. 4 (MSN) ←→ (HV24) No. 6 (MSNG)<br>CH3: (HV24) No. 13 (MCS) ←→ (HV24) No. 10 (MCSG)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Equipment setting</td>
+                <td align="left" class="clsCellNormal">CH1: 10 V/DIV, 1 ms/DIV<br>CH2: 5 V/DIV, 1 ms/DIV<br>CH3: 5 V/DIV, 1 ms/DIV</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Measuring condition</td>
+                <td align="left" class="clsCellNormal">When Motor resolver is turning (When the vehicle is driving)</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Waveform 5 (Generator resolver signal)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">
+                  <div class="imageHolder" id="container_G13238133">
+                    <div class="imageHeader"><a name="S24535786702020102800000"></a></div><img alt="G13238133" src="../images/G13238133.png" name="G13238133"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>As the rotor speed increases, the length A in the figure becomes shorter.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Item</th>
+                <th align="left" class="clsCellNormal">Contents</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">Measured terminal</td>
+                <td align="left" class="clsCellNormal">CH1: (HV24) No. 2 (GRF) ←→ (HV24) No. 8 (GRFG)<br>CH2: (HV24) No. 1 (GSN) ←→ (HV24) No. 5 (GSNG)<br>CH3: (HV24) No. 11 (GCS) ←→ (HV24) No. 7 (GCSG)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Equipment setting</td>
+                <td align="left" class="clsCellNormal">CH1: 10 V/DIV, 1 ms/DIV<br>CH2: 5 V/DIV, 1 ms/DIV<br>CH3: 5 V/DIV, 1 ms/DIV</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Measuring condition</td>
+                <td align="left" class="clsCellNormal">When Generator resolver is turning (When Engine not stopped)</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

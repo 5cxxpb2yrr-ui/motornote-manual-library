@@ -1,0 +1,1293 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Electrical Specification — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14050.html">Section 29 (P-HEV High Voltage Battery System (Diagnostics - Introduction))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14050.html#Control%20Module%20I%2FO%20Signal/">Control Module I/O Signal</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/26362.html">Electrical Specification</a></div><div class="main"><h1>Electrical Specification</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S22608383822024052900000">
+  <ul class="BULLET">
+    <li>Battery ECU assembly<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Since the Battery ECU assembly is equipped with water-proof connectors, voltage, resistance and waveform cannot be checked. Voltage, resistance and waveform are described for reference.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G13238216">
+                <div class="imageHeader"><a name="S23650549242024052900000"></a></div><img alt="G13238216" src="../images/G13238216.png" name="G13238216"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+          <col span="1" id="COL4" align="left">
+          <col span="1" id="COL5" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="left" class="clsCellNormal">Terminal No.</th>
+            <th align="left" class="clsCellNormal">Contents</th>
+            <th align="left" class="clsCellNormal">Input/Output</th>
+            <th align="left" class="clsCellNormal">Measuring condition</th>
+            <th align="left" class="clsCellNormal">Reference value (V)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 1 (AM00) ←→ (HV42) No. 9 (GND0)</td>
+            <td align="left" class="clsCellNormal">Permanent power supply</td>
+            <td align="left" class="clsCellNormal">Input</td>
+            <td align="left" class="clsCellNormal">Always</td>
+            <td align="left" class="clsCellNormal">11 - 14 V</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 2 (CA2H) ←→ (HV42) No. 9 (GND0)</td>
+            <td align="left" class="clsCellNormal">CAN communication</td>
+            <td align="left" class="clsCellNormal">Input/Output</td>
+            <td align="left" class="clsCellNormal">IG ON</td>
+            <td align="left" class="clsCellNormal">Pulse generation (Waveform 1)</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 3 (CA2L) ←→ (HV42) No. 9 (GND0)</td>
+            <td align="left" class="clsCellNormal">CAN communication</td>
+            <td align="left" class="clsCellNormal">Input/Output</td>
+            <td align="left" class="clsCellNormal">IG ON</td>
+            <td align="left" class="clsCellNormal">Pulse generation (Waveform 1)</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 5 (CA1H) ←→ (HV42) No. 9 (GND0)</td>
+            <td align="left" class="clsCellNormal">CAN communication</td>
+            <td align="left" class="clsCellNormal">Input/Output</td>
+            <td align="left" class="clsCellNormal">IG ON</td>
+            <td align="left" class="clsCellNormal">Pulse generation (Waveform 2)</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 6 (CA1L) ←→ (HV42) No. 9 (GND0)</td>
+            <td align="left" class="clsCellNormal">CAN communication</td>
+            <td align="left" class="clsCellNormal">Input/Output</td>
+            <td align="left" class="clsCellNormal">IG ON</td>
+            <td align="left" class="clsCellNormal">Pulse generation (Waveform 2)</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 9 (GND0) ←→ Chassis ground</td>
+            <td align="left" class="clsCellNormal">Ground</td>
+            <td align="left" class="clsCellNormal">Ground</td>
+            <td align="left" class="clsCellNormal">Always</td>
+            <td align="left" class="clsCellNormal">Less than 1 Ω</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 24 (IGCT) ←→ (HV42) No. 9 (GND0)</td>
+            <td align="left" class="clsCellNormal">Power supply</td>
+            <td align="left" class="clsCellNormal">Input</td>
+            <td align="left" class="clsCellNormal">IG ON</td>
+            <td align="left" class="clsCellNormal">11 - 15.5 V</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 47 (IGC2) ←→ (HV42) No. 9 (GND0)</td>
+            <td align="left" class="clsCellNormal">Power supply</td>
+            <td align="left" class="clsCellNormal">Input</td>
+            <td align="left" class="clsCellNormal">IG ON</td>
+            <td align="left" class="clsCellNormal">11 - 15.5 V</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 29 (GND1) ←→ Chassis ground</td>
+            <td align="left" class="clsCellNormal">Ground</td>
+            <td align="left" class="clsCellNormal">Ground</td>
+            <td align="left" class="clsCellNormal">Always</td>
+            <td align="left" class="clsCellNormal">Less than 1 Ω</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 53 (GND2) ←→ Chassis ground</td>
+            <td align="left" class="clsCellNormal">Ground</td>
+            <td align="left" class="clsCellNormal">Ground</td>
+            <td align="left" class="clsCellNormal">Always</td>
+            <td align="left" class="clsCellNormal">Less than 1 Ω</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">(HV42) No. 48 (ERTH) ←→ Chassis ground</td>
+            <td align="left" class="clsCellNormal">Ground</td>
+            <td align="left" class="clsCellNormal">Ground</td>
+            <td align="left" class="clsCellNormal">Always</td>
+            <td align="left" class="clsCellNormal">Less than 1 Ω</td>
+          </tr>
+          <tr>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(HV42) No. 25 (SI00) ←→ (HV42) No. 9 (GND0)</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Cooling fan command signal 0</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Output</td>
+            <td align="left" class="clsCellNormal">With cooling fan OFF</td>
+            <td align="left" class="clsCellNormal">4.5 - 5.5 V</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">With cooling fan ON</td>
+            <td align="left" class="clsCellNormal">Pulse generation (Waveform 3)</td>
+          </tr>
+          <tr>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(HV42) No. 26 (FP00) ←→ (HV42) No. 9 (GND0)</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Cooling fan monitoring signal 0</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">With cooling fan OFF</td>
+            <td align="" class="clsCellNormal">0 Hz</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">With cooling fan ON</td>
+            <td align="left" class="clsCellNormal">Pulse generation (Waveform 4)</td>
+          </tr>
+          <tr>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(HV42) No. 27 (SI01) ←→ (HV42) No. 9 (GND0)</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Cooling fan command signal 1</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Output</td>
+            <td align="" class="clsCellNormal">With cooling fan OFF</td>
+            <td align="" class="clsCellNormal">4.5 - 5.5 V</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">With cooling fan ON</td>
+            <td align="left" class="clsCellNormal">Pulse generation (Waveform 5)</td>
+          </tr>
+          <tr>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(HV42) No. 4 (FP01) ←→ (HV42) No. 9 (GND0)</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Cooling fan monitoring signal 1</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">With cooling fan OFF</td>
+            <td align="" class="clsCellNormal">0 Hz</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">With cooling fan ON</td>
+            <td align="left" class="clsCellNormal">Pulse generation (Waveform 6)</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 7 (IB00) ←→ (HV42) No. 31 (GIB0)</td>
+            <td align="" class="clsCellNormal">BATTERY CURRENT SENSOR 0</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON</td>
+            <td align="" class="clsCellNormal">Approx. 2.2 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 8 (VIB0) ←→ (HV42) No. 31 (GIB0)</td>
+            <td align="" class="clsCellNormal">BATTERY CURRENT SENSOR power supply</td>
+            <td align="" class="clsCellNormal">Output</td>
+            <td align="" class="clsCellNormal">IG ON</td>
+            <td align="" class="clsCellNormal">4.5 - 5.5 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 30 (IB01) ←→ (HV42) No. 31 (GIB0)</td>
+            <td align="" class="clsCellNormal">BATTERY CURRENT SENSOR 1</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON</td>
+            <td align="" class="clsCellNormal">Approx. 2.2 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 18 (TBH0) ←→ (HV42) No. 63 (GBH0)</td>
+            <td align="" class="clsCellNormal">HV battery heater temperature sensor No. 1</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 64 (TBH1) ←→ (HV42) No. 41 (GBH1)</td>
+            <td align="" class="clsCellNormal">HV battery heater temperature sensor No. 2</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 23 (TJBB) ←→ (HV42) No. 69 (GJBB)</td>
+            <td align="" class="clsCellNormal">HV battery junction block temperature sensor</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON</td>
+            <td align="" class="clsCellNormal">4.9 (-40°C (-40°F)) -0.5 V (140°C (284°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 20 (TJBG) ←→ (HV42) No. 66 (GJBG)</td>
+            <td align="" class="clsCellNormal">HV battery junction block temperature sensor</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON</td>
+            <td align="" class="clsCellNormal">4.9 (-40°C (-40°F)) -0.5 V (140°C (284°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 49 (BHR0) ←→ (HV42) No. 28 (BHRG)</td>
+            <td align="" class="clsCellNormal">HV battery heater relay</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON</td>
+            <td align="" class="clsCellNormal">4.5 - 5.5 V</td>
+          </tr>
+          <tr>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(HV42) No. 50 (CHRP) ←→ (HV42) No. 53 (GND2)</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charge relay signal</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Output</td>
+            <td align="" class="clsCellNormal">At IG ON, with electric vehicle charger cable assembly not connected</td>
+            <td align="" class="clsCellNormal">0 - 1.5 V</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Under plug-in charging</td>
+            <td align="left" class="clsCellNormal">10 - 14 V</td>
+          </tr>
+          <tr>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(HV42) No. 51 (CHRG) ←→ (HV42) No. 53 (GND2)</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charge relay signal</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Output</td>
+            <td align="" class="clsCellNormal">At IG ON, with electric vehicle charger cable assembly not connected</td>
+            <td align="" class="clsCellNormal">0 - 1.5 V</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Under plug-in charging</td>
+            <td align="left" class="clsCellNormal">10 - 14 V</td>
+          </tr>
+          <tr>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(HV42) No. 52 (CHRB) ←→ (HV42) No. 53 (GND2)</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charge relay signal</td>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Output</td>
+            <td align="" class="clsCellNormal">At IG ON, with electric vehicle charger cable assembly not connected</td>
+            <td align="" class="clsCellNormal">0 - 1.5 V</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Under plug-in charging</td>
+            <td align="left" class="clsCellNormal">10 - 14 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 60 (TC00) ←→ (HV42) No. 37 (GC00)</td>
+            <td align="" class="clsCellNormal">HV battery inlet air temperature sensor 0</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, inlet air temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 62 (TC01) ←→ (HV42) No. 61 (GC01)</td>
+            <td align="" class="clsCellNormal">HV battery inlet air temperature sensor 1</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, inlet air temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 17 (TB00) ←→ (HV42) No. 39 (GBA0)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 0</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 40 (TB01) ←→ (HV42) No. 39 (GBA0)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 1</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 16 (TB02) ←→ (HV42) No. 39 (GBA0)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 2</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 15 (TB03) ←→ (HV42) No. 39 (GBA0)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 3</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 38 (TB04) ←→ (HV42) No. 39 (GBA0)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 4</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 14 (TB05) ←→ (HV42) No. 39 (GBA0)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 5</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 36 (TB06) ←→ (HV42) No. 39 (GBA0)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 6</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 13 (TB07) ←→ (HV42) No. 39 (GBA0)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 7</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 12 (TB08) ←→ (HV42) No. 39 (GBA0)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 8</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 58 (TB09) ←→ (HV42) No. 59 (GB9)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 9</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 34 (TB10) ←→ (HV42) No. 35 (GB10)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 10</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 10 (TB11) ←→ (HV42) No. 11 (GB11)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 11</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 56 (TB12) ←→ (HV42) No. 57 (GB12)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 12</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 32 (TB13) ←→ (HV42) No. 33 (GB13)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 13</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV42) No. 54 (TB14) ←→ (HV42) No. 55 (GB14)</td>
+            <td align="" class="clsCellNormal">HV battery temperature sensor 14</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">IG ON, HV battery temperature -40 - 90°C (-40 - 194°F)</td>
+            <td align="" class="clsCellNormal">4.75 (-40°C (-40°F)) -0.46 V (90°C (194°F))</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 1 (GA00) ←→ (HV37) No. 6 (VA01)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 6 (VA01) ←→ (HV37) No. 11 (VA02)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 11 (VA02) ←→ (HV37) No. 16 (VA03)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 16 (VA03) ←→ (HV37) No. 2 (VA04)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 2 (VA04) ←→ (HV37) No. 7 (VA05)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 7 (VA05) ←→ (HV37) No. 12 (VA06)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 12 (VA06) ←→ (HV37) No. 17 (VA07)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 17 (VA07) ←→ (HV37) No. 3 (VA08)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 3 (VA08) ←→ (HV37) No. 8 (VA09)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 8 (VA09) ←→ (HV37) No. 13 (VA10)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 13 (VA10) ←→ (HV37) No. 18 (VA11)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 18 (VA11) ←→ (HV37) No. 4 (VA12)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 4 (VA12) ←→ (HV37) No. 9 (VA13)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 9 (VA13) ←→ (HV37) No. 14 (VA14)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 14 (VA14) ←→ (HV37) No. 19 (VA15)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 19 (VA15) ←→ (HV37) No. 5 (VA16)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 5 (VA16) ←→ (HV37) No. 10 (VA17)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 10 (VA17) ←→ (HV37) No. 15 (VA18)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV37) No. 15 (VA18) ←→ (HV37) No. 20 (VA19)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 1 (GA01) ←→ (HV38) No. 6 (VA20)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 6 (VA20) ←→ (HV38) No. 11 (VA21)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 11 (VA21) ←→ (HV38) No. 16 (VA22)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 16 (VA22) ←→ (HV38) No. 2 (VA23)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 2 (VA23) ←→ (HV38) No. 7 (VA24)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 7 (VA24) ←→ (HV38) No. 12 (VA25)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 12 (VA25) ←→ (HV38) No. 17 (VA26)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 17 (VA26) ←→ (HV38) No. 3 (VA27)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 3 (VA27) ←→ (HV38) No. 8 (VA28)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 8 (VA28) ←→ (HV38) No. 13 (VA29)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 13 (VA29) ←→ (HV38) No. 18 (VA30)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 18 (VA30) ←→ (HV38) No. 4 (VA31)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 4 (VA31) ←→ (HV38) No. 9 (VA32)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 9 (VA32) ←→ (HV38) No. 14 (VA33)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 14 (VA33) ←→ (HV38) No. 19 (VA34)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 19 (VA34) ←→ (HV38) No. 5 (VA35)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 5 (VA35) ←→ (HV38) No. 10 (VA36)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 10 (VA36) ←→ (HV38) No. 15 (VA37)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV38) No. 15 (VA37) ←→ (HV38) No. 20 (VA38)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 1 (GA02) ←→ (HV41) No. 6 (VA39)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 6 (VA39) ←→ (HV41) No. 11 (VA40)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 11 (VA40) ←→ (HV41) No. 16 (VA41)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 16 (VA41) ←→ (HV41) No. 2 (VA42)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 2 (VA42) ←→ (HV41) No. 7 (VA43)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 7 (VA43) ←→ (HV41) No. 12 (VA44)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 12 (VA44) ←→ (HV41) No. 17 (VA45)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 17 (VA45) ←→ (HV41) No. 3 (VA46)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 3 (VA46) ←→ (HV41) No. 8 (VA47)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 8 (VA47) ←→ (HV41) No. 13 (VA48)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 13 (VA48) ←→ (HV41) No. 18 (VA49)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 18 (VA49) ←→ (HV41) No. 4 (VA50)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 4 (VA50) ←→ (HV41) No. 9 (VA51)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 9 (VA51) ←→ (HV41) No. 14 (VA52)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 14 (VA52) ←→ (HV41) No. 19 (VA53)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 19 (VA53) ←→ (HV41) No. 5 (VA54)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 5 (VA54) ←→ (HV41) No. 10 (VA55)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 10 (VA55) ←→ (HV41) No. 15 (VA56)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV41) No. 15 (VA56) ←→ (HV41) No. 20 (VA57)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 1 (GA03) ←→ (HV40) No. 6 (VA58)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 6 (VA58) ←→ (HV40) No. 11 (VA59)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 11 (VA59) ←→ (HV40) No. 16 (VA60)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 16 (VA60) ←→ (HV40) No. 2 (VA61)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 2 (VA61) ←→ (HV40) No. 7 (VA62)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 7 (VA62) ←→ (HV40) No. 12 (VA63)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 12 (VA63) ←→ (HV40) No. 17 (VA64)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 17 (VA64) ←→ (HV40) No. 3 (VA65)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 3 (VA65) ←→ (HV40) No. 8 (VA66)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 8 (VA66) ←→ (HV40) No. 13 (VA67)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 13 (VA67) ←→ (HV40) No. 18 (VA68)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 18 (VA68) ←→ (HV40) No. 4 (VA69)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 4 (VA69) ←→ (HV40) No. 9 (VA70)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 9 (VA70) ←→ (HV40) No. 14 (VA71)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 14 (VA71) ←→ (HV40) No. 19 (VA72)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 19 (VA72) ←→ (HV40) No. 5 (VA73)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 5 (VA73) ←→ (HV40) No. 10 (VA74)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 10 (VA74) ←→ (HV40) No. 15 (VA75)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV40) No. 15 (VA75) ←→ (HV40) No. 20 (VA76)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 1 (GA04) ←→ (HV39) No. 6 (VA77)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 6 (VA77) ←→ (HV39) No. 11 (VA78)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 11 (VA78) ←→ (HV39) No. 16 (VA79)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 16 (VA79) ←→ (HV39) No. 2 (VA80)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 2 (VA80) ←→ (HV39) No. 7 (VA81)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 7 (VA81) ←→ (HV39) No. 12 (VA82)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 12 (VA82) ←→ (HV39) No. 17 (VA83)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 17 (VA83) ←→ (HV39) No. 3 (VA84)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 3 (VA84) ←→ (HV39) No. 8 (VA85)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 8 (VA85) ←→ (HV39) No. 13 (VA86)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 13 (VA86) ←→ (HV39) No. 18 (VA87)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 18 (VA87) ←→ (HV39) No. 4 (VA88)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 4 (VA88) ←→ (HV39) No. 9 (VA89)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 9 (VA89) ←→ (HV39) No. 14 (VA90)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 14 (VA90) ←→ (HV39) No. 19 (VA91)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 19 (VA91) ←→ (HV39) No. 5 (VA92)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 5 (VA92) ←→ (HV39) No. 10 (VA93)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 10 (VA93) ←→ (HV39) No. 15 (VA94)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">(HV39) No. 15 (VA94) ←→ (HV39) No. 20 (VA95)</td>
+            <td align="" class="clsCellNormal">Hybrid battery cell voltage</td>
+            <td align="" class="clsCellNormal">Input</td>
+            <td align="" class="clsCellNormal">Always</td>
+            <td align="" class="clsCellNormal">1.9 V or more, less than 4.1 V</td>
+          </tr>
+        </tbody>
+      </table>
+      <ol class="LOWERALPHA">
+        <li>Oscilloscope waveform<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Oscilloscope waveform illustrated here is an example for reference. Noise and chattering in waveform are omitted.</span></div>
+          <ol class="LOWERROMAN">
+            <li>Waveform 1 (CAN communication signal)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13237885">
+                        <div class="imageHeader"><a name="S38460909992024052900000"></a></div><img alt="G13237885" src="../images/G13237885.png" name="G13237885"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Waveforms vary depending on the communication contents.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="COL1" align="left">
+                  <col span="1" id="COL2" align="left">
+                </colgroup>
+                <thead>
+                  <tr class="clsTblHead">
+                    <th align="left" class="clsCellNormal">Item</th>
+                    <th align="left" class="clsCellNormal">Contents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measured terminal</td>
+                    <td align="left" class="clsCellNormal">CH1: (HV42) No. 2 (CA2H) ←→ (HV42) No. 9 (GND0)<br>CH2: (HV42) No. 3 (CA2L) ←→ (HV42) No. 9 (GND0)</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Equipment setting</td>
+                    <td align="left" class="clsCellNormal">1 V/DIV, 50 μs/DIV</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measuring condition</td>
+                    <td align="left" class="clsCellNormal">IG ON</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>Waveform 2 (CAN communication signal)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13237885">
+                        <div class="imageHeader"><a name="S34131382472024052900000"></a></div><img alt="G13237885" src="../images/G13237885.png" name="G13237885"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Waveforms vary depending on the communication contents.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="COL1" align="left">
+                  <col span="1" id="COL2" align="left">
+                </colgroup>
+                <thead>
+                  <tr class="clsTblHead">
+                    <th align="left" class="clsCellNormal">Item</th>
+                    <th align="left" class="clsCellNormal">Contents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measured terminal</td>
+                    <td align="left" class="clsCellNormal">CH1: (HV42) No. 5 (CA1H) ←→ (HV42) No. 9 (GND0)<br>CH2: (HV42) No. 6 (CA1L) ←→ (HV42) No. 9 (GND0)</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Equipment setting</td>
+                    <td align="left" class="clsCellNormal">1 V/DIV, 50 μs/DIV</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measuring condition</td>
+                    <td align="left" class="clsCellNormal">IG ON</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>Waveform 3 (cooling fan command signal 0)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238219">
+                        <div class="imageHeader"><a name="S41597205302024052900000"></a></div><img alt="G13238219" src="../images/G13238219.png" name="G13238219"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Waveforms vary depending on the communication contents.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="COL1" align="left">
+                  <col span="1" id="COL2" align="left">
+                </colgroup>
+                <thead>
+                  <tr class="clsTblHead">
+                    <th align="left" class="clsCellNormal">Item</th>
+                    <th align="left" class="clsCellNormal">Contents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measured terminal</td>
+                    <td align="left" class="clsCellNormal">(HV42) No. 25 (SI0) ←→ (HV42) No. 9 (GND0)</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Equipment setting</td>
+                    <td align="left" class="clsCellNormal">10 V/DIV, 1 ms/DIV</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measuring condition</td>
+                    <td align="left" class="clsCellNormal">IG ON, during active test</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>Waveform 4 (cooling fan monitoring signal 0)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238220">
+                        <div class="imageHeader"><a name="S27972741092024052900000"></a></div><img alt="G13238220" src="../images/G13238220.png" name="G13238220"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The period of cycle depends on the rotation speed of Battery cooling blower assembly.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="COL1" align="left">
+                  <col span="1" id="COL2" align="left">
+                </colgroup>
+                <thead>
+                  <tr class="clsTblHead">
+                    <th align="left" class="clsCellNormal">Item</th>
+                    <th align="left" class="clsCellNormal">Contents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measured terminal</td>
+                    <td align="left" class="clsCellNormal">(HV42) No. 26 (FP0) ←→ (HV42) No. 9 (GND0)</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Equipment setting</td>
+                    <td align="left" class="clsCellNormal">5 V/DIV, 1 ms/DIV</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measuring condition</td>
+                    <td align="left" class="clsCellNormal">While Battery cooling blower assembly is operating (cooling fan active test in progress)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>Waveform 5 (cooling fan command signal 1)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238219">
+                        <div class="imageHeader"><a name="S00671164472024052900000"></a></div><img alt="G13238219" src="../images/G13238219.png" name="G13238219"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Waveforms vary depending on the communication contents.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="COL1" align="left">
+                  <col span="1" id="COL2" align="left">
+                </colgroup>
+                <thead>
+                  <tr class="clsTblHead">
+                    <th align="left" class="clsCellNormal">Item</th>
+                    <th align="left" class="clsCellNormal">Contents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measured terminal</td>
+                    <td align="left" class="clsCellNormal">(HV42) No. 27 (SI1) ←→ (HV42) No. 9 (GND0)</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Equipment setting</td>
+                    <td align="left" class="clsCellNormal">10 V/DIV, 1 ms/DIV</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measuring condition</td>
+                    <td align="left" class="clsCellNormal">IG ON, during active test</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>Waveform 6 (cooling fan monitoring signal 1)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238220">
+                        <div class="imageHeader"><a name="S20322999252024052900000"></a></div><img alt="G13238220" src="../images/G13238220.png" name="G13238220"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The period of cycle depends on the rotation speed of Battery cooling blower assembly.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="COL1" align="left">
+                  <col span="1" id="COL2" align="left">
+                </colgroup>
+                <thead>
+                  <tr class="clsTblHead">
+                    <th align="left" class="clsCellNormal">Item</th>
+                    <th align="left" class="clsCellNormal">Contents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measured terminal</td>
+                    <td align="left" class="clsCellNormal">(HV42) No. 4 (FP1) ←→ (HV42) No. 9 (GND0)</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Equipment setting</td>
+                    <td align="left" class="clsCellNormal">5 V/DIV, 1 ms/DIV</td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="clsCellNormal">Measuring condition</td>
+                    <td align="left" class="clsCellNormal">While Battery cooling blower assembly is operating (cooling fan active test in progress)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ul>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

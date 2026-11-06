@@ -1,0 +1,371 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>MODE $06 (Request On-Board Monitoring Test Results For Intermittently Monitored Systems) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/">Engine Performance</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/Testing%20%26%20Diagnosis/">Testing &amp; Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14651.html">Engine Control System (Diagnostics) (General) (Except For HEV)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14651.html#General%20Scan%20Tool/">General Scan Tool</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14651.html#General%20Scan%20Tool/Operation/">Operation</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/25604.html">MODE $06 (Request On-Board Monitoring Test Results For Intermittently Monitored Systems)</a></div><div class="main"><h1>MODE $06 (Request On-Board Monitoring Test Results For Intermittently Monitored Systems)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S21649114912020102700000">
+  <p>OPERATION</p>
+  <ol class="ARABICNUM">
+    <li>On [Start] display, select [OBD requirements to which vehicle or engine is certified].</li>
+    <li>On [Main Menu] display, select [Each System].</li>
+    <li>On [Select System] display, select [ECM-Engine Control] and then select [Enter].</li>
+    <li>On [Select Function] display, select [On-board monitor test result].</li>
+  </ol>
+  <p>Refer to diagnostic value of troubleshooting and data of test limit indicated on the support data bit sequence table. A list of the support data is shown in the table 1.</p>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>SUBARU SELECT MONITOR<p>For detailed operation procedures, refer to &quot;Help&quot; of application.</p>
+        </li>
+        <li>General scan tool<p>For detailed operation procedures, refer to the general scan tool operation instructions.</p>
+        </li>
+        <li>Some items are not displayed according to the specifications.</li>
+        <li>List of measurement items for each DTC of &quot;VVT monitor bank 1&quot; and &quot;VVT monitor bank 2&quot;<p>A list of the measurement items is shown in the table 2. (Used to check on-board monitor test results of DTC P000A, P000B, P000C, P000D, P0011, P0014, P0016, P0017, P0018, P0019, P0021 and P0024.)</p>
+        </li>
+      </ul></span></div><a name="S04985216662020102800000"></a><div class="clsTableTitle">DIAGNOSTIC LIST 1</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="center" class="clsCellNormal">OBDMID</th>
+        <th align="center" class="clsCellNormal">TID</th>
+        <th align="center" class="clsCellNormal">SID</th>
+        <th align="center" class="clsCellNormal">Diagnostic item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td valign="TOP" rowspan="12" align="center" class="clsCellNormal">$01</td>
+        <td align="center" class="clsCellNormal">$84</td>
+        <td align="center" class="clsCellNormal">$1E</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">A/F sensor range failure (Bank 1 Sensor 1)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$85</td>
+        <td align="center" class="clsCellNormal">$1E</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$91</td>
+        <td align="center" class="clsCellNormal">$20</td>
+        <td valign="TOP" rowspan="10" align="left" class="clsCellNormal">A/F sensor response failure (Bank 1 Sensor 1)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$92</td>
+        <td align="center" class="clsCellNormal">$10</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$A3</td>
+        <td align="center" class="clsCellNormal">$20</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$A4</td>
+        <td align="center" class="clsCellNormal">$10</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$AC</td>
+        <td align="center" class="clsCellNormal">$10</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$AD</td>
+        <td align="center" class="clsCellNormal">$10</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$AE</td>
+        <td align="center" class="clsCellNormal">$10</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$AF</td>
+        <td align="center" class="clsCellNormal">$10</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$CD</td>
+        <td align="center" class="clsCellNormal">$20</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$CF</td>
+        <td align="center" class="clsCellNormal">$20</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="6" align="center" class="clsCellNormal">$02</td>
+        <td align="center" class="clsCellNormal">$07</td>
+        <td align="center" class="clsCellNormal">$0B</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Oxygen sensor drop failure (Bank 1 Sensor 2)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$08</td>
+        <td align="center" class="clsCellNormal">$0B</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$05</td>
+        <td align="center" class="clsCellNormal">$10</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Oxygen sensor response failure (Bank 1 Sensor 2)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$06</td>
+        <td align="center" class="clsCellNormal">$10</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$D1</td>
+        <td align="center" class="clsCellNormal">$10</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Oxygen sensor delay failure (Bank 1 Sensor 2)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$D2</td>
+        <td align="center" class="clsCellNormal">$10</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$21</td>
+        <td align="center" class="clsCellNormal">$89</td>
+        <td align="center" class="clsCellNormal">$3B</td>
+        <td align="" class="clsCellNormal">Catalyst deterioration diagnosis (Bank 1)</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="center" class="clsCellNormal">$31</td>
+        <td align="center" class="clsCellNormal">$BE</td>
+        <td align="center" class="clsCellNormal">$17</td>
+        <td align="" class="clsCellNormal">EGR system diagnosis (Low flow)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$BF</td>
+        <td align="center" class="clsCellNormal">$17</td>
+        <td align="left" class="clsCellNormal">EGR system diagnosis (High flow)</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="7" align="center" class="clsCellNormal">$35</td>
+        <td align="center" class="clsCellNormal">$8B</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td valign="TOP" rowspan="7" align="left" class="clsCellNormal">VVT monitor bank 1</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8C</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8D</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8E</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$D3</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$D5</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$D6</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="7" align="center" class="clsCellNormal">$36</td>
+        <td align="center" class="clsCellNormal">$8B</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td valign="TOP" rowspan="7" align="left" class="clsCellNormal">VVT monitor bank 2</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8C</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8D</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8E</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$D3</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$D5</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$D6</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="10" align="center" class="clsCellNormal">$3C</td>
+        <td align="center" class="clsCellNormal">$C1</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+        <td valign="TOP" rowspan="10" align="left" class="clsCellNormal">Evaporative emission control system (0.02 inch leak)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$C2</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$C3</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$C4</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$C5</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$C6</td>
+        <td align="center" class="clsCellNormal">$35</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$C7</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$C8</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$C9</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$CA</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$3D</td>
+        <td align="center" class="clsCellNormal">$E2</td>
+        <td align="center" class="clsCellNormal">$FE</td>
+        <td align="" class="clsCellNormal">ELCM purge flow</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$41</td>
+        <td align="center" class="clsCellNormal">$9B</td>
+        <td align="center" class="clsCellNormal">$14</td>
+        <td align="" class="clsCellNormal">A/F sensor heater characteristics failure (Bank 1 Sensor 1)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$42</td>
+        <td align="center" class="clsCellNormal">$E5</td>
+        <td align="center" class="clsCellNormal">$14</td>
+        <td align="" class="clsCellNormal">A/F sensor heater characteristics</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="center" class="clsCellNormal">$A1</td>
+        <td align="center" class="clsCellNormal">$0B</td>
+        <td align="center" class="clsCellNormal">$24</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Misfire monitoring (all cylinders)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$0C</td>
+        <td align="center" class="clsCellNormal">$24</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="center" class="clsCellNormal">$A2</td>
+        <td align="center" class="clsCellNormal">$0B</td>
+        <td align="center" class="clsCellNormal">$24</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Misfire monitoring (#1 cylinder)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$0C</td>
+        <td align="center" class="clsCellNormal">$24</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="center" class="clsCellNormal">$A3</td>
+        <td align="center" class="clsCellNormal">$0B</td>
+        <td align="center" class="clsCellNormal">$24</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Misfire monitoring (#2 cylinder)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$0C</td>
+        <td align="center" class="clsCellNormal">$24</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="center" class="clsCellNormal">$A4</td>
+        <td align="center" class="clsCellNormal">$0B</td>
+        <td align="center" class="clsCellNormal">$24</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Misfire monitoring (#3 cylinder)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$0C</td>
+        <td align="center" class="clsCellNormal">$24</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="center" class="clsCellNormal">$A5</td>
+        <td align="center" class="clsCellNormal">$0B</td>
+        <td align="center" class="clsCellNormal">$24</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Misfire monitoring (#4 cylinder)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$0C</td>
+        <td align="center" class="clsCellNormal">$24</td>
+      </tr>
+    </tbody>
+  </table><a name="S38644203742020102800000"></a><div class="clsTableTitle">DIAGNOSTIC LIST 2</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+      <col span="1" id="COL5" align="left">
+      <col span="1" id="COL6" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="center" class="clsCellNormal">OBDMID</th>
+        <th align="center" class="clsCellNormal">TID</th>
+        <th align="center" class="clsCellNormal">SID</th>
+        <th colspan="3" valign="TOP" align="center" class="clsCellNormal">Diagnostic item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td valign="TOP" rowspan="4" align="center" class="clsCellNormal">$35</td>
+        <td align="center" class="clsCellNormal">$8B</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td align="left" class="clsCellNormal">+</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Intake</td>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">VVT monitor bank 1 (RH)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8C</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8D</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td align="" class="clsCellNormal">+</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Exhaust</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8E</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="4" align="center" class="clsCellNormal">$36</td>
+        <td align="center" class="clsCellNormal">$8B</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td align="" class="clsCellNormal">+</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Intake</td>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">VVT monitor bank 2 (LH)</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8C</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8D</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td align="" class="clsCellNormal">+</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Exhaust</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">$8E</td>
+        <td align="center" class="clsCellNormal">$9D</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C2324: RL Transmitter Status Abnormal — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Suspension/">Suspension</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Suspension/Wheels%20%26%20Tire%20System/">Wheels &amp; Tire System</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/22721.html">Tire Pressure Monitoring System (TPMS) (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/22721.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/22758.html">DTC C2324: RL Transmitter Status Abnormal</a></div><div class="main"><h1>DTC C2324: RL Transmitter Status Abnormal</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S12282369792020102700000">
+  <p>Detected when error data is received from each transmitter at a vehicle speed of 40 km/h (25 MPH) or more.</p>
+  <p><span class="clsEmphBOLD">DTC detecting condition </span>
+:</p>
+  <p>Unexpected function codes received from each transmitter.</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>Tire pressure warning light blinks 25 times and then illuminates.</p>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+        <li>When driving vehicle to perform driving test, there should be always 2 persons (driver and checker) to check.</li>
+        <li>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/22721.html#General%20Description/Caution/">TIRE PRESSURE MONITOR (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S12461493042020102800000"></a><span class="clsEmphBOLD">REPRODUCTION OF FAILURE. </span><ol class="ARABICNUM">
+        <li>Perform the drive test.<p>Drive the vehicle at 40 km/h (25 MPH) or faster for at least 10 minutes.</p>
+        </li>
+        <li>Read the DTC of [Tire Pressure Monitor] using the Subaru Select Monitor. Refer to <a href="../pages/22721.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">TIRE PRESSURE MONITOR (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is DTC displayed as current malfunction?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S04518422322020102800000" location="/api/article/getcontent?articleId=A01114243_S04518422322020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ When DTC is displayed as &quot;Past faults&quot;, the system has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, there may be temporary poor communication due to radio wave environment inside/outside the vehicle.</span></div>
+    </li>
+    <li><a name="S04518422322020102800000"></a><span class="clsEmphBOLD">START FRONT LEFT TRANSMITTER. </span><ol class="ARABICNUM">
+        <li>Connect the Subaru Select Monitor and then turn the ignition switch to ON.</li>
+        <li>Using the Subaru Select Monitor, check [Data monitor] of [Tire Pressure Monitor]. Refer to <a href="../pages/22721.html#Data%20Monitor/">TIRE PRESSURE MONITOR (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+        <li>Use the transmitter registration tool and transmit the ID from the front left transmitter to check [Latest reception ID].</li>
+      </ol>
+      <p>Is [Latest reception ID] updated?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S32353284672020102800000" location="/api/article/getcontent?articleId=A01114243_S32353284672020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the front left transmitter. Refer to <a href="../pages/17267.html#Tire%20Pressure%20Monitoring%20System/">WHEEL AND TIRE SYSTEM&gt;TIRE PRESSURE MONITORING SYSTEM</a>
+.</p>
+    </li>
+    <li><a name="S32353284672020102800000"></a><span class="clsEmphBOLD">CHECK FRONT LEFT TRANSMITTER ID. </span><p>Compare the ID on the latest ID display with [FL Registered ID].</p>
+      <p>Are the two IDs same?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S38092425882020102800000" location="/api/article/getcontent?articleId=A01114243_S38092425882020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Record [Latest reception ID] as the front left. Go to  <a class="clsListItemLink" href="#S38092425882020102800000" location="/api/article/getcontent?articleId=A01114243_S38092425882020102800000_LSTITM">4</a>.</p>
+    </li>
+    <li><a name="S38092425882020102800000"></a><span class="clsEmphBOLD">START FRONT RIGHT TRANSMITTER. </span><p>Use the transmitter registration tool and transmit the ID from the front right transmitter to check</p>
+      <p>[Latest reception ID].</p>
+      <p>Is [Latest reception ID] updated?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S11297916492020102800000" location="/api/article/getcontent?articleId=A01114243_S11297916492020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the front right transmitter. Refer to <a href="../pages/17267.html#Tire%20Pressure%20Monitoring%20System/">WHEEL AND TIRE SYSTEM&gt;TIRE PRESSURE MONITORING SYSTEM</a>
+.</p>
+    </li>
+    <li><a name="S11297916492020102800000"></a><span class="clsEmphBOLD">CHECK FRONT RIGHT TRANSMITTER ID. </span><p>Compare the ID on the latest ID display with [FR Registered ID].</p>
+      <p>Are the two IDs same?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S14851533852020102800000" location="/api/article/getcontent?articleId=A01114243_S14851533852020102800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Record [Latest reception ID] as the front right. Go to  <a class="clsListItemLink" href="#S14851533852020102800000" location="/api/article/getcontent?articleId=A01114243_S14851533852020102800000_LSTITM">6</a>.</p>
+    </li>
+    <li><a name="S14851533852020102800000"></a><span class="clsEmphBOLD">START REAR RIGHT TRANSMITTER. </span><p>Use the transmitter registration tool and transmit the ID from the rear right transmitter to check</p>
+      <p>[Latest reception ID].</p>
+      <p>Is [Latest reception ID] updated?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S31796723252020102800000" location="/api/article/getcontent?articleId=A01114243_S31796723252020102800000_LSTITM">7</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the rear right transmitter. Refer to <a href="../pages/17267.html#Tire%20Pressure%20Monitoring%20System/">WHEEL AND TIRE SYSTEM&gt;TIRE PRESSURE MONITORING SYSTEM</a>
+.</p>
+    </li>
+    <li><a name="S31796723252020102800000"></a><span class="clsEmphBOLD">CHECK REAR RIGHT TRANSMITTER ID. </span><p>Compare the ID on the latest ID display with [RR Registered ID].</p>
+      <p>Are the two IDs same?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S39534145802020102800000" location="/api/article/getcontent?articleId=A01114243_S39534145802020102800000_LSTITM">8</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Record [Latest reception ID] as the rear right. Go to  <a class="clsListItemLink" href="#S39534145802020102800000" location="/api/article/getcontent?articleId=A01114243_S39534145802020102800000_LSTITM">8</a>.</p>
+    </li>
+    <li><a name="S39534145802020102800000"></a><span class="clsEmphBOLD">START REAR LEFT TRANSMITTER. </span><p>Use the transmitter registration tool and transmit the ID from the rear left transmitter to check</p>
+      <p>[Latest reception ID].</p>
+      <p>Is [Latest reception ID] updated?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S15824627512020102800000" location="/api/article/getcontent?articleId=A01114243_S15824627512020102800000_LSTITM">9</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the rear left transmitter. Refer to <a href="../pages/17267.html#Tire%20Pressure%20Monitoring%20System/">WHEEL AND TIRE SYSTEM&gt;TIRE PRESSURE MONITORING SYSTEM</a>
+.</p>
+    </li>
+    <li><a name="S15824627512020102800000"></a><span class="clsEmphBOLD">CHECK REAR LEFT TRANSMITTER ID. </span><p>Compare the ID on the latest ID display with [RL Registered ID].</p>
+      <p>Are the two IDs same?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S17294925982020102800000" location="/api/article/getcontent?articleId=A01114243_S17294925982020102800000_LSTITM">10</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Record [Latest reception ID] as the rear left. Go to  <a class="clsListItemLink" href="#S17294925982020102800000" location="/api/article/getcontent?articleId=A01114243_S17294925982020102800000_LSTITM">10</a>.</p>
+    </li>
+    <li><a name="S17294925982020102800000"></a><span class="clsEmphBOLD">CHECK MALFUNCTION TRANSMITTER. </span><p>Is ID recorded by this procedure?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S21889680032020102800000" location="/api/article/getcontent?articleId=A01114243_S21889680032020102800000_LSTITM">11</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the transmitter indicated by DTC. Refer to <a href="../pages/17267.html#Tire%20Pressure%20Monitoring%20System/">WHEEL AND TIRE SYSTEM&gt;TIRE PRESSURE MONITORING SYSTEM</a>
+.</p>
+    </li>
+    <li><a name="S21889680032020102800000"></a><span class="clsEmphBOLD">CHECK MALFUNCTION TRANSMITTER. </span><p>Check the registered ID of the transmitter indicated by DTC.</p>
+      <p>Is there checked ID in the record?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the transmitter of the recorded position. Refer to <a href="../pages/17267.html#Tire%20Pressure%20Monitoring%20System/">WHEEL AND TIRE SYSTEM&gt;TIRE PRESSURE MONITORING SYSTEM</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the transmitter indicated by DTC. Refer to <a href="../pages/17267.html#Tire%20Pressure%20Monitoring%20System/">WHEEL AND TIRE SYSTEM&gt;TIRE PRESSURE MONITORING SYSTEM</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

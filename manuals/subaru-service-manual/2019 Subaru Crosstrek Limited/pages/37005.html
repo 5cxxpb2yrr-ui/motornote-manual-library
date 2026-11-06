@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>The System Does Not Notify The Center Even If The I-BUTTON Is Pressed Upon Vehicle Malfunction — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Accessories%20%26%20Equipment/">Accessories &amp; Equipment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Accessories%20%26%20Equipment/Entertainment%20Systems/">Entertainment Systems</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31783.html">Telematics System (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31783.html#Diagnostics%20With%20Phenomenon/">Diagnostics With Phenomenon</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31783.html#Diagnostics%20With%20Phenomenon/Inspection/">Inspection</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/37005.html">The System Does Not Notify The Center Even If The I-BUTTON Is Pressed Upon Vehicle Malfunction</a></div><div class="main"><h1>The System Does Not Notify The Center Even If The I-BUTTON Is Pressed Upon Vehicle Malfunction</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S18910235302020102700000">
+  <p><span class="clsEmphBOLD">Probable cause: </span></p>
+  <p>No contract agreement, out of service area, DCM malfunction, antenna malfunction, server side malfunction, i-button malfunction</p>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+        <li>After the DCM is replaced, registrations of CommCheck and immobilizer system are required. Refer to <a href="../pages/16461.html">ENTERTAINMENT &amp; MONITORING&gt;TELEMATICS SYSTEM&gt;OPERATION&gt;REGISTRATION (COMM CHECK)</a>
+.</li>
+        <li>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/16738.html#General%20Description/Caution/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</li>
+      </ul></span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Perform the diagnostics for &quot;Phone conversation is not possible. (The microphone does not respond to a voice. No sound is heard from the speaker.)&quot;. Refer to <a href="../pages/23924.html">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DIAGNOSTICS WITH PHENOMENON&gt;INSPECTION&gt;PHONE CONVERSATION IS NOT POSSIBLE. (THE MICROPHONE DOES NOT RESPOND TO A VOICE. NO SOUND IS HEARD FROM THE SPEAKER.)</a> .</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S23997066192020102800000"></a><span class="clsEmphBOLD">CHECK THE SUBSCRIPTION STATUS. </span><p>Using the Subaru Select Monitor, check the following items in the [Data monitor] of [Telematics]. Refer to <a href="../pages/16738.html#Data%20Monitor/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <ul class="BULLET">
+        <li>ICALL Active</li>
+      </ul>
+      <p>Is the data [TRUE]?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S39341560542020102800000" location="/api/article/getcontent?articleId=A01114283_S39341560542020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ The user does not have a service subscription; therefore, it is not a failure.</p>
+    </li>
+    <li><a name="S39341560542020102800000"></a><span class="clsEmphBOLD">CHECK DTCS. </span><p>Read the DTC of [Telematics] using the Subaru Select Monitor. Refer to <a href="../pages/16738.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Is DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis for the displayed DTCs. Refer to <a href="../pages/16739.html">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S34604602552020102800000" location="/api/article/getcontent?articleId=A01114283_S34604602552020102800000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S34604602552020102800000"></a><span class="clsEmphBOLD">CHECK THE RECEIVED SIGNAL STRENGTH WHEN THE I-BUTTON WAS PRESSED (CHECK THE DATA MONITOR). </span><p>Using the Subaru Select Monitor, check the following items in the [Data monitor] of [Telematics]. Refer to <a href="../pages/16738.html#Data%20Monitor/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <ul class="BULLET">
+        <li>RSSI at SOS/ICALL (1)</li>
+      </ul>
+      <p>Is the data 26% or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S07374771582020102800000" location="/api/article/getcontent?articleId=A01114283_S07374771582020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S23614576502020102800000" location="/api/article/getcontent?articleId=A01114283_S23614576502020102800000_LSTITM">4</a>.</p>
+    </li>
+    <li><a name="S23614576502020102800000"></a><span class="clsEmphBOLD">CHECK THE AT &amp; T CELLULAR COVERAGE AREA. </span><p>Check whether the i-button was pressed within the cellular coverage area.</p>
+      <p>Is the location where the i-button was pressed within the cellular coverage area? (For the cellular coverage area, refer to the AT &amp; T website. The system operates only on 3G and 4G technology.)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S07374771582020102800000" location="/api/article/getcontent?articleId=A01114283_S07374771582020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ The i-button was pressed outside the cellular coverage area.</p>
+    </li>
+    <li><a name="S07374771582020102800000"></a><span class="clsEmphBOLD">CHECK THE COMMUNICATION STATUS OF WHEN THE I-BUTTON WAS PRESSED (CHECK THE DATA MONITOR). </span><p>Using the Subaru Select Monitor, check the following items in the [Data monitor] of [Telematics]. Refer to <a href="../pages/16738.html#Data%20Monitor/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <ul class="BULLET">
+        <li>Call status at SOS/ICALL Event (l)</li>
+      </ul>
+      <p>If the data shows [Call Started] or [Call Connected]; Go to  <a class="clsListItemLink" href="#S37167540702020102800000" location="/api/article/getcontent?articleId=A01114283_S37167540702020102800000_LSTITM">A</a>.</p>
+      <p>If the data shows [Call Not Started]; Go to  <a class="clsListItemLink" href="#S23996381142020102800000" location="/api/article/getcontent?articleId=A01114283_S23996381142020102800000_LSTITM">B</a>.</p>
+      <p>If the data shows [No Network Service]; Go to  <a class="clsListItemLink" href="#S29360365572020102800000" location="/api/article/getcontent?articleId=A01114283_S29360365572020102800000_LSTITM">C</a>.</p>
+      <p>If the data shows [Call Ended by SXM]; Go to  <a class="clsListItemLink" href="#S26782093332020102800000" location="/api/article/getcontent?articleId=A01114283_S26782093332020102800000_LSTITM">D</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S37167540702020102800000"></a>Go to  <a class="clsListItemLink" href="#S00258007212020102800000" location="/api/article/getcontent?articleId=A01114283_S00258007212020102800000_LSTITM">6</a>.</li>
+        <li><a name="S23996381142020102800000"></a>Go to  <a class="clsListItemLink" href="#S35934057472020102800000" location="/api/article/getcontent?articleId=A01114283_S35934057472020102800000_LSTITM">7</a>.</li>
+        <li><a name="S29360365572020102800000"></a>Replace the antenna. Refer to <a href="../pages/16413.html#Antenna/">ENTERTAINMENT &amp; MONITORING&gt;ANTENNA</a>
+.</li>
+        <li><a name="S26782093332020102800000"></a>The connection ended due to a server-side reason; therefore, there is no failure on the vehicle.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S00258007212020102800000"></a><span class="clsEmphBOLD">CHECK THE COMMUNICATION STATUS OF WHEN THE I-BUTTON WAS PRESSED (CHECK THE DATA MONITOR). </span><p>Using the Subaru Select Monitor, check the following items in the [Data monitor] of [Telematics]. Refer to <a href="../pages/16738.html#Data%20Monitor/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <ul class="BULLET">
+        <li>Timestamp at Time of Button Push (1): Date</li>
+        <li>Timestamp at Time of Button Push (1): UTC *UTC is the basis for local times worldwide.</li>
+      </ul>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The time stamp is displayed in the Coordinated Universal Time (UTC), which is different from actual time at each location. Therefore, time difference needs to be corrected for use.<br>Example: [12/22 01:30 in UTC time] is corrected as [12/21 20:30 in New York time].</span></div>
+      <p>Does the time of the i-button operation match with the data?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S35934057472020102800000" location="/api/article/getcontent?articleId=A01114283_S35934057472020102800000_LSTITM">7</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the DCM. Refer to <a href="../pages/16413.html#Data%20Communication%20Module/">ENTERTAINMENT &amp; MONITORING&gt;DATA COMMUNICATION MODULE</a>
+.</p>
+    </li>
+    <li><a name="S35934057472020102800000"></a><span class="clsEmphBOLD">CHECK THE I-BUTTON. </span><p>Check the i-button. Refer to <a href="../pages/16748.html">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DIAGNOSTIC PROCEDURE WITH DIAGNOSTIC TROUBLE CODE (DTC)&gt;DTC B2A09 I-CALL BUTTON CIRCUIT</a> .</p>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the DCM. Refer to <a href="../pages/16466.html">ENTERTAINMENT &amp; MONITORING&gt;DATA COMMUNICATION MODULE&gt;REMOVAL&gt;DATA COMMUNICATION MODULE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the i-button. Refer to <a href="../pages/16413.html#Switches%20and%20Harness/">ENTERTAINMENT &amp; MONITORING&gt;SWITCHES AND HARNESS</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

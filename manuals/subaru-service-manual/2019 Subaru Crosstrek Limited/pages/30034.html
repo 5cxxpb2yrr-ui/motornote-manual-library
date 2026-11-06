@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C1741: Pressure Sensor — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14027.html">Section 6 (Brake Control System (Diagnostics) (HEV))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14027.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/30034.html">DTC C1741: Pressure Sensor</a></div><div class="main"><h1>DTC C1741: Pressure Sensor</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S27034296572020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <ul class="BULLET">
+    <li>A fault is detected if the fluid pressure signal in master cylinder are out of normal range.</li>
+    <li>A fault is detected if the condition that supply voltage for the fluid pressure sensor is out of normal judgment range continues for predetermined time.</li>
+    <li>A fault is detected if the communication status of fluid pressure sensor is abnormal.</li>
+    <li>A fault is detected if the data of fluid pressure sensor is abnormal.</li>
+    <li>A fault is detected if the offset value of fluid pressure sensor signal exceeds a predetermined judgment value.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>VDC does not operate sometimes.</li>
+    <li>ABS does not operate sometimes.</li>
+    <li>Hill hold does not function.</li>
+    <li>EyeSight does not operate.</li>
+  </ul>
+  <ol class="ARABICNUM">
+    <li><a name="S28184620902020102800000"></a><span class="clsEmphBOLD">CHECK STOP LIGHT SWITCH CIRCUIT AND INSTALLATION CONDITION. </span><p>Check the stop light switch circuit and the installation condition.</p>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S40449990182020102800000" location="/api/article/getcontent?articleId=A01114210_S40449990182020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the stop light switch circuit or correct the installation condition.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>If there is malfunction in the stop light circuit, DTC may be recorded in the memory.</span></div>
+    </li>
+    <li><a name="S40449990182020102800000"></a><span class="clsEmphBOLD">CHECK OUTPUT OF PRESSURE SENSOR WITH SUBARU SELECT MONITOR. </span><p>Using Subaru Select Monitor, display [Pressure Sensor Output] of [Data Monitor]. Refer to <a href="../pages/18529.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DATA MONITOR</a> .</p>
+      <p>With the brake pedal released, is the value of [Pressure Sensor] 0 - 11 bar?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S33573482002020102800000" location="/api/article/getcontent?articleId=A01114210_S33573482002020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the VDCCM &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+    </li>
+    <li><a name="S33573482002020102800000"></a><span class="clsEmphBOLD">CHECK OUTPUT OF PRESSURE SENSOR WITH SUBARU SELECT MONITOR. </span><p>Using Subaru Select Monitor, display [Pressure Sensor Output] of [Data Monitor]. Refer to <a href="../pages/18529.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DATA MONITOR</a> .</p>
+      <p>When the brake pedal is operated, does the value of [Pressure Sensor] change in accordance with the brake pedal?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S18077807712020102800000" location="/api/article/getcontent?articleId=A01114210_S18077807712020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the VDCCM &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+    </li>
+    <li><a name="S18077807712020102800000"></a><span class="clsEmphBOLD">CHECK VDCCM &amp; H/U. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform the clear memory. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Execute the inspection mode. Refer to <a href="../pages/18529.html#Inspection%20Mode/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;INSPECTION MODE</a> .</li>
+        <li>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/18529.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is the same DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the VDCCM &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S33297382202020102800000" location="/api/article/getcontent?articleId=A01114210_S33297382202020102800000_LSTITM">5</a>.</p>
+    </li>
+    <li><a name="S33297382202020102800000"></a><span class="clsEmphBOLD">CHECK DETECTION OF OTHER DTCS FOR VDC. </span><p>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/18529.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Is any other DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/18575.html">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Currently, it is normal. There may have been a temporary poor contact in the harness and connector or a temporary noise interference.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C1423: Different Ecu Specifications — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Brakes/">Brakes</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Brakes/Anti-Lock%20Brakes/">Anti-Lock Brakes</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31797.html">Brake Control System (Diagnostics) (Except For HEV)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31797.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure with Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/35946.html">DTC C1423: Different Ecu Specifications</a></div><div class="main"><h1>DTC C1423: Different Ecu Specifications</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S01677704752020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>A fault is detected if the vehicle type information obtained from ECM via communication is different from the parameter setting information.</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>ABS does not operate.</li>
+    <li>VDC does not operate.</li>
+    <li>Hill start assist does not operate.</li>
+    <li>EyeSight does not operate. (Models with EyeSight)</li>
+  </ul>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/17452.html#General%20Description/Caution/">BRAKE CONTROL (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>When parameter selection for VDC Contol Module is improper, this DTC may be memorized.</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S15076668192020102800000"></a><span class="clsEmphBOLD">CHECK VDC CONTOL MODULE &amp; H/U IDENTIFICATION SYMBOL. </span><p>Check the identification symbol attached on the H/U. Refer to <a href="../pages/17389.html">VEHICLE DYNAMICS CONTROL (VDC)&gt;GENERAL DESCRIPTION&gt;SPECIFICATION</a>
+.</p>
+      <p>Is the identification symbol correct?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S00399452272020102800000" location="/api/article/getcontent?articleId=A01114228_S00399452272020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the VDC Contol Module &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+    </li>
+    <li><a name="S00399452272020102800000"></a><span class="clsEmphBOLD">CHECK PARAMETER SELECTED IN VDC CONTOL MODULE. </span><p>Refer to <a href="../pages/17412.html">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)&gt;MAINTENANCE MODE&gt;VDCCM PARAMETER CHECK</a>
+.</p>
+      <p>Does the parameter registered in the VDC Contol Module match the relevant vehicle?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ CVT model: Go to  <a class="clsListItemLink" href="#S15143551062020102800000" location="/api/article/getcontent?articleId=A01114228_S15143551062020102800000_LSTITM">3</a>.</p>
+      <p>MT model: Go to  <a class="clsListItemLink" href="#S26233755152020102800000" location="/api/article/getcontent?articleId=A01114228_S26233755152020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Select and register the correct parameter. Refer to <a href="../pages/17411.html">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)&gt;MAINTENANCE MODE&gt;VDCCM PARAMETER SELECTION.</a></p>
+    </li>
+    <li><a name="S15143551062020102800000"></a><span class="clsEmphBOLD">CHECK TCM SPECIFICATION. </span><p>Check the TCM specification.</p>
+      <p>Is the specification of TCM same as vehicle specification?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S10764445622020102800000" location="/api/article/getcontent?articleId=A01114228_S10764445622020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the TCM. Refer to <a href="../pages/17870.html#Transmission%20Control%20Module%20%28TCM%29/">CONTINUOUSLY VARIABLE TRANSMISSION (TR580)&gt;TRANSMISSION CONTROL MODULE (TCM)</a>
+.</p>
+    </li>
+    <li><a name="S10764445622020102800000"></a><span class="clsEmphBOLD">CHECK CVT SYSTEM. </span><ol class="ARABICNUM">
+        <li>Start the engine.</li>
+        <li>Using the Subaru Select Monitor, read DTC of CVT system. Refer to <a href="../pages/17552.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">TRANSMISSION (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</li>
+      </ol>
+      <p>Is DTC of CVT system displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/17553.html">TRANSMISSION (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S26233755152020102800000" location="/api/article/getcontent?articleId=A01114228_S26233755152020102800000_LSTITM">5</a>.</p>
+    </li>
+    <li><a name="S26233755152020102800000"></a><span class="clsEmphBOLD">CHECK ECM SPECIFICATION. </span><p>Check the ECM specification.</p>
+      <p>Is the specification of ECM same as vehicle specification?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S03745856482020102800000" location="/api/article/getcontent?articleId=A01114228_S03745856482020102800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the ECM. Refer to <a href="../pages/17104.html#Engine%20Control%20Module%20%28ECM%29/">FUEL INJECTION (FUEL SYSTEMS) (H4DO (EXCEPT FOR HEV))&gt;ENGINE CONTROL MODULE (ECM)</a>
+.</p>
+    </li>
+    <li><a name="S03745856482020102800000"></a><span class="clsEmphBOLD">CHECK ENGINE SYSTEM. </span><ol class="ARABICNUM">
+        <li>Start the engine.</li>
+        <li>Read the DTC of engine system using the Subaru Select Monitor. Refer to <a href="../pages/16813.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ENGINE (DIAGNOSTICS) (H4DO (EXCEPT FOR HEV))&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</li>
+      </ol>
+      <p>Is engine system DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/16813.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ENGINE (DIAGNOSTICS) (H4DO (EXCEPT FOR HEV))&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S01831861602020102800000" location="/api/article/getcontent?articleId=A01114228_S01831861602020102800000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S01831861602020102800000"></a><span class="clsEmphBOLD">CHECK VDC CONTOL MODULE &amp; H/U. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform the clear memory. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Execute the inspection mode. Refer to <a href="../pages/17452.html#Inspection%20Mode/">BRAKE CONTROL (DIAGNOSTICS)&gt;INSPECTION MODE</a> .</li>
+        <li>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is the same DTC displayed?</p>
+      <p><span class="clsEmphBOLD">YES: </span>
+ REPLACE THE VDC Contol Module &amp; H/U. REFER TO <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S38381658762020102800000" location="/api/article/getcontent?articleId=A01114228_S38381658762020102800000_LSTITM">8</a>.</p>
+    </li>
+    <li><a name="S38381658762020102800000"></a><span class="clsEmphBOLD">CHECK DETECTION OF OTHER DTCS FOR VDC. </span><p>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Is any other DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/17493.html">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Currently, it is normal. There may have been a temporary poor contact in the harness and connector or a temporary noise interference.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

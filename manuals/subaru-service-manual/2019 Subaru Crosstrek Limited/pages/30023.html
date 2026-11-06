@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C1454: Power Unit Torque Control Inhibit — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14027.html">Section 6 (Brake Control System (Diagnostics) (HEV))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14027.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/30023.html">DTC C1454: Power Unit Torque Control Inhibit</a></div><div class="main"><h1>DTC C1454: Power Unit Torque Control Inhibit</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S01306264062020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>A fault is detected if the torque coordinated control prohibit flag is received from the HEV or electric brake booster.</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>VDC does not operate.</p>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The warning light turns off when the power module torque down control prohibit flag returns to normal.</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S01888570352020102800000"></a><span class="clsEmphBOLD">CHECK VDC control module. </span><ol class="ARABICNUM">
+        <li>Turn READY ON and start the HEV.</li>
+        <li>Display [Power Module Torque Down Control Prohibit Flag] in [Data monitor] using Subaru Select Monitor. Refer to <a href="../pages/18529.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DATA MONITOR</a> .</li>
+      </ol>
+      <p>Is [Power Module Torque Down Control Prohibit Flag] = &quot;1&quot;?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S41297084142020102800000" location="/api/article/getcontent?articleId=A01114210_S41297084142020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S24280572412020102800000" location="/api/article/getcontent?articleId=A01114210_S24280572412020102800000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S24280572412020102800000"></a><span class="clsEmphBOLD">CHECK WARNING LIGHT. </span><p>Check whether the VDC warning light illuminates after driving for 1 minute or more at a speed of 10 km/h (6 MPH) or more.</p>
+      <p>Does the VDC warning light illuminate?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S35725531762020102800000" location="/api/article/getcontent?articleId=A01114210_S35725531762020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ VDC is normal. Clear the memory. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>DTC may be recorded if cranking is performed during driving.</span></div>
+    </li>
+    <li><a name="S35725531762020102800000"></a><span class="clsEmphBOLD">CHECK POOR CONTACT OF CONNECTORS. </span><p>Is there poor contact of hybrid vehicle control ECM connector or electric brake booster connector?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair the connector.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S41297084142020102800000" location="/api/article/getcontent?articleId=A01114210_S41297084142020102800000_LSTITM">4</a>.</p>
+    </li>
+    <li><a name="S41297084142020102800000"></a><span class="clsEmphBOLD">CHECK HYBRID VEHICLE CONTROL ECM DTC. </span><p>Read the DTC of [P-HEV Hybrid Powertrain Control] using the Subaru Select Monitor. Refer to <a href="../pages/16813.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">PHEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Are any DTCs displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/18886.html">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S40979041502020102800000" location="/api/article/getcontent?articleId=A01114210_S40979041502020102800000_LSTITM">5</a>.</p>
+    </li>
+    <li><a name="S40979041502020102800000"></a><span class="clsEmphBOLD">CHECK ELECTRIC BRAKE BOOSTER DTC. </span><p>Read the DTC of [Electric Brake Booster] using the Subaru Select Monitor. Refer to <a href="../pages/18887.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ELECTRIC BRAKE BOOSTER (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Are any DTCs displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/18888.html">ELECTRIC BRAKE BOOSTER (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S01123916082020102800000" location="/api/article/getcontent?articleId=A01114210_S01123916082020102800000_LSTITM">6</a>.</p>
+    </li>
+    <li><a name="S01123916082020102800000"></a><span class="clsEmphBOLD">CHECK VDCCM &amp; H/U. </span><ol class="ARABICNUM">
+        <li>Connect all connectors.</li>
+        <li>Using the Subaru Select Monitor, perform the clear memory. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Execute the inspection mode. Refer to <a href="../pages/18529.html#Inspection%20Mode/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;INSPECTION MODE</a> .</li>
+        <li>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/18529.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is the same DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the VDCCM &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S25110867352020102800000" location="/api/article/getcontent?articleId=A01114210_S25110867352020102800000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S25110867352020102800000"></a><span class="clsEmphBOLD">CHECK DETECTION OF OTHER DTCS FOR VDC. </span><p>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/18529.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Is any other DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/18575.html">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Currently, it is normal. There may have been a temporary poor contact in the harness and connector or a temporary noise interference.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

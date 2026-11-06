@@ -1,0 +1,260 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Vehicle Control History (HV (Charging-Related)) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14034.html">Section 13 (Plug-In Battery Charger (Diagnostics))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14034.html#Work%20Support/">Work Support</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14034.html#Work%20Support/Operation/">Operation</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/29087.html">Vehicle Control History (HV (Charging-Related))</a></div><div class="main"><h1>Vehicle Control History (HV (Charging-Related))</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S32559077062020102700000">
+  <p>The vehicle control history is a function which stores the control data (record data) when triggered by certain designated vehicle behaviors. When no DTC is detected regarding the conditions described by the customer, checking the vehicle control history can serve as reference for a quantified understanding of the interview contents and for carrying out diagnosis.</p>
+  <ol class="ARABICNUM">
+    <li>On [Start] screen, select [Diagnosis].</li>
+    <li>On [Vehicle selection] screen, enter vehicle information and select [OK].</li>
+    <li>On [Main Menu] screen, select [Each System].</li>
+    <li>On [Select System] screen, select [P-HEV Hybrid Powertrain Control].</li>
+    <li>On [Select Function] screen, select [Work Support].</li>
+    <li>On [Work Support] screen, select [Vehicle Ctl. Hist.].</li>
+  </ol><a name="S325590770620201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+      <col span="1" id="COL5" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th valign="TOP" rowspan="2" align="left" class="clsCellNormal">Code</th>
+        <th valign="TOP" rowspan="2" align="left" class="clsCellNormal">Item name</th>
+        <th colspan="3" valign="TOP" align="left" class="clsCellNormal">Storage condition</th>
+      </tr>
+      <tr class="clsTblHead">
+        <th colspan="2" valign="TOP" align="left" class="clsCellNormal"><span class="clsEmphBOLD">Probable cause </span></th>
+        <th align="left" class="clsCellNormal"><span class="clsEmphBOLD">Counter-measure </span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">X055F</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charge Canceled (Hybrid Battery WIN Low))</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">HV battery temperature is too high and SOC is too low when charging completed.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">Drop in SOC at full charge due to extremely hot HV battery</td>
+        <td align="left" class="clsCellNormal">Explain to the customer that SOC at full charge drops if the HV battery is too hot</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">X0561</td>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Charge Canceled (Auxiliary Battery Voltage Low)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">During plug-in charging, HV battery charge power drops and low SOC is detected.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">User</td>
+        <td align="left" class="clsCellNormal">SOC dropped because auxiliary power consumption increased due to the use of accessories or turning the power switch on (IG)</td>
+        <td align="left" class="clsCellNormal">Explain to the customer to minimize auxiliary power consumption during plugin charging</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Discharged Battery (12V)</td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Turn the power switch on (READY) and leave the vehicle for 15 min (to charge the Battery (12V))<p>Explain to the customer that the Battery (12V) will discharge when the vehicle is left without being started for a long time.</p>
+            </li>
+            <li>Inspect Battery (12V)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">X0562</td>
+        <td align="" class="clsCellNormal">Charge Canceled</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">System malfunction is detected if plug-in charging status cannot be switched to start or the Battery (12V) is discharged (including large auxiliary load).</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal"> </td>
+        <td align="" class="clsCellNormal">(Charging System)</td>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Discharged Battery (12V)</td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Turn the power switch on (READY) and leave the vehicle for 15 min (to charge the Battery (12V))<p>Explain to the customer that the Battery (12V) will discharge when the vehicle is left without being started for a long time.</p>
+            </li>
+            <li>Inspect Battery (12V)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="8" align="left" class="clsCellNormal">X0563</td>
+        <td valign="TOP" rowspan="8" align="left" class="clsCellNormal">Charging Finished Early</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Current restriction is released, resulting in increased power available to charge the vehicle and charging is finished early.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">User</td>
+        <td align="left" class="clsCellNormal">Power supply restriction on charging station side was released</td>
+        <td align="left" class="clsCellNormal">Explain to the customer that if the available power to charge the vehicle increases after charging begins, the charging time will decrease.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Charging environment</td>
+        <td align="" class="clsCellNormal">Power supply restricted on charging station side</td>
+        <td align="" class="clsCellNormal">Explain to the customer that the charging current may fluctuate depending on the infrastructure.</td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Plug-in charging was performed under different conditions than normal (somewhere other than home or an area where the ambient temperature changes suddenly).</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">User</td>
+        <td align="" class="clsCellNormal">Plug-in charging was performed at different infrastructure than normal (somewhere other than home or at destination etc.).</td>
+        <td align="" class="clsCellNormal">Explain to the customer that due to differences in infrastructure, the power supply voltage may differ and cause the charging time to vary.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Charging environment</td>
+        <td align="" class="clsCellNormal">Temperature of HV battery c hanged due to ambient temperature changing suddenly</td>
+        <td align="" class="clsCellNormal">Explain to the customer that if the range that the ambient temperature fluctuates is outside of the range that the system predicts, it will be necessary to perform plug-in charging several times until the estimated time until charging is complete will be accurate.</td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">HV battery cooling operation was interrupted.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">User</td>
+        <td align="" class="clsCellNormal">HV battery cooling operation was interrupted due to door being opened, power switch being turned on (IG), etc.</td>
+        <td align="" class="clsCellNormal">Explain to the customer that, as the air conditioning system operates to cool the HV battery before charging begins, if the scheduled time to operate the air conditioning system is short, the charging time may vary.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="19" align="left" class="clsCellNormal">X0564</td>
+        <td valign="TOP" rowspan="19" align="left" class="clsCellNormal">Charge Canceled (Charging Time Overrun)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Current restriction was implemented, resulting in decreased power available to charge the HV battery and the charging time became longer.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">User</td>
+        <td align="left" class="clsCellNormal">Power supply restriction on charging station side was released</td>
+        <td align="left" class="clsCellNormal">Explain to the customer that if the available power to charge the vehicle decreases, the charging time will increase.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Charging environment</td>
+        <td align="" class="clsCellNormal">Power supply restricted on charging station side</td>
+        <td align="" class="clsCellNormal">Explain to the customer that the charging current may fluctuate depending on the infrastructure.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Current restriction occurred due to temperature of charging connector becoming extremely high</td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Check the charging connector and the Charging inlet terminals for damage and deformation.</li>
+            <li>Explain to the customer that if the charging connector is not securely connected, it may overheat.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Plug-in charging was performed under different conditions than normal (somewhere other than home or an area where the ambient temperature changes suddenly).</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">User</td>
+        <td align="" class="clsCellNormal">Plug-in charging was performed at different infrastructure than normal (somewhere other than home or at destination etc.).</td>
+        <td align="" class="clsCellNormal">Explain to the customer that due to differences in infrastructure, the power supply voltage may differ and cause the charging time to vary.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Charging environment</td>
+        <td align="" class="clsCellNormal">Temperature of HV battery c hanged due to ambient temperature changing suddenly</td>
+        <td align="" class="clsCellNormal">Explain to the customer that if the range that the ambient temperature fluctuates is outside of the range that the system predicts, it will be necessary to perform plug-in charging several times until the estimated time until charging is complete will be accurate.</td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Charging power was restricted due to the temperature of the HV battery being high or low.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Charging environment</td>
+        <td align="" class="clsCellNormal">Temperature of HV battery became excessively high or low due to ambient temperature</td>
+        <td align="" class="clsCellNormal">Explain to the customer that when the temperature of the HV battery is excessively high or low, the charging time may increase and the maximum SOC of the HV battery will be lower than normal.</td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Charging power is restricted due to the Electric vehicle charger assembly overheating.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Charging environment</td>
+        <td align="" class="clsCellNormal">Cabin temperature became excessively high due to location vehicle was parked</td>
+        <td align="" class="clsCellNormal">Explain to the customer that if the Electric vehicle charger assembly overheats, an output restriction will cause the charging time to increase.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Electric vehicle charger assembly cooling performance was insufficient</td>
+        <td align="" class="clsCellNormal">Make sure that the charger cooling blower is free of foreign matter.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PFC temperature sensor or VH-DCDC temperature sensor (built into Electric vehicle charger assembly) malfunction (stuck on intermediate high side)</td>
+        <td align="left" class="clsCellNormal">While performing plug-in charging, using the Techstream, read the value of the Data List items &quot;PFC Boosting Circuit Temperature&quot; and &quot;DC/DC Converter Temperature (for Charging)&quot;. If the value of either is more than the following, replace the Electric vehicle charger assembly.<ul class="BULLET">
+            <li>PFC Boosting Circuit Temperature: 134°C (273°F)</li>
+            <li>DC/DC Converter Temperature (for Charging): 129°C (264°F)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">During charging, the voltage dropped due to a problem with the charging method, system power supply or infrastructure.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">User</td>
+        <td align="" class="clsCellNormal">Long extension cord or multi-socket was used to perform charging</td>
+        <td align="" class="clsCellNormal">Recommend the customer not to use a long extension cord or multi-socket and to use a charging cable that meets the standards for plug-in charging.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Charging environment</td>
+        <td align="" class="clsCellNormal">Voltage dropped at electrical outlet</td>
+        <td align="" class="clsCellNormal">Explain to the customer that if the voltage drops due to any of the following the charging time will increase:<ul class="BULLET">
+            <li>A long extension cord is used.</li>
+            <li>A power outage occurs.</li>
+            <li>Several vehicles are being charged at the same time.</li>
+            <li>Power is being supplied by an alternative power source (solar panels, generator, etc.)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">The auxiliary power consumption was high, causing the HV battery charging power to become low.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">User</td>
+        <td align="" class="clsCellNormal">Auxiliary power consumption was high due to use of accessories or power switch being on (IG)</td>
+        <td align="" class="clsCellNormal">Explain to the customer that if the auxiliary power consumption is high, the charging time will increase.<br>(Recommend that they turn off accessories to reduce the electrical load while charging.)</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">As Battery (12V) was discharged, charging power was used to charge Battery (12V)</td>
+        <td align="" class="clsCellNormal">Explain to the customer that if the vehicle is left for a long time, the charge of the Battery (12V) will decrease and additional power will be necessary to charge the Battery (12V).</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">X0565</td>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">Ready ON Operation when Charging Connector Connected</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">When a charging connector is judged to be connected to the charger inlet, the user operated the power switch.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">User</td>
+        <td align="left" class="clsCellNormal">Charging connector connected</td>
+        <td align="left" class="clsCellNormal">Interview customer and provide instruction on usage. Explain to the customer that if a charging connector is judged to be connected to the charger inlet, a safety feature will prevent the power switch from being turned on (READY).</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">PISW circuit malfunction (open/short)</td>
+        <td align="" class="clsCellNormal">Check PISW signal circuit. Ref. to <a href="../pages/14305.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0D56-11%3A%20Charging%20Connector%20Proximity%20Detection%20Circuit%20Short%20To%20Ground/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DIAGNOSTIC PROCEDURE WITH DIAGNOSTIC TROUBLE CODE (DTC)&gt;DTC P0D5611 CHARGING CONNECTOR PROXIMITY DETECTION CIRCUIT SHORT TO GROUND</a> . Ref. to <a href="../pages/14305.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0D56-15%3A%20Charging%20Connector%20Proximity%20Detection%20Circuit%20Short%20To%20Auxiliary%20Battery%20Or%20Open/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DIAGNOSTIC PROCEDURE WITH DIAGNOSTIC TROUBLE CODE (DTC)&gt;DTC P0D5615 CHARGING CONNECTOR PROXIMITY DETECTION CIRCUIT SHORT TO AUXILIARY BATTERY OR OPEN</a> .</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CPLT (control pilot signal) circuit malfunction (open/short)</td>
+        <td align="left" class="clsCellNormal">Check Control Pilot Signal Circuit. Ref. to <a href="../pages/14625.html">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DIAGNOSTICS WITH PHENOMENON&gt;INSPECTION&gt;CPLT SIGNAL SYSTEM</a> .</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">X0566</td>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">Driving Force Suppression when Charging Connector Connected</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">When the power switch is on (READY) and the vehicle is stopped, a charging connector is judged to be connected to the charger inlet.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>A charging connector will also be judged to be connected if any of the following conditions are met:<ul class="BULLET">
+                <li>A charging connector which is not being supplied power is connected to the charger inlet.</li>
+                <li>The CPLT signal is oscillating even though no charging connector is connected to the charger inlet.</li>
+              </ul></span></div>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">User</td>
+        <td align="left" class="clsCellNormal">Charging connector connected</td>
+        <td align="left" class="clsCellNormal">Interview customer and provide instruction on usage. Explain to the customer that if a charging connector is judged to be connected to the charger inlet when the power switch is on (READY) and the vehicle is stopped, driving torque will be restricted for safety.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">PISW circuit malfunction (open/short)</td>
+        <td align="" class="clsCellNormal">Check PISW signal circuit. Ref. to <a href="../pages/14305.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0D56-11%3A%20Charging%20Connector%20Proximity%20Detection%20Circuit%20Short%20To%20Ground/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DIAGNOSTIC PROCEDURE WITH DIAGNOSTIC TROUBLE CODE (DTC)&gt;DTC P0D5611 CHARGING CONNECTOR PROXIMITY DETECTION CIRCUIT SHORT TO GROUND</a> . Ref. to <a href="../pages/14305.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0D56-15%3A%20Charging%20Connector%20Proximity%20Detection%20Circuit%20Short%20To%20Auxiliary%20Battery%20Or%20Open/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DIAGNOSTIC PROCEDURE WITH DIAGNOSTIC TROUBLE CODE (DTC)&gt;DTC P0D5615 CHARGING CONNECTOR PROXIMITY DETECTION CIRCUIT SHORT TO AUXILIARY BATTERY OR OPEN</a> .</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CPLT (control pilot signal) circuit malfunction (open/short)</td>
+        <td align="left" class="clsCellNormal">Check Control Pilot Signal Circuit. Ref. to <a href="../pages/14625.html">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DIAGNOSTICS WITH PHENOMENON&gt;INSPECTION&gt;CPLT SIGNAL SYSTEM</a> .</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

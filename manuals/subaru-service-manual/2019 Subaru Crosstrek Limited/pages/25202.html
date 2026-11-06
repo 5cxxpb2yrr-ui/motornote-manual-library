@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnostic Procedure for Subaru Select Monitor Communication: Inspection — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/15562.html">Section 10 (SUBARU Eyesight System (Driver Assist) (Diagnostics) (HEV))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/15562.html#Diagnostic%20Procedure%20for%20Subaru%20Select%20Monitor%20Communication/">Diagnostic Procedure for Subaru Select Monitor Communication</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/25202.html">Inspection</a></div><div class="main"><h1>Diagnostic Procedure for Subaru Select Monitor Communication: Inspection</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S16122402612020102700000">
+  <p>Communication error with stereo camera</p>
+  <p><span class="clsEmphBOLD">Detecting condition: </span></p>
+  <ul class="BULLET">
+    <li>Defective connector</li>
+    <li>Power supply circuit malfunction</li>
+    <li>Defective stereo camera</li>
+    <li>Defective CAN system</li>
+    <li>Defective Subaru Select Monitor</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>EyeSight warning light blinks.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>CAN communication system Refer to <a href="../pages/16575.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;CAN COMMUNICATION SYSTEM&gt;WIRING DIAGRAM</a>
+.</p>
+  <p>EyeSight system Refer to <a href="../pages/16584.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;EYESIGHT SYSTEM&gt;WIRING DIAGRAM</a>
+.</p><a name="S161224026120201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13245761">
+            <div class="imageHeader"><a name="S41203507142020102800000"></a></div><img alt="G13245761" src="../images/G13245761.png" name="G13245761"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/15562.html#General%20Description/Caution/">EYESIGHT (DIAGNOSTICS) (HEV)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S21372768662020102800000"></a><span class="clsEmphBOLD">CHECK SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Connect the Subaru Select Monitor to another vehicle.</li>
+        <li>Check communication condition between Subaru Select Monitor and vehicle.</li>
+      </ol>
+      <p>Is communication performed normally?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S00720642722020102800000" location="/api/article/getcontent?articleId=A01114231_S00720642722020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Subaru Select Monitor unit or diagnosis cable is faulty.</p>
+    </li>
+    <li><a name="S00720642722020102800000"></a><span class="clsEmphBOLD">CHECK COMMUNICATION FOR INITIALIZING ERROR. </span><p>Perform the communication for initializing with each module by connecting the Subaru Select Monitor. (For systems whose module can communicate with diagnostic devices)</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>By performing [CAN bus check], confirmation of minimal connection modules is possible. Refer to <a href="../pages/15957.html#CAN%20Bus%20Check/">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;CAN BUS CHECK</a>
+.</span></div>
+      <p>Is the communication possible with all modules?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ The circuit has returned to a normal condition at this time.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ When the communication fails with all modules, Go to  <a class="clsListItemLink" href="#S08147881262020102800000" location="/api/article/getcontent?articleId=A01114231_S08147881262020102800000_LSTITM">3</a>.</p>
+      <p>When the communication fails with particular module only, perform the inspection using the check sheet of communication for initializing. Refer to <a href="../pages/16775.html">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC PROCEDURE FOR SUBARU SELECT MONITOR COMMUNICATION&gt;INSPECTION&gt;CHECK USING THE CHECK SHEET OF COMMUNICATION FOR INITIALIZING</a></p>
+    </li>
+    <li><a name="S08147881262020102800000"></a><span class="clsEmphBOLD">CHECK DATA LINK CONNECTOR (OPEN CIRCUIT). </span><p>Use a tester to check for continuity in the ground circuit.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(i288) No. 4 - Chassis ground:</p>
+      <p>(i288) No. 5 - (B134) No. 50:</p>
+      <p>Is there continuity?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S10190210572020102800000" location="/api/article/getcontent?articleId=A01114231_S10190210572020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the open circuit.</p>
+    </li>
+    <li><a name="S10190210572020102800000"></a><span class="clsEmphBOLD">CHECK SUBARU SELECT MONITOR COMMUNICATION. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to ON.</li>
+        <li>Using a tester, check the power supply of data link connector.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i288) No. 8 (+) - Chassis ground (-):</p>
+          <p>(i288) No. 16 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage 10 V or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ The circuit has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check the power supply circuits to the data link connector. (Including the fuses)</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

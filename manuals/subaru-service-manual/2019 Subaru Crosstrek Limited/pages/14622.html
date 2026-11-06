@@ -1,0 +1,428 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Timer Charging Does Not Start At The Set Time — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html">Section 13 (Plug-In Battery Charger (Diagnostics))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html#Diagnostics%20With%20Phenomenon/">Diagnostics With Phenomenon</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html#Diagnostics%20With%20Phenomenon/Inspection/">Inspection</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14622.html">Timer Charging Does Not Start At The Set Time</a></div><div class="main"><h1>Timer Charging Does Not Start At The Set Time</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S08097914642020102700000">
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14305.html#General%20Description/Caution/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S12976639972020102700000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Using the Subaru Select Monitor, read all DTCs. Refer to <a href="../pages/14638.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">COMMON (diag)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Are any DTCs displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis for the displayed DTCs.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S07417849952020102700000" location="/api/article/getcontent?articleId=A01114254_S07417849952020102700000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S07417849952020102700000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [Plug-in Battery Charger]. Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Check the vehicle control history.</li>
+      </ol>
+      <p>Is the vehicle control history displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to the vehicle control history.</p>
+      <ul class="BULLET">
+        <li>Plug-in Battery Chargers Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .</li>
+        <li>P-HEV Hybrid Powertrain Controls Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.</li>
+      </ul>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S25216308882020102700000" location="/api/article/getcontent?articleId=A01114254_S25216308882020102700000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S25216308882020102700000"></a><span class="clsEmphBOLD">REPRODUCTION TEST (TIMERSETTING). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Perform charging with an AC power supply that was confirmed to operate normally.</li>
+            <li>Select an AC power supply (120 V or 240 V) that is the same as the power supply used by the customer.</li>
+          </ul></span></div>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>When setting the timer, set a charging start time that is at least 5 minutes ahead of the current time.<br>When setting a departure time, set a time after considering the current HV battery SOC.<br>Procedure for setting timer charging:<br>Select the MFD &quot;Settings screen&quot; → &quot;Charge settings&quot; → &quot;Charge timer settings&quot; to display the change screen, then configure the timer charging settings.<br>Timer charging activates according to the set date (year, month, day) and MFD time.</span></div>
+      <ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform all memory clear. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [Plug-in Battery Charger]. Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Using the Subaru Select Monitor, clear all memory of [Vehicle Ctl. Hist.]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Using the Subaru Select Monitor, clear all memory of [Vehicle Ctl. Hist.]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Data Monitor] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Data%20Monitor/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a>
+.<ul class="BULLET">
+            <li>Hybrid Battery SOC</li>
+          </ul>
+        </li>
+        <li>Read the data monitor, and check that the HV battery SOC is less than 70%.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>If the HV battery SOC is 70% or more, perform driving in EV mode or use other means to discharge the HV battery and reduce the SOC to less than 70%.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Item name</th>
+                <th align="center" class="clsCellNormal">Item explanation</th>
+                <th align="center" class="clsCellNormal">Display range</th>
+                <th align="center" class="clsCellNormal">Standard</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">Hybrid Battery SOC</td>
+                <td align="left" class="clsCellNormal">Indicates the battery capacity.</td>
+                <td align="left" class="clsCellNormal">0.00 - 100.00%</td>
+                <td align="left" class="clsCellNormal">0.00 - 100.00%: Always</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Check whether the date and time displayed on the MFD are correct, and adjust them if necessary.</li>
+        <li>Use the MFD to set a timer for a set start time.</li>
+        <li>Turn the ignition to OFF.</li>
+        <li>Connect the Electric vehicle charger cable assembly and perform timer charging with a set start time.</li>
+        <li>Turn to IG ON.</li>
+        <li>Using the Subaru Select Monitor, read all DTCs. Refer to <a href="../pages/14638.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">COMMON (diag)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [Plug-in Battery Charger]. Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+      </ol>
+      <p>If a DTC is displayed, go to  <a class="clsListItemLink" href="#S00026518252020102700000" location="/api/article/getcontent?articleId=A01114254_S00026518252020102700000_LSTITM">A</a>.</p>
+      <p>If a DTC is not displayed and a vehicle control history is displayed, go to  <a class="clsListItemLink" href="#S05007373482020102700000" location="/api/article/getcontent?articleId=A01114254_S05007373482020102700000_LSTITM">B</a>.</p>
+      <p>If no DTC or vehicle control history is displayed, and charging does not start at the set start time, go to  <a class="clsListItemLink" href="#S40682925042020102700000" location="/api/article/getcontent?articleId=A01114254_S40682925042020102700000_LSTITM">C</a>.</p>
+      <p>If no DTC or vehicle control history is displayed, and charging starts at the set start time, go to  <a class="clsListItemLink" href="#S08955426352020102700000" location="/api/article/getcontent?articleId=A01114254_S08955426352020102700000_LSTITM">D</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S00026518252020102700000"></a>Perform the diagnosis for the displayed DTCs.</li>
+        <li><a name="S05007373482020102700000"></a>Go to the vehicle control history.<ul class="BULLET">
+            <li>Plug-in Battery Charger. Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .</li>
+            <li>P-HEV Hybrid Powertrain Controls Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.</li>
+          </ul>
+        </li>
+        <li><a name="S40682925042020102700000"></a>Go to  <a class="clsListItemLink" href="#S18649112172020102700000" location="/api/article/getcontent?articleId=A01114254_S18649112172020102700000_LSTITM">4</a>.</li>
+        <li><a name="S08955426352020102700000"></a>Analyze the cause (environment or user cause).<p>Analyze the cause as shown below in order: environment → user.</p>
+        </li>
+      </ol>
+      <p>Environment</p>
+      <ul class="BULLET">
+        <li>Stop caused by power outage, breaker trip, etc.<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that charging does not start when a power outage or breaker trip occurs.</li>
+          </ul>
+        </li>
+        <li>Plug-in charging suspended from the charger side or problem with compatibility<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that there is the possibility that charging will not start due to power restrictions or power ON/OFF function on the charger side, and that charging may not be possible due to problems with charger compatibility. (Check with the charger manufacturer.)</li>
+            <li>Explain that due to the charger specifications, charging may stop when the HV battery is cold.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>User</p>
+      <ul class="BULLET">
+        <li>The vehicle time or date display is incorrect.<ul class="DASH">
+            <li>Adjust the vehicle time and date to the correct values.</li>
+          </ul>
+        </li>
+        <li>The timer settings are incorrect.<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Check with the instructions or other material.</li>
+          </ul>
+        </li>
+        <li>Setting a timer and charging from a public charger or similar equipment<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that with some chargers, charging using the vehicle timer is not possible due to the charger specifications.</li>
+          </ul>
+        </li>
+        <li>The Electric vehicle charger cable assembly was connected after the set start time.<ul class="DASH">
+            <li>Explain that the Electric vehicle charger cable assembly must be inserted before the set start time.</li>
+          </ul>
+        </li>
+        <li>The Charging connector is not securely connected to the Charging inlet.<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that the Charging connector must be inserted all the way into the Charging inlet.</li>
+            <li>Explain that when a timer is set and the Charging connector is connected, the charging indicator blinks (normal).</li>
+          </ul>
+        </li>
+        <li>Charging when fully charged<ul class="DASH">
+            <li>Explain that charging does not start when the battery is fully charged.</li>
+            <li>Explain that charging may not start because the system considers the battery fully charged until the remaining battery charge has dropped by a certain amount or more after driving.</li>
+            <li>Explain that if the Charging connector is connected to the vehicle when the battery is fully charged, charging does not start. In this case, the charging indicator illuminates for several seconds (Charge Now) or blinks for several seconds (timer charging) and then turns OFF.</li>
+          </ul>
+        </li>
+        <li>Selection of wrong charging mode<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that when the charging mode is &quot;Start time&quot;, charging starts at the set time. When the mode is &quot;Departure time&quot;, charging is performed so that it is completed at the set time.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S18649112172020102700000"></a><span class="clsEmphBOLD">CHECK CHARGING. (USE AN Electric vehicle charger cable assembly WHICH WAS CONFIRMED TO OPERATE NORMALLY.). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Perform charging with an AC power supply that was confirmed to operate normally.</li>
+            <li>Use an Electric vehicle charger cable assembly which was confirmed to operate normally.</li>
+            <li>Select an AC power supply (120 V or 240 V) that is the same as the power supply used by the customer.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform all memory clear. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [Plug-in Battery Charger]. Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Using the Subaru Select Monitor, clear all memory of [Vehicle Ctl. Hist.]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Using the Subaru Select Monitor, clear all memory of [Vehicle Ctl. Hist.]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Data Monitor] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Data%20Monitor/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a>
+.<ul class="BULLET">
+            <li>Hybrid Battery SOC</li>
+          </ul>
+        </li>
+        <li>Read the data monitor, and check that the HV battery SOC is less than 70%.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>If the HV battery SOC is 70% or more, perform driving in EV mode or use other means to discharge the HV battery and reduce the SOC to less than 70%.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Item name</th>
+                <th align="center" class="clsCellNormal">Item explanation</th>
+                <th align="center" class="clsCellNormal">Display range</th>
+                <th align="center" class="clsCellNormal">Standard</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">Hybrid Battery SOC</td>
+                <td align="left" class="clsCellNormal">Indicates the battery capacity.</td>
+                <td align="left" class="clsCellNormal">0.00 - 100.00%</td>
+                <td align="left" class="clsCellNormal">0.00 - 100.00%: Always</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Turn ON &quot;Charge Now&quot;.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+                <li>This is not necessary when there is nothing registered in the timer charging schedule.</li>
+                <li>How to set Charge Now<ul class="DASH">
+                    <li>Press the Timer charging setting switch.</li>
+                    <li>Display the MFD &quot;Charge timer settings&quot; screen and select Charge Now.</li>
+                  </ul>
+                </li>
+              </ul></span></div>
+        </li>
+        <li>Connect an Electric vehicle charger cable assembly which was confirmed to operate normally and perform charging.</li>
+        <li>Using the Subaru Select Monitor, read all DTCs. Refer to <a href="../pages/14638.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">COMMON (diag)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [Plug-in Battery Charger]. Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Remove the Electric vehicle charger cable assembly.</li>
+      </ol>
+      <p>If a DTC is displayed, go to  <a class="clsListItemLink" href="#S20725610412020102700000" location="/api/article/getcontent?articleId=A01114254_S20725610412020102700000_LSTITM">A</a>.</p>
+      <p>If a vehicle control history is displayed, go to  <a class="clsListItemLink" href="#S02830034692020102700000" location="/api/article/getcontent?articleId=A01114254_S02830034692020102700000_LSTITM">B</a>.</p>
+      <p>If no DTC or vehicle control history is displayed, go to  <a class="clsListItemLink" href="#S24153768802020102700000" location="/api/article/getcontent?articleId=A01114254_S24153768802020102700000_LSTITM">C</a>.</p>
+      <p>(If trouble occurred, use the Electric vehicle charger cable assembly that was provided with the vehicle.)</p>
+      <p>If no DTC or vehicle control history is displayed, and charging did not start, go to  <a class="clsListItemLink" href="#S22797473132020102700000" location="/api/article/getcontent?articleId=A01114254_S22797473132020102700000_LSTITM">D</a>.</p>
+      <p>(If trouble occurred, use a charger or an Electric vehicle charger cable assembly other than the one that was provided with the vehicle.)</p>
+      <p>If no DTC or vehicle control history is displayed, and charging started, go to  <a class="clsListItemLink" href="#S34665093412020102700000" location="/api/article/getcontent?articleId=A01114254_S34665093412020102700000_LSTITM">E</a>.</p>
+      <p>(If trouble occurred, use a charger or an Electric vehicle charger cable assembly other than the one that was provided with the vehicle.)</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S20725610412020102700000"></a>Perform the diagnosis for the displayed DTCs.</li>
+        <li><a name="S02830034692020102700000"></a>Go to the vehicle control history.<ul class="BULLET">
+            <li>Plug-in Battery Charger. Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .</li>
+            <li>P-HEV Hybrid Powertrain Control. Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.</li>
+          </ul>
+        </li>
+        <li><a name="S24153768802020102700000"></a>Go to  <a class="clsListItemLink" href="#S06847755882020102700000" location="/api/article/getcontent?articleId=A01114254_S06847755882020102700000_LSTITM">5</a>.</li>
+        <li><a name="S22797473132020102700000"></a>Analyze the cause (vehicle cause).<p>Analyze the cause as shown below.</p>
+          <ul class="BULLET">
+            <li>Battery (12V) deterioration<ul class="DASH">
+                <li>Check the Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+              </ul>
+            </li>
+            <li>Open circuit in CPLT signal system<ul class="DASH">
+                <li>CPLT signal system Refer to <a href="../pages/14625.html">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DIAGNOSTICS WITH PHENOMENON&gt;INSPECTION&gt;CPLT SIGNAL SYSTEM</a> .</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a name="S34665093412020102700000"></a>Analyze the cause (environment or user cause).<p>Analyze the cause as shown below in order: environment → user.</p>
+        </li>
+      </ol>
+      <p>Environment</p>
+      <ul class="BULLET">
+        <li>Stop caused by power outage, breaker trip, etc.<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that charging does not start when a power outage or breaker trip occurs.</li>
+          </ul>
+        </li>
+        <li>Plug-in charging suspended from the charger side or problem with compatibility<ul class="DASH">
+            <li>Ask questions to customer and check charger.</li>
+            <li>Explain that there is the possibility that charging will not start due to power restrictions or power ON/OFF function on the charger side, and that charging may not be possible due to problems with charger compatibility. (Check with the charger manufacturer.)</li>
+            <li>Explain that due to the charger specifications, charging may stop when the HV battery is cold.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>User</p>
+      <ul class="BULLET">
+        <li>The timer is set.<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that when a timer is set and the Charging connector is connected, the charging indicator may blink for several seconds and then turn OFF.</li>
+            <li>Explain that when a timer is set, charging will not begin immediately when the Electric vehicle charger cable assembly is connected. (Explain that in order to start charging immediately, the user should either cancel all set timers or to select &quot;Charge Now&quot;, which temporarily enables immediate charging while the timer is set.)</li>
+            <li>Explain that in order to select Charge Now, the user should display the MFD &quot;Charge timer settings&quot; screen and select Charge Now.</li>
+          </ul>
+        </li>
+        <li>Incorrect method of charger use<ul class="DASH">
+            <li>Check the method of charger use with the instructions or other material.</li>
+          </ul>
+        </li>
+        <li>The Charging connector is not securely connected to the Charging inlet.<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that the Charging connector must be inserted all the way into the Charging inlet to connect it.</li>
+          </ul>
+        </li>
+        <li>Charging when fully charged<ul class="DASH">
+            <li>Explain that if the Charging connector is connected to the vehicle when the battery is fully charged, charging does not start. In this case, the charging indicator illuminates for several seconds (Charge Now) or blinks for several seconds (timer charging) and then turns OFF.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S06847755882020102700000"></a><span class="clsEmphBOLD">CHECK CHARGING. (USE THE Electric vehicle charger cable assembly THAT WAS PROVIDED WITH THE VEHICLE.). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Perform charging with an AC power supply that was confirmed to operate normally.</li>
+            <li>Use the Electric vehicle charger cable assembly that was provided with the vehicle.</li>
+            <li>Select an AC power supply (120 V or 240 V) that is the same as the power supply used by the customer.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Connect the Electric vehicle charger cable assembly that was provided with the vehicle, and charge until charging is completed.</li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [Plug-in Battery Charger]. Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+        <li>Using the Subaru Select Monitor, display the following items in the [Work Support] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.<ul class="BULLET">
+            <li>Vehicle Ctl. Hist.</li>
+          </ul>
+        </li>
+      </ol>
+      <p>If a vehicle control history is displayed, go to  <a class="clsListItemLink" href="#S04127395282020102700000" location="/api/article/getcontent?articleId=A01114254_S04127395282020102700000_LSTITM">A</a>.</p>
+      <p>If no vehicle control history is displayed, and charging did not start, go to  <a class="clsListItemLink" href="#S25613001802020102700000" location="/api/article/getcontent?articleId=A01114254_S25613001802020102700000_LSTITM">B</a>.</p>
+      <p>If no vehicle control history is displayed, and charging started, go to  <a class="clsListItemLink" href="#S09548506122020102700000" location="/api/article/getcontent?articleId=A01114254_S09548506122020102700000_LSTITM">C</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S04127395282020102700000"></a>Go to the vehicle control history.<ul class="BULLET">
+            <li>Plug-in Battery Chargers Refer to <a href="../pages/14305.html#Work%20Support/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;WORK SUPPORT</a> .</li>
+            <li>P-HEV Hybrid Powertrain Control. Refer to <a href="../pages/14209.html#Work%20Support/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a>
+.</li>
+          </ul>
+        </li>
+        <li><a name="S25613001802020102700000"></a>Analyze the cause (vehicle cause).<p>Analyze the cause as shown below.</p>
+          <ul class="BULLET">
+            <li>Battery (12V) deterioration<ul class="DASH">
+                <li>Check the Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+              </ul>
+            </li>
+            <li>Open circuit in CPLT signal system<ul class="DASH">
+                <li>CPLT signal system. Refer to <a href="../pages/14625.html">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DIAGNOSTICS WITH PHENOMENON&gt;INSPECTION&gt;CPLT SIGNAL SYSTEM</a> .</li>
+              </ul>
+            </li>
+            <li>Electric vehicle charger cable assembly malfunctioning<ul class="DASH">
+                <li>Check the Electric vehicle charger cable assembly.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a name="S09548506122020102700000"></a>Analyze the cause (environment or user cause).<p>Analyze the cause as shown below in order: environment → user.</p>
+        </li>
+      </ol>
+      <p>Environment</p>
+      <ul class="BULLET">
+        <li>Stop caused by power outage, breaker trip, etc.<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that charging does not start when a power outage or breaker trip occurs.</li>
+          </ul>
+        </li>
+        <li>Plug-in charging suspended from the charger side or problem with compatibility<ul class="DASH">
+            <li>Ask questions to customer and check charger.</li>
+            <li>Explain that there is the possibility that charging will not start due to power restrictions or power ON/OFF function on the charger side, and that charging may not be possible due to problems with charger compatibility. (Check with the charger manufacturer.)</li>
+            <li>Explain that due to the charger specifications, charging may stop when the HV battery is cold.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>User</p>
+      <ul class="BULLET">
+        <li>The timer is set.<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that when a timer is set and the Charging connector is connected, the charging indicator may blink for several seconds and then turn OFF.</li>
+            <li>Explain that when a timer is set, charging will not begin immediately when the Electric vehicle charger cable assembly is connected. (Explain that in order to start charging immediately, the user should either cancel all set timers or to select &quot;Charge Now&quot;, which temporarily enables immediate charging while the timer is set.)</li>
+            <li>Explain that in order to select Charge Now, the user should display the MFD &quot;Charge timer settings&quot; screen and select Charge Now.</li>
+          </ul>
+        </li>
+        <li>Incorrect method of charger use<ul class="DASH">
+            <li>Check the method of charger use with the instructions or other material.</li>
+          </ul>
+        </li>
+        <li>The Charging connector is not securely connected to the Charging inlet.<ul class="DASH">
+            <li>Ask questions to customer and explain method of use.</li>
+            <li>Explain that the Charging connector must be inserted all the way into the Charging inlet to connect it.</li>
+          </ul>
+        </li>
+        <li>Charging when fully charged<ul class="DASH">
+            <li>Explain that if the Charging connector is connected to the vehicle when the battery is fully charged, charging does not start. In this case the charging indicator illuminates for several seconds (Charge Now) or blinks for several seconds (timer charging) and then turns OFF.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

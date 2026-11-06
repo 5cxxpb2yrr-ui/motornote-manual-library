@@ -1,0 +1,49 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C2541: Vehicle Dynamics Control Module Vehicle Speed Sensor — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Steering/">Steering</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Steering/Power%20Steering/">Power Steering</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18378.html">Power Steering System (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18378.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18414.html">DTC C2541: Vehicle Dynamics Control Module Vehicle Speed Sensor</a></div><div class="main"><h1>DTC C2541: Vehicle Dynamics Control Module Vehicle Speed Sensor</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S40261841982020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>When VDCCM reception failure (related to vehicle speed sensor) is detected after the ignition switch is ON.</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>The steering wheel operation feels heavy.</p>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/18378.html#General%20Description/Caution/">POWER STEERING (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S12152734502020102700000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Read the DTC of [Brake Control] using the Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+. Refer to <a href="../pages/18529.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Is a DTC related to VDC system or vehicle speed signal system displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to the DTC. Refer to <a href="../pages/17493.html">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+. Refer to <a href="../pages/18575.html">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S05685747802020102700000" location="/api/article/getcontent?articleId=A01114225_S05685747802020102700000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S05685747802020102700000"></a><span class="clsEmphBOLD">CHECK LAN SYSTEM. </span><p>Perform the diagnosis for LAN system using the Subaru Select Monitor. Refer to <a href="../pages/14648.html#Basic%20Diagnostic%20Procedure/">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+. Refer to <a href="../pages/15957.html#Basic%20Diagnostic%20Procedure/">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+.</p>
+      <p>Is DTC of CAN communication displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to the DTC. Refer to <a href="../pages/14648.html#Diagnostic%20Trouble%20Code%20%28DTC%29/List/">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+. Refer to <a href="../pages/15957.html#Diagnostic%20Trouble%20Code%20%28DTC%29/List/">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S36255954442020102700000" location="/api/article/getcontent?articleId=A01114225_S36255954442020102700000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S36255954442020102700000"></a><span class="clsEmphBOLD">CHECK VEHICLE SPEED SIGNAL. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, display the data monitor [Vehicle Speed] of [Power Steering]. Refer to <a href="../pages/18378.html#Data%20Monitor/">POWER STEERING (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+        <li>Lift up the vehicle (so that the wheels turn freely), start the engine, and raise engine speed in gear.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Be careful that no one is near the spinning tires and nothing gets caught in them.</span></div>
+        </li>
+        <li>Check for whether the data changes according to vehicle speed.</li>
+      </ol>
+      <p>Is the data in sync with the vehicle speed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ It is possible that temporary poor communication occurs. Clear the memory. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the steering gearbox. Refer to <a href="../pages/18319.html#Electric%20Power%20Steering%20Gearbox/">POWER ASSISTED SYSTEM (POWER STEERING)&gt;ELECTRIC POWER STEERING GEARBOX</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

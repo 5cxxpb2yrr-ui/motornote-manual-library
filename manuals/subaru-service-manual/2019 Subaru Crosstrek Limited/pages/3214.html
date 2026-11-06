@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC B2A01: LTE1 Antenna Circuit — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Accessories%20%26%20Equipment/">Accessories &amp; Equipment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Accessories%20%26%20Equipment/Infotainment/">Infotainment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31391.html">Telematics System (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31391.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3214.html">DTC B2A01: LTE1 Antenna Circuit</a></div><div class="main"><h1>DTC B2A01: LTE1 Antenna Circuit</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S31283263562020102700000">
+  <p><span class="clsEmphBOLD">Diagnosis start condition: </span></p>
+  <p>When ignition switch is ON.</p>
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>Any of the followings continues for 5 seconds or more.</p>
+  <ul class="BULLET">
+    <li>LTE1 impedance is more than 1 MΩ. (Detached antenna, etc.)</li>
+    <li>LTE1 impedance is less than 1 kΩ. (Short-circuited antenna, etc.)</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>Telematics function cannot be used.</li>
+    <li>RED LED illuminates.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Telematics Refer to <a href="../external-car.html#Telematics%20System/Wiring%20Diagram/">WIRING SYSTEM (IMPREZA MODEL)&gt;TELEMATICS SYSTEM&gt;WIRING DIAGRAM</a>
+. Refer to <a href="../pages/16551.html#Telematics%20System/Wiring%20Diagram/">WIRING SYSTEM (CROSSTREK MODEL (EXCEPT FOR HEV))&gt;TELEMATICS SYSTEM&gt;WIRING DIAGRAM</a>
+. Refer to <a href="../pages/16554.html#Telematics%20System/Wiring%20Diagram/">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;TELEMATICS SYSTEM&gt;WIRING DIAGRAM</a>
+.</p><a name="S312832635620201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G12400468">
+            <div class="imageHeader"><a name="S28582337932020102800000"></a></div><img alt="G12400468" src="../images/G12400468.png" name="G12400468"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+        <li>After the DCM is replaced, registrations of CommCheck and immobilizer system are required. Refer to <a href="../pages/16461.html">ENTERTAINMENT &amp; MONITORING&gt;TELEMATICS SYSTEM&gt;OPERATION&gt;REGISTRATION (COMM CHECK)</a>
+.</li>
+        <li>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/16738.html#General%20Description/Caution/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S27783128892020102800000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Read the DTC of [Telematics] using the Subaru Select Monitor. Refer to <a href="../pages/16738.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Is DTC B2A01 displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S09153387132020102800000" location="/api/article/getcontent?articleId=A01114283_S09153387132020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Even if DTC is displayed, the circuit has returned to a normal condition at this time.</p>
+      <p>Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+    </li>
+    <li><a name="S09153387132020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (OPEN CIRCUIT). </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Disconnect the antenna connector.</li>
+        <li>Disconnect the DCM connector.</li>
+        <li>Measure the resistance between antenna connector and DCM connector.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(AN52) No. 1 - (AN12) No. 1:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S41790014502020102800000" location="/api/article/getcontent?articleId=A01114283_S41790014502020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the open circuit of harness.</p>
+    </li>
+    <li><a name="S41790014502020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (GROUND SHORT CIRCUIT). </span><p>Measure the resistance between DCM connector and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(AN52) No. 1 - Chassis ground:</p>
+      <p>Is the resistance 1 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S17763569942020102800000" location="/api/article/getcontent?articleId=A01114283_S17763569942020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the short circuit of the harness.</p>
+    </li>
+    <li><a name="S17763569942020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (SHORT CIRCUIT TO POWER SUPPLY). </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to ON.</li>
+        <li>Measure the voltage between DCM connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(AN52) No. 1 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage less than 1 V?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S34534183462020102800000" location="/api/article/getcontent?articleId=A01114283_S34534183462020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the short circuit of the harness.</p>
+    </li>
+    <li><a name="S34534183462020102800000"></a><span class="clsEmphBOLD">CHECK ANTENNA. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Check the telematics antenna. Refer to <a href="../pages/16413.html#Antenna/">ENTERTAINMENT &amp; MONITORING&gt;ANTENNA</a>
+.</li>
+      </ol>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the DCM. Refer to <a href="../pages/16413.html#Data%20Communication%20Module/">ENTERTAINMENT &amp; MONITORING&gt;DATA COMMUNICATION MODULE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the telematics antenna. Refer to <a href="../pages/16413.html#Antenna/">ENTERTAINMENT &amp; MONITORING&gt;ANTENNA</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

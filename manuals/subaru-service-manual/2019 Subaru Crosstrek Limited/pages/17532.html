@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C1732: Lateral G Sensor — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Brakes/">Brakes</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Brakes/Traction%20Control/">Traction Control</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/17452.html">Brake Control System (Diagnostics) (Except For HEV)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/17452.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure with Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/17532.html">DTC C1732: Lateral G Sensor</a></div><div class="main"><h1>DTC C1732: Lateral G Sensor</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S13558914292020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <ul class="BULLET">
+    <li>A fault is detected if the sensor signal value is not correct.</li>
+    <li>A fault is detected if the steering angle sensor signal/yaw rate sensor signal change while the lateral G sensor signal indicates a constant value.</li>
+    <li>A fault is detected if the communication status of lateral G sensor is abnormal.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>ABS does not operate.</li>
+    <li>VDC does not operate.</li>
+    <li>Hill start assist does not operate.</li>
+    <li>EyeSight does not operate. (Models with EyeSight)</li>
+  </ul>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/17452.html#General%20Description/Caution/">BRAKE CONTROL (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S33222804022020102800000"></a><span class="clsEmphBOLD">CHECK INSTALLATION OF VDC CONTOL MODULE &amp; H/U. </span><p>Is VDC Contol Module &amp; H/U installed properly without being tilted?</p>
+      <p>Is the bracket deformation-free?</p>
+      <p>Are the VDC Contol Module &amp; H/U installation bolts installed without missing or getting loose?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S11845521292020102800000" location="/api/article/getcontent?articleId=A01114228_S11845521292020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the defective part.</p>
+      <ul class="BULLET">
+        <li>Install VDC Contol Module &amp; H/U properly.</li>
+        <li>Replace the bracket if faulty.</li>
+        <li>Tighten the VDC Contol Module &amp; H/U installation bolt. Refer to <a href="../pages/17392.html">VEHICLE DYNAMICS CONTROL (VDC)&gt;General Description&gt;COMPONENT&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</li>
+      </ul>
+      <p>Go to  <a class="clsListItemLink" href="#S11845521292020102800000" location="/api/article/getcontent?articleId=A01114228_S11845521292020102800000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S11845521292020102800000"></a><span class="clsEmphBOLD">CHECK OUTPUT OF STEERING ANGLE SENSOR USING SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Park the vehicle straight on a level surface.</li>
+        <li>Using Subaru Select Monitor, display [Steering Angle Sensor] of [Data monitor]. Refer to <a href="../pages/17452.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+      </ol>
+      <p>Is the value of [Steering Angle Sensor] -10 - 10°?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S32429913292020102800000" location="/api/article/getcontent?articleId=A01114228_S32429913292020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check the installation of steering angle sensor.</p>
+    </li>
+    <li><a name="S32429913292020102800000"></a><span class="clsEmphBOLD">CHECK OUTPUT OF LATERAL G SENSOR AND LONGITUDINAL G SENSOR WITH SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Park the vehicle straight on a level surface.</li>
+        <li>Using Subaru Select Monitor, display [Lateral G Sensor] and [Longitudinal G Sensor] of [Data monitor]. Refer to <a href="../pages/17452.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+      </ol>
+      <p>Are the values of [Lateral G Sensor] and [Longitudinal G Sensor] -2 - 2 m/s<sup>2</sup>
+?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S33820565042020102800000" location="/api/article/getcontent?articleId=A01114228_S33820565042020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Recheck from step 1, and if the problem is not solved, Go to  <a class="clsListItemLink" href="#S40775198932020102800000" location="/api/article/getcontent?articleId=A01114228_S40775198932020102800000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S33820565042020102800000"></a><span class="clsEmphBOLD">SET 0 POINT OF LATERAL G SENSOR AND LONGITUDINAL G SENSOR WITH SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Select the [Work Support] using Subaru Select Monitor. Refer to <a href="../pages/17452.html#Work%20Support/">BRAKE CONTROL (DIAGNOSTICS)&gt;WORK SUPPORT</a> .</li>
+        <li>Perform the VDC sensor midpoint setting mode. Refer to <a href="../pages/17408.html">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)&gt;ADJUSTMENT&gt;VDC SENSOR MIDPOINT SETTING MODE</a>
+.</li>
+      </ol>
+      <p>Is 0 point setting successful?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S40024162682020102800000" location="/api/article/getcontent?articleId=A01114228_S40024162682020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Recheck from step 1, and when the 0 point setting is not possible, replace the VDC Contol Module &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+    </li>
+    <li><a name="S40024162682020102800000"></a><span class="clsEmphBOLD">PERFORM DRIVING TEST. </span><p>Execute the inspection mode. Refer to <a href="../pages/17452.html#Inspection%20Mode/">BRAKE CONTROL (DIAGNOSTICS)&gt;INSPECTION MODE</a> .</p>
+      <p>Does the ABS warning light or VDC warning light illuminate during driving?</p>
+      <p>Does ABS or VDC operate abnormally?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Recheck from step 1, and when the warning lights illuminate or improperly operate, replace the VDC Contol Module &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S40055992042020102800000" location="/api/article/getcontent?articleId=A01114228_S40055992042020102800000_LSTITM">6</a>.</p>
+    </li>
+    <li><a name="S40055992042020102800000"></a><span class="clsEmphBOLD">CHECK OUTPUT OF LATERAL G SENSOR AND LONGITUDINAL G SENSOR WITH SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Park the vehicle on a level surface.</li>
+        <li>Using Subaru Select Monitor, display [Lateral G Sensor] and [Longitudinal G Sensor] of [Data monitor]. Refer to <a href="../pages/17452.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+      </ol>
+      <p>Are the values of [Lateral G Sensor] and [Longitudinal G Sensor] -1.5 - 1.5 m/s<sup>2</sup>
+?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Currently, it is normal. There may have been a temporary poor contact in the harness and connector or a temporary noise interference.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Recheck from step 1, and if the problem is not solved, replace the VDC Contol Module &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+    </li>
+    <li><a name="S40775198932020102800000"></a><span class="clsEmphBOLD">CHECK OUTPUT OF LATERAL G SENSOR AND LONGITUDINAL G SENSOR WITH SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Remove the VDC Contol Module &amp; H/U installation bolt and bracket.</li>
+        <li>Keep VDC Contol Module &amp; H/U in a horizontal position.</li>
+        <li>Using Subaru Select Monitor, display [Lateral G Sensor] and [Longitudinal G Sensor] of [Data monitor]. Refer to <a href="../pages/17452.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+      </ol>
+      <p>When the VDC Contol Module &amp; H/U is in a horizontal position, are the values of [Lateral G Sensor] and [Longitudinal G Sensor] -1.5 - 1.5 m/s<sup>2</sup>
+?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Check the bracket and brake pipe, and install VDC Contol Module &amp; H/U in a horizontal position to the vehicle.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the VDC Contol Module &amp; H/U. Refer to <a href="../pages/17388.html#VDC%20Control%20Module%20and%20Hydraulic%20Control%20Unit%20%28VDCCM%20%26%20H%2FU%29/">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

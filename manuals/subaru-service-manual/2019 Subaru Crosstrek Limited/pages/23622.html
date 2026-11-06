@@ -1,0 +1,55 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P24B9: EVAP System Leak Detection Pump Pressure Sensor Circuit Range/Performance: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/">Engine Performance</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/Testing%20%26%20Diagnosis/">Testing &amp; Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23500.html">Engine Control System (Diagnostics) (Except For HEV) (4 Of 4)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23500.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23500.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P24B9%3A%20EVAP%20System%20Leak%20Detection%20Pump%20Pressure%20Sensor%20Circuit%20Range%2FPerformance/">DTC P24B9: EVAP System Leak Detection Pump Pressure Sensor Circuit Range/Performance</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23622.html">Notes</a></div><div class="main"><h1>DTC P24B9: EVAP System Leak Detection Pump Pressure Sensor Circuit Range/Performance: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S04801010312020102700000">
+  
+  <ol class="ARABICNUM">
+    <li><a name="S20446957952020102700000"></a><span class="clsEmphBOLD">- </span><p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+      <p>Detected when two consecutive driving cycles with fault occur.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>After the faulty parts are repaired or replaced, perform the final check in Basic Diagnostic Procedure. Refer to <a href="../pages/16812.html">ENGINE (DIAGNOSTICS) (H4DO (EXCEPT FOR HEV))&gt;BASIC DIAGNOSTIC PROCEDURE&gt;PROCEDURE</a>
+.</span></div>
+    </li>
+  </ol>
+  <ol class="ARABICNUM">
+    <li><a name="S32147088912020102700000"></a><span class="clsEmphBOLD">CHECK DTC </span>
+.<p>Using the Subaru Select Monitor or a general scan tool, read the DTC of [Engine]. Refer to <a href="../pages/16813.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ENGINE (DIAGNOSTICS) (H4DO (EXCEPT FOR HEV))&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Is DTC other than P24B9 displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <p>Check the appropriate DTC using the &quot;Diagnostic Trouble Code (DTC)&quot;. Refer to <a href="../pages/16813.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ENGINE (DIAGNOSTICS) (H4DO (EXCEPT FOR HEV))&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span></p>
+      <p>Go to  <a class="clsListItemLink" href="#S00634961352020102700000" location="/api/article/getcontent?articleId=A01114246_S00634961352020102700000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S00634961352020102700000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR </span>
+.<ol class="ARABICNUM">
+        <li>Turn the ignition switch to ON (engine OFF).</li>
+        <li>Using the Subaru Select Monitor or a general scan tool, read the values of [Evap System Vapor Pressure] and [Intake Manifold Absolute Pressure] to compare with actual atmospheric pressure.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+                <li>SUBARU SELECT MONITOR<p>For detailed operation procedures, refer to &quot;Data Monitor&quot;. Refer to <a href="../pages/16813.html#Data%20Monitor/">ENGINE (DIAGNOSTICS) (H4DO (EXCEPT FOR HEV))&gt;DATA MONITOR</a>
+.</p>
+                </li>
+                <li>General scan tool<p>For detailed operation procedures, refer to the general scan tool operation instructions.</p>
+                </li>
+                <li>To read the actual atmospheric pressure, connect the Subaru Select Monitor or general scan tool to the other known good vehicle.</li>
+              </ul></span></div>
+          <p>Is the difference with the actual atmospheric pressure 2.53 kPa (18.98 mmHg, 0.75 inHg, 0.37 psi) or more?</p>
+          <p><span class="clsEmphBOLD">Yes: </span></p>
+          <p>Replace the part that showed larger deviation from the actual atmospheric pressure than the other.</p>
+          <ul class="BULLET">
+            <li>If deviations in value for [Absolute Evap Sys. Pressure] is larger: Replace the leak check valve assembly. Refer to <a href="../pages/17265.html#Leak%20Check%20Valve%20Assembly/">EMISSION CONTROL (AUX. EMISSION CONTROL DEVICES) (H4DO (EXCEPT FOR HEV))&gt;LEAK CHECK VALVE ASSEMBLY</a>
+.</li>
+            <li>If deviations in value for [Mani. Absolute Pressure] is larger: Replace the manifold absolute pressure sensor. Refer to <a href="../pages/17104.html#Manifold%20Absolute%20Pressure%20Sensor/">FUEL INJECTION (FUEL SYSTEMS) (H4DO (EXCEPT FOR HEV))&gt;MANIFOLD ABSOLUTE PRESSURE SENSOR</a>
+.</li>
+          </ul>
+          <p><span class="clsEmphBOLD">No: </span></p>
+          <p>Even if DTC is detected, the circuit has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</p>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+        </li>
+      </ol>
+    </li>
+  </ol>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

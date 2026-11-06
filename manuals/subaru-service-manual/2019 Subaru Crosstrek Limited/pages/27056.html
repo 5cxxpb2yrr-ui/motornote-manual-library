@@ -1,0 +1,128 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Simulation (Reproduction) Test — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14044.html">Section 23 (P-HEV Hybrid Powertrain Control System (Diagnostics - Introduction))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14044.html#General%20Description/">General Description</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14044.html#General%20Description/Inspection/">Inspection</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14044.html#General%20Description/Inspection/Check%20Non-Permanent%20Occurrence%20Malfunctions/">Check Non-Permanent Occurrence Malfunctions</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/27056.html">Simulation (Reproduction) Test</a></div><div class="main"><h1>Simulation (Reproduction) Test</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S01249781512024020800000">
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>Troubleshooting is challenging the most when a faulty phenomenon is not reproduced. In such a case, a fault claimed by the customer must be analyzed thoroughly, and the same condition environment as of when the fault occurred on the customer's vehicle need to be reproduced. If troubleshooting is conducted without a faulty phenomenon checked, critical points on repair work may be overlooked, or misunderstanding may occur, resulting in causing problems.</li>
+        <li>For instance, a fault cause cannot be identified, if the fault is checked while the engine is hot although the fault originally occurred with the engine cold, or if the vibration-based fault is checked with the vehicle stopped although the fault originally occurred due to road conditions during driving.</li>
+        <li>Although fault causes such as vibrations, heat and intrusion of water<p>(humidity) are not reproducible, the fault phenomenon reproduction methods introduced here are effective in terms of applying external factors to the stopped vehicle.</p>
+        </li>
+      </ul></span></div>
+  <p>Important points for the faulty simulation test</p>
+  <p>In the fault phenomenon reproduction methods, not only fault phenomena should be checked, but a faulty range portion should also be identified. To perform these, narrow down the circuits where faults are included based on the faulty phenomenon before conducting the test, and connect to the tester in advance. Then, perform the fault reproduction method, and judge whether the circuit being tested is normal or faulty and also check the faulty phenomenon at the same time. To narrow down causes of the faulty phenomenon, see the list of a faulty phenomenon for each system. Also, to reproduce a DTC output, a reproduction method based on the detecting conditions detecting time for the relevant DTC is necessary.</p>
+  <ul class="BULLET">
+    <li>Vibration method: When estimated that vibrations are causing the fault<ul class="DASH">
+        <li>Part and sensor</li>
+      </ul>
+      <p>Apply vibrations by lightly tapping the parts of the probable cause by hand, and check for fault occurrence.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>When strong impact is given to relays, points may open.</span></div>
+      <ul class="DASH">
+        <li>Connector<p>Lightly shake the connector vertically and horizontally.</p>
+        </li>
+        <li>Wire harness</li>
+      </ul>
+      <p>Lightly shake Wire harness vertically and horizontally, and check for fault occurrence.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Heavily check the connector root, vibration fulcrum, and penetration portion of the body.</span></div>
+      <ul class="DASH">
+        <li>Antenna cable</li>
+      </ul>
+      <p>Lightly shake the antenna cable vertically and horizontally, and check for fault occurrence.</p>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Shaking the antenna cable violently may cause open-circuit or connector damage. Therefore, do not apply excess force.</span></div>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Heavily check the connector root, vibration fulcrum, and penetration portion of the body.</span></div>
+    </li>
+    <li>Cooling/heating method: When estimated that the fault occurs during cold period or warm period<ul class="DASH">
+        <li>Using a hair dryer and refrigerant, heat or cool the part of the probable defective cause, and check for fault occurrence.</li>
+      </ul>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When heating the part, be sure that the temperature does not exceed 60°C (140°F) (touchable by hand).</li>
+            <li>Do not heat or cool the electronic parts directly by opening the ECM lid and so on.</li>
+          </ul></span></div>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Refrigerants are available at electronic parts dealers.</span></div>
+    </li>
+    <li>Water spray method: When estimated that the fault occurs in the rain or at high temperature<ul class="DASH">
+        <li>Spray the vehicle with water and check for fault occurrence.</li>
+      </ul>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Do not spray water directly to the engine room, but mist the radiator front surface in order to change the temperature and humidity indirectly.</li>
+            <li>Do not spray water to the electronic parts directly.</li>
+          </ul></span></div>
+    </li>
+    <li>Other: When estimated that the fault occurs when the electrical load is excessive<ul class="DASH">
+        <li>Operate the electrical parts, such as the heater blower, headlight and rear defogger, to increase the electrical load, and check for fault occurrence.</li>
+      </ul>
+    </li>
+  </ul>
+  <p><span class="clsEmphBOLD">CHECK CONNECTOR AND TERMINAL </span></p>
+  <ul class="BULLET">
+    <li>BASIC INSPECTION<ul class="DASH">
+        <li>Resistance inspection condition for electronic parts</li>
+      </ul>
+    </li>
+  </ul>
+  <p>Unless otherwise nothing noted, always check the resistance with ambient temperature at 20°C (68°F). When the inspection was performed at high ambient temperature immediately after the engine was stopped, the resistance value becomes outside the specified value. Therefore, perform the inspection after the engine is cooled down.</p>
+  <ul class="DASH">
+    <li>Connector handling<ol class="LOWERALPHA">
+        <li>When disconnecting the connector with lock, push the connector to the engaging side to loosen the lock claw, and then unlock the lock.</li>
+        <li>When disconnecting the connector, do so while holding not Wire harness but the connector.</li>
+        <li>Before connecting the connector, check the terminal for deformation, damage and disconnection.</li>
+        <li>To connect the connector with lock, be sure to insert completely until a click is heard.</li>
+        <li>When checking the connector using an electrical tester, use a mini test lead and perform the inspection from the Wire harness side.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>The waterproof connector cannot be checked from behind the connector; therefore, connect the test Wire harness (check board) and perform the inspection.</li>
+            <li>Be careful not to damage the terminal by moving the inserted tester probe unnecessarily.</li>
+          </ul></span></div>
+    </li>
+    <li>Connector inspection procedure<ol class="LOWERALPHA">
+        <li>With the connector connected, check the insertion condition and lock effectiveness while holding the connector housing. (Mating condition)</li>
+        <li>With the connector disconnected, pull Wire harness lightly for inspection. (Terminal disconnection, terminal crimping condition and core breakage)</li>
+        <li>Visually check for presence of rust, metal pieces and water as well as bends of the terminal. (Corrosion, intrusion of foreign matter, and terminal deformation)</li>
+        <li>Prepare a terminal that is the same as the male terminal, and insert it to the female terminal. Then, check the terminal contact pressure, mating condition and sliding heaviness.</li>
+        <li>When checking the connector using an electrical tester, use a mini test lead and perform the inspection from the Wire harness side.</li>
+      </ol>
+    </li>
+    <li>Connector terminal repair method<ol class="LOWERALPHA">
+        <li>When the connecting portion is soiled, clean there using an airsoft gun, waste cloth and the like. Never ground the connecting portion, because grounding with sandpaper or similar peels off the surface plating on the connecting portion.</li>
+        <li>When the contact pressure is faulty, replace the female terminal. At this time, if the corresponding male terminal on the part side is gold-plated (in gold color), use gold plating for the female terminal, and if tin-plated (in silver color), use tin plating.</li>
+        <li>When there is no fault at the connecting portion, clean there with an airsoft gun, and apply connector grease. (Doing so prevents oxidation and wear of the connecting point.)</li>
+        <li>Prepare a terminal that is the same as the male terminal, and insert it to the female terminal. Then, check the terminal contact pressure, mating condition and sliding heaviness.</li>
+      </ol>
+    </li>
+    <li>Connector grease<ol class="LOWERALPHA">
+        <li>Anticorrosive grease is applied to the terminals of the connector at locations such as the generator and headlight that are susceptible to water.</li>
+        <li>When the connector grease is insufficient, or the terminal is repaired, apply the connector grease to the female terminal.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+                <li>Be sure protect from dust and so on.</li>
+                <li>Do not use a screwdriver or similar tool for the application.</li>
+              </ul></span></div>
+        </li>
+        <li>Adherence of grease to the O-ring and rubber stopper of the waterproof connector is not a problem. However, adherence to other rubber parts (such as the weather strip and grommet for Wire harness) may cause deterioration and discoloration. If adherence happens, wipe off immediately.</li>
+        <li>Prepare a terminal that is the same as the male terminal, and insert it to the female terminal. Then, check the terminal contact pressure, mating condition and sliding heaviness.</li>
+      </ol>
+    </li>
+    <li>Handling of Wire harness<ol class="LOWERALPHA">
+        <li>When disconnecting Wire harness, check the routing and clamping condition before conducting the work so that reproduction can be performed surely.</li>
+        <li>Do not twist, pull or unnecessarily loosen Wire harness.</li>
+        <li>Do not interfere Wire harness with the location that becomes high temperature, rotation portion, sliding portion, vibrating portion and sharp-edge portion (such as the panel end and screw tip).</li>
+        <li>When installing the parts, do not pinch Wire harness.</li>
+        <li>Do not tear the shield of Wire harness. If tearing happens, replace or surely repair with vinyl tape.</li>
+      </ol>
+    </li>
+  </ul>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

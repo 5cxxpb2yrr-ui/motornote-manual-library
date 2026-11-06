@@ -1,0 +1,873 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P0AA6-49: Hybrid/EV Battery Voltage System Isolation Internal Electronic Failure: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14046.html">Section 25 (P-HEV Hybrid Powertrain Control System (Diagnostics) (1 Of 4))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14046.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14046.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0AA6-49%3A%20Hybrid%2FEV%20Battery%20Voltage%20System%20Isolation%20Internal%20Electronic%20Failure/">DTC P0AA6-49: Hybrid/EV Battery Voltage System Isolation Internal Electronic Failure</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/27015.html">Notes</a></div><div class="main"><h1>DTC P0AA6-49: Hybrid/EV Battery Voltage System Isolation Internal Electronic Failure: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S26878357042024020800000">
+  
+  <p><span class="clsEmphBOLD">1. - </span></p>
+  <p><span class="clsEmphBOLD">Outline of diagnosis: </span></p>
+  <p>Insulation resistance of high voltage circuit and body is decreased</p>
+  <p>(1 trip detection logic)</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>Normal driving</p>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Hybrid system Refer to <a href="../pages/14207.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;HYBRID ELECTRIC VEHICLE SYSTEM&gt;WIRING DIAGRAM</a>
+.</p><a name="S268783570420240208000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13237932">
+            <div class="imageHeader"><a name="S10876039432024020800000"></a></div><img alt="G13237932" src="../images/G13237932.png" name="G13237932"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table><a name="S268783570420240208000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13237921">
+            <div class="imageHeader"><a name="S25449245112024020800000"></a></div><img alt="G13237921" src="../images/G13237921.png" name="G13237921"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14209.html#General%20Description/Caution/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a>
+.</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>The insulation malfunction detection circuit in Battery ECU assembly is detecting insulation resistance of the high voltage circuit and body. When the insulation resistance decreased at any of the locations, Hybrid vehicle control ECU assembly stores DTC P0AA649 first, and Hybrid Fail Lamp illuminates.</li>
+        <li>After only DTC P0AA649 is recorded, if the following operation is performed continuously within the same trip, one of the related DTCs (P1C7C49, P1C7D49, P1C7E49, P1C7F49 or P1CF749) is recorded.</li>
+        <li>The high voltage insulation malfunction may recover to normal state depending on the vehicle condition. When DTC P0AA649 is output, complete the following operation immediately.<ol class="ARABICNUM">
+            <li>Apply the parking brake.</li>
+            <li>While firmly depressing the brake pedal, wait for one minute or more with READY ON, D position, the vehicle stopped, and the air conditioner ON (temperature Lo/COOL MAX, air flow maximum).</li>
+            <li>Turn to IG OFF, and wait for two minutes or more.</li>
+            <li>Connect Electric vehicle charger cable assembly, and charge it for three minutes or more.</li>
+          </ol>
+        </li>
+        <li>To measure insulation resistance using megohmmeter, perform inspection while shaking the high voltage cable.</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S41455884152024020800000"></a><span class="clsEmphBOLD">CHECK DTC </span>
+.<p>Read the following DTCs using Subaru Select Monitor. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+. Refer to <a href="../pages/14208.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <ul class="BULLET">
+        <li>P-HEV Hybrid Powertrain Control</li>
+        <li>P-HEV High Voltage Battery</li>
+      </ul>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Malfunction contents</th>
+                <th align="left" class="clsCellNormal">System</th>
+                <th colspan="2" valign="TOP" align="left" class="clsCellNormal">Related DTC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="TOP" rowspan="15" align="left" class="clsCellNormal">Microcomputer malfunction</td>
+                <td valign="TOP" rowspan="10" align="left" class="clsCellNormal">P-HEV Hybrid Powertrain Control</td>
+                <td align="left" class="clsCellNormal">P060647</td>
+                <td align="left" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE PROCESSOR WATCHDOG/SAFETY MCU FAILURE</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">P060A29</td>
+                <td align="left" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE MONITORING PROCESSOR SIGNAL INVALID</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P060A44</td>
+                <td align="" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE MONITORING PROCESSOR DATA MEMORY FAILURE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P060A45</td>
+                <td align="" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE MONITORING PROCESSOR PROGRAM MEMORY FAILURE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P060A49</td>
+                <td align="" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE MONITORING PROCESSOR INTERNAL ELECTRONIC FAILURE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P060B1C</td>
+                <td align="" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE A/D PROCESSING VOLTAGE OUT OF RANGE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P060B71</td>
+                <td align="" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE A/D PROCESSING ACTUATOR STUCK</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P1CE31C</td>
+                <td align="" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE MONITORING PROCESSOR A/D PROCESSING VOLTAGE OUT OF RANGE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P1CE349</td>
+                <td align="" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE MONITORING PROCESSOR A/D PROCESSING INTERNAL ELECTRONIC FAILURE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P1CE371</td>
+                <td align="" class="clsCellNormal">HYBRID/EV POWERTRAIN CONTROL MODULE MONITORING PROCESSOR A/D PROCESSING ACTUATOR STUCK</td>
+              </tr>
+              <tr>
+                <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">P-HEV High Voltage Battery</td>
+                <td align="" class="clsCellNormal">P060687</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY ENERGY CONTROL MODULE PROCESSOR TO MONITORING PROCESSOR MISSING MESSAGE</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">P060A47</td>
+                <td align="left" class="clsCellNormal">HYBRID/EV BATTERY ENERGY CONTROL MODULE MONITORING PROCESSOR WATCHDOG/SAFETY MCU FAILURE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P060A87</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY ENERGY CONTROL MODULE PROCESSOR FROM MONITORING PROCESSOR MISSING MESSAGE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P060B49</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY ENERGY CONTROL MODULE A/D PROCESSING INTERNAL ELECTRONIC FAILURE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P062F46</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY ENERGY CONTROL MODULE EEPROM CALIBRATION/PARAMETER MEMORY FAILURE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">Power supply system malfunction</td>
+                <td align="" class="clsCellNormal">P-HEV Hybrid Powertrain Control</td>
+                <td align="" class="clsCellNormal">P06881F</td>
+                <td align="" class="clsCellNormal">ECM/PCM POWER RELAY SENSE CIRCUIT INTERMITTENT</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">System malfunction</td>
+                <td align="" class="clsCellNormal">P-HEV Hybrid Powertrain Control</td>
+                <td align="" class="clsCellNormal">P1C9E9F</td>
+                <td align="" class="clsCellNormal">HYBRID/EV SYSTEM RESET STUCK OFF</td>
+              </tr>
+            </tbody>
+          </table></span></div>
+      <ul class="BULLET">
+        <li>DTC P0AA649 may be output simultaneously due to the fault that DTC above describes.</li>
+        <li>Check DTC output simultaneously in the order described. (Main cause can be identified without performing unnecessary inspections)</li>
+      </ul>
+      <p>When &quot;Either DTC P0AA649, P1C7C49, P1C7D49, P1C7E49 or P1C7F49 is displayed&quot; or &quot;DTC other than above is displayed&quot;, go to  <a class="clsListItemLink" href="#S06858223512024020800000" location="/api/article/getcontent?articleId=A01463683_S06858223512024020800000_LSTITM">A</a>.</p>
+      <p>When DTCs related to [P-HEV Hybrid Powertrain Control] mentioned above are simultaneously displayed, go to  <a class="clsListItemLink" href="#S32042721872024020800000" location="/api/article/getcontent?articleId=A01463683_S32042721872024020800000_LSTITM">B</a>.</p>
+      <p>When DTCs related to [P-HEV High Voltage Battery] mentioned above are simultaneously displayed, go to  <a class="clsListItemLink" href="#S05604071752024020800000" location="/api/article/getcontent?articleId=A01463683_S05604071752024020800000_LSTITM">C</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S06858223512024020800000"></a>Go to  <a class="clsListItemLink" href="#S21774039182024020800000" location="/api/article/getcontent?articleId=A01463683_S21774039182024020800000_LSTITM">2</a>.</li>
+        <li><a name="S32042721872024020800000"></a>Perform the diagnosis for the simultaneously displayed DTCs.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>If more than one DTC is simultaneously displayed, perform the diagnosis in the order described in the above.</span></div>
+        </li>
+        <li><a name="S05604071752024020800000"></a>Perform the diagnosis for the simultaneously displayed DTCs.</li>
+      </ol>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>If more than one DTC is simultaneously displayed, perform the diagnosis in the order described in the above.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S21774039182024020800000"></a><span class="clsEmphBOLD">CHECK DTC </span>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>DTC P1C7C49, P1C7D49, P1C7E49, P1C7F49, P1CF749 or P33CF49 is not stored at the same timing as P0AA649. When insulation resistance decrease is detected during READY ON and DTC P0AA649 is output, followed by being continuously left for five minutes with READY ON, D position and air conditioner ON and then for two minutes with READY OFF, one of the location-identifying DTCs (P1C7C49, P1C7D49, P1C7E49, P1C7F49 or P33CF49) will remain.<p>When insulation resistance decrease is detected during AC Charging connector connection, one of the location-identifying DTCs (P1CF749 or P33CF49) will remain after being continuously left for three minutes with AC Charging connector connected.</p>
+            </li>
+            <li>When an additional DTC indicating an area of insulation resistance decrease is output, perform the relevant diagnostic procedure.</li>
+          </ul></span></div>
+      <p>Read the DTC of [P-HEV Hybrid Powertrain Control] using the Subaru Select Monitor. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">PHEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>For &quot;Only DTC P0AA649 is displayed&quot; or &quot;P0AA649 and P33CF49 are displayed simultaneously&quot;, go to  <a class="clsListItemLink" href="#S29911747302024020800000" location="/api/article/getcontent?articleId=A01463683_S29911747302024020800000_LSTITM">A</a>.</p>
+      <p>When DTC P0AA649 and P1C7C49 are displayed, go to  <a class="clsListItemLink" href="#S20053801432024020800000" location="/api/article/getcontent?articleId=A01463683_S20053801432024020800000_LSTITM">B</a>.</p>
+      <p>When DTC P0AA649 and P1C7D49 are displayed, go to  <a class="clsListItemLink" href="#S24978258502024020800000" location="/api/article/getcontent?articleId=A01463683_S24978258502024020800000_LSTITM">C</a>.</p>
+      <p>When DTC P0AA649 and P1C7E49 are displayed, go to  <a class="clsListItemLink" href="#S31278494832024020800000" location="/api/article/getcontent?articleId=A01463683_S31278494832024020800000_LSTITM">D</a>.</p>
+      <p>When DTC P0AA649 and P1C7F49 are displayed, go to  <a class="clsListItemLink" href="#S01912974072024020800000" location="/api/article/getcontent?articleId=A01463683_S01912974072024020800000_LSTITM">E</a>.</p>
+      <p>When DTC P0AA649 and P1CF749 are displayed, go to  <a class="clsListItemLink" href="#S13280171042024020800000" location="/api/article/getcontent?articleId=A01463683_S13280171042024020800000_LSTITM">F</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S29911747302024020800000"></a>Go to  <a class="clsListItemLink" href="#S16463033312024020800000" location="/api/article/getcontent?articleId=A01463683_S16463033312024020800000_LSTITM">3</a>.</li>
+        <li><a name="S20053801432024020800000"></a>Perform the diagnosis of DTC P1C7C49 for [Air Conditioner] system. Refer to <a href="../pages/19622.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P1C7C-49%3A%20Hybrid%2FEV%20Battery%20Voltage%20System%20Isolation%20%28A%2FC%20Area%29%20Internal%20Electronic%20Failure/">AIR CONDITIONER (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC PROCEDURE WITH DIAGNOSTIC TROUBLE CODE (DTC)&gt;DTC P1C7C49 HYBRID/EV BATTERY VOLTAGE SYSTEM ISOLATION (A/C AREA) INTERNAL ELECTRONIC FAILURE</a>
+.</li>
+        <li><a name="S24978258502024020800000"></a>Go to  <a class="clsListItemLink" href="#S32320311772024020800000" location="/api/article/getcontent?articleId=A01463683_S32320311772024020800000_LSTITM">11</a>.</li>
+        <li><a name="S31278494832024020800000"></a>Go to  <a class="clsListItemLink" href="#S27962958092024020800000" location="/api/article/getcontent?articleId=A01463683_S27962958092024020800000_LSTITM">15</a>.</li>
+        <li><a name="S01912974072024020800000"></a>Go to  <a class="clsListItemLink" href="#S34990205812024020800000" location="/api/article/getcontent?articleId=A01463683_S34990205812024020800000_LSTITM">18</a>.</li>
+        <li><a name="S13280171042024020800000"></a>Go to  <a class="clsListItemLink" href="#S02677356442024020800000" location="/api/article/getcontent?articleId=A01463683_S02677356442024020800000_LSTITM">22</a>.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S16463033312024020800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR </span>
+.<ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform the clear memory of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Turn to IG OFF, and wait for two minutes or more.</li>
+        <li>With the vehicle stopped, shift to P position, turn to READY ON, and wait for one minute or more.</li>
+        <li>Set the wheel stoppers to tires, and apply the parking brake securely.</li>
+        <li>Turn the air conditioner to ON (temperature setting Lo/COOL MAX, and air flow maximum).</li>
+        <li>Shift to D position while depressing the brake pedal without depressing the accelerator pedal, and wait for five minutes.</li>
+        <li>Read the DTC of [P-HEV Hybrid Powertrain Control] using the Subaru Select Monitor. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+                <li>When DTC P0AA649 is displayed at this point, if step 7) is performed continuously within the same trip, identification of the insulation resistance decrease section is performed and DTC P1C7C49, P1C7D49, P1C7E49, P1C7F49 or P33CF49 is added and stored.</li>
+                <li>When DTC is not displayed, go to step 8).</li>
+              </ul></span></div>
+        </li>
+        <li>Drive the vehicle approximately five minutes while referring to [Vehicle Speed Sensor], [Shift Position], [Accelerator Position], [Engine Speed], [Coolant Temperature], [Master Cylinder Control Torque], [Inverter Coolant Water Temperature], [Generator Inverter Calculated Temperature] and [Motor Inverter Temperature] of the freeze frame data. (When the freeze frame data [Vehicle Speed Sensor] is less than 10 km/h (6.2 MPH), drive the vehicle at 10 km/h (6.2 MPH) or more.)</li>
+        <li>Read the DTC of [P-HEV Hybrid Powertrain Control] using the Subaru Select Monitor. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+                <li>When DTC P0AA649 is displayed at this point, if step 9) is performed continuously within the same trip, identification of the insulation resistance decrease section is performed and DTC P1C7C49, P1C7D49, P1C7E49, P1C7F49 or P33CF49 is added and stored.</li>
+                <li>When DTC P0AA649 is displayed, continuously complete the step 9) immediately.</li>
+                <li>When DTC is not displayed, go to step 10).</li>
+              </ul></span></div>
+        </li>
+        <li><a name="S11342088882024020800000"></a>After waiting for one minute or more with READY ON, P position, the vehicle stopped, and the air conditioner ON (temperature Lo/COOL MAX, air flow maximum), turn to READY OFF and wait for two minutes or more.</li>
+        <li>Turn to READY OFF, connect AC Charging connector, start AC charging and wait for three minutes or more.</li>
+        <li>Read the DTC of [P-HEV Hybrid Powertrain Control] using the Subaru Select Monitor. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</li>
+      </ol>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>When charging cannot last for three minutes while DTC is not displayed, decrease SOC and perform step  <a class="clsListItemLink" href="#S11342088882024020800000" location="/api/article/getcontent?articleId=A01463683_S11342088882024020800000_LSTITM">10</a> again.</li>
+            <li>When DTC P0AA649 is displayed at this point, identification of insulation resistance decrease section is performed and DTC P1C7D49, P1CF749 or P33CF49 is added and stored.</li>
+          </ul></span></div>
+      <p>When DTC P0AA649 and P33CF49 are displayed simultaneously, go to  <a class="clsListItemLink" href="#S17579335072024020800000" location="/api/article/getcontent?articleId=A01463683_S17579335072024020800000_LSTITM">A</a>.</p>
+      <p>When DTC P0AA649 and P1C7C49 are displayed, go to  <a class="clsListItemLink" href="#S26160719862024020800000" location="/api/article/getcontent?articleId=A01463683_S26160719862024020800000_LSTITM">B</a>.</p>
+      <p>When DTC P0AA649 and P1C7D49 are displayed, go to  <a class="clsListItemLink" href="#S05290842482024020800000" location="/api/article/getcontent?articleId=A01463683_S05290842482024020800000_LSTITM">C</a>.</p>
+      <p>When DTC P0AA649 and P1C7E49 are displayed, go to  <a class="clsListItemLink" href="#S32229271002024020800000" location="/api/article/getcontent?articleId=A01463683_S32229271002024020800000_LSTITM">D</a>.</p>
+      <p>When DTC P0AA649 and P1C7F49 are displayed, go to  <a class="clsListItemLink" href="#S05294307572024020800000" location="/api/article/getcontent?articleId=A01463683_S05294307572024020800000_LSTITM">E</a>.</p>
+      <p>When DTC P0AA649 and P1CF749 are displayed, go to  <a class="clsListItemLink" href="#S38685291442024020800000" location="/api/article/getcontent?articleId=A01463683_S38685291442024020800000_LSTITM">F</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S17579335072024020800000"></a>Go to  <a class="clsListItemLink" href="#S31635666292024020800000" location="/api/article/getcontent?articleId=A01463683_S31635666292024020800000_LSTITM">4</a>.</li>
+        <li><a name="S26160719862024020800000"></a>Perform the diagnosis of DTC P1C7C49 for [Air Conditioner] system. Refer to <a href="../pages/19622.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P1C7C-49%3A%20Hybrid%2FEV%20Battery%20Voltage%20System%20Isolation%20%28A%2FC%20Area%29%20Internal%20Electronic%20Failure/">AIR CONDITIONER (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC PROCEDURE WITH DIAGNOSTIC TROUBLE CODE (DTC)&gt;DTC P1C7C49 HYBRID/EV BATTERY VOLTAGE SYSTEM ISOLATION (A/C AREA) INTERNAL ELECTRONIC FAILURE</a>
+.</li>
+        <li><a name="S05290842482024020800000"></a>Go to  <a class="clsListItemLink" href="#S32320311772024020800000" location="/api/article/getcontent?articleId=A01463683_S32320311772024020800000_LSTITM">11</a>.</li>
+        <li><a name="S32229271002024020800000"></a>Go to  <a class="clsListItemLink" href="#S27962958092024020800000" location="/api/article/getcontent?articleId=A01463683_S27962958092024020800000_LSTITM">15</a>.</li>
+        <li><a name="S05294307572024020800000"></a>Go to  <a class="clsListItemLink" href="#S34990205812024020800000" location="/api/article/getcontent?articleId=A01463683_S34990205812024020800000_LSTITM">18</a>.</li>
+        <li><a name="S38685291442024020800000"></a>Go to  <a class="clsListItemLink" href="#S02677356442024020800000" location="/api/article/getcontent?articleId=A01463683_S02677356442024020800000_LSTITM">22</a>.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S31635666292024020800000"></a><span class="clsEmphBOLD">CHECK Transmission assembly (Power cable (FOR MOTOR)) </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect Power cable (HV99) from Inverter with converter assembly. Refer to <a href="../pages/14210.html#Power%20Cable/">HYBRID ELECTRIC VEHICLE&gt;POWER CABLE</a>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check that there is no foreign matter, coolant leakage and water intrusion into Inverter with converter assembly. Pay attention to the coolant level.</span></div>
+        </li>
+        <li>Connect the ground terminal of Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Turn to IG ON.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Turning to IG ON with Service plug removed stores other DTC. Therefore, clear the memory for DTC after the inspection.</span></div>
+        </li>
+        <li>Shift to N position and lift up the vehicle.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Power cable (for motor) (on Inverter with converter assembly side) terminals and chassis ground and shield line ground, while turning the front tires two rotations simultaneously by hand to the same direction.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When the tire is rotated by hand, current may be generated from the motor. Therefore, pay special attention to the operation.</li>
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+          </ul></span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV99) U2 - Chassis ground and shield line ground:</p>
+      <p>(HV99) V2 - Chassis ground and shield line ground:</p>
+      <p>(HV99) W2 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 100 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S09114208482024020800000" location="/api/article/getcontent?articleId=A01463683_S09114208482024020800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S29896435842024020800000" location="/api/article/getcontent?articleId=A01463683_S29896435842024020800000_LSTITM">16</a>.</p>
+    </li>
+    <li><a name="S09114208482024020800000"></a><span class="clsEmphBOLD">CHECK Transmission assembly (Power cable (FOR GENERATOR)) </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Connect the ground terminal of Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Turn to IG ON.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Turning to IG ON with Service plug removed stores other DTC. Therefore, clear the memory for DTC after the inspection.</span></div>
+        </li>
+        <li>Shift to N position and lift up the vehicle.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Power cable (for generator) (on Inverter with converter assembly side) terminals and chassis ground and shield line ground, while turning the front tires two rotations simultaneously by hand to the same direction.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When the tire is rotated by hand, current may be generated from the motor. Therefore, pay special attention to the operation.</li>
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+          </ul></span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV99) U1 - Chassis ground and shield line ground:</p>
+      <p>(HV99) V1 - Chassis ground and shield line ground:</p>
+      <p>(HV99) W1 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 100 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S35867369442024020800000" location="/api/article/getcontent?articleId=A01463683_S35867369442024020800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S29896435842024020800000" location="/api/article/getcontent?articleId=A01463683_S29896435842024020800000_LSTITM">16</a>.</p>
+    </li>
+    <li><a name="S35867369442024020800000"></a><span class="clsEmphBOLD">CHECK Air conditioning wire </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Lower the vehicle and shift to P position.</li>
+        <li>Turn the ignition to OFF.</li>
+        <li>Disconnect the ground terminal of Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect the connector (HV36) from Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check that there is no foreign matter on Air conditioning wire connector.</span></div>
+        </li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Air conditioning wire (on Inverter with converter assembly side) and chassis ground and shield line ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+            <li>Perform measurement by placing the tester probe at the end of the terminal.</li>
+          </ul></span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV36) No. 1 - Chassis ground and shield line ground:</p>
+      <p>(HV36) No. 2 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 3 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S01728459712024020800000" location="/api/article/getcontent?articleId=A01463683_S01728459712024020800000_LSTITM">7</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S27530340442024020800000" location="/api/article/getcontent?articleId=A01463683_S27530340442024020800000_LSTITM">21</a>.</p>
+    </li>
+    <li><a name="S01728459712024020800000"></a><span class="clsEmphBOLD">CHECK Main battery cable ASSY </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect the connector (HV35) from Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check that there is no foreign matter on Main battery cable ASSY connector.</span></div>
+        </li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Main battery cable ASSY (on Inverter with converter assembly side) and chassis ground and shield line ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+            <li>Perform measurement by placing the tester probe at the end of the terminal.</li>
+          </ul></span></div>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check the appearance of Main battery cable ASSY. Damages, if there is any, can cause insulation resistance decrease.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV35) No. 1 - Chassis ground and shield line ground:</p>
+      <p>(HV35) No. 2 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 10 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S06828241622024020800000" location="/api/article/getcontent?articleId=A01463683_S06828241622024020800000_LSTITM">8</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S28274723592024020800000" location="/api/article/getcontent?articleId=A01463683_S28274723592024020800000_LSTITM">20</a>.</p>
+    </li>
+    <li><a name="S06828241622024020800000"></a><span class="clsEmphBOLD">CHECK Inverter with converter assembly </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Connect the connector (HV35) to Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between high voltage terminal portion (HV35) and chassis ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+            <li>Perform inspection with Power cable, Main battery cable ASSY and Air conditioning wire disconnected from Inverter with converter assembly.</li>
+          </ul></span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV35) No. 2 - Chassis ground:</p>
+      <p>Is the resistance 1 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S30531777532024020800000" location="/api/article/getcontent?articleId=A01463683_S30531777532024020800000_LSTITM">9</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.</p>
+    </li>
+    <li><a name="S30531777532024020800000"></a><span class="clsEmphBOLD">CHECK THE HV battery junction block UNIT </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect connectors (HV45) and (HV48) from HV battery junction block.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between HV battery junction block terminal and chassis ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV45) No. 1 - Chassis ground:</p>
+      <p>(HV48) No. 1 - Chassis ground:</p>
+      <p>Is the resistance 10 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S33271372822024020800000" location="/api/article/getcontent?articleId=A01463683_S33271372822024020800000_LSTITM">10</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace HV battery junction block. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</p>
+    </li>
+    <li><a name="S33271372822024020800000"></a><span class="clsEmphBOLD">CHECK Electric vehicle charger assembly </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between HV battery charger cable (on HV battery junction block side) terminal and chassis ground and shield line ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV45) No. 1 - Chassis ground:</p>
+      <p>(HV48) No. 1 - Chassis ground:</p>
+      <p>Is the resistance 1 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S32320311772024020800000" location="/api/article/getcontent?articleId=A01463683_S32320311772024020800000_LSTITM">11</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S02794072732024020800000" location="/api/article/getcontent?articleId=A01463683_S02794072732024020800000_LSTITM">23</a>.</p>
+    </li>
+    <li><a name="S32320311772024020800000"></a><span class="clsEmphBOLD">CHECK HV battery (HIGH VOLTAGE CABLE) </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Check that there is no foreign matter or water intrusion into HV battery.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect the connectors (HV39), (HV40), (HV41), (HV38) and (HV37) from Battery ECU assembly.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Be sure to insulate the disconnected high voltage connector by wrapping it with insulating tape. To do this, wrap the insulating tape from Wire harness along to the connector.</span></div>
+        </li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Service plug terminal and chassis ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV89) No. 1 - Chassis ground:</p>
+      <p>(HV89) No. 2 - Chassis ground:</p>
+      <p>Is the resistance 10 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace Battery ECU assembly. Refer to <a href="../pages/14210.html#Battery%20Control%20Module/">HYBRID ELECTRIC VEHICLE&gt;BATTERY CONTROL MODULE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S06582303352024020800000" location="/api/article/getcontent?articleId=A01463683_S06582303352024020800000_LSTITM">12</a>.</p>
+    </li>
+    <li><a name="S06582303352024020800000"></a><span class="clsEmphBOLD">CHECK HV battery junction block </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Disconnect connectors (HV45) and (HV48) from HV battery junction block.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Be sure to insulate the disconnected high voltage connector by wrapping it with insulating tape. To do this, wrap the insulating tape from Wire harness along to the connector.</span></div>
+        </li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between HV battery junction block connector and chassis ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV48) No. 1 - Chassis ground:</p>
+      <p>(HV45) No. 1 - Chassis ground:</p>
+      <p>Is the resistance 10 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S17516948622024020800000" location="/api/article/getcontent?articleId=A01463683_S17516948622024020800000_LSTITM">13</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace HV battery junction block. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</p>
+    </li>
+    <li><a name="S17516948622024020800000"></a><span class="clsEmphBOLD">CHECK HV battery </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Make sure to wear insulated gloves and protective goggles during the work.</span></div>
+      <p>Check that there is no electrolyte leakage from HV supply stack SUB - assembly.</p>
+      <p>Is there electrolyte leakage from HV supply stack SUB - assembly?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace HV battery. Refer to <a href="../pages/14210.html#High%20Voltage%20Battery/">HYBRID ELECTRIC VEHICLE&gt;HIGH VOLTAGE BATTERY</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S09244706812024020800000" location="/api/article/getcontent?articleId=A01463683_S09244706812024020800000_LSTITM">14</a>.</p>
+    </li>
+    <li><a name="S09244706812024020800000"></a><span class="clsEmphBOLD">CHECK THE Hybrid battery terminal block UNIT </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect connectors (HV92) and (HV94) from Hybrid battery terminal block.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Be sure to insulate the disconnected high voltage connector by wrapping it with insulating tape. To do this, wrap the insulating tape from Wire harness along to the connector.</span></div>
+        </li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Hybrid battery terminal block terminal and chassis ground.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</span></div>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV92) No. 1 - Chassis ground:</p>
+      <p>(HV94) No. 1 - Chassis ground:</p>
+      <p>Is the resistance 10 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace HV battery. Refer to <a href="../pages/14210.html#High%20Voltage%20Battery/">HYBRID ELECTRIC VEHICLE&gt;HIGH VOLTAGE BATTERY</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Hybrid battery terminal block.</p>
+    </li>
+    <li><a name="S27962958092024020800000"></a><span class="clsEmphBOLD">CHECK Inverter with converter assembly </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect the connector (HV99) from Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between high voltage terminal portion (HV35) and chassis ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+            <li>Perform inspection with Power cable, Main battery cable ASSY and Air conditioning wire disconnected from Inverter with converter assembly.</li>
+          </ul></span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV35) No. 2 - Chassis ground:</p>
+      <p>Is the resistance 1 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S29896435842024020800000" location="/api/article/getcontent?articleId=A01463683_S29896435842024020800000_LSTITM">16</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.</p>
+    </li>
+    <li><a name="S29896435842024020800000"></a><span class="clsEmphBOLD">CHECK Power cable (FOR MOTOR) </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Lower the vehicle and shift to P position.</li>
+        <li>Turn the ignition to OFF.</li>
+        <li>Disconnect the ground terminal of Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect Power cable from Transmission assembly. Refer to <a href="../pages/14210.html#Power%20Cable/">HYBRID ELECTRIC VEHICLE&gt;POWER CABLE</a>
+.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Power cable (for motor) (on Inverter with converter assembly side) terminal and chassis ground and shield line ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV99) U2 - Chassis ground and shield line ground:</p>
+      <p>(HV99) V2 - Chassis ground and shield line ground:</p>
+      <p>(HV99) W2 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 100 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S29621147912024020800000" location="/api/article/getcontent?articleId=A01463683_S29621147912024020800000_LSTITM">17</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Power cable. Refer to <a href="../pages/14210.html#Power%20Cable/">HYBRID ELECTRIC VEHICLE&gt;POWER CABLE</a>
+.</p>
+    </li>
+    <li><a name="S29621147912024020800000"></a><span class="clsEmphBOLD">CHECK Power cable (FOR GENERATOR) </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Power cable (for generator) (on Inverter with converter assembly side) terminal and chassis ground and shield line ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+            <li>Perform inspection with Power cable, Main battery cable ASSY and Air conditioning wire disconnected from Inverter with converter assembly.</li>
+          </ul></span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV99) U1 - Chassis ground and shield line ground:</p>
+      <p>(HV99) V1 - Chassis ground and shield line ground:</p>
+      <p>(HV99) W1 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 100 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace Transmission assembly. Refer to <a href="../pages/15959.html#Transmission%20Assembly/">CONTINUOUSLY VARIABLE TRANSMISSION (TH2A)&gt;TRANSMISSION ASSEMBLY</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Power cable. Refer to <a href="../pages/14210.html#Power%20Cable/">HYBRID ELECTRIC VEHICLE&gt;POWER CABLE</a>
+.</p>
+    </li>
+    <li><a name="S34990205812024020800000"></a><span class="clsEmphBOLD">CHECK INSULATION OF HIGH VOLTAGE DC AREA </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect the connector (HV35) from Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check that there is no foreign matter on Main battery cable ASSY.</span></div>
+        </li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Main battery cable ASSY (on Inverter with converter assembly side) connector and chassis ground and shield line ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+            <li>Be careful not to deform or damage the inspection terminals.</li>
+          </ul></span></div>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check the appearance of Main battery cable ASSY. Damages, if there is any, can cause insulation resistance decrease.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV35) No. 1 - Chassis ground and shield line ground:</p>
+      <p>(HV35) No. 2 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 10 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S10612206832024020800000" location="/api/article/getcontent?articleId=A01463683_S10612206832024020800000_LSTITM">19</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S28274723592024020800000" location="/api/article/getcontent?articleId=A01463683_S28274723592024020800000_LSTITM">20</a>.</p>
+    </li>
+    <li><a name="S10612206832024020800000"></a><span class="clsEmphBOLD">CHECK Air conditioning wire </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect the connector (HV36) from Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check that there is no foreign matter on Air conditioning wire.</span></div>
+        </li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Air conditioning wire (on Inverter with converter assembly side) connector and chassis ground and shield line ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+            <li>Perform measurement by placing the tester probe at the end of the terminal.</li>
+          </ul></span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV36) No. 1 - Chassis ground and shield line ground:</p>
+      <p>(HV36) No. 2 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 3 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S27530340442024020800000" location="/api/article/getcontent?articleId=A01463683_S27530340442024020800000_LSTITM">21</a>.</p>
+    </li>
+    <li><a name="S28274723592024020800000"></a><span class="clsEmphBOLD">CHECK Main battery cable ASSY </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect the connector (HV35) from Inverter with converter assembly. Refer to <a href="../pages/14210.html#Inverter%20And%20Converter%20Assembly/">HYBRID ELECTRIC VEHICLE&gt;INVERTER AND CONVERTER ASSEMBLY</a>
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check that there is no foreign matter on Main battery cable ASSY.</span></div>
+        </li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Main battery cable ASSY (on Inverter with converter assembly side) connector and chassis ground and shield line ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+            <li>Perform measurement by placing the tester probe at the end of the terminal.</li>
+            <li>Perform inspection with Power cable, Main battery cable ASSY and Air conditioning wire disconnected from Inverter with converter assembly.</li>
+          </ul></span></div>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check the appearance of Main battery cable ASSY. Damages, if there is any, can cause insulation resistance decrease.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV35) No. 1 - Chassis ground and shield line ground:</p>
+      <p>(HV35) No. 2 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 10 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace HV battery junction block. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Main battery cable ASSY. Refer to <a href="../pages/14210.html#Power%20Cable/">HYBRID ELECTRIC VEHICLE&gt;POWER CABLE</a>
+.</p>
+    </li>
+    <li><a name="S27530340442024020800000"></a><span class="clsEmphBOLD">CHECK Air conditioning wire </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect the connector (HV33) from Electric compressor ASSEMBLY. Refer to <a href="../pages/19056.html#Compressor/">AIR CONDITIONER (HEV)&gt;COMPRESSOR</a>
+.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between Air conditioning wire (on Inverter with converter assembly side) connector and chassis ground and shield line ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</li>
+            <li>Perform measurement by placing the tester probe at the end of the terminal.</li>
+          </ul></span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV36) No. 2 - Chassis ground and shield line ground:</p>
+      <p>(HV36) No. 1 - Chassis ground and shield line ground:</p>
+      <p>Is the resistance 10 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis of DTC P1C7C49 for [Air Conditioner] system. Refer to <a href="../pages/19622.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P1C7C-49%3A%20Hybrid%2FEV%20Battery%20Voltage%20System%20Isolation%20%28A%2FC%20Area%29%20Internal%20Electronic%20Failure/">AIR CONDITIONER (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC PROCEDURE WITH DIAGNOSTIC TROUBLE CODE (DTC)&gt;DTC P1C7C49 HYBRID/EV BATTERY VOLTAGE SYSTEM ISOLATION (A/C AREA) INTERNAL ELECTRONIC FAILURE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Air conditioning wire. Refer to <a href="../pages/14210.html#Power%20Cable/">HYBRID ELECTRIC VEHICLE&gt;POWER CABLE</a>
+.</p>
+    </li>
+    <li><a name="S02677356442024020800000"></a><span class="clsEmphBOLD">CHECK HV battery junction block </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect connectors (HV45) and (HV48) from HV battery junction block.</li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between HV battery junction block terminal and chassis ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV45) No. 1 - Chassis ground:</p>
+      <p>(HV48) No. 1 - Chassis ground:</p>
+      <p>Is the resistance 10 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S02794072732024020800000" location="/api/article/getcontent?articleId=A01463683_S02794072732024020800000_LSTITM">23</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace HV battery junction block. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</p>
+    </li>
+    <li><a name="S02794072732024020800000"></a><span class="clsEmphBOLD">CHECK HV battery charger cable </span>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+            <li>Make sure to wear insulated gloves and protective goggles during the work.</li>
+            <li>Never turn to READY ON with Service plug removed to prevent faults.</li>
+          </ul></span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect Electric vehicle charger assembly connector (HV33).<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Check that there is no foreign matter on HV battery charger cable.</span></div>
+        </li>
+        <li>Using a megohmmeter (500 V range), measure the resistance between HV battery charger cable (on HV battery junction block side) connector and chassis ground.</li>
+      </ol>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing this check, be sure to set megohmmeter to 500 V. Using a range higher than 500 V may damage the part being checked.</span></div>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV33) No. 1 - Chassis ground:</p>
+      <p>(HV33) No. 2 - Chassis ground:</p>
+      <p>Is the resistance 1 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace Electric vehicle charger assembly. Refer to <a href="../pages/14210.html#Electric%20Vehicle%20Charger/">HYBRID ELECTRIC VEHICLE&gt;ELECTRIC VEHICLE CHARGER</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace HV battery charger cable.</p>
+    </li>
+  </ol>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

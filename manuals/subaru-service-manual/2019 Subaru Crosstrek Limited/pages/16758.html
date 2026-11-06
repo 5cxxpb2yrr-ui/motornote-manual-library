@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC B2A16: Immobilizer Key Collation — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Accessories%20%26%20Equipment/">Accessories &amp; Equipment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Accessories%20%26%20Equipment/Infotainment/">Infotainment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/16738.html">Telematics System (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/16738.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/16758.html">DTC B2A16: Immobilizer Key Collation</a></div><div class="main"><h1>DTC B2A16: Immobilizer Key Collation</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S13651510302020102700000">
+  <p><span class="clsEmphBOLD">Diagnosis start condition: </span></p>
+  <p>When ignition switch is ON.</p>
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>When DCM received a remote request and couldn't detect valid cryptographic key within three seconds.</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>RED LED ON</p>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+        <li>After the DCM is replaced, registrations of CommCheck and immobilizer system are required. Refer to <a href="../pages/16461.html">ENTERTAINMENT &amp; MONITORING&gt;TELEMATICS SYSTEM&gt;OPERATION&gt;REGISTRATION (COMM CHECK)</a>
+.</li>
+        <li>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/16738.html#General%20Description/Caution/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S00638463692020102800000"></a><span class="clsEmphBOLD">CHECK DTC. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to ON.</li>
+        <li>Read the DTC of [Telematics] using the Subaru Select Monitor. Refer to <a href="../pages/16738.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is DTC B2A16 displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S31446754362020102800000" location="/api/article/getcontent?articleId=A01114283_S31446754362020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Even if DTC is displayed, the circuit has returned to a normal condition at this time.</p>
+      <p>Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+    </li>
+    <li><a name="S31446754362020102800000"></a><span class="clsEmphBOLD">CHECK DCM POWER SUPPLY. </span><p>Using the Subaru Select Monitor, check the following items in the [Data monitor] of [Telematics]. Refer to <a href="../pages/16738.html#Data%20Monitor/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <ul class="BULLET">
+        <li>Battery voltage</li>
+      </ul>
+      <p>Is the voltage 9 - 16 V?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S23912830102020102800000" location="/api/article/getcontent?articleId=A01114283_S23912830102020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the battery and Go to  <a class="clsListItemLink" href="#S23912830102020102800000" location="/api/article/getcontent?articleId=A01114283_S23912830102020102800000_LSTITM">3</a>.</p>
+      <p>Refer to <a href="../pages/18185.html">STARTING/CHARGING SYSTEMS (H4DO (EXCEPT FOR HEV))&gt;BATTERY&gt;REMOVAL</a>
+.</p>
+    </li>
+    <li><a name="S23912830102020102800000"></a><span class="clsEmphBOLD">PERFORM IMMOBILIZER SYSTEM RE-REGISTRATION. </span><p>Perform re-registration of immobilizer system for DCM using the Subaru Select Monitor. Refer to the &quot;REGISTRATION MANUAL FOR IMMOBILIZER&quot; provided as a separate volume.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>&quot;Telematics control module &quot;, which is described in &quot;REGISTRATION MANUAL FOR IMMOBILIZER&quot;, is described as &quot;DCM&quot; in the service manual.</span></div>
+      <p>Is registration complete?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S33227758362020102800000" location="/api/article/getcontent?articleId=A01114283_S33227758362020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Refer to &quot;Correspondence table when registration is not possible&quot; in the &quot;REGISTRATION MANUAL FOR IMMOBILIZER&quot; provided as a separate volume.</p>
+    </li>
+    <li><a name="S33227758362020102800000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Read the DTC of [Telematics] using the Subaru Select Monitor. Refer to <a href="../pages/16738.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">TELEMATICS SYSTEM (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Is DTC B2A16 displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the DCM. Refer to <a href="../pages/16413.html#Data%20Communication%20Module/">ENTERTAINMENT &amp; MONITORING&gt;DATA COMMUNICATION MODULE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Immobilizer system for DCM is not registered. Function returned to normal.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

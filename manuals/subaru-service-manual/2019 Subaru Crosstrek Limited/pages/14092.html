@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P3000-00: Hybrid/EV Battery Discharge Control Malfunction: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14054.html">Section 33 (P-HEV High Voltage Battery System (Diagnostics) (4 Of 4))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14054.html#DTC%20P3000-00%3A%20Hybrid%2FEV%20Battery%20Discharge%20Control%20Malfunction/">DTC P3000-00: Hybrid/EV Battery Discharge Control Malfunction</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14092.html">Notes</a></div><div class="main"><h1>DTC P3000-00: Hybrid/EV Battery Discharge Control Malfunction: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S29115689472024052900000">
+  
+  <p><span class="clsEmphBOLD">1. - </span></p>
+  <p><span class="clsEmphBOLD">Outline of diagnosis: </span></p>
+  <p>When discharge of HV battery continues after discharge was prohibited because of HV battery capacity SOC lower limit due to HV battery system malfunction, etc., (1 trip detection logic)</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>Hybrid system stopped</p>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14208.html#General%20Description/Caution/">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a>
+.</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>SOC, with HV battery still left uncharged, will be lowered below the limit if the vehicle still is left in N position (parked/stopped) for an extended period of time, which may result in DTC P300000 output.</li>
+        <li>Inability of engine start may disable charge to HV battery and cause DTC P300000 output. (This is not a system malfunction.)</li>
+        <li>DTC P300000 may be output due to decreased SOC caused by repeated engine start check. In this case, charge HV battery via plug-in charge.</li>
+        <li>SOC decreases by approx. 0.5% at one cranking.</li>
+        <li>Ten minutes' plug-in charge makes SOC recover by approx. 4.2% with AC120 V, and 8.4% with AC240 V.</li>
+        <li>If engine does not restart after repair, perform memory clear of DTCs and charge HV battery via plug-in charge.</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S16537327582024052900000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Read the following DTCs using Subaru Select Monitor. Refer to <a href="../pages/14208.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <ul class="BULLET">
+        <li>P-HEV High Voltage Battery</li>
+        <li>P-HEV Hybrid Powertrain Control</li>
+      </ul>
+      <p>When DTC P300000 or P300016 is displayed, go to  <a class="clsListItemLink" href="#S31447166082024052900000" location="/api/article/getcontent?articleId=A01501224_S31447166082024052900000_LSTITM">A</a>.</p>
+      <p>When DTCs related to [P-HEV High Voltage Battery] other than P300000 or P300016 is simultaneously displayed, go to  <a class="clsListItemLink" href="#S34196812702024052900000" location="/api/article/getcontent?articleId=A01501224_S34196812702024052900000_LSTITM">B</a>.</p>
+      <p>When DTCs related to [P-HEV Hybrid Powertrain Control] other than P300000 or P300016 is simultaneously displayed, go to  <a class="clsListItemLink" href="#S10454239952024052900000" location="/api/article/getcontent?articleId=A01501224_S10454239952024052900000_LSTITM">C</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S31447166082024052900000"></a>Go to  <a class="clsListItemLink" href="#S40873261922024052900000" location="/api/article/getcontent?articleId=A01501224_S40873261922024052900000_LSTITM">2</a>.</li>
+        <li><a name="S34196812702024052900000"></a>Perform the diagnosis for the simultaneously displayed DTCs.</li>
+        <li><a name="S10454239952024052900000"></a>Perform the diagnosis for the simultaneously displayed DTCs.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S40873261922024052900000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Read the DTC of [Engine Control System] using the Subaru Select Monitor. Refer to <a href="../pages/15855.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ENGINE (DIAGNOSTICS) (H4DO (HEV))&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Are any DTCs displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis for the displayed DTCs. Refer to <a href="../pages/15855.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ENGINE (DIAGNOSTICS) (H4DO (HEV))&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S19669536372024052900000" location="/api/article/getcontent?articleId=A01501224_S19669536372024052900000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S19669536372024052900000"></a><span class="clsEmphBOLD">CHECK GASOLINE LEVEL. </span><ol class="ARABICNUM">
+        <li>Turn to IG ON.</li>
+        <li>Check the gasoline level on the fuel gauge in the combination meter.</li>
+      </ol>
+      <p>Does gasoline remain?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S01931723492024052900000" location="/api/article/getcontent?articleId=A01501224_S01931723492024052900000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Refill gasoline.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Refill until the warning light on the fuel gauge goes off.</span></div>
+    </li>
+    <li><a name="S01931723492024052900000"></a><span class="clsEmphBOLD">CHECK ENGINE START. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, read the value in [Shift Position] of [Freeze frame data] for DTC P300000. Refer to <a href="../pages/14208.html#Freeze%20Frame%20Data/">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;FREEZE FRAME DATA</a>
+.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+                <li>If the shift position indicates &quot;N&quot; in the freeze frame data, charge to HV battery is disabled, which may cause DTC P300000 to be detected.</li>
+                <li>When only &quot;DTC P300000&quot; is displayed, replacement of HV battery is unnecessary. Charge the HV battery.</li>
+              </ul></span></div>
+        </li>
+        <li>Check if the engine starts.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+                <li>Set the shift lever to &quot;P&quot; and depress the accelerator pedal and the engine starts.</li>
+                <li>If READY ON/OFF is repeated with SOC lowered, the SOC further decreases and the DTC P300016 may be displayed. Therefore, if necessary, perform charging via plug-in charge.</li>
+                <li>SOC decreases by approx. 0.5% at one cranking.</li>
+                <li>Ten minutes' plug-in charge makes SOC recover by approx. 4.2% with AC120 V, and 8.4% with AC240 V.</li>
+              </ul></span></div>
+        </li>
+      </ol>
+      <p>Does the engine start?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Leave the shift lever placed in P and perform charging in the idling state until Auto Start Stop occurs.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Clear the memory of DTCs. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</p>
+      <p>Then perform charging via plug-in charge and check that the engine starts.</p>
+    </li>
+  </ol>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

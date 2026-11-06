@@ -1,0 +1,173 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnostic Method — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/">Engine Performance</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/Testing%20%26%20Diagnosis/">Testing &amp; Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23012.html">Engine Control System (Diagnostics) (Except For HEV) (3 Of 4)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23012.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23012.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P1235%3A%20High%20Pressure%20Fuel%20Pump%20Circuit/">DTC P1235: High Pressure Fuel Pump Circuit</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23012.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P1235%3A%20High%20Pressure%20Fuel%20Pump%20Circuit/General%20Description/">General Description</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23071.html">Diagnostic Method</a></div><div class="main"><h1>Diagnostic Method</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S38463423442020102700000">
+  <p>Judge as NG when the following conditions are established.</p>
+  <ul class="BULLET">
+    <li><span class="clsEmphBOLD">Judgment 1: Diagnosis for open circuit Judgment value </span><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">High-pressure fuel pump wrong operation signal (0.2 A or less)</td>
+            <td align="left" class="clsCellNormal">ON</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><span class="clsEmphBOLD">Judgment 2: Diagnosis for overcurrent Judgment value </span><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">High-pressure fuel pump wrong operation signal (14.2 A or more)</td>
+            <td align="left" class="clsCellNormal">ON</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><span class="clsEmphBOLD">Judgment 3: Diagnosis for ground short Judgment value </span><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">High-pressure fuel pump wrong operation signal (1 V or less)</td>
+            <td align="left" class="clsCellNormal">ON</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><span class="clsEmphBOLD">Judgment 4: Diagnosis for power supply short Judgment value </span><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">High-pressure fuel pump wrong operation signal (5 V or more)</td>
+            <td align="left" class="clsCellNormal">ON</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><span class="clsEmphBOLD">Judgment 5: Diagnosis for ground short (between ECM and high-pressure fuel pump driver) </span><p><span class="clsEmphBOLD">Judgment value </span></p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">High-pressure fuel pump control voltage</td>
+            <td align="left" class="clsCellNormal">Less than 3.92 V</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><span class="clsEmphBOLD">Judgment 6: Diagnosis for power supply short (between ECM and high-pressure fuel pump driver) </span><a name="S34011235882020102800000"></a><div class="clsTableTitle">JUDGMENT VALUE SPECIFICATION</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">High-pressure fuel pump control voltage</td>
+            <td align="left" class="clsCellNormal">3.92 V or more</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+  <p><span class="clsEmphBOLD">Time needed for diagnosis: </span></p>
+  <p>Judgment 1, 2, 5: Map1</p>
+  <p>Judgment 3, 4, 6: Map2</p><a name="S08309447152020102800000"></a><div class="clsTableTitle">ENGINE SPEED DESCRIPTION - MAP 1</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="center">
+      <col span="1" id="COL3" align="center">
+      <col span="1" id="COL4" align="center">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Engine speed (rpm)</th>
+        <th align="center" class="clsCellNormal">500</th>
+        <th align="center" class="clsCellNormal">2000</th>
+        <th align="center" class="clsCellNormal">4000</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Time when calculation was performed 10 times (sec)</td>
+        <td align="center" class="clsCellNormal">0.60</td>
+        <td align="center" class="clsCellNormal">0.15</td>
+        <td align="center" class="clsCellNormal">0.08</td>
+      </tr>
+    </tbody>
+  </table><a name="S17854430302020102800000"></a><div class="clsTableTitle">ENGINE SPEED DESCRIPTION - MAP 2</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="center">
+      <col span="1" id="COL3" align="center">
+      <col span="1" id="COL4" align="center">
+      <col span="1" id="COL5" align="center">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Engine speed (rpm)</th>
+        <th align="center" class="clsCellNormal">0</th>
+        <th align="center" class="clsCellNormal">500</th>
+        <th align="center" class="clsCellNormal">2000</th>
+        <th align="center" class="clsCellNormal">4000</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Time when calculation was performed 10 times (sec)</td>
+        <td align="center" class="clsCellNormal">0.04</td>
+        <td align="center" class="clsCellNormal">0.60</td>
+        <td align="center" class="clsCellNormal">0.15</td>
+        <td align="center" class="clsCellNormal">0.08</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><span class="clsEmphBOLD">Malfunction indicator light illumination: </span>
+ Illuminates as soon as a malfunction occurs.</p>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

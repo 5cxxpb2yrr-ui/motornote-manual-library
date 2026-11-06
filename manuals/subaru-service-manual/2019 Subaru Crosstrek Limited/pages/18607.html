@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C1711: Steering Angle Sensor — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18529.html">Section 6 (Brake Control System (Diagnostics) (HEV))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18529.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/18607.html">DTC C1711: Steering Angle Sensor</a></div><div class="main"><h1>DTC C1711: Steering Angle Sensor</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S11093203212020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <ul class="BULLET">
+    <li>A fault is detected if the sensor signal value is not correct.</li>
+    <li>A fault is detected if the yaw rate sensor signal/lateral G sensor signal change while the sensor signal of steering angle sensor indicates a constant value.</li>
+    <li>A fault is detected if the communication status of steering angle sensor is abnormal.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>VDC does not operate.</li>
+    <li>Hill hold does not function.</li>
+    <li>EyeSight does not operate.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Vehicle dynamics control system Refer to <a href="../pages/16554.html#Vehicle%20Dynamics%20Control%20System/">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;VEHICLE DYNAMICS CONTROL SYSTEM</a>
+.</p><a name="S110932032120201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13245337">
+            <div class="imageHeader"><a name="S37755179942020102800000"></a></div><img alt="G13245337" src="../images/G13245337.png" name="G13245337"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ol class="ARABICNUM">
+    <li><a name="S28688222192020102800000"></a><span class="clsEmphBOLD">CHECK POWER SUPPLY FOR STEERING ANGLE SENSOR. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Disconnect the connector from steering angle sensor.</li>
+        <li>Turn the ignition switch to ON.</li>
+        <li>Measure the voltage between steering angle sensor and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i74) No. 4 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage 10 - 15 V?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S02150217972020102800000" location="/api/article/getcontent?articleId=A01114210_S02150217972020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the steering angle sensor power supply circuit including the fuse.</p>
+    </li>
+    <li><a name="S02150217972020102800000"></a><span class="clsEmphBOLD">CHECK GROUND CIRCUIT OF STEERING ANGLE SENSOR (CHECK FOR OPEN CIRCUIT). </span><p>Measure the resistance between steering angle sensor and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(i74) No. 1 - Chassis ground:</p>
+      <p>Is the resistance less than 10 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S42392202022020102800000" location="/api/article/getcontent?articleId=A01114210_S42392202022020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair ground circuit in the steering angle sensor.</p>
+    </li>
+    <li><a name="S42392202022020102800000"></a><span class="clsEmphBOLD">CHECK STEERING ANGLE SENSOR HARNESS (CHECK FOR OPEN CIRCUIT). </span><ol class="ARABICNUM">
+        <li>Disconnect the connector from the VDCCM &amp; H/U.</li>
+        <li>Measure the resistance between VDCCM &amp; H/U and steering angel sensor.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i74) No. 2 - (B310) No. 43:</p>
+          <p>(i74) No. 3 - (B310) No. 42:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S34575068022020102800000" location="/api/article/getcontent?articleId=A01114210_S34575068022020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the harness between the steering angle sensor and VDCCM &amp; H/U.</p>
+    </li>
+    <li><a name="S34575068022020102800000"></a><span class="clsEmphBOLD">CHECK GROUND SHORT CIRCUIT OF STEERING ANGLE SENSOR HARNESS. </span><p>Measure the resistance between steering angle sensor and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(i74) No. 2 - Chassis ground:</p>
+      <p>(i74) No. 3 - Chassis ground:</p>
+      <p>Is the resistance 1 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S40172439522020102800000" location="/api/article/getcontent?articleId=A01114210_S40172439522020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the harness between the steering angle sensor and VDCCM &amp; H/U.</p>
+    </li>
+    <li><a name="S40172439522020102800000"></a><span class="clsEmphBOLD">CHECK STEERING WHEEL. </span><ol class="ARABICNUM">
+        <li>Drive the vehicle on a flat road.</li>
+        <li>Park the vehicle straight.</li>
+        <li>Check the steering wheel for deviation from center.</li>
+      </ol>
+      <p>Is the deviation from the center of steering wheel less than 5°?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S24233986612020102800000" location="/api/article/getcontent?articleId=A01114210_S24233986612020102800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the centering adjustment of steering wheel, and perform the VDC sensor midpoint setting mode. Refer to <a href="../pages/17408.html">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)&gt;ADJUSTMENT&gt;VDC SENSOR MIDPOINT SETTING MODE</a>
+.</p>
+    </li>
+    <li><a name="S24233986612020102800000"></a><span class="clsEmphBOLD">CHECK OUTPUT OF STEERING ANGLE SENSOR USING SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Adjust steering wheel to the center position.</li>
+        <li>Using Subaru Select Monitor, display [Steering Angle Sensor] of [Data monitor]. Refer to <a href="../pages/18529.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DATA MONITOR</a> .</li>
+      </ol>
+      <p>Is the value of [Steering Angle Sensor] -10° - 10°?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the VDC sensor midpoint setting mode. Refer to <a href="../pages/17408.html">VEHICLE DYNAMICS CONTROL (VDC)&gt;VDC CONTROL MODULE AND HYDRAULIC CONTROL UNIT (VDCCM &amp; H/U)&gt;ADJUSTMENT&gt;VDC SENSOR MIDPOINT SETTING MODE</a>
+. Go to  <a class="clsListItemLink" href="#S03694281562020102800000" location="/api/article/getcontent?articleId=A01114210_S03694281562020102800000_LSTITM">7</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check the installation of the steering wheel and steering angle sensor.</p>
+    </li>
+    <li><a name="S03694281562020102800000"></a><span class="clsEmphBOLD">CHECK STEERING ANGLE SENSOR USING SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Connect all connectors.</li>
+        <li>Using the Subaru Select Monitor, perform the clear memory. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Execute the inspection mode. Refer to <a href="../pages/18529.html#Inspection%20Mode/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;INSPECTION MODE</a> .</li>
+        <li>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/18529.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is the same DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the steering angle sensor. Refer to <a href="../pages/17388.html#Steering%20Angle%20Sensor/">VEHICLE DYNAMICS CONTROL (VDC)&gt;STEERING ANGLE SENSOR</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S04227104422020102800000" location="/api/article/getcontent?articleId=A01114210_S04227104422020102800000_LSTITM">8</a>.</p>
+    </li>
+    <li><a name="S04227104422020102800000"></a><span class="clsEmphBOLD">CHECK DETECTION OF OTHER DTCS FOR VDC. </span><p>Read the DTC using Subaru Select Monitor. Refer to <a href="../pages/18529.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</p>
+      <p>Is any other DTC displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis according to DTC. Refer to <a href="../pages/18575.html">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Currently, it is normal. There may have been a temporary poor contact in the harness and connector or a temporary noise interference.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

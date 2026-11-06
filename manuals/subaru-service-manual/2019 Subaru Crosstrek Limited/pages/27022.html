@@ -1,0 +1,171 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Description Of Function — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14046.html">Section 25 (P-HEV Hybrid Powertrain Control System (Diagnostics) (1 Of 4))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14046.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14046.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0AA6-49%3A%20Hybrid%2FEV%20Battery%20Voltage%20System%20Isolation%20Internal%20Electronic%20Failure/">DTC P0AA6-49: Hybrid/EV Battery Voltage System Isolation Internal Electronic Failure</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14046.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0AA6-49%3A%20Hybrid%2FEV%20Battery%20Voltage%20System%20Isolation%20Internal%20Electronic%20Failure/General%20Description/">General Description</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/27022.html">Description Of Function</a></div><div class="main"><h1>Description Of Function</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S32243505252024020800000">
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>When insulation resistance decrease cannot be detected with a megohmmeter, check the insulation peak value level on the data monitor.</span></div>
+  <p><span class="clsEmphBOLD">Insulation peak value level </span></p>
+  <p>The insulation peak value level indicates decrease of insulation resistance, and shows &quot;Decrease error&quot; when insulation resistance decreases. However, the insulation peak value level may decrease even when the vehicle insulation resistance is normal. Therefore, &quot;Not detect&quot; is indicated in the following conditions:</p>
+  <ul class="BULLET">
+    <li>Until approximately one minute elapses after turning to IG ON</li>
+    <li>When the system voltage (HV battery voltage, voltage before boosting, voltage after boosting) changes</li>
+    <li>With boosting in progress, when [Boost Ratio] of the data monitor is a value other than 0, or for a few seconds after [Boost Ratio] became 0 (when boosting is not in progress, values of [Hybrid Battery Voltage], [VL-Voltage before Boosting] and [VH-Voltage after Boosting] become approximately the same)</li>
+    <li>When any of the following data monitor indicates [Impossible], the insulation peak value level cannot be referenced immediately after switching over each system.<ul class="DASH">
+        <li>Feasibility of insulation peak value reference at switch-over of the air conditioner inverter</li>
+        <li>Feasibility of insulation peak value reference at switch-over of the motor/generator inverter</li>
+        <li>Feasibility of insulation peak value reference at switch-over of SMR</li>
+      </ul>
+    </li>
+  </ul>
+  <p>When the insulation peak value level indicates &quot;Decrease error (LV3)&quot;, the insulation resistance is close to 0 Ω, and possible conditions are damages to the high voltage cable or the HV component (high voltage) as well as direct short circuit to the body due to intrusion of metallic foreign matters.</p>
+  <p><span class="clsEmphBOLD">Related freeze frame data information </span></p>
+  <p>When the phenomenon cannot be reproduced and also the fault cannot be solved even after the parts were replaced according to the procedure, check the freeze frame data in the table below for reference of malfunction locations.</p><a name="S322435052520240208000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Freeze frame data</th>
+        <th align="left" class="clsCellNormal">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Short Wave Highest Value Level</td>
+        <td align="left" class="clsCellNormal">Indicates decrease of insulation resistance.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>VL-Voltage before Boosting</li>
+            <li>VH-Voltage after Boosting</li>
+            <li>Hybrid Battery Voltage</li>
+            <li>Boost Ratio</li>
+          </ul>
+        </td>
+        <td align="left" class="clsCellNormal">With boosting in progress ([Boost Ratio] is other than 0), or [VL-Voltage before Boosting], [VH-Voltage after Boosting] and [Hybrid Battery Voltage] are fluctuating, [Short Wave Highest Value Level] may decrease even when insulation resistance is not faulty.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>SMRP Status</li>
+            <li>SMRB Status</li>
+            <li>SMRG Status</li>
+            <li>AC Charging Precharge Relay Status</li>
+            <li>AC Charging Positive Relay Status</li>
+            <li>AC Charging Negative Relay Status</li>
+          </ul>
+        </td>
+        <td align="left" class="clsCellNormal">When all of [SMRP Status], [SMRB Status], [SMRG Status], [AC Charging Precharge Relay Status], [AC Charging Positive Relay Status] and [AC Charging Negative Relay Status] are OFF, the insulation malfunction detection circuit detects insulation resistance decrease of HV battery area ([*d] in the circuit diagram).<br>Example:<br>[SMRP Status], [SMRB Status] and [SMRG Status] indicate operations of the three system main relays.<br>[AC Charging Precharge Relay Status], [AC Charging Positive Relay Status] and [AC Charging Negative Relay Status] indicate operations of the three charging relays. It is considered that, with IG ON (do not turn to READY ON) and Electric vehicle charger cable assembly not connected, all of the three system main relays and the three charging relays become OFF, and HV battery is disconnected from other high voltage circuit.<br>When [Short Wave Highest Value Level] decreased after a few minutes elapsed from the condition of IG ON (do not turn to READY ON) and Electric vehicle charger cable assembly not operating, it may be insulation malfunction of HV battery system.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Inverter Shutdown Status</td>
+        <td align="left" class="clsCellNormal">When [Motor Inverter Shutdown Status] is ON, the insulation malfunction detection circuit cannot detect insulation resistance decrease of the motor system alternating current area (on the motor side of [*e] in the circuit diagram).<br>The motor system alternating current area means the alternating current area of the motor serrvice information in Transmission assembly, Power cable and the motor drive circuit in Inverter with converter assembly.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Inverter Shutdown Status</td>
+        <td align="left" class="clsCellNormal">When [Generator Inverter Shutdown Status] is ON, the insulation malfunction detection circuit cannot detect insulation resistance decrease of the generator system alternating current area (on the generator side of [*e] in the circuit diagram).<br>The generator system alternating current area means, the alternating current area in the generator.<br>Transmission assembly, generator cable and the generator drive circuit in Inverter with converter assembly.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">A/C Consumption Power</td>
+        <td align="left" class="clsCellNormal">Electric compressor ASSEMBLY alternating current area means the alternating current area in the air conditioner motor service information, wiring between the air conditioner motor and inverter for air conditioner, and air conditioner motor drive circuit in the inverter for air conditioner.<br>With the vehicle stopped, turn the air conditioner to ON/OFF and monitor [Short Wave Highest Value Level] for diagnosis reference.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>Check items on freeze frame data</li>
+      </ul><br>From the freeze frame data and customer interview, reproduce the vehicle condition at the time of DTC detection so that it is possible to check whether DTC is detected again or not.</span></div>
+  <p><span class="clsEmphBOLD">Driving condition </span></p><a name="S322435052520240208000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Item</th>
+        <th align="left" class="clsCellNormal">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Vehicle Speed Sensor</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Accelerator Position</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Engine Speed</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Master Cylinder Control Torque</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Coolant Temperature</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><span class="clsEmphBOLD">Environment </span></p><a name="S322435052520240208000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Item</th>
+        <th align="left" class="clsCellNormal">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Temperature</td>
+        <td align="left" class="clsCellNormal">When some liquid is mixed into ATF, insulation resistance may decrease at high temperature only<br>When the motor output torque increases in a low motor revolution range such as when the vehicle is climbing up the hill at low speed or accelerating from low speed, the motor temperature tends to increase</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Temperature</td>
+        <td align="left" class="clsCellNormal">When some liquid is mixed into ATF, insulation resistance may decrease at high temperature only<br>The generator temperature tends to increase due to repeated acceleration/deceleration at medium vehicle speed (60 - 80 km/h (37 - 50 MPH))</td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="BULLET">
+    <li><span class="clsEmphBOLD">Interview with the customer </span></li>
+  </ul>
+  <p><span class="clsEmphBOLD">Ask the customer about vehicle operation conditions at the time of malfunction occurrence </span>
+.</p><a name="S322435052520240208000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Item</th>
+        <th align="left" class="clsCellNormal">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Driving condition (acceleration, deceleration, turning, etc.)</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Assuming changes in insulation conditions of the insulation decreasing area due to changes of acceleration/deceleration speed, vibrations, etc.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Road condition (rough road, etc.)</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Weather (rain, snow)</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Assuming water intrusion from outside</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Vehicle washed or not</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

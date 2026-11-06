@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P060B-16: Hybrid/EV Battery Energy Control Module A/D Processing Circuit Voltage Below Threshold: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/20149.html">Section 30 (P-HEV High Voltage Battery System (Diagnostics) (1 Of 4))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/20149.html#DTC%20P060B-16%3A%20Hybrid%2FEV%20Battery%20Energy%20Control%20Module%20A%2FD%20Processing%20Circuit%20Voltage%20Below%20Threshold/">DTC P060B-16: Hybrid/EV Battery Energy Control Module A/D Processing Circuit Voltage Below Threshold</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/20185.html">Notes</a></div><div class="main"><h1>DTC P060B-16: Hybrid/EV Battery Energy Control Module A/D Processing Circuit Voltage Below Threshold: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S07080443682024052900000">
+  
+  <p><span class="clsEmphBOLD">1. - </span></p>
+  <p><span class="clsEmphBOLD">Outline of diagnosis: </span></p>
+  <p>Battery ECU assembly internal malfunction</p>
+  <p>(1 trip detection logic)</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>Reduced output power</li>
+    <li>Engine not stopped</li>
+  </ul>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14208.html#General%20Description/Caution/">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a>
+.</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S02794377362024052900000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Using the Subaru Select Monitor, read DTCs of the following system. Refer to <a href="../pages/14208.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <ul class="BULLET">
+        <li>P-HEV High Voltage Battery</li>
+        <li>P-HEV Hybrid Powertrain Control</li>
+      </ul>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">System</th>
+                <th colspan="2" valign="TOP" align="left" class="clsCellNormal">Related DTC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="TOP" rowspan="24" align="left" class="clsCellNormal">P-HEV High Voltage Battery</td>
+                <td align="left" class="clsCellNormal">P060A47</td>
+                <td align="left" class="clsCellNormal">HYBRID/EV BATTERY ENERGY CONTROL MODULE MONITORING PROCESSOR WATCHDOG/SAFETY MCU FAILURE</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">P060B49</td>
+                <td align="left" class="clsCellNormal">HYBRID/EV BATTERY ENERGY CONTROL MODULE A/D PROCESSING INTERNAL ELECTRONIC FAILURE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P060687</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY ENERGY CONTROL MODULE PROCESSOR TO MONITORING PROCESSOR MISSING MESSAGE</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0A9B11</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;A&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0AAC11</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY AIR TEMPERATURE SENSOR &quot;A&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0AB111</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY AIR TEMPERATURE SENSOR &quot;B&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0AC511</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;B&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0ACA11</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;C&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0AE811</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;D&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0BC211</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;E&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0C3311</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;F&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0C7C11</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;G&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0C8111</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;H&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0C8811</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;I&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0C8D11</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;J&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0C9211</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;K&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0C9711</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;L&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0CA811</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;M&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0CAD11</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;N&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P0CB211</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY TEMPERATURE SENSOR &quot;O&quot; CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P1B4011</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY HEATER 1 TEMPERATURE SENSOR CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P1B4511</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY HEATER 2 TEMPERATURE SENSOR CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P1B5011</td>
+                <td align="" class="clsCellNormal">JUNCTION BLOCK POSITIVE CONTACTOR TEMPERATURE SENSOR CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P1B5511</td>
+                <td align="" class="clsCellNormal">JUNCTION BLOCK NEGATIVE CONTACTOR TEMPERATURE SENSOR CIRCUIT SHORT TO GROUND</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">P-HEV Hybrid Powertrain Control</td>
+                <td align="" class="clsCellNormal">P0A1F94</td>
+                <td align="" class="clsCellNormal">HYBRID/EV BATTERY ENERGY CONTROL MODULE UNEXPECTED OPERATION</td>
+              </tr>
+            </tbody>
+          </table></span></div>
+      <p>When &quot;Only DTC P060B16 is displayed&quot; or &quot;DTC other than above is displayed&quot;, go to  <a class="clsListItemLink" href="#S36193144332024052900000" location="/api/article/getcontent?articleId=A01501221_S36193144332024052900000_LSTITM">A</a>. When DTCs related to [P-HEV High Voltage Battery], mentioned above, are simultaneously displayed, go to  <a class="clsListItemLink" href="#S24014992162024052900000" location="/api/article/getcontent?articleId=A01501221_S24014992162024052900000_LSTITM">B</a>.</p>
+      <p>When DTCs related to [P-HEV Hybrid Powertrain Control], mentioned above, are simultaneously displayed, go to  <a class="clsListItemLink" href="#S38521966172024052900000" location="/api/article/getcontent?articleId=A01501221_S38521966172024052900000_LSTITM">C</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S36193144332024052900000"></a>Replace Battery ECU assembly. Refer to <a href="../pages/14210.html#Battery%20Control%20Module/">HYBRID ELECTRIC VEHICLE&gt;BATTERY CONTROL MODULE</a>
+.</li>
+        <li><a name="S24014992162024052900000"></a>Perform the diagnosis for the simultaneously displayed DTCs.</li>
+        <li><a name="S38521966172024052900000"></a>Perform the diagnosis for the simultaneously displayed DTCs.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+  </ol>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

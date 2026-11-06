@@ -1,0 +1,208 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnostic Method — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/">Engine Performance</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Engine%20Performance/Testing%20%26%20Diagnosis/">Testing &amp; Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23500.html">Engine Control System (Diagnostics) (Except For HEV) (4 Of 4)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23500.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23500.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P2610%3A%20ECM%2FPCM%20Engine%20Off%20Timer%20Performance/">DTC P2610: ECM/PCM Engine Off Timer Performance</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23500.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P2610%3A%20ECM%2FPCM%20Engine%20Off%20Timer%20Performance/General%20Description/">General Description</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/23651.html">Diagnostic Method</a></div><div class="main"><h1>Diagnostic Method</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S35484322672020102700000">
+  <ul class="BULLET">
+    <li><span class="clsEmphBOLD">Monitor#1 &lt;Timer diagnosis&gt; </span><p>Start the count up operation of counters in ECM and in soaking timer IC when the engine is started. Judge as timer malfunction if the difference between the counter in ECM and counter in soaking timer IC exceeds the allowable limit when the ignition switch is OFF.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G09477654">
+                <div class="imageHeader"><a name="S42245184802020102700000"></a></div><img alt="G09477654" src="../images/G09477654.png" name="G09477654"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Judge as NG when the following conditions are established.</p><a name="S01032340472020102700000"></a><div class="clsTableTitle">JUDGMENT VALUE SPECIFICATION</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">|osoaktimcpu - osoaktimic|/osoaktimcpu</td>
+            <td align="left" class="clsCellNormal">Exceeds 0.24</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">osoaktimcpu = Counter in ECM</td>
+            <td align="left" class="clsCellNormal"> </td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">osoaktimic = Counter in soaking timer IC</td>
+            <td align="left" class="clsCellNormal"> </td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><span class="clsEmphBOLD">Monitor#2&lt;Full count diagnosis&gt; </span><p>Reset the counter in soaking timer IC and start the count up operation.</p>
+      <p>Judge as full count diagnosis malfunction if counter in soaking timer IC is not the specified value after 4 seconds.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G13228153">
+                <div class="imageHeader"><a name="S08347795312020102700000"></a></div><img alt="G13228153" src="../images/G13228153.png" name="G13228153"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Judge as NG when the following conditions are established.</p><a name="S35380681472020102700000"></a><div class="clsTableTitle">JUDGMENT VALUE SPECIFICATION</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">osoakfcntic osoakfcntic = Counter in soaking timer IC</td>
+            <td align="left" class="clsCellNormal">Not equal to 65535 counts</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><span class="clsEmphBOLD">Monitor#3&lt;Soak timer IC setting diagnosis&gt; </span><p>When setting the activation setting time to soaking timer IC, compare the writing value to soaking timer IC with read out value. Judge as malfunction if the values do not match 3 times in a row.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G09477656">
+                <div class="imageHeader"><a name="S25998193172020102700000"></a></div><img alt="G09477656" src="../images/G09477656.png" name="G09477656"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Judge as NG when the following conditions are established.</p><a name="S16098125902020102700000"></a><div class="clsTableTitle">JUDGMENT VALUE SPECIFICATION</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">Writing value and read out value when setting the soaking timer</td>
+            <td align="left" class="clsCellNormal">Unmatch</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><span class="clsEmphBOLD">Monitor#4&lt;Timer diagnosis (during soaking)&gt; </span><p>Wake-up at the predetermined interval until 5, 7 or 9.5 hours have passed after the ignition switch is OFF, and compare the counter in soaking timer IC with the counter in ECM.</p>
+      <p>Judge as malfunction if the counter in soaking timer IC is counted up to maximum value when the counter in ECM is 1636 ms, or if the counter in soaking timer IC is not counted up to maximum value when the counter in ECM is 2456 ms.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G13228155">
+                <div class="imageHeader"><a name="S17149476122020102700000"></a></div><img alt="G13228155" src="../images/G13228155.png" name="G13228155"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Judge as NG when the following conditions are established.</p><a name="S21325899402020102700000"></a><div class="clsTableTitle">JUDGMENT VALUE SPECIFICATION</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2" valign="TOP" align="left" class="clsCellNormal">When any one of the followings is established:</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>All of the following conditions are established.</li>
+              </ul><br>Counter in ECM</td>
+            <td align="left" class="clsCellNormal">1636 ms or less</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Counter in soaking timer IC</td>
+            <td align="left" class="clsCellNormal">Equal to 65535 counts</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>All of the following conditions are established.</li>
+              </ul>
+            </td>
+            <td align="left" class="clsCellNormal"> </td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Counter in ECM</td>
+            <td align="left" class="clsCellNormal">2456 ms or more</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Counter in soaking timer IC</td>
+            <td align="left" class="clsCellNormal">Not equal to 65535 counts</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><span class="clsEmphBOLD">Monitor#5 &lt;Wake-up diagnosis&gt; </span><p>Store the number of wake-up activation when the ECM wakes up by the soaking timer IC. Next time when the ignition switch is ON, if the number of wake-up activation does not reach the predetermined value even though the counter in soaking timer IC operates 1 hour or more, judge as wake-up malfunction.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G09477658">
+                <div class="imageHeader"><a name="S11309488262020102700000"></a></div><img alt="G09477658" src="../images/G09477658.png" name="G09477658"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Judge as NG when the following conditions are established.</p><a name="S11207778602020102700000"></a><div class="clsTableTitle">JUDGMENT VALUE SPECIFICATION</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Malfunction Criteria</th>
+            <th align="center" class="clsCellNormal">Threshold Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">Number of wake-up</td>
+            <td align="left" class="clsCellNormal">Not equal to wake-up indication count</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><span class="clsEmphBOLD">Time needed for diagnosis: </span></p>
+      <p>Monitor#1: 0.128 s</p>
+      <p>Monitor#2: 0.128 s</p>
+      <p>Monitor#3: 0.128 s</p>
+      <p>Monitor#4: Less than 1 s</p>
+      <p>Monitor#5: Less than 1 s</p>
+      <p><span class="clsEmphBOLD">Malfunction indicator light illumination: </span>
+ Illuminates when malfunction occurs in 2 continuous driving cycles.</p>
+    </li>
+  </ul>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

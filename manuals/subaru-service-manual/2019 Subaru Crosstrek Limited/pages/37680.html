@@ -1,0 +1,141 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC B2785: LIN Communication — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Accessories%20%26%20Equipment/">Accessories &amp; Equipment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Accessories%20%26%20Equipment/Anti-Theft%20Systems/">Anti-Theft Systems</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31771.html">Security And Locks - Keyless Access (W/Push Button Start) (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31771.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/37680.html">DTC B2785: LIN Communication</a></div><div class="main"><h1>DTC B2785: LIN Communication</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S11844438402020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>When LIN communication error is detected 3 times in a row.</p>
+  <p>(Communication cannot be received because a problem occurs such as a series of noise continuously generated in LIN communication bus during power supply or ground short circuit in LIN communication bus)</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>The keyless access function may not be operable.</p>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Keyless access with push button start system. Refer to <a href="../external-car.html">WIRING SYSTEM (IMPREZA MODEL)&gt;KEYLESS ACCESS WITH PUSH BUTTON START SYSTEM&gt;WIRING DIAGRAM</a>
+. Refer to <a href="../pages/16685.html">WIRING SYSTEM (CROSSTREK MODEL (EXCEPT FOR HEV))&gt;KEYLESS ACCESS WITH PUSH BUTTON START SYSTEM&gt;WIRING DIAGRAM</a>
+. Refer to <a href="../pages/16594.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;KEYLESS ACCESS WITH PUSH BUTTON START SYSTEM&gt;WIRING DIAGRAM</a>
+.</p><a name="S118444384020201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G11264309">
+            <div class="imageHeader"><a name="S25388987902020102800000"></a></div><img alt="G11264309" src="../images/G11264309.png" name="G11264309"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+        <li>For replacement procedure of keyless access control module, steering lock control module and ID code box, refer to &quot;REGISTRATION INSTRUCTIONS FOR IMMOBILIZER&quot; provided as a separate volume.</li>
+        <li>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/19301.html#General%20Description/Caution/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S39263487212020102800000"></a><span class="clsEmphBOLD">CHECK DTC. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform the clear memory of [Keyless Access with Push Button Start]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Read the DTC of [Keyless Access with Push Button Start] using the Subaru Select Monitor. Refer to <a href="../pages/19301.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .<p>Is DTC B2785 displayed? (Current malfunction)</p>
+          <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S30152026012020102800000" location="/api/article/getcontent?articleId=A01114239_S30152026012020102800000_LSTITM">2</a>.</p>
+          <p><span class="clsEmphBOLD">No: </span>
+ Even if DTC is displayed, the circuit has returned to a normal condition at this time.</p>
+          <p>Reproduce the failure, and then perform the diagnosis again.</p>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+        </li>
+      </ol>
+    </li>
+    <li><a name="S30152026012020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (BETWEEN KEYLESS ACCESS control module AND STEERING LOCK control module). </span><ol class="ARABICNUM">
+        <li>Disconnect the ground terminal from battery.</li>
+        <li>Disconnect the keyless access control module connector.</li>
+        <li>Disconnect the steering lock control module connector.</li>
+        <li>Using the tester, measure the resistance between terminals.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i241) No. 20 - (i47) No. 5:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S15604591652020102800000" location="/api/article/getcontent?articleId=A01114239_S15604591652020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the open circuit of harness.</p>
+    </li>
+    <li><a name="S15604591652020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (GROUND SHORT CIRCUIT). </span><p>Using a tester, measure the resistance between the keyless access control module connector or steering lock control module connector and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(i241) No. 20 - Chassis ground:</p>
+      <p>(i47) No. 5 - Chassis ground:</p>
+      <p>Is the resistance 10 kΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S26822852032020102800000" location="/api/article/getcontent?articleId=A01114239_S26822852032020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the short circuit of the harness.</p>
+    </li>
+    <li><a name="S26822852032020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (SHORT CIRCUIT TO POWER SUPPLY). </span><p>Using a tester, measure the voltage between the keyless access control module connector or steering lock control module connector and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(i241) No. 20 - Chassis ground:</p>
+      <p>(i47) No. 5 - Chassis ground:</p>
+      <p>Is the voltage 1 V or less?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S07431625372020102800000" location="/api/article/getcontent?articleId=A01114239_S07431625372020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the short circuit of the harness.</p>
+    </li>
+    <li><a name="S07431625372020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (BETWEEN KEYLESS ACCESS control module AND ID CODE BOX). </span><ol class="ARABICNUM">
+        <li>Disconnect the ID code box connector.</li>
+        <li>Using the tester, measure the resistance between terminals.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i241) No. 20 - (i33) No. 2:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S17605806852020102800000" location="/api/article/getcontent?articleId=A01114239_S17605806852020102800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the open circuit of harness.</p>
+    </li>
+    <li><a name="S17605806852020102800000"></a><span class="clsEmphBOLD">CHECK KEYLESS ACCESS control module. </span><ol class="ARABICNUM">
+        <li>Connect the keyless access control module connector.</li>
+        <li>Using the Subaru Select Monitor, perform the clear memory of [Keyless Access with Push Button Start]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Read the DTC of [Keyless Access with Push Button Start] using the Subaru Select Monitor. Refer to <a href="../pages/19301.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is DTC B2785 displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the keyless access control module. Refer to <a href="../pages/14659.html#Keyless%20Access%20Control%20Module/">SECURITY AND LOCKS&gt;KEYLESS ACCESS control module</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S42896892282020102800000" location="/api/article/getcontent?articleId=A01114239_S42896892282020102800000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S42896892282020102800000"></a><span class="clsEmphBOLD">CHECK STEERING LOCK control module. </span><ol class="ARABICNUM">
+        <li>Connect the steering lock control module connector.</li>
+        <li>Using the Subaru Select Monitor, perform the clear memory of [Keyless Access with Push Button Start]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Read the DTC of [Keyless Access with Push Button Start] using the Subaru Select Monitor. Refer to <a href="../pages/19301.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .<p>Is DTC B2785 displayed? (Current malfunction)</p>
+          <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the steering lock control module. Refer to <a href="../pages/14659.html#Steering%20Lock%20Control%20Module/">SECURITY AND LOCKS&gt;STEERING LOCK control module</a>
+.</p>
+          <p><span class="clsEmphBOLD">No: </span></p>
+          <ul class="BULLET">
+            <li>For C5 model, Go to  <a class="clsListItemLink" href="#S39831267682020102800000" location="/api/article/getcontent?articleId=A01114239_S39831267682020102800000_LSTITM">8</a>.</li>
+            <li>For models except for C5 model, even if DTC is displayed, the circuit has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</li>
+          </ul>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+        </li>
+      </ol>
+    </li>
+    <li><a name="S39831267682020102800000"></a><span class="clsEmphBOLD">CHECK ID CODE BOX. </span><ol class="ARABICNUM">
+        <li>Connect the ID code box connector.</li>
+        <li>Using the Subaru Select Monitor, perform the clear memory of [Keyless Access with Push Button Start]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Read the DTC of [Keyless Access with Push Button Start] using the Subaru Select Monitor. Refer to <a href="../pages/19301.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is DTC B2785 displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the ID code box. Refer to <a href="../pages/14659.html#ID%20Code%20Box/">SECURITY AND LOCKS&gt;ID CODE BOX</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Even if DTC is displayed, the circuit has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>FLASHWRITE Control Module Reprogramming Information (07-164-20) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/618.html">Technical Service Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html#Suspension%20Control%20Systems/">Suspension Control Systems</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31698.html">FLASHWRITE Control Module Reprogramming Information (07-164-20)</a></div><div class="main"><h1>FLASHWRITE Control Module Reprogramming Information (07-164-20)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2020-01-07<br>Reference number: 07-164-20<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>FLASHWRITE CONTROL MODULE REPROGRAMMING INFORMATION</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>FLASHWRITE CONTROL MODULE REPROGRAMMING INFORMATION</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): 07-164-20, Date of Issue: 
+				January 07, 2020<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>All Models</td>
+        </tr>
+      </table>
+    </div><h3>APPLICABILITY</h3>
+    
+    <p>All Models with FlashWrite Reprogramming Capabilities</p><h3>INTRODUCTION</h3>
+    
+    <p>This Service Information Bulletin is in response to inquiries from the field regarding a pop-up window requiring a Password to be entered that appears when attempting to execute control module reprogramming. In this example, the pop-up as shown below now appears when attempting to reprogram the BIU for the TPMS display as described in TSB <span class="clsEmphBOLD">07-129-18 </span>
+.</p><a name="S064362525820200122000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="left" class="clsCellNormal">
+            <div class="imageHolder" id="container_G12858320">
+              <div class="imageHeader"><a name="S38637616112020012200000"></a></div><img alt="G12858320" src="../images/G12858320.png" name="G12858320"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>When reviewing <span class="clsEmphBOLD">07-129-18 </span>
+, the Applicability table as shown below listing the pack file names lists them with a &quot;<span class="clsEmphBOLD">.pk2 </span>
+&quot; extension. We have been informed by SBR that going forward, whenever the file name ends with a.pk2 extension, the Password window shown above will appear. For these files, the required PASSWORD is the corresponding DECRYPTION KEYWORD as listed in FlashWrite for that specific file. In this example, 96D94E99 would be the required Password.</p><a name="S064362525820200122000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th align="center" class="clsCellNormal">Model/Applicability</th>
+          <th align="center" class="clsCellNormal">PAK File Name</th>
+          <th align="center" class="clsCellNormal">New CM Part Number</th>
+          <th align="center" class="clsCellNormal">Old CM Part Numbers</th>
+          <th align="center" class="clsCellNormal">Decryption Keyword</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center" class="clsCellNormal">2017-18MY Impreza w/<span class="clsEmphBOLD">KEY START </span></td>
+          <td align="center" class="clsCellNormal">88035FL02B_key.pk2</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">88035FL02B</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">88035FL02A</td>
+          <td align="center" class="clsCellNormal">96D94E99</td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal">2017-18MY Impreza w/<span class="clsEmphBOLD">PUSH BUTTON START </span></td>
+          <td align="center" class="clsCellNormal">88035FL02B_smt.pk2</td>
+          <td align="center" class="clsCellNormal">5C18C26B</td>
+        </tr>
+        <tr>
+          <td align="" class="clsCellNormal">2018MY Crosstrek w/<span class="clsEmphBOLD">KEY START </span></td>
+          <td align="" class="clsCellNormal">88035FL021_key.pk2</td>
+          <td valign="MIDDLE" rowspan="2" align="" class="clsCellNormal">88035FL021</td>
+          <td valign="MIDDLE" rowspan="2" align="" class="clsCellNormal">88035FL020</td>
+          <td align="" class="clsCellNormal">C554D64A</td>
+        </tr>
+        <tr>
+          <td align="center" class="clsCellNormal">2018MY Crosstrek w/<span class="clsEmphBOLD">PUSH BUTTON START </span></td>
+          <td align="center" class="clsCellNormal">88035FL021_smt.pk2</td>
+          <td align="center" class="clsCellNormal">9C379DEF</td>
+        </tr>
+      </tbody>
+    </table><h3>SERVICE PROCEDURE/INFORMATION</h3>
+    
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+ Customer satisfaction and retention starts with performing quality repairs.</p>
+    <p>Other than the new information as supplied above, the Flashwrite reprogramming procedure remains unchanged.</p>
+    <p><span class="clsEmphBOLD">IMPORTANT REMINDERS: </span></p>
+    <ul class="BULLET">
+      <li>SOA strongly discourages the printing and/or local storage of service information as previously released information and electronic publications may be updated at any time.</li>
+      <li>Always check for any open recalls or campaigns anytime a vehicle is in for servicing.</li>
+      <li>Always refer to STIS for the latest service information before performing any repairs.</li>
+    </ul>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

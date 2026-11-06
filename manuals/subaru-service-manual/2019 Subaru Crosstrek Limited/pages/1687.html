@@ -1,0 +1,139 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>CAN Communication Circuit Check: Procedure: Main-CAN — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Accessories%20%26%20Equipment/">Accessories &amp; Equipment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Accessories%20%26%20Equipment/Communication%20Devices/">Communication Devices</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31414.html">LAN Communication System (Diagnostics) (Except For HEV)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31414.html#CAN%20Communication%20Circuit%20Check/">CAN Communication Circuit Check</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31414.html#CAN%20Communication%20Circuit%20Check/Procedure/">Procedure</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1687.html">Main-CAN</a></div><div class="main"><h1>CAN Communication Circuit Check: Procedure: Main-CAN</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S10316611662020102700000">
+  <p><span class="clsEmphBOLD">Trouble causes: </span></p>
+  <ul class="BULLET">
+    <li>MAIN-CAN communication circuit is shorted to ground.</li>
+    <li>MAIN-CAN communication circuit is shorted to power supply.</li>
+    <li>MAIN-CAN communication circuit is shorted between lines.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>CAN communication system Refer to <a href="../external-car.html">WIRING SYSTEM (IMPREZA MODEL)&gt;CAN COMMUNICATION SYSTEM&gt;WIRING DIAGRAM</a>
+. Refer to <a href="../pages/14657.html">WIRING SYSTEM (CROSSTREK MODEL (EXCEPT FOR HEV))&gt;CAN COMMUNICATION SYSTEM&gt;WIRING DIAGRAM</a>
+.</p>
+  <ul class="BULLET">
+    <li>Impreza model<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G12397052">
+                <div class="imageHeader"><a name="S38236433602020102800000"></a></div><img alt="G12397052" src="../images/G12397052.png" name="G12397052"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G12397053">
+                <div class="imageHeader"><a name="S36826640292020102800000"></a></div><img alt="G12397053" src="../images/G12397053.png" name="G12397053"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>Crosstrek model</li>
+  </ul><a name="S103166116620201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G12397054">
+            <div class="imageHeader"><a name="S17909442052020102800000"></a></div><img alt="G12397054" src="../images/G12397054.png" name="G12397054"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table><a name="S103166116620201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G12397053">
+            <div class="imageHeader"><a name="S02023841652020102800000"></a></div><img alt="G12397053" src="../images/G12397053.png" name="G12397053"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14648.html#General%20Description/Caution/">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>When measuring the resistance of CAN communication circuit, measure it in sleep status. To enter sleep status<ul class="DASH">
+            <li>With ignition switch OFF and key or switch operation stopped, keep the doors, trunk, and rear gate all closed for one minute or more.</li>
+            <li>On model with the keyless access with push button start, keep the access key 2 m or more away from the vehicle.</li>
+          </ul>
+        </li>
+        <li>When the bus line is measured, combined resistance of the end resistance (120 Ω) in ECM and the end resistance (120 Ω) in body integrated unit can be measured. The combined resistance is more than 52 Ω and less than 62 Ω with the stabilizing circuit included. If the measured resistance value becomes 52 Ω or less, main wiring harness or related lines may be shorted. Or, the combined resistance may have changed because of a resistance other than the end resistance created on the circuit. If the measured value is 62 Ω or more, there may be a malfunction such as open circuit in one of the end resistances, in the stabilizing circuit, or in the main wiring harness.<p>Also, even when the resistance value falls more than 52 Ω and less than 62 Ω, related lines may be open if an error of communication for initializing or a CAN system U-code has occurred. (The resistance cannot be more than 52 Ω and less than 62 Ω if the main wiring harness is open.)</p>
+        </li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S05856562662020102800000"></a><span class="clsEmphBOLD">CHECK BASIC DIAGNOSTIC PROCEDURE. </span><p>Check that the basic diagnosis has been performed up to STEP 3.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Possible defective parts can be narrowed easily by inspection using Subaru Select Monitor before performing &quot;CHECK CAN COMMUNICATION CIRCUIT&quot; using a tester.</span></div>
+      <p>Was the basic diagnostic procedure performed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S13744770672020102800000" location="/api/article/getcontent?articleId=A01114217_S13744770672020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the basic diagnostic procedure. Refer to <a href="../pages/14647.html">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;BASIC DIAGNOSTIC PROCEDURE&gt;PROCEDURE</a> .</p>
+    </li>
+    <li><a name="S13744770672020102800000"></a><span class="clsEmphBOLD">CHECK FOR SHORT TO GROUND IN MAIN-CAN COMMUNICATION CIRCUIT. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Disconnect the steering sensor connector.</li>
+        <li>Using a tester, measure the resistance between the steering sensor connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i74) No. 2 - Chassis ground:</p>
+          <p>(i74) No. 3 - Chassis ground:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 10 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Check for ground short. Refer to <a href="../pages/14654.html">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;CAN COMMUNICATION CIRCUIT CHECK&gt;INSPECTION&gt;GROUND SHORT INSPECTION</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S35584408932020102800000" location="/api/article/getcontent?articleId=A01114217_S35584408932020102800000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S35584408932020102800000"></a><span class="clsEmphBOLD">CHECK FOR SHORT TO POWER SUPPLY IN MAIN-CAN COMMUNICATION CIRCUIT. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to ON.</li>
+        <li>Using a tester, measure the voltage between the steering sensor connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i74) No. 2 (+) - Chassis ground (-):</p>
+          <p>(i74) No. 3 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage 5 V or less?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S41579743492020102800000" location="/api/article/getcontent?articleId=A01114217_S41579743492020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check for power supply short. Refer to <a href="../pages/14655.html">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;CAN COMMUNICATION CIRCUIT CHECK&gt;INSPECTION&gt;CHECK POWER SUPPLY SHORT</a> .</p>
+    </li>
+    <li><a name="S41579743492020102800000"></a><span class="clsEmphBOLD">CHECK FOR SHORT IN MAIN-CAN COMMUNICATION CIRCUIT. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Using a tester, measure the resistance between terminals of steering sensor connector.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i74) No. 2 - (i74) No. 3:</p>
+        </li>
+      </ol>
+      <p>Is the resistance 52 Ω or less?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the inspection for resistance of 52 Ω or less. Refer to <a href="../pages/14656.html">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;CAN COMMUNICATION CIRCUIT CHECK&gt;INSPECTION&gt;52 Ω OR LESS</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S33302810212020102800000" location="/api/article/getcontent?articleId=A01114217_S33302810212020102800000_LSTITM">5</a>.</p>
+    </li>
+    <li><a name="S33302810212020102800000"></a><span class="clsEmphBOLD">CHECK FOR OPEN CIRCUIT IN MAIN-CAN COMMUNICATION CIRCUIT. </span><p>Using a tester, measure the resistance between terminals of steering sensor connector.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(i74) No. 2 - (i74) No. 3:</p>
+      <p>Is the resistance 62 Ω or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the inspection for resistance of 62 Ω or more. Refer to <a href="../pages/22701.html">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;CAN COMMUNICATION CIRCUIT CHECK&gt;INSPECTION&gt;62 Ω OR MORE</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ If the display of CAN system U-code disappears from the current malfunction, the CAN network is currently normal. If the U-code has detected as current malfunction, related lines may be open. Perform the inspection for the related line corresponding to the detected DTC. Refer to <a href="../pages/22699.html">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;CAN COMMUNICATION CIRCUIT CHECK&gt;LIST</a> .</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

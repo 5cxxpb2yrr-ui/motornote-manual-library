@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnostic Procedure for Subaru Select Monitor Communication: Inspection — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14050.html">Section 29 (P-HEV High Voltage Battery System (Diagnostics - Introduction))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14050.html#Diagnostic%20Procedure%20for%20Subaru%20Select%20Monitor%20Communication/">Diagnostic Procedure for Subaru Select Monitor Communication</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/26396.html">Inspection</a></div><div class="main"><h1>Diagnostic Procedure for Subaru Select Monitor Communication: Inspection</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S12728105782024052900000">
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>Cannot communicate with [P-HEV High Voltage Battery].</p>
+  <p><span class="clsEmphBOLD">Detecting condition: </span></p>
+  <ul class="BULLET">
+    <li>Defective Wire harness connector</li>
+    <li>Power supply circuit malfunction</li>
+    <li>Defective Battery ECU assembly</li>
+    <li>Defective CAN communication circuit</li>
+    <li>Defective Subaru Select Monitor</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Hybrid system Refer to <a href="../pages/14207.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;HYBRID ELECTRIC VEHICLE SYSTEM&gt;WIRING DIAGRAM</a>
+.</p><a name="S127281057820240529000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13238223">
+            <div class="imageHeader"><a name="S26120288902024052900000"></a></div><img alt="G13238223" src="../images/G13238223.png" name="G13238223"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14208.html#General%20Description/Caution/">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S09059669922024052900000"></a><span class="clsEmphBOLD">CHECK FUSE. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Check the fuse. Refer to <a href="../pages/14210.html#Relay%20And%20Fuse/">HYBRID ELECTRIC VEHICLE&gt;RELAY AND FUSE</a>
+.</li>
+      </ol>
+      <p>Is there any fault?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the fuse. If the replaced fuse has blown out immediately, repair the short circuit to ground in Wire harness between fuse - Battery ECU assembly.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S09677616162024052900000" location="/api/article/getcontent?articleId=A01501220_S09677616162024052900000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S09677616162024052900000"></a><span class="clsEmphBOLD">CHECK POWER SUPPLY CIRCUIT (OPEN). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Make sure to wear insulated gloves and protective goggles during the work.</span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect Battery ECU assembly connector (HV42).</li>
+        <li>Connect the ground terminal to Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Turn the ignition switch to ON.</li>
+        <li>Using a tester, measure the voltage between Battery ECU assembly connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(HV42) No. 1 (+) - Chassis ground (-):</p>
+          <p>(HV42) No. 24 (+) - Chassis ground (-):</p>
+          <p>(HV42) No. 47 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage 10 V or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S34844970692024052900000" location="/api/article/getcontent?articleId=A01501220_S34844970692024052900000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the Wire harness between fuse and Battery ECU assembly connector.</p>
+    </li>
+    <li><a name="S34844970692024052900000"></a><span class="clsEmphBOLD">CHECK GROUND CIRCUIT (OPEN). </span><ol class="ARABICNUM">
+        <li>Turn the ignition to OFF.</li>
+        <li>Disconnect the ground terminal from Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Using a tester, measure the resistance between Battery ECU assembly connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(HV42) No. 9 - Chassis ground:</p>
+          <p>(HV42) No. 29 - Chassis ground:</p>
+          <p>(HV42) No. 48 - Chassis ground:</p>
+          <p>(HV42) No. 53 - Chassis ground:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S24177605592024052900000" location="/api/article/getcontent?articleId=A01501220_S24177605592024052900000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the Wire harness between Battery ECU assembly connector and chassis ground.</p>
+    </li>
+    <li><a name="S24177605592024052900000"></a><span class="clsEmphBOLD">CHECK LAN SYSTEM. </span><ol class="ARABICNUM">
+        <li>Restore the vehicle to its original state.</li>
+        <li>Inspect LAN system. Refer to <a href="../pages/16770.html">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;BASIC DIAGNOSTIC PROCEDURE&gt;PROCEDURE</a>
+.</li>
+      </ol>
+      <p>Is there any fault?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the inspection according to the diagnosis for LAN system.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S30871518952024052900000" location="/api/article/getcontent?articleId=A01501220_S30871518952024052900000_LSTITM">5</a>.</p>
+    </li>
+    <li><a name="S30871518952024052900000"></a><span class="clsEmphBOLD">CHECK Battery ECU assembly. </span><p>Communicate with [P-HEV High Voltage Battery].</p>
+      <p>Is communication possible?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ The circuit has returned to a normal condition at this time. Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of Wire harness may be the cause.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Battery ECU assembly. Refer to <a href="../pages/14210.html#Battery%20Control%20Module/">HYBRID ELECTRIC VEHICLE&gt;BATTERY CONTROL MODULE</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

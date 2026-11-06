@@ -1,0 +1,946 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Keyless Access Control Module — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Body%20%26%20Frame/">Body &amp; Frame</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Body%20%26%20Frame/Door%20Locks/">Door Locks</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31381.html">Security And Locks - Keyless Access (W/Push Button Start) (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31381.html#Control%20Module%20I%2FO%20Signal/">Control Module I/O Signal</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31381.html#Control%20Module%20I%2FO%20Signal/Electrical%20Specification/">Electrical Specification</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/4081.html">Keyless Access Control Module</a></div><div class="main"><h1>Keyless Access Control Module</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S14220004092020102700000"><a name="S142200040920201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G11264259">
+            <div class="imageHeader"><a name="S17543059702020102800000"></a></div><img alt="G11264259" src="../images/G11264259.png" name="G11264259"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table><a name="S23991920942020102800000"></a><div class="clsTableTitle">TERMINAL DESCRIPTION - EXCEPT FOR HYBRID MODEL</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Terminal No.</th>
+        <th align="left" class="clsCellNormal">Contents</th>
+        <th align="left" class="clsCellNormal">Measuring condition</th>
+        <th align="left" class="clsCellNormal">Standard</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 1 (+B2) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">+B power supply (SUB)</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">9.5 V- 16 V</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 2</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 3</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 4 (+B1) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">+B power supply (MAIN)</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">9.5 V- 16 V</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 5</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 6 (TACH) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Engine speed</td>
+        <td align="left" class="clsCellNormal">While engine idling</td>
+        <td align="left" class="clsCellNormal">Waveform 2</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 7 (SPD) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Vehicle speed input</td>
+        <td align="left" class="clsCellNormal">Always</td>
+        <td align="left" class="clsCellNormal">30 kΩ or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 8 (SSW1) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Start switch input 1</td>
+        <td align="left" class="clsCellNormal">Push button ignition switch released → pressed <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Less than 1 Ω → 10 kΩ or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 9 (SSW2) ←→ (i75)<br>No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Start switch input 2</td>
+        <td align="left" class="clsCellNormal">Push button ignition switch released → pressed <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Less than 1 Ω → 10 kΩ or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 10 (SLR+) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Steering lock motor power supply signal output</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">10 kΩ or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 11 (SLP) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Steering lock position input</td>
+        <td align="left" class="clsCellNormal">With ignition switch OFF and shift position P, and with push button ignition switch pressed, Steering lock → Steering unlock</td>
+        <td align="left" class="clsCellNormal">9.5 V or more → 1.2 V or less</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 12 (INDW) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Indicator output (orange)</td>
+        <td align="left" class="clsCellNormal">With ACC ON or IG ON, brake pedal (CVT model) or clutch pedal (MT model) not depressed</td>
+        <td align="left" class="clsCellNormal">9.5 V or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 13</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 14 (CLUT) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Clutch input</td>
+        <td align="left" class="clsCellNormal">Clutch pedal depressed → Released</td>
+        <td align="left" class="clsCellNormal">9.5 V or more → 1 V or less</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 15</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 16 (ACCD) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">ACC relay drive request</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Depending on ACC circuit in vehicle</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 17 (TSW5) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Request SW input</td>
+        <td align="left" class="clsCellNormal">Power supply OFF, all doors closed, all doors locked, rear gate lock button OFF → ON</td>
+        <td align="left" class="clsCellNormal">9.5 V or more → Less than 2 V</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 18 (IDW) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">ID code box presence judgment</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">With ID code box: Less than 1 Ω Without ID code box: 1 MΩ or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 19 (ACCR) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">ACC cutoff input</td>
+        <td align="left" class="clsCellNormal">When brake pedal (CVT model) or clutch pedal (MT model) depressed, push button ignition switch pressed (while cranking) → Except when cranking</td>
+        <td align="left" class="clsCellNormal">Less than 2 V → 9.5 V or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 20 (GND1) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">GND</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Less than 1 Ω</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 21</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 22</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 23 (STSW) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Starter drive request output</td>
+        <td align="left" class="clsCellNormal">Shift lever is in position P or position N and access key is in passenger compartment. While depressing the brake pedal (CVT model) or clutch pedal (MT model), press the push button ignition switch (engine starts (except for hybrid model) or hybrid system starts (hybrid model)).</td>
+        <td align="left" class="clsCellNormal">Less than 2 V → 9.5 V or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 24</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 25 (INDS) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Indicator output (green)</td>
+        <td align="left" class="clsCellNormal">With ACC ON or IG ON, brake pedal (CVT model) or clutch pedal (MT model) depressed</td>
+        <td align="left" class="clsCellNormal">9.5 V or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 26 (SWIL) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Start switch character illumination</td>
+        <td align="left" class="clsCellNormal">When illumination of start switch goes off, the headlight is OFF → ON, after setting the illumination control to MAX</td>
+        <td align="left" class="clsCellNormal">Less than 2 V → 9.5 V or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 27 (IG2D) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">IG2 relay drive output</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Depending on relay circuit in vehicle</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 28 (IG1D) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">IG1 relay drive output</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Depending on relay circuit in vehicle</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 1 (CG7B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Luggage room antenna -</td>
+        <td align="left" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 2 (CLG7) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Luggage room antenna +</td>
+        <td align="left" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 3 (CG6B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Rear interior antenna -</td>
+        <td align="left" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 4 (CLG2) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Passenger side external antenna +</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked by lock operation with wireless remote control, access key not in passenger room</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 5 (CG1B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Driver side external antenna -</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked by lock operation with wireless remote control, access key not in passenger room</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 6 (CLG1) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Driver side external antenna +</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked by lock operation with wireless remote control, access key not in passenger room</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 7 (CG8B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Rear exterior antenna -</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked, rear gate opener button OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 8 (CLG8) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Rear exterior antenna +</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked, rear gate opener button OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 9 (CLG6) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Rear interior antenna +</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked, trunk or rear gate opener button OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 10</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 11</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 12 (CG5B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Front interior antenna -</td>
+        <td align="left" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 13</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 14</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 15 (EGIO) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Immobilizer collation communication line</td>
+        <td align="left" class="clsCellNormal">Ignition switch ON</td>
+        <td align="left" class="clsCellNormal">7 V or more → pulse generates temporarily</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 16 (CG2B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Passenger side external antenna -</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked by lock operation with wireless remote control, access key not in passenger room</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 17 (GND2) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">GND</td>
+        <td align="left" class="clsCellNormal">Always</td>
+        <td align="left" class="clsCellNormal">Less than 1 Ω</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 18 (P) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Shift P position input</td>
+        <td align="left" class="clsCellNormal">Except for shift positions P → Shift position P</td>
+        <td align="left" class="clsCellNormal">Depending on shift position internal resistance</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(i241) No. 19 (TXCT) ←→ (i241) No. 17 (GND2)</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Immobilizer signal reception (start switch)</td>
+        <td align="left" class="clsCellNormal">Wait for 30 seconds or more after the door was opened or closed with IGN OFF and the brake pedal (CVT model) or clutch pedal (MT model) released.</td>
+        <td align="left" class="clsCellNormal">1 V or less</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Turn the ignition switch to OFF and with the access key near the push button ignition switch, press the push button ignition switch. (With the access key battery removed)</td>
+        <td align="left" class="clsCellNormal">Waveform 3</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 20 (LIN) ←→ (i241) No. 17 (GND2)</td>
+        <td align="" class="clsCellNormal">LIN communication</td>
+        <td align="" class="clsCellNormal">ACC ON or IGN ON or power OFF, and open/close the door</td>
+        <td align="" class="clsCellNormal">Pulse generation</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(i241) No. 21 (VC5) ←→ (i241) No. 17 (GND2)</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Immobilizer amplifier power supply</td>
+        <td align="" class="clsCellNormal">Wait for 30 seconds or more after the door was opened or closed with IGN OFF and the brake pedal (CVT model) or clutch pedal (MT model) released.</td>
+        <td align="" class="clsCellNormal">1 V or less</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Within 30 seconds after the push button ignition switch is pressed with IGN OFF and access key not in the passenger room</td>
+        <td align="left" class="clsCellNormal">Waveform 4</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(i241) No. 22 (CODE) ←→ (i241) No. 17 (GND2)</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Immobilizer signal reception (start switch)</td>
+        <td align="" class="clsCellNormal">Wait for 30 seconds or more after the door was opened or closed with IGN OFF and the brake pedal (CVT model) or clutch pedal (MT model) released.</td>
+        <td align="" class="clsCellNormal">1 V or less</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Within 30 seconds after the push button ignition switch is pressed with IGN OFF and access key not in the passenger room</td>
+        <td align="left" class="clsCellNormal">Waveform 1</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 23</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 24 (AGND) ←→ Chassis ground</td>
+        <td align="" class="clsCellNormal">Immobilizer amplifier GND</td>
+        <td align="" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S33779418412020102800000"><sup>(1)</sup></a></td>
+        <td align="" class="clsCellNormal">Less than 1 Ω</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 25 (CLG5) ←→ (i241) No. 17 (GND2)</td>
+        <td align="" class="clsCellNormal">Front interior antenna +</td>
+        <td align="" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) 26</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 27 (STP1) ←→ Chassis ground</td>
+        <td align="" class="clsCellNormal">Stop light switch input</td>
+        <td align="" class="clsCellNormal">Brake pedal depressed → released</td>
+        <td align="" class="clsCellNormal">9.5 V or more → 1 V or less</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 28</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 29 (CANL) ←→ Chassis ground</td>
+        <td align="" class="clsCellNormal">CAN communication (L)</td>
+        <td align="" class="clsCellNormal">ACC ON or IGN ON or power OFF, and open/close the door</td>
+        <td align="" class="clsCellNormal">Pulse generation</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 30 (CANH) ←→ Chassis ground</td>
+        <td align="" class="clsCellNormal">CAN communication (H)</td>
+        <td align="" class="clsCellNormal">ACC ON or IGN ON or power OFF, and open/close the door</td>
+        <td align="" class="clsCellNormal">Pulse generation</td>
+      </tr>
+      <tr class="clsFootnoteRow">
+        <td colspan="4" align="" class="clsCellNormal">
+          <table class="clsFootnoteTable" width="100%">
+            <tr valign="top">
+              <td width="10px"><a name="S33779418412020102800000"><sup>(1)</sup></a></td>
+              <td>Executed with the keyless access control module connector disconnected.</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><a name="S15194108552020102800000"></a><div class="clsTableTitle">TERMINAL DESCRIPTION - HYBRID MODEL</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Terminal No.</th>
+        <th align="left" class="clsCellNormal">Contents</th>
+        <th align="left" class="clsCellNormal">Measuring condition</th>
+        <th align="left" class="clsCellNormal">Standard</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 1 (+B2) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">+B power supply (SUB)</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">9.5 V- 16 V</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 2</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 3</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 4 (+B1) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">+B power supply (MAIN)</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">9.5 V- 16 V</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 5</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 6</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 7 (SPD) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Vehicle speed input</td>
+        <td align="left" class="clsCellNormal">Always</td>
+        <td align="left" class="clsCellNormal">30 kΩ or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 8 (SSW1) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Start switch input 1</td>
+        <td align="left" class="clsCellNormal">Push button ignition switch released → pressed <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Less than 1 Ω → 10 kΩ or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 9 (SSW2) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Start switch input 2</td>
+        <td align="left" class="clsCellNormal">Push button ignition switch released → pressed <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Less than 1 Ω → 10 kΩ or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 10 (SLR+) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Steering lock motor power supply signal output</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">10 kΩ or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 11 (SLP) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Steering lock position input</td>
+        <td align="left" class="clsCellNormal">With ignition switch OFF and shift position P, and with push button ignition switch pressed, Steering lock → Steering unlock</td>
+        <td align="left" class="clsCellNormal">9.5 V or more → 1.2 V or less</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 12 (INDW) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Indicator output (orange)</td>
+        <td align="left" class="clsCellNormal">With ACC ON or IG ON, brake pedal not depressed</td>
+        <td align="left" class="clsCellNormal">9.5 V or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 13</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 14</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 15 (IGBD) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">IGB relay drive request</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Depending on relay circuit in vehicle</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 16 (ACCD) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">ACC relay drive request</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Depending on ACC circuit in vehicle</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 17 (TSW5) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Request SW input</td>
+        <td align="left" class="clsCellNormal">Power supply OFF, all doors closed, all doors locked, rear gate lock button OFF → ON</td>
+        <td align="left" class="clsCellNormal">9.5 V or more → Less than 2 V</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 18</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 19</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 20 (GND1) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">GND</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Less than 1 Ω</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 21 (IGB) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">IGB control output</td>
+        <td align="left" class="clsCellNormal">IG ON</td>
+        <td align="left" class="clsCellNormal">8.5 V- 14 V</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 22</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 23 (STSW) ←→ (i75) No. 20 (GND1)</td>
+        <td align="left" class="clsCellNormal">Starter drive request output</td>
+        <td align="left" class="clsCellNormal">Shift lever is in position P or position N and access key is in passenger room. While depressing the brake pedal, press the push button ignition switch (engine start).</td>
+        <td align="left" class="clsCellNormal">Less than 2 V → 9.5 V or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 24</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 25 (INDS) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Indicator output (green)</td>
+        <td align="left" class="clsCellNormal">With ACC ON or IG ON, brake pedal depressed</td>
+        <td align="left" class="clsCellNormal">9.5 V or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 26 (SWIL) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Start switch character illumination</td>
+        <td align="left" class="clsCellNormal">When illumination of start switch goes off, the headlight is OFF → ON, after setting the illumination control to MAX</td>
+        <td align="left" class="clsCellNormal">Less than 2 V → 9.5 V or more</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 27 (IG2D) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">IG2 relay drive output</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Depending on relay circuit in vehicle</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i75) No. 28 (IG1D) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">IG1 relay drive output</td>
+        <td align="left" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="left" class="clsCellNormal">Depending on relay circuit in vehicle</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 1 (CG7B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Luggage room antenna</td>
+        <td align="left" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 2 (CLG7) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Luggage room antenna +</td>
+        <td align="left" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 3 (CG6B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Rear interior antenna -</td>
+        <td align="left" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 4 (CLG2) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Passenger side external antenna +</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked by lock operation with wireless remote control, access key not in passenger room</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 5 (CG1B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Driver side external antenna -</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked by lock operation with wireless remote control, access key not in passenger room</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 6 (CLG1) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Driver side external antenna +</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked by lock operation with wireless remote control, access key not in passenger room</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 7 (CG8B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Rear exterior antenna -</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked, rear gate opener button OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 8 (CLG8) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Rear exterior antenna +</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked, rear gate opener button OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 9 (CLG6) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Rear interior antenna +</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked, trunk or rear gate opener button OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 10 (CG4B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Exterior charger lid antenna -</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked, exterior charger lid opener button OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 11 (CLG4) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Exterior charger lid antenna +</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked, exterior charger lid opener button OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 12 (CG5B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Front interior antenna -</td>
+        <td align="left" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 13</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 14</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 15 (EGIO) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Immobilizer collation communication line</td>
+        <td align="left" class="clsCellNormal">Ignition switch ON</td>
+        <td align="left" class="clsCellNormal">7 V or more → pulse generates temporarily</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 16 (CG2B) ←→ (i241) No. 17 (GND2)</td>
+        <td align="left" class="clsCellNormal">Passenger side external antenna -</td>
+        <td align="left" class="clsCellNormal">Power OFF, all doors closed, all doors locked by lock operation with wireless remote control, access key not in passenger room</td>
+        <td align="left" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 17 (GND2) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">GND</td>
+        <td align="left" class="clsCellNormal">Always</td>
+        <td align="left" class="clsCellNormal">Less than 1 Ω</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(i241) No. 18 (P) ←→ Chassis ground</td>
+        <td align="left" class="clsCellNormal">Shift P position input</td>
+        <td align="left" class="clsCellNormal">Except for shift positions P → Shift position P</td>
+        <td align="left" class="clsCellNormal">Depending on shift position internal resistance</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(i241) No. 19 (TXCT) ←→ (i241) No. 17 (GND2)</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Immobilizer signal reception (start switch)</td>
+        <td align="left" class="clsCellNormal">Wait for 30 seconds or more after the door was opened or closed with IGN OFF and the brake pedal released.</td>
+        <td align="left" class="clsCellNormal">1 V or less</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Turn the ignition switch to OFF and with the access key near the push button ignition switch, press the push button ignition switch. (With the access key battery removed)</td>
+        <td align="left" class="clsCellNormal">Waveform 3</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 20 (LIN) ←→ (i241) No. 17 (GND2)</td>
+        <td align="" class="clsCellNormal">LIN communication</td>
+        <td align="" class="clsCellNormal">ACC ON or IGN ON or power OFF, and open/close the door</td>
+        <td align="" class="clsCellNormal">Pulse generation</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(i241) No. 21 (VC5) ←→ (i241) No. 17 (GND2)</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Immobilizer amplifier power supply</td>
+        <td align="" class="clsCellNormal">Wait for 30 seconds or more after the door was opened or closed with IGN OFF and the brake pedal released.</td>
+        <td align="" class="clsCellNormal">1 V or less</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Within 30 seconds after the push button ignition switch is pressed with IGN OFF and access key not in the passenger room</td>
+        <td align="left" class="clsCellNormal">Waveform 4</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">(i241) No. 22 (CODE) ←→ (i241) No. 17 (GND2)</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Immobilizer signal reception (start switch)</td>
+        <td align="" class="clsCellNormal">Wait for 30 seconds or more after the door was opened or closed with IGN OFF and the brake pedal released.</td>
+        <td align="" class="clsCellNormal">1 V or less</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Within 30 seconds after the push button ignition switch is pressed with IGN OFF and access key not in the passenger room</td>
+        <td align="left" class="clsCellNormal">Waveform 1</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 23</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 24 (AGND) ←→ Chassis ground</td>
+        <td align="" class="clsCellNormal">Immobilizer amplifier GND</td>
+        <td align="" class="clsCellNormal">Always <a class="clsFootnoteLink" href="#S38547764032020102800000"><sup>(1)</sup></a></td>
+        <td align="" class="clsCellNormal">Less than 1 Ω</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 25 (CLG5) ←→ (i241) No. 17 (GND2)</td>
+        <td align="" class="clsCellNormal">Front interior antenna +</td>
+        <td align="" class="clsCellNormal">All doors closed, power OFF, access key not in passenger room, touch sensor (lock) OFF → ON</td>
+        <td align="" class="clsCellNormal">No pulse output → Pulse output detected</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) 26</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 27 (STP1) ←→ Chassis ground</td>
+        <td align="" class="clsCellNormal">Stop light switch input</td>
+        <td align="" class="clsCellNormal">Stake pedal depressed → released</td>
+        <td align="" class="clsCellNormal">9.5 V or more → 1 V or less</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 28</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+        <td align="" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 29 (CANL) ←→ Chassis ground</td>
+        <td align="" class="clsCellNormal">CAN communication (L)</td>
+        <td align="" class="clsCellNormal">ACC ON or IGN ON or power OFF, and open/close the door</td>
+        <td align="" class="clsCellNormal">Pulse generation</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(i241) No. 30 (CANH) ←→ Chassis ground</td>
+        <td align="" class="clsCellNormal">CAN communication (H)</td>
+        <td align="" class="clsCellNormal">ACC ON or IGN ON or power OFF, and open/close the door</td>
+        <td align="" class="clsCellNormal">Pulse generation</td>
+      </tr>
+      <tr class="clsFootnoteRow">
+        <td colspan="4" align="" class="clsCellNormal">
+          <table class="clsFootnoteTable" width="100%">
+            <tr valign="top">
+              <td width="10px"><a name="S38547764032020102800000"><sup>(1)</sup></a></td>
+              <td>Executed with the keyless access control module connector disconnected.</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ol class="ARABICNUM">
+    <li>Waveform 1<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G10277419">
+                <div class="imageHeader"><a name="S36067737242020102800000"></a></div><img alt="G10277419" src="../images/G10277419.png" name="G10277419"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Item</th>
+            <th align="center" class="clsCellNormal">Contents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">Measured terminal</td>
+            <td align="left" class="clsCellNormal">(i241) No. 22 (CODE) ←→ (i241) No. 17 (GND2)</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Equipment setting</td>
+            <td align="left" class="clsCellNormal">2 V/DIV, 20 ms/DIV</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Measuring condition</td>
+            <td align="left" class="clsCellNormal">Turn the ignition switch to OFF and with the access key near the push button ignition switch, press the push button ignition switch (with the access key battery removed).</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>Waveform 2<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G10277420">
+                <div class="imageHeader"><a name="S06800082192020102800000"></a></div><img alt="G10277420" src="../images/G10277420.png" name="G10277420"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Item</th>
+            <th align="center" class="clsCellNormal">Contents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">Measured terminal</td>
+            <td align="left" class="clsCellNormal">(i75) No. 6 (TACH) ←→ Chassis ground</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Equipment setting</td>
+            <td align="left" class="clsCellNormal">5 V/DIV, 100 ms/DIV</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Measuring condition</td>
+            <td align="left" class="clsCellNormal">While engine idling</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>Waveform 3<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G10277421">
+                <div class="imageHeader"><a name="S35965432192020102800000"></a></div><img alt="G10277421" src="../images/G10277421.png" name="G10277421"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Item</th>
+            <th align="center" class="clsCellNormal">Contents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">Measured terminal</td>
+            <td align="left" class="clsCellNormal">(i241) No. 19 (TXCT) ←→ (i241) No. 17 (GND2)</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Equipment setting</td>
+            <td align="left" class="clsCellNormal">2 V/DIV, 20 ms/DIV</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Measuring condition</td>
+            <td align="left" class="clsCellNormal">Turn the ignition switch to OFF and with the access key near the push button ignition switch, press the push button ignition switch (with the access key battery removed).</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>Waveform 4<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <div class="imageHolder" id="container_G10277422">
+                <div class="imageHeader"><a name="S18458351432020102800000"></a></div><img alt="G10277422" src="../images/G10277422.png" name="G10277422"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Item</th>
+            <th align="center" class="clsCellNormal">Contents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">Measured terminal</td>
+            <td align="left" class="clsCellNormal">(i241) No. 21 (VC5) ←→ (i241) No. 17 (GND2)</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Equipment setting</td>
+            <td align="left" class="clsCellNormal">2 V/DIV, 200 ms/DIV</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Measuring condition</td>
+            <td align="left" class="clsCellNormal">Within 30 seconds after the push button ignition switch is pressed with IG OFF and access key not in the passenger room</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Power Steering Assist Disabled — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Steering/">Steering</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Steering/Manual%20Steering/">Manual Steering</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/30628.html">Power Steering System (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/30628.html#Warning%20Light%20Illumination%20Pattern/">Warning Light Illumination Pattern</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/30628.html#Warning%20Light%20Illumination%20Pattern/Steering%20Warning%20Light%20Does%20Not%20Come%20On/">Steering Warning Light Does Not Come On</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/12834.html">Power Steering Assist Disabled</a></div><div class="main"><h1>Power Steering Assist Disabled</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S37601134942020102700000">
+  <p><span class="clsEmphBOLD">Detecting condition: </span></p>
+  <ul class="BULLET">
+    <li>Except for HEV model CAN communication error (engine rpm signal not received)</li>
+    <li>HEV model CAN communication error (READY signal not received)</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>Not assisted due to power supply voltage failure.</li>
+    <li>The STEERING warning light is normal but there is no power steering assist (steering feels heavy).</li>
+  </ul>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>During driving, the assist system will not be activated when the ignition voltage drops.</li>
+        <li>Power steering assist is not started unless both of the ignition switch ON signal and the engine speed signal are input. (Except for HEV model)</li>
+        <li>Power steering assist is not started unless both the ignition switch ON signal and READY signal are input. (HEV model)</li>
+        <li>In any of the following cases, the power steering assist is limited and steering wheel operation may become heavy.</li>
+      </ul></span></div>
+  <p>If the steering wheel is held to an end for a long time, or the steering wheel turning to right and left at slow speed is repeated during parking, the assist limitation (overheat protection control) may operate to prevent failures by overheat.</p>
+  <p>In this case, by stopping the engine for approx. 30 minutes for cooling, the assist will start operating. While assist limitation (overheat protection control) is in active, [Limited Assist] is displayed in [EPS Status] in the Subaru Select Monitor &quot;Data Monitor&quot;.</p>
+  <ul class="BULLET">
+    <li>History can be confirmed on [ECU Overheat Protection] or [IGN count from overheating protection (most recent)] of &quot;Data Monitor&quot;.</li>
+    <li>The overheat protection control system is normal operation, therefore, the STEERING warning light will not come on and there will be no DTC displayed.</li>
+    <li>If the power steering system connector is disconnected while cooling under the overheat protection control, different DTC may be recorded. If there is no DTC and assist limitation is in active, stop the engine for approx. 10 minutes for cooling.</li>
+  </ul>
+  <ol class="ARABICNUM">
+    <li><a name="S24584984962020102700000"></a><span class="clsEmphBOLD">CHECK BATTERY. </span><p>Check the battery. Refer to <a href="../pages/18150.html#Battery/Inspection/">STARTING/CHARGING SYSTEMS (H4DO (EXCEPT FOR HEV))&gt;BATTERY&gt;INSPECTION</a>
+. Refer to <a href="../pages/18433.html#Battery/Inspection/">STARTING/CHARGING SYSTEMS (H4DO (HEV))&gt;BATTERY&gt;INSPECTION</a>
+.</p>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S31044695402020102700000" location="/api/article/getcontent?articleId=A01114225_S31044695402020102700000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Charge or replace the battery.</p>
+    </li>
+    <li><a name="S31044695402020102700000"></a><span class="clsEmphBOLD">CHECK BATTERY TERMINAL AND FUSE. </span><p>Check the battery terminals and the fuse.</p>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S16277886112020102700000" location="/api/article/getcontent?articleId=A01114225_S16277886112020102700000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace faulty parts.</p>
+    </li>
+    <li><a name="S16277886112020102700000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Read the DTC of VDC system using the Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+. Refer to <a href="../pages/18529.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Is DTC related to VDC system or ignition power supply system displayed?</p>
+      <p>Perform the diagnosis according to DTC. Refer to <a href="../pages/17493.html">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+. Refer to <a href="../pages/18575.html">BRAKE CONTROL (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S19942515842020102700000" location="/api/article/getcontent?articleId=A01114225_S19942515842020102700000_LSTITM">4</a>.</p>
+    </li>
+    <li><a name="S19942515842020102700000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><ol class="ARABICNUM">
+        <li>Start the engine.</li>
+        <li>Display the data monitor [Engine Speed] of the power steering control module using the Subaru Select Monitor. Refer to <a href="../pages/18378.html#Data%20Monitor/">POWER STEERING (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+      </ol>
+      <p>Is [Engine Speed] the same as that in the combination meter?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S16402698492020102700000" location="/api/article/getcontent?articleId=A01114225_S16402698492020102700000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check the CAN communication. Refer to <a href="../pages/14648.html#Basic%20Diagnostic%20Procedure/">LAN SYSTEM (DIAGNOSTICS) (EXCEPT FOR HEV)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+. Refer to <a href="../pages/15957.html#Basic%20Diagnostic%20Procedure/">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+.</p>
+    </li>
+    <li><a name="S16402698492020102700000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><p>Display the data monitor [EPS Status] of the power steering control module using the Subaru Select Monitor. Refer to <a href="../pages/18378.html#Data%20Monitor/">POWER STEERING (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <p>Is [Assist limitation] displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ It is possible that temporary assist limitation has occurred due to overheat protection. Stop the engine for approx. 30 minutes, and check again.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S22539518312020102700000" location="/api/article/getcontent?articleId=A01114225_S22539518312020102700000_LSTITM">6</a>.</p>
+    </li>
+    <li><a name="S22539518312020102700000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><ol class="ARABICNUM">
+        <li>Display the data monitor [Torque sensor main output] and [Torque sensor sub output] of the power steering control module using the Subaru Select Monitor. Refer to <a href="../pages/18378.html#Data%20Monitor/">POWER STEERING (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+        <li>Move the steering wheel to the left and right.</li>
+      </ol>
+      <p>Do the values of [Torque sensor main output] and [Torque sensor sub output] change along with the operation?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S04927643162020102700000" location="/api/article/getcontent?articleId=A01114225_S04927643162020102700000_LSTITM">7</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check for poor contact of the torque sensor connector.</p>
+    </li>
+    <li><a name="S04927643162020102700000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><p>Display the data monitor [IG voltage] of the power steering control module using the Subaru Select Monitor. Refer to <a href="../pages/18378.html#Data%20Monitor/">POWER STEERING (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <p>Is [IG voltage] stable? (While wiggling the harness)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S40067527072020102700000" location="/api/article/getcontent?articleId=A01114225_S40067527072020102700000_LSTITM">8</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check the ignition switch and IG voltage harness, and repair the defective part.</p>
+    </li>
+    <li><a name="S40067527072020102700000"></a><span class="clsEmphBOLD">CHECK CONNECTOR. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Disconnect the connector (B204).</li>
+      </ol>
+      <p>Are there any damages to terminal or other parts either on the power steering control module side or on the connector side?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair the terminal.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the steering gearbox. Refer to <a href="../pages/18319.html#Electric%20Power%20Steering%20Gearbox/">POWER ASSISTED SYSTEM (POWER STEERING)&gt;ELECTRIC POWER STEERING GEARBOX</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

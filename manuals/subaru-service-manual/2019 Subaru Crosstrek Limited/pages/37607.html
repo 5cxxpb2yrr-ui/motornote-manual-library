@@ -1,0 +1,41 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC B2771: EEPROM Performance — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Accessories%20%26%20Equipment/">Accessories &amp; Equipment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Accessories%20%26%20Equipment/Anti-Theft%20Systems/">Anti-Theft Systems</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31772.html">Security And Locks - Keyless Entry (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31772.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure with Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/37607.html">DTC B2771: EEPROM Performance</a></div><div class="main"><h1>DTC B2771: EEPROM Performance</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S28851241482020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>When all the following conditions are met.</p>
+  <ul class="BULLET">
+    <li>Battery voltage stays at 10 V or more for longer than one second.</li>
+    <li>CAN bus is not in sleep state.</li>
+    <li>Clear memory is not in process.</li>
+    <li>Attempt to reading/writing EEPROM fails twice consecutively.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>The key cannot be registered.</li>
+    <li>Can not be locked/unlocked with keyless entry system.</li>
+  </ul>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Ref. to <a href="../pages/22720.html#General%20Description/Caution/">KEYLESS ENTRY (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S06058980722020102700000"></a><span class="clsEmphBOLD">CHECK DTC. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Disconnect the TPMS &amp; keyless entry Control Module connector or keyless entry Control Module connector.</li>
+        <li>Connect the disconnected connectors.</li>
+        <li>Using the Subaru Select Monitor, perform the clear memory of [Keyless Entry]. Ref. to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Turn the ignition switch to ON.</li>
+        <li>Read the DTC of [Keyless Entry] using the Subaru Select Monitor. Ref. to <a href="../pages/22720.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">KEYLESS ENTRY (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is DTC B2771 displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace the TPMS &amp; keyless entry Control Module or keyless entry Control Module. Ref. to <a href="../pages/14659.html#Keyless%20Entry%20Control%20Module/">SECURITY AND LOCKS&gt;KEYLESS ENTRY CONTROL MODULE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Even if DTC is displayed, the circuit has returned to a normal condition at this time.</p>
+      <p>Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness, or temporary EEPROM access error has occurred.</span></div>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

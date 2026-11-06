@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Outline Of Diagnosis — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/15916.html">Section 18 (Engine Control System (Diagnostics) (HEV) (2 Of 4))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/15916.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure with Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/15916.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P04EC%3A%20EVAP%20System%20Large%20Leak%20Detected%20-%20Fuel%20Tank%20Side/">DTC P04EC: EVAP System Large Leak Detected - Fuel Tank Side</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/15916.html#Diagnostic%20Procedure%20with%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P04EC%3A%20EVAP%20System%20Large%20Leak%20Detected%20-%20Fuel%20Tank%20Side/General%20Description/">General Description</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/24785.html">Outline Of Diagnosis</a></div><div class="main"><h1>Outline Of Diagnosis</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S27963637102020102700000">
+  <p>This diagnosis judges whether the Evaporative Leak Check Module Operation is normal or not, whether the sealing valve operation is normal or not, and whether the evaporative emission system has leak or not.</p>
+  <p>To purge the canister, after driving, perform the five hours soaking after ignition switch OFF in order to stabilize the evaporative gas status.</p>
+  <p>* After 5 or 7 or 9.5 hours passed, ECM is activated by soaking timer, and the leak check is started.</p>
+  <p>First, judges whether the Evaporative Leak Check Module operation is normal or not, by measuring the reference pressure status via reference orifice (0.02 inch orifice).</p>
+  <p>Judge as malfunction if the reference pressure is out of specified range.</p>
+  <p>Then, judge whether there is a leak or not, by measuring EL Control Module pressure (canister side leak pressure) when the evaporative emission system becomes the negative pressure with the sealing valve closed and comparing with the reference pressure.</p>
+  <p>Judge as system leak in the evaporative emission system except for the fuel tank if the canister side leak pressure is higher than reference pressure.</p>
+  <p>At the same time, check whether the sealing valve operation is normal or not.</p>
+  <p>Judge as sealing valve open stuck if the amount of change of fuel tank pressure is equal to or larger than the specified value.</p>
+  <p>Then, judge whether there is a leak or not, by measuring fuel tank pressure (tank side leak pressure) when the evaporative emission system becomes the negative pressure with the sealing valve open and comparing with the reference pressure.</p>
+  <p>Judge as leak in the fuel tank or fuel cap, etc. if the tank side leak pressure is higher than reference pressure.</p>
+  <p>At the same time, check whether the sealing valve operation is normal or not.</p>
+  <p>Judge as sealing valve close stuck if the amount of change of fuel tank pressure is equal to or smaller than the amount of change of EL Control Module pressure.</p>
+  <p>0.02 inch leak and 0.04 inch leak can be distinguished by measuring the EL Control Module pressure and fuel tank pressure.</p>
+  <p>Also, it is possible to determine if leak is from the fuel tank or other locations.</p>
+  <p>The diagnosis results are stored inside ECM until the engine is started again.</p>
+  <p>*: When the test conditions are not met in 5 hours, perform diagnosis at elapsed time of 7 hours.</p>
+  <p>When the test conditions are not met in 7 hours, perform diagnosis at elapsed time of 9.5 hours.</p><a name="S279636371020201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th colspan="2" valign="MIDDLE" align="left" class="clsCellNormal">Diagnostic item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Evaporative Leak Check Module system (Leak check valve assembly main body)</td>
+        <td align="left" class="clsCellNormal">Vacuum pump stuck<br>Switching valve stuck to close<br>Switching valve stuck to open<br>Reference orifice flow large<br>Reference orifice flow small</td>
+      </tr>
+      <tr>
+        <td valign="MIDDLE" rowspan="2" align="left" class="clsCellNormal">Leak check (canister side)</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>0.04 inch leak</li>
+            <li>Fuel cap loose</li>
+            <li>Fuel cap off</li>
+            <li>System malfunction</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>0.02 inch leak</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="MIDDLE" rowspan="2" align="left" class="clsCellNormal">Leak check (fuel tank side)</td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>0.04 inch leak</li>
+            <li>Fuel cap loose</li>
+            <li>Fuel cap off</li>
+            <li>System malfunction</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>0.02 inch leak</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Sealing valve malfunction</td>
+        <td align="" class="clsCellNormal">Sealing valve open stuck<br>Sealing valve close stuck</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

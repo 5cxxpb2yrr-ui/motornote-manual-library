@@ -1,0 +1,1632 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Data Monitor: List — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14044.html">Section 23 (P-HEV Hybrid Powertrain Control System (Diagnostics - Introduction))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14044.html#Data%20Monitor/">Data Monitor</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/27121.html">List</a></div><div class="main"><h1>Data Monitor: List</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S02693424202024020800000"><a name="S026934242020240208000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+      <col span="1" id="COL5" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Item</th>
+        <th align="left" class="clsCellNormal">Contents</th>
+        <th align="left" class="clsCellNormal">Display range</th>
+        <th align="left" class="clsCellNormal">Standard</th>
+        <th align="left" class="clsCellNormal">Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Vehicle Speed</td>
+        <td align="left" class="clsCellNormal">Vehicle speed</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km/h (0 MPH), Max.: 255 km/h (158 MPH)</td>
+        <td align="left" class="clsCellNormal">Vehicle stopped: 0 km/h (0 MPH) While driving at a constant speed: No significant fluctuation</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Vehicle Speed when DC Quick Charging Connector Connect</td>
+        <td align="left" class="clsCellNormal">Vehicle speed when connected to plug-in charger inlet</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km/h (0 MPH), Max.: 327.67 km/h (203.61 MPH)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Engine Speed</td>
+        <td align="left" class="clsCellNormal">Engine speed</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 rpm, Max.: 16383.75 rpm</td>
+        <td align="left" class="clsCellNormal">Engine stopped: 0 rpm While engine running at a constant speed: No significant fluctuation</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Calculate Load</td>
+        <td align="left" class="clsCellNormal">Calculate load</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 100.0%</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">Value increases in proportion to increase in load<ul class="BULLET">
+            <li>Throttle valve status</li>
+            <li>Air cleaner condition</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Coolant Temperature</td>
+        <td align="left" class="clsCellNormal">Engine coolant temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Cold start → Fully warmed up: Gradually rises After warming up: 75 to 100°C (167 to 212°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Starter Switch Signal</td>
+        <td align="left" class="clsCellNormal">Starter ON/OFF signal</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Starter ON: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Engine Start Request (Hybrid Battery Charging)</td>
+        <td align="left" class="clsCellNormal">Engine idling request to charge HV battery</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Requesting HV battery charging: ON</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Battery ECU assembly</li>
+            <li>HV battery</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Engine Run Time</td>
+        <td align="left" class="clsCellNormal">Elapsed time after starting engine</td>
+        <td align="left" class="clsCellNormal">Min.: 0 sec, Max.: 65535 sec</td>
+        <td align="left" class="clsCellNormal">Elapsed time after starting engine</td>
+        <td align="left" class="clsCellNormal">Elapsed time from initial engine start until the power switch is turned off.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Accelerator Position</td>
+        <td align="left" class="clsCellNormal">Accelerator pedal depressed angle</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 127.5%</td>
+        <td align="left" class="clsCellNormal">Accelerator pedal fully depressed: 100% Accelerator pedal released: 0%</td>
+        <td align="left" class="clsCellNormal">Accelerator pedal sensor assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Accelerator Pedal Status</td>
+        <td align="left" class="clsCellNormal">Accelerator Pedal Status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Accelerator pedal depressed: ON Accelerator pedal released: OFF</td>
+        <td align="left" class="clsCellNormal">Accelerator pedal sensor assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Accelerator Position Sensor No. 1 Voltage %</td>
+        <td align="left" class="clsCellNormal">Accelerator pedal position sensor No. 1</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00%, Max.: 100.00%</td>
+        <td align="left" class="clsCellNormal">Accelerator pedal depressed: Changes with accelerator pedal position</td>
+        <td align="left" class="clsCellNormal">Sensor voltage is multiplied by 20 and displayed as a percentage</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Accelerator Position Sensor No. 2 Voltage %</td>
+        <td align="left" class="clsCellNormal">Accelerator pedal position sensor No. 2</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00%, Max.: 100.00%</td>
+        <td align="left" class="clsCellNormal">Accelerator pedal depressed: Changes with accelerator pedal position</td>
+        <td align="left" class="clsCellNormal">Sensor voltage is multiplied by 20 and displayed as a percentage</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Throttle Position Sensor No. 1 Voltage %</td>
+        <td align="left" class="clsCellNormal">Throttle position sensor</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 100.0%</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">Throttle valve status</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Master Cylinder Control Torque</td>
+        <td align="left" class="clsCellNormal">Braking torque equivalent to master cylinder brake fluid pressure (Total braking torque)</td>
+        <td align="left" class="clsCellNormal">Min.: -4096 Nm, Max.: 4095.87 Nm</td>
+        <td align="left" class="clsCellNormal">Brake pedal depressed: Changes with the brake pedal pressure</td>
+        <td align="left" class="clsCellNormal">Master cylinder brake fluid pressure control torque = hydraulic brake control torque + regenerative brake torque Master cylinder pressure sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position</td>
+        <td align="left" class="clsCellNormal">Current shift state</td>
+        <td align="left" class="clsCellNormal">P/R/N/D/B</td>
+        <td align="left" class="clsCellNormal">Matches currently selected shift state: P, R, N, D or B</td>
+        <td align="left" class="clsCellNormal">Shift state When the value of Shift Position (Meter) is &quot;Not Displayed&quot; and the value of Shift Position is &quot;N&quot;, the actual shift position cannot be determined and the parking lock may be engaged.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position (Meter)</td>
+        <td align="left" class="clsCellNormal">Shift position of meter display</td>
+        <td align="left" class="clsCellNormal">Not Displayed/P/R/N/D/B</td>
+        <td align="left" class="clsCellNormal">Matches currently selected shift state: P, R, N, D or B</td>
+        <td align="left" class="clsCellNormal">Shift state</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Transaxle Oil Temperature</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle transaxle oil temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Vehicle left for 1 day at an ambient temperature of 25°C (77°F): 15 to 35°C (59 to 95°F) While driving: Varies depending on vehicle operating conditions</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Transaxle Oil Temperature Sensor Voltage</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle transaxle oil temperature sensor voltage</td>
+        <td align="left" class="clsCellNormal">Min: 0.00 V, Max: 4.99 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">FR Wheel Speed</td>
+        <td align="left" class="clsCellNormal">Front wheel speed RH</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km/h (0 MPH), Max.: 327.67 km/h (204 MPH)</td>
+        <td align="left" class="clsCellNormal">Vehicle stopped: 0 km/h (0 MPH) Vehicle being driven at a constant speed: No large fluctuations in displayed speed</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">FL Wheel Speed</td>
+        <td align="left" class="clsCellNormal">Front wheel speed LH</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km/h (0 MPH), Max.: 327.67 km/h (204 MPH)</td>
+        <td align="left" class="clsCellNormal">Vehicle stopped: 0 km/h (0 MPH) Vehicle being driven at a constant speed: No large fluctuations in displayed speed</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">RR Wheel Speed</td>
+        <td align="left" class="clsCellNormal">Rear wheel speed RH</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km/h (0 MPH), Max.: 327.67 km/h (204 MPH)</td>
+        <td align="left" class="clsCellNormal">Vehicle stopped: 0 km/h (0 MPH) Vehicle being driven at a constant speed: No large fluctuations in displayed speed</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">RL Wheel Speed</td>
+        <td align="left" class="clsCellNormal">Rear wheel speed LH</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km/h (0 MPH), Max.: 327.67 km/h (204 MPH)</td>
+        <td align="left" class="clsCellNormal">Vehicle stopped: 0 km/h (0 MPH) Vehicle being driven at a constant speed: No large fluctuations in displayed speed</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Atmospheric Pressure</td>
+        <td align="left" class="clsCellNormal">Atmospheric pressure</td>
+        <td align="left" class="clsCellNormal">Min.: 0 kPa (0 psi), Constant: Max.: 255 kPa (37 Atmosphere psi) pressure</td>
+        <td align="left" class="clsCellNormal"> </td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Intake Manifold Absolute Pressure</td>
+        <td align="left" class="clsCellNormal">Intake manifold pressure of engine</td>
+        <td align="left" class="clsCellNormal">Min.: 0 kPa (0 psi), Max.: 2047.96 kPa (297 psi)</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG) or engine stopped: Atmosphere pressure</td>
+        <td align="left" class="clsCellNormal">Values less than atmospheric pressure are indicated while the engine is running</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Ambient Temperature</td>
+        <td align="left" class="clsCellNormal">Ambient air temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG): Same as ambient air temperature</td>
+        <td align="left" class="clsCellNormal">Ambient temperature sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Intake Air Temperature</td>
+        <td align="left" class="clsCellNormal">Engine intake air temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Constant: Almost same as ambient air temperature</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">BATT Voltage</td>
+        <td align="left" class="clsCellNormal">Battery (12V) voltage (Battery ECU assembly power source voltage)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 16.00 V</td>
+        <td align="left" class="clsCellNormal">11.00 to 15.00 V</td>
+        <td align="left" class="clsCellNormal">BATT terminal</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Smoothed Value of BATT Voltage</td>
+        <td align="left" class="clsCellNormal">Smoothed value of Battery (12V) voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 16.00 V</td>
+        <td align="left" class="clsCellNormal">11.000 to 15.000 V</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle control ECU assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Warmup Cycle Cleared DTC</td>
+        <td align="left" class="clsCellNormal">The number of times the engine is warmed up after clearing DTCs</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 255</td>
+        <td align="left" class="clsCellNormal">MIL OFF, engine coolant temperature increases from below 22°C (71.6°F) before starting the engine to above 70°C (158°F) after starting the engine: Increases once</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Distance from DTC Cleared</td>
+        <td align="left" class="clsCellNormal">Drive distance after clearing DTCs</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km (0 mile), Max.: 65535 km (40723 mile)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Time after DTC Cleared</td>
+        <td align="left" class="clsCellNormal">Elapsed time after clearing DTCs</td>
+        <td align="left" class="clsCellNormal">Min.: 0 min, Max.: 65535 min</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">Time elapsed after DTCs are cleared (Not counted when the power switch is off).</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MIL</td>
+        <td align="left" class="clsCellNormal">MIL status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Running Time from MIL ON</td>
+        <td align="left" class="clsCellNormal">Running time from MIL on</td>
+        <td align="left" class="clsCellNormal">Min.: 0 min, Max.: 65535 min</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Total Distance Traveled</td>
+        <td align="left" class="clsCellNormal">Drive total distance</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km (0 mile), Max.: 16777215 km (10425361 mile)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Total Distance Traveled - Unit</td>
+        <td align="left" class="clsCellNormal">Drive total distance unit</td>
+        <td align="left" class="clsCellNormal">km or mile</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MIL ON Run Distance</td>
+        <td align="left" class="clsCellNormal">Drive distance from MIL on</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km (0 mile), Max.: 65535 km (40723 mile)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Number of Emission DTC</td>
+        <td align="left" class="clsCellNormal">Emissions-related DTCs</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 127</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">OBD Requirements</td>
+        <td align="left" class="clsCellNormal">OBD Requirements</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">IGB Signal Status</td>
+        <td align="left" class="clsCellNormal">IGB signal status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG) or during charging: ON</td>
+        <td align="left" class="clsCellNormal">IGB terminal</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">IGB Keeping Status</td>
+        <td align="left" class="clsCellNormal">IGB Keeping Status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG) or during charging: ON</td>
+        <td align="left" class="clsCellNormal">IGB terminal</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">IG2 Signal Status</td>
+        <td align="left" class="clsCellNormal">IG2 signal status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG) or on (READY): ON</td>
+        <td align="left" class="clsCellNormal">IG2 terminal</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">+B3M Signal Status</td>
+        <td align="left" class="clsCellNormal">+B3M Signal Status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">IGCT relay Operating: ON</td>
+        <td align="left" class="clsCellNormal">+B3M terminal</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MRL2 Signal Status</td>
+        <td align="left" class="clsCellNormal">MRL2 Signal Status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">IGCT relay Operating: ON</td>
+        <td align="left" class="clsCellNormal">MRL2 terminal</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Ready Signal</td>
+        <td align="left" class="clsCellNormal">Ready signal status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (READY): ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">HV Activate Condition</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle control system power source mode status</td>
+        <td align="left" class="clsCellNormal">Normal/Remote Air Control System/Remote</td>
+        <td align="left" class="clsCellNormal">Hybrid Vehicle Control System started using power switch: Normal Hybrid vehicle control system started using remote air control system function: Remote Air Control System Hybrid vehicle control system started using remote starter: Remote</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MG Activate Condition</td>
+        <td align="left" class="clsCellNormal">Motor generator control system status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG) or on (READY): ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">DSS Control Status</td>
+        <td align="left" class="clsCellNormal">Control status of DSS (Driving Support System)</td>
+        <td align="left" class="clsCellNormal">Not Control/Available/Unavailable/Disable</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generate Torque (Request from DSS)</td>
+        <td align="left" class="clsCellNormal">Generated drive torque requested from DSS (Driving Support System)</td>
+        <td align="left" class="clsCellNormal">Min.: -4096.00 Nm, Max.: 4095.87 Nm</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Primary Driving Force Adjustment Result</td>
+        <td align="left" class="clsCellNormal">Result of adjustment between drive force of DSS (Driving Support System) and drive force requested by accelerator pedal operation</td>
+        <td align="left" class="clsCellNormal">Accelerator/DSS</td>
+        <td align="left" class="clsCellNormal">Drive force requested by Accelerator pedal operation selected: Accelerator Drive force requested by DSS selected: DSS</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">SMRG Status</td>
+        <td align="left" class="clsCellNormal">Operating state of SMRG (primary circuit monitor)</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (READY): ON</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>HV battery junction block assembly</li>
+            <li>Wire harness</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">SMRG Control Status</td>
+        <td align="left" class="clsCellNormal">Commanded state of SMRG</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (READY): ON</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>HV battery junction block assembly</li>
+            <li>Wire harness</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">SMRB Status</td>
+        <td align="left" class="clsCellNormal">Operating state of SMRB (primary circuit monitor)</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (READY): ON</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>HV battery junction block assembly</li>
+            <li>Wire harness</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">SMRB Control Status</td>
+        <td align="left" class="clsCellNormal">Commanded state of SMRB</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (READY): ON</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>HV battery junction block assembly</li>
+            <li>Wire harness</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">SMRP Status</td>
+        <td align="left" class="clsCellNormal">Operating state of SMRP (primary circuit monitor)</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Immediately after the power switch on (ST-ON) state occurred: ON After the above timing: OFF</td>
+        <td align="left" class="clsCellNormal">Cannot be confirmed using the SUBARU SELECT MONITOR. Use an oscilloscope.<ul class="BULLET">
+            <li>HV battery junction block assembly</li>
+            <li>Wire harness</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">SMRP Control Status</td>
+        <td align="left" class="clsCellNormal">Commanded state of SMRP</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Immediately after the power switch on (ST-ON) state occurred: ON After the above timing: OFF</td>
+        <td align="left" class="clsCellNormal">Cannot be confirmed using the SUBARU SELECT MONITOR. Use an oscilloscope.<ul class="BULLET">
+            <li>HV battery junction block assembly</li>
+            <li>Wire harness</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">WIN Control Limit Power</td>
+        <td align="left" class="clsCellNormal">WIN control limit power</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 kW, Max.: 327.67 kW</td>
+        <td align="left" class="clsCellNormal">-27.4 kW</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">WOUT Control Limit Power</td>
+        <td align="left" class="clsCellNormal">WOUT control limit power</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 kW, Max.: 327.67 kW</td>
+        <td align="left" class="clsCellNormal">HV mode: 24 kW or less EV mode: 65.4 kW or less</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Permission Signal by Main CPU</td>
+        <td align="left" class="clsCellNormal">Charging permission signal by main CPU</td>
+        <td align="left" class="clsCellNormal">NG or OK</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Permission Signal by Sub CPU</td>
+        <td align="left" class="clsCellNormal">Charging permission signal by sub CPU</td>
+        <td align="left" class="clsCellNormal">NG or OK</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Permission Answerback Signal from Plug-in Control ECU</td>
+        <td align="left" class="clsCellNormal">Charging permission answerback signal from plug-in control ECM</td>
+        <td align="left" class="clsCellNormal">NG or OK</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">A/C Consumption Power</td>
+        <td align="left" class="clsCellNormal">A/C consumption power</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 kW, Max.: 12.75 kW</td>
+        <td align="left" class="clsCellNormal">While the air conditioning system is operating: 0 to 5.00 kW</td>
+        <td align="left" class="clsCellNormal">Air conditioning system</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">A/C Useable Power</td>
+        <td align="left" class="clsCellNormal">A/C useable power</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 kW, Max.: 12.75 kW</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">HV/EV Mode Switch</td>
+        <td align="left" class="clsCellNormal">Hybrid mode switch condition</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Hybrid mode switch not operated: OFF Hybrid mode switch being pushed and held: ON</td>
+        <td align="left" class="clsCellNormal">Hybrid mode switch Circuit</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">EV Mode Status</td>
+        <td align="left" class="clsCellNormal">EV mode status</td>
+        <td align="left" class="clsCellNormal">Normal/EV Mode/Changing to HV Mode from EV Mode/Changing to EV Mode from HV Mode/EV CITY Mode/Changing to HV Mode from EV CITY Mode/Battery Charge Mode/Changing to HV Mode from Battery Charge Mode/Standby for Battery Charge Mode/EV AUTO Mode/Changing to HV Mode from EV AUTO Mode</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Drive Mode</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle control ECU assembly recognized drive mode</td>
+        <td align="left" class="clsCellNormal">None/EV Mode/HV Mode by Switch/HV Mode</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Control System Control Mode</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle control ECU assembly controlled vehicle mode</td>
+        <td align="left" class="clsCellNormal">None/Driving Mode/External Power Supply Mode/Charging/Discharging Mode/Other</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Inter Lock Switch</td>
+        <td align="left" class="clsCellNormal">Interlock switch condition</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG), service disconnect plug grip not installed: ON</td>
+        <td align="left" class="clsCellNormal">ILK terminal</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Inter Lock Switch (MG)</td>
+        <td align="left" class="clsCellNormal">Interlock switch condition</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG), inverter cover not installed: ON</td>
+        <td align="left" class="clsCellNormal">Inverter with converter assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Back Up Light Relay</td>
+        <td align="left" class="clsCellNormal">Back up light switch condition</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever in R: ON -</td>
+        <td align="left" class="clsCellNormal"> </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VSC/TRC OFF Switch</td>
+        <td align="left" class="clsCellNormal">VSC condition</td>
+        <td align="left" class="clsCellNormal">OFF/TRC OFF Mode/TRC/VSC OFF Mode</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Airbag Status (Collision)</td>
+        <td align="left" class="clsCellNormal">Airbag sensor assembly collision detection</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Collision detection by the airbag sensor assembly: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Airbag Status (Collision) (CAN)</td>
+        <td align="left" class="clsCellNormal">Airbag sensor assembly collision detection (CAN)</td>
+        <td align="left" class="clsCellNormal">Normal/Collision from Back/Airbag Circuit Abnormal/Safing/Collision from Front or Side</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Airbag Status (Normal)</td>
+        <td align="left" class="clsCellNormal">Control state of airbag sensor assembly</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">When the airbag sensor assembly is operating normally: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Crank Position</td>
+        <td align="left" class="clsCellNormal">Crankshaft position</td>
+        <td align="left" class="clsCellNormal">Min.: -128 deg (CA), Max.: 127 deg (CA)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Remote Air Control System</td>
+        <td align="left" class="clsCellNormal">Remote air conditioning system operability</td>
+        <td align="left" class="clsCellNormal">Unable or Able</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging</td>
+        <td align="left" class="clsCellNormal">Plug-in charging operability</td>
+        <td align="left" class="clsCellNormal">Unable or Able</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Elapsed time from HV ECU Boot Up</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle control ECU assembly started</td>
+        <td align="left" class="clsCellNormal">Min.: 0 sec, Max.: 65535 sec</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">IG OFF Elapsed Time</td>
+        <td align="left" class="clsCellNormal">Cumulative time since power switch turned off (from ECM)</td>
+        <td align="left" class="clsCellNormal">Min.: 0 min, Max.: 655350 min</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Revolution</td>
+        <td align="left" class="clsCellNormal">Generator speed (detected by resolver sensor)</td>
+        <td align="left" class="clsCellNormal">Min.: -32768 rpm, Max.: 32767 rpm</td>
+        <td align="left" class="clsCellNormal">During charge or discharge: Varies depending on vehicle operating conditions</td>
+        <td align="left" class="clsCellNormal">Generator speed is set to obtain requested target engine speed<ul class="BULLET">
+            <li>Transmission assembly</li>
+            <li>Inverter with converter assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Generator Torque</td>
+        <td align="left" class="clsCellNormal">Generator torque request value</td>
+        <td align="left" class="clsCellNormal">Min.: -4096.00 Nm, Max.: 4095.87 Nm</td>
+        <td align="left" class="clsCellNormal">During charge or discharge: Varies depending on vehicle operating conditions</td>
+        <td align="left" class="clsCellNormal">Generator speed is set to obtain requested target engine speed<ul class="BULLET">
+            <li>Transmission assembly</li>
+            <li>Inverter with converter assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Torque</td>
+        <td align="left" class="clsCellNormal">Generator torque execution value</td>
+        <td align="left" class="clsCellNormal">Min.: -4096.00 Nm, Max.: 4095.87 Nm</td>
+        <td align="left" class="clsCellNormal">One second after engine automatically starts with shift lever in P (Condition before engine start: Power switch on (READY), engine stopped, A/C fan speed high and headlights on): Within +/- 20% of target Generator torque</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Hybrid vehicle control ECU assembly</li>
+            <li>Transmission assembly</li>
+            <li>Inverter with converter assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Revolution</td>
+        <td align="left" class="clsCellNormal">Motor speed (detected by resolver sensor)</td>
+        <td align="left" class="clsCellNormal">Min.: -32768 rpm, Max.: 32767 rpm</td>
+        <td align="left" class="clsCellNormal">While driving: Varies depending on vehicle speed</td>
+        <td align="left" class="clsCellNormal">Motor speed changes in proportion to vehicle speed. Motor speed is not influenced by accelerator pedal opening angle, engine speed or Generator speed.<ul class="BULLET">
+            <li>Transmission assembly</li>
+            <li>Inverter with converter assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Motor Torque</td>
+        <td align="left" class="clsCellNormal">Motor torque request value</td>
+        <td align="left" class="clsCellNormal">Min.: -4096.00 Nm, Max.: 4095.87 Nm</td>
+        <td align="left" class="clsCellNormal">While driving: Varies depending on vehicle operating conditions</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Hybrid vehicle control ECU assembly</li>
+            <li>Transmission assembly</li>
+            <li>Inverter with converter assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Torque</td>
+        <td align="left" class="clsCellNormal">Motor torque execution value</td>
+        <td align="left" class="clsCellNormal">Min.: -4096.00 Nm, Max.: 4095.87 Nm</td>
+        <td align="left" class="clsCellNormal">After full-load acceleration with power switch on (READY) and engine stopped: Within +/- 20% of target Motor torque</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Hybrid vehicle control ECU assembly</li>
+            <li>Inverter with converter assembly</li>
+            <li>Transmission assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Request Motor Regenerative Brake Torque</td>
+        <td align="left" class="clsCellNormal">Requested Motor regenerative braking torque</td>
+        <td align="left" class="clsCellNormal">Min.: -4096.00 Nm, Max.: 4095.87 Nm</td>
+        <td align="left" class="clsCellNormal">While braking: Varies depending on vehicle operation conditions</td>
+        <td align="left" class="clsCellNormal">When regenerative braking is being performed, current flows from the Motor to charge the HV battery and braking torque is generated. Electronically controlled brake system</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Regenerate Brake Execution Torque</td>
+        <td align="left" class="clsCellNormal">Motor regenerative braking execution torque</td>
+        <td align="left" class="clsCellNormal">Min.: -4096.00 Nm, Max.: 4095.87 Nm</td>
+        <td align="left" class="clsCellNormal">While braking: Varies depending on vehicle operation conditions</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Hybrid vehicle control ECU assembly</li>
+            <li>Transmission assembly</li>
+            <li>Inverter with converter assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Temperature</td>
+        <td align="left" class="clsCellNormal">Generator temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Vehicle left for 1 day at an ambient temperature of 25°C (77°F): 25°C (77°F) While driving: Varies depending on vehicle operating conditions</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Temperature Sensor Voltage</td>
+        <td align="left" class="clsCellNormal">Generator temperature sensor voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0 V, Max.: 4.99 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Temperature just after IG ON</td>
+        <td align="left" class="clsCellNormal">Generator temperature soon after power switch on (IG)</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Maximum Temperature</td>
+        <td align="left" class="clsCellNormal">Maximum Generator temperature after power switch turned on (IG) in current trip</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Temperature</td>
+        <td align="left" class="clsCellNormal">Motor temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Vehicle left for 1 day at an ambient temperature of 25°C (77°F): 25°C (77°F) While driving: Varies depending on vehicle operating conditions</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Temperature Sensor Voltage</td>
+        <td align="left" class="clsCellNormal">Motor temperature sensor voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0 V, Max.: 4.99 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Temperature just after IG ON</td>
+        <td align="left" class="clsCellNormal">Motor temperature soon after power switch on (IG)</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Maximum Temperature</td>
+        <td align="left" class="clsCellNormal">Maximum Motor temperature after power switch turned on (IG) in current trip</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Inverter Calculated Temperature</td>
+        <td align="left" class="clsCellNormal">Generator inverter temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Vehicle left for 1 day at an ambient temperature of 25°C (77°F): 8 to 35°C (46 to 95°F) While driving at an ambient temperature of 25°C (77°F): 25 to 120°C (77 to 248°F)</td>
+        <td align="left" class="clsCellNormal">Inverter with converter assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Inverter Calculated Temperature just after IG ON</td>
+        <td align="left" class="clsCellNormal">Generator inverter temperature soon after power switch on (IG)</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Inverter Calculated Maximum Temperature</td>
+        <td align="left" class="clsCellNormal">Maximum generator inverter temperature after power switch turned on (IG) in current trip</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Inverter Temperature</td>
+        <td align="left" class="clsCellNormal">Motor inverter temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Vehicle left for 1 day at an ambient temperature of 25°C (77°F): 8 to 35°C (46 to 95°F) While driving at an ambient temperature of 25°C (77°F): 25 to 120°C (77 to 248°F)</td>
+        <td align="left" class="clsCellNormal">Inverter with converter assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Inverter Temperature just after IG ON</td>
+        <td align="left" class="clsCellNormal">Motor inverter temperature soon after power switch on (IG)</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Inverter Maximum Temperature</td>
+        <td align="left" class="clsCellNormal">Maximum motor inverter temperature after power switch turned on (IG) in current trip</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Boosting Converter Temperature (Upper)</td>
+        <td align="left" class="clsCellNormal">Boost converter temperature (upper)</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Vehicle left for 1 day at an ambient temperature of 25°C (77°F): 8 to 35°C (46 to 95°F) While driving at an ambient temperature of 25°C (77°F): 25 to 120°C (77 to 248°F)</td>
+        <td align="left" class="clsCellNormal">Inverter with converter assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Boosting Converter Temperature (Lower)</td>
+        <td align="left" class="clsCellNormal">Boost converter temperature (lower)</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Vehicle left for 1 day at an ambient temperature of 25°C (77°F): 8 to 35°C (46 to 95°F) While driving at an ambient temperature of 25°C (77°F): 25 to 120°C (77 to 248°F)</td>
+        <td align="left" class="clsCellNormal">Inverter with converter assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Boosting Converter Temperature just after IG ON</td>
+        <td align="left" class="clsCellNormal">Boost converter temperature soon after power switch on (IG)</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Boosting Converter Maximum Temperature</td>
+        <td align="left" class="clsCellNormal">Maximum converter temperature after power switch turned on (IG) in current trip</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Inverter Operation Request</td>
+        <td align="left" class="clsCellNormal">Generator inverter operation request</td>
+        <td align="left" class="clsCellNormal">Shutdown/Phase ON/Discharge/Insulation Resistance Measurement/Output Torque/Emergency Shutdown/Shutdown during Insulation Resistance Measurement</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Inverter Fail</td>
+        <td align="left" class="clsCellNormal">Generator inverter stopped</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Generator inverter stopped: ON Normal: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Inverter Shutdown Status</td>
+        <td align="left" class="clsCellNormal">Generator inverter shutdown status</td>
+        <td align="left" class="clsCellNormal">Awake or Shutdown</td>
+        <td align="left" class="clsCellNormal">Generator inverter shutdown: Shutdown Normal: Awake</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Inverter Operation Request</td>
+        <td align="left" class="clsCellNormal">Motor inverter operation request</td>
+        <td align="left" class="clsCellNormal">Shutdown/Phase ON/Discharge/Insulation Resistance Measurement/Output Torque/Emergency Shutdown/Shutdown during Insulation Resistance Measurement</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Inverter Fail</td>
+        <td align="left" class="clsCellNormal">Motor inverter stopped</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Motor inverter stopped: ON Normal: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Inverter Shutdown Status</td>
+        <td align="left" class="clsCellNormal">Motor inverter shutdown status</td>
+        <td align="left" class="clsCellNormal">Awake or Shutdown</td>
+        <td align="left" class="clsCellNormal">Motor inverter shutdown: Shutdown Normal: Awake</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Boosting Converter Operation Request</td>
+        <td align="left" class="clsCellNormal">Boost converter operation request</td>
+        <td align="left" class="clsCellNormal">Normal/Boosting Stop/Upper Arm ON/Maximum Boosting/Output Torque/Upper Arm Lowering</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Boosting Converter Fail</td>
+        <td align="left" class="clsCellNormal">Boost converter stopped</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Boost converter stopped: ON Normal: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Boosting Converter Shutdown Status</td>
+        <td align="left" class="clsCellNormal">Boost converter shutdown status</td>
+        <td align="left" class="clsCellNormal">Awake or Shutdown</td>
+        <td align="left" class="clsCellNormal">Boost converter shutdown: Shutdown Normal: Awake</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Carrier Frequency</td>
+        <td align="left" class="clsCellNormal">Generator Carrier Frequency</td>
+        <td align="left" class="clsCellNormal">0.75 kHz/1.25 kHz/2.5 kHz/3.75 kHz/5 kHz/10 kHz/Electrical Power Loss Reduction Mode</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Generator Control Mode</td>
+        <td align="left" class="clsCellNormal">Generator control mode</td>
+        <td align="left" class="clsCellNormal">Sine Wave/Overmodulation/Square Wave/Electrical Power Loss Reduction Mode</td>
+        <td align="left" class="clsCellNormal">PWM: Sine Wave Variable PWM: Overmodulation Rectangular wave: Square Wave</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Carrier Frequency</td>
+        <td align="left" class="clsCellNormal">Motor carrier frequency</td>
+        <td align="left" class="clsCellNormal">0.75 kHz/1.25 kHz/2.5 kHz/3.75 kHz/5 kHz/10 kHz/Electrical Power Loss Reduction Mode</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Control Mode</td>
+        <td align="left" class="clsCellNormal">Motor control mode</td>
+        <td align="left" class="clsCellNormal">Sine Wave/Overmodulation/Square Wave/Electrical Power Loss Reduction Mode</td>
+        <td align="left" class="clsCellNormal">PWM: Sine Wave Variable PWM: Overmodulation Rectangular wave: Square Wave</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Boosting Converter Carrier Frequency</td>
+        <td align="left" class="clsCellNormal">Boost converter signal carrier frequency</td>
+        <td align="left" class="clsCellNormal">9.55 kHz/9.13 kHz/8.71 kHz/8.29 kHz/7.87 kHz/7.45 kHz/4.8 kHz</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VL-Voltage before Boosting</td>
+        <td align="left" class="clsCellNormal">High voltage before it is boosted</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 V, Max.: 32767.5 V</td>
+        <td align="left" class="clsCellNormal">Power switch on (READY): Practically the same as the HV battery voltage</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>HV battery</li>
+            <li>Inverter with converter assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VH-Voltage after Boosting</td>
+        <td align="left" class="clsCellNormal">High voltage after it is boosted</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 V, Max.: 32767.5 V</td>
+        <td align="left" class="clsCellNormal">Engine revving up with shift lever in P: After boosted voltage to below approximately 650 V</td>
+        <td align="left" class="clsCellNormal">Inverter with converter assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Boost Ratio</td>
+        <td align="left" class="clsCellNormal">Boost converter boost ratio</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 100.0%</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">Inverter with converter assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">V Phase Generator Current</td>
+        <td align="left" class="clsCellNormal">V phase generator current</td>
+        <td align="left" class="clsCellNormal">Min.: -3276.8 A, Max.: 3276.7 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">W Phase Generator Current</td>
+        <td align="left" class="clsCellNormal">W phase generator current</td>
+        <td align="left" class="clsCellNormal">Min.: -3276.8 A, Max.: 3276.7 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">V Phase Motor Current</td>
+        <td align="left" class="clsCellNormal">V phase motor current</td>
+        <td align="left" class="clsCellNormal">Min.: -3276.8 A, Max.: 3276.7 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">W Phase Motor Current</td>
+        <td align="left" class="clsCellNormal">W phase motor current</td>
+        <td align="left" class="clsCellNormal">Min.: -3276.8 A, Max.: 3276.7 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">DC/DC Converter Operation Status</td>
+        <td align="left" class="clsCellNormal">DC/DC converter operating state</td>
+        <td align="left" class="clsCellNormal">During Stop Request to MG ECU by HV ECM/Stop/Normal Operation</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">DC/DC Converter Drive Request</td>
+        <td align="left" class="clsCellNormal">DC/DC converter operation request</td>
+        <td align="left" class="clsCellNormal">Stop Request/Drive Request/Abnormal Detection Signal Check Request</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target DC/DC Converter Voltage</td>
+        <td align="left" class="clsCellNormal">DC/DC converter target step-down voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 V, Max.: 25.5 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Inverter Coolant Water Temperature</td>
+        <td align="left" class="clsCellNormal">Inverter coolant temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Cold start → Fully warmed up: Gradually rises System operating normally: Controlled at 65°C (149°F) or less</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Inverter with converter assembly</li>
+            <li>Inverter water pump assembly</li>
+            <li>Cooling fan system</li>
+            <li>Inverter cooling system</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Inverter Water Pump Duty Ratio</td>
+        <td align="left" class="clsCellNormal">Inverter water pump motor driver request duty</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 399.9%</td>
+        <td align="left" class="clsCellNormal">Power switch on (READY): 62.50 to 93.75%</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle control ECU assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Inverter Water Pump Revolution</td>
+        <td align="left" class="clsCellNormal">Inverter water pump assembly speed</td>
+        <td align="left" class="clsCellNormal">Min.: 0 rpm, Max.: 65535 rpm</td>
+        <td align="left" class="clsCellNormal">Power switch on (READY): 1000 to 9300 rpm</td>
+        <td align="left" class="clsCellNormal">When the inverter water pump assembly is not operating: Lower than 200 rpm</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Overvoltage Input to Inverter</td>
+        <td align="left" class="clsCellNormal">Overvoltage detection into inverter</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Overvoltage is detected into inverter: ON Normal: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Inverter Emergency Shutdown (Main CPU)</td>
+        <td align="left" class="clsCellNormal">Inverter emergency shutdown</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Inverter emergency shutdown: ON Normal: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Inverter Emergency Shutdown (Sub CPU)</td>
+        <td align="left" class="clsCellNormal">Inverter emergency shutdown</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Inverter emergency shutdown: Normal: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Overvoltage Input to Boosting Converter</td>
+        <td align="left" class="clsCellNormal">Overvoltage detection into boost converter</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Overvoltage is detected into boost converter: ON Normal: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery SOC</td>
+        <td align="left" class="clsCellNormal">HV battery state of charge Primary calculated from charging and discharging amperage</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 100.0%</td>
+        <td align="left" class="clsCellNormal">Constant: 0.0 to 100.0%</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>HV battery</li>
+            <li>Battery ECU assembly</li>
+            <li>Hybrid vehicle control ECU assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery SOC of Immediately after IG ON</td>
+        <td align="left" class="clsCellNormal">HV battery state of charge soon after power switch on (IG)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 127.5%</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Maximum SOC</td>
+        <td align="left" class="clsCellNormal">Maximum SOC after power switch turned on (IG) in current trip</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 127.5%</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Minimum SOC</td>
+        <td align="left" class="clsCellNormal">Minimum SOC after power switch turned on (IG) in current trip</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 127.5%</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Voltage</td>
+        <td align="left" class="clsCellNormal">HV battery voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 1023.98 V</td>
+        <td align="left" class="clsCellNormal">Power switch on (READY): 285 to 380 V</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>HV battery</li>
+            <li>Battery ECU assembly</li>
+            <li>Hybrid vehicle control ECU assembly</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Current</td>
+        <td align="left" class="clsCellNormal">HV battery current</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 A, Max.: 327.67 A</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG): -4 to 4 A</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>HV battery</li>
+            <li>Power cable</li>
+            <li>Inverter with converter assembly</li>
+            <li>Battery current sensor</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Current for Driving Control</td>
+        <td align="left" class="clsCellNormal">Hybrid battery current for driving control</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 A, Max.: 327.67 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Discharging amperage is indicated by a positive value</li>
+            <li>Charging amperage is indicated by a negative value</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Charging Power</td>
+        <td align="left" class="clsCellNormal">HV battery charging power</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 kW, Max.: 327.67 kW</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Control Status on Thermal Keeping and Charging</td>
+        <td align="left" class="clsCellNormal">HV battery heating/charging state</td>
+        <td align="left" class="clsCellNormal">Unoperated/Charging/Thermal Keeping/Thermal Keeping and Charging</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Voltage for Hybrid Battery</td>
+        <td align="left" class="clsCellNormal">HV battery charging voltage (VCHG sensor value)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 V, Max.: 6553.5 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Charging and Discharging Permission Status with Hybrid Battery Thermal Keep</td>
+        <td align="left" class="clsCellNormal">HV battery charge/discharge state during temperature adjustment</td>
+        <td align="left" class="clsCellNormal">NG/Charging NG and Discharging OK/Charging OK and Discharging NG/OK</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Temperature when Charging Start</td>
+        <td align="left" class="clsCellNormal">HV battery temperature when charging start</td>
+        <td align="left" class="clsCellNormal">Min.: -32768°C (-58950°F), Max.: 32767°C (59012°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Maximum Temperature</td>
+        <td align="left" class="clsCellNormal">HV battery highest temperature during<br>current trip</td>
+        <td align="left" class="clsCellNormal">Min.: -50.0°C (-58.0°F), Max.: 205.9°C (402.6°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Minimum Temperature</td>
+        <td align="left" class="clsCellNormal">HV battery lowest temperature during current trip</td>
+        <td align="left" class="clsCellNormal">Min.: -50.0°C (-58.0°F), Max.: 205.9°C (402.6°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Cooling Fan Low Speed Request</td>
+        <td align="left" class="clsCellNormal">Battery cooling blower assembly Lo speed requested</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Constant: ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Hybrid Battery Cooling Necessity before Charging</td>
+        <td align="left" class="clsCellNormal">HV battery cooling necessary before charging</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">History of Hybrid Battery Cooling Cancel</td>
+        <td align="left" class="clsCellNormal">HV battery cooling suspended</td>
+        <td align="left" class="clsCellNormal">None or Done</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Short Wave Highest Value Level</td>
+        <td align="left" class="clsCellNormal">Waveform voltage level in abnormal insulation detection circuit in Battery ECU assembly</td>
+        <td align="left" class="clsCellNormal">Not Judge/Normal/Insulation Lower LV2/Insulation Lower LV3</td>
+        <td align="left" class="clsCellNormal">Judgment not completed: Not Judge Normal: Normal condition Medium low level: Insulation Lower LV2 Severe low level: Insulation Lower LV3</td>
+        <td align="left" class="clsCellNormal">High voltage circuit</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Insulation Resistance Division Check Completion using MG Inv</td>
+        <td align="left" class="clsCellNormal">Insulation Resistance Division Check Completion using MG inv</td>
+        <td align="left" class="clsCellNormal">Not Complete/Complete</td>
+        <td align="left" class="clsCellNormal">Decreased insulation resistance judgment for motor and generator inverter has completed: Complete</td>
+        <td align="left" class="clsCellNormal">After turning the power switch from on (READY) to off, compare the value of Data List item &quot;Short Wave Highest Value Level&quot; before and after the motor and generator inverter are shut down.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Insulation Resistance Division Check Completion using A/C Inv</td>
+        <td align="left" class="clsCellNormal">Insulation resistance division check completion using A/C inv</td>
+        <td align="left" class="clsCellNormal">Not Complete/Complete</td>
+        <td align="left" class="clsCellNormal">Decreased insulation resistance judgment for the air conditioning inverter has completed: Complete</td>
+        <td align="left" class="clsCellNormal">Check the value of Data List item &quot;Short Wave Highest Value Level&quot; before and after the air conditioning inverter is shut down.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Insulation Resistance Division Check Completion using SMR</td>
+        <td align="left" class="clsCellNormal">Insulation resistance division check completion using SMR</td>
+        <td align="left" class="clsCellNormal">Not Complete/Complete</td>
+        <td align="left" class="clsCellNormal">Decreased insulation resistance judgment for the system main relays has completed: Complete</td>
+        <td align="left" class="clsCellNormal">Check the value of Data List item &quot;Short Wave Highest Value Level&quot; before and after the system main relays are turned off.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Insulation Resistance Division Check Completion using AC Charging Area</td>
+        <td align="left" class="clsCellNormal">Insulation resistance division check completion using AC charging area</td>
+        <td align="left" class="clsCellNormal">Not Complete/Complete</td>
+        <td align="left" class="clsCellNormal">Decreased insulation resistance judgment for the AC charging relays has Complete</td>
+        <td align="left" class="clsCellNormal">Check the value of Data List item &quot;Short Wave Highest Value Level&quot; before and after the AC charging relays are turned off.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Short Wave Highest Value Availability just after MG Inv On/Off</td>
+        <td align="left" class="clsCellNormal">Short wave highest value availability just after MG inv on/off</td>
+        <td align="left" class="clsCellNormal">Yes or No</td>
+        <td align="left" class="clsCellNormal">The value of Data List item &quot;Short Wave Highest Value Level&quot; cannot be checked immediately after the motor and generator inverter are turned on/off: No</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Short Wave Highest Value Availability just after A/C Inv On/Off</td>
+        <td align="left" class="clsCellNormal">Short wave highest value availability just after A/C inv on/off</td>
+        <td align="left" class="clsCellNormal">Yes or No</td>
+        <td align="left" class="clsCellNormal">The value of Data List item &quot;Short Wave Highest Value Level&quot; cannot be checked immediately after air conditioning inverter turned on/off. No</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Short Wave Highest Value Availability just after SMR On/Off</td>
+        <td align="left" class="clsCellNormal">Short wave highest value availability just after SMR on/off</td>
+        <td align="left" class="clsCellNormal">Yes or No</td>
+        <td align="left" class="clsCellNormal">The value of Data List item &quot;Short Wave Highest Value Level&quot; cannot be checked immediately after system main relays turned on/off. No</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Short Wave Highest Value Availability just after AC Charging Relay On/Off</td>
+        <td align="left" class="clsCellNormal">Short wave highest value availability just after AC charging relay on/off</td>
+        <td align="left" class="clsCellNormal">Yes or No</td>
+        <td align="left" class="clsCellNormal">The value of Data List item &quot;Short Wave Highest Value Level&quot; cannot be checked immediately after AC charging relays turned on/off. No</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Permit Start by Immobilizer</td>
+        <td align="left" class="clsCellNormal">Status of starting permission by immobilizer (immobilizer to Hybrid vehicle control ECU assembly)</td>
+        <td align="left" class="clsCellNormal">No Judgment/OK/NG</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Auxiliary Battery Voltage</td>
+        <td align="left" class="clsCellNormal">Battery (12V) voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 16.00 V</td>
+        <td align="left" class="clsCellNormal">Always: 11.00 to 15.00 V</td>
+        <td align="left" class="clsCellNormal">When power switch on (READY): approx. 12.5 to 15.0 V. When power switch on (IG): same as Battery (12V) voltage (approx. 12V). If the voltage becomes 11 V or less when the power switch is on (READY), the Hybrid vehicle control ECU assembly stores Inverter with converter assembly DTCs. If the voltage becomes 9.5 V or less, the power switch will not be able to be turned on (READY).<ul class="BULLET">
+            <li>Battery (12V)</li>
+            <li>Hybrid vehicle converter</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Auxiliary Battery Current</td>
+        <td align="left" class="clsCellNormal">Battery (12V) current</td>
+        <td align="left" class="clsCellNormal">Min.: -125.00 A, Max.: 124.99 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Smoothed Value of Auxiliary Battery Temperature</td>
+        <td align="left" class="clsCellNormal">Smoothed value of Battery (12V) temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40.0°C (-40.0°F), Max.: 6513.5°C (11756.3°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Auxiliary Battery Voltage Low Times</td>
+        <td align="left" class="clsCellNormal">Battery (12V) voltage low times</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 255</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Auxiliary Battery Voltage at Low Voltage Checking Initiation</td>
+        <td align="left" class="clsCellNormal">Voltage of Battery (12V) voltage low judgment</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 20.00 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Auxiliary Battery Voltage Low Status by Hybrid Control ECU</td>
+        <td align="left" class="clsCellNormal">Battery (12V) voltage drop</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Auxiliary Battery Voltage Low Status from Hybrid Battery Control ECU</td>
+        <td align="left" class="clsCellNormal">Existence of Battery (12V) voltage drop signal (from battery ECM)</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Auxiliary Battery Voltage Low Status from Plug-in Control ECU</td>
+        <td align="left" class="clsCellNormal">Existence of Battery (12V) voltage drop signal (from Electric vehicle charger assembly)</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Auxiliary Battery Supply Power during AC Charging</td>
+        <td align="left" class="clsCellNormal">Estimated power supplied to Battery (12V) during plug-in charging</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 kW, Max.: 327.67 kW</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Charging Power</td>
+        <td align="left" class="clsCellNormal">Electric vehicle charger assembly requested power for charging</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 kW, Max.: 327.67 kW</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Status</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle control ECU assembly recognized charging state</td>
+        <td align="left" class="clsCellNormal">Stop/Preparing/Charging/Process to Stop</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Elapsed Time after Charging Status Transition</td>
+        <td align="left" class="clsCellNormal">Time elapsed since charging started</td>
+        <td align="left" class="clsCellNormal">Min.: 0 ms, Max.: 655350 ms</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Number of Charging (Same System Voltage)</td>
+        <td align="left" class="clsCellNormal">Number of charging operations performed using same power supply voltage (above a certain number of times)</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 255</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Control Signal Status</td>
+        <td align="left" class="clsCellNormal">Charge control signal (CPLT) oscillation state</td>
+        <td align="left" class="clsCellNormal">None/Normal/Temporarily Nonusable/Nonusable/Stuck Low/Stuck High</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Operation Status</td>
+        <td align="left" class="clsCellNormal">Electric vehicle charger assembly state output to Hybrid vehicle control ECU assembly</td>
+        <td align="left" class="clsCellNormal">Stand by/Ready/Stop</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Start Request by Hybrid Control ECU</td>
+        <td align="left" class="clsCellNormal">Electric vehicle charger assembly activation request (from Hybrid vehicle control ECU assembly)</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Input Power</td>
+        <td align="left" class="clsCellNormal">Electric vehicle charger assembly input power</td>
+        <td align="left" class="clsCellNormal">Min.: 0 W, Max.: 327675 W</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Supply Status (for Charging)</td>
+        <td align="left" class="clsCellNormal">Sub DC/DC converter state</td>
+        <td align="left" class="clsCellNormal">OFF/ON/Abnormal</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Start Request (for Charging)</td>
+        <td align="left" class="clsCellNormal">Sub DC/DC converter activation request</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Sub DC/DC Converter Voltage (for Charging)</td>
+        <td align="left" class="clsCellNormal">Sub DC/DC converter target output voltage</td>
+        <td align="left" class="clsCellNormal">Min: 0.00 V, Max: 79.99 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charge Canceled by Hybrid Battery WIN Low Trigger Counter</td>
+        <td align="left" class="clsCellNormal">Number of times plug-in charging suspended due to drop in WIN of HV battery</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 65535</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charge Canceled by Auxiliary Battery Voltage Low Trigger Counter</td>
+        <td align="left" class="clsCellNormal">Number of times plug-in charging suspended due to drop in Battery (12V) voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 65535</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charge Canceled by Charging System Trigger Counter</td>
+        <td align="left" class="clsCellNormal">Number of times plug-in charging suspended due to charging system malfunction</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 65535</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Power Supply Voltage Decreasing History during Charging</td>
+        <td align="left" class="clsCellNormal">Cumulative insufficient power exceeded threshold</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Power Save Mode History by Charger Temperature High</td>
+        <td align="left" class="clsCellNormal">Plug-in charging restricted due to overheating of charging station</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">WIN Low History during Charging</td>
+        <td align="left" class="clsCellNormal">Input power dropped during plug-in charging</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Auxiliary Battery Increasing Electrical Load History during Charging</td>
+        <td align="left" class="clsCellNormal">Battery (12V) load exceeded threshold during plug-in charging</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Current</td>
+        <td align="left" class="clsCellNormal">Charging current sensor value (from charger inlet)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 A, Max.: 25.5 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charger Rated Power</td>
+        <td align="left" class="clsCellNormal">Charging station nominal supply power</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 kW, Max.: 327.67 kW</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging Inlet Connect Status</td>
+        <td align="left" class="clsCellNormal">Connection state or availability of components connected to plug-in charger inlet</td>
+        <td align="left" class="clsCellNormal">None/Connecting Charging Connector/Temporarily Nonusable/Nonusable/Not Connect/Connector Not Engaged Properly Status/Connecting External Power Supply Connector</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging Input Minimum Voltage History</td>
+        <td align="left" class="clsCellNormal">Minimum voltage input during plug-in charging history</td>
+        <td align="left" class="clsCellNormal">Min.: -3276.8 V, Max.: 3276.7 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging Negative Relay Drive Request</td>
+        <td align="left" class="clsCellNormal">Commanded state of CHRG</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Battery ECU assembly requesting CHRG relay operation: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging Positive Relay Drive Request</td>
+        <td align="left" class="clsCellNormal">Commanded state of CHRB</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Battery ECU assembly requesting CHRB relay operation: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging Precharge Relay Drive Request</td>
+        <td align="left" class="clsCellNormal">Commanded state of CHRP</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Battery ECU assembly requesting CHRP relay operation: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging Negative Relay Status</td>
+        <td align="left" class="clsCellNormal">Operating state of CHRG</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">CHRG relay operating: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging Positive Relay Status</td>
+        <td align="left" class="clsCellNormal">Operating state of CHRB</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">CHRB relay operating: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging Precharge Relay Status</td>
+        <td align="left" class="clsCellNormal">Operating state of CHRP</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">CHRP relay operating: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Operation to Raise AC Charger Rated Current</td>
+        <td align="left" class="clsCellNormal">Charging station maximum current supply Increased</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Operation to Lower AC Charger Rated Current</td>
+        <td align="left" class="clsCellNormal">Charging station maximum current supply decreased</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">DC Quick Charging Lid Status</td>
+        <td align="left" class="clsCellNormal">Plug-in charger inlet status</td>
+        <td align="left" class="clsCellNormal">No Judgment/Close/Open</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Temperature Sensor &quot;B&quot; Voltage</td>
+        <td align="left" class="clsCellNormal">Motor temperature sensor &quot;B&quot; voltage</td>
+        <td align="left" class="clsCellNormal">0 to 4.99 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Temperature &quot;B&quot;</td>
+        <td align="left" class="clsCellNormal">Motor temperature &quot;B&quot;</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Vehicle left for 1 day at an ambient temperature of 25°C (77°F): 25°C (77°F) While driving: Varies depending on vehicle operating conditions</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Temperature &quot;B&quot; just after IG ON</td>
+        <td align="left" class="clsCellNormal">Motor temperature &quot;B&quot; soon after power switch on (IG)</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Motor Maximum Temperature &quot;B&quot;</td>
+        <td align="left" class="clsCellNormal">Maximum Motor temperature &quot;B&quot; after power switch turned on (IG) in current trip</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Switch Status (N, P Position)</td>
+        <td align="left" class="clsCellNormal">Shift position status (N or P position)</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Shift state P or N: ON</td>
+        <td align="left" class="clsCellNormal">Shift state</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position Sensor (PNB)</td>
+        <td align="left" class="clsCellNormal">Shift position sensor</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever in P, N: ON Shift lever in any position other than P or N</td>
+        <td align="left" class="clsCellNormal">Shift lever position sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position Sensor (PR)</td>
+        <td align="left" class="clsCellNormal">Shift position sensor</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever in P or R: ON Shift lever in any position other than P or R: OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever position sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position Sensor (DB1)</td>
+        <td align="left" class="clsCellNormal">Shift position sensor</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever in D or S: ON Shift lever in any position other than D or S: OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever position sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position Sensor (DB2)</td>
+        <td align="left" class="clsCellNormal">Shift position sensor</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever in D or S: ON Shift lever in any position other than D or S: OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever position sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position Sensor (N)</td>
+        <td align="left" class="clsCellNormal">Shift position sensor</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever in N: ON Shift lever in any position other than N: OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever position sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position Sensor (R)</td>
+        <td align="left" class="clsCellNormal">Shift position sensor</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever in R: ON Shift lever in any position other than R: OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever position sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Shift Position Sensor (P)</td>
+        <td align="left" class="clsCellNormal">Shift position sensor</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever in P: ON Shift lever in any position other than P: OFF</td>
+        <td align="left" class="clsCellNormal">Shift lever position sensor</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

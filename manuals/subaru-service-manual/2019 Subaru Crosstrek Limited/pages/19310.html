@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC B227B: Push Engine Start Switch Input Performance — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Body%20%26%20Frame/">Body &amp; Frame</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html#Body%20%26%20Frame/Door%20Locks/">Door Locks</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/19301.html">Security And Locks - Keyless Access (W/Push Button Start) (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/19301.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/19310.html">DTC B227B: Push Engine Start Switch Input Performance</a></div><div class="main"><h1>DTC B227B: Push Engine Start Switch Input Performance</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S01020370512020102700000">
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>When any of the following conditions is established.</p>
+  <ul class="BULLET">
+    <li>Judgment of Switch ON stuck is present. (When any of the following conditions is established)<ol class="ARABICNUM">
+        <li>The status continues for 40 seconds where push button ignition switch input (SSW1 terminal) is ON (&quot;L&quot; level) and push button ignition switch input (SSW2 terminal) is OFF (&quot;H&quot; level).</li>
+        <li>The status continues for 40 seconds where push button ignition switch input (SSW1 terminal) is OFF (&quot;H&quot; level) and push button ignition switch input (SSW2 terminal) is ON (&quot;L&quot; level).</li>
+      </ol>
+    </li>
+    <li>Judgment of OFF stuck is present. (When any of the following conditions is established 10 times in a row)<p>Only when a series of judgment is continuously made with the same judgment condition under either condition of 1 or 2.</p>
+      <ol class="ARABICNUM">
+        <li>Push button ignition switch input (SSW1 terminal) is OFF (&quot;H&quot; level) → ON (&quot;L&quot; level) → OFF, and push button ignition switch input (SSW2 terminal) is OFF (&quot;H&quot; level).</li>
+        <li>Push button ignition switch input (SSW1 terminal) is OFF (&quot;H&quot; level), and push button ignition switch input (SSW2 terminal) is OFF (&quot;H&quot; level) → ON (&quot;L&quot; level) → OFF.</li>
+      </ol>
+    </li>
+  </ul>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ul class="BULLET">
+    <li>Power supply cannot be turned ON.</li>
+    <li>Power supply cannot be turned OFF.</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Keyless access with push button start system. Refer to <a href="../external-car.html">WIRING SYSTEM (IMPREZA MODEL)&gt;KEYLESS ACCESS WITH PUSH BUTTON START SYSTEM&gt;WIRING DIAGRAM</a>
+. Refer to <a href="../pages/16685.html">WIRING SYSTEM (CROSSTREK MODEL (EXCEPT FOR HEV))&gt;KEYLESS ACCESS WITH PUSH BUTTON START SYSTEM&gt;WIRING DIAGRAM</a>
+. Refer to <a href="../pages/16594.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;KEYLESS ACCESS WITH PUSH BUTTON START SYSTEM&gt;WIRING DIAGRAM</a>
+.</p><a name="S010203705120201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G11264287">
+            <div class="imageHeader"><a name="S06545251812020102800000"></a></div><img alt="G11264287" src="../images/G11264287.png" name="G11264287"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+        <li>For replacement procedure of keyless access control module, refer to the &quot;REGISTRATION INSTRUCTIONS FOR IMMOBILIZER&quot; provided as a separate volume.</li>
+        <li>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/19301.html#General%20Description/Caution/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S42924885102020102800000"></a><span class="clsEmphBOLD">CHECK DTC. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform the clear memory of [Keyless Access with Push Button Start]. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Press the push button ignition switch to perform OFF → ACC ON → IGN ON respectively for one minute.</li>
+        <li>Disconnect and reconnect the keyless access control module connector.</li>
+        <li>Read the DTC of [Keyless Access with Push Button Start] using the Subaru Select Monitor. Refer to <a href="../pages/19301.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Is DTC B227B displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S37968929062020102800000" location="/api/article/getcontent?articleId=A01114239_S37968929062020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Even if DTC is displayed, the circuit has returned to a normal condition at this time.</p>
+      <p>Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+    </li>
+    <li><a name="S37968929062020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS (OPEN CIRCUIT). </span><ol class="ARABICNUM">
+        <li>Disconnect the push button ignition switch connector.</li>
+        <li>Disconnect the keyless access control module connector.</li>
+        <li>Using a tester, measure the resistance between the push button ignition switch connector and the keyless access control module connector.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i150) No. 2 - (i75) No. 9:</p>
+          <p>(i150) No. 7 - (i75) No. 8:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S24681620212020102800000" location="/api/article/getcontent?articleId=A01114239_S24681620212020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the open circuit of harness.</p>
+    </li>
+    <li><a name="S24681620212020102800000"></a><span class="clsEmphBOLD">CHECK PUSH BUTTON IGNITION SWITCH UNIT. </span><p>Perform individual inspection of the push button ignition switch. Refer to <a href="../pages/14659.html#Push%20Button%20Ignition%20Switch/">SECURITY AND LOCKS&gt;PUSH BUTTON IGNITION SWITCH</a>
+.</p>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S27846471102020102800000" location="/api/article/getcontent?articleId=A01114239_S27846471102020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the push button ignition switch. Refer to <a href="../pages/14659.html#Push%20Button%20Ignition%20Switch/">SECURITY AND LOCKS&gt;PUSH BUTTON IGNITION SWITCH</a>
+.</p>
+    </li>
+    <li><a name="S27846471102020102800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR. </span><p>Using the Subaru Select Monitor, check the following items in the [Data Monitor] of [Keyless Access with Push Button Start]. Refer to <a href="../pages/19301.html#Data%20Monitor/">KEYLESS ACCESS WITH PUSH BUTTON START (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <ul class="BULLET">
+        <li>Push start SW 1</li>
+        <li>Push start SW 2</li>
+      </ul>
+      <p>Is it turned ON when pressing the push button ignition switch?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Even if DTC is displayed, the circuit has returned to a normal condition at this time.</p>
+      <p>Reproduce the failure, and then perform the diagnosis again.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, temporary poor contact of connector, temporary open or short circuit of harness may be the cause.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the keyless access control module. Refer to <a href="../pages/14659.html#Keyless%20Access%20Control%20Module/">SECURITY AND LOCKS&gt;KEYLESS ACCESS control module</a>
+.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P1F0B: AWD Power Supply Voltage: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Transmission/">Transmission</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Transmission/Transfer%20Case/">Transfer Case</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/30615.html">AWD Control System (Diagnostics)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/30615.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/30615.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P1F0B%3A%20AWD%20Power%20Supply%20Voltage/">DTC P1F0B: AWD Power Supply Voltage</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/13932.html">Notes</a></div><div class="main"><h1>DTC P1F0B: AWD Power Supply Voltage: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div id="S34304756892020102700000">
+  
+  <p><span class="clsEmphBOLD">1. - </span></p>
+  <p><span class="clsEmphBOLD">DTC detecting condition: </span></p>
+  <p>Immediately at fault recognition</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>Driveability getting worse.</p>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>AWD control system Refer to <a href="../pages/16554.html#AWD%20Control%20System/">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;AWD CONTROL SYSTEM</a>
+.</p><a name="S343047568920201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13237849">
+            <div class="imageHeader"><a name="S30353863982020102700000"></a></div><img alt="G13237849" src="../images/G13237849.png" name="G13237849"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ol class="ARABICNUM">
+    <li><a name="S10269252532020102700000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR </span>
+.<p>Read the data of [Main Power Supply Voltage] using Subaru Select Monitor. Refer to <a href="../pages/22471.html#Data%20Monitor/">AWD CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a> .</p>
+      <p>Is the [Main Power Supply Voltage] less than 9.5 V?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S36316958702020102700000" location="/api/article/getcontent?articleId=A01114259_S36316958702020102700000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Current condition is normal. Reproduce the failure, and then perform the diagnosis again.</p>
+    </li>
+    <li><a name="S36316958702020102700000"></a><span class="clsEmphBOLD">CHECK HARNESS </span>
+.<ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Disconnect the AWD control module connector.</li>
+        <li>Remove the AWD control module relay.</li>
+        <li>Measure the resistance between AWD control module connector and relay holder.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(B648) No. 2 - (B225) No. 38:</p>
+          <p>(B648) No. 15 - (B225) No. 38:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S21544719172020102700000" location="/api/article/getcontent?articleId=A01114259_S21544719172020102700000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the open circuit of harness.</p>
+    </li>
+    <li><a name="S21544719172020102700000"></a><span class="clsEmphBOLD">CHECK RELAY POWER SUPPLY </span>
+.<p>Measure the resistance between AWD control module connector and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(B648) No. 2 - Chassis ground:</p>
+      <p>(B648) No. 15 - Chassis ground:</p>
+      <p>Is the resistance 1 MΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S08921958272020102700000" location="/api/article/getcontent?articleId=A01114259_S08921958272020102700000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the short circuit of harness.</p>
+    </li>
+    <li><a name="S08921958272020102700000"></a><span class="clsEmphBOLD">CHECK RELAY POWER SUPPLY </span>
+.<p>Measure the voltage between relay holder and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(B225) No. 35 (+) - Chassis ground (-):</p>
+      <p>(B225) No. 37 (+) - Chassis ground (-):</p>
+      <p>Is the voltage 10 V or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S30287096332020102700000" location="/api/article/getcontent?articleId=A01114259_S30287096332020102700000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the open or short circuit of harness.</p>
+    </li>
+    <li><a name="S30287096332020102700000"></a><span class="clsEmphBOLD">CHECK AWD control module RELAY </span>
+.<ol class="ARABICNUM">
+        <li>Replace AWD control module relay.</li>
+        <li>Connect the AWD control module connector.</li>
+        <li>Read the data of [Main Power Supply Voltage] using Subaru Select Monitor. Refer to <a href="../pages/22471.html#Data%20Monitor/">AWD CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a> .</li>
+      </ol>
+      <p>Is the [Main Power Supply Voltage] 9.5 V or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Check for poor contact of AWD control module connector. Replace the AWD control module if no fault is found. Refer to <a href="../pages/15959.html#AWD%20Control%20Module/">CONTINUOUSLY VARIABLE TRANSMISSION (TH2A)&gt;AWD CONTROL MODULE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ The original AWD control module relay is defective.</p>
+    </li>
+  </ol>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

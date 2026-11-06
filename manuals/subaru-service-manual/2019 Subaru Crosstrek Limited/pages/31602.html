@@ -1,0 +1,959 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>FOTA (Firmware Over-The-Air) Reprogramming - Procedure To Optimize HARMAN Gen 3.1 Audio/Navigation Units (15-256-19R) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/618.html">Technical Service Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html#Infotainment/">Infotainment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31602.html">FOTA (Firmware Over-The-Air) Reprogramming - Procedure To Optimize HARMAN Gen 3.1 Audio/Navigation Units (15-256-19R)</a></div><div class="main"><h1>FOTA (Firmware Over-The-Air) Reprogramming - Procedure To Optimize HARMAN Gen 3.1 Audio/Navigation Units (15-256-19R)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2024-08-01<br>Reference number: 15-256-19R<br>Supersedes refnos: 15-256-19<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>FOTA (FIRMWARE OVER-THE-AIR) REPROGRAMMING - PROCEDURE TO OPTIMIZE HARMAN GEN 3.1 AUDIO/NAVIGATION UNITS</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>FOTA (FIRMWARE OVER-THE-AIR) REPROGRAMMING - PROCEDURE TO OPTIMIZE HARMAN GEN 3.1 AUDIO/NAVIGATION UNITS</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): 15-256-19R, Date of Issue: 
+				August 01, 2024<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>2019-23MY Impreza, Crosstrek (Including Hybrid Model); 2019-24MY Forester; 2019MY Legacy &amp; Outback; 2019-21MY WRX, BRZ-Navigation-equipped Models ONLY; 2019-22MY Ascent</td>
+        </tr>
+      </table>
+    </div><h3>APPLICABILITY</h3>
+    
+    <p>2019-23MY Impreza</p>
+    <p>2019-23MY Crosstrek (Including Hybrid Model)</p>
+    <p>2019-24MY Forester</p>
+    <p>2019MY Legacy &amp; Outback</p>
+    <p>2019-21MY WRX</p>
+    <p>2019-21MY BRZ-Navigation-equipped Models ONLY</p>
+    <p>2019-22MY Ascent</p><h3>INTRODUCTION</h3>
+    
+    <p>This bulletin provides information on a new reprogramming procedure (FOTA) to optimize the Harman Gen 3.1 Audio and Navigation head units (H/U) utilized in the models as listed above. Firmware-over-the-air (FOTA) is a process by which remote devices can receive updates to their operating software. This process has become second nature with smartphones, tablets and many other connected devices. FOTA for automotive infotainments systems has been designed with a similar type of customer convenience in mind. FOTA updates are designed to provide regular enhancements along with some software patches to our infotainment systems improving the user experience for our customers. The convenience factor comes not only with the supply of regular updates and the enhancements they provide but also through customer control of when these updates are applied by allowing them the freedom to choose when these updates are downloaded and installed. All that is required is a secure WiFi connection such as through a home network or the use of a secure WiFi hotspot to create a connection to the update server and any customer can obtain and install an available FOTA update to their infotainment head unit. In this bulletin we are focusing on FOTA for Harman Gen 3.1 MID-level audio systems and Gen 3.1 HIGH audio-navigation systems. BASE and BASE PLUS models are not FOTA capable. This bulletin will describe in greater detail the process for how FOTA is accomplished as well as provide insights and some procedures for how to resolve conditions that may arise as a result of audio or audio/navigation head unit swaps or replacements performed outside of the Harman/United Radio exchange unit program. The procedure will involve:</p>
+    <ul class="BULLET">
+      <li>Assisting customers with FOTA related concerns if they have been unsuccessful in performing the FOTA by themselves. (Possible vehicle or H/U concern.)*</li>
+      <li>Performing the FOTA update for customers not comfortable or needing assistance with performing it themselves but have requested the Retailer install it.*</li>
+      <li>Updating the software using a USB flash drive following the steps outlined in TSB <span class="clsEmphBOLD"><a class="clsExtHyperlink" location="/api/bulletin/getbulletinarticle?B00949078">15-236-18R</a> </span>
+, &quot;Reprogramming File Availability for Additional Optimization of Harman Gen 3 Audio and Navigation Head Units&quot; when FOTA cannot be performed due to VIN/head unit serial number mismatch.*</li>
+    </ul>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>*If a customer is simply requesting help with how to perform FOTA, NEVER share a copy of this bulletin. Instead, provide a copy of the appropriate customer instructions for FOTA. Detailed customer instructions for this procedure are available on the Subarunet: Service Operations &amp; Technical &gt; Forms/Downloads page. See <span class="clsEmphBOLD">Appendix B </span>
+ on pg. 17 for more information.</span></div>
+    <p>It is <span class="clsEmphBOLD">VERY IMPORTANT </span>
+ to read and understand this information completely before proceeding.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+          <li>On the models listed, FOTA is available for MID and HIGH (Navi) H/Us only.</li>
+          <li>
+            <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>For Gen 3.1, there is a new type of H/U known as BASE PLUS. BASE PLUS may look similar to a MID unit (both have a CD player) but, just like the BASE model, it is not FOTA capable. See the related Exchange Bulletin or Electronic Parts Catalog (EPC) to determine the H/U type.</span></div>
+          </li>
+          <li>The available FOTA software version is usually the same as the USB version available to Retailers. But, since the USB software is always released to retailers before the FOTA version, availability of the latest FOTA version may be delayed.</li>
+          <li>FOTA software updates are for the H/U software ONLY. Map updates are a separate function which the customer may update on their own by using either USB download or Map Over the Air Update (MOTA). Go to: dealer.subaru-maps.com</li>
+          <li>On BRZ models, this update procedure is applicable to HIGH/Navigation (Navi) -equipped head units only.</li>
+        </ul></span></div><h3>PART INFORMATION</h3>
+    <a name="S380848488920191118000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Multimedia System Type</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Descriptive Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">6.5 Inch Display Audio System (Base)</td>
+          <td valign="TOP" align="center" class="clsCellNormal">No CD slot/Eject Button</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">6.5 Inch Display Audio System (Base +)</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Equipped with CD Player and Eject Button</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">8.0 Inch Display Audio System (Mid)</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Phone Button</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">8.0 Inch Audio/Navigation System (High)</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Map Button but no Phone Button</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Reference photos of each head unit faceplate are supplied below:</p><a name="S380848488920191118000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G16609077">
+              <div class="imageHeader"><a name="S12789155242024111100000"></a></div><img alt="G16609077" src="../images/G16609077.png" name="G16609077"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S380848488920191118000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G16609078">
+              <div class="imageHeader"><a name="S26580662542024111100000"></a></div><img alt="G16609078" src="../images/G16609078.png" name="G16609078"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><h3>SERVICE PROCEDURE/INFORMATION</h3>
+    
+    <div class="IMPORTANT"><span class="IMPORTANT_label">
+									IMPORTANT:
+								</span><span>When FOTA reprogramming cannot be performed and the head H/U is updated using a USB flash drive, capture and record the head unit's serial number. In these cases, the serial number is required to be entered in the Miscellaneous Detail field during claim submission. In addition, capture a photo of the serial number tag for reference in case there is any question about the serial number submitted.</span></div>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>H/U R&amp;R is necessary to access the Serial Number label.</span></div>
+    <p>The head unit software may be updated:</p>
+    <ol class="ARABICNUM">
+      <li>Using Smartphone and cellular network (3G, 4G) - outlined starting on page 6</li>
+      <li>Using a Secure WiFi Network (home network or hotspot)- outlined starting on page 15.</li>
+    </ol>
+    <p>The update process involves downloading and installing the software update therefore, time duration depends on signal strength and transfer rate performance. During installation, H/U functionality will be restricted.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Although the following Flow Chart provides an overview of the Service Procedure, it is VERY IMPORTANT to read and understand ALL the information contained in this bulletin completely before proceeding.</span></div><h3>FLOW CHART</h3>
+    <a name="S117669459220240416000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G16609079">
+              <div class="imageHeader"><a name="S09003759292024111100000"></a></div><img alt="G16609079" src="../images/G16609079.png" name="G16609079"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="clsEmphBOLD">IMPORTANT NOTE: </span>
+ If the H/U needs to be removed for any reason, always confirm the part number shown on the unit matches the part number in the Electronic Parts Catalog (EPC) for the specific VIN being repaired. Example photos are provided below for reference.</p><a name="S117669459220240416000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G16609080">
+              <div class="imageHeader"><a name="S36838328062024111100000"></a></div><img alt="G16609080" src="../images/G16609080.jpeg" name="G16609080"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><a name="S117669459220240416000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">
+            <div class="imageHolder" id="container_G16609081">
+              <div class="imageHeader"><a name="S17786272812024111100000"></a></div><img alt="G16609081" src="../images/G16609081.png" name="G16609081"><span class="imageCourtesyNote"></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="clsEmphBOLD">Set-Up Instructions and CAUTIONS: </span></p>
+    <ul class="BULLET">
+      <li>Move the vehicle to an outside location where the engine can be safely started and kept idling during the update process.</li>
+      <li>Never idle the vehicle in a closed space such as a garage, even if the garage door is kept open.</li>
+      <li>Once the vehicle is in a safe location, be sure the vehicle is in Park (CVT) or Neutral (MT) and the parking brake is fully engaged.</li>
+      <li>Open one or more windows to ensure fresh air is available.</li>
+      <li><span class="clsEmphBOLD">Stay with the vehicle </span>
+ until the update is completed.</li>
+      <li>Unplug any devices, chargers, cables or other USB drives from the vehicle's USB and power ports.</li>
+    </ul>
+    <p><span class="clsEmphBOLD">Step 1: Check the Current Software Version Number </span></p>
+    <ol class="UNLABELED">
+      <li>1-1) Turn the engine ON. When the H/U powers on, press &quot;I Agree&quot;.<p>Once audio start-up completes, press the HOME button and select &quot;Settings&quot;.</p>
+      </li>
+      <li>1-2) From the General screen, select &quot;System Information&quot; to check current software version. (The pictures below are for illustration only and do not show the latest software version information.)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+          <colgroup></colgroup>
+          <tbody>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">
+                <div class="imageHolder" id="container_G16609082">
+                  <div class="imageHeader"><a name="S05589745472024111100000"></a></div><img alt="G16609082" src="../images/G16609082.png" name="G16609082"><span class="imageCourtesyNote"></span></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="BULLET">
+          <li>If the current software version is <span class="clsEmphBOLD">REL_UK.23.16.70, REL_UK.23.42.70 or Rel_UM.24.08.70, STOP </span>
+ as the head unit has the latest version installed and no further action is needed.</li>
+          <li>Confirm the vehicle history to see if any H/U replacement has occurred in the past. If a new H/U was installed (part number listed in claim information) or if the H/U was swapped from another vehicle at any time, the H/U serial number must be captured and entered during claim submission to ensure compatibility for future FOTA updates. <span class="clsEmphBOLD">REMINDER: </span>
+ H/U R&amp;R is necessary to access the Serial Number label. See the H/U serial number sample photos presented on page 11 for reference.</li>
+        </ul>
+      </li>
+    </ol>
+    <p><span class="clsEmphBOLD">Step 2: Required Preparation before Initiating the FOTA Update </span></p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>As part of this software update, the H/U will delete all the customer's radio station presets and change the volume settings to a default volume level.</span></div>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If the radio volume is turned down during the update process, the volume may seem suddenly very loud once the update completes. This is normal operation. Always note the customer's radio station presets and volume settings and be sure to reset them after updating is completed.</span></div>
+    <p><span class="clsEmphBOLD">TIP: </span>
+ Taking photos of the screens may be easier than writing down the contents of each.</p>
+    <ol class="UNLABELED">
+      <li>2-1) Record all the preset stations saved by the customer.<ol class="UNLABELED">
+          <li>2-1-1) Confirm the driver profile (example shows &quot;Default&quot; as driver profile).<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609083">
+                      <div class="imageHeader"><a name="S06759311022024111100000"></a></div><img alt="G16609083" src="../images/G16609083.png" name="G16609083"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609084">
+                      <div class="imageHeader"><a name="S35366725842024111100000"></a></div><img alt="G16609084" src="../images/G16609084.png" name="G16609084"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>2-1-2) Go to the Radio screen.</li>
+          <li>2-1-3) Record the saved preset stations (SXM, AM, and FM) (example shows #1: FM87.7 #2: FM92.7...).<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609085">
+                      <div class="imageHeader"><a name="S33481442492024111100000"></a></div><img alt="G16609085" src="../images/G16609085.png" name="G16609085"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Make sure to check the next screen by scrolling (pressing the right arrow &gt; button).</span></div>
+          </li>
+          <li>2-1-4) Change to next driver profile and repeat the actions above as necessary. (Example photo below shows other driver profiles. Be sure to note all the preset stations for each driver profile.)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609086">
+                      <div class="imageHeader"><a name="S29679547892024111100000"></a></div><img alt="G16609086" src="../images/G16609086.png" name="G16609086"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>2-1-5) Select the first driver profile again.</li>
+        </ol>
+      </li>
+      <li>2-2) Record the volume settings for each driver using the following steps:<ol class="UNLABELED">
+          <li>2-2-1) From the Settings &gt; Sound screen, press the &quot;Sound&quot; button.</li>
+          <li>2-1-2) Record each volume setting for: Entertainment Volume, AUX Volume Gain, Microphone Volume, and Navigation Volume.</li>
+        </ol><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+          <colgroup></colgroup>
+          <tbody>
+            <tr>
+              <td valign="TOP" align="center" class="clsCellNormal">
+                <div class="imageHolder" id="container_G16609087">
+                  <div class="imageHeader"><a name="S18743533542024111100000"></a></div><img alt="G16609087" src="../images/G16609087.png" name="G16609087"><span class="imageCourtesyNote"></span></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ol>
+    <p><span class="clsEmphBOLD">Step 3: FOTA Reprogramming Procedure </span></p>
+    <ol class="ARABICNUM">
+      <li><span class="clsEmphBOLD">Procedure for performing FOTA using Smartphone as WiFi hotspot and cellular network (3G, 4G): </span><div class="IMPORTANT"><span class="IMPORTANT_label">
+									IMPORTANT:
+								</span><span>The H/U clock <span class="clsEmphBOLD">must </span>
+ be set correctly in order to check for any available FOTA updates.</span></div>
+        <p><span class="clsEmphBOLD">Navi/Radio internal clock settings: </span></p>
+        <p>Set the clock via GPS signal (Navi-equipped models only) or by smartphone using one of the following procedures, <span class="clsEmphBOLD">1.1 </span>
+ or <span class="clsEmphBOLD">1.2 </span>
+:</p>
+        <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Once the clock is set, it never resets unless the vehicle battery power supply is interrupted as a result of a discharged or disconnected battery. For Navi-equipped models (only), proceed to <span class="clsEmphBOLD">Step 1.1 </span>
+. For all others proceed to <span class="clsEmphBOLD">Step 1.2 </span>
+. If the head unit displays the time correctly, proceed ahead to <span class="clsEmphBOLD">Step 1.4 </span>
+.</span></div>
+        <ol class="UNLABELED">
+          <li><span class="clsEmphBOLD">1.1) Setting the clock via GPS signal </span>
+ (Navi-equipped models only):<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>The H/U clock <span class="clsEmphBOLD">must </span>
+ be set correctly in order to check for any available FOTA updates. Always confirm the Clock Adjustment mode is set to Auto.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609088">
+                      <div class="imageHeader"><a name="S34169200152024111100000"></a></div><img alt="G16609088" src="../images/G16609088.png" name="G16609088"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ol class="UNLABELED">
+              <li>1.1.1) Check current vehicle position on the map screen. If position is correct, the Navi will receive clock information correctly. Proceed to Step 1.3.5. If position is not correct, please go to Step 1.3.1.b.</li>
+              <li>1.1.2) Move the vehicle to a location where the Navi can receive a strong GPS signal. (e.g. outside with a clear view of the sky). If the vehicle position shown is correct, Navi should be receiving and displaying clock information correctly. Proceed to Step 1.3.5.</li>
+            </ol>
+          </li>
+          <li><span class="clsEmphBOLD">1.2) Setting the clock using any smartphone </span>
+ (Phone MUST be paired to the H/U.):<p><span class="clsEmphBOLD">Bluetooth Pairing Procedure </span>
+ (Follow this procedure if the phone is not already paired to H/U.):</p>
+            <p><span class="clsEmphBOLD">REMINDER: </span>
+ The H/U clock must be set correctly in order to check for any available FOTA updates. Always confirm the Clock Adjustment mode is set to Auto.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609089">
+                      <div class="imageHeader"><a name="S36096912472024111100000"></a></div><img alt="G16609089" src="../images/G16609089.png" name="G16609089"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ol class="UNLABELED">
+              <li>1.2.1) Select Phone on Home screen.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609090">
+                          <div class="imageHeader"><a name="S21843069822024111100000"></a></div><img alt="G16609090" src="../images/G16609090.png" name="G16609090"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.2.2) Select Yes on &quot;No Device Connected&quot; pop-up.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609091">
+                          <div class="imageHeader"><a name="S36020212482024111100000"></a></div><img alt="G16609091" src="../images/G16609091.png" name="G16609091"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If H/U display does not show the pop-up, please select &quot;Add device&quot; from the Phone Overview.</span></div>
+              </li>
+              <li>1.2.3) While the H/U displays the &quot;waiting&quot; screen shown below, operate the smartphone screens and select &quot;Subaru BT&quot; from the discoverable device list.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609092">
+                          <div class="imageHeader"><a name="S04764878042024111100000"></a></div><img alt="G16609092" src="../images/G16609092.png" name="G16609092"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>*If the device name is changed on setting screen (Settings &gt; General &gt; Change Device Bluetooth Name), please select the proper device name.</p>
+              </li>
+              <li>1.2.4) Confirm the same PIN code is shown on the smartphone then select &quot;Confirm&quot;.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609093">
+                          <div class="imageHeader"><a name="S38899266152024111100000"></a></div><img alt="G16609093" src="../images/G16609093.png" name="G16609093"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.2.5) Select &quot;Pair&quot; on the smartphone screen.</li>
+            </ol>
+          </li>
+          <li><span class="clsEmphBOLD">1.3) Transfer phonebook Procedure: </span><ol class="UNLABELED">
+              <li>1.3.1) On the &quot;Change Device&quot; screen, identify the most recently paired device (iPhone is shown here).<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609094">
+                          <div class="imageHeader"><a name="S19986289722024111100000"></a></div><img alt="G16609094" src="../images/G16609094.png" name="G16609094"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.3.2) Select the desired smartphone device.</li>
+              <li>1.3.3) Turn &quot;Phonebook Download&quot; on.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609095">
+                          <div class="imageHeader"><a name="S33647846562024111100000"></a></div><img alt="G16609095" src="../images/G16609095.png" name="G16609095"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.3.4) Operate the smartphone screen buttons to allow phonebook transferring.</li>
+              <li>1.3.5) Check Bluetooth setting of &quot;Subaru BT&quot; on the smartphone. Confirm &quot;Sync Contacts&quot; and &quot;Show Notifications&quot; are both set to ON.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Depending on the model (e.g. iOS or Android), these settings may need to be changed. Refer to the specific smartphone's User Manual for more detailed information/instructions.</span></div>
+              </li>
+              <li>1.3.6) Restart the H/U: Press and hold the Power button for 10 seconds or, turn the ignition OFF, open and close the driver's door then restart the engine.<p><span class="clsEmphBOLD">iOS setting display </span></p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609096">
+                          <div class="imageHeader"><a name="S08158939502024111100000"></a></div><img alt="G16609096" src="../images/G16609096.png" name="G16609096"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p><span class="clsEmphBOLD">Android setting display </span></p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609097">
+                          <div class="imageHeader"><a name="S18289083302024111100000"></a></div><img alt="G16609097" src="../images/G16609097.png" name="G16609097"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.3.7) Confirm both the Phonebook and Messages buttons on the display are highlighted (activated) as shown below.</li>
+            </ol><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609098">
+                      <div class="imageHeader"><a name="S35418709362024111100000"></a></div><img alt="G16609098" src="../images/G16609098.png" name="G16609098"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li><span class="clsEmphBOLD">1.4 Connect to Network: </span><p>The following procedure outlines how to connect to a smartphone hot spot as a secure Wi-Fi network. If the H/U is already connected to a secure Wi-Fi network, proceed to <span class="clsEmphBOLD">Step 1.5 </span>
+.</p>
+            <ol class="UNLABELED">
+              <li>1.4.1) Prepare a Wi-Fi router device:<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Depending on the model (e.g. iOS or Android), these settings may need to be changed. Refer to the specific smartphone's User Manual for more detailed information/instructions.</span></div>
+                <p><span class="clsEmphBOLD">iOS setting display </span></p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609099">
+                          <div class="imageHeader"><a name="S20084567972024111100000"></a></div><img alt="G16609099" src="../images/G16609099.png" name="G16609099"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p><span class="clsEmphBOLD">Android setting display </span></p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609100">
+                          <div class="imageHeader"><a name="S06035911772024111100000"></a></div><img alt="G16609100" src="../images/G16609100.png" name="G16609100"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.4.2) Select &quot;Settings&quot; from the H/U Home screen.</li>
+              <li>1.4.3) Make sure &quot;Wi-Fi&quot; is displayed on the General menu.</li>
+              <li>1.4.4) Select the desired Wi-Fi device from the &quot;Wi-Fi Settings&quot; list.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609101">
+                          <div class="imageHeader"><a name="S01826319912024111100000"></a></div><img alt="G16609101" src="../images/G16609101.png" name="G16609101"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609102">
+                          <div class="imageHeader"><a name="S04636801542024111100000"></a></div><img alt="G16609102" src="../images/G16609102.png" name="G16609102"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.4.5) Confirm a secure WiFi connection has been established. The H/U display will show a Wi-Fi icon on top bar.</li>
+            </ol><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609103">
+                      <div class="imageHeader"><a name="S24394219382024111100000"></a></div><img alt="G16609103" src="../images/G16609103.png" name="G16609103"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li><span class="clsEmphBOLD">1.5) Check for Available Update: </span><ol class="UNLABELED">
+              <li>1.5.1) Press the Home button on the H/U and select &quot;Settings&quot; from the Home screen.</li>
+              <li>1.5.2) Select &quot;Check for Updates&quot; from the General menu.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609104">
+                          <div class="imageHeader"><a name="S39263880142024111100000"></a></div><img alt="G16609104" src="../images/G16609104.png" name="G16609104"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>This button is grayed-out during H/U initialization. It usually takes about 1 minute for it to become active. If &quot;Check for Updates&quot; remains grayed out, try re-booting the H/U by pushing and holding the volume knob for 10 seconds or, turning OFF the ignition, opening the driver's door, and waiting for 2 minutes.</span></div>
+              </li>
+              <li>1.5.3) If the screen displays a &quot;Software Update Ready to Download&quot; pop-up, select &quot;Download Now&quot; to update the H/U software. (Picture below is for illustration only and does not show the latest software version.)<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609105">
+                          <div class="imageHeader"><a name="S34281343842024111100000"></a></div><img alt="G16609105" src="../images/G16609105.png" name="G16609105"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>Proceed to <span class="clsEmphBOLD">Step 1.6 </span>
+.</p>
+              </li>
+              <li>1.5.4) If the H/U screen shows the &quot;Connect to Wi-Fi&quot; pop-up, try re-connecting to the network again as outlined in <span class="clsEmphBOLD">Step 1.4 </span>
+ above.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609106">
+                          <div class="imageHeader"><a name="S29648844702024111100000"></a></div><img alt="G16609106" src="../images/G16609106.png" name="G16609106"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.5.5) If the H/U screen shows &quot;Your device's software is up to date.&quot; and confirmed as outlined in Step 1: &quot;Check current software version&quot;, no further action is required. The head unit software is current.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609107">
+                          <div class="imageHeader"><a name="S42703171042024111100000"></a></div><img alt="G16609107" src="../images/G16609107.png" name="G16609107"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="IMPORTANT"><span class="IMPORTANT_label">
+									IMPORTANT:
+								</span><span>If the H/U software cannot be updated using FOTA, update the H/U following the USB flash drive procedure outlined in TSB <span class="clsEmphBOLD">15-236-18R </span>
+. In such a case, a VIN/H/U Serial Number mismatch may exist. If this occurs, the H/U must be removed and the serial number recorded as shown below. In these cases, the COMPLETE 28-digit serial number is required to be entered in the Miscellaneous Detail field during claim submission (no spaces or special characters). Also, capture a photo of the serial number label for reference in case any question arises about the serial number submitted. Examples of the serial number label are shown below.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609108">
+                          <div class="imageHeader"><a name="S01633435142024111100000"></a></div><img alt="G16609108" src="../images/G16609108.jpeg" name="G16609108"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.5.6) If the H/U display shows &quot;Software download failed. Do you want to retry?&quot;, there is possibility the H/U is not receiving the clock information correctly.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609109">
+                          <div class="imageHeader"><a name="S34388486772024111100000"></a></div><img alt="G16609109" src="../images/G16609109.png" name="G16609109"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.5.7) Move the vehicle to a location where the Navi can receive GPS signal or connect to a smartphone via Bluetooth. Ensure that transferring of phonebook data has been approved on the phone. (To review clock setting procedures, refer to Step 1 above.)</li>
+            </ol>
+          </li>
+          <li><span class="clsEmphBOLD">1.6) Software Update: </span><div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Initially, it may appear that no action is occurring.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609110">
+                      <div class="imageHeader"><a name="S09181871402024111100000"></a></div><img alt="G16609110" src="../images/G16609110.png" name="G16609110"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p><span class="clsEmphBOLD">THIS IS NORMAL. </span>
+ Wait <span class="clsEmphBOLD">at least 2 minutes </span>
+ for progress percentage to appear in the upper right of the H/U screen before attempting to restart the process.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609111">
+                      <div class="imageHeader"><a name="S07984884552024111100000"></a></div><img alt="G16609111" src="../images/G16609111.png" name="G16609111"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ol class="UNLABELED">
+              <li>1.6.1) Wait until the download progress reaches 100%. During the software download, the H/U is fully functional.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>It is normal for the progress to hang at some points for 1-2 minutes. This does not indicate a concern. <span class="clsEmphBOLD">BE PATIENT </span>
+.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609112">
+                          <div class="imageHeader"><a name="S26999369322024111100000"></a></div><img alt="G16609112" src="../images/G16609112.jpeg" name="G16609112"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609113">
+                          <div class="imageHeader"><a name="S26713522232024111100000"></a></div><img alt="G16609113" src="../images/G16609113.png" name="G16609113"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>When downloading via Wi-Fi, it may take anywhere from 5 to 20 minutes for the update to complete depending on the provider transfer rate signal strength.</span></div>
+              </li>
+              <li>1.6.2) The image below shows the pop-up window which will appear once the download completes and the update is ready to install.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609114">
+                          <div class="imageHeader"><a name="S34091862352024111100000"></a></div><img alt="G16609114" src="../images/G16609114.png" name="G16609114"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>1.6.3) Select &quot;Install Now&quot; to start the update installation.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If &quot;Cancel&quot; is selected, it will be necessary to download the update file again before installation can be attempted.</span></div>
+              </li>
+              <li>1.6.4) <span class="clsEmphBOLD">Stay with the vehicle </span>
+ until the install has completed.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609115">
+                          <div class="imageHeader"><a name="S19826316042024111100000"></a></div><img alt="G16609115" src="../images/G16609115.png" name="G16609115"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>It will take approximately 10 minutes to complete the update installation.</span></div>
+              </li>
+              <li>1.6.5) The H/U will automatically shut down and restart after the installation completes.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609116">
+                          <div class="imageHeader"><a name="S40915001192024111100000"></a></div><img alt="G16609116" src="../images/G16609116.png" name="G16609116"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+                      <li>The next step of update will be different depending on the software version installed prior to FOTA.</li>
+                      <li>Depending upon the installation required, the H/U may repeatedly shut down and restart up to 3 times. The screen shown below does not indicate an unsuccessful or failed installation.</li>
+                    </ul></span></div>
+              </li>
+              <li>1.6.6) Wait until all the H/U restarts complete and the Home screen is displayed again.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>The volume will go to default level suddenly even if the volume was previously turned down during or prior to the update. This is normal operation.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609117">
+                          <div class="imageHeader"><a name="S07061733542024111100000"></a></div><img alt="G16609117" src="../images/G16609117.png" name="G16609117"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609118">
+                          <div class="imageHeader"><a name="S13134691372024111100000"></a></div><img alt="G16609118" src="../images/G16609118.png" name="G16609118"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="center" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G16609119">
+                          <div class="imageHeader"><a name="S10545571942024111100000"></a></div><img alt="G16609119" src="../images/G16609119.png" name="G16609119"><span class="imageCourtesyNote"></span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Station presets will display as &quot;Initializing&quot; until the data is fully loaded for SXM stations. In case of FM and AM presets, the text will change from &quot;Initializing&quot; to &quot;Hold&quot;. To reset each preset, tune to the desired station then press and hold the corresponding preset button until the &quot;beep&quot; is heard to signal the reset was successful.</span></div>
+              </li>
+              <li>1.6.7) If the Home screen does not appear automatically, press the Home button to display the Home screen.</li>
+              <li>1.6.8) Perform <span class="clsEmphBOLD">Step 1 </span>
+ again to check the currently installed software version and confirm a successful update/installation.</li>
+              <li>1.6.9) Using the notes or photos collected at the start of this process in <span class="clsEmphBOLD">Step </span>
+ 2, reset all the customer's preset stations and volume settings.</li>
+              <li>1.6.10) Go to the Home screen.</li>
+              <li>1.6.11) Turn the engine off and open the driver's door to turn the H/U off and complete the procedure.</li>
+            </ol>
+          </li>
+        </ol>
+        <p>If the software version does not match the one shown in Step 1.6.8, attempt the update process a second time. If after a second attempt the update still has not completed successfully, update the head unit software with USB flash drive following the steps outlined in TSB <span class="clsEmphBOLD">15-236-18R </span>
+.</p>
+        <p><span class="clsEmphBOLD">IMPORTANT REMINDER: </span>
+ If the H/U software cannot be updated using FOTA, update the H/U following the USB flash drive procedure outlined in TSB <span class="clsEmphBOLD">15-236-18R </span>
+. In such a case, a VIN/H/U serial number mismatch may exist. The H/U must be removed, and the serial number recorded. In these cases, the serial number is required to be entered in the Miscellaneous Detail field during claim submission. In addition, capture a photo of the serial number tag for reference in case there is any question about the serial number submitted. See the H/U serial number sample photos presented on page 11 as reference.</p>
+      </li>
+      <li><span class="clsEmphBOLD">FOTA Procedure Using Head Unit Connected to Secure Wi-Fi (Home Network or Hotspot Device): </span><div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>The H/U clock <span class="clsEmphBOLD">must </span>
+ be set correctly in order to check for available FOTA updates.</span></div>
+        <ol class="UNLABELED">
+          <li>2.1) If necessary, set the clock via GPS signal (Navi-equipped models only) or by smartphone following steps from <span class="clsEmphBOLD">1.1 </span>
+ or <span class="clsEmphBOLD">1.2 </span>
+ above: <span class="clsEmphBOLD">&quot;Navi/Radio internal clock settings&quot; </span>
+.</li>
+          <li>2.2) Connect to the network.</li>
+          <li>2.3) Select &quot;Settings&quot; from H/U Home screen.</li>
+          <li>2.4) Make sure the &quot;Wi-Fi&quot; is displayed on the Settings &gt; General screen.</li>
+          <li>2.5) Select the desired Wi-Fi device from the &quot;Wi-Fi Settings&quot; list.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609120">
+                      <div class="imageHeader"><a name="S03645526702024041600000"></a></div><img alt="G16609120" src="../images/G16609120.png" name="G16609120"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609121">
+                      <div class="imageHeader"><a name="S00522500662024111100000"></a></div><img alt="G16609121" src="../images/G16609121.png" name="G16609121"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>2.6) Select &quot;Connect&quot; and input the password of the Wi-Fi device to be used. When a connection is established, the screen will display a Wi-Fi icon on top bar.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609122">
+                      <div class="imageHeader"><a name="S16253531022024041600000"></a></div><img alt="G16609122" src="../images/G16609122.png" name="G16609122"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>2.7) Perform <span class="clsEmphBOLD">Check for Available Update </span>
+: (same as <span class="clsEmphBOLD">1.5 </span>
+ above).<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="center" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G16609123">
+                      <div class="imageHeader"><a name="S07195205352024111100000"></a></div><img alt="G16609123" src="../images/G16609123.png" name="G16609123"><span class="imageCourtesyNote"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>2.8) Perform <span class="clsEmphBOLD">Software Update </span>
+: (same as <span class="clsEmphBOLD">1.6 </span>
+ above).</li>
+          <li>2.9) Re-check Software version (same as <span class="clsEmphBOLD">Step 1 </span>
+ above) after update installation is complete.</li>
+          <li>2.10) Using the notes or photos collected at the start of this process in <span class="clsEmphBOLD">Step 2 </span>
+, reset the customer's preset stations and volume settings.</li>
+          <li>2.11) Go to Home screen.</li>
+          <li>2.12) Turn the engine off and open the driver's door to turn the H/U off and complete the procedure.</li>
+        </ol>
+      </li>
+    </ol><h3>WARRANTY/CLAIM INFORMATION</h3>
+    
+    <p>For vehicles within the Basic New Car Limited Warranty period or covered by an active Subaru Added Security Gold plan, this repair may be submitted using the following claim information:</p><a name="S326483011720240416000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Description</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Operation #</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Time</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Fail Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">S/WARE VERSION CHECK, LATEST VERSION ALREADY INSTALLED, UPDATE SUCCESSFUL BY FOTA</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A031-271</td>
+          <td valign="TOP" align="center" class="clsCellNormal">0.3</td>
+          <td valign="MIDDLE" rowspan="4" align="center" class="clsCellNormal">ZTA-48</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">S/WARE VERSION CHECK, LATEST VERSION ALREADY INSTALLED, UPDATE DONE BY MOTA<a class="clsFootnoteLink" href="#S01259542942024111100000"><sup>(1)</sup></a> OR USB, R&amp;R H/U, RECORD SERIAL #</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A031-272</td>
+          <td valign="TOP" align="center" class="clsCellNormal">0.7</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">S/WARE VERSION CHECK, S/WARE UPDATE REQUIRED, UPDATE SUCCESSFUL BY FOTA</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A031-278</td>
+          <td valign="TOP" align="center" class="clsCellNormal">0.4</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">S/WARE VERSION CHECK, S/WARE UPDATE REQUIRED, FOTA UPDATE FAILS, UPDATE VIA USB, R&amp;R H/U, RECORD SERIAL #</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A031-288</td>
+          <td valign="TOP" align="center" class="clsCellNormal">1.3</td>
+        </tr>
+        <tr class="clsFootnoteRow">
+          <td colspan="4" valign="TOP" align="left" class="clsCellNormal">
+            <table class="clsFootnoteTable" width="100%">
+              <tr valign="top">
+                <td width="10px"><a name="S01259542942024111100000"><sup>(1)</sup></a></td>
+                <td><span class="clsEmphBOLDITAL">MOTA </span>
+: <span class="clsEmphITAL">Map Over The Air Update will update the Map data ONLY. When performing the Map Download procedure (updates are downloaded to a USB drive then installed into the H/U), BOTH the Map data AND H/U software versions are &quot;bundled&quot; together and updated. </span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If customers report a whited out or missing state after performing a MOTA update, this is indicative of file corruption during the download process. In such a case, the data and map image may be restored by downloading and installing the full map data via USB.</span></div>
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+ The COMPLETE 28-digit serial number is required to be entered in the Miscellaneous Detail field during claim submission (no spaces or special characters).</p>
+    <p><span class="clsEmphBOLD">IMPORTANT REMINDERS: </span></p>
+    <ul class="BULLET">
+      <li>SOA strongly discourages the printing and/or local storage of service information as previously released information and electronic publications may be updated at any time.</li>
+      <li>Always check for any open recalls or campaigns anytime a vehicle is in for servicing.</li>
+      <li>Always refer to STIS for the latest service information before performing any repairs.</li>
+    </ul><h3>APPENDIX A</h3>
+    
+    <p><span class="clsEmphBOLD">Harman 3.1 Software/Map Update Chronology </span></p><a name="S350718811020241111000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Release Date:</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">NEW H/U Version ID #:</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Map Update Software ID #</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">7/1/2018</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel4.18.11.50<br>Rel4.18.20.50<br>Rel_U1.18.20.60</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_U0.18.30.20<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a></td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">12/5/2018</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_U1.18.38.50</td>
+          <td valign="TOP" align="center" class="clsCellNormal">n/a</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">3/18/2019</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UA.19.01.70</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UD.19.17.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a><br>(Version 5.5)</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">8/16/2019</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UE.19.22.70</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UE.19.25.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a></td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">12/30/2019</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UA.19.36.70</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UA.19.42.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a><br>Rel_UF.20.28.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a></td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">12/21/2020</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UA.20.38.70</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UA.20.41.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a><br>Rel_UH.21.13.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a><br>Rel_UA.21.41.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a><br>Rel_UA.22.05.45<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a></td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">7/27/2021</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UH.20.52.70</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UA.21.41.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a><br>Rel_UA.22.05.45<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a></td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">8/12/2022</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UG.22.13.70</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UG.22.39.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a></td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">9/7/2023</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UK.22.49.70</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Rel_UL.23.13.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a></td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">3/12/2024</td>
+          <td valign="TOP" align="center" class="clsCellNormal">REL_UK.23.16.70</td>
+          <td valign="TOP" align="center" class="clsCellNormal">REL_UK.23.42.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a><br>REL_UM.24.08.70<a class="clsFootnoteLink" href="#S30926925252024111100000"><sup>(1)</sup></a></td>
+        </tr>
+        <tr class="clsFootnoteRow">
+          <td colspan="3" valign="TOP" align="left" class="clsCellNormal">
+            <div class="NOTE"><span class="NOTE_label">
+							NOTE:
+					</span><span><table class="clsFootnoteTable" width="100%">
+                  <tr valign="top">
+                    <td width="10px"><a name="S30926925252024111100000"><sup>(1)</sup></a></td>
+                    <td>These Map Update Software I.D. numbers contain the same functional updates as the corresponding New H/U Version I.D. numbers.</td>
+                  </tr>
+                </table></span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table><h3>APPENDIX B</h3>
+    
+    <p>Links to Customer self-install instructions for FOTA Customer Instructions will be added to the Subarunet Service Operations &amp; Technical &gt; Forms/Downloads page when they become available. Once the links are available and to enhance customer satisfaction, consider providing customers with a copy of the appropriate instructions for their audio or audio/navigation head unit along with access to your store's secure customer WiFi network. Doing so will enable customers to try performing the FOTA update on their own while at your retailer.</p>
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+ Retailers performing these updates are to follow the Service Procedures outlined in this bulletin ONLY. Always follow the applicable service procedures as outlined in this and other Service Bulletins. The additional steps and requirements supplied in Service Bulletins support a Subaru Technician's proper diagnosis and repair of any customer concern.</p>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

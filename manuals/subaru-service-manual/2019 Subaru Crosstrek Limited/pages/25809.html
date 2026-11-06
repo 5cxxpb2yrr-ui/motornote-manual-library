@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Active Test: List: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14208.html">Section 29 (P-HEV High Voltage Battery System (Diagnostics - Introduction))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14208.html#Active%20Test/">Active Test</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14208.html#Active%20Test/List/">List</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/25809.html">Notes</a></div><div class="main"><h1>Active Test: List: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S18091138262024052900000">
+  <a name="S180911382620240529000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Active test items</th>
+        <th align="left" class="clsCellNormal">Contents</th>
+        <th align="left" class="clsCellNormal">Execution condition</th>
+        <th align="left" class="clsCellNormal">Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Control the Hybrid Battery Cooling Fan</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Check Battery cooling blower assembly operation and airflow capacity.</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">IG ON</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Battery cooling blower assembly stop or modes 1 - 6 available.</li>
+            <li>Active test is prohibited when the fan drive request value from the vehicle is larger than the fan drive request value from active test (once prohibited, it will not be cancelled during the trip)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Related data monitor<br><ul class="BULLET">
+            <li>Hybrid Battery Cooling Fan 1 Drive Request</li>
+            <li>Hybrid Battery Cooling Fan 2 Drive Request</li>
+            <li>[Hybrid Battery Cooling Fan 2 Frequency]</li>
+            <li>Hybrid Battery Cooling Fan 1 Drive Status</li>
+            <li>Hybrid Battery Cooling Fan 2 Drive Status</li>
+            <li>Hybrid Battery Cooling Fan 1 Frequency</li>
+            <li>Hybrid Battery Cooling Fan Low Speed Request</li>
+            <li>Battery Voltage</li>
+            <li>Hybrid Battery Temperature 1 - Hybrid Battery Temperature 15</li>
+            <li>Hybrid Battery Cooling Fan Intake Air Temperature 1</li>
+            <li>Hybrid Battery Cooling Fan Intake Air Temperature 2</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Hybrid Battery Heater Relay</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">HV battery heater operation</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>IG ON</li>
+            <li>System normal</li>
+            <li>Not in maintenance mode</li>
+            <li>Battery (12V) voltage 9.5 V or more</li>
+            <li>HV battery temperature is within the specified range</li>
+          </ul>
+        </td>
+        <td align="" class="clsCellNormal">Drive Hybrid Battery Heater Relay to raise the temperature of HV battery heater.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Related data monitor<br><ul class="BULLET">
+            <li>Hybrid Battery Heater 1 Temperature</li>
+            <li>Hybrid Battery Heater 1 Temperature Sensor Voltage</li>
+            <li>Hybrid Battery Heater 2 Temperature</li>
+            <li>Hybrid Battery Heater 2 Temperature Sensor Voltage</li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="clsFootnoteRow">
+        <td align="" class="clsCellNormal">Battery Diagnosis</td>
+        <td align="" class="clsCellNormal">Discharge the HV battery and perform diagnosis of how much HV battery cells are degraded with reference to HV battery capacity.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Refer to [Battery Diagnosis], outside the table, for more details. Refer to <a href="../pages/25683.html">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;ACTIVE TEST&gt;LIST&gt;BATTERY DIAGNOSIS</a> .</span></div>
+        </td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Do not perform battery diagnosis while the Hybrid Fail Lamp is illuminated.</li>
+            <li>Perform battery diagnosis with the HV battery installed correctly.</li>
+            <li>Do not perform battery diagnosis while changing from inspection mode to another mode.</li>
+            <li>Make sure to turn the power switch off after battery diagnosis to prevent the Battery (12V) from being discharged.</li>
+            <li>If the SOC (state of charge) learning has not been performed<a class="clsFootnoteLink" href="#S20618680802024052900000"><sup>(1)</sup></a>, perform battery diagnosis after plug-in charging the vehicle as specified.<p>
+                <table class="clsFootnoteTable" width="100%">
+                  <tr valign="top">
+                    <td width="10px"><a name="S20618680802024052900000"><sup>(1)</sup></a></td>
+                    <td>Refer to &quot;Battery diagnosis - Measure during interruption&quot;.</td>
+                  </tr>
+                </table>
+              </p>
+            </li>
+          </ul>
+        </td>
+        <td align="" class="clsCellNormal">Related data monitor<br><ul class="BULLET">
+            <li>Battery Diagnosis Progress</li>
+            <li>Battery Diagnosis Result Module 1</li>
+            <li>Battery Diagnosis Result Module 2</li>
+            <li>Battery Diagnosis Result Module 3</li>
+            <li>Battery Diagnosis Result Module 4</li>
+            <li>Battery Diagnosis Result Module 5</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Vehicle Control History — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14208.html">Section 29 (P-HEV High Voltage Battery System (Diagnostics - Introduction))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14208.html#Work%20Support/">Work Support</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14208.html#Work%20Support/Operation/">Operation</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/25811.html">Vehicle Control History</a></div><div class="main"><h1>Vehicle Control History</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S24126599772024052900000">
+  <p>Vehicle control history functions to store the control data (recorded data) that was recorded triggered by a certain vehicle behavior. If the DTC has not been detected for the contents of customer's claim, the vehicle control history is useful to quantitatively understand the interview contents and continue the diagnosis.</p>
+  <ol class="ARABICNUM">
+    <li>On [Start] screen, select [Diagnosis].</li>
+    <li>On [Vehicle selection] screen, enter vehicle information and select [OK].</li>
+    <li>On [Main Menu] screen, select [Each System].</li>
+    <li>On [Select System] screen, select [P-HEV High Voltage Battery].</li>
+    <li>On [Select Function] screen, select [Work Support].</li>
+    <li>On [Work Support] screen, select [Vehicle Ctl. Hist.].<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>If any of the following factors is applicable, Battery ECU assembly stores the data related to [Ready ON Prevention] of vehicle control history.</li>
+            <li>The vehicle condition will have the following symptoms.</li>
+          </ul></span></div>
+    </li>
+  </ol>
+  <ul class="BULLET">
+    <li>Ready ON Prevention<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+          <col span="1" id="COL4" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="left" class="clsCellNormal">Symptom</th>
+            <th align="left" class="clsCellNormal">Cause</th>
+            <th align="left" class="clsCellNormal">Vehicle Control History Data</th>
+            <th align="left" class="clsCellNormal">Procedure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Power switch does not turn on (READY).</td>
+            <td align="left" class="clsCellNormal">Battery diagnosis request was ignored</td>
+            <td align="left" class="clsCellNormal">Hybrid Battery Check Status Light Request If a value of &quot;6&quot; or higher is displayed for this item and no other conditions are preventing the power switch from being turned on (READY), the power switch cannot be turned on (READY) due to Battery Diagnosis not being performed and the vehicle being driven for a certain amount of time after &quot;Have high voltage battery inspected at retailer&quot; was displayed on the combination meter.</td>
+            <td align="left" class="clsCellNormal">Perform Battery Diagnosis using the SUBARU SELECT MONITOR.</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Excessive engine cranking requests when HV battery cannot be used</td>
+            <td align="left" class="clsCellNormal">Number of Cranking when No Hybrid Battery The power switch cannot be turned on (READY) as engine cranking operation requests have exceeded a threshold when the HV battery could not be used.</td>
+            <td align="left" class="clsCellNormal">Repair the malfunctions indicated by the output DTCs and clear the DTCs.</td>
+          </tr>
+          <tr>
+            <td align="" class="clsCellNormal">Extremely low HV battery temperature judgment</td>
+            <td align="" class="clsCellNormal">Hybrid Battery Extremely Low Temperature Judgment If &quot;ON&quot; is displayed for this item, the power switch cannot be turned on (READY) as the temperature of the HV battery is extremely low. The values of &quot;HV battery Temperature 1 to 15&quot; can be used as a reference.</td>
+            <td align="" class="clsCellNormal">Wait for the HV battery temperature to increase.</td>
+          </tr>
+          <tr>
+            <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">The power switch is slow to turn on (READY).</td>
+            <td align="" class="clsCellNormal">High HV battery cell voltage</td>
+            <td align="" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>Hybrid Battery Stack 1 Cell Maximum Voltage</li>
+                <li>Hybrid Battery Stack 2 Cell Maximum Voltage</li>
+                <li>Hybrid Battery Stack 3 Cell Maximum Voltage</li>
+                <li>Hybrid Battery Stack 4 Cell Maximum Voltage</li>
+                <li>Hybrid Battery Stack 5 Cell Maximum Voltage</li>
+              </ul>
+            </td>
+            <td align="" class="clsCellNormal">Perform troubleshooting for any DTCs that are output.</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Low HV battery cell voltage</td>
+            <td align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>Hybrid Battery Stack 1 Cell Minimum Voltage</li>
+                <li>Hybrid Battery Stack 2 Cell Minimum Voltage</li>
+                <li>Hybrid Battery Stack 3 Cell Minimum Voltage</li>
+                <li>Hybrid Battery Stack 4 Cell Minimum Voltage</li>
+                <li>Hybrid Battery Stack 5 Cell Minimum Voltage</li>
+              </ul>
+            </td>
+            <td align="left" class="clsCellNormal">Perform troubleshooting for any DTCs that are output.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>Hybrid Battery Cooling Performance Decrement<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="left" class="clsCellNormal">Description</th>
+            <th align="left" class="clsCellNormal">Vehicle Control History Data</th>
+            <th align="left" class="clsCellNormal">Diagnostic Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">History of poor HV battery cooling performance</td>
+            <td align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>Hybrid Battery Temperature 1 to 15</li>
+                <li>Hybrid Battery Cooling Fan Intake Air Temperature</li>
+                <li>Hybrid Battery Cooling Fan Intake Air Temperature 2</li>
+              </ul>
+            </td>
+            <td align="left" class="clsCellNormal">Refer to Diagnostics with Phenomenon.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

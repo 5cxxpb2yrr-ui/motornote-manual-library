@@ -1,0 +1,529 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Vehicle Control History — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html">Section 13 (Plug-In Battery Charger (Diagnostics))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html#Work%20Support/">Work Support</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html#Work%20Support/Operation/">Operation</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14333.html">Vehicle Control History</a></div><div class="main"><h1>Vehicle Control History</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S12392741032020102700000">
+  <p>The vehicle control history is a function which stores the control data (record data) when triggered by certain designated vehicle behaviors. When no DTC is detected regarding the conditions described by the customer, checking the vehicle control history can serve as reference for a quantified understanding of the interview contents and for carrying out diagnosis.</p>
+  <ol class="ARABICNUM">
+    <li>On [Start] screen, select [Diagnosis].</li>
+    <li>On [Vehicle selection] screen, enter vehicle information and select [OK].</li>
+    <li>On [Main Menu] screen, select [Each System].</li>
+    <li>On [Select System] screen, select [Plug-in Battery Charger].</li>
+    <li>On [Select Function] screen, select [Work Support].</li>
+    <li>On [Work Support] screen, select [Vehicle Ctl. Hist.].</li>
+  </ol><a name="S123927410320201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+      <col span="1" id="COL5" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th valign="TOP" rowspan="2" align="left" class="clsCellNormal">Code</th>
+        <th valign="TOP" rowspan="2" align="left" class="clsCellNormal">Item name</th>
+        <th colspan="3" valign="TOP" align="left" class="clsCellNormal">Storage condition</th>
+      </tr>
+      <tr class="clsTblHead">
+        <th colspan="2" valign="TOP" align="left" class="clsCellNormal"><span class="clsEmphBOLD">Probable cause </span></th>
+        <th align="left" class="clsCellNormal"><span class="clsEmphBOLD">Counter-measure </span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">X0543</td>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Auxiliary Battery Voltage Low (Plug-in Control)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Battery (12V) voltage dropped.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">User</td>
+        <td align="left" class="clsCellNormal">SOC of the HV battery dropped due to excessive power consumption from the power switch being left on (IG) or the use of accessories.</td>
+        <td align="left" class="clsCellNormal">Explain to the customer that it is necessary to reduce power consumption from accessories during plug-in charging.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Discharged Battery (12V)</td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Turn the power switch on (READY) and leave the vehicle for 15 min (to charge the Battery (12V))<p>Explain to the customer that the Battery (12V) will discharge when the vehicle is left without being started for a long time.</p>
+            </li>
+            <li>Inspect Battery (12V)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">X0544</td>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Auxiliary Battery Charge Canceled (Sub DC/DC Converter Temperature High)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Sub DC/DC converter operation is stopped due to it overheating. (Battery (12V) charging is then performed by the main DC/DC converter.)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">Sub DC/DC converter cooling performance was insufficient</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Make sure that the charger cooling blower is free of foreign matter.</li>
+            <li>Cool the cabin and perform plug-in charging again.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Sub DC/DC converter temperature sensor (built into Electric vehicle charger assembly) malfunction (stuck on intermediate high side)</td>
+        <td align="" class="clsCellNormal">While performing plug-in charging, using the Techstream, read the value of Data List item &quot;Sub DC/DC Converter Temperature (for Charging)&quot;. If the value is 105°C (221°F) or more, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">X0545</td>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Charge Delayed/Canceled (Power Supply Voltage High)</td>
+        <td colspan="2" valign="TOP" align="left" class="clsCellNormal">Excessively high power supply voltage is and charging is suspended.</td>
+        <td align="" class="clsCellNormal">detected for a certain amount of time</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">System power supply over voltage</td>
+        <td align="left" class="clsCellNormal">Perform plug-in charging at a different location. If the malfunction recurs, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Electric vehicle charger assembly internal sensor malfunction</td>
+        <td align="" class="clsCellNormal">While performing plug-in charging, using the Techstream, read the value of Data List item &quot;AC Input Voltage for Monitoring&quot;. If the value is higher than the normal system voltage, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">X0546</td>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">Charge Delayed/Canceled (Power Supply Voltage Low)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Excessively low power supply voltage is detected for a certain amount of time and charging is suspended.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">Open in the AC line in the charging station</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Check charging station</li>
+            <li>Charge with the charging cable provided with the vehicle</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Open in the AC line in the charging cable</td>
+        <td align="" class="clsCellNormal">Inspect the charging cable</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Open in the AC line (Electric vehicle charger assembly - AC charger inlet cable)</td>
+        <td align="left" class="clsCellNormal">Check AC line (Electric vehicle charger assembly - AC charger inlet cable)</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">X0548</td>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Charge Delayed/Canceled (VH Voltage/Power Supply Voltage High)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Excessively High power supply voltage is detected for a certain amount of time and charging is suspended.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">System power supply overvoltage</td>
+        <td align="left" class="clsCellNormal">Perform plug-in charging at a different location. If the malfunction recurs, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Electric vehicle charger assembly internal sensor malfunction</td>
+        <td align="" class="clsCellNormal">While performing plug-in charging, using the Techstream, read the value of Data List item &quot;AC Input Voltage for Monitoring&quot;. If the value is higher than the normal system voltage, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">X0549</td>
+        <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">Charge Canceled (Power Supply Resistance Value Increase)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Supplied power dropped due to impedance of the AC line, etc.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Decrease in socket charge power from the infrastructure side</li>
+            <li>System voltage decreased due to use of a multi-socket or an extension cord</li>
+            <li>Charging plug is not securely inserted.</li>
+          </ul>
+        </td>
+        <td align="left" class="clsCellNormal">Interview customer and provide instruction on usage.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Open in the AC line in the charging cable</td>
+        <td align="" class="clsCellNormal">Inspect the charging cable</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Open in the AC line (Electric vehicle charger assembly - AC charger inlet cable)</td>
+        <td align="left" class="clsCellNormal">Check AC line (Electric vehicle charger assembly - AC charger inlet cable)</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Electric vehicle charger assembly (VIN sensor)</td>
+        <td align="" class="clsCellNormal">While performing plug-in charging, using the Techstream, read the value of Data List item &quot;AC Input Voltage for Monitoring&quot;. If the value is abnormal, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">X054D</td>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Charge Delayed (Charger Temperature High)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Charging is performed but power is restricted due to the Electric vehicle charger assembly overheating.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">Electric vehicle charger assembly cooling performance was insufficient</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Make sure that the charger cooling blower is free of foreign matter.</li>
+            <li>Cool the vehicle interior and then perform charging again.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">PFC temperature sensor or VH-DCDC temperature sensor (built into Electric vehicle charger assembly) malfunction (stuck on intermediate high side)</td>
+        <td align="" class="clsCellNormal">While performing plug-in charging, using the Techstream, read the value of the Data List items &quot;PFC Boosting Circuit Temperature&quot; and &quot;DC/DC Converter Temperature (for Charging)&quot;. If the value of either is more than the following, replace the Electric vehicle charger assembly.<ul class="BULLET">
+            <li>PFC Boosting Circuit Temperature: 134°C (273°F)</li>
+            <li>DC/DC Converter Temperature (for Charging): 129°C (264°F)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">X054E</td>
+        <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">Charge Delayed/Canceled (Charger Power Supply Voltage Low)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Excessively low power supply voltage is detected for a certain amount of time and charging is suspended.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">Open in the AC line in the charging station</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Check charging station</li>
+            <li>Charge with the charging cable provided with the vehicle</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Open in the AC line in the charging cable</td>
+        <td align="" class="clsCellNormal">Inspect the charging cable</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Open in the AC line (Electric vehicle charger assembly - AC charger inlet cable)</td>
+        <td align="left" class="clsCellNormal">Check AC line (Electric vehicle charger assembly - AC charger inlet cable)</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Electric vehicle charger assembly internal sensor malfunction</td>
+        <td align="" class="clsCellNormal">While performing plug-in charging, using the Techstream, read the value of Data List item &quot;AC Input Voltage for Monitoring&quot;. If the value is 47 V or less, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">X054F</td>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Charge Delayed (Charger Power Supply Frequency Low)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">The system power source waveform frequency decreased.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">Power source waveform frequency was low</td>
+        <td align="left" class="clsCellNormal">Perform plug-in charging at a different location. If the malfunction recurs, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Electric vehicle charger assembly internal sensor malfunction</td>
+        <td align="" class="clsCellNormal">While performing plug-in charging, using the Techstream, read the value of Data List item &quot;Time Cycle of Charging Voltage Zero Crossing Point&quot;. If the value is 22.2 ms or more, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">X0550</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charge Delayed/Canceled (Charging Over current)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Excessive current is momentarily input to the Electric vehicle charger assembly. (System voltage waveform distortion)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">The system power supply voltage waveform was distorted</td>
+        <td align="left" class="clsCellNormal">Perform plug-in charging at a different location. If the malfunction recurs, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">X0551</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charge Delayed/Canceled (Overcurrent after Boosting)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Excessive current is momentarily input to the Electric vehicle charger assembly. (System voltage waveform distortion)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">The system power supply voltage waveform was distorted</td>
+        <td align="left" class="clsCellNormal">Perform plug-in charging at a different location. If the malfunction recurs, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">X0552</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charge Delayed/Canceled (Charging Overvoltage)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Excessively high power supply voltage is detected for a certain amount of time and charging is suspended.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">System power supply overvoltage</td>
+        <td align="left" class="clsCellNormal">Perform plug-in charging at a different location. If the malfunction recurs, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">X0553</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charge Delayed/Canceled (Charger Power Supply Wave Pattern Distortion)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Abnormal charging system voltage waveform is detected.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">System power supply overvoltage</td>
+        <td align="left" class="clsCellNormal">Perform plug-in charging at a different location. If the malfunction recurs, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="7" align="left" class="clsCellNormal">X1000</td>
+        <td valign="TOP" rowspan="7" align="left" class="clsCellNormal">Charge Temporarily Canceled/Canceled (Charge Connector Operation)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">During plug-in charging, the lock release button on the charging connector is pressed longer than a certain amount of time before the HV battery is fully charged.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">User</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Charging connector connection not secured properly</li>
+            <li>The unlock button was pressed and held down (incorrect operation).</li>
+          </ul>
+        </td>
+        <td align="left" class="clsCellNormal">Interview customer and provide instruction on usage.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Service life of engagement parts on the charging connector or Charging inlet</td>
+        <td align="" class="clsCellNormal">Inspect the charging cable</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PISW circuit malfunction (open/short)</td>
+        <td align="left" class="clsCellNormal">Check PISW signal circuit</td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Before performing plug-in charging, the charging connector was not connected correctly.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">User</td>
+        <td align="" class="clsCellNormal">Charging connector connection not secured properly</td>
+        <td align="" class="clsCellNormal">Interview customer and provide instruction on usage.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">PISW circuit malfunction (open/short)</td>
+        <td align="" class="clsCellNormal">Check PISW signal circuit</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="7" align="left" class="clsCellNormal">X1010</td>
+        <td valign="TOP" rowspan="7" align="left" class="clsCellNormal">Charge Canceled (Power Failure)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">During plug-in charging, AC power is cut off (including voltage drop) or CPLT (control pilot signal) cannot be received with the charging cable correctly connected.</td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">With power switch on (IG), plug disconnected from electrical outlet or charging connector disconnected while AC power source is off</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">User</td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Plug disconnected</li>
+            <li>Charging connector disconnected while power switch on (IG)</li>
+          </ul>
+        </td>
+        <td align="" class="clsCellNormal">Interview customer and provide instruction on usage.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charging environment</td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Plug disconnected</li>
+            <li>Power outage</li>
+            <li>Breaker was tripped</li>
+            <li>Charging was suspended due to electrical power management function on charging station side</li>
+            <li>System power source switch was off</li>
+          </ul>
+        </td>
+        <td align="" class="clsCellNormal">Interview customer and provide instruction on usage.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging was suspended by charging station (Charging suspension button was pushed, timer on charging station had elapsed, electrical power management function of charging station operated, charging station malfunction, etc.)</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Check charging station</li>
+            <li>Charge with the charging cable provided with the vehicle</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Charging cable internal malfunction</td>
+        <td align="" class="clsCellNormal">Inspect the charging cable</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CPLT (control pilot signal) circuit malfunction (open/short)</td>
+        <td align="left" class="clsCellNormal">Check Control Pilot Signal Circuit</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">X1040</td>
+        <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">Charge Canceled (Charging Equipment (CCID Relay Stuck))</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">AC voltage is applied to the Electric vehicle charger assembly for a certain period of time before the charging cable CCID relay is closed.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">charging station CCID relay is stuck closed</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Check charging station</li>
+            <li>Charge with the charging cable provided with the vehicle</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">CCID relay circuit was stuck closed</td>
+        <td align="" class="clsCellNormal">Check CPLT port resistance</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging cable CCID relay is stuck closed</td>
+        <td align="left" class="clsCellNormal">Inspect the charging cable</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">VIN sensor related malfunction occurred</td>
+        <td align="" class="clsCellNormal">Before a CCID relay closing request (value of the Data List item &quot;Charging Relay Connect Request in CCID Box from CCID Box&quot; is OFF) is output, using the Techstream, read the value of the Data List item &quot;AC Input Voltage for Monitoring&quot;. If the value is 35 V or more, replace the Electric vehicle charger assembly.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">X1050</td>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Charge Temporarily Canceled/Canceled (Nonstandard Charging Control Signal)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Non-standard CPLT (control pilot signal) pulse received for a certain number of times or nonstandard duty received.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">Incompatible with charging station used</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Check charging station</li>
+            <li>Charge with the charging cable provided with the vehicle</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Charging cable malfunction</td>
+        <td align="" class="clsCellNormal">Inspect the charging cable</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="6" align="left" class="clsCellNormal">X1051</td>
+        <td valign="TOP" rowspan="6" align="left" class="clsCellNormal">Charge Temporarily Canceled/Canceled (Charging Control Signal Charge Wait/Stop Request)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">During plug-in charging, the CPLT signal becomes stuck (CPLT Duty: 100%) causing the IGCT relay to not close and the charging system to not start.</td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">During plug-in charging, the CPLT signal becomes stuck (CPLT Duty: 100%) and charging is suspended.</td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">(Charging station communication signal malfunction or charging suspension demand request received.)</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">User</td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Re-insert the power plug.</li>
+            <li>Re-insert the charging connector.</li>
+          </ul>
+        </td>
+        <td align="" class="clsCellNormal">Interview customer and provide instruction on usage.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Charging environment</td>
+        <td align="" class="clsCellNormal">Charging was suspended by charging stand (Charging suspension button was pushed, timer on charging stand had elapsed, electrical power management function of charging station operated, charging stand malfunction, etc.)</td>
+        <td align="" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Check charging station</li>
+            <li>Charge with the charging cable provided with the vehicle</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">Vehicle</td>
+        <td align="" class="clsCellNormal">Charging cable malfunction</td>
+        <td align="" class="clsCellNormal">Inspect the charging cable</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">X1052</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Charge Canceled (Unsupported Charging Control Signal)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">HLC communication with an EVSE (charging station) has been detected (CPLT Duty: 5%) (When performing charging with an incompatible charging station.)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging environment</td>
+        <td align="left" class="clsCellNormal">Incompatible with charging station used</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Check charging station</li>
+            <li>Charge with the charging cable provided with the vehicle</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">X10C0</td>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Charge Delayed/Canceled (Charger Temperature High)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Charging is performed but power is restricted due to the Electric vehicle charger assembly overheating.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="left" class="clsCellNormal">Electric vehicle charger assembly cooling performance was insufficient</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Make sure that the charger cooling blower is free of foreign matter.</li>
+            <li>Cool the vehicle interior and then perform charging again.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PFC temperature sensor or VH-DCDC temperature sensor (built into Electric vehicle charger assembly) malfunction (stuck on intermediate high side)</td>
+        <td align="left" class="clsCellNormal">While performing plug-in charging, using the Techstream, read the value of the Data List items &quot;PFC Boosting Circuit Temperature&quot; and &quot;DC/DC Converter Temperature (for Charging)&quot;. If the value of either is more than the following, replace the Electric vehicle charger assembly.<ul class="BULLET">
+            <li>PFC Boosting Circuit Temperature: 134°C (273°F)</li>
+            <li>DC/DC Converter Temperature (for Charging): 129°C (264°F)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">X10D0</td>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">Plug-in Control ECU Start</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">Even though the charging cable is connected correctly and the CPLT signal is oscillating, the IGCT SCENE relay does not close.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="3" align="left" class="clsCellNormal">Vehicle</td>
+        <td align="left" class="clsCellNormal">CAN communication error</td>
+        <td align="left" class="clsCellNormal">Check DTCs.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Certification ECU (smart key ECU assembly) malfunction IGB malfunction</td>
+        <td align="left" class="clsCellNormal">Check Keyless Access CM.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">IGCT malfunction</td>
+        <td align="" class="clsCellNormal">Check Hybrid vehicle control ECU assembly</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">X1100</td>
+        <td valign="TOP" rowspan="2" align="left" class="clsCellNormal">Timer Reset (Charging Connector Reconnection)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">The charging timer is canceled when the charging connector is reconnected.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">User</td>
+        <td align="left" class="clsCellNormal">Charging connector was reconnected</td>
+        <td align="left" class="clsCellNormal">Interview customer and provide instruction on usage.<br>(Explain to the customer that if the charging connector is connected when the charging schedule is set, the Charging indicator will blink for 15 seconds. While the charge indicator is blinking, if the charging connector is disconnected and then reconnected within 5 seconds, the charging timer will be canceled and charging will begin.)</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">X1102</td>
+        <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">Timer Reset (Gap of Current Time)</td>
+        <td colspan="3" valign="TOP" align="left" class="clsCellNormal">The current time of the internal clocks of the Electric vehicle charger assembly and MFD differ by a certain amount.</td>
+      </tr>
+      <tr>
+        <td valign="TOP" rowspan="4" align="left" class="clsCellNormal">Vehicle</td>
+        <td colspan="2" valign="TOP" align="left" class="clsCellNormal">The following causes are listed from most to least likely</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(1) Malfunction in wire harness of MFD</td>
+        <td align="left" class="clsCellNormal">Check MFD.</td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(2) Malfunction of MFD internal clock</td>
+        <td align="" class="clsCellNormal">Interview customer.<ol class="ARABICNUM">
+            <li>Interview the customer and check if the time displayed on the MFD has differed from the actual time by 3 minutes or more for 1 week.</li>
+            <li>If this Vehicle Control History item has been stored and the customer confirms that the displayed time has differed from the actual time, replace the MFD.<ul class="BULLET">
+                <li>The internal clock of the MFD can be determined to be unable to keep time accurately if the exact current time has been set and then after 1 week the displayed time differs from the actual time by 3 minutes or more.</li>
+                <li>If the customer is not sure how long the displayed time on the MFD has differed from the actual time or if it has always differed from the actual time, set the internal clock of the MFD to the exact current time and then check with the customer if the displayed time differs from the actual time after 1 week.</li>
+              </ul>
+            </li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td align="" class="clsCellNormal">(3) Malfunction in wire harness of Electric vehicle charger assembly</td>
+        <td align="" class="clsCellNormal">Check Electric vehicle charger assembly.</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

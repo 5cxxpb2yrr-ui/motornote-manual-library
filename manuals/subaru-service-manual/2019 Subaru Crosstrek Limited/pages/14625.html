@@ -1,0 +1,218 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>CPLT Signal System — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html">Section 13 (Plug-In Battery Charger (Diagnostics))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html#Diagnostics%20With%20Phenomenon/">Diagnostics With Phenomenon</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html#Diagnostics%20With%20Phenomenon/Inspection/">Inspection</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14625.html">CPLT Signal System</a></div><div class="main"><h1>CPLT Signal System</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S18869774332020102700000">
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14305.html#General%20Description/Caution/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <p>Charging system Refer to <a href="../pages/16576.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;CHARGING SYSTEM&gt;WIRING DIAGRAM</a>
+.</p><a name="S188697743320201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13238666">
+            <div class="imageHeader"><a name="S18296776552020102700000"></a></div><img alt="G13238666" src="../images/G13238666.png" name="G13238666"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table><a name="S188697743320201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13238699">
+            <div class="imageHeader"><a name="S25256301942020102700000"></a></div><img alt="G13238699" src="../images/G13238699.png" name="G13238699"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ol class="ARABICNUM">
+    <li><a name="S17464375522020102700000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR (Charging Current Duty from Charger/Time Cycle of Charging Current Duty from Charger). </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, display the following items in the [Data monitor] of [Plug-in Battery Charger]. Refer to <a href="../pages/14305.html#Data%20Monitor/">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DATA MONITOR</a> .<ul class="BULLET">
+            <li>Charging Current Duty from Charger</li>
+            <li>Time Cycle of Charging Current Duty from Charger</li>
+          </ul>
+        </li>
+      </ol><a name="S174643755220201027000001"></a><table cellspacing="0" class="clsListArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+          <col span="1" id="COL4" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Item name</th>
+            <th align="center" class="clsCellNormal">Item explanation</th>
+            <th align="center" class="clsCellNormal">Display range</th>
+            <th align="center" class="clsCellNormal">Standard</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">Charging Current Duty from Charger</td>
+            <td align="left" class="clsCellNormal">Indicates the charging current command value.</td>
+            <td align="left" class="clsCellNormal">0.00 - 100.00%</td>
+            <td align="left" class="clsCellNormal">5 - 39%: Charging connector connected 0%: EVSE (charging equipment) system not connected, or power not available</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">Time Cycle of Charging Current Duty from Charger</td>
+            <td align="left" class="clsCellNormal">Indicates the time for 1 CPLT cycle.</td>
+            <td align="left" class="clsCellNormal">0 - 65535 μs</td>
+            <td align="left" class="clsCellNormal">951 - 1049 μs: CPLT oscillating</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Is the Data Monitor value within the standard range?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Refer to Diagnostics with Phenomenon. Refer to <a href="../pages/14614.html">PLUG-IN BATTERY CHARGER (DIAGNOSTICS)&gt;DIAGNOSTICS WITH PHENOMENON&gt;LIST</a> .</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S33238383702020102700000" location="/api/article/getcontent?articleId=A01114254_S33238383702020102700000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S33238383702020102700000"></a><span class="clsEmphBOLD">CHECK AC charger inlet cable (CHASSIS GROUND). </span><div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Remove the Electric vehicle charger cable assembly before performing this check.</span></div>
+      <ol class="ARABICNUM">
+        <li>Open the Charging inlet door.</li>
+        <li>Using a tester, measure the resistance between the AC charger inlet cable (Charging inlet) and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(HV29) No. 5 - Chassis ground:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S00719185292020102700000" location="/api/article/getcontent?articleId=A01114254_S00719185292020102700000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S25762297392020102700000" location="/api/article/getcontent?articleId=A01114254_S25762297392020102700000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S00719185292020102700000"></a><span class="clsEmphBOLD">CHECK HARNESS AND CONNECTORS (Electric vehicle charger assembly -Charging inlet) (OPEN CIRCUIT). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Make sure to wear insulated gloves and protective goggles during the work.</span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Disconnect Electric vehicle charger assembly connector (HV31).</li>
+        <li>Using a tester, measure the resistance between the Electric vehicle charger assembly connector and AC charger inlet cable (Charging inlet).<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(HV31) No. 5 - (HV29) No. 3:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S18763180672020102700000" location="/api/article/getcontent?articleId=A01114254_S18763180672020102700000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace AC charger inlet cable. Refer to <a href="../pages/14210.html#Charge%20Inlet/">HYBRID ELECTRIC VEHICLE&gt;CHARGE INLET</a>
+.</p>
+    </li>
+    <li><a name="S18763180672020102700000"></a><span class="clsEmphBOLD">CHECK THE HARNESS AND CONNECTOR (Electric vehicle charger assembly - Charging inlet) (SHORT CIRCUIT TO GROUND AND SHORT CIRCUIT BETWEEN LINES). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Make sure to wear insulated gloves and protective goggles during the work.</span></div>
+      <p>Using a tester, measure the resistance between terminals in the AC charger inlet cable (Charging inlet), and between the AC charger inlet cable (Charging inlet) connector and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV29) No. 3 - (HV29) No. 1 - 5:</p>
+      <p>(HV29) No. 3 - Chassis ground:</p>
+      <p>(HV29) No. 5 - (HV29) No. 1 - 5:</p>
+      <p>(HV29) No. 5 - Chassis ground:</p>
+      <p>Is the resistance 10 kΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S01960212222020102700000" location="/api/article/getcontent?articleId=A01114254_S01960212222020102700000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace AC charger inlet cable. Refer to <a href="../pages/14210.html#Charge%20Inlet/">HYBRID ELECTRIC VEHICLE&gt;CHARGE INLET</a>
+.</p>
+    </li>
+    <li><a name="S01960212222020102700000"></a><span class="clsEmphBOLD">CHECK THE HARNESS AND CONNECTOR (Electric vehicle charger assembly - Charging inlet) (POWER SUPPLY SHORT CIRCUIT). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Make sure to wear insulated gloves and protective goggles during the work.</span></div>
+      <ol class="ARABICNUM">
+        <li>Connect the negative terminal of the Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Turn to IG ON.</li>
+        <li>Using a tester, measure the voltage between the AC charger inlet cable (Charging inlet) connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(HV29) No. 3 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage less than 1 V?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S42254159802020102700000" location="/api/article/getcontent?articleId=A01114254_S42254159802020102700000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S34014389002020102700000" location="/api/article/getcontent?articleId=A01114254_S34014389002020102700000_LSTITM">8</a>.</p>
+    </li>
+    <li><a name="S42254159802020102700000"></a><span class="clsEmphBOLD">CHECK THE AC charger inlet cable UNIT (CPLT VOLTAGE). </span><ol class="ARABICNUM">
+        <li>Turn the ignition to OFF.</li>
+        <li>Disconnect the negative terminal of the Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Check the AC charger inlet cable unit. Refer to <a href="../pages/14210.html#Charge%20Inlet/">HYBRID ELECTRIC VEHICLE&gt;CHARGE INLET</a>
+.</li>
+      </ol>
+      <p>Is the AC charger inlet cable OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace Electric vehicle charger assembly. Refer to <a href="../pages/14210.html#Electric%20Vehicle%20Charger/">HYBRID ELECTRIC VEHICLE&gt;ELECTRIC VEHICLE CHARGER</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace AC charger inlet cable. Refer to <a href="../pages/14210.html#Charge%20Inlet/">HYBRID ELECTRIC VEHICLE&gt;CHARGE INLET</a>
+.</p>
+    </li>
+    <li><a name="S25762297392020102700000"></a><span class="clsEmphBOLD">CHECK GROUNDING POINT CONNECTION (AC charger inlet cable). </span><p>Check connection of AC charger inlet cable grounding point (GB11). Refer to <a href="../pages/14210.html#Charge%20Inlet/">HYBRID ELECTRIC VEHICLE&gt;CHARGE INLET</a>
+.</p>
+      <p>Is the grounding point connected securely?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace AC charger inlet cable. Refer to <a href="../pages/14210.html#Charge%20Inlet/">HYBRID ELECTRIC VEHICLE&gt;CHARGE INLET</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Connect it securely.</p>
+    </li>
+    <li><a name="S34014389002020102700000"></a><span class="clsEmphBOLD">CHECK HARNESS AND CONNECTORS (Electric vehicle charger assembly -AC charger inlet cable) (OPEN CIRCUIT). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Make sure to wear insulated gloves and protective goggles during the work.</span></div>
+      <ol class="ARABICNUM">
+        <li>Turn the ignition to OFF.</li>
+        <li>Disconnect the negative terminal of the Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Disconnect AC charger inlet cable connector (HV27).</li>
+        <li>Using a tester, measure the resistance between AC charger inlet cable connector and Electric vehicle charger assembly connector.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(HV31) No. 5 - (R523) No. 14:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 1 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S22155807482020102700000" location="/api/article/getcontent?articleId=A01114254_S22155807482020102700000_LSTITM">9</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the harness between AC charger inlet cable connector and Electric vehicle charger assembly connector.</p>
+    </li>
+    <li><a name="S22155807482020102700000"></a><span class="clsEmphBOLD">CHECK THE HARNESS AND CONNECTOR (Electric vehicle charger assembly - CHARGING INLET CABLE) (SHORT CIRCUIT TO GROUND AND SHORT CIRCUIT BETWEEN LINES). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Make sure to wear insulated gloves and protective goggles during the work.</span></div>
+      <p>Using a tester, measure the resistance between terminals in Electric vehicle charger assembly connector, and between Electric vehicle charger assembly connector and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(HV31) No. 5 - (HV31) No. 1 - 40:</p>
+      <p>(HV31) No. 5 - Chassis ground:</p>
+      <p>Is the resistance 10 kΩ or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S31167916632020102700000" location="/api/article/getcontent?articleId=A01114254_S31167916632020102700000_LSTITM">10</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the harness between AC charger inlet cable connector and Electric vehicle charger assembly connector.</p>
+    </li>
+    <li><a name="S31167916632020102700000"></a><span class="clsEmphBOLD">CHECK THE HARNESS AND CONNECTOR (Electric vehicle charger assembly - CHARGING INLET CABLE) (POWER SUPPLY SHORT CIRCUIT). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Make sure to wear insulated gloves and protective goggles during the work.</span></div>
+      <ol class="ARABICNUM">
+        <li>Connect the negative terminal of the Battery (12V). Refer to <a href="../pages/14661.html">REPAIR CONTENTS&gt;REPAIR CONTENTS&gt;NOTE&gt;BATTERY</a>
+.</li>
+        <li>Turn to IG ON.</li>
+        <li>Using a tester, measure the voltage between Electric vehicle charger assembly connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(HV31) No. 5 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage less than 1 V?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace AC charger inlet cable. Refer to <a href="../pages/14210.html#Charge%20Inlet/">HYBRID ELECTRIC VEHICLE&gt;CHARGE INLET</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the harness between AC charger inlet cable connector and Electric vehicle charger assembly connector.</p>
+    </li>
+  </ol>
+  <p><span class="clsEmphBOLD">GENERAL DESCRIPTION </span></p>
+  <p><span class="clsEmphBOLD">Circuit explanation </span></p>
+  <p>The Electric vehicle charger assembly uses the CPLT signal to detect that the Electric vehicle charger cable assembly is connected and charging is possible. It then starts the plug-in charger control system and changes the CPLT signal voltage. The Electric vehicle charger assembly also uses the CPLT signal waveform duty ratio to recognize the rated current of the charging equipment (household power supply + Electric vehicle charger cable assembly or charger), and again changes the CPLT signal voltage to send notice to the charging equipment side (CCID unit) that the vehicle side is ready for charging.</p>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

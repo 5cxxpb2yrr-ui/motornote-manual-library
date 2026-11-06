@@ -1,0 +1,743 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>P0890 TCM Power Relay Sense Circuit P05A0 Active Grille Air Shutter &quot;A&quot; Stuck On Low DTC P015A &amp; P015B/Delayed O2 Sensor Response (09-90-22R) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/618.html">Technical Service Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html#Engine%20Control%20Systems/">Engine Control Systems</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31527.html">P0890 TCM Power Relay Sense Circuit P05A0 Active Grille Air Shutter &quot;A&quot; Stuck On Low DTC P015A &amp; P015B/Delayed O2 Sensor Response (09-90-22R)</a></div><div class="main"><h1>P0890 TCM Power Relay Sense Circuit P05A0 Active Grille Air Shutter &quot;A&quot; Stuck On Low DTC P015A &amp; P015B/Delayed O2 Sensor Response (09-90-22R)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2023-01-24<br>Reference number: 09-90-22R<br>Supersedes refnos: 09-90-22<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>P0890 TCM POWER RELAY SENSE CIRCUIT P05A0 ACTIVE GRILLE AIR SHUTTER &quot;A&quot; STUCK ON LOW DTC P015A &amp; P015B/DELAYED O2 SENSOR RESPONSE</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>P0890 TCM POWER RELAY SENSE CIRCUIT P05A0 ACTIVE GRILLE AIR SHUTTER &quot;A&quot; STUCK ON LOW DTC P015A &amp; P015B/DELAYED O2 SENSOR RESPONSE</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): 09-90-22R, Date of Issue: 
+				January 24, 2023<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>2017-22 Impreza; 2018-22 Crosstrek</td>
+        </tr>
+      </table>
+    </div><h3>APPLICABILITY</h3>
+    
+    <p>2017-22MY Impreza</p>
+    <p>2018-22MY Crosstrek</p><h3>INTRODUCTION</h3>
+    
+    <p>This bulletin announces availability of new reprograming files for the Engine Control Module (ECM). These files have been developed to address concerns of the starter motor not operating and/or illumination of the engine warning lamp. This concern may occur under any of the four driving scenarios outlined below. It is <span class="clsEmphBOLD">IMPORTANT </span>
+ to fully review the details below to accurately confirm the concern and perform the reprogramming procedure when necessary.</p><h3>PRODUCTION CHANGE INFORMATION</h3>
+    
+    <p>This new logic was incorporated into vehicle production as per the table below.</p><a name="S181183093020220603000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Model</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Starting VIN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Impreza (4 Door)</td>
+          <td valign="TOP" align="center" class="clsCellNormal">N3607758</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Impreza (5 Door)</td>
+          <td valign="TOP" align="center" class="clsCellNormal">N1722257</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Crosstrek</td>
+          <td valign="TOP" align="center" class="clsCellNormal">N9249886</td>
+        </tr>
+      </tbody>
+    </table><h3>DESCRIPTIONS OF CONCERN</h3>
+    
+    <p><span class="clsEmphBOLD">Scenario A: </span></p>
+    <p>While attempting a restart after a short drive cycle in low ambient temperatures (less than 0 Degrees Celsius/32 Degrees Fahrenheit), the starter motor may not operate. DTC P0890 (TCM Power Relay Sense Circuit Low) will likely be stored in the ECM under this condition. Condensed moisture in the ignition relay can cause the contact points to freeze under these conditions. The new logic enhances the relay self-shutdown program, eliminating the possibility of frozen relay contacts.</p>
+    <p><span class="clsEmphBOLD">Scenario B: </span></p>
+    <p>DTC P05A0 (Active Grille Air Shutter &quot;A&quot; Stuck On) may be stored in the ECM when the vehicle is driven in low ambient temperatures (less than 0 Degrees Celsius/32 Degrees Fahrenheit) and/or harsh weather including snow and freezing rain. This is caused by an inaccurate freezing estimation of the Active Grille Shutter (AGS) by the ECM. The new logic optimizes the freezing estimation program within the ECM.</p>
+    <p><span class="clsEmphBOLD">Scenario C: </span></p>
+    <p>P015A (A/F/02 Sensor Delayed Response - Rich to Lean Bank 1 Sensor 1) &amp; P015B (A/F/02 Sensor Delayed Response - Rich to Lean Bank 1 Sensor 1) may set when stabbing acceleration (ON then quickly OFF the accelerator) and similar braking are performed repeatedly such as in stop and go driving while the engine is warming up.</p>
+    <p><span class="clsEmphBOLD">Scenario D: </span></p>
+    <p>A hesitation and/or lack or power may be felt while operating the vehicle with an engine speed of 1500-3500rpm.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Reprogram the ECM ONLY after confirming any of the scenarios as described above are present.</span></div><h3>SERVICE PROCEDURE/INFORMATION</h3>
+    
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+ Customer satisfaction and retention starts with performing quality repairs.</p>
+    <ul class="BULLET">
+      <li>Reprogram the ECM following the normal FlashWrite procedure.</li>
+      <li>See the information below for pak file applicability.</li>
+    </ul>
+    <p>Subaru of America, Inc. (SOA) highly recommends connecting either the Subaru Midtronics DCA8000 Dynamic Diagnostic Charging System or the Subaru Midtronics GR8-1100 Diagnostic Battery Charger to the vehicle and utilizing the Power Supply Mode feature anytime a vehicle control module is being reprogrammed. Once the Midtronics charger is connected to the vehicle, if the battery is fully charged, it takes less than three (3) minutes to boot-up the charger, select the Power Supply Mode, and have the battery voltage stabilized and ready for reprogramming.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+          <li>For instructions on using the power supply mode, reference the applicable User Manual for the Midtronics DCA-8000 Dynamic Diagnostic Charging System and the Midtronics GR8-1100 Diagnostic Battery Charger on STIS.</li>
+          <li>Confirm all electrical loads such as lights, audio, HVAC, seat heaters, and rear defroster are all switched OFF before setting up the charger for Power Supply Mode.</li>
+          <li>Select the correct battery type (Flooded, EFB, Gel, AGM or AGM Spiral).</li>
+          <li>Input the CCA which matches the vehicle's battery.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>OE and replacement batteries have different CCA ratings. Always confirm the battery's CCA rating before proceeding.</span></div>
+          </li>
+          <li>If using a DCA-8000 Dynamic Diagnostic Charging System, set the power supply voltage to 13.5 volts.</li>
+          <li>DO NOT connect the DST-i or SDI until the Power Supply mode function has completed its battery test mode and the Charging Voltage has dropped to and shows a steady 13.5 Volts on the display.</li>
+          <li>Once Power Supply Mode reaches a steady 13.5 volts, connect the DST-i or SDI to the OBD connector and proceed with initiating the normal FlashWrite reprogramming process.</li>
+          <li>Amperage will fluctuate based upon the vehicle's demand for power.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If the voltage rises beyond 14V while programming is in process, the procedure will abort. This can indicate a need to test or charge the vehicle battery before any further attempt at programming is made.</span></div>
+          </li>
+        </ul></span></div>
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+ If the DCA-8000 or GR8-1100 indicates the vehicle's battery must be charged, charge the battery fully before proceeding to reprogram the vehicle while using the Power Supply Mode.</p>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Control module failures resulting from battery discharge during reprogramming are not a matter for warranty. Should any DTCs reset after the reprogramming update is performed, diagnose per the procedure outlined in the applicable Service Manual.</span></div>
+    <p><span class="clsEmphBOLD">VERY IMPORTANT: </span></p>
+    <p>This information is applicable to the Subaru Midtronics DCA-8000 Dynamic Diagnostic Charging System and the Subaru Midtronics GR8-1100 Diagnostic Battery Charger <span class="clsEmphBOLD">ONLY. </span>
+ It does not apply to any other brand/type of &quot;generic&quot; battery charger whatsoever. <span class="clsEmphBOLD">ONLY </span>
+ the DCA-8000 and the GR8-1100 and their Power Supply Mode feature have been tested and approved by SOA.</p><h3>PAK FILE APPLICABILITY</h3>
+    <a name="S258207803520220629000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">MY</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Model</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Specification</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Old CID #</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">File Name</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Decryption Keyword</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">New CID #</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="MIDDLE" rowspan="41" align="center" class="clsCellNormal">2017</td>
+          <td valign="MIDDLE" rowspan="41" align="center" class="clsCellNormal">Impreza</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">2.0L NA, 5MT AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59A</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">22765AU28A.pak</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">BD9CAD75</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">XH3J2G0C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59H</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59J</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ59K</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="11" align="center" class="clsCellNormal">2.0L NA, CVT AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60A</td>
+          <td valign="MIDDLE" rowspan="11" align="center" class="clsCellNormal">22765AU29A.pak</td>
+          <td valign="MIDDLE" rowspan="11" align="center" class="clsCellNormal">FE01CFEB</td>
+          <td valign="MIDDLE" rowspan="11" align="center" class="clsCellNormal">XH3J2G0D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60H</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60I</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60J</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ60K</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">2.0L NA, 5MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61A</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">22765AU30A.pak</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">C3C6AC44</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">XH3J2G0A</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61H</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61J</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ61K</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">2.0L NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71A</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">22765AU31A.pak</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">182F9B0B</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">XH3J2G0B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71H</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71J</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AL71K</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="24" align="center" class="clsCellNormal">2018</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">Impreza</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">2.5L NA, CVT AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28A</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">22765AM28J.pak</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">B8D823C7</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">XH3JD00D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM28H</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="16" align="center" class="clsCellNormal">Crosstrek</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">2.0L NA, 6MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ610</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">22765AJ618.pak</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">F9F53E35</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">XH3J2G0E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ611</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ612</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ613</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ614</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ615</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ616</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ617</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">2.0L NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ620</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">22765AJ628.pak</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">B9308D26</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">XH3J2G0F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ621</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ622</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ623</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ624</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ625</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ626</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AJ627</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="36" align="center" class="clsCellNormal">2019</td>
+          <td valign="MIDDLE" rowspan="24" align="center" class="clsCellNormal">Impreza</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">2.0L NA, 5MT AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM64A</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">22765AM64G.pak</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">6E8A55B5</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">XH3NA00C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM64B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM64C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM64D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM64E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM64F</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">2.0L NA, 5MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM65A</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">22765AM65G.pak</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">FAA8D023</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">XH3NA00A</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM65B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM65C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM65D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM65E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM65F</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">2.0L NA, CVT AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66A</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">22765AM66G.pak</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">FC067661</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">XH3NA00D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM66F</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">2.0L NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67A</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">22765AM67G.pak</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">5CC20BED</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">XH3NA00B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67C</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67D</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM67F</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="12" align="center" class="clsCellNormal">Crosstrek</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">2.0L NA, 6MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM810</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">22765AM816.pak</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">D2566269</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">XH3NA00E</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM811</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM812</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM813</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM814</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM815</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">2.0L NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM820</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">22765AM826.pak</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">150AAA5D</td>
+          <td valign="MIDDLE" rowspan="6" align="center" class="clsCellNormal">XH3NA00F</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM821</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM822</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM823</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM824</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AM825</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="17" align="center" class="clsCellNormal">2020</td>
+          <td valign="MIDDLE" rowspan="5" align="center" class="clsCellNormal">Crosstrek</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">2.0L NA, 6MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN930</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">22765AN933.pak</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">FDD0BD32</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">XE1M500E00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN931</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN932</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2.0L NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN950</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">22765AN952.pak</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">18F232B0</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">XE1M500F00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AN951</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="12" align="center" class="clsCellNormal">Impreza</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">2.0L NA, 5MT AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP11A</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">22765AP11D.pak</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">7D36F368</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">XE1M500C00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP11B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP11C</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">2.0L NA, 5MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP12A</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">22765AP12D.pak</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">D7A1DB9B</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">XE1M500A00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP12B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP12C</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">2.0L NA, CVT AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP13A</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">22765AP13D.pak</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">D2C975EC</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">XE1M500D00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP13B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP13C</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">2.0L NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP14A</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">22765AP14D.pak<br>1</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">7B3A4703</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">XE1M500B00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP14B</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP14C</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">2021</td>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">Impreza</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">2.0 NA, MT, AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P100C00G</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">22765AP84C.pak</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">82CE2831</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">XE1P500C00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P10ZC00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P101C00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">2.0 NA, MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P100A00G</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">22765AP85C.pak</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">93FBB29A</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">XE1P500A00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P10ZA00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P101A00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2.0 NA, CVT, AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P100D00G</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">22765AP86C.pak</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">A8F10D31</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">XE1P500D00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P400D00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2.0 NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P100B00G</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">22765AP87C.pak</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">BE951B1F</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">XE1P500B00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P400B00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="7" align="center" class="clsCellNormal">2021 cont.</td>
+          <td valign="MIDDLE" rowspan="7" align="center" class="clsCellNormal">Crosstrek</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">2.0 NA, 6MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P100E00G</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">22765AP922.pak</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">7BE0917B</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">XE1P500E00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P10ZE00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P101E00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">2.0 NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P100F00G</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">22765AP932.pak</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">CF1813CB</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">XE1P500F00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P101F00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P10ZF00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2.5 NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P010G00G</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AP811.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">F3081B11</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1P500G00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="12" align="center" class="clsCellNormal">2022</td>
+          <td valign="MIDDLE" rowspan="8" align="center" class="clsCellNormal">Impreza</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2.0 NA, 5MT, AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R010C00G</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">22765AS27B.pak</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">A06D93F0</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">XE1R200C00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R011C00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2.0 NA, 5MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R010A00G</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">22765AS28B.pak</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">E7D2B96A</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">XE1R200A00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R011A00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2.0 NA, CVT, AGS</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R010D00G</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">22765AS29B.pak</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2E99EA2B</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">XE1R200D00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R100D00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2.0 NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R010B00G</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">22765AS30B.pak</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">5E252BEA</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">XE1R200B00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R100B00G</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="4" align="center" class="clsCellNormal">Crosstrek</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2.0 NA, 6MT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R010E00G</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">22765AS311.pak</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">2B358510</td>
+          <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">XE1R200E00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R011E00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2.0 NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R010F00G</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AS321.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">8F4C1AE5</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R200F00G</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">2.5 NA, CVT</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R010G00G</td>
+          <td valign="TOP" align="center" class="clsCellNormal">22765AS341.pak</td>
+          <td valign="TOP" align="center" class="clsCellNormal">93449D15</td>
+          <td valign="TOP" align="center" class="clsCellNormal">XE1R200G00G</td>
+        </tr>
+      </tbody>
+    </table><h3>WARRANTY/CLAIM INFORMATION</h3>
+    
+    <p>For vehicles within the Basic New Car Limited Warranty period, this repair may be submitted using the following claim information:</p><a name="S022056954820220629000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Description</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Operation #</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Fail Code</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Labor Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">MFI OBDII ECM Reprogramming</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A455-288</td>
+          <td valign="TOP" align="center" class="clsCellNormal">UPG-48</td>
+          <td valign="TOP" align="center" class="clsCellNormal">0.4</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="IMPORTANT"><span class="IMPORTANT_label">
+									IMPORTANT:
+								</span><span>Always note the original Calibration Identification number (CID) the vehicle came in with on the repair order <span class="clsEmphBOLD">before </span>
+ reprogramming and, make sure to list the <span class="clsEmphBOLD">NEW </span>
+ CID for any newly-installed programming (as confirmed from the actual control module <span class="clsEmphBOLD">AFTER </span>
+ installation). The <span class="clsEmphBOLD">NEW </span>
+ CID MUST also be noted on the repair order as this information is required for entry in the Miscellaneous Detail field during claim submission.</span></div>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>The pak file listings provided in this bulletin are the latest available at the time of publishing. Updates are often released thereafter without revision to the original bulletin. For this reason, it is critical to always have the latest version of Select Monitor software installed on your system. You can confirm if a later version is available by entering the CID listed in this bulletin into Flash-Write.</span></div>
+    <p>If a newer CID is shown as available in FlashWrite, reprogram using that file.</p>
+    <p><span class="clsEmphBOLD">IMPORTANT REMINDERS: </span></p>
+    <ul class="BULLET">
+      <li>SOA strongly discourages the printing and/or local storage of service information as previously released information and electronic publications may be updated at any time.</li>
+      <li>Always check for any open recalls or campaigns anytime a vehicle is in for servicing.</li>
+      <li>Always refer to STIS for the latest service information before performing any repairs.</li>
+    </ul>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

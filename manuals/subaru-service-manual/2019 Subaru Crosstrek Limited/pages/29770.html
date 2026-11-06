@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Basic Diagnostic Procedure: Procedure — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14029.html">Section 8 (LAN Communication System (Diagnostics) (HEV))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14029.html#Basic%20Diagnostic%20Procedure/">Basic Diagnostic Procedure</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/29770.html">Procedure</a></div><div class="main"><h1>Basic Diagnostic Procedure: Procedure</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S18222493832020102700000">
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+        <li>Remove foreign matter (dust, water, oil, etc.) from each control module connector during removal and installation.</li>
+        <li>Registration of immobilizer may be needed after the replacement of control modules, etc. For detailed procedure, refer to the &quot;REGISTRATION INSTRUCTIONS FOR IMMOBILIZER&quot; provided as a separate volume.</li>
+      </ul></span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>To check harness for open or short circuits, shake the suspected trouble spot or connector.</li>
+        <li>Perform the diagnosis, and when the control module is replaced as a result of judgment that malfunction is the control module, re-check that the control module was actually malfunctioning. Replace to a new control module, and confirm that the malfunction is eliminated. Then, install the previously removed control module again and check that the malfunction reproduces again.</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S03376785362020102800000"></a><span class="clsEmphBOLD">CHECK PRE-INSPECTION. </span><p>Ask the customer when and how the trouble occurred using the interview check list. Refer to <a href="../pages/15957.html#Check%20List%20For%20Interview/">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;CHECK LIST FOR INTERVIEW</a> .</p>
+      <p>Did you interview the customer?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S27265580382020102800000" location="/api/article/getcontent?articleId=A01114227_S27265580382020102800000_LSTITM">2</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the interview, and Go to  <a class="clsListItemLink" href="#S27265580382020102800000" location="/api/article/getcontent?articleId=A01114227_S27265580382020102800000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S27265580382020102800000"></a><span class="clsEmphBOLD">BASIC INSPECTION (CAN DIAGNOSTIC IS NOT USED). </span><p>Check the power supply circuit of the module which might affect CAN communication problem. Refer to <a href="../pages/16771.html">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;GENERAL DESCRIPTION&gt;INSPECTION&gt;INSPECTION WITHOUT USING CAN DIAGNOSTIC</a> .</p>
+      <p>Is the power supply circuit of each module that is performing CAN communication normal?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S17561404152020102800000" location="/api/article/getcontent?articleId=A01114227_S17561404152020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair or replace the faulty portion, and Go to  <a class="clsListItemLink" href="#S17561404152020102800000" location="/api/article/getcontent?articleId=A01114227_S17561404152020102800000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S17561404152020102800000"></a><span class="clsEmphBOLD">BASIC INSPECTION (CAN DIAGNOSTIC IS USED). </span><p>Check the registration status of the body integrated unit which might affect CAN communication problem. Refer to <a href="../pages/16772.html">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;GENERAL DESCRIPTION&gt;INSPECTION&gt;INSPECTION USING CAN DIAGNOSTIC</a> .</p>
+      <p>Does the registration status of the body integrated unit match with the vehicle specification? (When the Subaru Select Monitor and the body integrated unit cannot communicate, and the registration status cannot be checked, Go to  <a class="clsListItemLink" href="#S17230279262020102800000" location="/api/article/getcontent?articleId=A01114227_S17230279262020102800000_LSTITM">5</a>.)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S05838910252020102800000" location="/api/article/getcontent?articleId=A01114227_S05838910252020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Match the registration status of the body integrated unit with the vehicle specification, and Go to  <a class="clsListItemLink" href="#S05838910252020102800000" location="/api/article/getcontent?articleId=A01114227_S05838910252020102800000_LSTITM">4</a>.</p>
+    </li>
+    <li><a name="S05838910252020102800000"></a><span class="clsEmphBOLD">CHECK COMMUNICATION FOR INITIALIZING. </span><p>Communicate with the all systems by connecting the Subaru Select Monitor.</p>
+      <p>Is the communication for initializing finished for all modules?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S17230279262020102800000" location="/api/article/getcontent?articleId=A01114227_S17230279262020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check the error of communication for initializing. Refer to <a href="../pages/15957.html#Diagnostic%20Procedure%20For%20Subaru%20Select%20Monitor%20Communication/Inspection/">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC PROCEDURE FOR SUBARU SELECT MONITOR COMMUNICATION&gt;INSPECTION</a> .</p>
+    </li>
+    <li><a name="S17230279262020102800000"></a><span class="clsEmphBOLD">CHECK DTC. </span><ol class="ARABICNUM">
+        <li>Start the engine and read all DTCs.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+                <li>When the engine does not start, perform the diagnosis for the engine start malfunction. Refer to <a href="../pages/16773.html#Diagnostics%20with%20Phenomenon/">ENGINE (DIAGNOSTICS) (H4DO (HEV))&gt;DIAGNOSTICS WITH PHENOMENON</a>
+.</li>
+                <li>For detailed operation procedures, refer to &quot;Help&quot; of application.</li>
+              </ul></span></div>
+        </li>
+        <li>Record all DTCs (current malfunction and past malfunction), time stamp and freeze frame data.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>For time stamp, refer to &quot;TIME STAMP&quot; of Common (Diagnostics). Refer to <a href="../pages/14638.html#Time%20Stamp/">COMMON (DIAG)&gt;TIME STAMP</a>
+.</span></div>
+        </li>
+      </ol>
+      <p>Is DTC U**** displayed on Subaru Select Monitor? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S08426507292020102800000" location="/api/article/getcontent?articleId=A01114227_S08426507292020102800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Using the diagnostics with phenomenon, perform inspection. Refer to <a href="../pages/15957.html#Diagnostics%20With%20Phenomenon/">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;DIAGNOSTICS WITH PHENOMENON</a> .</p>
+    </li>
+    <li><a name="S08426507292020102800000"></a><span class="clsEmphBOLD">CHECK USING THE DTC CHECK SHEET. </span><p>Perform the inspection using the DTC check sheet. Refer to <a href="../pages/16774.html">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)&gt;LIST&gt;CHECK USING THE DTC CHECK SHEET</a> .</p>
+      <p>Is CAN communication line faulty?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repair or replace the faulty portion of the harness and then, Go to  <a class="clsListItemLink" href="#S34511802962020102800000" location="/api/article/getcontent?articleId=A01114227_S34511802962020102800000_LSTITM">7</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the diagnosis for the displayed DTCs. And then, Go to  <a class="clsListItemLink" href="#S34511802962020102800000" location="/api/article/getcontent?articleId=A01114227_S34511802962020102800000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S34511802962020102800000"></a><span class="clsEmphBOLD">PERFORM DIAGNOSIS. </span><ol class="ARABICNUM">
+        <li>Using the Subaru Select Monitor, perform the clear memory of all DTCs. Refer to <a href="../pages/14638.html#Clear%20Memory/">COMMON (DIAG)&gt;CLEAR MEMORY</a>
+.</li>
+        <li>Start the engine and read all DTCs. Refer to <a href="../pages/15957.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a> .</li>
+      </ol>
+      <p>Are any DTCs displayed? (Current malfunction)</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Repeat the Basic Diagnostic Procedure from the beginning until DTC is not shown.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Finish the diagnosis.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

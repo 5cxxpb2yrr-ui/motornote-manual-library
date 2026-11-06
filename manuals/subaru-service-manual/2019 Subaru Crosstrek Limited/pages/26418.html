@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Mode $01 (Current Powertrain Diagnostic Data) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14050.html">Section 29 (P-HEV High Voltage Battery System (Diagnostics - Introduction))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14050.html#General%20Scan%20Tool/">General Scan Tool</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14050.html#General%20Scan%20Tool/Operation/">Operation</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/26418.html">Mode $01 (Current Powertrain Diagnostic Data)</a></div><div class="main"><h1>Mode $01 (Current Powertrain Diagnostic Data)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S31060578732024052900000">
+  <p>Refer to data denoting the current operating condition of analog input/output, digital input/output or the powertrain system.</p>
+  <p>A list of the support data and PID (Parameter Identification) codes are shown in the following table.</p><a name="S310605787320240529000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">PID</th>
+        <th align="left" class="clsCellNormal">Data</th>
+        <th align="left" class="clsCellNormal">Unit of measure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">$01</td>
+        <td align="left" class="clsCellNormal">Number of emission-related DTCs and MIL status</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$04</td>
+        <td align="left" class="clsCellNormal">Calculated LOAD Value</td>
+        <td align="left" class="clsCellNormal">%</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$05</td>
+        <td align="left" class="clsCellNormal">Engine Coolant Temperature</td>
+        <td align="left" class="clsCellNormal">°C</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$0C</td>
+        <td align="left" class="clsCellNormal">Engine RPM</td>
+        <td align="left" class="clsCellNormal">rpm</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$0D</td>
+        <td align="left" class="clsCellNormal">Vehicle Speed Sensor</td>
+        <td align="left" class="clsCellNormal">km/h</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$11</td>
+        <td align="left" class="clsCellNormal">Absolute Throttle Position</td>
+        <td align="left" class="clsCellNormal">%</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$1C</td>
+        <td align="left" class="clsCellNormal">OBD requirements for vehicle or engine</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$1F</td>
+        <td align="left" class="clsCellNormal">Time Since Engine Start</td>
+        <td align="left" class="clsCellNormal">sec</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$21</td>
+        <td align="left" class="clsCellNormal">Distance Traveled While MIL is Activated</td>
+        <td align="left" class="clsCellNormal">km</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$30</td>
+        <td align="left" class="clsCellNormal">Number of warm-ups since DTCs cleared</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$31</td>
+        <td align="left" class="clsCellNormal">Distance traveled since DTCs cleared</td>
+        <td align="left" class="clsCellNormal">km</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$33</td>
+        <td align="left" class="clsCellNormal">Barometric Pressure</td>
+        <td align="left" class="clsCellNormal">kPa</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$41</td>
+        <td align="left" class="clsCellNormal">Monitor status this driving cycle</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$42</td>
+        <td align="left" class="clsCellNormal">Control module voltage</td>
+        <td align="left" class="clsCellNormal">V</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$46</td>
+        <td align="left" class="clsCellNormal">Ambient Air Temperature</td>
+        <td align="left" class="clsCellNormal">°C</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$4D</td>
+        <td align="left" class="clsCellNormal">Engine run time while MIL activated</td>
+        <td align="left" class="clsCellNormal">hrs, min</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$4E</td>
+        <td align="left" class="clsCellNormal">Engine run time since DTCs cleared</td>
+        <td align="left" class="clsCellNormal">hrs, min</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$5B</td>
+        <td align="left" class="clsCellNormal">Hybrid Battery Pack Remaining Charge</td>
+        <td align="left" class="clsCellNormal">%</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">$9A</td>
+        <td align="left" class="clsCellNormal">Hybrid/EV Vehicle System Data</td>
+        <td align="left" class="clsCellNormal">V, A</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Refer to general scan tool manufacturer's operation manual to access the present diagnostic data (MODE $01).</span></div>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

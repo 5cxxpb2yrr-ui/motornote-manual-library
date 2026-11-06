@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P060A-94: Hybrid/EV Powertrain Control Module Monitoring Processor Unexpected Operation: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/19439.html">Section 25 (P-HEV Hybrid Powertrain Control System (Diagnostics) (1 Of 4))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/19439.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/">Diagnostic Procedure With Diagnostic Trouble Code (DTC)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/19439.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P060A-94%3A%20Hybrid%2FEV%20Powertrain%20Control%20Module%20Monitoring%20Processor%20Unexpected%20Operation/">DTC P060A-94: Hybrid/EV Powertrain Control Module Monitoring Processor Unexpected Operation</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/19478.html">Notes</a></div><div class="main"><h1>DTC P060A-94: Hybrid/EV Powertrain Control Module Monitoring Processor Unexpected Operation: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S21951371312024020800000">
+  
+  <p><span class="clsEmphBOLD">1. - </span></p>
+  <p><span class="clsEmphBOLD">Outline of diagnosis: </span></p>
+  <p>Information of the sub CPU in Hybrid vehicle control ECU assembly was received at the main CPU, and an unexpected value continued for a predetermined period of time Monitoring function in Hybrid vehicle control ECU assembly detected conflicts caused by calculation fault or sensor fault of Hybrid vehicle control ECU assembly</p>
+  <p>(1 trip detection logic)</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <ol class="ARABICNUM">
+    <li>Normal driving</li>
+    <li>When malfunction continues</li>
+  </ol>
+  <ul class="BULLET">
+    <li>Hybrid system stopped</li>
+  </ul>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14209.html#General%20Description/Caution/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a>
+.</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S20396540742024020800000"></a><span class="clsEmphBOLD">CHECK DTC </span>
+.<p>Read the DTC of [P-HEV Drive Motor] using the Subaru Select Monitor. Refer to <a href="../pages/18899.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV DRIVE MOTOR (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Are DTC P0A3F16, P0A3F21 and P0A3F22 displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis of DTC P0A3F16, P0A3F21 and P0A3F22. Refer to <a href="../pages/18899.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV DRIVE MOTOR (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>If more than one DTC is simultaneously displayed, perform the diagnosis in the order described above.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S42919328802024020800000" location="/api/article/getcontent?articleId=A01463683_S42919328802024020800000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S42919328802024020800000"></a><span class="clsEmphBOLD">CHECK DTC </span>
+.<p>Read the DTC of [Brake Control] using the Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Are DTC C1401, C1402, C1405, C1406, C1413 and C1414 displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis for DTC C1401, C1402, C1405, C1406, C1413 and C1414. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>If more than one DTC is simultaneously displayed, perform the diagnosis in the order described above.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S00323766362024020800000" location="/api/article/getcontent?articleId=A01463683_S00323766362024020800000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S00323766362024020800000"></a><span class="clsEmphBOLD">CHECK DTC </span>
+.<p>Read the DTC of [P-HEV Hybrid Powertrain Control] using the Subaru Select Monitor. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">PHEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Is DTC P060A94 displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S04825356222024020800000" location="/api/article/getcontent?articleId=A01463683_S04825356222024020800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the diagnosis for DTC other than P060A94. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+    </li>
+    <li><a name="S04825356222024020800000"></a><span class="clsEmphBOLD">CHECK FREEZE FRAME DATA </span>
+.<p>Read the freeze frame data value of [P-HEV Hybrid Powertrain Control] using the Subaru Select Monitor. Refer to <a href="../pages/14209.html#Freeze%20Frame%20Data/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;FREEZE FRAME DATA</a>
+.</p>
+      <p>Is the vehicle stop condition ([FR Wheel Speed] and [FL Wheel Speed] are 0 -1.4 km/h (0 - 1 MPH)), and is [Vehicle Speed Signal] less than 3 km/h (2 MPH)?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Replace Hybrid vehicle control ECU assembly. Refer to <a href="../pages/14210.html#Hybrid%20Powertrain%20Control%20Module/">HYBRID ELECTRIC VEHICLE&gt;HYBRID POWERTRAIN CONTROL MODULE</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check MOTOR RESOLVER CIRCUIT. For the inspection method, refer to the diagnosis of DTC P0A3F16 for [Drive Motor]. Refer to <a href="../pages/18899.html#Diagnostic%20Procedure%20With%20Diagnostic%20Trouble%20Code%20%28DTC%29/DTC%20P0A3F-16%3A%20Drive%20Motor%20%22A%22%20Position%20Sensor%20Circuit%20Voltage%20Below%20Threshold/">P-HEV DRIVE MOTOR (DIAGNOSTICS)&gt;DIAGNOSTIC PROCEDURE WITH DIAGNOSTIC TROUBLE CODE (DTC)&gt;DTC P0A3F16 DRIVE MOTOR &quot;A&quot; POSITION SENSOR CIRCUIT VOLTAGE BELOW THRESHOLD</a>
+.</p>
+    </li>
+  </ol>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

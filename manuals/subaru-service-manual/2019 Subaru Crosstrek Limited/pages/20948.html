@@ -1,0 +1,155 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P3000-16: Hybrid/EV Battery Control System Circuit Voltage Below Threshold: Notes — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/20907.html">Section 33 (P-HEV High Voltage Battery System (Diagnostics) (4 Of 4))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/20907.html#DTC%20P3000-16%3A%20Hybrid%2FEV%20Battery%20Control%20System%20Circuit%20Voltage%20Below%20Threshold/">DTC P3000-16: Hybrid/EV Battery Control System Circuit Voltage Below Threshold</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/20948.html">Notes</a></div><div class="main"><h1>DTC P3000-16: Hybrid/EV Battery Control System Circuit Voltage Below Threshold: Notes</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S21781944712024052900000">
+  
+  <p><span class="clsEmphBOLD">1. - </span></p>
+  <p><span class="clsEmphBOLD">Outline of diagnosis: </span></p>
+  <ul class="BULLET">
+    <li>Receive error signal from Battery ECU assembly</li>
+    <li>When any cell voltage widely decreased</li>
+  </ul>
+  <p>(1 trip detection logic)</p>
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>Hybrid system stopped</p>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14208.html#General%20Description/Caution/">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a>
+.</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>Because DTC P300016 may be output due to decreased SOC caused by long-term leave in N range or lack of fuel, perform complete interview.</li>
+        <li>Inability of engine start may disable to charge HV battery and cause DTC P300016 output.</li>
+        <li>In the case of diagnosis of the HV battery in which the remaining capacity of each battery cell varies, the Hybrid Fail Lamp may come on informing of the diagnosis result. In this case, check the DTC of hybrid system. If DTC P300016 is output, wait for 10 minutes or more in READY ON state until recovery of voltage and then clear the DTC.</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S22116120202024052900000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Read the following DTCs using Subaru Select Monitor. Refer to <a href="../pages/14208.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HIGH VOLTAGE BATTERY (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+. Refer to <a href="../pages/14209.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <ul class="BULLET">
+        <li>P-HEV High Voltage Battery</li>
+        <li>P-HEV Hybrid Powertrain Control</li>
+      </ul>
+      <p>When &quot;DTC P300000 or P300016 is displayed&quot;, go to  <a class="clsListItemLink" href="#S36157264302024052900000" location="/api/article/getcontent?articleId=A01501224_S36157264302024052900000_LSTITM">A</a>.</p>
+      <p>When DTCs related to [P-HEV High Voltage Battery] other than P300000 or P300016 is simultaneously displayed, go to  <a class="clsListItemLink" href="#S05939121202024052900000" location="/api/article/getcontent?articleId=A01501224_S05939121202024052900000_LSTITM">B</a>.</p>
+      <p>When DTCs related to [P-HEV Hybrid Powertrain Control] other than P300000 or P300016 is simultaneously displayed, go to  <a class="clsListItemLink" href="#S26166750252024052900000" location="/api/article/getcontent?articleId=A01501224_S26166750252024052900000_LSTITM">C</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S36157264302024052900000"></a>Go to  <a class="clsListItemLink" href="#S38325240542024052900000" location="/api/article/getcontent?articleId=A01501224_S38325240542024052900000_LSTITM">2</a>.</li>
+        <li><a name="S05939121202024052900000"></a>Perform the diagnosis for the simultaneously displayed DTCs.</li>
+        <li><a name="S26166750252024052900000"></a>Perform the diagnosis for the simultaneously displayed DTCs.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S38325240542024052900000"></a><span class="clsEmphBOLD">CHECK DTC. </span><p>Read the DTC of [Engine Control System] using the Subaru Select Monitor. Refer to <a href="../pages/15855.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ENGINE (DIAGNOSTICS) (H4DO (HEV))&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Are any DTCs displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis for the displayed DTCs. Refer to <a href="../pages/15855.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">ENGINE (DIAGNOSTICS) (H4DO (HEV))&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S01560133912024052900000" location="/api/article/getcontent?articleId=A01501224_S01560133912024052900000_LSTITM">3</a>.</p>
+    </li>
+    <li><a name="S01560133912024052900000"></a><span class="clsEmphBOLD">CHECK CONNECTOR CONNECTION CONDITION (Battery ECU assembly). </span><div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Make sure to wear insulated gloves and protective goggles during the work.</span></div>
+      <ol class="ARABICNUM">
+        <li>Check that the Service plug is disconnected. Refer to <a href="../pages/14210.html#Service%20Plug/">HYBRID ELECTRIC VEHICLE&gt;SERVICE PLUG</a>
+.</li>
+        <li>Check the connecting condition of connectors (HV37), (HV38), (HV41), (HV40) and (HV39) in Battery ECU assembly and check the relevant terminals for contact pressure.</li>
+      </ol>
+      <p>Is there looseness at the connector connection, or any poor contact, deformation or intrusion of water or foreign matters at the relevant terminals?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Connect the connector securely.</p>
+      <p>Moreover, if the terminal is damaged, replace the HV battery. Refer to <a href="../pages/14210.html#High%20Voltage%20Battery/">HYBRID ELECTRIC VEHICLE&gt;HIGH VOLTAGE BATTERY</a>
+.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S34784154412024052900000" location="/api/article/getcontent?articleId=A01501224_S34784154412024052900000_LSTITM">4</a>.</p>
+    </li>
+    <li><a name="S34784154412024052900000"></a><span class="clsEmphBOLD">CHECK ENGINE START. </span><p>Check if the engine starts.</p>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Never repeat READY ON operations after clearing memory of DTC after reproduction of DTC P300016 because a malfunction, otherwise, may occur.</span></div>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Set the shift lever to &quot;P&quot; and depress the accelerator pedal and the engine starts.</span></div>
+      <p>Does the engine start?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Leave the shift lever placed in P and perform charging in the idling state until Auto Start Stop occurs.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S30367280972024052900000" location="/api/article/getcontent?articleId=A01501224_S30367280972024052900000_LSTITM">5</a>.</p>
+    </li>
+    <li><a name="S30367280972024052900000"></a><span class="clsEmphBOLD">CHECK CRANK PULLEY ROTATION (P POSITION). </span><ol class="ARABICNUM">
+        <li>Check that the shift is placed in P position.</li>
+        <li>Lift up the vehicle at all wheels.</li>
+        <li>Rotate the crank pulley clockwise by hand and check if the crank shaft rotates.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+                <li>Turn to READY ON during inspection. Be sure to check for IG OFF before inspection to prevent the engine starting.</li>
+                <li>It is occasionally difficult to rotate the crank pulley due to resistance with compression in the engine. Therefore check whether or not the rotation can be done (locked/unlocked) by applying appropriate torque by hand (a torque that can rotate the crank pulley in normal engine condition of the same type).</li>
+              </ul></span></div>
+        </li>
+      </ol>
+      <p>Does the crank pulley rotate?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Charge HV battery.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>This is not a malfunction of HV battery. Therefore perform recharging instead of replacement to restore the HV battery.</span></div>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S26679078792024052900000" location="/api/article/getcontent?articleId=A01501224_S26679078792024052900000_LSTITM">6</a>.</p>
+    </li>
+    <li><a name="S26679078792024052900000"></a><span class="clsEmphBOLD">CHECK CRANK PULLEY ROTATION (N POSITION). </span><ol class="ARABICNUM">
+        <li>Depress the brake pedal and shift the select lever to N position.</li>
+        <li>Rotate the crank pulley clockwise by hand and check if the crank shaft rotates.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Turn to READY ON during inspection. Be sure to check for IG OFF before inspection to prevent the engine starting.<br>It is occasionally difficult to rotate the crank pulley due to resistance with compression in the engine. Therefore check whether or not the rotation can be done (locked/unlocked) by applying appropriate torque by hand (a torque that can rotate the crank pulley in normal engine condition of the same type).</span></div>
+        </li>
+      </ol>
+      <p>Does the crank pulley rotate?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S15175571092024052900000" location="/api/article/getcontent?articleId=A01501224_S15175571092024052900000_LSTITM">8</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S01163116672024052900000" location="/api/article/getcontent?articleId=A01501224_S01163116672024052900000_LSTITM">7</a>.</p>
+    </li>
+    <li><a name="S01163116672024052900000"></a><span class="clsEmphBOLD">CHECK ENGINE START. </span><ol class="ARABICNUM">
+        <li>Repair or replace the engine.</li>
+        <li>Check if the engine starts.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Never repeat READY ON operations after clearing memory of DTC after reproduction of DTC P300016 because a malfunction, otherwise, may occur.</span></div>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Set the shift lever to &quot;P&quot; and depress the accelerator pedal and the engine starts.</span></div>
+        </li>
+      </ol>
+      <p>Does the engine start?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Leave the shift lever placed in P and perform charging in the idling state until Auto Start Stop occurs.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Charge HV battery.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>This is not a malfunction of HV battery. Therefore perform recharging instead of replacement to restore the HV battery.</span></div>
+    </li>
+    <li><a name="S15175571092024052900000"></a><span class="clsEmphBOLD">CHECK ENGINE START. </span><ol class="ARABICNUM">
+        <li>Replace Transmission assembly. Refer to <a href="../pages/15959.html#Transmission%20Assembly/">CONTINUOUSLY VARIABLE TRANSMISSION (TH2A)&gt;TRANSMISSION ASSEMBLY</a>
+.</li>
+        <li>Check if the engine starts.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Never repeat READY ON operations after clearing memory of DTC after reproduction of DTC P300016 because a malfunction, otherwise, may occur.</span></div>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Set the shift lever to &quot;P&quot; and depress the accelerator pedal and the engine starts.</span></div>
+        </li>
+      </ol>
+      <p>Does the engine start?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Leave the shift lever placed in P and perform charging in the idling state until Auto Start Stop occurs.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Charge HV battery.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>This is not a malfunction of HV battery. Therefore perform recharging instead of replacement to restore the HV battery.</span></div>
+    </li>
+  </ol>
+  
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

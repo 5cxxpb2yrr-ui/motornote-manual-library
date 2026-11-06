@@ -1,0 +1,325 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Drive Start Control System — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14045.html">Section 24 (P-HEV Hybrid Powertrain Control System (Diagnostics) (General))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14045.html#Diagnostics%20with%20Phenomenon/">Diagnostics with Phenomenon</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14045.html#Diagnostics%20with%20Phenomenon/Inspection/">Inspection</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/27033.html">Drive Start Control System</a></div><div class="main"><h1>Drive Start Control System</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S36101740212024020800000">
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/14209.html#General%20Description/Caution/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;GENERAL DESCRIPTION&gt;CAUTION</a>
+.</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The system output may become large at uphill and small at downhill even when the accelerator pedal is depressed at constant amount. However, this is due to operation of the driving torque control by the drive start control, and not a malfunction.</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S39348234602024020800000"></a><span class="clsEmphBOLD">CHECK SYMPTOMS </span>
+.<p>Interview the customer and check the vehicle condition.</p>
+      <p>If hunting, go to  <a class="clsListItemLink" href="#S39771999052024020800000" location="/api/article/getcontent?articleId=A01463682_S39771999052024020800000_LSTITM">A</a>.</p>
+      <p>If breathing or poor acceleration, go to  <a class="clsListItemLink" href="#S08971091512024020800000" location="/api/article/getcontent?articleId=A01463682_S08971091512024020800000_LSTITM">B</a>.</p>
+      <p><span class="clsEmphBOLD">Yes: </span></p>
+      <ol class="UPPERALPHA">
+        <li><a name="S39771999052024020800000"></a>Go to  <a class="clsListItemLink" href="#S03264459752024020800000" location="/api/article/getcontent?articleId=A01463682_S03264459752024020800000_LSTITM">2</a>.</li>
+        <li><a name="S08971091512024020800000"></a>Go to  <a class="clsListItemLink" href="#S41986565802024020800000" location="/api/article/getcontent?articleId=A01463682_S41986565802024020800000_LSTITM">8</a>.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">No: </span>
+ -</p>
+    </li>
+    <li><a name="S03264459752024020800000"></a><span class="clsEmphBOLD">CHECK OPERATION HISTORY </span>
+.<p>Check if an operation to activate the drive start control is performed.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>During control at reversing and control at shift change, the driving torque is corrected based on slope inclination and steering angle.<ul class="BULLET">
+            <li>Condition 1 (Control at reversing)<p>Control operating condition</p>
+              <ul class="BULLET">
+                <li>Shift position R</li>
+                <li>Accelerator pedal ON</li>
+              </ul><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238107">
+                        <div class="imageHeader"><a name="S32539202632024020800000"></a></div><img alt="G13238107" src="../images/G13238107.png" name="G13238107"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Control items</p>
+              <ul class="BULLET">
+                <li>Restraining of driving torque</li>
+              </ul>
+              <p>Recovery conditions</p>
+              <ul class="BULLET">
+                <li>Shift position other than R</li>
+                <li>Accelerator pedal OFF</li>
+              </ul>
+            </li>
+            <li>Condition 2 (Control a at shift change)<p>Control operating condition</p>
+              <ul class="BULLET">
+                <li>From shift position P to D, or P to R</li>
+                <li>Accelerator pedal ON</li>
+              </ul><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238108">
+                        <div class="imageHeader"><a name="S09188479232024020800000"></a></div><img alt="G13238108" src="../images/G13238108.png" name="G13238108"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Control items</p>
+              <ul class="BULLET">
+                <li>Restraining of driving torque</li>
+              </ul>
+              <p>Recovery conditions</p>
+              <ul class="BULLET">
+                <li>Shift position P or N</li>
+                <li>Accelerator pedal OFF</li>
+              </ul>
+            </li>
+            <li>Condition 3 (Control b at shift change)<p>Control operating condition</p>
+              <ul class="BULLET">
+                <li>From shift position R to D, D (including position B) to R, or N to R</li>
+                <li>Accelerator pedal ON</li>
+              </ul><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238109">
+                        <div class="imageHeader"><a name="S30687069662024020800000"></a></div><img alt="G13238109" src="../images/G13238109.png" name="G13238109"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Control items</p>
+              <ul class="BULLET">
+                <li>Shift position P or N</li>
+              </ul>
+              <p>Recovery conditions</p>
+              <ul class="BULLET">
+                <li>Shift position P or N</li>
+                <li>Accelerator pedal OFF</li>
+              </ul>
+            </li>
+          </ul></span></div>
+      <p>Was the operation in the note above performed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S25694789162024020800000" location="/api/article/getcontent?articleId=A01463682_S25694789162024020800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ System is normal.</p>
+    </li>
+    <li><a name="S25694789162024020800000"></a><span class="clsEmphBOLD">CHECK DTC </span>
+.<p>Read the DTC of [Brake Control] using the Subaru Select Monitor. Refer to <a href="../pages/17452.html#Diagnostic%20Trouble%20Code%20%28DTC%29/">BRAKE CONTROL (DIAGNOSTICS)&gt;DIAGNOSTIC TROUBLE CODE (DTC)</a>
+.</p>
+      <p>Are any DTCs displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Perform the diagnosis for the displayed DTCs.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S33531017172024020800000" location="/api/article/getcontent?articleId=A01463682_S33531017172024020800000_LSTITM">4</a>.</p>
+    </li>
+    <li><a name="S33531017172024020800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR (FR Wheel Speed, FL Wheel Speed, RR Wheel Speed, RL Wheel Speed) </span>
+.<p>Using the Subaru Select Monitor, display the following items in the [Data monitor] of [Brake Control]. Refer to <a href="../pages/17452.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a>
+.</p>
+      <ul class="BULLET">
+        <li>FR Wheel Speed</li>
+        <li>FL Wheel Speed</li>
+        <li>RR Wheel Speed</li>
+        <li>RL Wheel Speed</li>
+      </ul>
+      <p>Is the data as follows?</p>
+      <p>At stall: 0 km/h (0 MPH)</p>
+      <p>During driving at a constant speed (16 - 64 km/h (10 - 40 MPH)): Displayed speed does not fluctuate widely</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S33739884462024020800000" location="/api/article/getcontent?articleId=A01463682_S33739884462024020800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the diagnosis for the brake control. Refer to <a href="../pages/17452.html#Basic%20Diagnostic%20Procedure/">BRAKE CONTROL (DIAGNOSTICS)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+.</p>
+    </li>
+    <li><a name="S33739884462024020800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR (Vehicle Speed Signal) </span>
+.<p>Using the Subaru Select Monitor, display the following items in the [Data monitor] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Data%20Monitor/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a>
+.</p>
+      <ul class="BULLET">
+        <li>Vehicle Speed Signal</li>
+      </ul>
+      <p>Is the data as follows?</p>
+      <p>At stall: 0 km/h (0 MPH)</p>
+      <p>During driving at a constant speed (16 - 64 km/h (10 - 40 MPH)): Displayed speed does not fluctuate widely</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S13485045682024020800000" location="/api/article/getcontent?articleId=A01463682_S13485045682024020800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the diagnosis for the brake control. Refer to <a href="../pages/17452.html#Basic%20Diagnostic%20Procedure/">BRAKE CONTROL (DIAGNOSTICS)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+.</p>
+    </li>
+    <li><a name="S13485045682024020800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR (Yaw Rate Sensor) </span>
+.<p>Using the Subaru Select Monitor, display the following items in the [Data monitor] of [Brake Control]. Refer to <a href="../pages/17452.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a>
+.</p>
+      <ul class="BULLET">
+        <li>Yaw Rate Sensor</li>
+      </ul>
+      <p>Is the data as follows?</p>
+      <p>When decelerating: Change continuously</p>
+      <p>When accelerating: Change continuously</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S12375969972024020800000" location="/api/article/getcontent?articleId=A01463682_S12375969972024020800000_LSTITM">7</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the diagnosis for the brake control. Refer to <a href="../pages/17452.html#Basic%20Diagnostic%20Procedure/">BRAKE CONTROL (DIAGNOSTICS)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+.</p>
+    </li>
+    <li><a name="S12375969972024020800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR (Steering Angle Sensor) </span>
+.<p>Using the Subaru Select Monitor, display the following items in the [Data monitor] of [Brake Control]. Refer to <a href="../pages/17452.html#Data%20Monitor/">BRAKE CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a>
+.</p>
+      <ul class="BULLET">
+        <li>Steering Angle Sensor</li>
+      </ul>
+      <p>Is the data as follows?</p>
+      <p>When operating the steering to the left: Change to positive numbers continuously</p>
+      <p>When operating the steering to the right: Change to negative numbers continuously</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S41986565802024020800000" location="/api/article/getcontent?articleId=A01463682_S41986565802024020800000_LSTITM">8</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the diagnosis for the brake control. Refer to <a href="../pages/17452.html#Basic%20Diagnostic%20Procedure/">BRAKE CONTROL (DIAGNOSTICS)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+.</p>
+    </li>
+    <li><a name="S41986565802024020800000"></a><span class="clsEmphBOLD">CHECK OPERATION HISTORY </span>
+.<p>Check if an operation to activate the drive start control is performed.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>During control at reversing and control at shift change, the driving torque is corrected based on slope inclination and steering angle.<ul class="BULLET">
+            <li>Condition 1 (Control at reversing)<p>Control operating condition</p>
+              <ul class="BULLET">
+                <li>Shift position R</li>
+                <li>Accelerator pedal ON</li>
+              </ul><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238110">
+                        <div class="imageHeader"><a name="S32778080582024020800000"></a></div><img alt="G13238110" src="../images/G13238110.png" name="G13238110"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Control items</p>
+              <ul class="BULLET">
+                <li>Restraining of driving torque</li>
+              </ul>
+              <p>Recovery conditions</p>
+              <ul class="BULLET">
+                <li>Shift position other than R</li>
+                <li>Accelerator pedal OFF</li>
+              </ul>
+            </li>
+            <li>Condition 2 (Control a at shift change)<p>Control operating condition</p>
+              <ul class="BULLET">
+                <li>From shift position P to D, or P to R</li>
+                <li>Accelerator pedal ON</li>
+              </ul><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238111">
+                        <div class="imageHeader"><a name="S04138720092024020800000"></a></div><img alt="G13238111" src="../images/G13238111.png" name="G13238111"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Control items</p>
+              <ul class="BULLET">
+                <li>Restraining of driving torque</li>
+              </ul>
+              <p>Recovery conditions</p>
+              <ul class="BULLET">
+                <li>Shift position P or N</li>
+                <li>Accelerator pedal OFF</li>
+              </ul>
+            </li>
+            <li>Condition 3 (Control b at shift change)<p>Control operating condition</p>
+              <ul class="BULLET">
+                <li>From shift position R to D, D (including position B) to R, or N to R</li>
+                <li>Accelerator pedal ON</li>
+              </ul><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                <colgroup>
+                  <col span="1" id="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">
+                      <div class="imageHolder" id="container_G13238112">
+                        <div class="imageHeader"><a name="S36641916952024020800000"></a></div><img alt="G13238112" src="../images/G13238112.png" name="G13238112"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Control items</p>
+              <ul class="BULLET">
+                <li>Shift position P or N</li>
+              </ul>
+              <p>Recovery conditions</p>
+              <ul class="BULLET">
+                <li>Shift position P or N</li>
+                <li>Accelerator pedal OFF</li>
+              </ul>
+            </li>
+          </ul></span></div>
+      <p>Was the operation in the note above performed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S34868146962024020800000" location="/api/article/getcontent?articleId=A01463682_S34868146962024020800000_LSTITM">9</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ System is normal.</p>
+    </li>
+    <li><a name="S34868146962024020800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR (Shift Position) </span>
+.<p>Using the Subaru Select Monitor, display the following items in the [Data monitor] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Data%20Monitor/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a>
+.</p>
+      <ul class="BULLET">
+        <li>Shift Position</li>
+      </ul>
+      <p>Is the shift position being selected displayed?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S24017877822024020800000" location="/api/article/getcontent?articleId=A01463682_S24017877822024020800000_LSTITM">10</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Perform the diagnosis for transmission. Refer to <a href="../pages/17552.html#Basic%20Diagnostic%20Procedure/">TRANSMISSION (DIAGNOSTICS)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+.</p>
+    </li>
+    <li><a name="S24017877822024020800000"></a><span class="clsEmphBOLD">CHECK DATA MONITOR (Accelerator Position Sensor No. 1 Voltage %, Accelerator Position Sensor No. 2 Voltage %) </span>
+.<p>Using the Subaru Select Monitor, display the following items in the [Data monitor] of [P-HEV Hybrid Powertrain Control]. Refer to <a href="../pages/14209.html#Data%20Monitor/">P-HEV HYBRID POWERTRAIN CONTROL (DIAGNOSTICS)&gt;DATA MONITOR</a>
+.</p>
+      <ul class="BULLET">
+        <li>Accelerator Position Sensor No. 1 Voltage %</li>
+        <li>Accelerator Position Sensor No. 2 Voltage %</li>
+      </ul>
+      <p>Does the display change according to accelerator pedal operation?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ System is normal.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace Accelerator pedal sensor. Refer to SPEED CONTROL SYSTEMS (H4DO (HEV))&gt;GENERAL DESCRIPTION.  
+Refer to <a href="../pages/19750.html#Accelerator%20Pedal/">ACCELERATOR PEDAL</a>
+. </p>
+    </li>
+  </ol>
+  <p><span class="clsEmphBOLD">GENERAL DESCRIPTION </span></p>
+  <p><span class="clsEmphBOLD">Explanation of circuits </span></p>
+  <p>The drive start control is controlled by Hybrid vehicle control ECU assembly.</p>
+  <p>When it is judged that the accelerator pedal and shift are operated differently from usual, the driving torque is restrained and operation notice is indicated on the combination meter as necessary.</p><a name="S361017402120240208000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13238113">
+            <div class="imageHeader"><a name="S34599999532024020800000"></a></div><img alt="G13238113" src="../images/G13238113.png" name="G13238113"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnostic Procedure For Subaru Select Monitor Communication: Inspection — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14021.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14036.html">Section 15 (HVAC System (Diagnostics) (HEV))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14036.html#Diagnostic%20Procedure%20For%20Subaru%20Select%20Monitor%20Communication/">Diagnostic Procedure For Subaru Select Monitor Communication</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/28917.html">Inspection</a></div><div class="main"><h1>Diagnostic Procedure For Subaru Select Monitor Communication: Inspection</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S33832056612020102700000">
+  <p><span class="clsEmphBOLD">Trouble symptom: </span></p>
+  <p>Cannot communicate with [Air Conditioner].</p>
+  <p><span class="clsEmphBOLD">Detecting condition: </span></p>
+  <ul class="BULLET">
+    <li>Defective harness connector</li>
+    <li>Power supply circuit malfunction</li>
+    <li>Defective CAN communication circuit</li>
+    <li>Defective Subaru Select Monitor</li>
+  </ul>
+  <p><span class="clsEmphBOLD">Wiring diagram: </span></p>
+  <ul class="BULLET">
+    <li>Air conditioning system Refer to <a href="../pages/16571.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;AIR CONDITIONING SYSTEM&gt;WIRING DIAGRAM</a>
+.</li>
+    <li>CAN communication system Refer to <a href="../pages/16575.html">WIRING SYSTEM (CROSSTREK MODEL (HEV))&gt;CAN COMMUNICATION SYSTEM&gt;WIRING DIAGRAM</a>
+.</li>
+  </ul><a name="S338320566120201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td valign="TOP" align="left" class="clsCellNormal">
+          <div class="imageHolder" id="container_G13245520">
+            <div class="imageHeader"><a name="S27396928622020102800000"></a></div><img alt="G13245520" src="../images/G13245520.png" name="G13245520"><span class="imageCourtesyNote">Courtesy of SUBARU OF AMERICA, INC.</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Before performing diagnosis, refer to &quot;CAUTION&quot; in &quot;General Description&quot;. Refer to <a href="../pages/19055.html#General%20Description/Caution/">AIR CONDITIONER (DIAGNOSTICS) (HEV)&gt;GENERAL DESCRIPTION&gt;CAUTION</a> .</span></div>
+  <ol class="ARABICNUM">
+    <li><a name="S08843869812020102800000"></a><span class="clsEmphBOLD">CHECK POWER SUPPLY CIRCUIT. </span><p>Connect DST-i to data link connector.</p>
+      <p>Does DST-i turn ON?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S35361886852020102800000" location="/api/article/getcontent?articleId=A01114265_S35361886852020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Go to  <a class="clsListItemLink" href="#S09046096242020102800000" location="/api/article/getcontent?articleId=A01114265_S09046096242020102800000_LSTITM">2</a>.</p>
+    </li>
+    <li><a name="S09046096242020102800000"></a><span class="clsEmphBOLD">CHECK POWER SUPPLY CIRCUIT. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to ON.</li>
+        <li>Using the tester, measure the voltage between data link connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i288) No. 8 (+) - Chassis ground (-):</p>
+          <p>(i288) No. 16 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage 10 V or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S06847701132020102800000" location="/api/article/getcontent?articleId=A01114265_S06847701132020102800000_LSTITM">3</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the power supply circuit.</p>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this case, repair the following item:<ul class="BULLET">
+            <li>Open or ground short circuit of harness between battery and data link connector</li>
+            <li>Blown out of fuse (M/B No. 10, F/B No. 19)</li>
+          </ul></span></div>
+    </li>
+    <li><a name="S06847701132020102800000"></a><span class="clsEmphBOLD">CHECK HARNESS BETWEEN DATA LINK CONNECTOR AND CHASSIS GROUND (OPEN). </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Using the tester, measure the resistance between data link connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i288) No. 4 - Chassis ground:</p>
+          <p>(i288) No. 5 - Chassis ground:</p>
+        </li>
+      </ol>
+      <p>Is the resistance less than 5 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Check for poor contact of the data link connector, and repair a fault, if any. When no fault is found, Go to  <a class="clsListItemLink" href="#S35361886852020102800000" location="/api/article/getcontent?articleId=A01114265_S35361886852020102800000_LSTITM">4</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the harness and connector.</p>
+    </li>
+    <li><a name="S35361886852020102800000"></a><span class="clsEmphBOLD">CHECK SUBARU SELECT MONITOR. </span><ol class="ARABICNUM">
+        <li>Connect the Subaru Select Monitor to a normal vehicle.</li>
+        <li>Turn the ignition switch to ON.</li>
+        <li>Perform communication between the Subaru Select Monitor and vehicle.</li>
+      </ol>
+      <p>Is communication possible?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S21852047432020102800000" location="/api/article/getcontent?articleId=A01114265_S21852047432020102800000_LSTITM">5</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Use another Subaru Select Monitor because the CAN communication circuit of the Subaru Select Monitor is faulty.</p>
+    </li>
+    <li><a name="S21852047432020102800000"></a><span class="clsEmphBOLD">CHECK LAN SYSTEM. </span><p>Check the LAN system. Refer to <a href="../pages/15957.html#Basic%20Diagnostic%20Procedure/">LAN SYSTEM (DIAGNOSTICS) (HEV)&gt;BASIC DIAGNOSTIC PROCEDURE</a>
+.</p>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S28859596842020102800000" location="/api/article/getcontent?articleId=A01114265_S28859596842020102800000_LSTITM">6</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair it according to the diagnosis for LAN system.</p>
+    </li>
+    <li><a name="S28859596842020102800000"></a><span class="clsEmphBOLD">CHECK CONNECTOR. </span><p>Check poor contact of A/C control panel connector and data link connector.</p>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S08215034042020102800000" location="/api/article/getcontent?articleId=A01114265_S08215034042020102800000_LSTITM">7</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the connector.</p>
+    </li>
+    <li><a name="S08215034042020102800000"></a><span class="clsEmphBOLD">CHECK FUSE. </span><ol class="ARABICNUM">
+        <li>Turn the ignition switch to OFF.</li>
+        <li>Remove the fuses No. 8 and No. 14 from main fuse box.</li>
+        <li>Check the fuse.</li>
+      </ol>
+      <p>Is the check result OK?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S03084029842020102800000" location="/api/article/getcontent?articleId=A01114265_S03084029842020102800000_LSTITM">8</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Replace the fuse. If the replaced fuse blows out easily, repair the ground short circuit in harness between the A/C control panel and fuse.</p>
+    </li>
+    <li><a name="S03084029842020102800000"></a><span class="clsEmphBOLD">CHECK A/C CONTROL PANEL POWER SUPPLY CIRCUIT (OPEN). </span><ol class="ARABICNUM">
+        <li>Disconnect the A/C control panel connector.</li>
+        <li>Turn the ignition switch to ON.</li>
+        <li>Measure the voltage between A/C control panel connector and chassis ground.<p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+          <p>(i80) No. 2 (+) - Chassis ground (-):</p>
+          <p>(i329) No. 4 (+) - Chassis ground (-):</p>
+        </li>
+      </ol>
+      <p>Is the voltage 10 V or more?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Go to  <a class="clsListItemLink" href="#S25863497462020102800000" location="/api/article/getcontent?articleId=A01114265_S25863497462020102800000_LSTITM">9</a>.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Check for open or short circuit in the harness between A/C control panel and fuse.</p>
+    </li>
+    <li><a name="S25863497462020102800000"></a><span class="clsEmphBOLD">CHECK A/C CONTROL PANEL GROUND CIRCUIT (OPEN). </span><p>Measure the resistance of harness between A/C control panel and chassis ground.</p>
+      <p><span class="clsEmphBOLD">Connector &amp; terminal </span></p>
+      <p>(i80) No. 3 - Chassis ground:</p>
+      <p>Is the resistance less than 5 Ω?</p>
+      <p><span class="clsEmphBOLD">Yes: </span>
+ Check the connection between the data link connector and Subaru Select Monitor.</p>
+      <p><span class="clsEmphBOLD">No: </span>
+ Repair the harness for ground line.</p>
+    </li>
+  </ol>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

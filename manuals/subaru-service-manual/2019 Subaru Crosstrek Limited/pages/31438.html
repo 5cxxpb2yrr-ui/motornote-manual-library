@@ -1,0 +1,166 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Telematics System Diagnostic Quick-Reference Guide (15-242-19R) — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html">Repair and Diagnosis (Single Page)</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/">Quick Lookups</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/3.html#Quick%20Lookups/Technical%20Bulletins/">Technical Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/618.html">Technical Service Bulletins</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html">Other Variant</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31432.html#Accessories%20%26%20Equipment/">Accessories &amp; Equipment</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/31438.html">Telematics System Diagnostic Quick-Reference Guide (15-242-19R)</a></div><div class="main"><h1>Telematics System Diagnostic Quick-Reference Guide (15-242-19R)</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about the Crosstrek Base, Automatic CVT Trans, which is a different variant/trim than selected.</div>Publication date: 2024-03-19<br>Reference number: 15-242-19R<br>Supersedes refnos: 15-242-19<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>TELEMATICS SYSTEM DIAGNOSTIC QUICK-REFERENCE GUIDE</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>TELEMATICS SYSTEM DIAGNOSTIC QUICK-REFERENCE GUIDE</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): 15-242-19R, Date of Issue: 
+				March 19, 2024<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SUBARU:</td>
+          <td>All 2019-24MY Vehicles</td>
+        </tr>
+      </table>
+    </div><h3>APPLICABILITY</h3>
+    
+    <p>All 2019-24MY Vehicles with Gen 2 Telematics</p><h3>INTRODUCTION</h3>
+    
+    <p>This Service Information bulletin has been developed for use as a quick reference tool to aid in diagnosing operational concerns of the Gen 2 Telematics system's remote access features. It is STRONGLY suggested both Technicians and Service Advisors read through this material carefully and in its entirety as the intent of this tool is to help Service Department staff enhance Customer Satisfaction, save valuable time and in some cases, reduce unnecessary component replacements.</p><h3>SERVICE PROCEDURE/INFORMATION</h3>
+    
+    <p><span class="clsEmphBOLD">VERY IMPORTANT: Any Technician or other retailer personnel who, despite service documentation and training to the contrary, performs a DCM swap on a subscribed vehicle should NEVER release that vehicle back to the customer until after confirming the proper operation of the Telematics system. If the issue is first discovered only after the vehicle has been released to the customer, then the retailer MUST contact the customer immediately to inform the customer the ACN/AACN feature may not be functioning properly, and that the vehicle must be returned for inspection as soon as possible. </span></p>
+    <p><span class="clsEmphBOLD">REMINDER: </span>
+ Customer satisfaction and retention starts with performing quality repairs.</p>
+    <p><span class="clsEmphBOLD">IMPORTANT NOTE: </span>
+ Before performing any diagnosis, ALWAYS confirm an active subscription and the level of that subscription includes the features in question.</p><h3>WARRANTY/CLAIM INFORMATION</h3>
+    
+    <p>For vehicles within the Basic New Car Limited Warranty period or covered by an active Subaru Added Security Gold plan, refer to the Labor Time Guide on Subarunet for the proper claim coding information.</p><a name="S286890115920190604000001"></a><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Remote System/Service Not Functioning</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Inspection Points/Areas</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">Purpose of Inspection/Additional Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="MIDDLE" rowspan="10" align="center" class="clsCellNormal">Customer states the Remote Engine Start (RES) system requests are failing.<div class="NOTE"><span class="NOTE_label">
+							NOTE:
+					</span><span>This information applies to push-button start models only as Key Start models are not equipped with Telematics RES.</span></div>
+          </td>
+          <td valign="TOP" align="center" class="clsCellNormal">Using the Subaru Select Monitor (SSM) confirm operation of LF, RF, LR, RR, R Gate Switch inputs.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">The RES system confirms all doors are closed and locked before starting. Intermittent door switch operation could make RES fail for not seeing the correct door position status.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Using SSM, confirm operation of Hood Switch input.<div class="NOTE"><span class="NOTE_label">
+							NOTE:
+					</span><span>Hood switch is now a component of the hood latch assembly.</span></div>
+          </td>
+          <td valign="TOP" align="center" class="clsCellNormal">The RES system confirms the hood is securely latched prior to starting as a safety feature to ensure there is nobody working in the engine compartment. Intermittent hood switch operation could make RES fail for not seeing the correct hood position status.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Confirm the fuel level using the fuel gauge.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">The RES confirms there is a sufficient amount of fuel in the vehicle prior to starting. Although this varies by vehicle, generally the low fuel light will illuminate when approximately 2.5 gallons or less remain in the tank. A low fuel level, inaccurate fuel level sensor or fuel gauge could be the root cause of RES not completing.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Confirm operation of shift lever and Inhibiter Switch.<br>Check Combination Meter, TCM and KACM (Keyless Access with Push Button Start control module) and also the pid in the BIU for the Park Switch signal (P SW).</td>
+          <td valign="TOP" align="center" class="clsCellNormal">The RES will only start the engine when the vehicle is in Park. An improperly adjusted or malfunctioning Inhibiter Switch could possibly be the root cause of a RES concern.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Verify operation of security system. Ask the customer if a RES was attempted immediately following an alarm system activation.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A malfunctioning security system could be one source. However, after a security system activation occurs, a manual push button start is required before the RES will resume normal operation.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Verify operation of all door locks and the remote keyless entry system through a visual inspection and SSM data (if necessary).</td>
+          <td valign="TOP" align="center" class="clsCellNormal">The RES system locks all doors for safety before starting the vehicle. A malfunctioning door lock actuator, mechanical condition (lock/latch problem) and/or electrical fault may be the root cause of a RES concern.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Using the SSM, check for any DTCs. Is B2A16 current or in history?</td>
+          <td valign="TOP" align="center" class="clsCellNormal">The DCM must be registered with the immobilizer for the RES system to work.<br>Follow the 2019 Registration Manual for Immobilizer Other Than BRZ found on STIS to perform the DCM registration procedure.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Using the SSM, check the following items in the [Data monitor] &gt; [Telematics]</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Confirm the DCM is capable of receiving an Engine Start request signal.<br>Does the PID for Remote Engine Starter Active indicate TRUE? If TRUE, and engine does not start, refer to Telematics System (Diagnostics) &gt; Diagnostics with Phenomenon &gt; Inspection &gt; Telematics Remote Engine Starter/RES Air Conditioner Does Not Function. If FALSE, and it is confirmed the STARLINK subscription includes this feature, there may be a provisioning problem.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Using the SSM, check the following items with<br>[Data monitor] &gt; [Body Control] [Data monitor] &gt; [Keyless Access with Push Button Start]</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Verify the Immobilizer has not been triggered preventing a restart: Body Control - Immobilizer Set Memory = SET<br>Keyless Access with P/B Start - Immobilizer Set Memory = SET<br>IF SET is displayed, have customer contact call the Subaru CRS Call Center to release the lock-out.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Ask customer for details about the RES concern. For example: were any RES requests successful? How many times was RES requested and for what duration?</td>
+          <td valign="TOP" align="center" class="clsCellNormal">After RES start, total maximum runtime will not exceed 20 minutes. Example: 5 Minutes + 5 Minutes + 10 Minutes = 20 minutes total runtime for a total of 3 remote engine start requests.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Customer reports inability to remotely perform an Engine Stop request after trying multiple times.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Ask customer detailed questions about the time the Remote Engine Start Request was made and how long after the successful RES was the Remote engine stop request made? The default configuration of these services sends an email and/or text message to confirm service activation. Use the time stamps from these if available to build a timeline.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">A remote engine stop can only be performed within the first 10 min of a remote engine start request. If the request was for 15 min runtime and the remote engine stop request was performed during minute 11, the customer would receive a fail message which is normal operation of this feature.</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="4" align="center" class="clsCellNormal">Customer states only some remote system requests operate. Examples: Remote Door Locks, Remote Horn and Lights, RES, Remote Climate control (Hybrid model only).</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Ask for details about the concern. For example: was the vehicle parked in a garage? Was the key away from the vehicle and all the dash lamps not illuminated? Were any abnormal warning chimes heard?</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Most of the remote services require the ignition to be in the &quot;OFF&quot; position to operate. Some customers who park in garages or driveways get in the habit of leaving the keys in the car and sometimes forget to verify the position of the ignition switch.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Ask for details about the concern. For example: was the vehicle in park and stationary at the time of the request?</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Almost all remote services require the vehicle not be moving when the request is made. The vehicle confirms first it is in Park. Next, it confirms there is no vehicle speed detected before it will issue a remote services request.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Using the SSM, check the following items in the [Data monitor] &gt; [Telematics]</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Verify the DCM is receiving a Door Lock request.<br>Does the PID for Remote Door Lock Active indicate TRUE? If TRUE and Door Locks are not active, refer to STIS for Security and Locks Inspection procedures.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Using the SSM, check the following items in the<br>[Data monitor] &gt; [Telematics]</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Verify the DCM is receiving a Horn and Lights request.<br>Does the PID for Remote Horn &amp; Lights Active indicate TRUE? If TRUE and Horn &amp; Lights are not active, refer to STIS for Security and Locks Inspection procedures.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Customer states Hybrid Charge Now requests are failing.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Use SSM to verify Hybrid battery state of charge. Ask detailed questions about color and status of LED at the charging inlet.<br>Ask detailed questions about color and status of Power Indicator, Charging Indicator and any Error warning lamps on the dash. Check operation of charging inlet.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Hybrid batteries only charge when the state of charge is less than 70%. There are charging indicator lamps at the charging inlet and inside the cockpit to indicate many different circumstances which could affect charging. Refer to the Hybrid Owner's Manual for specific information on charging, charging port operation and operation of charging indicators. A faulty charge cable, charging inlet or charging inlet lock assembly can all prevent normal charging.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Customer states no remote service requests were working previously but now, all are working to manufacturer specifications.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Make sure to ask detailed questions about the circumstances leading up to the remote services request. For example: When was the last time the vehicle was driven? How long has the vehicle been sitting in airport long-term parking?</td>
+          <td valign="TOP" align="center" class="clsCellNormal">It is required for there to be a key on ignition drive cycle every 14 days in order to keep modules from going in to hibernation mode and to ensure continuous operation. Infrequently used vehicles or those left for extended periods may enter hibernation mode and require a drive cycle to return remote service requests back to normal.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Customer states Remote service requests operate intermittently at some locations.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Ask detailed questions about these locations. Was the location underground, under a metal or solar awning, or inside a concrete structure? Do requests always fail at this location? Are there any unique geographic attributes to the area? For example: on top of a mountain, at the base of a valley, or are there any large broadcast antennae nearby?</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Certain structures or geographic attributes can affect the way cellular signals travel through the air, sometimes weakening or totally blocking the signal. Verifying an area is within good AT&amp;T cellular coverage is a good start. Knowing if there may be other conditions impacting the coverage will help identify potential impacts.</td>
+        </tr>
+        <tr>
+          <td valign="MIDDLE" rowspan="4" align="center" class="clsCellNormal">Customer states intermittent operation of Vehicle Scheduler, Vehicle Locator and Vehicle Security System notifications.</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Ask detailed questions about locations where the concern was noted.<br>Was the location underground, under a metal or solar awning, or inside a concrete structure? Do requests always fail at this location?<br>Are there any unique geographic attributes to the area, for example: at the base of a valley, or while at street level parking in a city where large buildings obstruct clear view of the sky?</td>
+          <td valign="TOP" align="center" class="clsCellNormal">These remote services require the use of GPS. In order for GPS to register and work properly, a clear view of the sky is required. Being in the shadow of large building or mountains can impact signal performance. Parking within certain structures could also impair these functions.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Using the SSM, check the following items:<br>[Data monitor] &gt; [Telematics]</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Verify the DCM is receiving Appointment Scheduler request.<br>Does the PID for Service Appointment Scheduler Active indicate TRUE? Confirm Scheduler was being operated within an ATT 4G LTE coverage area since this feature only functions using 4G LTE.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Using the Subaru Select Monitor, check the following items:<br>[Data monitor] &gt; [Telematics]</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Verify the DCM is receiving a Vehicle Locator request.<br>Does the PID for Vehicle Locator Active indicate TRUE? Make sure the vehicle has clear view of sky and actual vehicle location is within 328 feet of the displayed location.</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">With the vehicle Head Unit (H/U) in Service Diagnostic Mode:<ol class="ARABICNUM">
+              <li>Turn ignition switch to ACC</li>
+              <li>Press Tune/Scroll six times while pressing &quot;HOME&quot; button</li>
+              <li>On Service Menu, Click &quot;Function Check&quot;</li>
+              <li>Select Navigation System Check</li>
+            </ol>
+          </td>
+          <td valign="TOP" align="center" class="clsCellNormal">If vehicle is equipped with Navigation, you can use the Service Diagnostic Mode to verify GPS operation.<br>GPS related check: Status of the GPS signal reception can be checked. When there is faulty reception status, position detection or date indication, re-check the reception status at a location with a clear view of the sky and no obstacles around that will interrupt the signal reception. When normal condition is still not obtained, the GPS antenna may be faulty.<ul class="BULLET">
+              <li>GPS/Reception number: Normal when it is indicated in blue.</li>
+              <li>GPS/Status: Normal when OK is indicated.</li>
+              <li>GPS/Measurement ratio 3D:</li>
+              <li>GPS/Measurement ratio 2D:</li>
+              <li>GPS/Date: Normal when current time is indicated. When current date/time is not indicated, click the Date Setting button to set the current date on the displayed date setting screen.</li>
+              <li>GPS/Position: Normal when longitude and latitude of the current position are indicated.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="clsEmphBOLD">IMPORTANT REMINDERS: </span></p>
+    <ul class="BULLET">
+      <li>SOA strongly discourages the printing and/or local storage of service information as previously released information and electronic publications may be updated at any time.</li>
+      <li>Always check for any open recalls or campaigns anytime a vehicle is in for servicing.</li>
+      <li>Always refer to STIS for the latest service information before performing any repairs.</li>
+    </ul>
+  </body>
+</html>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>

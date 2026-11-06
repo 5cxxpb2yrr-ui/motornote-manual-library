@@ -1,0 +1,823 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Data Monitor: List — 2019 Subaru Crosstrek Limited Service Manual ~ Dogeware Lemon Mirror</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2019 Subaru Crosstrek Limited, including electrical diagrams, bolt torques, and labor times."></head><body><div class="theme-colors header"><div class="branding"><b>Dogeware Lemon Mirror</b>: A 3rd Party Backup of CHARM + LEMON Car Manuals</div><a class="breadcrumb-part" href="../404.html">Home</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">Subaru</a> &gt;&gt; <a class="breadcrumb-part" href="../404.html">2019</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/1.html">Crosstrek Limited</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/2.html">Repair and Diagnosis</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html">External Pages</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14211.html#Different%20variant%2Ftrim/">Different variant/trim</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html">Section 13 (Plug-In Battery Charger (Diagnostics))</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14305.html#Data%20Monitor/">Data Monitor</a> &gt;&gt; <a class="breadcrumb-part" href="../pages/14328.html">List</a></div><div class="main"><h1>Data Monitor: List</h1><div class="other-warning other-announcement"><p>Do you like it dark? Easier on the eyes.</p></div><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S39984609422020102700000"><a name="S399846094220201027000001"></a><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="left">
+      <col span="1" id="COL5" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Item</th>
+        <th align="left" class="clsCellNormal">Contents</th>
+        <th align="left" class="clsCellNormal">Display range</th>
+        <th align="left" class="clsCellNormal">Standard</th>
+        <th align="left" class="clsCellNormal">Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Vehicle Speed</td>
+        <td align="left" class="clsCellNormal">Vehicle speed</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km/h (0 MPH), Max.: 255 km/h (158 MPH)</td>
+        <td align="left" class="clsCellNormal">Vehicle stopped: 0 km/h (0 MPH)<br>While driving at a constant speed: No significant fluctuation</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Engine Speed</td>
+        <td align="left" class="clsCellNormal">Engine speed</td>
+        <td align="left" class="clsCellNormal">Min.: 0 rpm, Max.: 16383 rpm</td>
+        <td align="left" class="clsCellNormal">Engine stopped: 0 rpm<br>While engine running at a constant speed: No significant fluctuation</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Calculate Load</td>
+        <td align="left" class="clsCellNormal">Calculate load</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 100.0%</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">Value increases in proportion to increase in load<ul class="BULLET">
+            <li>Throttle valve status</li>
+            <li>Air cleaner condition</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Coolant Temperature</td>
+        <td align="left" class="clsCellNormal">Engine coolant temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">Cold start Fully warmed up: Gradually rises After warming up: 75 to 100°C (167 to 212°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Engine Run Time</td>
+        <td align="left" class="clsCellNormal">Elapsed time after starting engine</td>
+        <td align="left" class="clsCellNormal">Min.: 0 sec, Max.: 65535 sec</td>
+        <td align="left" class="clsCellNormal">Elapsed time after starting engine</td>
+        <td align="left" class="clsCellNormal">Elapsed time from initial engine start until the power switch is turned off.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Throttle Position Sensor No. 1 Voltage %</td>
+        <td align="left" class="clsCellNormal">Throttle position sensor</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00%, Max.: 100.00%</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Smoothed Value of BATT Voltage</td>
+        <td align="left" class="clsCellNormal">Smoothed value of Battery (12V) voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0.000 V, Max.: 65.535 V</td>
+        <td align="left" class="clsCellNormal">11.000 to 15.000 V</td>
+        <td align="left" class="clsCellNormal">Hybrid vehicle control ECU assembly</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Warmup Cycle Cleared DTC</td>
+        <td align="left" class="clsCellNormal">The number of times the engine is warmed up after clearing DTCs</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 255</td>
+        <td align="left" class="clsCellNormal">MIL OFF, engine coolant temperature increases from below 22°C (71.6°F) before starting the engine to above 70°C (158°F) after starting the engine: Increases once</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Distance from DTC Cleared</td>
+        <td align="left" class="clsCellNormal">Drive distance after clearing DTCs</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km (0 mile), Max.: 65535 km (40723 mile)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Time after DTC Cleared</td>
+        <td align="left" class="clsCellNormal">Elapsed time after clearing DTCs</td>
+        <td align="left" class="clsCellNormal">Min.: 0 min, Max.: 65535 min</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">Time elapsed after DTCs are cleared (Not counted when the power switch is off).</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MIL</td>
+        <td align="left" class="clsCellNormal">MIL status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Running Time from MIL ON</td>
+        <td align="left" class="clsCellNormal">Running time from MIL on</td>
+        <td align="left" class="clsCellNormal">Min.: 0 min, Max.: 65535 min</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Total Distance Traveled</td>
+        <td align="left" class="clsCellNormal">Drive total distance</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km (0 mile), Max.: 16777215 km (10425361 mile)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Total DistanceTraveled - Unit</td>
+        <td align="left" class="clsCellNormal">Drive total distance unit</td>
+        <td align="left" class="clsCellNormal">km or mile</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MIL ON Run Distance</td>
+        <td align="left" class="clsCellNormal">Drive distance from MIL on</td>
+        <td align="left" class="clsCellNormal">Min.: 0 km (0 mile), Max.: 65535 km (40723 mile)</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Number of Emission DTC</td>
+        <td align="left" class="clsCellNormal">Emissions-related DTCs</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 127</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">OBD Requirements</td>
+        <td align="left" class="clsCellNormal">OBD Requirements</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">JOBD and EOBD</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">IGB Signal Status</td>
+        <td align="left" class="clsCellNormal">Charging system power source IGB signal state during plug-in charging (AC)</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Plug-in charging: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">IGCT Signal Status</td>
+        <td align="left" class="clsCellNormal">IGCT signal status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Power switch on (IG) or on (READY): ON</td>
+        <td align="left" class="clsCellNormal">IGCT terminal</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">HV Battery Total Voltage</td>
+        <td align="left" class="clsCellNormal">Total voltage of all HV battery stacks</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 V, Max.: 32767.5 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Voltage for Hybrid Battery</td>
+        <td align="left" class="clsCellNormal">HV battery charging voltage (VCHG value)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 V, Max.: 6553.5 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Number of Auxiliary Battery Voltage Low during Charging</td>
+        <td align="left" class="clsCellNormal">Cumulative Battery (12V) voltage drops during plug-in charging</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 255</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">Counter increments each time the Battery (12V) voltage drops to 9.5 V or less during plug-in charging.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Lid Switch Status</td>
+        <td align="left" class="clsCellNormal">Charging lid switch status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Charge port door open (push lifter of EV charger lid switch assembly (charging lid courtesy switch) extended): ON Charge port door close (push lifter of EV charger lid switch assembly (charging lid courtesy switch) pushed in): OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Lid Lock Pin Request Status</td>
+        <td align="left" class="clsCellNormal">Charge port door lock unlock request signal</td>
+        <td align="left" class="clsCellNormal">Unlock or Lock</td>
+        <td align="left" class="clsCellNormal">Charge port door locked (lock pin extended): Lock</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Lid Light Status</td>
+        <td align="left" class="clsCellNormal">Charging lid light status</td>
+        <td align="left" class="clsCellNormal">OFF/Fade Out/ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Indicator lighting Request</td>
+        <td align="left" class="clsCellNormal">Charging indicator (EV charger lid indicator assembly) illumination request</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Charging indicator (EV charger lid indicator assembly) illumination requested: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Connector Connect Status</td>
+        <td align="left" class="clsCellNormal">Charging connector connection state</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Connecting charging connector: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Connector Connect Status Voltage</td>
+        <td align="left" class="clsCellNormal">PISW terminal voltage used for checking electric vehicle charger cable assembly connection condition</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 79.99 V</td>
+        <td align="left" class="clsCellNormal">Electric vehicle charger cable assembly inserted (Power not supplied): 0.35 to 2.02 V Electric vehicle charger cable assembly inserted (Power supplied): 1.25 to 2.02 V<br>Electric vehicle charger cable assembly not inserted: 3.57 to 4.75 V Electric vehicle charger cable assembly inserted and the latch release button (PI switch) engaged: 2.02 to 3.57 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Connector Lock Switch Status</td>
+        <td align="left" class="clsCellNormal">Charge cable connector lock switch status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Charge cable connector lock/unlock switch being pushed and held: ON Charge cable connector lock/unlock switch not operated: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Connector Lock Pin Status</td>
+        <td align="left" class="clsCellNormal">Charging connector lock pin status</td>
+        <td align="left" class="clsCellNormal">Unlock or Lock</td>
+        <td align="left" class="clsCellNormal">Charging connector locked (lock pin extended): Lock</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Connector Lock Motor Unlock Direction Revolution Request Current</td>
+        <td align="left" class="clsCellNormal">Output of current to operate charging connector lock motor in reverse</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Unlocking Charging connector (operating charging connector lock motor in reverse): ON Charging connector lock motor not operated: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Connector Lock Motor Lock Direction Revolution Request Current</td>
+        <td align="left" class="clsCellNormal">Output of current to operate charging connector lock motor forward</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Locking Charging connector (operating charging connector lock motor forward): ON Charging connector lock motor not operated: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Power Supply Voltage Type</td>
+        <td align="left" class="clsCellNormal">Plug-in charging power source voltage</td>
+        <td align="left" class="clsCellNormal">None/100 V<br>Series/200 V<br>Series</td>
+        <td align="left" class="clsCellNormal">Charging connector not connected or judgment being performed: None AC 100 V power source: 100 V Series AC 200 V power source: 200 V Series</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Operation Status</td>
+        <td align="left" class="clsCellNormal">Charging operation state</td>
+        <td align="left" class="clsCellNormal">Stand by/Ready/Stop</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">Charging operation state signal (CHST)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Operation Request</td>
+        <td align="left" class="clsCellNormal">Charging operation request state</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Charging operation being requested: ON</td>
+        <td align="left" class="clsCellNormal">Charging operation request signal (CHRQ)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Input Power</td>
+        <td align="left" class="clsCellNormal">Power input to Electric vehicle charger assembly from inlet AC charger cable (Charging inlet)</td>
+        <td align="left" class="clsCellNormal">Min.: 0 W, Max.: 327675 W</td>
+        <td align="left" class="clsCellNormal">0 to 4000 W</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Output Power</td>
+        <td align="left" class="clsCellNormal">Power output from Electric vehicle charger assembly</td>
+        <td align="left" class="clsCellNormal">Min.: 0 W, Max.: 327675 W</td>
+        <td align="left" class="clsCellNormal">0 to 3300 W</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Cooling Fan Drive Request</td>
+        <td align="left" class="clsCellNormal">Charger cooling blower drive request</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Charger cooling blower operation being requested: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Cooling Fan Driving Duty</td>
+        <td align="left" class="clsCellNormal">Charger cooling blower operation duty ratio</td>
+        <td align="left" class="clsCellNormal">Min.: 0%, Max.: 100%</td>
+        <td align="left" class="clsCellNormal">0 to 100%</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charger Cooling Fan Revolution</td>
+        <td align="left" class="clsCellNormal">Charger cooling blower speed</td>
+        <td align="left" class="clsCellNormal">Min.: 0 rpm, Max.: 65535 rpm</td>
+        <td align="left" class="clsCellNormal">0 to 7000 rpm</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Permission from Hybrid Control ECU</td>
+        <td align="left" class="clsCellNormal">Charger operation permission signal (CHEN)</td>
+        <td align="left" class="clsCellNormal">NG or OK</td>
+        <td align="left" class="clsCellNormal">Charging permitted: OK Charging prohibited or unsupported: NG</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Permission Continuation Status from Hybrid Control ECU</td>
+        <td align="left" class="clsCellNormal">Charger operation permission signal (CHEN)</td>
+        <td align="left" class="clsCellNormal">NG or OK</td>
+        <td align="left" class="clsCellNormal">Charging permitted: OK Charging prohibited or unsupported: NG</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Permission Continuation Status Reset Request from Hybrid Control ECU</td>
+        <td align="left" class="clsCellNormal">Reset command while charger operation permission signal (CHEN) being received</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Total Number of AC Charging</td>
+        <td align="left" class="clsCellNormal">Cumulative plug-in charging operations</td>
+        <td align="left" class="clsCellNormal">Min.: 0, Max.: 65535</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Charging Total Time</td>
+        <td align="left" class="clsCellNormal">Cumulative plug-in charging time</td>
+        <td align="left" class="clsCellNormal">Min.: 0 min, Max.: 2147483647 min</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Charging Power</td>
+        <td align="left" class="clsCellNormal">Charging power target value</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 kW, Max.: 327.67 kW</td>
+        <td align="left" class="clsCellNormal">0.00 to 3.30 kW</td>
+        <td align="left" class="clsCellNormal">Charging power output request signal (CHPW)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Charging Power from Charger</td>
+        <td align="left" class="clsCellNormal">Charging power target value output from Electric vehicle charger assembly</td>
+        <td align="left" class="clsCellNormal">Min.: 0 W, Max.: 327675 W</td>
+        <td align="left" class="clsCellNormal">0 to 3300 W</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Required Time Calculation Status from Hybrid Control ECU</td>
+        <td align="left" class="clsCellNormal">Charging time required calculation complete/incomplete flag</td>
+        <td align="left" class="clsCellNormal">Incomplete or Complete</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Required Time from Hybrid Control ECU</td>
+        <td align="left" class="clsCellNormal">Calculated charging time required to complete charging</td>
+        <td align="left" class="clsCellNormal">Min.: 0 min, Max.: 65535 min</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Elapsed Time</td>
+        <td align="left" class="clsCellNormal">Time elapsed since plug-in charging started</td>
+        <td align="left" class="clsCellNormal">Min.: 0 sec, Max.: 65535 sec</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage for Monitoring</td>
+        <td align="left" class="clsCellNormal">Effective AC voltage input to Electric vehicle charger assembly from inlet AC charger cable (Charging inlet)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 V, Max.: 32767.5 V</td>
+        <td align="left" class="clsCellNormal">0.0 to 500.0 V</td>
+        <td align="left" class="clsCellNormal">VIN voltage</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage for Control</td>
+        <td align="left" class="clsCellNormal">Effective AC voltage input to Electric vehicle charger assembly from inlet AC charger cable (Charging inlet)</td>
+        <td align="left" class="clsCellNormal">Min.: -65536 V, Max.: 65534 V</td>
+        <td align="left" class="clsCellNormal">0 to 500 V</td>
+        <td align="left" class="clsCellNormal">VAC voltage</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 1 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 1</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 2 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 2</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 3 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 3</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 4 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 4</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 5 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 5</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 6 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 6</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 7 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 7</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 8 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 8</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 9 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 9</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 10 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 10</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 11 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 11</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 12 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 12</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 13 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 13</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 14 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 14</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 15 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 15</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Voltage Instantaneous Value 16 for Waveform Monitoring</td>
+        <td align="left" class="clsCellNormal">VIN sensor waveform voltage (instantaneous value) 16</td>
+        <td align="left" class="clsCellNormal">Min.: -512 V, Max.: 508 V</td>
+        <td align="left" class="clsCellNormal">-500 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Time Cycle of Charging Voltage Zero Crossing Point</td>
+        <td align="left" class="clsCellNormal">AC input voltage zero cross cycle</td>
+        <td align="left" class="clsCellNormal">Min.: 0 ms, Max.: 255 ms</td>
+        <td align="left" class="clsCellNormal">15 to 22 ms</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Plug-in Control ECU Voltage (+B)</td>
+        <td align="left" class="clsCellNormal">Electric vehicle charger assembly internal voltage (+B)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 79.99 V</td>
+        <td align="left" class="clsCellNormal">11.0 to 15.0 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Plug-in Control ECU Voltage (SMP5)</td>
+        <td align="left" class="clsCellNormal">Internal power source voltage (SMP5)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 79.99 V</td>
+        <td align="left" class="clsCellNormal">4.50 to 5.50 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Plug-in Control ECU Voltage (VOMS5)</td>
+        <td align="left" class="clsCellNormal">Internal power source voltage (VOMS5)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 79.99 V</td>
+        <td align="left" class="clsCellNormal">4.50 to 5.50 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Plug-in Control ECU Voltage (VOM5)</td>
+        <td align="left" class="clsCellNormal">Internal power source voltage (VOM5)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 79.99 V</td>
+        <td align="left" class="clsCellNormal">4.50 to 5.50 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Plug-in Control ECU Voltage (VOMC5)</td>
+        <td align="left" class="clsCellNormal">Internal power source voltage (VOMC5)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 79.99 V</td>
+        <td align="left" class="clsCellNormal">4.50 to 5.50 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Plug-in Control ECU System Voltage (+12.5 V)</td>
+        <td align="left" class="clsCellNormal">Internal power source voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 V, Max.: 25.5 V</td>
+        <td align="left" class="clsCellNormal">12.5 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Plug-in Control ECU System Voltage (+1.15 V)</td>
+        <td align="left" class="clsCellNormal">Internal power source voltage</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 4.98 V</td>
+        <td align="left" class="clsCellNormal">1.15 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Plug-in Control ECU System Voltage (-7.5 V)</td>
+        <td align="left" class="clsCellNormal">Internal power source voltage</td>
+        <td align="left" class="clsCellNormal">Min.: -20.00 V, Max.: 19.84 V</td>
+        <td align="left" class="clsCellNormal">-7.50 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AC Input Current</td>
+        <td align="left" class="clsCellNormal">Effective input alternating current (IAC)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 A, Max.: 25.5 A</td>
+        <td align="left" class="clsCellNormal">0.0 to 16.0 A</td>
+        <td align="left" class="clsCellNormal">IAC current</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Current Upper Limit</td>
+        <td align="left" class="clsCellNormal">Maximum supply current</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 A, Max.: 327.67 A</td>
+        <td align="left" class="clsCellNormal">0.00 to 16.00 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Current Duty from Charger</td>
+        <td align="left" class="clsCellNormal">Duty value of CPLT signal generated at the electric vehicle charger cable assembly side (including EVSE (charging station))</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0%, Max.: 100.0%</td>
+        <td align="left" class="clsCellNormal">0.0 to 100.0 %</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Allowable amperage from EVSE (charging station) can be determined based on CPLT duty.<p>(Allowable amperage [A]</p>
+              <p>= CPLT duty value x 0.6)</p>
+            </li>
+            <li>The Electric vehicle charger assembly limits the amperage based on CPLT duty value.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Time Cycle of Charging Current Duty from Charger</td>
+        <td align="left" class="clsCellNormal">Duration of 1 cycle of CPLT</td>
+        <td align="left" class="clsCellNormal">Min.: 0 us, Max.: 65535 us</td>
+        <td align="left" class="clsCellNormal">CPLT (control pilot signal) generated: 951 to 1049 us</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Current Limit Status from Charger</td>
+        <td align="left" class="clsCellNormal">Existence of charging current restriction</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">ILMT: Charging current restriction value</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Power Output Limit from Charger</td>
+        <td align="left" class="clsCellNormal">Electric vehicle charger assembly output power limit</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Output power restriction operating: ON Output power restriction not operating or not supported: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Power Limit (Charging Voltage Low)</td>
+        <td align="left" class="clsCellNormal">Charging power limit (throttling control)</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Charging power limited (throttling control operating): ON<br>Throttling control prohibited or unsupported: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Timer Charging Switch Status</td>
+        <td align="left" class="clsCellNormal">Timer charging switch status</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Timer charging switch (Fuel control switch) being pushed and held: ON Timer charging switch (Fuel control switch) not operated: OFF</td>
+        <td align="left" class="clsCellNormal">PTMS terminal</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Timer Charging Reserve Cancel Request</td>
+        <td align="left" class="clsCellNormal">Timer charging cancel request for remote air conditioning operation to start plug-in charging</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Cancellation of scheduled timer charging requested: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PFC Boosting Circuit Driver Drive Status</td>
+        <td align="left" class="clsCellNormal">PFC booster circuit drive control operation state</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target PFC Boosting Circuit Boosted Voltage</td>
+        <td align="left" class="clsCellNormal">PFC booster circuit target boosted voltage value</td>
+        <td align="left" class="clsCellNormal">Min.: 0 V, Max.: 510 V</td>
+        <td align="left" class="clsCellNormal">0 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Voltage after Boosting by PFC Boosting Circuit</td>
+        <td align="left" class="clsCellNormal">Voltage after boosting by PFC boosting circuit</td>
+        <td align="left" class="clsCellNormal">Min.: 0 V, Max.: 510 V</td>
+        <td align="left" class="clsCellNormal">0 to 500 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Current after Boosting by PFC Boosting Circuit</td>
+        <td align="left" class="clsCellNormal">Current after boosting by PFC boosting circuit</td>
+        <td align="left" class="clsCellNormal">Min.: -64.0 A, Max.: 63.5 A</td>
+        <td align="left" class="clsCellNormal">0.0 to 50.0 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PFC Boosting Circuit Current Amplitude</td>
+        <td align="left" class="clsCellNormal">PFC booster circuit maximum current</td>
+        <td align="left" class="clsCellNormal">Min.: -64.0 A, Max.: 63.5 A</td>
+        <td align="left" class="clsCellNormal">0.0 to 16.0 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PFC Boosting Circuit Temperature</td>
+        <td align="left" class="clsCellNormal">PFC booster circuit temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-40 to 150°C (-40 to 302°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PFC Boosting Circuit Output Limit Status (Over Temperature)</td>
+        <td align="left" class="clsCellNormal">Power save state due to PFC booster circuit temperature</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Driver Drive Status (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging HV battery) drive control operating state</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">DC/DC Converter Control Mode (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging HV battery) control state</td>
+        <td align="left" class="clsCellNormal">Consecutive Mode or Not Consecutive Mode</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Sub DC/DC Converter Current (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging HV battery) target current value</td>
+        <td align="left" class="clsCellNormal">Min.: -64.0 A, Max.: 63.5 A</td>
+        <td align="left" class="clsCellNormal">0.0 to 50.0 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">DC/DC Converter Temperature (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging HV battery) temperature</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-40 to 150°C (-40 to 302°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">DC/DC Converter Output Limit Status (for Charging) (Over Temperature)</td>
+        <td align="left" class="clsCellNormal">Power save state due to DC/DC converter (for charging HV battery) temperature</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Operation Status (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) status signal sent to Hybrid vehicle control ECU assembly</td>
+        <td align="left" class="clsCellNormal">Stand by/Ready/Stop</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Drive Request (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) operation permission signal output by Electric vehicle charger assembly</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Operation Permission from Hybrid Control ECU (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) operation permission signal output by Hybrid vehicle control ECU assembly</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Operation Permission to Sub DC/DC Converter (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging<br>Battery (12V)) operation permission signal output by Electric vehicle charger assembly</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging<br>Battery (12V)) operation command output: ON<br>DC/DC converter (for charging Battery (12V)) stop command output: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Sub DC/DC Converter Voltage to Sub DC/DC Converter (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) output voltage request from Electric vehicle charger assembly</td>
+        <td align="left" class="clsCellNormal">Min.: 0.0 V, Max.: 25.5 V</td>
+        <td align="left" class="clsCellNormal">0.0 to 13.5 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Sub DC/DC Converter Voltage from Hybrid Control ECU (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) output voltage request from Hybrid vehicle control ECU assembly</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 79.99 V</td>
+        <td align="left" class="clsCellNormal">0.00 to 13.50 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Target Sub DC/DC Converter Voltage (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) target output voltage value</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 4.98 V</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) operated: 0.00 to 4.98 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Output Voltage (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) output voltage (sensor value)</td>
+        <td align="left" class="clsCellNormal">Min.: 0.00 V, Max.: 79.99 V</td>
+        <td align="left" class="clsCellNormal">11.00 to 15.00 V</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Output Current (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) output current (sensor value)</td>
+        <td align="left" class="clsCellNormal">Min.: -327.68 A, Max.: 327.67 A</td>
+        <td align="left" class="clsCellNormal">0.00 to 21.00 A</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Constant Current Control (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) constant current control state</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">Constant current control being performed: ON Constant current control not being performed: OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Temperature (for Charging)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) temperature (sensor value)</td>
+        <td align="left" class="clsCellNormal">Min.: -40°C (-40°F), Max.: 215°C (419°F)</td>
+        <td align="left" class="clsCellNormal">-40 to 150°C (-40 to 302°F)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Sub DC/DC Converter Stop Request (for Charging) (Over Temperature)</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) overheating stop request</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">DC/DC converter (for charging Battery (12V)) overheating stop requested: ON</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Relay Connect Request in CCID Box from CCID Box</td>
+        <td align="left" class="clsCellNormal">CCID (charging circuit interrupting device) relay state request signal</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Charging Relay Connect Request in CCID Box from Plug-in Control ECU</td>
+        <td align="left" class="clsCellNormal">CCID (charging circuit interrupting device) relay close request signal</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Rush Current Prevention Resistance Relay Activate Request</td>
+        <td align="left" class="clsCellNormal">Inrush current protection relay operation request signal</td>
+        <td align="left" class="clsCellNormal">ON or OFF</td>
+        <td align="left" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><div class="theme-colors footer"><i>Such Wow! Many Redundancy!</i> · <a href="../about.html">About Dogeware Lemon Mirror</a></div><script src="../script.js"></script></body></html>
