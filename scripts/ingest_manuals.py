@@ -172,13 +172,16 @@ def clean_manual_html(path: Path) -> bool:
     # wrappers left empty after dead mirror-only links are removed.
     cleaned = re.sub(r"\s*~\s*Dogeware Lemon Mirror", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"<li\b[^>]*>\s*</li>", "", cleaned, flags=re.IGNORECASE)
-    # Some LEMON mirrors leave a download icon without a working download link.
+    # Mirror HTML often omits closing </li> tags. Remove the orphaned download
+    # icon whether or not its list item has an explicit closing tag.
     cleaned = re.sub(
-        r"""<li\b[^>]*>\s*<img\b(?=[^>]*\bsrc\s*=\s*['"][^'"]*download\.svg)[^>]*>\s*</li>""",
+        r"""<li\b[^>]*>\s*<img\b(?=[^>]*\bsrc\s*=\s*['"][^'"]*download\.svg)[^>]*>\s*(?:</li>)?""",
         "",
         cleaned,
         flags=re.IGNORECASE,
     )
+    # Browsers implicitly close an empty final list item immediately before </ul>.
+    cleaned = re.sub(r"<li\b[^>]*>\s*(?=</ul>)", "", cleaned, flags=re.IGNORECASE)
     if cleaned == source:
         return False
 
