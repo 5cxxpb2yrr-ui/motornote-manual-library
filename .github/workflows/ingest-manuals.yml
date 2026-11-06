@@ -16,10 +16,15 @@ on:
         type: boolean
         default: false
       upload_limit:
-        description: "Maximum documents for a manual test upload"
+        description: "Maximum documents for a manual test upload (ignored when targeted paths are supplied)"
         required: true
         type: string
         default: "20"
+      targeted_paths:
+        description: "Optional newline-separated paths relative to manuals/; uploads only these files"
+        required: false
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -95,9 +100,16 @@ jobs:
         env:
           MOTORNOTE_API_URL: https://motornote-manual-retrieval.phillipstg.workers.dev
           MOTORNOTE_API_TOKEN: ${{ secrets.MOTORNOTE_API_TOKEN }}
+          TARGETED_PATHS: ${{ inputs.targeted_paths }}
+          UPLOAD_LIMIT: ${{ inputs.upload_limit }}
         run: |
           if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-            python scripts/sync_manuals_to_retrieval.py --limit "${{ inputs.upload_limit }}"
+            if [ -n "$TARGETED_PATHS" ]; then
+              printf "%s\\n" "$TARGETED_PATHS" > /tmp/motornote-targeted-paths.txt
+              python scripts/sync_manuals_to_retrieval.py --paths-from-file /tmp/motornote-targeted-paths.txt
+            else
+              python scripts/sync_manuals_to_retrieval.py --limit "$UPLOAD_LIMIT"
+            fi
           else
             python scripts/sync_manuals_to_retrieval.py
           fi

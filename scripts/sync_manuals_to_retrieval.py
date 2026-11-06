@@ -81,6 +81,7 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true", help="report file counts and sizes without uploading")
     parser.add_argument("--include-images", action="store_true", help="also upload image and SVG assets; excluded by default")
     parser.add_argument("--limit", type=int, default=None, help="process at most this many selected files (useful for a smoke test)")
+    parser.add_argument("--paths-from-file", type=Path, help="upload only the manual-relative paths listed one per line")
     args = parser.parse_args()
 
     if not MANUALS.is_dir():
@@ -116,6 +117,36 @@ def main() -> int:
     for ext in sorted(counts):
         print(f"  {ext}: {counts[ext]} files, {sizes[ext] / (1024 * 1024):.1f} MiB, skipped={oversized[ext]}")
     eligible.sort(key=lambda path: path.relative_to(MANUALS).as_posix().lower())
+    if args.paths_from_file:
+        if not args.paths_from_file.is_file():
+            parser.error(f"path list not found: {args.paths_from_file}")
+        requested = []
+        seen = set()
+        for line_number, raw in enumerate(args.paths_from_file.read_text(encoding="utf-8").splitlines(), 1):
+            value = raw.strip()
+            if not value or value.startswith("#"):
+                continue
+            candidate = (MANUALS / value).resolve()
+            try:
+                candidate.relative_to(MANUALS.resolve())
+            except ValueError:
+                parser.error(f"path on line {line_number} escapes manuals directory")
+            if candidate in seen:
+                continue
+            seen.add(candidate)
+            if not candidate.is_file():
+                parser.error(f"requested manual file does not exist: {value}")
+            ext = candidate.suffix.lower()
+            if ext not in selected_extensions:
+                parser.error(f"requested file type is not enabled: {value}")
+            size = candidate.stat().st_size
+            if size == 0 or size > LIMIT_MIB[ext] * 1024 * 1024:
+                parser.error(f"requested file is empty or exceeds size limit: {value}")
+            requested.append(candidate)
+        if not requested:
+            parser.error("--paths-from-file did not contain any usable paths")
+        eligible = requested
+        print(f"Targeted paths: {len(eligible)} explicitly selected files")
     if args.limit is not None:
         if args.limit < 1:
             parser.error("--limit must be at least 1")
