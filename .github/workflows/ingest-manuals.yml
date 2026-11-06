@@ -105,7 +105,7 @@ jobs:
         run: |
           if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
             if [ -n "$TARGETED_PATHS" ]; then
-              printf "%s\\n" "$TARGETED_PATHS" > /tmp/motornote-targeted-paths.txt
+              printf '%s\n' "$TARGETED_PATHS" > /tmp/motornote-targeted-paths.txt
               python scripts/sync_manuals_to_retrieval.py --paths-from-file /tmp/motornote-targeted-paths.txt
             else
               python scripts/sync_manuals_to_retrieval.py --limit "$UPLOAD_LIMIT"
