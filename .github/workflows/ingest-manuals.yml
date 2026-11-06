@@ -18,8 +18,8 @@ on:
       upload_limit:
         description: "Maximum documents for a manual test upload"
         required: true
-        type: number
-        default: 20
+        type: string
+        default: "20"
 
 permissions:
   contents: write
