@@ -1,5 +1,5 @@
 const INSTANCE_ID = "motornote-manuals";
-const MAX_DOCUMENT_BYTES = 20 * 1024 * 1024;
+const MAX_BYTES_BY_EXTENSION = { html: 10, htm: 10, txt: 10, md: 10, pdf: 10, png: 4, jpg: 4, jpeg: 4, webp: 4, svg: 4 };
 const ALLOWED_EXTENSIONS = new Set(["html", "htm", "txt", "md", "pdf", "png", "jpg", "jpeg", "webp", "svg"]);
 
 function json(data, status = 200) {
@@ -74,11 +74,12 @@ export default {
       if (!sourcePath || !key || !ALLOWED_EXTENSIONS.has(extension)) {
         return json({ error: "Valid x-source-path and x-document-key headers are required; unsupported file type." }, 400);
       }
+      const maxBytes = MAX_BYTES_BY_EXTENSION[extension] * 1024 * 1024;
       const declaredLength = Number(request.headers.get("content-length") || 0);
-      if (declaredLength > MAX_DOCUMENT_BYTES) return json({ error: "Document exceeds 20 MiB limit." }, 413);
+      if (declaredLength > maxBytes) return json({ error: `Document exceeds the ${MAX_BYTES_BY_EXTENSION[extension]} MiB AI Search limit.` }, 413);
       const bytes = await request.arrayBuffer();
-      if (bytes.byteLength === 0 || bytes.byteLength > MAX_DOCUMENT_BYTES) {
-        return json({ error: "Document is empty or exceeds 20 MiB limit." }, 413);
+      if (bytes.byteLength === 0 || bytes.byteLength > maxBytes) {
+        return json({ error: `Document is empty or exceeds the ${MAX_BYTES_BY_EXTENSION[extension]} MiB AI Search limit.` }, 413);
       }
       const contentType = cleanHeader(request.headers.get("content-type"), 120) || "application/octet-stream";
       const metadata = { source_path: sourcePath, make, model, document_type: documentType };
