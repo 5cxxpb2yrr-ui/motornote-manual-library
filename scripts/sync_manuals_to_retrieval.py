@@ -78,6 +78,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="report file counts and sizes without uploading")
     parser.add_argument("--include-images", action="store_true", help="also upload image and SVG assets; excluded by default")
+    parser.add_argument("--limit", type=int, default=None, help="process at most this many selected files (useful for a smoke test)")
     args = parser.parse_args()
 
     if not MANUALS.is_dir():
@@ -112,6 +113,14 @@ def main() -> int:
     print("By extension:")
     for ext in sorted(counts):
         print(f"  {ext}: {counts[ext]} files, {sizes[ext] / (1024 * 1024):.1f} MiB, skipped={oversized[ext]}")
+    eligible.sort(key=lambda path: path.relative_to(MANUALS).as_posix().lower())
+    if args.limit is not None:
+        if args.limit < 1:
+            parser.error("--limit must be at least 1")
+        original_count = len(eligible)
+        eligible = eligible[:args.limit]
+        limited_bytes = sum(path.stat().st_size for path in eligible)
+        print(f"Batch limit: {len(eligible)} of {original_count} selected files, {limited_bytes / (1024 * 1024):.1f} MiB")
     if args.dry_run:
         print("Dry run only; no documents were uploaded.")
         return 0
