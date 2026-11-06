@@ -6,8 +6,6 @@ on:
     paths:
       - "incoming/**/*.zip"
       - "incoming/*.zip"
-      - "scripts/ingest_manuals.py"
-      - ".github/workflows/ingest-manuals.yml"
   workflow_dispatch:
 
 permissions:
@@ -37,7 +35,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
 
       - name: Install PDF text extraction
         run: python -m pip install --upgrade pymupdf
