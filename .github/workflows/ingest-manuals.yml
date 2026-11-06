@@ -75,6 +75,12 @@ jobs:
             git push origin HEAD:main
           fi
 
+      - name: Sync manual content to MotorNote retrieval
+        env:
+          MOTORNOTE_API_URL: https://motornote-manual-retrieval.phillipstg.workers.dev
+          MOTORNOTE_API_TOKEN: ${{ secrets.MOTORNOTE_API_TOKEN }}
+        run: python scripts/sync_manuals_to_retrieval.py
+
       - name: Remove successfully ingested ZIP assets from release
         if: github.event_name == 'release'
         env:
