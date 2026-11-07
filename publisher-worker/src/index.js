@@ -1,6 +1,6 @@
 const EXPECTED_REPOSITORY = "5cxxpb2yrr-ui/motornote-manual-library";
-const EXPECTED_REF = "refs/heads/main";
-const EXPECTED_WORKFLOW = "5cxxpb2yrr-ui/motornote-manual-library/.github/workflows/ingest-manuals.yml@refs/heads/main";
+const MAIN_REF = "refs/heads/main";
+const WORKFLOW_PREFIX = "5cxxpb2yrr-ui/motornote-manual-library/.github/workflows/ingest-manuals.yml@";
 const EXPECTED_AUDIENCE = "motornote-manual-publisher";
 const JWKS_URL = "https://token.actions.githubusercontent.com/.well-known/jwks";
 
@@ -57,9 +57,9 @@ async function verifyGitHubOidc(token) {
     !Number.isFinite(claims.exp) || claims.exp <= now ||
     (Number.isFinite(claims.nbf) && claims.nbf > now + 60) ||
     claims.repository !== EXPECTED_REPOSITORY ||
-    claims.ref !== EXPECTED_REF ||
-    claims.workflow_ref !== EXPECTED_WORKFLOW ||
-    claims.sub !== `repo:${EXPECTED_REPOSITORY}:ref:${EXPECTED_REF}`
+    !(claims.ref === MAIN_REF || (typeof claims.ref === "string" && /^refs\\/tags\\/[A-Za-z0-9._/-]+$/.test(claims.ref))) ||
+    claims.workflow_ref !== WORKFLOW_PREFIX + claims.ref ||
+    claims.sub !== `repo:${EXPECTED_REPOSITORY}:ref:${claims.ref}`
   ) {
     throw new Error("GitHub OIDC claims do not authorize this repository workflow.");
   }
