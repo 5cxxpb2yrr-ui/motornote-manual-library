@@ -47,10 +47,14 @@ export default {
     }
 
     const url = new URL(request.url);
-    let key = safeObjectKey(url.pathname);
-    if (key === null) return new Response("Bad path", { status: 400 });
-    if (url.pathname === "/") key = "index.html";
-    else if (url.pathname.endsWith("/")) key += "/index.html";
+    let key;
+    if (url.pathname === "/") {
+      key = "index.html";
+    } else {
+      key = safeObjectKey(url.pathname);
+      if (key === null) return new Response("Bad path", { status: 400 });
+      if (url.pathname.endsWith("/")) key += "/index.html";
+    }
 
     const object = await env.MANUAL_SITE.get(key);
     if (!object) {
