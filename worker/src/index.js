@@ -27,14 +27,14 @@ function authenticated(request, env) {
 }
 
 function cleanHeader(value, max = 500) {
-  return (value || "").replace(/[\\r\\n\\0]/g, "").trim().slice(0, max);
+  return (value || "").replace(/[\r\n\0]/g, "").trim().slice(0, max);
 }
 
 function sourceDetails(chunk) {
   const item = chunk?.item || {};
   const metadata = item.metadata || {};
   const sourcePath = metadata.source_path || item.key || "Source path unavailable";
-  const pageMatch = sourcePath.match(/(?:^|\\/)pages\\/(\\d+)\\.html?$/i);
+  const pageMatch = sourcePath.match(/(?:^|\/)pages\/(\d+)\.html?$/i);
   return {
     sourcePath,
     page: pageMatch ? Number(pageMatch[1]) : null,
@@ -152,8 +152,8 @@ export default {
             `Source path: ${source.source_path}`,
             source.page ? `Page: ${source.page}` : null,
           ].filter(Boolean).join(" | ");
-          return `[Source ${source.index}] ${details}\\n${source.evidence.join("\\n\\n")}`;
-        }).join("\\n\\n---\\n\\n");
+          return `[Source ${source.index}] ${details}\n${source.evidence.join("\n\n")}`;
+        }).join("\n\n---\n\n");
 
         const generated = await env.AI.run(ANSWER_MODEL, {
           messages: [
@@ -173,7 +173,7 @@ export default {
             },
             {
               role: "user",
-              content: `Question: ${query}\\n\\nRetrieved factory-manual evidence follows. Use it as the sole factual basis for your answer.\\n\\n${evidence}`,
+              content: `Question: ${query}\n\nRetrieved factory-manual evidence follows. Use it as the sole factual basis for your answer.\n\n${evidence}`,
             },
           ],
           max_tokens: 1400,
