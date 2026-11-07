@@ -1,0 +1,45 @@
+name: Publish Phoenix assets only
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site-worker/assets/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: phoenix-assets-publish
+  cancel-in-progress: false
+
+jobs:
+  publish-assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out Phoenix assets
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install AWS CLI
+        run: python -m pip install --disable-pip-version-check awscli
+      - name: Publish Phoenix assets only
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          R2_ACCOUNT_ID: "3481a3f4006a12f337ceb86104d0816b"
+          R2_BUCKET: motornote-manual-site
+        run: |
+          aws s3 sync site-worker/assets/ "s3://${R2_BUCKET}/assets/" \
+            --delete \
+            --only-show-errors \
+            --endpoint-url "https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com" \
+            --no-progress

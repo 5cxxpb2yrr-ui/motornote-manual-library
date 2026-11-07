@@ -7,8 +7,6 @@ on:
       - "manuals/**"
       - "index/**"
       - "scripts/publish_manual_site.py"
-      - "site-worker/assets/**"
-      - ".github/workflows/publish-manual-site.yml"
   workflow_dispatch:
 
 permissions:
