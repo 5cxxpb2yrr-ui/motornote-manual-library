@@ -4,7 +4,7 @@ This Worker accepts site files into the `motornote-manual-site` R2 bucket. It ac
 
 - Repository: `5cxxpb2yrr-ui/motornote-manual-library`
 - Branch: `main`
-- Workflow: `.github/workflows/ingest-manuals.yml`
+- Workflows: `.github/workflows/ingest-manuals.yml` and `.github/workflows/publish-manual-site.yml`
 - Audience: `motornote-manual-publisher`
 
 The publisher is intentionally separate from the reader Worker. Do not put this hostname behind an interactive Access login; GitHub Actions authenticates using short-lived OIDC tokens whose signature and claims are verified by the Worker.
