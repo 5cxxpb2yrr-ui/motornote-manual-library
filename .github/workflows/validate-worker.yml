@@ -1,9 +1,11 @@
-name: Validate manual retrieval worker
+name: Validate manual retrieval and site workers
 
 on:
   pull_request:
     paths:
       - "worker/**"
+      - "site-worker/**"
+      - "scripts/publish_manual_site.py"
       - ".github/workflows/validate-worker.yml"
 
 permissions:
@@ -13,13 +15,21 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out pull request
         uses: actions/checkout@v4
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Check Worker JavaScript syntax
+      - name: Check retrieval Worker JavaScript syntax
         run: node --input-type=module --check < worker/src/index.js
-      - name: Validate Wrangler configuration
-        run: node -e 'JSON.parse(require("node:fs").readFileSync("worker/wrangler.jsonc", "utf8"))'
+      - name: Check site Worker JavaScript syntax
+        run: node --input-type=module --check < site-worker/src/index.js
+      - name: Check Phoenix browser JavaScript syntax
+        run: node --check site-worker/assets/phoenix.js
+      - name: Compile publisher
+        run: python -m py_compile scripts/publish_manual_site.py
+      - name: Validate Wrangler configurations
+        run: |
+          node -e 'JSON.parse(require("node:fs").readFileSync("worker/wrangler.jsonc", "utf8"))'
+          node -e 'JSON.parse(require("node:fs").readFileSync("site-worker/wrangler.jsonc", "utf8"))'
