@@ -78,7 +78,9 @@ export default {
           errors: result.errors || [],
         });
       } catch (error) {
-        return json({ error: "Search failed.", detail: String(error?.message || error) }, 502);
+        const detail = String(error?.message || error);
+        console.error("MotorNote AI Search /v1/search failed:", detail);
+        return json({ error: "Search failed.", detail }, 502);
       }
     }
 
