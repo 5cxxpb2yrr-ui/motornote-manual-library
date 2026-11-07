@@ -126,11 +126,12 @@ def content_type(path: Path) -> str:
 def upload_one(path: Path) -> tuple[bool, str]:
     key = path.relative_to(ROOT).as_posix()
     url = PUBLISH_URL + "/_publish/" + urllib.parse.quote(key, safe="/")
-    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    payload = path.read_bytes()
+    digest = hashlib.sha256(payload).hexdigest()
     for attempt in range(4):
         request = urllib.request.Request(
             url,
-            data=path.read_bytes(),
+            data=payload,
             headers={
                 "Authorization": f"Bearer {oidc_token()}",
                 "Content-Type": content_type(path),
