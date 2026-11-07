@@ -55,6 +55,13 @@ export default {
     if (!authenticated(request, env)) return json({ error: "Unauthorized" }, 401);
 
     const instance = env.AI_SEARCH.get(INSTANCE_ID);
+    const searchManuals = (query, topK) => env.AI_SEARCH.search({
+      messages: [{ role: "user", content: query }],
+      ai_search_options: {
+        instance_ids: [INSTANCE_ID],
+        retrieval: { max_num_results: topK },
+      },
+    });
 
     if (request.method === "POST" && url.pathname === "/v1/search") {
       let body;
@@ -63,10 +70,7 @@ export default {
       if (!query || query.length > 4000) return json({ error: "query is required (max 4000 characters)." }, 400);
       const topK = Math.max(1, Math.min(20, Number.parseInt(body.topK, 10) || 8));
       try {
-        const result = await instance.search({
-          query,
-          ai_search_options: { retrieval: { max_num_results: topK } },
-        });
+        const result = await searchManuals(query, topK);
         return json({
           query,
           instance: INSTANCE_ID,
@@ -87,10 +91,7 @@ export default {
 
       const topK = Math.max(1, Math.min(12, Number.parseInt(body.topK, 10) || 8));
       try {
-        const retrieval = await instance.search({
-          query,
-          ai_search_options: { retrieval: { max_num_results: topK } },
-        });
+        const retrieval = await searchManuals(query, topK);
         const chunks = Array.isArray(retrieval.chunks) ? retrieval.chunks : [];
 
         if (chunks.length === 0) {
