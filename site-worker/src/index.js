@@ -67,7 +67,7 @@ export default {
     headers.set("x-content-type-options", "nosniff");
     headers.set("referrer-policy", "same-origin");
     headers.set("x-frame-options", "SAMEORIGIN");
-    headers.set("cache-control", /\\.html?$/i.test(key) ? "no-cache" : "public, max-age=300");
+        headers.set("cache-control", /\.html?$/i.test(key) ? "no-cache" : "public, max-age=300");
 
     return new Response(request.method === "HEAD" ? null : object.body, {
       status: 200,
