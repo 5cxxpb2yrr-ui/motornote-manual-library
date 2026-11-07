@@ -57,7 +57,7 @@ async function verifyGitHubOidc(token) {
     !Number.isFinite(claims.exp) || claims.exp <= now ||
     (Number.isFinite(claims.nbf) && claims.nbf > now + 60) ||
     claims.repository !== EXPECTED_REPOSITORY ||
-    !(claims.ref === MAIN_REF || (typeof claims.ref === "string" && /^refs\\/tags\\/[A-Za-z0-9._/-]+$/.test(claims.ref))) ||
+    !(claims.ref === MAIN_REF || (typeof claims.ref === "string" && claims.ref.startsWith("refs/tags/") && claims.ref.length > "refs/tags/".length)) ||
     claims.workflow_ref !== WORKFLOW_PREFIX + claims.ref ||
     claims.sub !== `repo:${EXPECTED_REPOSITORY}:ref:${claims.ref}`
   ) {
