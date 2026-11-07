@@ -118,6 +118,7 @@ def main() -> int:
         if INDEX.is_dir(): shutil.copytree(INDEX, stage / "index", dirs_exist_ok=True)
         assets = ROOT / "site-worker" / "assets"
         if assets.is_dir(): shutil.copytree(assets, stage / "assets", dirs_exist_ok=True)
+        # Create an entry point for manuals whose source corpus has no index page.
         landing_pages = ensure_manual_landing_pages(stage)
         print(f"Created {landing_pages:,} make landing pages where needed.")
         decorated = decorate_manual_pages(stage)
