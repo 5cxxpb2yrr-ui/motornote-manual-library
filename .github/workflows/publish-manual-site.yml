@@ -1,0 +1,41 @@
+name: Publish private manual website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "manuals/**"
+      - "index/**"
+      - "scripts/publish_manual_site.py"
+      - ".github/workflows/publish-manual-site.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: manual-site-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Check out manual corpus with Git LFS
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          lfs: true
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Publish private manual website
+        env:
+          MOTORNOTE_PUBLISH_URL: https://motornote-manual-publisher.phillipstg.workers.dev
+        run: python scripts/publish_manual_site.py
