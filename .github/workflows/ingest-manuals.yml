@@ -8,6 +8,11 @@ on:
       - "incoming/*.zip"
   release:
     types: [published]
+  pull_request:
+    paths:
+      - "scripts/ingest_manuals.py"
+      - "tests/**"
+      - ".github/workflows/ingest-manuals.yml"
   workflow_dispatch:
     inputs:
       sync_to_retrieval:
@@ -34,6 +39,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  test-cleaner:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test manual HTML cleanup
+        run: python -m unittest discover -s tests -v
+
   ingest:
     if: github.event_name == 'release' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
