@@ -90,6 +90,10 @@ def main() -> int:
         stage = Path(temp) / "site"; stage.mkdir()
         shutil.copytree(MANUALS, stage / "manuals", dirs_exist_ok=True)
         if INDEX.is_dir(): shutil.copytree(INDEX, stage / "index", dirs_exist_ok=True)
+        assets = ROOT / "site-worker" / "assets"
+        if assets.is_dir(): shutil.copytree(assets, stage / "assets", dirs_exist_ok=True)
+        decorated = decorate_manual_pages(stage)
+        print(f"Applied the shared Phoenix mobile shell to {decorated:,} manual HTML pages.")
         (stage / "index.html").write_text(site_index(), encoding="utf-8")
         files = [p for p in stage.rglob("*") if p.is_file()]
         count = len(files); total = sum(p.stat().st_size for p in files)
