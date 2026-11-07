@@ -24,23 +24,60 @@ def site_index() -> str:
         target = preferred or (html_files[0] if html_files else files[0])
         href = "/" + urllib.parse.quote(target.relative_to(ROOT).as_posix(), safe="/")
         label = folder.name.replace("-", " ").replace("_", " ").title()
-        entries.append(f'<li><a href="{html.escape(href, quote=True)}">{html.escape(label)}</a><span>{len(files):,} files</span></li>')
+        icon = "◉" if "scion" in folder.name.lower() else "✦" if "subaru" in folder.name.lower() else "▤"
+        entries.append(
+            f'<a class="mn-manual-card" href="{html.escape(href, quote=True)}">'
+            f'<span class="mn-make-icon" aria-hidden="true">{icon}</span>'
+            f'<span><strong>{html.escape(label)}</strong><small>Factory service information · diagrams · procedures</small></span>'
+            f'<span class="mn-count">{len(files):,} files</span></a>'
+        )
     if not entries:
         raise RuntimeError("No extracted manual folders were found.")
     return """<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>MotorNote · Private Manual Library</title>
-<style>
-:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#08111f;color:#e8f0fb}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -15%,#17345a 0,transparent 55%),#08111f}
-main{width:min(760px,calc(100% - 32px));margin:0 auto;padding:56px 0}.eyebrow{color:#64b5ff;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-h1{font-size:clamp(32px,7vw,52px);line-height:1.02;margin:12px 0}p{color:#9fb1c9;line-height:1.6}
-ul{list-style:none;padding:0;margin:32px 0;display:grid;gap:12px}li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px;border:1px solid #263c59;border-radius:14px;background:#0e1c2e}
-a{color:#e8f4ff;text-decoration:none;font-weight:700}a:hover{color:#64b5ff}li span{color:#8296b1;font-size:12px;white-space:nowrap}
-footer{border-top:1px solid #263c59;padding-top:18px;color:#6e829e;font-size:12px}
-</style></head><body><main><div class="eyebrow">MotorNote / Technical Reference</div><h1>Private Manual Library</h1>
-<p>Select a factory manual. Navigation, diagrams, and local page assets are served from the private library.</p><ul>""" + "".join(entries) + """</ul>
-<footer>Authenticated access · Private service-manual corpus</footer></main></body></html>"""
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050b18"><meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Private MotorNote factory service manual library.">
+<link rel="stylesheet" href="/assets/phoenix.css"><title>MotorNote · Phoenix Manual Library</title>
+</head><body><main class="mn-page-shell">
+<section class="mn-hero"><div class="mn-kicker">PHOENIX SYSTEMS · TECHNICAL REFERENCE</div>
+<h1>Factory knowledge.<br>At your fingertips.</h1>
+<p>Search across your factory manuals, open the exact procedure, and get straight to the diagram or specification you need.</p>
+</section><section aria-label="Available factory manuals"><div class="mn-kicker">YOUR MANUAL LIBRARY</div>
+<div class="mn-manual-grid">""" + "".join(entries) + """</div></section>
+<footer style="margin:26px 4px 0;color:#7892b5;font-size:12px">Authenticated access · Private service-manual corpus · Drive · Diagnose · Repair</footer>
+</main><script src="/assets/phoenix.js" defer></script></body></html>"""
+
+
+def decorate_manual_pages(stage: Path) -> int:
+    """Add the shared mobile shell without rewriting the original manual content."""
+    import re
+    head_assets = (
+        '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
+        '<meta name="theme-color" content="#050b18">'
+        '<link rel="stylesheet" href="/assets/phoenix.css">'
+    )
+    script = '<script src="/assets/phoenix.js" defer></script>'
+    count = 0
+    for page in (stage / "manuals").rglob("*"):
+        if not page.is_file() or page.suffix.lower() not in {".html", ".htm"}:
+            continue
+        try:
+            source = page.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue
+        if "phoenix.css" in source:
+            continue
+        if re.search(r"</head\s*>", source, flags=re.I):
+            source = re.sub(r"</head\s*>", head_assets + "</head>", source, count=1, flags=re.I)
+        else:
+            source = head_assets + source
+        if re.search(r"</body\s*>", source, flags=re.I):
+            source = re.sub(r"</body\s*>", script + "</body>", source, count=1, flags=re.I)
+        else:
+            source += script
+        page.write_text(source, encoding="utf-8")
+        count += 1
+    return count
 
 def main() -> int:
     if len(ACCOUNT_ID) != 32:
