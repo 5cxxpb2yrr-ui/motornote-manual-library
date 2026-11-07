@@ -55,6 +55,9 @@ jobs:
   ingest:
     if: github.event_name == 'release' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - name: Check out repository with Git LFS
         uses: actions/checkout@v4
@@ -111,6 +114,11 @@ jobs:
             git commit -m "Ingest service manual archive"
             git push origin HEAD:main
           fi
+
+      - name: Publish private manual website
+        env:
+          MOTORNOTE_PUBLISH_URL: https://motornote-manual-publisher.phillipstg.workers.dev
+        run: python scripts/publish_manual_site.py
 
       - name: Preview MotorNote retrieval sync
         if: github.event_name == 'workflow_dispatch' && inputs.sync_to_retrieval != true
