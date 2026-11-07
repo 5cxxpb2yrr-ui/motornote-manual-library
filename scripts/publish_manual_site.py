@@ -118,7 +118,9 @@ def main() -> int:
         if INDEX.is_dir(): shutil.copytree(INDEX, stage / "index", dirs_exist_ok=True)
         assets = ROOT / "site-worker" / "assets"
         if assets.is_dir(): shutil.copytree(assets, stage / "assets", dirs_exist_ok=True)
-        landing_pages = ensure_manual_landing_pages(stage)\n        print(f"Created {landing_pages:,} make landing pages where needed.")\n        decorated = decorate_manual_pages(stage)
+        landing_pages = ensure_manual_landing_pages(stage)
+        print(f"Created {landing_pages:,} make landing pages where needed.")
+        decorated = decorate_manual_pages(stage)
         print(f"Applied the shared Phoenix mobile shell to {decorated:,} manual HTML pages.")
         (stage / "index.html").write_text(site_index(), encoding="utf-8")
         files = [p for p in stage.rglob("*") if p.is_file()]
