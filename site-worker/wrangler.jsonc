@@ -4,6 +4,9 @@
   "main": "src/index.js",
   "compatibility_date": "2026-11-07",
   "workers_dev": true,
+  "vars": {
+    "MOTORNOTE_API_URL": "https://motornote-manual-retrieval.phillipstg.workers.dev"
+  },
   "r2_buckets": [
     {
       "binding": "MANUAL_SITE",
