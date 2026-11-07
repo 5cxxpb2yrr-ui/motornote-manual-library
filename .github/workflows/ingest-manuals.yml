@@ -20,6 +20,11 @@ on:
         required: false
         type: boolean
         default: false
+      full_backfill:
+        description: "Index every eligible HTML/text manual file in the repository (overrides the test upload limit)"
+        required: false
+        type: boolean
+        default: false
       upload_limit:
         description: "Maximum documents for a manual test upload (ignored when targeted paths are supplied)"
         required: true
@@ -127,19 +132,23 @@ jobs:
         run: python scripts/publish_manual_site.py
 
       - name: Preview MotorNote retrieval sync
-        if: github.event_name == 'workflow_dispatch' && inputs.sync_to_retrieval != true
+        if: github.event_name == 'workflow_dispatch' && inputs.sync_to_retrieval != true && inputs.full_backfill != true
         run: python scripts/sync_manuals_to_retrieval.py --dry-run
 
       - name: Sync manual content to MotorNote retrieval
-        if: github.event_name != 'workflow_dispatch' || inputs.sync_to_retrieval == true
+        if: github.event_name != 'workflow_dispatch' || inputs.sync_to_retrieval == true || inputs.full_backfill == true
         env:
           MOTORNOTE_API_URL: https://motornote-manual-retrieval.phillipstg.workers.dev
           MOTORNOTE_API_TOKEN: ${{ secrets.MOTORNOTE_API_TOKEN }}
           TARGETED_PATHS: ${{ inputs.targeted_paths }}
           UPLOAD_LIMIT: ${{ inputs.upload_limit }}
+          FULL_BACKFILL: ${{ inputs.full_backfill }}
         run: |
           if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-            if [ -n "$TARGETED_PATHS" ]; then
+            if [ "$FULL_BACKFILL" = "true" ]; then
+              echo "Full backfill selected: uploading every eligible HTML/text manual file."
+              python scripts/sync_manuals_to_retrieval.py
+            elif [ -n "$TARGETED_PATHS" ]; then
               printf '%s\n' "$TARGETED_PATHS" > /tmp/motornote-targeted-paths.txt
               python scripts/sync_manuals_to_retrieval.py --paths-from-file /tmp/motornote-targeted-paths.txt
             else
