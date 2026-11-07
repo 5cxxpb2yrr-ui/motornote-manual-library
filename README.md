@@ -21,16 +21,17 @@ Scanned/image-only pages will not yield searchable text yet; OCR and diagram-awa
 
 ## Private browser library
 
-After ingestion, GitHub Actions publishes the extracted manuals, images, scripts, and search index to a private Cloudflare R2 bucket. A Cloudflare Worker serves the site, protected by Cloudflare Access.
+After ingestion, GitHub Actions builds the landing page and syncs extracted manuals, images, scripts, and search indexes directly to the private Cloudflare R2 bucket using its S3-compatible API. A Cloudflare Worker serves the site and Cloudflare Access protects the website.
 
 - **Manual website:** https://motornote-manual-library.phillipstg.workers.dev
-- **Publisher endpoint:** https://motornote-manual-publisher.phillipstg.workers.dev (GitHub Actions OIDC only)
 - **Storage:** private R2 bucket `motornote-manual-site`
+- **Publishing:** GitHub Actions → R2 S3 API (not the Workers.dev publisher endpoint)
 
-The publishing workflow requests a short-lived GitHub OIDC token and the publisher verifies its signature, repository, workflow, branch or release tag, and audience before accepting writes. No long-lived Cloudflare API token is stored in GitHub. The website Worker is protected by a separate Cloudflare Access application restricted to the owner's identity.
+### One-time publishing credentials
 
-A browser-based Nomie plugin must never contain a GitHub token or publisher credential. Private manual retrieval should use an authenticated server-side service.
+Create an R2 API token with **Object Read & Write** permission, scoped only to `motornote-manual-site`. Add its Access Key ID and Secret Access Key to this repository under **Settings → Secrets and variables → Actions → New repository secret**:
 
-## Ingestion safeguards
+- `R2_ACCESS_KEY_ID`
+- `R2_SECRET_ACCESS_KEY`
 
-The script rejects path traversal, symlinks and special files, duplicate paths, suspicious compression ratios, oversized members, and archives exceeding its expanded-size limit.
+The Cloudflare account ID is already configured in the workflow. The secret key is used only by GitHub Actions and is never written into the repository. The workflow uses `aws s3 sync --delete` against the R2 S3 endpoint, avoiding the Workers.dev edge that rejected the previous uploads with HTTP 403 / error 1010.
