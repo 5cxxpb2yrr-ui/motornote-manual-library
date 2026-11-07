@@ -19,9 +19,17 @@ Extracted PDFs and common image formats are tracked with Git LFS. Git LFS storag
 
 Scanned/image-only pages will not yield searchable text yet; OCR and diagram-aware indexing can be added as a separate stage.
 
-## Security and access
+## Private browser library
 
-This repository is private. Do not publish manuals unless distribution rights permit it. A browser-based Nomie plugin must never contain a GitHub token. Private manual retrieval should use an authenticated server-side service that fetches authorized content.
+After ingestion, GitHub Actions publishes the extracted manuals, images, scripts, and search index to a private Cloudflare R2 bucket. A Cloudflare Worker serves the site, protected by Cloudflare Access.
+
+- **Manual website:** https://motornote-manual-library.phillipstg.workers.dev
+- **Publisher endpoint:** https://motornote-manual-publisher.phillipstg.workers.dev (GitHub Actions OIDC only)
+- **Storage:** private R2 bucket `motornote-manual-site`
+
+The publishing workflow requests a short-lived GitHub OIDC token and the publisher verifies its signature, repository, workflow, branch or release tag, and audience before accepting writes. No long-lived Cloudflare API token is stored in GitHub. The website Worker is protected by a separate Cloudflare Access application restricted to the owner's identity.
+
+A browser-based Nomie plugin must never contain a GitHub token or publisher credential. Private manual retrieval should use an authenticated server-side service.
 
 ## Ingestion safeguards
 
