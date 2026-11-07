@@ -79,6 +79,32 @@ def decorate_manual_pages(stage: Path) -> int:
         count += 1
     return count
 
+
+def ensure_manual_landing_pages(stage: Path) -> int:
+    """Create lightweight make landing pages only when a manual has no index."""
+    created = 0
+    for folder in (stage / "manuals").iterdir():
+        if not folder.is_dir() or any((folder / name).is_file() for name in ("index.html", "index.htm")):
+            continue
+        pages = sorted(
+            (p for p in folder.rglob("*") if p.is_file() and p.suffix.lower() in {".html", ".htm"}),
+            key=lambda p: p.as_posix().lower(),
+        )
+        if not pages:
+            continue
+        target = "/" + urllib.parse.quote(pages[0].relative_to(stage).as_posix(), safe="/")
+        label = folder.name.replace("-", " ").replace("_", " ").title()
+        page = f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050b18"><link rel="stylesheet" href="/assets/phoenix.css"><title>{html.escape(label)} · MotorNote</title></head>
+<body><main class="mn-page-shell"><section class="mn-hero"><div class="mn-kicker">PHOENIX SYSTEMS · FACTORY REFERENCE</div>
+<h1>{html.escape(label)}</h1><p>Open the factory manual or search across the indexed service information.</p>
+<a class="mn-manual-card" href="{html.escape(target, quote=True)}"><span class="mn-make-icon" aria-hidden="true">▤</span><span><strong>Open manual</strong><small>Continue to the original chapter navigation</small></span><span class="mn-count">→</span></a></section></main>
+<script src="/assets/phoenix.js" defer></script></body></html>"""
+        (folder / "index.html").write_text(page, encoding="utf-8")
+        created += 1
+    return created
+
 def main() -> int:
     if len(ACCOUNT_ID) != 32:
         print("R2_ACCOUNT_ID must be the 32-character Cloudflare account ID.", file=sys.stderr); return 2
@@ -92,7 +118,7 @@ def main() -> int:
         if INDEX.is_dir(): shutil.copytree(INDEX, stage / "index", dirs_exist_ok=True)
         assets = ROOT / "site-worker" / "assets"
         if assets.is_dir(): shutil.copytree(assets, stage / "assets", dirs_exist_ok=True)
-        decorated = decorate_manual_pages(stage)
+        landing_pages = ensure_manual_landing_pages(stage)\n        print(f"Created {landing_pages:,} make landing pages where needed.")\n        decorated = decorate_manual_pages(stage)
         print(f"Applied the shared Phoenix mobile shell to {decorated:,} manual HTML pages.")
         (stage / "index.html").write_text(site_index(), encoding="utf-8")
         files = [p for p in stage.rglob("*") if p.is_file()]
