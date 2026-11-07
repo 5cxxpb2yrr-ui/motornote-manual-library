@@ -14,7 +14,7 @@ export default {
    const query=typeof body.query==="string"?body.query.trim():"";
    if(!query||query.length>4000)return json({error:"Enter a search term (up to 4,000 characters)."},400);
    try{
-    const upstream=await fetch(new URL("/v1/search",env.MOTORNOTE_API_URL),{method:"POST",headers:{"authorization:"+"Bearer "+env.MOTORNOTE_API_TOKEN,"content-type":"application/json"},body:JSON.stringify({query,topK:Math.max(1,Math.min(20,Number.parseInt(body.topK,10)||12))})});
+    const upstream=await fetch(new URL("/v1/search",env.MOTORNOTE_API_URL),{method:"POST",headers:{"authorization":`Bearer ${env.MOTORNOTE_API_TOKEN}`,"content-type":"application/json"},body:JSON.stringify({query,topK:Math.max(1,Math.min(20,Number.parseInt(body.topK,10)||12))})});
     const payload=await upstream.json();
     return json(payload,upstream.status);
    }catch(error){return json({error:"The manual search service could not be reached."},502)}
