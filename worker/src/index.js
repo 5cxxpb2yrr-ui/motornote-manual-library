@@ -64,8 +64,8 @@ export default {
       const topK = Math.max(1, Math.min(20, Number.parseInt(body.topK, 10) || 8));
       try {
         const result = await instance.search({
-          messages: [{ role: "user", content: query }],
-          ai_search_options: { retrieval: { max_num_results: topK, retrieval_type: "hybrid" } },
+          query,
+          ai_search_options: { retrieval: { max_num_results: topK } },
         });
         return json({
           query,
@@ -88,8 +88,8 @@ export default {
       const topK = Math.max(1, Math.min(12, Number.parseInt(body.topK, 10) || 8));
       try {
         const retrieval = await instance.search({
-          messages: [{ role: "user", content: query }],
-          ai_search_options: { retrieval: { max_num_results: topK, retrieval_type: "hybrid" } },
+          query,
+          ai_search_options: { retrieval: { max_num_results: topK } },
         });
         const chunks = Array.isArray(retrieval.chunks) ? retrieval.chunks : [];
 
