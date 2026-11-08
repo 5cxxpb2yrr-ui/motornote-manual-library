@@ -23,7 +23,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
         return {
           id: vehiclePrefix,
           name,
-          href: "https://motornote-manual-library.phillipstg.workers.dev/" + vehiclePrefix.split("/").map(encodeURIComponent).join("/") + "index.html"
+          href: "https://motornote-manual-library.phillipstg.workers.dev/" + vehiclePrefix.split("/").map(encodeURIComponent).join("/") + "about.html"
         };
       });
       const meta = summary.manuals?.find((item) => item.id === manualId);
