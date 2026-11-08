@@ -213,7 +213,7 @@ function cleanManualFragment(html, key) {
     const href = link.getAttribute('href') || '';
     if (/^(https?:|mailto:|javascript:)/i.test(href)) { link.removeAttribute('href'); return; }
     const resolved = new URL(href, 'https://manual.local/' + key);
-    const match = resolved.pathname.match(/^(.*?)(?:pages\\/(\\d+)\\.html)$/);
+    const match = resolved.pathname.match(/^(.*?)(?:pages\/(\d+)\.html)$/);
     if (match) {
       link.dataset.manualPage = match[2];
       link.removeAttribute('href');
