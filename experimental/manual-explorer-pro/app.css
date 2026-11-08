@@ -67,3 +67,44 @@
   body[data-mobile-view="favorites"] .favorites-screen{display:block}
   .home-vehicle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+
+/* Desktop and tablet use the same real view states as the iPhone tabs. */
+@media(min-width:701px){
+  body[data-mobile-view="home"] .page-heading,
+  body[data-mobile-view="home"] .stats,
+  body[data-mobile-view="home"] .explorer-layout,
+  body[data-mobile-view="home"] .favorites-screen{display:none}
+  body[data-mobile-view="home"] .home-garage{display:block;max-width:1100px}
+  body[data-mobile-view="home"] .mobile-context{display:none}
+  body[data-mobile-view="vehicles"] .page-heading,
+  body[data-mobile-view="vehicles"] .stats,
+  body[data-mobile-view="vehicles"] .home-garage,
+  body[data-mobile-view="vehicles"] .document-panel,
+  body[data-mobile-view="vehicles"] .reader-panel,
+  body[data-mobile-view="vehicles"] .favorites-screen{display:none}
+  body[data-mobile-view="vehicles"] .explorer-layout{display:block;max-width:720px}
+  body[data-mobile-view="vehicles"] .vehicle-panel{display:block}
+  body[data-mobile-view="vehicles"] .vehicle-panel .manual-tree{display:grid}
+  body[data-mobile-view="library"] .page-heading,
+  body[data-mobile-view="library"] .stats,
+  body[data-mobile-view="library"] .home-garage,
+  body[data-mobile-view="library"] .vehicle-panel,
+  body[data-mobile-view="library"] .reader-panel,
+  body[data-mobile-view="library"] .favorites-screen{display:none}
+  body[data-mobile-view="library"] .explorer-layout{display:block;max-width:760px}
+  body[data-mobile-view="library"] .document-panel{display:block}
+  body[data-mobile-view="reader"] .page-heading,
+  body[data-mobile-view="reader"] .stats,
+  body[data-mobile-view="reader"] .home-garage,
+  body[data-mobile-view="reader"] .vehicle-panel,
+  body[data-mobile-view="reader"] .document-panel,
+  body[data-mobile-view="reader"] .favorites-screen{display:none}
+  body[data-mobile-view="reader"] .explorer-layout{display:block;max-width:1000px}
+  body[data-mobile-view="reader"] .reader-panel{display:flex;min-height:calc(100dvh - 130px)}
+  body[data-mobile-view="favorites"] .page-heading,
+  body[data-mobile-view="favorites"] .stats,
+  body[data-mobile-view="favorites"] .home-garage,
+  body[data-mobile-view="favorites"] .explorer-layout{display:none}
+  body[data-mobile-view="favorites"] .favorites-screen{display:block;max-width:900px}
+}
