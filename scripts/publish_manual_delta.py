@@ -119,7 +119,8 @@ def main() -> int:
             source = ROOT / relative
             if not source.is_file():
                 continue
-            target = stage / relative
+            relative_key = relative.removeprefix("site-worker/")
+            target = stage / relative_key
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(source.read_bytes())
             if relative.startswith("manuals/"):
@@ -131,7 +132,6 @@ def main() -> int:
                 pass
             elif relative.startswith("site-worker/assets/"):
                 # R2 stores shared assets under /assets/, not /site-worker/assets/.
-                relative_key = relative.removeprefix("site-worker/")
                 uploads.add(relative_key)
                 continue
             uploads.add(relative)
