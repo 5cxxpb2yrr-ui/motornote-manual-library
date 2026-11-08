@@ -1,0 +1,56 @@
+name: Build experimental R2 search index
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Maximum HTML pages to index (use 10 for the safe test; 0 means all pages)"
+        required: true
+        default: "10"
+        type: string
+      workers:
+        description: "Parallel R2 page readers"
+        required: true
+        default: "4"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: experimental-r2-search-index
+  cancel-in-progress: false
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out the selected branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install index builder dependency
+        run: python -m pip install --disable-pip-version-check boto3
+
+      - name: Validate index builder syntax
+        run: python -m py_compile scripts/build_r2_search_index.py
+
+      - name: Build index from existing R2 HTML pages
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          R2_ACCOUNT_ID: "3481a3f4006a12f337ceb86104d0816b"
+          R2_BUCKET: motornote-manual-site
+        run: |
+          python scripts/build_r2_search_index.py \
+            --limit "${{ inputs.limit }}" \
+            --workers "${{ inputs.workers }}" \
+            --shard-size 500
