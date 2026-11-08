@@ -54,9 +54,15 @@ function runSearch(q){
   }
   const rows=[...unique.values()];
   const count=rows.length;
-  rows.forEach((row,index)=>{row.rankSignal=(count-index)/Math.max(count,1)+row.relevanceBoost});
+  const scores=rows.map(row=>row.semanticScore).filter(Number.isFinite);
+  const minScore=scores.length?Math.min(...scores):0,maxScore=scores.length?Math.max(...scores):0;
+  rows.forEach((row,index)=>{
+   const retrievalOrder=(count-index)/Math.max(count,1);
+   const semanticSignal=Number.isFinite(row.semanticScore)&&maxScore>minScore?(row.semanticScore-minScore)/(maxScore-minScore):retrievalOrder;
+   row.rankSignal=(semanticSignal*0.7)+(retrievalOrder*0.3)+row.relevanceBoost;
+  });
   rows.sort((a,b)=>b.rankSignal-a.rankSignal);
-  status.textContent=rows.length+" distinct results"+(duplicates?" · "+duplicates+" duplicate copies grouped":"")+" · ranked by title, passage and diagram relevance";
+  status.textContent=rows.length+" distinct results"+(duplicates?" · "+duplicates+" duplicate copies grouped":"")+" · ranked by search score and page / section relevance";
   if(!rows.length){results.innerHTML='<p class="mn-status">No matching indexed pages. Try another term or select All Manuals.</p>';return}
   results.innerHTML=rows.map((x,i)=>{
    const href="/"+x.path.replace(/^\/+/, "").split("/").map(encodeURIComponent).join("/");
