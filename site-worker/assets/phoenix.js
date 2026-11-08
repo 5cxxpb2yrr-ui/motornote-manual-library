@@ -22,7 +22,7 @@ function itemDetails(c,query){
  const vehicle=[m.make,m.model].filter(Boolean).join(" ")||folder.replace(/-service-manual$/i,"").replace(/-/g," ").replace(/\b\w/g,x=>x.toUpperCase());
  const tokens=query.toLowerCase().split(/[^a-z0-9]+/).filter(x=>x.length>1);
  const cleanLine=line=>line.replace(/!\[[^\]]*\]\([^)]*\)/g," ").replace(/<img[^>]*>/gi," ").replace(/\[([^\]]+)\]\([^)]+\)/g,"$1").replace(/<[^>]+>/g," ").replace(/^\s*[-|:]{2,}\s*$/,"").replace(/^\s*#{1,6}\s*/,"").replace(/[\x60*_|]/g," ").replace(/\s+/g," ").trim();
- const lines=frontmatter.split(/\r?\n/).map(cleanLine).filter(x=>x.length>18&&!/^description:/i.test(x)&&!/repair manual for the .*including/i.test(x)&&!/^(home|scion|subaru|testing and inspection|expand all|collapse all)$/i.test(x));
+ const lines=frontmatter.split(/\r?\n/).map(cleanLine).filter(x=>x.length>8&&!/^description:/i.test(x)&&!/repair manual for the .*including/i.test(x)&&!/^(home|scion|subaru|testing and inspection|expand all|collapse all)$/i.test(x));
  const ranked=lines.map((line,i)=>({line,i,hits:tokens.filter(t=>line.toLowerCase().includes(t)).length})).sort((a,b)=>b.hits-a.hits||a.i-b.i);
  const snippet=(ranked.find(x=>x.hits>0)?.line||lines[0]||title).slice(0,250);
  const matched=[...new Set(tokens.filter(t=>(title+" "+snippet).toLowerCase().includes(t)))];
@@ -33,14 +33,14 @@ function runSearch(q){
  fetch("/api/search",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({query:q,topK:20})})
  .then(async r=>{const data=await r.json();if(!r.ok){const detail=[data.error,data.detail,...(Array.isArray(data.errors)?data.errors.map(x=>x.message||String(x)):[])].filter(Boolean).join(" — ");const error=new Error(detail||"Search service unavailable");error.status=r.status;throw error}if(Array.isArray(data.errors)&&data.errors.length)throw new Error(data.errors.map(x=>x.message||String(x)).join(" — ")||"Search returned an indexing error");return data})
  .then(data=>{
-  const unique=new Map();
+  const unique=new Map(),contentSeen=new Set();let duplicates=0;
   for(const chunk of (Array.isArray(data.chunks)?data.chunks:[])){
    const row=itemDetails(chunk,q);if(!row.path)continue;
    if(filter!=="all"&&!row.path.toLowerCase().includes(filter))continue;
-   const key=row.path.toLowerCase();if(!unique.has(key))unique.set(key,row);
+   const key=row.path.toLowerCase();const signature=(row.vehicle+"|"+row.title+"|"+row.text.slice(0,120)).toLowerCase();if(unique.has(key)||contentSeen.has(signature)){duplicates++;continue}unique.set(key,row);contentSeen.add(signature);
   }
   const rows=[...unique.values()];
-  status.textContent=rows.length+" unique manual page"+(rows.length===1?"":"s")+" · duplicates removed";
+  status.textContent=rows.length+" distinct results"+(duplicates?" · "+duplicates+" duplicate copies grouped":"");
   if(!rows.length){results.innerHTML='<p class="mn-status">No matching indexed pages. Try another term or select All Manuals.</p>';return}
   results.innerHTML=rows.map((x,i)=>{
    const href="/"+x.path.replace(/^\/+/, "").split("/").map(encodeURIComponent).join("/");
