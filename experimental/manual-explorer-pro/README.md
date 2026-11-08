@@ -41,3 +41,5 @@ All vehicle and procedure data in this prototype is illustrative. Search is a lo
 ## Cloudflare Pages preview
 
 The isolated Pages project is `lifeos-manual-explorer-pro`. Its project root is this directory, and its only R2 binding is `MANUALS` to the existing `motornote-manual-site` bucket. Production deployments are disabled; preview builds are limited to `feat/manual-explorer-pro` and this directory.
+
+Preview build trigger verified after isolating this Pages project to the experimental branch.
