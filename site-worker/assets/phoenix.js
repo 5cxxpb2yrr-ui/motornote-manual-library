@@ -12,20 +12,20 @@ shell.querySelectorAll(".mn-filter").forEach(b=>b.addEventListener("click",()=>{
 function itemDetails(c,query){
  const item=c?.item||{},m=item.metadata||{},path=m.source_path||item.key||"";
  const raw=String(c?.text||"").trim();
- const frontmatter=raw.replace(/^---\\s*[\\s\\S]*?\\n---\\s*/,"");
- const imageMatch=frontmatter.match(/!\\[[^\\]]*\\]\\(([^)]+)\\)/)||frontmatter.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i);
+ const frontmatter=raw.replace(/^---\s*[\s\S]*?\n---\s*/,"");
+ const imageMatch=frontmatter.match(/!\[[^\]]*\]\(([^)]+)\)/)||frontmatter.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i);
  let preview="";
- if(imageMatch){try{const u=new URL(imageMatch[1],location.origin+"/"+path);if(u.origin===location.origin&&/\\.(png|jpe?g|webp|gif|svg)$/i.test(u.pathname))preview=u.href}catch{}}
+ if(imageMatch){try{const u=new URL(imageMatch[1],location.origin+"/"+path);if(u.origin===location.origin&&/\.(png|jpe?g|webp|gif|svg)$/i.test(u.pathname))preview=u.href}catch{}}
  const tokens=query.toLowerCase().split(/[^a-z0-9]+/).filter(x=>x.length>1);
- const cleanLine=line=>line.replace(/!\\[[^\\]]*\\]\\([^)]*\\)/g," ").replace(/<img[^>]*>/gi," ").replace(/\\[([^\\]]+)\\]\\([^)]+\\)/g,"$1").replace(/<[^>]+>/g," ").replace(/^\\s*[-|:]{2,}\\s*$/,"").replace(/^\\s*#{1,6}\\s*/,"").replace(/[\\x60*_|]/g," ").replace(/\\s+/g," ").trim();
- const lines=frontmatter.split(/\\r?\\n/).map(cleanLine).filter(x=>x.length>8&&!/^description:/i.test(x)&&!/repair manual for the .*including/i.test(x)&&!/^(home|scion|subaru|testing and inspection|expand all|collapse all)$/i.test(x));
- const headings=frontmatter.split(/\\r?\\n/).filter(x=>/^\\s*#{1,6}\\s+/.test(x)).map(x=>cleanLine(x)).filter(Boolean);
+ const cleanLine=line=>line.replace(/!\[[^\]]*\]\([^)]*\)/g," ").replace(/<img[^>]*>/gi," ").replace(/\[([^\]]+)\]\([^)]+\)/g,"$1").replace(/<[^>]+>/g," ").replace(/^\s*[-|:]{2,}\s*$/,"").replace(/^\s*#{1,6}\s*/,"").replace(/[\x60*_|]/g," ").replace(/\s+/g," ").trim();
+ const lines=frontmatter.split(/\r?\n/).map(cleanLine).filter(x=>x.length>8&&!/^description:/i.test(x)&&!/repair manual for the .*including/i.test(x)&&!/^(home|scion|subaru|testing and inspection|expand all|collapse all)$/i.test(x));
+ const headings=frontmatter.split(/\r?\n/).filter(x=>/^\s*#{1,6}\s+/.test(x)).map(x=>cleanLine(x)).filter(Boolean);
  const phrase=query.toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
  const headingRank=headings.map((line,i)=>({line,i,hits:tokens.filter(t=>line.toLowerCase().includes(t)).length,phrase:line.toLowerCase().replace(/[^a-z0-9]+/g," ").includes(phrase)})).sort((a,b)=>Number(b.phrase)-Number(a.phrase)||b.hits-a.hits||a.i-b.i);
  const metadataTitle=m.title||m.page_title||"";
- const title=metadataTitle||headingRank[0]?.line||((path.split("/").pop()||"Manual page").replace(/\\.html?$/i,"").replace(/[-_]/g," "));
+ const title=metadataTitle||headingRank[0]?.line||((path.split("/").pop()||"Manual page").replace(/\.html?$/i,"").replace(/[-_]/g," "));
  const folder=path.split("/")[1]||"";
- const vehicle=[m.make,m.model].filter(Boolean).join(" ")||folder.replace(/-service-manual$/i,"").replace(/-/g," ").replace(/\\b\\w/g,x=>x.toUpperCase());
+ const vehicle=[m.make,m.model].filter(Boolean).join(" ")||folder.replace(/-service-manual$/i,"").replace(/-/g," ").replace(/\b\w/g,x=>x.toUpperCase());
  const ranked=lines.map((line,i)=>({line,i,hits:tokens.filter(t=>line.toLowerCase().includes(t)).length,phrase:line.toLowerCase().replace(/[^a-z0-9]+/g," ").includes(phrase)})).sort((a,b)=>Number(b.phrase)-Number(a.phrase)||b.hits-a.hits||a.i-b.i);
  const bestHeading=headingRank[0];
  const relevantTitle=bestHeading&&(bestHeading.hits>0||bestHeading.phrase)?bestHeading.line:title;
@@ -35,8 +35,8 @@ function itemDetails(c,query){
  const exactPhrase=phrase.length>3&&textCorpus.replace(/[^a-z0-9]+/g," ").includes(phrase);
  const titleHits=tokens.filter(t=>relevantTitle.toLowerCase().includes(t)).length;
  const titleCoverage=tokens.length?titleHits/tokens.length:0;
- const locationIntent=/\\b(location|where|located|position|behind|under|relay|connector)\\b/i.test(query);
- const locationEvidence=/\\b(locations?|located|behind|under|instrument cluster|crash pad|diagram|illustration)\\b/i.test(frontmatter);
+ const locationIntent=/\b(location|where|located|position|behind|under|relay|connector)\b/i.test(query);
+ const locationEvidence=/\b(locations?|located|behind|under|instrument cluster|crash pad|diagram|illustration)\b/i.test(frontmatter);
  const hasImage=!!imageMatch;
  const relevanceBoost=(exactPhrase?0.42:0)+(titleCoverage*0.24)+(locationIntent&&locationEvidence?0.16:0)+(hasImage&&locationIntent?0.06:0);
  return{path,title:relevantTitle,vehicle,text:snippet,matched,preview,hasImage,documentType:m.document_type||"",semanticScore:Number.isFinite(c?.score)?c.score:null,relevanceBoost};
