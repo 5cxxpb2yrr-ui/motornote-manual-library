@@ -65,3 +65,53 @@ $$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
     announce(saved.size+' saved references stored on this device.');
   }
 }));
+
+
+// Screen-state controller for the canonical iPhone flow.
+function setMobileView(view,title,hint){
+  document.body.dataset.mobileView=view;
+  $$('[data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===view||(view==='library'&&button.dataset.mobile==='vehicles')||(view==='reader'&&button.dataset.mobile==='vehicles')));
+  if(title)$('#mobileContextTitle').textContent=title;
+  if(hint)$('#mobileContextHint').textContent=hint;
+}
+function renderFavorites(){
+  const host=$('#favoritesList');if(!host)return;host.replaceChildren();
+  if(!saved.size){host.append(safeText('p','No saved procedures yet. Open a manual page and use the star or bookmark control.','empty-state'));return}
+  [...saved].forEach(key=>{
+    const [kind,id]=key.split(':');const doc=docs.find(item=>item.id===id);if(!doc)return;
+    const row=document.createElement('div');row.className='favorite-entry';
+    const label=safeText('span',doc.title+' · '+(kind==='favorite'?'Favorite':'Bookmark'));
+    const open=document.createElement('button');open.type='button';open.textContent='Open';
+    open.addEventListener('click',()=>{const index=docs.findIndex(item=>item.id===id);selectDoc(index);setMobileView('reader','Manual viewer','Saved reference · 2006 Scion xB')});
+    row.append(label,open);host.append(row);
+  });
+}
+const originalRenderSaved=renderSaved;
+renderSaved=function(){originalRenderSaved();renderFavorites()};
+$$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
+  const tab=button.dataset.mobile;
+  if(tab==='home')setMobileView('home','Your garage','Choose a vehicle or continue where you left off.');
+  if(tab==='vehicles')setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
+  if(tab==='favorites'){renderFavorites();setMobileView('favorites','Favorites','Your saved procedures and references.')}
+}));
+$$('[data-home-vehicle]').forEach(button=>button.addEventListener('click',()=>{
+  setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
+  const target=$('.vehicle-item[data-vehicle="'+button.dataset.homeVehicle+'"]');
+  if(target)target.click();
+}));
+$('#homeAllVehicles').addEventListener('click',()=>setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.'));
+$$('.vehicle-item').forEach(item=>item.addEventListener('click',()=>{
+  const name=item.querySelector('b')?.textContent||'Selected vehicle';
+  setMobileView('vehicles',name,'Choose a manual section below.');
+  $('.vehicle-panel').classList.add('show-toc');
+}));
+$$('.tree-child,.tree-item').forEach(item=>item.addEventListener('click',()=>{
+  setMobileView('library',$('#sectionTitle').textContent,'Manual pages in this section.');
+}));
+$$('.document-item').forEach((item,index)=>item.addEventListener('click',()=>{
+  if(item.dataset.doc){setMobileView('reader',docs[index]?.title||'Manual viewer','2006 Scion xB · Factory manual reference')}
+}));
+$('#recentManual').addEventListener('click',()=>{selectDoc(0);setMobileView('reader','Manual viewer','Recently opened · 2006 Scion xB')});
+$('#tocOpen').addEventListener('click',()=>setMobileView('vehicles','Table of contents','Choose a manual section.'));
+renderFavorites();
+setMobileView('home','Your garage','Choose a vehicle or continue where you left off.');
