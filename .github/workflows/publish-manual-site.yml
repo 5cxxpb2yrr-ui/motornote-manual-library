@@ -4,9 +4,11 @@ on:
   push:
     branches: [main]
     paths:
+      - ".github/workflows/publish-manual-site.yml"
       - "manuals/**"
       - "index/**"
       - "scripts/publish_manual_site.py"
+      - "site-worker/assets/**"
   workflow_dispatch:
 
 permissions:
