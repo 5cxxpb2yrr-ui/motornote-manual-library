@@ -27,7 +27,7 @@ async function runManualSearch(value,generation){const query=value.trim();const 
 $('#globalSearch').addEventListener('input',e=>{const generation=++searchGeneration;runManualSearch(e.target.value,generation)});
 $('#filterInput').addEventListener('input',e=>{$$('.document-item').forEach(el=>el.hidden=!el.textContent.toLowerCase().includes(e.target.value.toLowerCase()))});
 $('#addVehicle').addEventListener('click',()=>announce('Vehicle profile creation is planned for the next prototype milestone.'));
-$$('[data-view], [data-mobile]').forEach(el=>el.addEventListener('click',()=>{const view=el.dataset.view||el.dataset.mobile;$$('.rail-link,.mobile-nav button').forEach(x=>x.classList.toggle('active',(x.dataset.view||x.dataset.mobile)===view));const target=view==='vehicles'?'#vehicleList':view==='library'?'#documentList':view==='saved'?'#reader':'#';if(target!=='#')$(target).scrollIntoView({behavior:'smooth',block:'center'});if(view==='saved')announce(saved.size+' saved references in this browser.');}));
+
 renderSaved();selectDoc(0);
 
 
@@ -151,9 +151,11 @@ function renderLiveGarage(catalog){
 }
 function openLiveVehicle(vehicle){
   const title=titleFromFolder(vehicle.name);
+  selectedVehicle=vehicle;
   setMobileView('vehicles',title,'Factory source: '+vehicle.manualId);
-  announce('Opening the original secure manual for '+title+'.');
-  window.open(vehicle.href,'_blank','noopener,noreferrer');
+  $('.vehicle-item').forEach(item=>item.classList.toggle('selected',item.dataset.liveHref===vehicle.href));
+  $('.vehicle-panel').classList.add('show-toc');
+  announce('Selected '+title+'. Choose a manual section to continue.');
 }
 async function loadLiveGarage(){
   const host=$('#vehicleList');
@@ -169,3 +171,27 @@ async function loadLiveGarage(){
   }
 }
 loadLiveGarage();
+
+
+// Unified navigation: switch views in place; never scroll to a section as navigation.
+let selectedVehicle = null;
+function activateView(view){
+  const normalized = view === 'dashboard' ? 'home' : view === 'saved' ? 'favorites' : view;
+  if(normalized==='search'){
+    $('#searchDialog').showModal();
+    $('#globalSearch').focus();
+    return;
+  }
+  if(normalized==='more'){
+    $('#moreDialog').showModal();
+    return;
+  }
+  if(normalized==='favorites')renderFavorites();
+  const labels={home:['Your garage','Choose a vehicle or continue where you left off.'],vehicles:[selectedVehicle?titleFromFolder(selectedVehicle.name):'Vehicles','Choose a vehicle to browse its manuals.'],library:[$('#sectionTitle').textContent,'Manual pages in this section.'],reader:[$('#readerTitle').textContent,'Factory manual reference.'],favorites:['Favorites','Your saved procedures and references.']};
+  const info=labels[normalized]||labels.home;
+  setMobileView(normalized,info[0],info[1]);
+  $$('.mobile-nav button').forEach(button=>button.classList.toggle('active',button.dataset.mobile===normalized));
+  $$('.rail-link').forEach(button=>button.classList.toggle('active',(button.dataset.view==='dashboard'?'home':button.dataset.view==='saved'?'favorites':button.dataset.view)===normalized));
+}
+$$('[data-view]').forEach(button=>button.addEventListener('click',()=>activateView(button.dataset.view)));
+$$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>activateView(button.dataset.mobile)));
