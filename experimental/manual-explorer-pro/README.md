@@ -36,3 +36,8 @@ All vehicle and procedure data in this prototype is illustrative. Search is a lo
 4. Integrate search through a secure server-side proxy.
 5. Evaluate selective offline caching.
 6. Validate Nomie 6 integration against its actual supported APIs.
+
+
+## Cloudflare Pages preview
+
+The isolated Pages project is `lifeos-manual-explorer-pro`. Its project root is this directory, and its only R2 binding is `MANUALS` to the existing `motornote-manual-site` bucket. Production deployments are disabled; preview builds are limited to `feat/manual-explorer-pro` and this directory.
