@@ -7,6 +7,7 @@ on:
       - "manuals/**"
       - "index/**"
       - "site-worker/assets/**"
+      - "scripts/publish_manual_delta.py"
 
 permissions:
   contents: read
