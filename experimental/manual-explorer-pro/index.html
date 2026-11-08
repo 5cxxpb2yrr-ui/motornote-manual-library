@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#151515">
+  <meta name="description" content="Experimental LifeOS Manual Explorer Pro interface">
+  <title>LifeOS Manual Explorer Pro</title>
+  <link rel="stylesheet" href="./app.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#reader">Skip to manual content</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="LifeOS Manual Explorer Pro home"><span class="brand-mark">L</span><span>LIFEOS <b>MANUAL EXPLORER</b><small>PRO · EXPERIMENTAL</small></span></a>
+    <div class="top-actions"><span class="connection"><i></i> LOCAL PREVIEW</span><button class="icon-button" id="themeButton" type="button" aria-label="Toggle color theme">◐</button><button class="avatar" type="button" aria-label="Workspace menu">LP</button></div>
+  </header>
+  <div class="app-shell">
+    <aside class="rail" aria-label="Primary navigation">
+      <button class="rail-link active" data-view="dashboard" aria-current="page"><span>⌂</span><small>Overview</small></button>
+      <button class="rail-link" data-view="vehicles"><span>▣</span><small>Vehicles</small></button>
+      <button class="rail-link" data-view="library"><span>▤</span><small>Library</small></button>
+      <button class="rail-link" data-view="saved"><span>☆</span><small>Saved</small></button>
+      <div class="rail-bottom"><span class="sync-dot"></span><small>Preview<br>workspace</small></div>
+    </aside>
+    <main class="workspace">
+      <section class="page-heading">
+        <div><p class="eyebrow">GARAGE / TECHNICAL KNOWLEDGE</p><h1>Manual Explorer <span>Pro</span></h1><p class="subhead">Your vehicles. Your manuals. One connected workspace.</p></div>
+        <button class="primary-button" id="searchOpen" type="button"><span>⌕</span> Search manuals <kbd>/</kbd></button>
+      </section>
+      <section class="stats" aria-label="Library overview">
+        <article class="stat-card"><span>YOUR VEHICLES</span><strong>04</strong><small>Garage profiles</small></article>
+        <article class="stat-card"><span>MANUAL COLLECTION</span><strong>03</strong><small>Available libraries</small></article>
+        <article class="stat-card"><span>SAVED REFERENCES</span><strong id="savedCount">00</strong><small>Bookmarks & favorites</small></article>
+        <article class="stat-card"><span>SYNC STATUS</span><strong class="status-text">LOCAL</strong><small>Preview mode · no account linked</small></article>
+      </section>
+      <div class="explorer-layout">
+        <aside class="panel vehicle-panel" aria-label="Vehicle and manual navigation">
+          <div class="panel-title"><div><p class="eyebrow">YOUR GARAGE</p><h2>Vehicles</h2></div><button class="subtle-button" type="button" id="addVehicle">＋ Add</button></div>
+          <div class="vehicle-list" id="vehicleList">
+            <button class="vehicle-item selected" data-vehicle="scion"><span class="vehicle-icon">▰</span><span><b>2006 Scion xB</b><small>1NZ-FE · 1.5L</small></span><span class="chevron">›</span></button>
+            <button class="vehicle-item" data-vehicle="subaru"><span class="vehicle-icon">▰</span><span><b>2019 Subaru Crosstrek</b><small>FB20 · 2.0L</small></span><span class="chevron">›</span></button>
+            <button class="vehicle-item" data-vehicle="toyota"><span class="vehicle-icon">▰</span><span><b>2020 Toyota Tacoma</b><small>3.5L V6</small></span><span class="chevron">›</span></button>
+            <button class="vehicle-item" data-vehicle="ford"><span class="vehicle-icon">▰</span><span><b>2021 Ford F-150</b><small>5.0L V8</small></span><span class="chevron">›</span></button>
+          </div>
+          <div class="panel-divider"></div>
+          <div class="panel-title"><div><p class="eyebrow">SELECTED VEHICLE</p><h2 id="vehicleManualTitle">Scion xB Manuals</h2></div></div>
+          <nav class="manual-tree" aria-label="Manual sections">
+            <button class="tree-item expanded" data-section="overview"><span>⌄</span> Service information</button>
+            <button class="tree-child active" data-section="engine">Engine mechanical</button>
+            <button class="tree-child" data-section="cooling">Cooling system</button>
+            <button class="tree-child" data-section="fuel">Fuel system</button>
+            <button class="tree-child" data-section="electrical">Electrical</button>
+            <button class="tree-child" data-section="brakes">Brakes</button>
+            <button class="tree-child" data-section="transmission">Transmission</button>
+            <button class="tree-item" data-section="diagnostics"><span>›</span> Diagnostics</button>
+            <button class="tree-item" data-section="wiring"><span>›</span> Wiring diagrams</button>
+          </nav>
+        </aside>
+        <section class="panel document-panel" aria-label="Manual document list">
+          <div class="panel-title"><div><p class="eyebrow" id="crumb">2006 SCION XB / SERVICE INFORMATION</p><h2 id="sectionTitle">Engine mechanical</h2></div><button class="icon-button" id="listFilter" aria-label="Filter documents">☷</button></div>
+          <label class="inline-search"><span>⌕</span><input id="filterInput" type="search" placeholder="Filter this section" aria-label="Filter this section"></label>
+          <div class="document-list" id="documentList">
+            <button class="document-item selected" data-doc="engine-overview"><span class="doc-icon">▤</span><span><b>Engine Mechanical — Overview</b><small>General information · Service procedure</small></span><span class="doc-arrow">›</span></button>
+            <button class="document-item" data-doc="engine-specs"><span class="doc-icon">⌗</span><span><b>Engine Mechanical Specifications</b><small>Specifications · Reference</small></span><span class="doc-arrow">›</span></button>
+            <button class="document-item" data-doc="engine-removal"><span class="doc-icon">▤</span><span><b>Engine Assembly — Removal</b><small>Repair procedure · 12 steps</small></span><span class="doc-arrow">›</span></button>
+            <button class="document-item" data-doc="engine-install"><span class="doc-icon">▤</span><span><b>Engine Assembly — Installation</b><small>Repair procedure · 9 steps</small></span><span class="doc-arrow">›</span></button>
+          </div>
+          <p class="list-footnote">DEMO CONTENT · Connected manual pages will replace these examples.</p>
+        </section>
+        <article class="panel reader-panel" id="reader" tabindex="-1" aria-label="Manual reader">
+          <div class="reader-toolbar"><div><p class="eyebrow">SERVICE PROCEDURE <span class="live-tag">REFERENCE</span></p><h2 id="readerTitle">Engine Mechanical — Overview</h2></div><div class="reader-actions"><button class="icon-button" id="favoriteButton" aria-label="Save this page as a favorite" aria-pressed="false">☆</button><button class="icon-button" id="bookmarkButton" aria-label="Bookmark this page" aria-pressed="false">⚑</button></div></div>
+          <div class="reader-meta"><span>2006 SCION XB</span><span>1NZ-FE · 1.5L</span><span>ENGINE</span></div>
+          <div class="reader-content" id="readerContent">
+            <div class="procedure-label">01 / GENERAL INFORMATION</div>
+            <h3>Engine mechanical system</h3>
+            <p>This is an interface prototype. The selected manual page will appear here with its original procedure text, diagrams, specifications, warnings and navigation.</p>
+            <div class="notice"><strong>Important safety notice</strong><p>Always follow the applicable factory procedure and safety precautions. Verify vehicle and engine identification before beginning service.</p></div>
+            <h3>In this section</h3>
+            <ul><li>Engine identification and general specifications</li><li>Component locations and service precautions</li><li>Removal, inspection and installation procedures</li></ul>
+            <div class="spec-grid"><div><small>ENGINE</small><b>1NZ-FE</b></div><div><small>DISPLACEMENT</small><b>1.5 L</b></div><div><small>REFERENCE</small><b>Factory manual</b></div></div>
+          </div>
+          <div class="reader-footer"><button class="subtle-button" type="button" id="previousDoc">← Previous</button><span>PROTOTYPE READER</span><button class="subtle-button" type="button" id="nextDoc">Next →</button></div>
+        </article>
+      </div>
+    </main>
+  </div>
+  <nav class="mobile-nav" aria-label="Mobile navigation"><button class="active" data-mobile="dashboard"><span>⌂</span>Home</button><button data-mobile="vehicles"><span>▣</span>Vehicles</button><button data-mobile="library"><span>▤</span>Library</button><button data-mobile="saved"><span>☆</span>Saved</button></nav>
+  <dialog id="searchDialog" class="search-dialog" aria-labelledby="searchTitle"><div class="dialog-head"><div><p class="eyebrow">UNIVERSAL MANUAL SEARCH</p><h2 id="searchTitle">Find a procedure</h2></div><button class="icon-button" id="searchClose" aria-label="Close search">×</button></div><label class="global-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Try “water pump”, “torque specs”…" autocomplete="off"></label><div class="search-filters"><button class="filter-chip active">All manuals</button><button class="filter-chip">Scion</button><button class="filter-chip">Subaru</button></div><div class="search-results" id="searchResults" aria-live="polite"><p class="empty-state">Search across your technical library. Results will appear here.</p></div><p class="dialog-note">EXPERIMENTAL PREVIEW · SEARCH IS NOT CONNECTED YET</p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
