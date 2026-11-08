@@ -66,7 +66,7 @@ def decorate_html(path: Path) -> None:
         source += script
     path.write_text(source, encoding="utf-8")
 
-def make_folder_landing(folder: Path) -> Path | None:
+def make_folder_landing(folder: Path) -> tuple[Path, str] | None:
     if any((folder / name).is_file() for name in ("index.html", "index.htm")):
         return None
     pages = sorted(
