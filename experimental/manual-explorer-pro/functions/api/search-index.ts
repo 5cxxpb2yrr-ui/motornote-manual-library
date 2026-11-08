@@ -24,7 +24,6 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
       ? "public, max-age=60"
       : "public, max-age=300",
     "X-Content-Type-Options": "nosniff",
-    "Access-Control-Allow-Origin": "same-origin"
   });
   object.writeHttpMetadata(headers);
   headers.set("Content-Type", "application/json; charset=utf-8");
