@@ -29,3 +29,39 @@ $('#filterInput').addEventListener('input',e=>{$$('.document-item').forEach(el=>
 $('#addVehicle').addEventListener('click',()=>announce('Vehicle profile creation is planned for the next prototype milestone.'));
 $$('[data-view], [data-mobile]').forEach(el=>el.addEventListener('click',()=>{const view=el.dataset.view||el.dataset.mobile;$$('.rail-link,.mobile-nav button').forEach(x=>x.classList.toggle('active',(x.dataset.view||x.dataset.mobile)===view));const target=view==='vehicles'?'#vehicleList':view==='library'?'#documentList':view==='saved'?'#reader':'#';if(target!=='#')$(target).scrollIntoView({behavior:'smooth',block:'center'});if(view==='saved')announce(saved.size+' saved references in this browser.');}));
 renderSaved();selectDoc(0);
+
+
+// Mobile navigation follows the five-tab LifeOS model. Secondary tools stay in drawers.
+function refreshTocDrawer(){
+  const source=$('.manual-tree');
+  const target=$('#tocDrawerContent');
+  if(!source||!target)return;
+  target.replaceChildren(source.cloneNode(true));
+  target.querySelectorAll('[data-section]').forEach(item=>{
+    item.addEventListener('click',()=>{
+      const section=item.dataset.section;
+      const original=$('.manual-tree [data-section="'+section+'"]');
+      if(original)original.click();
+      $('#tocDialog').close();
+      $('#reader').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+}
+$('#tocOpen').addEventListener('click',()=>{refreshTocDrawer();$('#tocDialog').showModal()});
+$('#tocClose').addEventListener('click',()=>$('#tocDialog').close());
+$('#moreClose').addEventListener('click',()=>$('#moreDialog').close());
+$('#moreNotes').addEventListener('click',()=>{ $('#moreDialog').close();announce('Vehicle notes are planned for the next milestone.');});
+$('#moreMaintenance').addEventListener('click',()=>{ $('#moreDialog').close();announce('Maintenance tracking is planned for the next milestone.');});
+$('#moreSync').addEventListener('click',()=>{ $('#moreDialog').close();announce('GitHub sync is a planned integration. Current preview is local-only.');});
+$('#moreSettings').addEventListener('click',()=>{ $('#moreDialog').close();$('#themeButton').click();});
+$$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
+  const tab=button.dataset.mobile;
+  if(tab==='search'){
+    $('#searchDialog').showModal();
+    $('#globalSearch').focus();
+  }else if(tab==='more'){
+    $('#moreDialog').showModal();
+  }else if(tab==='saved'){
+    announce(saved.size+' saved references stored on this device.');
+  }
+}));
