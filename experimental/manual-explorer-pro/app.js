@@ -195,3 +195,107 @@ function activateView(view){
 }
 $$('[data-view]').forEach(button=>button.addEventListener('click',()=>activateView(button.dataset.view)));
 $$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>activateView(button.dataset.mobile)));
+
+
+// Real R2-backed manual navigation. The manual index is the source of its own TOC.
+const MANUAL_API = '/api/manual-page?key=';
+async function fetchManualHtml(key) {
+  const response = await fetch(MANUAL_API + encodeURIComponent(key), { headers: { Accept: 'text/html' } });
+  if (!response.ok) throw new Error('Manual page request returned ' + response.status);
+  return response.text();
+}
+function manualKey(vehicle, relative) {
+  return vehicle.id.replace(/\\/$/, '') + '/' + relative.replace(/^\\//, '');
+}
+function cleanManualFragment(html, key) {
+  const parsed = new DOMParser().parseFromString(html, 'text/html');
+  parsed.querySelectorAll('script, iframe, object, embed, form, button').forEach(node => node.remove());
+  parsed.querySelectorAll('*').forEach(node => [...node.attributes].forEach(attr => {
+    if (attr.name.toLowerCase().startsWith('on')) node.removeAttribute(attr.name);
+  }));
+  parsed.querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src');
+    if (src) img.src = MANUAL_SITE + key.split('/').slice(0,-1).join('/') + '/' + src.split('/').map(encodeURIComponent).join('/');
+    img.loading = 'lazy';
+    img.alt = img.alt || 'Manual illustration';
+  });
+  parsed.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href') || '';
+    if (/^(https?:|mailto:|javascript:)/i.test(href)) { link.removeAttribute('href'); return; }
+    const resolved = new URL(href, 'https://manual.local/' + key);
+    const match = resolved.pathname.match(/^(.*?)(?:pages\\/(\\d+)\\.html)$/);
+    if (match) {
+      link.dataset.manualPage = match[2];
+      link.removeAttribute('href');
+      link.setAttribute('role','button');
+      link.setAttribute('tabindex','0');
+    } else link.removeAttribute('href');
+  });
+  const main = parsed.querySelector('.main') || parsed.body;
+  return main ? main.innerHTML : '<p>Manual page content is empty.</p>';
+}
+async function showLiveManualPage(vehicle, pageId, title) {
+  const key = manualKey(vehicle, 'pages/' + pageId + '.html');
+  $('#readerTitle').textContent = title || 'Manual page ' + pageId;
+  $('#readerContent').innerHTML = '<p class="empty-state">Loading factory manual page…</p>';
+  setMobileView('reader', title || 'Manual viewer', titleFromFolder(vehicle.name));
+  try {
+    const html = await fetchManualHtml(key);
+    $('#readerContent').innerHTML = cleanManualFragment(html, key);
+    $('#readerContent').querySelectorAll('[data-manual-page]').forEach(link => {
+      const open = () => showLiveManualPage(vehicle, link.dataset.manualPage, link.textContent.trim());
+      link.addEventListener('click', open);
+      link.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); } });
+    });
+    $('#readerContent').querySelectorAll('a').forEach(link => {
+      if (!link.dataset.manualPage) link.removeAttribute('role');
+    });
+    $('#reader').focus({ preventScroll: true });
+    announce('Loaded factory manual page: ' + (title || pageId));
+  } catch (error) {
+    $('#readerContent').replaceChildren(safeText('p','Unable to load this factory manual page. '+error.message,'empty-state'));
+  }
+}
+async function loadLiveManualIndex(vehicle) {
+  const key = manualKey(vehicle, 'index.html');
+  $('#documentList').replaceChildren(safeText('p','Loading the factory table of contents…','empty-state'));
+  try {
+    const html = await fetchManualHtml(key);
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+    const heading = parsed.querySelector('h1')?.textContent?.trim() || titleFromFolder(vehicle.name);
+    $('#vehicleManualTitle').textContent = heading;
+    $('#sectionTitle').textContent = 'Manual sections';
+    $('#crumb').textContent = heading.toUpperCase() + ' / FACTORY CONTENTS';
+    const list = $('#documentList');
+    list.replaceChildren();
+    const links = [...parsed.querySelectorAll('a[href]')].filter(link => /pages\\/\\d+\\.html(?:$|[?#])/.test(link.getAttribute('href') || ''));
+    for (const link of links) {
+      const href = link.getAttribute('href');
+      const pageId = href.match(/pages\\/(\\d+)\\.html/)[1];
+      const label = link.textContent.trim() || 'Manual page ' + pageId;
+      const item = document.createElement('button');
+      item.type = 'button'; item.className = 'document-item';
+      item.append(safeText('span','▤','doc-icon'));
+      const details = document.createElement('span');
+      details.append(safeText('b',label),safeText('small','Factory manual · Page '+pageId));
+      item.append(details,safeText('span','›','doc-arrow'));
+      item.addEventListener('click',()=>showLiveManualPage(vehicle,pageId,label));
+      list.append(item);
+    }
+    if (!links.length) list.append(safeText('p','No linked sections were found in this manual index.','empty-state'));
+    $('.list-footnote').textContent = 'LIVE R2 CONTENT · ' + links.length + ' LINKS IN THE FACTORY INDEX';
+    setMobileView('library',heading,'Select a factory manual section or procedure.');
+    announce('Loaded '+links.length+' entries from the factory manual index.');
+  } catch (error) {
+    $('#documentList').replaceChildren(safeText('p','Unable to load the factory table of contents. '+error.message,'empty-state'));
+  }
+}
+openLiveVehicle = async function(vehicle) {
+  selectedVehicle = vehicle;
+  const title = titleFromFolder(vehicle.name);
+  setMobileView('library',title,'Loading factory manual sections from R2.');
+  $('.vehicle-item').forEach(item=>item.classList.toggle('selected',item.dataset.liveHref===vehicle.href));
+  $('.vehicle-panel').classList.add('show-toc');
+  $('#vehicleManualTitle').textContent = title;
+  await loadLiveManualIndex(vehicle);
+};
