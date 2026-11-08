@@ -84,9 +84,7 @@ def make_folder_landing(folder: Path) -> Path | None:
 <h1>{html.escape(label)}</h1><p>Open the factory manual or search across the indexed service information.</p>
 <a class="mn-manual-card" href="{html.escape(target, quote=True)}"><span class="mn-make-icon" aria-hidden="true">▤</span><span><strong>Open manual</strong><small>Continue to the original chapter navigation</small></span><span class="mn-count">→</span></a></section></main>
 <script src="/assets/phoenix.js" defer></script></body></html>"""
-    landing = folder / "index.html"
-    landing.write_text(content, encoding="utf-8")
-    return landing
+    return folder / "index.html", content
 
 def main() -> int:
     if len(ACCOUNT_ID) != 32:
@@ -125,7 +123,7 @@ def main() -> int:
             target.write_bytes(source.read_bytes())
             if relative.startswith("manuals/"):
                 manual_changed = True
-                manual_folders.add(source.parent)
+                manual_folders.add(ROOT / "manuals" / Path(relative).parts[1])
                 if target.suffix.lower() in {".html", ".htm"}:
                     decorate_html(target)
             elif relative.startswith("index/"):
@@ -137,26 +135,28 @@ def main() -> int:
             uploads.add(relative)
 
         for folder in sorted(manual_folders):
-            landing = make_folder_landing(folder)
-            if landing:
+            generated = make_folder_landing(folder)
+            if generated:
+                landing, content = generated
                 rel = landing.relative_to(ROOT).as_posix()
                 target = stage / rel
                 target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes(landing.read_bytes())
+                target.write_text(content, encoding="utf-8")
                 uploads.add(rel)
 
         for relative in deleted:
             # A deleted native landing page may need a generated replacement.
             if relative.startswith("manuals/"):
                 manual_changed = True
-                folder = (ROOT / relative).parent
+                folder = ROOT / "manuals" / Path(relative).parts[1]
                 if folder.is_dir():
-                    landing = make_folder_landing(folder)
-                    if landing:
+                    generated = make_folder_landing(folder)
+                    if generated:
+                        landing, content = generated
                         rel = landing.relative_to(ROOT).as_posix()
                         target = stage / rel
                         target.parent.mkdir(parents=True, exist_ok=True)
-                        target.write_bytes(landing.read_bytes())
+                        target.write_text(content, encoding="utf-8")
                         uploads.add(rel)
 
         if manual_changed:
