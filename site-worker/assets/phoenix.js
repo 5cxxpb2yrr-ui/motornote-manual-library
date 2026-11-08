@@ -12,21 +12,34 @@ shell.querySelectorAll(".mn-filter").forEach(b=>b.addEventListener("click",()=>{
 function itemDetails(c,query){
  const item=c?.item||{},m=item.metadata||{},path=m.source_path||item.key||"";
  const raw=String(c?.text||"").trim();
- const frontmatter=raw.replace(/^---\s*[\s\S]*?\n---\s*/,"");
- const imageMatch=frontmatter.match(/!\[[^\]]*\]\(([^)]+)\)/)||frontmatter.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i);
+ const frontmatter=raw.replace(/^---\\s*[\\s\\S]*?\\n---\\s*/,"");
+ const imageMatch=frontmatter.match(/!\\[[^\\]]*\\]\\(([^)]+)\\)/)||frontmatter.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i);
  let preview="";
- if(imageMatch){try{const u=new URL(imageMatch[1],location.origin+"/"+path);if(u.origin===location.origin&&/\.(png|jpe?g|webp|gif|svg)$/i.test(u.pathname))preview=u.href}catch{}}
- const heading=frontmatter.split(/\r?\n/).map(x=>x.trim()).find(x=>/^#{1,4}\s+/.test(x));
- const title=m.title||m.page_title||(heading?heading.replace(/^#{1,6}\s+/,"").replace(/[\x60*_]/g,"").trim():"")||((path.split("/").pop()||"Manual page").replace(/\.html?$/i,"").replace(/[-_]/g," "));
- const folder=path.split("/")[1]||"";
- const vehicle=[m.make,m.model].filter(Boolean).join(" ")||folder.replace(/-service-manual$/i,"").replace(/-/g," ").replace(/\b\w/g,x=>x.toUpperCase());
+ if(imageMatch){try{const u=new URL(imageMatch[1],location.origin+"/"+path);if(u.origin===location.origin&&/\\.(png|jpe?g|webp|gif|svg)$/i.test(u.pathname))preview=u.href}catch{}}
  const tokens=query.toLowerCase().split(/[^a-z0-9]+/).filter(x=>x.length>1);
- const cleanLine=line=>line.replace(/!\[[^\]]*\]\([^)]*\)/g," ").replace(/<img[^>]*>/gi," ").replace(/\[([^\]]+)\]\([^)]+\)/g,"$1").replace(/<[^>]+>/g," ").replace(/^\s*[-|:]{2,}\s*$/,"").replace(/^\s*#{1,6}\s*/,"").replace(/[\x60*_|]/g," ").replace(/\s+/g," ").trim();
- const lines=frontmatter.split(/\r?\n/).map(cleanLine).filter(x=>x.length>8&&!/^description:/i.test(x)&&!/repair manual for the .*including/i.test(x)&&!/^(home|scion|subaru|testing and inspection|expand all|collapse all)$/i.test(x));
- const ranked=lines.map((line,i)=>({line,i,hits:tokens.filter(t=>line.toLowerCase().includes(t)).length})).sort((a,b)=>b.hits-a.hits||a.i-b.i);
- const snippet=(ranked.find(x=>x.hits>0)?.line||lines[0]||title).slice(0,250);
- const matched=[...new Set(tokens.filter(t=>(title+" "+snippet).toLowerCase().includes(t)))];
- return{path,title,vehicle,text:snippet,matched,preview,hasImage:!!imageMatch,documentType:m.document_type||""};
+ const cleanLine=line=>line.replace(/!\\[[^\\]]*\\]\\([^)]*\\)/g," ").replace(/<img[^>]*>/gi," ").replace(/\\[([^\\]]+)\\]\\([^)]+\\)/g,"$1").replace(/<[^>]+>/g," ").replace(/^\\s*[-|:]{2,}\\s*$/,"").replace(/^\\s*#{1,6}\\s*/,"").replace(/[\\x60*_|]/g," ").replace(/\\s+/g," ").trim();
+ const lines=frontmatter.split(/\\r?\\n/).map(cleanLine).filter(x=>x.length>8&&!/^description:/i.test(x)&&!/repair manual for the .*including/i.test(x)&&!/^(home|scion|subaru|testing and inspection|expand all|collapse all)$/i.test(x));
+ const headings=frontmatter.split(/\\r?\\n/).filter(x=>/^\\s*#{1,6}\\s+/.test(x)).map(x=>cleanLine(x)).filter(Boolean);
+ const phrase=query.toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+ const headingRank=headings.map((line,i)=>({line,i,hits:tokens.filter(t=>line.toLowerCase().includes(t)).length,phrase:line.toLowerCase().replace(/[^a-z0-9]+/g," ").includes(phrase)})).sort((a,b)=>Number(b.phrase)-Number(a.phrase)||b.hits-a.hits||a.i-b.i);
+ const metadataTitle=m.title||m.page_title||"";
+ const title=metadataTitle||headingRank[0]?.line||((path.split("/").pop()||"Manual page").replace(/\\.html?$/i,"").replace(/[-_]/g," "));
+ const folder=path.split("/")[1]||"";
+ const vehicle=[m.make,m.model].filter(Boolean).join(" ")||folder.replace(/-service-manual$/i,"").replace(/-/g," ").replace(/\\b\\w/g,x=>x.toUpperCase());
+ const ranked=lines.map((line,i)=>({line,i,hits:tokens.filter(t=>line.toLowerCase().includes(t)).length,phrase:line.toLowerCase().replace(/[^a-z0-9]+/g," ").includes(phrase)})).sort((a,b)=>Number(b.phrase)-Number(a.phrase)||b.hits-a.hits||a.i-b.i);
+ const bestHeading=headingRank[0];
+ const relevantTitle=bestHeading&&(bestHeading.hits>0||bestHeading.phrase)?bestHeading.line:title;
+ const snippet=(ranked.find(x=>x.phrase)?.line||ranked.find(x=>x.hits>0)?.line||lines[0]||relevantTitle).slice(0,250);
+ const matched=[...new Set(tokens.filter(t=>(relevantTitle+" "+snippet).toLowerCase().includes(t)))];
+ const textCorpus=(relevantTitle+" "+frontmatter).toLowerCase();
+ const exactPhrase=phrase.length>3&&textCorpus.replace(/[^a-z0-9]+/g," ").includes(phrase);
+ const titleHits=tokens.filter(t=>relevantTitle.toLowerCase().includes(t)).length;
+ const titleCoverage=tokens.length?titleHits/tokens.length:0;
+ const locationIntent=/\\b(location|where|located|position|behind|under|relay|connector)\\b/i.test(query);
+ const locationEvidence=/\\b(locations?|located|behind|under|instrument cluster|crash pad|diagram|illustration)\\b/i.test(frontmatter);
+ const hasImage=!!imageMatch;
+ const relevanceBoost=(exactPhrase?0.42:0)+(titleCoverage*0.24)+(locationIntent&&locationEvidence?0.16:0)+(hasImage&&locationIntent?0.06:0);
+ return{path,title:relevantTitle,vehicle,text:snippet,matched,preview,hasImage,documentType:m.document_type||"",semanticScore:Number.isFinite(c?.score)?c.score:null,relevanceBoost};
 }
 function runSearch(q){
  lastQuery=q;status.classList.remove("mn-error");status.textContent="Searching the manual library…";results.innerHTML="";
@@ -40,12 +53,15 @@ function runSearch(q){
    const key=row.path.toLowerCase();const signature=(row.vehicle+"|"+row.title+"|"+row.text.slice(0,120)).toLowerCase();if(unique.has(key)||contentSeen.has(signature)){duplicates++;continue}unique.set(key,row);contentSeen.add(signature);
   }
   const rows=[...unique.values()];
-  status.textContent=rows.length+" distinct results"+(duplicates?" · "+duplicates+" duplicate copies grouped":"");
+  const count=rows.length;
+  rows.forEach((row,index)=>{row.rankSignal=(count-index)/Math.max(count,1)+row.relevanceBoost});
+  rows.sort((a,b)=>b.rankSignal-a.rankSignal);
+  status.textContent=rows.length+" distinct results"+(duplicates?" · "+duplicates+" duplicate copies grouped":"")+" · ranked by title, passage and diagram relevance";
   if(!rows.length){results.innerHTML='<p class="mn-status">No matching indexed pages. Try another term or select All Manuals.</p>';return}
   results.innerHTML=rows.map((x,i)=>{
    const href="/"+x.path.replace(/^\/+/, "").split("/").map(encodeURIComponent).join("/");
-   const rank=i===0?"Top search result":i<4?"Strong candidate":"Related passage";
-   const tags=(x.matched.length?'<span class="mn-match-why">Matched: '+esc(x.matched.join(" · "))+'</span>':"")+(x.hasImage?'<span class="mn-result-tag">Diagram / image</span>':"");
+   const rank=i===0?"Best match":i<4?"Strong match":"Related reference";
+   const tags=(x.matched.length?'<span class="mn-match-why">Matched: '+esc(x.matched.join(" · "))+'</span>':"")+(x.hasImage?'<span class="mn-result-tag">Diagram / image</span>':"")+(x.relevanceBoost>=0.45?'<span class="mn-result-tag">Strong title / section match</span>':"");
    const page=(x.path.match(/(?:^|\/)pages\/(\d+)\.html?$/i)||[])[1]||x.path.split("/").pop();
    return '<a class="mn-result" href="'+esc(href)+'"><div class="mn-result-top"><span class="mn-result-rank">'+rank+'</span><span class="mn-result-tag">'+esc(x.documentType||"Factory manual")+'</span></div><div class="mn-result-main">'
     +(x.preview?'<img class="mn-result-thumb" src="'+esc(x.preview)+'" alt="" loading="lazy">':"")
