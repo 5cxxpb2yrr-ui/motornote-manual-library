@@ -1,0 +1,46 @@
+name: Incremental private manual site publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "manuals/**"
+      - "index/**"
+      - "site-worker/assets/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: manual-site-publish
+  cancel-in-progress: false
+
+jobs:
+  publish-changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository without downloading the full LFS corpus
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          lfs: false
+          fetch-depth: 0
+      - name: Install Git LFS and AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-lfs
+          git lfs install
+          python -m pip install --disable-pip-version-check awscli
+      - name: Validate incremental publisher
+        run: python -m py_compile scripts/publish_manual_delta.py scripts/publish_manual_site.py
+      - name: Publish only changed objects to R2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          R2_ACCOUNT_ID: "3481a3f4006a12f337ceb86104d0816b"
+          R2_BUCKET: motornote-manual-site
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+          GITHUB_SHA: ${{ github.sha }}
+        run: python scripts/publish_manual_delta.py
