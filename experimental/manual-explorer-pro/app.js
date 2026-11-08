@@ -115,3 +115,57 @@ $('#recentManual').addEventListener('click',()=>{selectDoc(0);setMobileView('rea
 $('#tocOpen').addEventListener('click',()=>setMobileView('vehicles','Table of contents','Choose a manual section.'));
 renderFavorites();
 setMobileView('home','Your garage','Choose a vehicle or continue where you left off.');
+
+
+// Live garage inventory: R2 remains the source of truth.
+let liveCatalog = null;
+function titleFromFolder(value){
+  return value.replace(/\\s+/g,' ').replace(/\\bL4-/g,'L4 ').trim();
+}
+function renderLiveGarage(catalog){
+  liveCatalog=catalog;
+  const allVehicles=catalog.manuals.flatMap(manual=>manual.vehicles.map(vehicle=>({...vehicle,manualId:manual.id,make:manual.make,fileCount:manual.fileCount})));
+  $('#vehicleTotal').textContent=String(allVehicles.length).padStart(2,'0');
+  $('#manualTotal').textContent=String(catalog.manualCount).padStart(2,'0');
+  const list=$('#vehicleList');list.replaceChildren();
+  const home=$('#homeVehicleGrid');home.replaceChildren();
+  for(const vehicle of allVehicles){
+    const label=titleFromFolder(vehicle.name);
+    const item=document.createElement('button');item.type='button';item.className='vehicle-item';
+    item.dataset.liveHref=vehicle.href;
+    item.append(safeText('span','🚘','vehicle-icon'));
+    const details=document.createElement('span');details.append(safeText('b',label),safeText('small',vehicle.make.toUpperCase()+' · '+vehicle.fileCount.toLocaleString()+' files'));
+    item.append(details,safeText('span','›','chevron'));
+    item.addEventListener('click',()=>openLiveVehicle(vehicle));
+    list.append(item);
+
+    const card=document.createElement('button');card.type='button';card.className='home-vehicle-card';
+    card.append(safeText('span','🚘','home-car-icon'),safeText('b',label),safeText('small',vehicle.make.toUpperCase()+' · Factory manual'));
+    card.addEventListener('click',()=>openLiveVehicle(vehicle));
+    home.append(card);
+  }
+  $('#vehicleManualTitle').textContent='R2 MANUAL LIBRARY';
+  $('#homeAllVehicles').textContent='View all →';
+  $('#homeContextHint')?.remove();
+  announce('Loaded '+allVehicles.length+' vehicle entries from the R2 manual library.');
+}
+function openLiveVehicle(vehicle){
+  const title=titleFromFolder(vehicle.name);
+  setMobileView('vehicles',title,'Factory source: '+vehicle.manualId);
+  announce('Opening the original secure manual for '+title+'.');
+  window.open(vehicle.href,'_blank','noopener,noreferrer');
+}
+async function loadLiveGarage(){
+  const host=$('#vehicleList');
+  try{
+    const response=await fetch('/api/catalog',{headers:{Accept:'application/json'}});
+    if(!response.ok)throw new Error('Catalog request returned '+response.status);
+    const catalog=await response.json();
+    if(!Array.isArray(catalog.manuals))throw new Error('R2 catalog response is invalid');
+    renderLiveGarage(catalog);
+  }catch(error){
+    host.replaceChildren(safeText('p','Unable to load the live R2 catalog. '+error.message,'empty-state'));
+    announce('R2 vehicle catalog could not be loaded.');
+  }
+}
+loadLiveGarage();
