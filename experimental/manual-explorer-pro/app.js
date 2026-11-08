@@ -54,17 +54,7 @@ $('#moreNotes').addEventListener('click',()=>{ $('#moreDialog').close();announce
 $('#moreMaintenance').addEventListener('click',()=>{ $('#moreDialog').close();announce('Maintenance tracking is planned for the next milestone.');});
 $('#moreSync').addEventListener('click',()=>{ $('#moreDialog').close();announce('GitHub sync is a planned integration. Current preview is local-only.');});
 $('#moreSettings').addEventListener('click',()=>{ $('#moreDialog').close();$('#themeButton').click();});
-$$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
-  const tab=button.dataset.mobile;
-  if(tab==='search'){
-    $('#searchDialog').showModal();
-    $('#globalSearch').focus();
-  }else if(tab==='more'){
-    $('#moreDialog').showModal();
-  }else if(tab==='saved'){
-    announce(saved.size+' saved references stored on this device.');
-  }
-}));
+// Unified navigation handler below owns all mobile-tab actions.
 
 
 // Screen-state controller for the canonical iPhone flow.
@@ -120,7 +110,7 @@ setMobileView('home','Your garage','Choose a vehicle or continue where you left 
 // Live garage inventory: R2 remains the source of truth.
 let liveCatalog = null;
 function titleFromFolder(value){
-  return value.replace(/\\s+/g,' ').replace(/\\bL4-/g,'L4 ').trim();
+  return value.replace(/\s+/g,' ').replace(/\bL4-/g,'L4 ').trim();
 }
 function renderLiveGarage(catalog){
   liveCatalog=catalog;
@@ -205,7 +195,7 @@ async function fetchManualHtml(key) {
   return response.text();
 }
 function manualKey(vehicle, relative) {
-  return vehicle.id.replace(/\\/$/, '') + '/' + relative.replace(/^\\//, '');
+  return vehicle.id.replace(/\/$/, '') + '/' + relative.replace(/^\//, '');
 }
 function cleanManualFragment(html, key) {
   const parsed = new DOMParser().parseFromString(html, 'text/html');
@@ -268,10 +258,10 @@ async function loadLiveManualIndex(vehicle) {
     $('#crumb').textContent = heading.toUpperCase() + ' / FACTORY CONTENTS';
     const list = $('#documentList');
     list.replaceChildren();
-    const links = [...parsed.querySelectorAll('a[href]')].filter(link => /pages\\/\\d+\\.html(?:$|[?#])/.test(link.getAttribute('href') || ''));
+    const links = [...parsed.querySelectorAll('a[href]')].filter(link => /pages\/\d+\.html(?:$|[?#])/.test(link.getAttribute('href') || ''));
     for (const link of links) {
       const href = link.getAttribute('href');
-      const pageId = href.match(/pages\\/(\\d+)\\.html/)[1];
+      const pageId = href.match(/pages\/(\d+)\.html/)[1];
       const label = link.textContent.trim() || 'Manual page ' + pageId;
       const item = document.createElement('button');
       item.type = 'button'; item.className = 'document-item';
