@@ -205,9 +205,13 @@ function cleanManualFragment(html, key) {
   }));
   parsed.querySelectorAll('img').forEach(img => {
     const src = img.getAttribute('src');
-    if (src) img.src = MANUAL_SITE + key.split('/').slice(0,-1).join('/') + '/' + src.split('/').map(encodeURIComponent).join('/');
+    if (src) {
+      const pageUrl = new URL(key.split('/').map(encodeURIComponent).join('/'), MANUAL_SITE);
+      img.src = new URL(src, pageUrl).href;
+    }
     img.loading = 'lazy';
-    img.alt = img.alt || 'Manual illustration';
+    img.decoding = 'async';
+    img.alt = img.alt || 'Factory manual illustration';
   });
   parsed.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href') || '';
