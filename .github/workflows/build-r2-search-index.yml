@@ -1,17 +1,22 @@
 name: Build experimental R2 search index
 
 on:
+  push:
+    branches:
+      - feat/manual-explorer-pro
+    paths:
+      - .github/workflows/build-r2-search-index.yml
   workflow_dispatch:
     inputs:
       limit:
         description: "Maximum HTML pages to index (use 10 for the safe test; 0 means all pages)"
         required: true
-        default: "10"
+        default: "0"
         type: string
       workers:
         description: "Parallel R2 page readers"
         required: true
-        default: "4"
+        default: "8"
         type: string
 
 permissions:
