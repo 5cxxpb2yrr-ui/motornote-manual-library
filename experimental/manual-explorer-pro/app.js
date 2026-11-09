@@ -636,3 +636,76 @@ if (recentCardOld) {
     }
   };
 }
+
+
+// More tolerant factory-index parser: handle linked lists, image-map areas,
+// data-href navigation and relative numeric page links in older manual exports.
+const previousLoadLiveManualIndex = loadLiveManualIndex;
+loadLiveManualIndex = async function(vehicle) {
+  const key = manualKey(vehicle, 'index.html');
+  $('#documentList').replaceChildren(safeText('p', 'Loading the factory table of contents…', 'empty-state'));
+  $('.manual-tree').replaceChildren(safeText('p', 'Reading factory section structure…', 'empty-state'));
+  try {
+    const html = await fetchManualHtml(key);
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+    const groups = [];
+    const byTitle = new Map();
+    let current = null;
+    const headingNodes = new Set(parsed.querySelectorAll('h1,h2,h3,h4,h5,h6,[role="heading"]'));
+    const candidates = [...parsed.querySelectorAll('h1,h2,h3,h4,h5,h6,[role="heading"],a[href],area[href],[data-href],[data-url],[onclick]')];
+    const pageLink = (node) => {
+      const raw = node.getAttribute('href') || node.getAttribute('data-href') || node.getAttribute('data-url') || node.getAttribute('src') || node.getAttribute('onclick') || '';
+      const decoded = raw.replace(/\\\\\//g, '/');
+      const match = decoded.match(/(?:^|[\\/])pages[\\/](\\d+)\\.html?(?:$|[?#'"\\s])/i)
+        || decoded.match(/(?:^|[\\/])(\\d+)\\.html?(?:$|[?#'"\\s])/i);
+      return match ? match[1] : null;
+    };
+    for (const node of candidates) {
+      if (headingNodes.has(node)) {
+        const label = node.textContent.trim().replace(/\\s+/g, ' ');
+        if (label && !/^(home|contents|table of contents)$/i.test(label)) {
+          current = byTitle.get(label);
+          if (!current) {
+            current = { title: label, pages: [] };
+            byTitle.set(label, current);
+            groups.push(current);
+          }
+        }
+        continue;
+      }
+      const pageId = pageLink(node);
+      if (!pageId) continue;
+      const pageTitle = (node.textContent || node.getAttribute('title') || node.getAttribute('aria-label') || '').trim().replace(/\\s+/g, ' ') || 'Manual page ' + pageId;
+      let group = current;
+      if (!group) {
+        group = byTitle.get('Factory manual pages');
+        if (!group) {
+          group = { title: 'Factory manual pages', pages: [] };
+          byTitle.set(group.title, group);
+          groups.push(group);
+        }
+      }
+      if (!group.pages.some(page => page.pageId === pageId)) group.pages.push({ pageId, title: pageTitle });
+    }
+    liveManualGroups = groups.filter(group => group.pages.length);
+    activeManualGroup = 0;
+    $('#vehicleManualTitle').textContent = titleFromFolder(vehicle.name);
+    if (!liveManualGroups.length) {
+      const linkCount = parsed.querySelectorAll('a[href],area[href],[data-href],[data-url]').length;
+      $('.manual-tree').replaceChildren(safeText('p', 'The factory index loaded, but no numbered page links were detected. Index links found: ' + linkCount + '. Check this manual’s index structure.', 'empty-state'));
+      $('#documentList').replaceChildren(safeText('p', 'No factory page links were found in this vehicle index.', 'empty-state'));
+      $('#sectionTitle').textContent = 'No pages detected';
+      $('.list-footnote').textContent = 'R2 INDEX LOADED · NO NUMBERED PAGE LINKS DETECTED';
+      announce('Factory index loaded, but its page-link format needs a parser adjustment.');
+      return;
+    }
+    renderManualGroups(vehicle);
+    renderManualGroupPages(vehicle);
+    setMobileView('library', titleFromFolder(vehicle.name), 'Choose a section from the factory table of contents.');
+    announce('Loaded ' + liveManualGroups.length + ' factory groups and ' + liveManualGroups.reduce((n, group) => n + group.pages.length, 0).toLocaleString() + ' linked pages.');
+  } catch (error) {
+    $('.manual-tree').replaceChildren(safeText('p', 'Unable to load factory sections. ' + error.message, 'empty-state'));
+    $('#documentList').replaceChildren(safeText('p', 'Unable to load the factory table of contents. ' + error.message, 'empty-state'));
+    $('#listFootnote')?.replaceChildren();
+  }
+};
