@@ -115,3 +115,29 @@
 .reader-content figure{max-width:100%;margin:18px 0;text-align:center}
 .reader-content figcaption{color:var(--muted);font-size:11px;margin-top:6px}
 .reader-content table{max-width:100%;overflow-x:auto;display:block}
+
+
+/* Canonical dashboard: compact search, connected library, six mission metrics */
+.dashboard-search{margin:0 0 12px}
+.dashboard-search-button{width:100%;height:44px;display:flex;align-items:center;gap:11px;text-align:left;padding:0 14px;background:#25282b;border:1px solid #3a3e42;border-radius:9px;color:#d9dcdf;font-size:12px}
+.dashboard-search-button span{font-size:20px;color:#f1f3f4}
+.connection-card{display:flex;align-items:center;gap:13px;min-height:62px;margin-bottom:12px;padding:11px 14px;background:linear-gradient(110deg,#202528,#1b2023);border:1px solid #3b4144;border-radius:10px}
+.connection-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:8px;background:#111719;color:#e7ecef;font-size:23px}
+.connection-card>span:nth-child(2){display:grid;gap:4px;min-width:0;flex:1}
+.connection-card b{font-size:12px;color:#64d99a}
+.connection-card small{font-size:10px;color:#b7bdc0;overflow:hidden;text-overflow:ellipsis}
+.connection-chevron{font-size:22px;color:#d4d8da}
+.dashboard-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:20px}
+.dashboard-stats .stat-card{position:relative;min-height:78px;padding:11px 13px;background:linear-gradient(145deg,#22272a,#1a1e20);border-color:#343a3d}
+.dashboard-stats .stat-card>span{font-size:8px;letter-spacing:.8px}
+.dashboard-stats .stat-card strong{font:600 24px 'Barlow Condensed';margin:4px 0 0}
+.dashboard-stats .stat-card small{font-size:9px}
+.dashboard-stats .status-text{color:#55d18a!important;font-size:19px!important}
+@media(max-width:700px){
+ .workspace{padding-top:15px}
+ .dashboard-search-button{height:38px;font-size:11px}
+ .connection-card{min-height:60px;padding:9px 11px}
+ .dashboard-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:17px}
+ .dashboard-stats .stat-card{min-height:72px;padding:9px 11px}
+ .dashboard-stats .stat-card strong{font-size:23px}
+}
