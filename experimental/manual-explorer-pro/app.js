@@ -655,14 +655,14 @@ loadLiveManualIndex = async function(vehicle) {
     const candidates = [...parsed.querySelectorAll('h1,h2,h3,h4,h5,h6,[role="heading"],a[href],area[href],[data-href],[data-url],[onclick]')];
     const pageLink = (node) => {
       const raw = node.getAttribute('href') || node.getAttribute('data-href') || node.getAttribute('data-url') || node.getAttribute('src') || node.getAttribute('onclick') || '';
-      const decoded = raw.replace(/\\\\\//g, '/');
-      const match = decoded.match(/(?:^|[\\/])pages[\\/](\\d+)\\.html?(?:$|[?#'"\\s])/i)
-        || decoded.match(/(?:^|[\\/])(\\d+)\\.html?(?:$|[?#'"\\s])/i);
+      const decoded = raw;
+      const match = decoded.match(/(?:^|[\\/])pages[\\/](\d+)\.html?(?:$|[?#'"\s])/i)
+        || decoded.match(/(?:^|[\\/])(\d+)\.html?(?:$|[?#'"\s])/i);
       return match ? match[1] : null;
     };
     for (const node of candidates) {
       if (headingNodes.has(node)) {
-        const label = node.textContent.trim().replace(/\\s+/g, ' ');
+        const label = node.textContent.trim().replace(/\s+/g, ' ');
         if (label && !/^(home|contents|table of contents)$/i.test(label)) {
           current = byTitle.get(label);
           if (!current) {
@@ -675,7 +675,7 @@ loadLiveManualIndex = async function(vehicle) {
       }
       const pageId = pageLink(node);
       if (!pageId) continue;
-      const pageTitle = (node.textContent || node.getAttribute('title') || node.getAttribute('aria-label') || '').trim().replace(/\\s+/g, ' ') || 'Manual page ' + pageId;
+      const pageTitle = (node.textContent || node.getAttribute('title') || node.getAttribute('aria-label') || '').trim().replace(/\s+/g, ' ') || 'Manual page ' + pageId;
       let group = current;
       if (!group) {
         group = byTitle.get('Factory manual pages');
