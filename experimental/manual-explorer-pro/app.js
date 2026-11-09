@@ -28,8 +28,8 @@ function renderSearchResults(matches,query){
   for(const record of matches.slice(0,50)){
     const button=document.createElement('button');button.type='button';button.className='document-item search-result';
     const details=document.createElement('span');details.append(safeText('b',record.title||'Untitled procedure'));
-    const excerpt=(record.text||'').replace(/\\s+/g,' ').trim();
-    const terms=query.toLowerCase().split(/\\s+/).filter(Boolean);
+    const excerpt=(record.text||'').replace(/\s+/g,' ').trim();
+    const terms=query.toLowerCase().split(/\s+/).filter(Boolean);
     const lower=excerpt.toLowerCase(),phraseAt=lower.indexOf(query.toLowerCase()),firstAt=lower.indexOf(terms[0]||'');
     const at=phraseAt>=0?phraseAt:Math.max(0,firstAt);
     details.append(safeText('small',(record.manualId||'Manual')+' · '+excerpt.slice(Math.max(0,at-65),Math.max(0,at-65)+180)));
@@ -37,7 +37,7 @@ function renderSearchResults(matches,query){
     button.addEventListener('click',()=>{
       const vehicles=liveCatalog?.manuals?.flatMap(manual=>manual.vehicles)||[];
       const vehicle=vehicles.find(item=>record.path.startsWith(item.id));
-      const pageId=record.path.match(/\\/pages\\/(\\d+)\\.html?$/i)?.[1];
+      const pageId=record.path.match(/\/pages\/(\d+)\.html?$/i)?.[1];
       if(!vehicle||!pageId){announce('Could not match this result to a vehicle in the live catalog.');return}
       $('#searchDialog').close();
       showLiveManualPage(vehicle,pageId,record.title||'Manual page '+pageId);
@@ -52,7 +52,7 @@ async function runManualSearch(value,generation){
   try{
     const {manifest,records}=await loadSearchIndex();
     if(generation!==searchGeneration)return;
-    const terms=query.toLowerCase().split(/\\s+/).filter(Boolean),phrase=query.toLowerCase();
+    const terms=query.toLowerCase().split(/\s+/).filter(Boolean),phrase=query.toLowerCase();
     const matches=records.map(record=>{
       const title=(record.title||'').toLowerCase(),body=(record.text||'').toLowerCase(),combined=title+' '+body;
       if(!terms.every(term=>combined.includes(term)))return null;
