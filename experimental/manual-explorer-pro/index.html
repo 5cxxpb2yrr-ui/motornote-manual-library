@@ -18,9 +18,9 @@
   </header>
   <div class="app-shell">
     <aside class="rail" aria-label="Primary navigation">
-      <button class="rail-link active" data-view="dashboard" aria-current="page"><span>⌂</span><small>Overview</small></button>
-      <button class="rail-link" data-view="vehicles"><span>▣</span><small>Vehicles</small></button>
-      <button class="rail-link" data-view="library"><span>▤</span><small>Library</small></button>
+      <button class="rail-link active" data-view="dashboard" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><small>Overview</small></button>
+      <button class="rail-link" data-view="vehicles"><span class="nav-icon" aria-hidden="true">▣</span><small>Vehicles</small></button>
+      <button class="rail-link" data-view="library"><span class="nav-icon" aria-hidden="true">▤</span><small>Library</small></button>
       <button class="rail-link" data-view="search"><span>⌕</span><small>Search</small></button>
       <button class="rail-link" data-view="saved"><span>☆</span><small>Saved</small></button>
       <div class="rail-bottom"><span class="sync-dot"></span><small>Preview<br>workspace</small></div>
@@ -47,7 +47,7 @@
         <article class="stat-card"><span>LIBRARY STATUS</span><strong class="status-text" id="libraryStatus">ONLINE</strong><small>R2 content available</small></article>
       </section>
       <section class="mobile-context" id="mobileContext" aria-live="polite"><p class="eyebrow">LIFEOS GARAGE</p><h2 id="mobileContextTitle">Your garage</h2><p id="mobileContextHint">Choose a vehicle or continue where you left off.</p></section>
-      <section class="home-garage" id="homeGarage" aria-label="Your vehicles"><div class="home-section-title"><div><p class="eyebrow">YOUR GARAGE</p><h2>Vehicles</h2></div><button class="subtle-button" id="homeAllVehicles" type="button">See all →</button></div><div class="home-vehicle-grid" id="homeVehicleGrid"><button class="home-vehicle-card" data-home-vehicle="scion"><span class="home-car-icon">🚙</span><b>2006 Scion xB</b><small>1NZ-FE · 1.5L</small></button><button class="home-vehicle-card" data-home-vehicle="subaru"><span class="home-car-icon">🚙</span><b>2019 Subaru Crosstrek</b><small>FB20 · 2.0L</small></button><button class="home-vehicle-card" data-home-vehicle="toyota"><span class="home-car-icon">🛻</span><b>2020 Toyota Tacoma</b><small>3.5L V6</small></button><button class="home-vehicle-card" data-home-vehicle="ford"><span class="home-car-icon">🛻</span><b>2021 Ford F-150</b><small>5.0L V8</small></button></div><div class="home-section-title recent-title"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Recent manuals</h2></div></div><button class="recent-manual-card" id="recentManual"><span>▤</span><span><b>Engine Mechanical — Overview</b><small>2006 Scion xB · Service information</small></span><span>›</span></button></section>
+      <section class="home-garage" id="homeGarage" aria-label="Your vehicles"><div class="home-section-title"><div><p class="eyebrow">YOUR GARAGE</p><h2>Vehicles</h2></div><button class="subtle-button" id="homeAllVehicles" type="button">See all →</button></div><div class="home-vehicle-grid" id="homeVehicleGrid"><div class="garage-loading"><span class="garage-pulse"></span>Loading your vehicle library…</div></div><div class="home-section-title recent-title"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Recent manuals</h2></div></div><button class="recent-manual-card" id="recentManual"><span>▤</span><span><b>Engine Mechanical — Overview</b><small>2006 Scion xB · Service information</small></span><span>›</span></button></section>
       <section class="favorites-screen" id="favoritesScreen" aria-label="Saved references"><p class="eyebrow">YOUR LIBRARY</p><h2>Favorites & bookmarks</h2><p class="favorites-intro">Saved procedures stay on this device and are available here.</p><div id="favoritesList" aria-live="polite"></div></section>
       <div class="explorer-layout">
         <aside class="panel vehicle-panel" aria-label="Vehicle and manual navigation">
