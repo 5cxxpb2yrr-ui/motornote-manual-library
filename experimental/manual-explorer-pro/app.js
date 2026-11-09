@@ -406,3 +406,73 @@ showLiveManualPage = async function(vehicle, pageId, title) {
 };
 
 installLivePageControls();
+
+
+// Manual Explorer usability fixes: make make-filters functional, allow backdrop
+// dismissal, and keep reader navigation attached to the vehicle being viewed.
+let activeManualFilter = 'all';
+function applyManualFilter(make) {
+  activeManualFilter = make;
+  $$('.search-filters .filter-chip').forEach(chip => {
+    const selected = (chip.dataset.manualFilter || 'all') === make;
+    chip.classList.toggle('active', selected);
+    chip.setAttribute('aria-pressed', String(selected));
+  });
+  const query = $('#globalSearch').value;
+  const generation = ++searchGeneration;
+  runManualSearch(query, generation);
+}
+$$('.search-filters .filter-chip').forEach((chip, index) => {
+  const filter = ['all', 'scion', 'subaru'][index] || 'all';
+  chip.dataset.manualFilter = filter;
+  chip.type = 'button';
+  chip.addEventListener('click', () => applyManualFilter(filter));
+  chip.setAttribute('aria-pressed', String(filter === 'all'));
+});
+
+const previousRunManualSearch = runManualSearch;
+runManualSearch = async function(value, generation) {
+  const query = value.trim();
+  if (!query) return previousRunManualSearch(value, generation);
+  try {
+    const { manifest, records } = await loadSearchIndex();
+    if (generation !== searchGeneration) return;
+    const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+    const phrase = query.toLowerCase();
+    const matches = records.filter(record => {
+      const make = (record.manualId || '').toLowerCase();
+      if (activeManualFilter !== 'all' && !make.includes(activeManualFilter)) return false;
+      const title = (record.title || '').toLowerCase();
+      const body = (record.text || '').toLowerCase();
+      const combined = title + ' ' + body;
+      return terms.every(term => combined.includes(term));
+    }).map(record => {
+      const title = (record.title || '').toLowerCase();
+      const body = (record.text || '').toLowerCase();
+      const titleHits = terms.filter(term => title.includes(term)).length;
+      return { record, score: (title.includes(phrase) ? 100 : 0) + (body.includes(phrase) ? 60 : 0) + titleHits * 12 };
+    }).sort((a,b) => b.score-a.score || a.record.title.localeCompare(b.record.title)).map(item => item.record);
+    $('#searchTitle').textContent = 'Find a procedure · ' + manifest.documentCount.toLocaleString() + ' indexed pages';
+    renderSearchResults(matches, query);
+    $('#searchDialog .dialog-note').textContent = (activeManualFilter === 'all' ? 'ALL MANUALS' : activeManualFilter.toUpperCase()) + ' · R2 INDEX · ' + matches.length.toLocaleString() + ' MATCHING PAGES';
+  } catch (error) {
+    if (generation !== searchGeneration) return;
+    $('#searchResults').replaceChildren(safeText('p','Search is not available yet: '+error.message,'empty-state'));
+  }
+};
+
+// Native dialog backdrop clicks target the dialog element itself.
+for (const dialog of [$('#searchDialog'), $('#tocDialog'), $('#moreDialog')]) {
+  if (!dialog) continue;
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+}
+
+// A result can be opened without first visiting the vehicle screen. Keep the
+// selected vehicle in sync so Previous/Next work from search results too.
+const showLiveManualPageWithVehicle = showLiveManualPage;
+showLiveManualPage = async function(vehicle, pageId, title) {
+  selectedVehicle = vehicle;
+  return showLiveManualPageWithVehicle(vehicle, pageId, title);
+};
