@@ -12,7 +12,7 @@ $$('.document-item').forEach((el,i)=>el.addEventListener('click',()=>selectDoc(i
 $('#favoriteButton').addEventListener('click',()=>toggleSaved('favorite'));$('#bookmarkButton').addEventListener('click',()=>toggleSaved('bookmark'));
 $('#previousDoc').addEventListener('click',()=>selectDoc(selected-1));$('#nextDoc').addEventListener('click',()=>selectDoc(selected+1));
 $$('.vehicle-item').forEach(el=>el.addEventListener('click',()=>{$$('.vehicle-item').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');$('#vehicleManualTitle').textContent=vehicles[el.dataset.vehicle];announce('Vehicle changed: '+el.querySelector('b').textContent+'. Sample pages remain selected.');}));
-$$('.tree-child,.tree-item').forEach(el=>el.addEventListener('click',()=>{$$('.tree-child,.tree-item').forEach(x=>x.classList.remove('active'));el.classList.add('active');const name=el.textContent.trim().replace(/^[⌄›]\s*/,'');$('#sectionTitle').textContent=name;$('#crumb').textContent=$('#vehicleManualTitle').textContent.toUpperCase()+' / '+name.toUpperCase();announce('Section selected: '+name);}));
+// Factory section navigation is generated from the selected vehicle index.
 $('#themeButton').addEventListener('click',()=>{document.body.classList.toggle('light');announce(document.body.classList.contains('light')?'Light theme enabled':'Dark theme enabled')});
 $('#searchOpen').addEventListener('click',()=>{$('#searchDialog').showModal();$('#globalSearch').focus()});$('#searchClose').addEventListener('click',()=>$('#searchDialog').close());
 
@@ -319,40 +319,79 @@ async function showLiveManualPage(vehicle, pageId, title) {
     $('#readerContent').replaceChildren(safeText('p','Unable to load this factory manual page. '+error.message,'empty-state'));
   }
 }
-async function loadLiveManualIndex(vehicle) {
-  const key = manualKey(vehicle, 'index.html');
-  $('#documentList').replaceChildren(safeText('p','Loading the factory table of contents…','empty-state'));
-  try {
-    const html = await fetchManualHtml(key);
-    const parsed = new DOMParser().parseFromString(html, 'text/html');
-    const heading = parsed.querySelector('h1')?.textContent?.trim() || titleFromFolder(vehicle.name);
-    $('#vehicleManualTitle').textContent = heading;
-    $('#sectionTitle').textContent = 'Manual sections';
-    $('#crumb').textContent = heading.toUpperCase() + ' / FACTORY CONTENTS';
-    const list = $('#documentList');
-    list.replaceChildren();
-    const links = [...parsed.querySelectorAll('a[href]')].filter(link => /pages\/\d+\.html(?:$|[?#])/.test(link.getAttribute('href') || ''));
-    for (const link of links) {
-      const href = link.getAttribute('href');
-      const pageId = href.match(/pages\/(\d+)\.html/)[1];
-      const label = link.textContent.trim() || 'Manual page ' + pageId;
-      const item = document.createElement('button');
-      item.type = 'button'; item.className = 'document-item';
-      item.append(iconNode(sectionIcon(label),'doc-icon'));
-      const details = document.createElement('span');
-      details.append(safeText('b',label),safeText('small','Factory manual · Page '+pageId));
-      item.append(details,safeText('span','›','doc-arrow'));
-      item.addEventListener('click',()=>showLiveManualPage(vehicle,pageId,label));
-      list.append(item);
-    }
-    if (!links.length) list.append(safeText('p','No linked sections were found in this manual index.','empty-state'));
-    $('.list-footnote').textContent = 'LIVE R2 CONTENT · ' + links.length + ' LINKS IN THE FACTORY INDEX';
-    setMobileView('library',heading,'Select a factory manual section or procedure.');
-    announce('Loaded '+links.length+' entries from the factory manual index.');
-  } catch (error) {
-    $('#documentList').replaceChildren(safeText('p','Unable to load the factory table of contents. '+error.message,'empty-state'));
-  }
+let liveManualGroups = [];
+let activeManualGroup = 0;
+function renderManualGroups(vehicle) {
+ const tree=$('.manual-tree');tree.replaceChildren();
+ const heading=document.createElement('div');heading.className='manual-tree-heading';heading.textContent='FACTORY CONTENTS';tree.append(heading);
+ liveManualGroups.forEach((group,index)=>{
+  const button=document.createElement('button');button.type='button';button.className='tree-item'+(index===activeManualGroup?' active':'');
+  button.setAttribute('aria-current',index===activeManualGroup?'page':'false');
+  button.append(iconNode(sectionIcon(group.title),'tree-section-icon'));
+  const label=document.createElement('span');label.className='tree-section-label';label.textContent=group.title;
+  const count=document.createElement('small');count.className='tree-section-count';count.textContent=group.pages.length.toLocaleString();
+  button.append(label,count);button.addEventListener('click',()=>selectManualGroup(index,vehicle));tree.append(button);
+ });
 }
+function renderManualGroupPages(vehicle) {
+ const group=liveManualGroups[activeManualGroup],list=$('#documentList');list.replaceChildren();
+ if(!group||!group.pages.length){list.append(safeText('p','This factory section contains no linked pages.','empty-state'));return;}
+ const fragment=document.createDocumentFragment();
+ group.pages.forEach(page=>{
+  const item=document.createElement('button');item.type='button';item.className='document-item';
+  item.append(iconNode(sectionIcon(page.title),'doc-icon'));
+  const details=document.createElement('span');details.append(safeText('b',page.title),safeText('small','Factory manual · Page '+page.pageId));
+  item.append(details,safeText('span','›','doc-arrow'));item.addEventListener('click',()=>showLiveManualPage(vehicle,page.pageId,page.title));fragment.append(item);
+ });
+ list.append(fragment);$('#sectionTitle').textContent=group.title;
+ $('#crumb').textContent=titleFromFolder(vehicle.name).toUpperCase()+' / '+group.title.toUpperCase();
+ $('.list-footnote').textContent='LIVE R2 CONTENT · '+group.pages.length.toLocaleString()+' FACTORY PAGES';$('#filterInput').value='';
+}
+function selectManualGroup(index,vehicle) {
+ if(index<0||index>=liveManualGroups.length)return;activeManualGroup=index;
+ renderManualGroups(vehicle);renderManualGroupPages(vehicle);
+ setMobileView('library',liveManualGroups[index].title,'Factory manual · '+liveManualGroups[index].pages.length+' pages');
+}
+async function loadLiveManualIndex(vehicle) {
+ const key=manualKey(vehicle,'index.html');
+ $('#documentList').replaceChildren(safeText('p','Loading the factory table of contents…','empty-state'));
+ $('.manual-tree').replaceChildren(safeText('p','Reading factory section structure…','empty-state'));
+ try {
+  const html=await fetchManualHtml(key),parsed=new DOMParser().parseFromString(html,'text/html');
+  const groups=[],byTitle=new Map();let current=null;
+  const entries=[...parsed.querySelectorAll('h1,h2,h3,h4,h5,h6,a[href]')];
+  for(const node of entries){
+   if(/^H[1-6]$/.test(node.tagName)){
+    const label=node.textContent.trim().replace(/\s+/g,' ');
+    if(label&&!/^(home|contents|table of contents)$/i.test(label)){
+     current=byTitle.get(label);
+     if(!current){current={title:label,pages:[]};byTitle.set(label,current);groups.push(current);}
+    }
+    continue;
+   }
+   const match=(node.getAttribute('href')||'').match(/pages\/(\d+)\.html(?:$|[?#])/);
+   if(!match)continue;
+   const pageId=match[1],pageTitle=node.textContent.trim().replace(/\s+/g,' ')||'Manual page '+pageId;
+   let group=current;
+   if(!group){group=byTitle.get('Factory manual pages');if(!group){group={title:'Factory manual pages',pages:[]};byTitle.set(group.title,group);groups.push(group);}}
+   if(!group.pages.some(page=>page.pageId===pageId))group.pages.push({pageId,title:pageTitle});
+  }
+  liveManualGroups=groups.filter(group=>group.pages.length);activeManualGroup=0;
+  $('#vehicleManualTitle').textContent=titleFromFolder(vehicle.name);
+  if(!liveManualGroups.length){
+   $('.manual-tree').replaceChildren(safeText('p','No factory sections or page links were found in this vehicle index.','empty-state'));
+   $('#documentList').replaceChildren(safeText('p','The factory index did not expose any linked manual pages.','empty-state'));
+   $('#sectionTitle').textContent='No sections found';$('.list-footnote').textContent='LIVE R2 CONTENT · NO PAGE LINKS FOUND';return;
+  }
+  renderManualGroups(vehicle);renderManualGroupPages(vehicle);
+  setMobileView('library',titleFromFolder(vehicle.name),'Choose a section from the factory table of contents.');
+  announce('Loaded '+liveManualGroups.length+' factory sections and '+liveManualGroups.reduce((n,g)=>n+g.pages.length,0).toLocaleString()+' linked pages.');
+ }catch(error){
+  $('.manual-tree').replaceChildren(safeText('p','Unable to load factory sections. '+error.message,'empty-state'));
+  $('#documentList').replaceChildren(safeText('p','Unable to load the factory table of contents. '+error.message,'empty-state'));
+ }
+}
+
 openLiveVehicle = async function(vehicle) {
   selectedVehicle = vehicle;
   const title = titleFromFolder(vehicle.name);
