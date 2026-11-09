@@ -161,6 +161,7 @@ function renderLiveGarage(catalog){
   const allVehicles=catalog.manuals.flatMap(manual=>manual.vehicles.map(vehicle=>({...vehicle,manualId:manual.id,make:manual.make,fileCount:manual.fileCount})));
   $('#vehicleTotal').textContent=String(allVehicles.length).padStart(2,'0');
   $('#manualTotal').textContent=String(catalog.manualCount).padStart(2,'0');
+  const status=$('#libraryStatus'); if(status) status.textContent='ONLINE';
   const list=$('#vehicleList');list.replaceChildren();
   const home=$('#homeVehicleGrid');home.replaceChildren();
   for(const vehicle of allVehicles){
@@ -200,6 +201,7 @@ async function loadLiveGarage(){
     if(!Array.isArray(catalog.manuals))throw new Error('R2 catalog response is invalid');
     renderLiveGarage(catalog);
   }catch(error){
+    const status=$('#libraryStatus'); if(status) status.textContent='OFFLINE';
     host.replaceChildren(safeText('p','Unable to load the live R2 catalog. '+error.message,'empty-state'));
     announce('R2 vehicle catalog could not be loaded.');
   }
@@ -476,3 +478,7 @@ showLiveManualPage = async function(vehicle, pageId, title) {
   selectedVehicle = vehicle;
   return showLiveManualPageWithVehicle(vehicle, pageId, title);
 };
+
+
+// Dashboard search is the same universal search used throughout the app.
+$('#dashboardSearch')?.addEventListener('click',()=>activateView('search'));
