@@ -22,8 +22,52 @@ async function cachedPut(key,value){try{const db=await openIndexDb();await new P
 async function getJson(url){const response=await fetch(url,{headers:{Accept:'application/json'}});if(!response.ok)throw new Error('Search service returned '+response.status);return response.json()}
 async function loadSearchIndex(){if(indexPromise)return indexPromise;indexPromise=(async()=>{const manifest=await getJson('/api/search-index');if(!manifest||!Array.isArray(manifest.shards))throw new Error('Search index manifest is invalid');const all=[];let cursor=0;async function worker(){while(cursor<manifest.shards.length){const item=manifest.shards[cursor++];let records=await cachedGet(item.key);if(!Array.isArray(records)){records=await getJson('/api/search-index?file='+encodeURIComponent(item.key.split('/').pop()));await cachedPut(item.key,records)}all.push(...records)}}await Promise.all(Array.from({length:Math.min(4,manifest.shards.length)},worker));return{manifest,records:all}})().catch(error=>{indexPromise=null;throw error});return indexPromise}
 function safeText(tag,value,className){const node=document.createElement(tag);node.textContent=value||'';if(className)node.className=className;return node}
-function renderSearchResults(matches,query){const results=$('#searchResults');results.replaceChildren();if(!matches.length){results.append(safeText('p','No matching manual pages were found.','empty-state'));return}for(const record of matches.slice(0,50)){const button=document.createElement('button');button.type='button';button.className='document-item search-result';const icon=safeText('span','▤','doc-icon');const details=document.createElement('span');details.append(safeText('b',record.title||'Untitled procedure'));const excerpt=(record.text||'').replace(/\s+/g,' ').trim();const at=excerpt.toLowerCase().indexOf(query.toLowerCase().split(/\s+/)[0]);const snippet=excerpt.slice(Math.max(0,at-65),Math.max(0,at-65)+180);details.append(safeText('small',(record.manualId||'Manual')+' · '+snippet));button.append(icon,details,safeText('span','↗','doc-arrow'));button.addEventListener('click',()=>{const target=MANUAL_SITE+record.path.split('/').map(encodeURIComponent).join('/');window.open(target,'_blank','noopener,noreferrer')});results.append(button)}}
-async function runManualSearch(value,generation){const query=value.trim();const results=$('#searchResults');if(!query){results.replaceChildren(safeText('p','Search across the indexed factory procedures.','empty-state'));return}results.replaceChildren(safeText('p','Searching the R2 manual index…','empty-state'));try{const {manifest,records}=await loadSearchIndex();if(generation!==searchGeneration)return;const terms=query.toLowerCase().split(/\s+/).filter(Boolean);const matches=records.map(record=>{const title=(record.title||'').toLowerCase(),body=(record.text||'').toLowerCase();const matched=terms.filter(term=>title.includes(term)||body.includes(term)).length;const score=matched*10+(terms.every(term=>title.includes(term))?20:0);return{record,score}}).filter(item=>item.score>0).sort((a,b)=>b.score-a.score).map(item=>item.record);$('#searchTitle').textContent='Find a procedure · '+manifest.documentCount+' indexed';renderSearchResults(matches,query);$('#searchDialog .dialog-note').textContent='R2 INDEX · '+manifest.documentCount+' PAGES · RESULTS OPEN IN THE SECURE MANUAL LIBRARY';}catch(error){if(generation!==searchGeneration)return;results.replaceChildren(safeText('p','Search is not available yet: '+error.message+'. Confirm this app is deployed with its R2 binding.','empty-state'));}}
+function renderSearchResults(matches,query){
+  const results=$('#searchResults');results.replaceChildren();
+  if(!matches.length){results.append(safeText('p','No pages contain all of those search terms. Try a shorter phrase or a different keyword.','empty-state'));return}
+  for(const record of matches.slice(0,50)){
+    const button=document.createElement('button');button.type='button';button.className='document-item search-result';
+    const details=document.createElement('span');details.append(safeText('b',record.title||'Untitled procedure'));
+    const excerpt=(record.text||'').replace(/\\s+/g,' ').trim();
+    const terms=query.toLowerCase().split(/\\s+/).filter(Boolean);
+    const lower=excerpt.toLowerCase(),phraseAt=lower.indexOf(query.toLowerCase()),firstAt=lower.indexOf(terms[0]||'');
+    const at=phraseAt>=0?phraseAt:Math.max(0,firstAt);
+    details.append(safeText('small',(record.manualId||'Manual')+' · '+excerpt.slice(Math.max(0,at-65),Math.max(0,at-65)+180)));
+    button.append(safeText('span','▤','doc-icon'),details,safeText('span','›','doc-arrow'));
+    button.addEventListener('click',()=>{
+      const vehicles=liveCatalog?.manuals?.flatMap(manual=>manual.vehicles)||[];
+      const vehicle=vehicles.find(item=>record.path.startsWith(item.id));
+      const pageId=record.path.match(/\\/pages\\/(\\d+)\\.html?$/i)?.[1];
+      if(!vehicle||!pageId){announce('Could not match this result to a vehicle in the live catalog.');return}
+      $('#searchDialog').close();
+      showLiveManualPage(vehicle,pageId,record.title||'Manual page '+pageId);
+    });
+    results.append(button);
+  }
+}
+async function runManualSearch(value,generation){
+  const query=value.trim(),results=$('#searchResults');
+  if(!query){results.replaceChildren(safeText('p','Search across the indexed factory procedures.','empty-state'));return}
+  results.replaceChildren(safeText('p','Searching the R2 manual index…','empty-state'));
+  try{
+    const {manifest,records}=await loadSearchIndex();
+    if(generation!==searchGeneration)return;
+    const terms=query.toLowerCase().split(/\\s+/).filter(Boolean),phrase=query.toLowerCase();
+    const matches=records.map(record=>{
+      const title=(record.title||'').toLowerCase(),body=(record.text||'').toLowerCase(),combined=title+' '+body;
+      if(!terms.every(term=>combined.includes(term)))return null;
+      const titlePhrase=title.includes(phrase),bodyPhrase=body.includes(phrase);
+      const titleHits=terms.filter(term=>title.includes(term)).length;
+      return{record,score:(titlePhrase?100:0)+(bodyPhrase?60:0)+(titleHits*12)};
+    }).filter(Boolean).sort((a,b)=>b.score-a.score||a.record.title.localeCompare(b.record.title)).map(item=>item.record);
+    $('#searchTitle').textContent='Find a procedure · '+manifest.documentCount.toLocaleString()+' indexed pages';
+    renderSearchResults(matches,query);
+    $('#searchDialog .dialog-note').textContent='R2 INDEX · '+manifest.documentCount.toLocaleString()+' PAGES · RESULTS OPEN IN EXPLORER';
+  }catch(error){
+    if(generation!==searchGeneration)return;
+    results.replaceChildren(safeText('p','Search is not available yet: '+error.message+'. Confirm this app is deployed with its R2 binding.','empty-state'));
+  }
+}
 $('#globalSearch').addEventListener('input',e=>{const generation=++searchGeneration;runManualSearch(e.target.value,generation)});
 $('#filterInput').addEventListener('input',e=>{$$('.document-item').forEach(el=>el.hidden=!el.textContent.toLowerCase().includes(e.target.value.toLowerCase()))});
 $('#addVehicle').addEventListener('click',()=>announce('Vehicle profile creation is planned for the next prototype milestone.'));
