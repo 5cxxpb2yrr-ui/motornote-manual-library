@@ -153,6 +153,29 @@ setMobileView('home','Your garage','Choose a vehicle or continue where you left 
 
 // Live garage inventory: R2 remains the source of truth.
 let liveCatalog = null;
+
+function iconNode(name,className='ui-icon'){
+  const paths={car:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 11 6.7 6.8A2 2 0 0 1 8.6 5.5h6.8a2 2 0 0 1 1.9 1.3L19 11l1.4 1.2c.4.3.6.8.6 1.3v4a1 1 0 0 1-1 1h-1.2a1.8 1.8 0 0 1-3.6 0H8.8a1.8 1.8 0 0 1-3.6 0H4a1 1 0 0 1-1-1v-4c0-.5.2-1 .6-1.3L5 11Z\"/><path d=\"M5 11h14M6 15h2m8 0h2\"/></svg>",engine:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 10h2l2-3h8l2 3h2v9h-3v-2H9v2H6v-4H4zM9 7V4h5v3m-4 4v3m4-3v3\"/></svg>",wrench:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14.7 6.3a5 5 0 0 0-6.4 6.4L3.5 17.5a2.1 2.1 0 0 0 3 3l4.8-4.8a5 5 0 0 0 6.4-6.4l-3 3-3.4-3.4z\"/></svg>",zap:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m13 2-9 12h7l-1 8 10-13h-7z\"/></svg>",brake:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 3.5v2m8.5 6.5h-2M12 20.5v-2M3.5 12h2\"/></svg>",gear:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m10 2-.5 2.1a8 8 0 0 0-1.8 1L5.6 4.5 3.5 8l1.7 1.4a8 8 0 0 0 0 2.1L3.5 13l2.1 3.5 2.1-.6a8 8 0 0 0 1.8 1L10 19h4l.5-2.1a8 8 0 0 0 1.8-1l2.1.6 2.1-3.5-1.7-1.5a8 8 0 0 0 0-2.1L20.5 8l-2.1-3.5-2.1.6a8 8 0 0 0-1.8-1L14 2z\"/><circle cx=\"12\" cy=\"10.5\" r=\"3\"/></svg>",book:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21zM4 5.5v15.5m4-14h8m-8 4h8\"/></svg>"};
+  const node=document.createElement('span');node.className=className;node.innerHTML=paths[name]||paths.book;return node;
+}
+function vehiclePhotoFor(vehicle){
+  const key=(vehicle.make+' '+vehicle.name).toLowerCase();
+  if(key.includes('scion')||key.includes('xb'))return 'https://commons.wikimedia.org/wiki/Special:FilePath/2006%20Scion%20xB.jpg?width=960';
+  if(key.includes('subaru')||key.includes('crosstrek'))return 'https://www.autotrader.ca/editorial/media/119682/2018-subaru-crosstrek-01-jm.jpg?height=1080&v=1d2ee63d9ac0cb0&width=1920';
+  return '';
+}
+function vehiclePhoto(vehicle,className){
+  const wrap=document.createElement('span');wrap.className=className;
+  const src=vehiclePhotoFor(vehicle);
+  if(src){const img=document.createElement('img');img.src=src;img.alt=titleFromFolder(vehicle.name);img.loading='lazy';img.decoding='async';img.onerror=()=>{wrap.replaceChildren(iconNode('car','vehicle-fallback-icon'));};wrap.append(img);}
+  else wrap.append(iconNode('car','vehicle-fallback-icon'));
+  return wrap;
+}
+function sectionIcon(label){
+ const value=label.toLowerCase();
+ return value.includes('engine')? 'engine':value.includes('elect')||value.includes('wiring')||value.includes('diagnos')?'zap':value.includes('brake')?'brake':value.includes('transmission')?'gear':value.includes('cool')||value.includes('fuel')?'wrench':'book';
+}
+
 function titleFromFolder(value){
   return value.replace(/\s+/g,' ').replace(/\bL4-/g,'L4 ').trim();
 }
@@ -168,14 +191,14 @@ function renderLiveGarage(catalog){
     const label=titleFromFolder(vehicle.name);
     const item=document.createElement('button');item.type='button';item.className='vehicle-item';
     item.dataset.liveHref=vehicle.href;
-    item.append(safeText('span','🚘','vehicle-icon'));
+    item.append(vehiclePhoto(vehicle,'vehicle-icon vehicle-photo'));
     const details=document.createElement('span');details.append(safeText('b',label),safeText('small',vehicle.make.toUpperCase()+' · '+vehicle.fileCount.toLocaleString()+' files'));
     item.append(details,safeText('span','›','chevron'));
     item.addEventListener('click',()=>openLiveVehicle(vehicle));
     list.append(item);
 
     const card=document.createElement('button');card.type='button';card.className='home-vehicle-card';
-    card.append(safeText('span','🚘','home-car-icon'),safeText('b',label),safeText('small',vehicle.make.toUpperCase()+' · Factory manual'));
+    card.append(vehiclePhoto(vehicle,'home-car-icon vehicle-photo'),safeText('b',label),safeText('small',vehicle.make.toUpperCase()+' · Factory manual'));
     card.addEventListener('click',()=>openLiveVehicle(vehicle));
     home.append(card);
   }
@@ -315,7 +338,7 @@ async function loadLiveManualIndex(vehicle) {
       const label = link.textContent.trim() || 'Manual page ' + pageId;
       const item = document.createElement('button');
       item.type = 'button'; item.className = 'document-item';
-      item.append(safeText('span','▤','doc-icon'));
+      item.append(iconNode(sectionIcon(label),'doc-icon'));
       const details = document.createElement('span');
       details.append(safeText('b',label),safeText('small','Factory manual · Page '+pageId));
       item.append(details,safeText('span','›','doc-arrow'));
