@@ -337,3 +337,72 @@ openLiveVehicle = async function(vehicle) {
   $('#vehicleManualTitle').textContent = title;
   await loadLiveManualIndex(vehicle);
 };
+
+
+// Live page-to-page navigation: replace the demo document controls with the
+// actual ordered page list from the selected vehicle's factory index.
+let livePageSequence = [];
+let livePageVehicleId = null;
+let livePageIndex = -1;
+
+async function ensureLivePageSequence(vehicle) {
+  if (livePageVehicleId === vehicle.id && livePageSequence.length) return;
+  const html = await fetchManualHtml(manualKey(vehicle, 'index.html'));
+  const parsed = new DOMParser().parseFromString(html, 'text/html');
+  const links = [...parsed.querySelectorAll('a[href]')]
+    .filter(link => /pages\/\d+\.html(?:$|[?#])/.test(link.getAttribute('href') || ''));
+  const seen = new Set();
+  livePageSequence = links.map(link => {
+    const href = link.getAttribute('href') || '';
+    const pageId = href.match(/pages\/(\d+)\.html/)?.[1];
+    return pageId ? { pageId, title: link.textContent.trim() || 'Manual page ' + pageId } : null;
+  }).filter(item => {
+    if (!item || seen.has(item.pageId)) return false;
+    seen.add(item.pageId);
+    return true;
+  });
+  livePageVehicleId = vehicle.id;
+}
+
+function updateLivePageControls() {
+  const previous = $('#previousDoc');
+  const next = $('#nextDoc');
+  if (!previous || !next) return;
+  previous.disabled = livePageIndex <= 0;
+  next.disabled = livePageIndex < 0 || livePageIndex >= livePageSequence.length - 1;
+  previous.setAttribute('aria-label', 'Previous factory manual page');
+  next.setAttribute('aria-label', 'Next factory manual page');
+  previous.title = previous.disabled ? 'No previous page' : 'Previous: ' + livePageSequence[livePageIndex - 1].title;
+  next.title = next.disabled ? 'No next page' : 'Next: ' + livePageSequence[livePageIndex + 1].title;
+}
+
+function installLivePageControls() {
+  for (const id of ['previousDoc', 'nextDoc']) {
+    const oldButton = $('#' + id);
+    if (!oldButton || oldButton.dataset.liveNavigation === 'true') continue;
+    const button = oldButton.cloneNode(true);
+    button.dataset.liveNavigation = 'true';
+    oldButton.replaceWith(button);
+    button.addEventListener('click', () => {
+      const offset = id === 'previousDoc' ? -1 : 1;
+      const target = livePageSequence[livePageIndex + offset];
+      if (!selectedVehicle || !target) return;
+      showLiveManualPage(selectedVehicle, target.pageId, target.title);
+    });
+  }
+  updateLivePageControls();
+}
+
+const originalShowLiveManualPageWithSequence = showLiveManualPage;
+showLiveManualPage = async function(vehicle, pageId, title) {
+  try {
+    await ensureLivePageSequence(vehicle);
+    livePageIndex = livePageSequence.findIndex(item => item.pageId === String(pageId));
+    updateLivePageControls();
+  } catch (error) {
+    announce('Could not load the manual page sequence: ' + error.message);
+  }
+  return originalShowLiveManualPageWithSequence(vehicle, pageId, title);
+};
+
+installLivePageControls();
