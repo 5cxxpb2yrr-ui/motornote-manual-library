@@ -11,7 +11,7 @@ function toggleSaved(kind){const key=kind+':'+docs[selected].id;if(saved.has(key
 $$('.document-item').forEach((el,i)=>el.addEventListener('click',()=>selectDoc(i)));
 $('#favoriteButton').addEventListener('click',()=>toggleSaved('favorite'));$('#bookmarkButton').addEventListener('click',()=>toggleSaved('bookmark'));
 $('#previousDoc').addEventListener('click',()=>selectDoc(selected-1));$('#nextDoc').addEventListener('click',()=>selectDoc(selected+1));
-$('.vehicle-item').forEach(el=>el.addEventListener('click',()=>{$('.vehicle-item').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');$('#vehicleManualTitle').textContent=vehicles[el.dataset.vehicle];announce('Vehicle changed: '+el.querySelector('b').textContent+'. Sample pages remain selected.');}));
+$$('.vehicle-item').forEach(el=>el.addEventListener('click',()=>{$$('.vehicle-item').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');$('#vehicleManualTitle').textContent=vehicles[el.dataset.vehicle];announce('Vehicle changed: '+el.querySelector('b').textContent+'. Sample pages remain selected.');}));
 $$('.tree-child,.tree-item').forEach(el=>el.addEventListener('click',()=>{$$('.tree-child,.tree-item').forEach(x=>x.classList.remove('active'));el.classList.add('active');const name=el.textContent.trim().replace(/^[⌄›]\s*/,'');$('#sectionTitle').textContent=name;$('#crumb').textContent=$('#vehicleManualTitle').textContent.toUpperCase()+' / '+name.toUpperCase();announce('Section selected: '+name);}));
 $('#themeButton').addEventListener('click',()=>{document.body.classList.toggle('light');announce(document.body.classList.contains('light')?'Light theme enabled':'Dark theme enabled')});
 $('#searchOpen').addEventListener('click',()=>{$('#searchDialog').showModal();$('#globalSearch').focus()});$('#searchClose').addEventListener('click',()=>$('#searchDialog').close());
@@ -90,7 +90,7 @@ $$('[data-home-vehicle]').forEach(button=>button.addEventListener('click',()=>{
   if(target)target.click();
 }));
 $('#homeAllVehicles').addEventListener('click',()=>setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.'));
-$('.vehicle-item').forEach(item=>item.addEventListener('click',()=>{
+$$('.vehicle-item').forEach(item=>item.addEventListener('click',()=>{
   const name=item.querySelector('b')?.textContent||'Selected vehicle';
   setMobileView('vehicles',name,'Choose a manual section below.');
   $('.vehicle-panel').classList.add('show-toc');
