@@ -56,6 +56,6 @@ jobs:
           R2_BUCKET: motornote-manual-site
         run: |
           python scripts/build_r2_search_index.py \
-            --limit "${{ inputs.limit }}" \
-            --workers "${{ inputs.workers }}" \
+            --limit "${{ inputs.limit || '0' }}" \
+            --workers "${{ inputs.workers || '8' }}" \
             --shard-size 500
