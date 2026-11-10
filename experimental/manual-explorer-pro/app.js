@@ -77,17 +77,18 @@ renderSaved();selectDoc(0);
 
 // Mobile navigation follows the five-tab LifeOS model. Secondary tools stay in drawers.
 function refreshTocDrawer(){
-  const source=$('.manual-tree');
+  const source=$('#documentList');
   const target=$('#tocDrawerContent');
   if(!source||!target)return;
+  // The middle panel's current drill-down level is the TOC. The manual-tree
+  // is only a location summary, so cloning it produced an empty drawer.
   target.replaceChildren(source.cloneNode(true));
-  target.querySelectorAll('[data-section]').forEach(item=>{
+  const cloned=[...target.querySelectorAll('.document-item')];
+  const originals=[...source.querySelectorAll('.document-item')];
+  cloned.forEach((item,index)=>{
     item.addEventListener('click',()=>{
-      const section=item.dataset.section;
-      const original=$('.manual-tree [data-section="'+section+'"]');
-      if(original)original.click();
+      originals[index]?.click();
       $('#tocDialog').close();
-      $('#reader').scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
 }
@@ -301,7 +302,11 @@ async function showLiveManualPage(vehicle, pageId, title) {
   const key = manualKey(vehicle, 'pages/' + pageId + '.html');
   $('#readerTitle').textContent = title || 'Manual page ' + pageId;
   $('#readerContent').innerHTML = '<p class="empty-state">Loading factory manual page…</p>';
-  setMobileView('reader', title || 'Manual viewer', titleFromFolder(vehicle.name));
+  // Keep the three-panel desktop workspace stable. Only switch to the
+  // focused reader screen on phone-sized layouts.
+  if (window.matchMedia('(max-width: 700px)').matches) {
+    setMobileView('reader', title || 'Manual viewer', titleFromFolder(vehicle.name));
+  }
   try {
     const html = await fetchManualHtml(key);
     $('#readerContent').innerHTML = cleanManualFragment(html, key);
