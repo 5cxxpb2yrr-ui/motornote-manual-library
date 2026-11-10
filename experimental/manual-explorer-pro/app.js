@@ -802,8 +802,8 @@ renderLivePagination();
 let liveManualTree = [];
 let activeTocNode = null;
 function tocPageId(href='') {
-  return href.match(/(?:^|[\\/])pages[\\/](\\d+)\\.html?(?:$|[?#])/i)?.[1]
-    || href.match(/(?:^|[\\/])(\\d+)\\.html?(?:$|[?#])/i)?.[1] || null;
+  return href.match(/(?:^|[\/])pages[\/](\d+)\.html?(?:$|[?#])/i)?.[1]
+    || href.match(/(?:^|[\/])(\d+)\.html?(?:$|[?#])/i)?.[1] || null;
 }
 function tocNodeFromLi(li) {
   const nested = [...li.children].filter(el => /^(UL|OL)$/i.test(el.tagName));
@@ -813,7 +813,7 @@ function tocNodeFromLi(li) {
   const rawHref = ownLink?.getAttribute('href') || ownLink?.getAttribute('data-href') || ownLink?.getAttribute('data-url') || '';
   const asset = own.querySelector('img[src],a[href$=".svg"],img[src$=".svg"]');
   const assetUrl = asset?.getAttribute('src') || (asset?.tagName === 'A' ? asset.getAttribute('href') : null);
-  const label = (own.textContent || ownLink?.getAttribute('title') || '').replace(/\\s+/g,' ').trim();
+  const label = (own.textContent || ownLink?.getAttribute('title') || '').replace(/\s+/g,' ').trim();
   const node = { id:'toc-'+Math.random().toString(36).slice(2), title:label || 'Untitled section', pageId:tocPageId(rawHref), assetUrl, children:[] };
   nested.forEach(list => [...list.children].filter(el => el.tagName === 'LI').forEach(child => node.children.push(tocNodeFromLi(child))));
   return node;
@@ -829,7 +829,7 @@ function buildHierarchicalToc(parsed) {
   [...parsed.querySelectorAll('h1,h2,h3,h4,h5,h6,a[href],area[href],[data-href],[data-url]')].forEach(el => {
     const heading = /^H[1-6]$/.test(el.tagName);
     if (heading) {
-      const level=Number(el.tagName.slice(1)), title=el.textContent.replace(/\\s+/g,' ').trim();
+      const level=Number(el.tagName.slice(1)), title=el.textContent.replace(/\s+/g,' ').trim();
       if (!title || /^(home|contents|table of contents)$/i.test(title)) return;
       const node={title,children:[],pageId:null,assetUrl:null};
       while(stack.length>1 && stack[stack.length-1].level>=level) stack.pop();
@@ -837,9 +837,9 @@ function buildHierarchicalToc(parsed) {
     } else {
       const href=el.getAttribute('href')||el.getAttribute('data-href')||el.getAttribute('data-url')||'';
       const pageId=tocPageId(href);
-      const assetUrl=/\\.svg(?:$|[?#])/i.test(href)?href:null;
+      const assetUrl=/\.svg(?:$|[?#])/i.test(href)?href:null;
       if(!pageId&&!assetUrl)return;
-      const title=(el.textContent||el.getAttribute('title')||el.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim()|| (pageId?'Manual page '+pageId:'Illustration');
+      const title=(el.textContent||el.getAttribute('title')||el.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim()|| (pageId?'Manual page '+pageId:'Illustration');
       stack[stack.length-1].node.children.push({title,pageId,assetUrl,children:[]});
     }
   });
