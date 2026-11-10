@@ -859,10 +859,28 @@ function renderTocNode(node,host,depth=0) {
   else button.append(iconNode(sectionIcon(node.title),'tree-section-icon'));
   const label=document.createElement('span');label.className='tree-section-label';label.textContent=node.title;button.append(label);
   if(node.children?.length){const count=document.createElement('small');count.className='tree-section-count';count.textContent=String(node.children.length);button.append(count);}
-  button.addEventListener('click',()=>{
+  button.addEventListener('click',async()=>{
     activeTocNode=node;
-    if(node.pageId)showLiveManualPage(selectedVehicle,node.pageId,node.title);
-    else {node.expanded=!node.expanded;renderHierarchicalToc();renderTocChildren(node);}
+    if(node.children?.length){node.expanded=!node.expanded;renderHierarchicalToc();renderTocChildren(node);return;}
+    // Factory indexes often link to a section landing page whose own HTML
+    // contains the next level of the TOC. Resolve that level before treating
+    // the section link as a leaf procedure.
+    if(node.pageId && selectedVehicle){
+      button.classList.add('loading');
+      try{
+        const pageHtml=await fetchManualHtml(manualKey(selectedVehicle,'pages/'+node.pageId+'.html'));
+        const pageDoc=new DOMParser().parseFromString(pageHtml,'text/html');
+        const discovered=buildHierarchicalToc(pageDoc);
+        const children=discovered.filter(child=>String(child.pageId||'')!==String(node.pageId));
+        if(children.length){
+          node.children=children;node.expanded=true;renderHierarchicalToc();renderTocChildren(node);return;
+        }
+      }catch(error){announce('Could not expand this factory section: '+error.message);}
+      finally{button.classList.remove('loading');}
+      showLiveManualPage(selectedVehicle,node.pageId,node.title);
+      return;
+    }
+    renderTocChildren(node);
   });
   row.append(button);host.append(row);
   if(node.children?.length){const children=document.createElement('div');children.className='toc-nested';children.hidden=!node.expanded;node.children.forEach(child=>renderTocNode(child,children,depth+1));row.append(children);}
