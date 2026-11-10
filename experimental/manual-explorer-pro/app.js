@@ -853,19 +853,19 @@ function tocLeafPages(node,out=[]) {
 function renderTocNode(node,host,depth=0) {
   const row=document.createElement('div');row.className='toc-node';row.style.setProperty('--toc-depth',String(depth));
   const button=document.createElement('button');button.type='button';button.className='tree-item toc-tree-item';
-  button.setAttribute('aria-expanded',String(!!node.children?.length));
+  button.setAttribute('aria-expanded',String(!!node.expanded));
   if(node===activeTocNode)button.classList.add('active');
   if(node.assetUrl){const img=document.createElement('img');img.className='toc-asset-icon';img.src=new URL(node.assetUrl,MANUAL_SITE).href;img.alt='';button.append(img);}
   else button.append(iconNode(sectionIcon(node.title),'tree-section-icon'));
   const label=document.createElement('span');label.className='tree-section-label';label.textContent=node.title;button.append(label);
   if(node.children?.length){const count=document.createElement('small');count.className='tree-section-count';count.textContent=String(node.children.length);button.append(count);}
   button.addEventListener('click',()=>{
-    activeTocNode=node;renderHierarchicalToc();
+    activeTocNode=node;
     if(node.pageId)showLiveManualPage(selectedVehicle,node.pageId,node.title);
-    else renderTocChildren(node);
+    else {node.expanded=!node.expanded;renderHierarchicalToc();renderTocChildren(node);}
   });
   row.append(button);host.append(row);
-  if(node.children?.length){const children=document.createElement('div');children.className='toc-nested';node.children.forEach(child=>renderTocNode(child,children,depth+1));row.append(children);}
+  if(node.children?.length){const children=document.createElement('div');children.className='toc-nested';children.hidden=!node.expanded;node.children.forEach(child=>renderTocNode(child,children,depth+1));row.append(children);}
 }
 function renderHierarchicalToc(){
   const tree=$('.manual-tree');tree.replaceChildren(safeText('div','FACTORY CONTENTS','manual-tree-heading'));
