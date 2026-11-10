@@ -363,3 +363,61 @@ body{background:var(--bg);color:var(--text)}
 @media(max-width:1100px) and (min-width:701px){
  body[data-mobile-view="reader"] .explorer-layout{grid-template-columns:minmax(205px,.78fr) minmax(240px,1fr) minmax(320px,1.25fr)}
 }
+
+
+/* Docked desktop page preview: the reader stays in column three instead of
+   dropping below the page list. Only its content scrolls until expanded. */
+@media(min-width:701px){
+  body[data-mobile-view="reader"] .explorer-layout{
+    grid-template-columns:minmax(205px,.78fr) minmax(245px,.95fr) minmax(320px,1.12fr);
+    align-items:stretch;
+  }
+  body[data-mobile-view="reader"] .reader-panel{
+    grid-column:auto !important;
+    height:min(760px,calc(100dvh - 205px));
+    min-height:460px;
+    max-height:calc(100dvh - 150px);
+    overflow:hidden;
+  }
+  body[data-mobile-view="reader"] .reader-content{
+    flex:1 1 auto;
+    min-height:0;
+    overflow:auto;
+    overscroll-behavior:contain;
+  }
+  body.reader-expanded{overflow:hidden}
+  body.reader-expanded::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:29;
+    background:#05080de8;
+    backdrop-filter:blur(7px);
+  }
+  body.reader-expanded .reader-panel{
+    position:fixed;
+    z-index:30;
+    inset:18px 5vw;
+    width:auto;
+    height:auto;
+    max-height:none;
+    min-height:0;
+    display:flex;
+    border-color:#b65b19;
+    box-shadow:0 24px 90px #000c,0 0 0 1px #ff8b302e;
+  }
+  body.reader-expanded .reader-content{
+    max-width:1100px;
+    width:100%;
+    margin:0 auto;
+    padding:clamp(24px,4vw,56px);
+  }
+}
+@media(min-width:701px) and (max-width:1100px){
+  body[data-mobile-view="reader"] .explorer-layout{
+    grid-template-columns:minmax(175px,.72fr) minmax(205px,.85fr) minmax(260px,1.05fr);
+  }
+}
+@media(max-width:700px){
+  .reader-expand-button{display:none}
+}
