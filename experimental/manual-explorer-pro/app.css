@@ -497,3 +497,37 @@ body{background:var(--bg);color:var(--text)}
 .toc-asset-icon { width:22px; height:22px; flex:0 0 22px; object-fit:contain; border-radius:4px; }
 .toc-tree-item[aria-expanded="true"] .tree-section-count::after { content:"⌄"; margin-left:6px; }
 .toc-tree-item[aria-expanded="false"] .tree-section-count::after { content:"›"; margin-left:6px; }
+
+
+/* Keep factory illustration thumbnails and navigation glyphs compact even
+   when source SVG files declare oversized intrinsic dimensions. */
+.manual-tree .toc-asset-icon,
+.document-list .toc-asset-icon,
+.toc-tree-item > img,
+.document-item > img {
+  display:block;
+  width:20px !important;
+  height:20px !important;
+  min-width:20px !important;
+  max-width:20px !important;
+  min-height:20px !important;
+  max-height:20px !important;
+  flex:0 0 20px !important;
+  object-fit:contain;
+}
+.manual-tree .tree-section-icon,
+.manual-tree .tree-section-icon svg {
+  width:24px !important;
+  height:24px !important;
+  min-width:24px;
+  max-width:24px;
+  flex:0 0 24px;
+}
+.document-list .doc-icon,
+.document-list .doc-icon svg {
+  width:28px;
+  height:28px;
+  min-width:28px;
+  max-width:28px;
+  flex:0 0 28px;
+}
