@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050b18">
+  <meta name="robots" content="noindex,nofollow">
+  <title>LifeOS Manual Explorer · Mobile navigation preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #050b18; }
+    iframe { display: block; width: 100%; height: 100%; border: 0; }
+  </style>
+</head>
+<body>
+  <iframe id="explorerPreview" src="./index.html" title="LifeOS Manual Explorer navigation preview"></iframe>
+  <script>
+    const frame = document.getElementById('explorerPreview');
+    frame.addEventListener('load', () => {
+      const doc = frame.contentDocument;
+      if (!doc || doc.getElementById('mobileNavigationPreview')) return;
+      const css = doc.createElement('link');
+      css.id = 'mobileNavigationPreview';
+      css.rel = 'stylesheet';
+      css.href = './mobile-navigation.css';
+      doc.head.append(css);
+      const script = doc.createElement('script');
+      script.src = './mobile-navigation.js';
+      script.async = false;
+      doc.body.append(script);
+    });
+  </script>
+</body>
+</html>
