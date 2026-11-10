@@ -531,3 +531,60 @@ body{background:var(--bg);color:var(--text)}
   max-width:28px;
   flex:0 0 28px;
 }
+
+
+/* Factory common-specification tables: consistent column alignment, readable
+   wrapping, and a contained horizontal scroll on narrow reader screens. */
+.reader-content {
+  min-width:0;
+}
+.reader-content table {
+  width:100%;
+  max-width:100%;
+  table-layout:fixed;
+  border-collapse:collapse;
+  border-spacing:0;
+  margin:16px 0 22px;
+  font-size:12px;
+  line-height:1.5;
+}
+.reader-content table th,
+.reader-content table td {
+  box-sizing:border-box;
+  padding:9px 10px;
+  border:1px solid var(--line);
+  text-align:left;
+  vertical-align:top;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+.reader-content table th {
+  background:var(--panel2);
+  color:var(--text);
+  font-weight:700;
+}
+.reader-content table td:first-child,
+.reader-content table th:first-child { width:25%; }
+.reader-content table td:nth-child(2),
+.reader-content table th:nth-child(2) { width:35%; }
+.reader-content table td:nth-child(3),
+.reader-content table th:nth-child(3) { width:24%; }
+.reader-content table td:nth-child(4),
+.reader-content table th:nth-child(4) { width:16%; }
+.reader-content table tr:nth-child(even) td {
+  background:color-mix(in srgb,var(--panel2) 45%,transparent);
+}
+.reader-content table img {
+  max-width:100%;
+  height:auto;
+}
+@media(max-width:700px) {
+  .reader-content table {
+    min-width:620px;
+    width:100%;
+  }
+  .reader-content {
+    overflow-x:auto;
+  }
+}
