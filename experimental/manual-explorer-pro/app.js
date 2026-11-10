@@ -795,3 +795,119 @@ showLiveManualPage = async function(vehicle, pageId, title) {
 // The desktop overview retains its vehicle tree and page list while the reader
 // occupies the right-hand panel. Mobile continues to use its focused reader view.
 renderLivePagination();
+
+
+// Hierarchical factory TOC: preserve nested list relationships, heading levels,
+// page targets, and linked illustration assets from the original manual index.
+let liveManualTree = [];
+let activeTocNode = null;
+function tocPageId(href='') {
+  return href.match(/(?:^|[\\/])pages[\\/](\\d+)\\.html?(?:$|[?#])/i)?.[1]
+    || href.match(/(?:^|[\\/])(\\d+)\\.html?(?:$|[?#])/i)?.[1] || null;
+}
+function tocNodeFromLi(li) {
+  const nested = [...li.children].filter(el => /^(UL|OL)$/i.test(el.tagName));
+  const own = li.cloneNode(true);
+  own.querySelectorAll('ul,ol').forEach(el => el.remove());
+  const ownLink = own.querySelector('a[href],[data-href],[data-url]');
+  const rawHref = ownLink?.getAttribute('href') || ownLink?.getAttribute('data-href') || ownLink?.getAttribute('data-url') || '';
+  const asset = own.querySelector('img[src],a[href$=".svg"],img[src$=".svg"]');
+  const assetUrl = asset?.getAttribute('src') || (asset?.tagName === 'A' ? asset.getAttribute('href') : null);
+  const label = (own.textContent || ownLink?.getAttribute('title') || '').replace(/\\s+/g,' ').trim();
+  const node = { id:'toc-'+Math.random().toString(36).slice(2), title:label || 'Untitled section', pageId:tocPageId(rawHref), assetUrl, children:[] };
+  nested.forEach(list => [...list.children].filter(el => el.tagName === 'LI').forEach(child => node.children.push(tocNodeFromLi(child))));
+  return node;
+}
+function buildHierarchicalToc(parsed) {
+  const roots = [];
+  const topLists = [...parsed.querySelectorAll('ul,ol')].filter(list => !list.parentElement.closest('li'));
+  topLists.forEach(list => {
+    [...list.children].filter(el => el.tagName === 'LI').forEach(li => roots.push(tocNodeFromLi(li)));
+  });
+  if (roots.length) return roots;
+  const stack = [{level:0,node:{title:'Factory manual',children:[]}}];
+  [...parsed.querySelectorAll('h1,h2,h3,h4,h5,h6,a[href],area[href],[data-href],[data-url]')].forEach(el => {
+    const heading = /^H[1-6]$/.test(el.tagName);
+    if (heading) {
+      const level=Number(el.tagName.slice(1)), title=el.textContent.replace(/\\s+/g,' ').trim();
+      if (!title || /^(home|contents|table of contents)$/i.test(title)) return;
+      const node={title,children:[],pageId:null,assetUrl:null};
+      while(stack.length>1 && stack[stack.length-1].level>=level) stack.pop();
+      stack[stack.length-1].node.children.push(node);stack.push({level,node});
+    } else {
+      const href=el.getAttribute('href')||el.getAttribute('data-href')||el.getAttribute('data-url')||'';
+      const pageId=tocPageId(href);
+      const assetUrl=/\\.svg(?:$|[?#])/i.test(href)?href:null;
+      if(!pageId&&!assetUrl)return;
+      const title=(el.textContent||el.getAttribute('title')||el.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim()|| (pageId?'Manual page '+pageId:'Illustration');
+      stack[stack.length-1].node.children.push({title,pageId,assetUrl,children:[]});
+    }
+  });
+  return stack[0].node.children;
+}
+function tocLeafPages(node,out=[]) {
+  if(node.pageId) out.push({pageId:String(node.pageId),title:node.title});
+  (node.children||[]).forEach(child=>tocLeafPages(child,out));
+  return out;
+}
+function renderTocNode(node,host,depth=0) {
+  const row=document.createElement('div');row.className='toc-node';row.style.setProperty('--toc-depth',String(depth));
+  const button=document.createElement('button');button.type='button';button.className='tree-item toc-tree-item';
+  button.setAttribute('aria-expanded',String(!!node.children?.length));
+  if(node===activeTocNode)button.classList.add('active');
+  if(node.assetUrl){const img=document.createElement('img');img.className='toc-asset-icon';img.src=new URL(node.assetUrl,MANUAL_SITE).href;img.alt='';button.append(img);}
+  else button.append(iconNode(sectionIcon(node.title),'tree-section-icon'));
+  const label=document.createElement('span');label.className='tree-section-label';label.textContent=node.title;button.append(label);
+  if(node.children?.length){const count=document.createElement('small');count.className='tree-section-count';count.textContent=String(node.children.length);button.append(count);}
+  button.addEventListener('click',()=>{
+    activeTocNode=node;renderHierarchicalToc();
+    if(node.pageId)showLiveManualPage(selectedVehicle,node.pageId,node.title);
+    else renderTocChildren(node);
+  });
+  row.append(button);host.append(row);
+  if(node.children?.length){const children=document.createElement('div');children.className='toc-nested';node.children.forEach(child=>renderTocNode(child,children,depth+1));row.append(children);}
+}
+function renderHierarchicalToc(){
+  const tree=$('.manual-tree');tree.replaceChildren(safeText('div','FACTORY CONTENTS','manual-tree-heading'));
+  liveManualTree.forEach(node=>renderTocNode(node,tree));
+}
+function renderTocChildren(node){
+  const list=$('#documentList');list.replaceChildren();
+  const children=node.children||[];
+  if(!children.length){list.append(safeText('p','No child sections are listed here.','empty-state'));return;}
+  children.forEach(child=>{
+    const item=document.createElement('button');item.type='button';item.className='document-item';
+    if(child.assetUrl){const img=document.createElement('img');img.className='toc-asset-icon';img.src=new URL(child.assetUrl,MANUAL_SITE).href;img.alt='';item.append(img);}
+    else item.append(iconNode(sectionIcon(child.title),'doc-icon'));
+    const details=document.createElement('span');details.append(safeText('b',child.title),safeText('small',child.pageId?'Factory page '+child.pageId:(child.children?.length||0)+' nested entries'));
+    item.append(details,safeText('span','›','doc-arrow'));
+    item.addEventListener('click',()=>{activeTocNode=child;renderHierarchicalToc();if(child.pageId)showLiveManualPage(selectedVehicle,child.pageId,child.title);else renderTocChildren(child);});
+    list.append(item);
+  });
+  $('#sectionTitle').textContent=node.title;
+  $('#crumb').textContent=titleFromFolder(selectedVehicle.name).toUpperCase()+' / '+node.title.toUpperCase();
+  $('.list-footnote').textContent='FACTORY TOC · '+children.length+' CHILD ENTRIES';
+  liveManualGroups=[{title:node.title,pages:tocLeafPages(node)}];activeManualGroup=0;
+  renderLivePagination();
+}
+loadLiveManualIndex = async function(vehicle) {
+  selectedVehicle=vehicle;
+  $('#documentList').replaceChildren(safeText('p','Loading the nested factory table of contents…','empty-state'));
+  $('.manual-tree').replaceChildren(safeText('p','Reading original factory hierarchy…','empty-state'));
+  try{
+    const html=await fetchManualHtml(manualKey(vehicle,'index.html'));
+    const parsed=new DOMParser().parseFromString(html,'text/html');
+    liveManualTree=buildHierarchicalToc(parsed);
+    activeTocNode=liveManualTree[0]||null;
+    $('#vehicleManualTitle').textContent=titleFromFolder(vehicle.name);
+    if(!liveManualTree.length)throw new Error('No nested sections or factory page links were found.');
+    renderHierarchicalToc();
+    renderTocChildren(activeTocNode);
+    setMobileView('library',titleFromFolder(vehicle.name),'Browse the original nested factory contents.');
+    const count=liveManualTree.reduce((n,node)=>n+tocLeafPages(node).length,0);
+    announce('Loaded factory hierarchy with '+count.toLocaleString()+' linked pages.');
+  }catch(error){
+    $('.manual-tree').replaceChildren(safeText('p','Unable to read the factory hierarchy. '+error.message,'empty-state'));
+    $('#documentList').replaceChildren(safeText('p','The factory index could not be parsed. '+error.message,'empty-state'));
+  }
+};
