@@ -711,6 +711,35 @@ loadLiveManualIndex = async function(vehicle) {
 };
 
 
+
+
+// Reader preview controls: keep the page docked until the user expands it.
+const readerActions = $('.reader-actions');
+if (readerActions && !$('#expandReader')) {
+  const expandButton = document.createElement('button');
+  expandButton.type = 'button';
+  expandButton.id = 'expandReader';
+  expandButton.className = 'icon-button reader-expand-button';
+  expandButton.textContent = '⤢';
+  expandButton.setAttribute('aria-label', 'Expand manual reader');
+  expandButton.setAttribute('aria-pressed', 'false');
+  readerActions.append(expandButton);
+  expandButton.addEventListener('click', () => {
+    const expanded = document.body.classList.toggle('reader-expanded');
+    expandButton.setAttribute('aria-pressed', String(expanded));
+    expandButton.setAttribute('aria-label', expanded ? 'Return to page preview' : 'Expand manual reader');
+    expandButton.textContent = expanded ? '⤡' : '⤢';
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && document.body.classList.contains('reader-expanded')) {
+      document.body.classList.remove('reader-expanded');
+      expandButton.setAttribute('aria-pressed', 'false');
+      expandButton.setAttribute('aria-label', 'Expand manual reader');
+      expandButton.textContent = '⤢';
+    }
+  });
+}
+
 // Desktop reader stays docked as the third workspace panel. Live pagination
 // follows the selected vehicle's factory index rather than prototype records.
 let activeLivePage = null;
