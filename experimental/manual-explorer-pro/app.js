@@ -829,12 +829,13 @@ function renderHierarchicalToc() {
   const crumbs=$('#tocBreadcrumbs');
   if(crumbs){
     crumbs.replaceChildren();
-    const root=document.createElement('button');root.type='button';root.textContent=vehicleName;
+    crumbs.style.cssText='display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:8px 0 12px;';
+    const root=document.createElement('button');root.type='button';root.className='subtle-button toc-crumb-button';root.textContent=vehicleName;
     root.addEventListener('click',()=>{activeTocPath=[];renderHierarchicalToc();renderTocChildren(null);});
     crumbs.append(root);
     activeTocPath.forEach((node,index)=>{
-      crumbs.append(safeText('span','/','toc-crumb-separator'));
-      const item=document.createElement('button');item.type='button';item.textContent=node.title;
+      const separator=safeText('span','/','toc-crumb-separator');separator.style.color='var(--muted)';crumbs.append(separator);
+      const item=document.createElement('button');item.type='button';item.className='subtle-button toc-crumb-button';item.textContent=node.title;
       item.addEventListener('click',()=>{activeTocPath=activeTocPath.slice(0,index+1);renderHierarchicalToc();renderTocChildren(node);});
       crumbs.append(item);
     });
@@ -913,7 +914,7 @@ function renderTocChildren(node) {
   $('#filterInput').value='';
   renderLivePagination();
 }
-async function loadLiveManualIndex(vehicle) {
+loadLiveManualIndex = async function(vehicle) {
   const requestId=++tocLoadRequestId;
   selectedVehicle=vehicle;
   activeTocPath=[];
@@ -942,7 +943,7 @@ async function loadLiveManualIndex(vehicle) {
     $('#documentList').replaceChildren(safeText('p','The factory index could not be parsed. '+error.message,'empty-state'));
   }
 }
-async function openLiveVehicle(vehicle) {
+openLiveVehicle = async function(vehicle) {
   selectedVehicle=vehicle;
   activeTocPath=[];
   activeLiveVehicle=vehicle;
@@ -953,7 +954,7 @@ async function openLiveVehicle(vehicle) {
   $('.vehicle-panel').classList.add('show-toc');
   $('#vehicleManualTitle').textContent=title;
   await loadLiveManualIndex(vehicle);
-}
+};
 async function openLiveSearchResult(vehicle,pageId,title) {
   await openLiveVehicle(vehicle);
   if(selectedVehicle?.id!==vehicle.id)return;
