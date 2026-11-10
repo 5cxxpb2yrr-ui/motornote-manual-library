@@ -845,6 +845,14 @@ function buildHierarchicalToc(parsed) {
   });
   return stack[0].node.children;
 }
+async function hydrateTocNode(node,vehicle){
+  if(!node || node.children?.length || !node.pageId) return node;
+  const html=await fetchManualHtml(manualKey(vehicle,'pages/'+node.pageId+'.html'));
+  const parsed=new DOMParser().parseFromString(html,'text/html');
+  const children=buildHierarchicalToc(parsed).filter(child=>String(child.pageId||'')!==String(node.pageId));
+  if(children.length) node.children=children;
+  return node;
+}
 function tocLeafPages(node,out=[]) {
   if(node.pageId) out.push({pageId:String(node.pageId),title:node.title});
   (node.children||[]).forEach(child=>tocLeafPages(child,out));
@@ -917,6 +925,7 @@ loadLiveManualIndex = async function(vehicle) {
     const parsed=new DOMParser().parseFromString(html,'text/html');
     liveManualTree=buildHierarchicalToc(parsed);
     activeTocNode=liveManualTree[0]||null;
+    if(activeTocNode && !activeTocNode.children?.length) await hydrateTocNode(activeTocNode,vehicle);
     $('#vehicleManualTitle').textContent=titleFromFolder(vehicle.name);
     if(!liveManualTree.length)throw new Error('No nested sections or factory page links were found.');
     renderHierarchicalToc();
