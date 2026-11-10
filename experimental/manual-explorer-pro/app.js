@@ -709,3 +709,60 @@ loadLiveManualIndex = async function(vehicle) {
     $('#listFootnote')?.replaceChildren();
   }
 };
+
+
+// Desktop reader stays docked as the third workspace panel. Live pagination
+// follows the selected vehicle's factory index rather than prototype records.
+let activeLivePage = null;
+let activeLiveVehicle = null;
+const livePreviousButton = $('#previousDoc').cloneNode(true);
+const liveNextButton = $('#nextDoc').cloneNode(true);
+$('#previousDoc').replaceWith(livePreviousButton);
+$('#nextDoc').replaceWith(liveNextButton);
+
+function renderLivePagination() {
+  const footer = $('.reader-footer');
+  if (!footer) return;
+  const pages = liveManualGroups[activeManualGroup]?.pages || [];
+  const index = activeLivePage ? pages.findIndex(page => page.pageId === activeLivePage.pageId) : -1;
+  const previous = livePreviousButton;
+  const next = liveNextButton;
+  previous.disabled = !activeLiveVehicle || index <= 0;
+  next.disabled = !activeLiveVehicle || index < 0 || index >= pages.length - 1;
+  previous.title = previous.disabled ? 'No previous page in this section' : pages[index - 1].title;
+  next.title = next.disabled ? 'No next page in this section' : pages[index + 1].title;
+  const status = footer.querySelector('.reader-page-status') || document.createElement('span');
+  status.className = 'reader-page-status';
+  status.textContent = index >= 0
+    ? 'FACTORY PAGE ' + activeLivePage.pageId + ' · ' + (index + 1) + ' OF ' + pages.length
+    : activeLivePage ? 'FACTORY PAGE ' + activeLivePage.pageId : 'SELECT A FACTORY PAGE';
+  const center = footer.querySelector('span');
+  if (center) center.replaceWith(status); else footer.insertBefore(status, next);
+}
+livePreviousButton.addEventListener('click', () => {
+  const pages = liveManualGroups[activeManualGroup]?.pages || [];
+  const index = pages.findIndex(page => page.pageId === activeLivePage?.pageId);
+  if (index > 0) showLiveManualPage(activeLiveVehicle, pages[index - 1].pageId, pages[index - 1].title);
+});
+liveNextButton.addEventListener('click', () => {
+  const pages = liveManualGroups[activeManualGroup]?.pages || [];
+  const index = pages.findIndex(page => page.pageId === activeLivePage?.pageId);
+  if (index >= 0 && index < pages.length - 1) showLiveManualPage(activeLiveVehicle, pages[index + 1].pageId, pages[index + 1].title);
+});
+
+const showLiveManualPageWithDockedReader = showLiveManualPage;
+showLiveManualPage = async function(vehicle, pageId, title) {
+  activeLiveVehicle = vehicle;
+  await showLiveManualPageWithDockedReader(vehicle, pageId, title);
+  const content = $('#readerContent');
+  if (content && !content.querySelector('.empty-state')) {
+    activeLivePage = { pageId: String(pageId), title: title || 'Manual page ' + pageId };
+    $$('.document-item').forEach(item => item.classList.toggle('selected', item.querySelector('small')?.textContent.includes('Page ' + pageId) || false));
+    $('#readerTitle').textContent = activeLivePage.title;
+    renderLivePagination();
+  }
+};
+
+// The desktop overview retains its vehicle tree and page list while the reader
+// occupies the right-hand panel. Mobile continues to use its focused reader view.
+renderLivePagination();
