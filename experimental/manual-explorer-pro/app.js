@@ -855,33 +855,22 @@ function renderHierarchicalToc() {
 }
 async function openTocNode(node) {
   if(!node)return;
+  // A node with children is a folder. A numbered leaf is a real factory page:
+  // do not parse the page body as another TOC, because its internal links and
+  // breadcrumbs can send the user into a repeating navigation loop.
   if(node.children?.length){
     activeTocPath=[...activeTocPath,node];
-    renderHierarchicalToc();renderTocChildren(node);return;
+    renderHierarchicalToc();
+    renderTocChildren(node);
+    return;
   }
   if(node.pageId && selectedVehicle){
-    const requestId=++tocExpandRequestId;
-    const vehicleId=selectedVehicle.id;
-    try{
-      const pageHtml=await fetchManualHtml(manualKey(selectedVehicle,'pages/'+node.pageId+'.html'));
-      if(requestId!==tocExpandRequestId || selectedVehicle?.id!==vehicleId)return;
-      const pageDoc=new DOMParser().parseFromString(pageHtml,'text/html');
-      const discovered=buildHierarchicalToc(pageDoc);
-      const children=discovered.filter(child=>String(child.pageId||'')!==String(node.pageId));
-      if(children.length){
-        node.children=children;
-        activeTocPath=[...activeTocPath,node];
-        renderHierarchicalToc();renderTocChildren(node);return;
-      }
-    }catch(error){
-      if(requestId===tocExpandRequestId)announce('Could not inspect this factory section: '+error.message);
-    }
-    if(requestId!==tocExpandRequestId || selectedVehicle?.id!==vehicleId)return;
     showLiveManualPage(selectedVehicle,node.pageId,node.title);
     return;
   }
   activeTocPath=[...activeTocPath,node];
-  renderHierarchicalToc();renderTocChildren(node);
+  renderHierarchicalToc();
+  renderTocChildren(node);
 }
 function renderTocChildren(node) {
   const list=$('#documentList');
