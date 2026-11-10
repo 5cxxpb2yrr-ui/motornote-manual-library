@@ -421,3 +421,69 @@ body{background:var(--bg);color:var(--text)}
 @media(max-width:700px){
   .reader-expand-button{display:none}
 }
+
+
+/* Desktop is a persistent three-panel workspace. The mobile tab states must
+   never hide neighboring panels or turn the document list into a full-width page. */
+@media(min-width:701px){
+  body[data-mobile-view="vehicles"] .page-heading,
+  body[data-mobile-view="library"] .page-heading,
+  body[data-mobile-view="reader"] .page-heading,
+  body[data-mobile-view="vehicles"] .stats,
+  body[data-mobile-view="library"] .stats,
+  body[data-mobile-view="reader"] .stats{display:flex}
+  body[data-mobile-view="vehicles"] .home-garage,
+  body[data-mobile-view="library"] .home-garage,
+  body[data-mobile-view="reader"] .home-garage,
+  body[data-mobile-view="vehicles"] .favorites-screen,
+  body[data-mobile-view="library"] .favorites-screen,
+  body[data-mobile-view="reader"] .favorites-screen{display:none}
+  body[data-mobile-view="vehicles"] .explorer-layout,
+  body[data-mobile-view="library"] .explorer-layout,
+  body[data-mobile-view="reader"] .explorer-layout{
+    display:grid !important;
+    grid-template-columns:minmax(205px,.78fr) minmax(245px,.95fr) minmax(320px,1.12fr) !important;
+    max-width:none !important;
+    align-items:stretch;
+  }
+  body[data-mobile-view="vehicles"] .vehicle-panel,
+  body[data-mobile-view="library"] .vehicle-panel,
+  body[data-mobile-view="reader"] .vehicle-panel,
+  body[data-mobile-view="vehicles"] .document-panel,
+  body[data-mobile-view="library"] .document-panel,
+  body[data-mobile-view="reader"] .document-panel,
+  body[data-mobile-view="vehicles"] .reader-panel,
+  body[data-mobile-view="library"] .reader-panel,
+  body[data-mobile-view="reader"] .reader-panel{
+    display:flex !important;
+    grid-column:auto !important;
+    min-width:0;
+  }
+  body[data-mobile-view="vehicles"] .vehicle-panel,
+  body[data-mobile-view="library"] .vehicle-panel,
+  body[data-mobile-view="reader"] .vehicle-panel,
+  body[data-mobile-view="vehicles"] .document-panel,
+  body[data-mobile-view="library"] .document-panel,
+  body[data-mobile-view="reader"] .document-panel{flex-direction:column}
+  body[data-mobile-view="vehicles"] .reader-panel,
+  body[data-mobile-view="library"] .reader-panel{
+    height:min(760px,calc(100dvh - 245px));
+    min-height:420px;
+    overflow:hidden;
+  }
+  body[data-mobile-view="vehicles"] .reader-content,
+  body[data-mobile-view="library"] .reader-content,
+  body[data-mobile-view="reader"] .reader-content{
+    flex:1 1 auto;
+    min-height:0;
+    overflow:auto;
+    overscroll-behavior:contain;
+  }
+  body[data-mobile-view="reader"] .reader-panel{
+    grid-column:auto !important;
+    height:min(760px,calc(100dvh - 205px));
+    min-height:460px;
+    max-height:calc(100dvh - 150px);
+    overflow:hidden;
+  }
+}
