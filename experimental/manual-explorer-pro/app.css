@@ -487,3 +487,13 @@ body{background:var(--bg);color:var(--text)}
     overflow:hidden;
   }
 }
+
+
+/* Hierarchical factory contents: compact nested rows with real linked assets. */
+.toc-node { min-width:0; }
+.toc-tree-item { width:100%; display:flex; align-items:center; gap:9px; padding-left:calc(12px + var(--toc-depth,0) * 13px); }
+.toc-nested { margin-left:12px; padding-left:8px; border-left:1px solid rgba(112,157,205,.22); }
+.toc-nested[hidden] { display:none; }
+.toc-asset-icon { width:22px; height:22px; flex:0 0 22px; object-fit:contain; border-radius:4px; }
+.toc-tree-item[aria-expanded="true"] .tree-section-count::after { content:"⌄"; margin-left:6px; }
+.toc-tree-item[aria-expanded="false"] .tree-section-count::after { content:"›"; margin-left:6px; }
