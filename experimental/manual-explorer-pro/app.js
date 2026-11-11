@@ -13,7 +13,25 @@ $('#favoriteButton').addEventListener('click',()=>toggleSaved('favorite'));$('#b
 $('#previousDoc').addEventListener('click',()=>selectDoc(selected-1));$('#nextDoc').addEventListener('click',()=>selectDoc(selected+1));
 $$('.vehicle-item').forEach(el=>el.addEventListener('click',()=>{$$('.vehicle-item').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');$('#vehicleManualTitle').textContent=vehicles[el.dataset.vehicle];announce('Vehicle changed: '+el.querySelector('b').textContent+'. Sample pages remain selected.');}));
 // Factory section navigation is generated from the selected vehicle index.
-$('#themeButton').addEventListener('click',()=>{document.body.classList.toggle('light');announce(document.body.classList.contains('light')?'Light theme enabled':'Dark theme enabled')});
+function applyColorTheme(theme){
+  const light=theme==='light';
+  document.body.classList.toggle('light',light);
+  document.documentElement.style.colorScheme=light?'light':'dark';
+  const button=$('#themeButton');
+  if(button){
+    button.textContent=light?'☀':'☾';
+    button.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');
+    button.setAttribute('title',light?'Switch to dark theme':'Switch to light theme');
+    button.setAttribute('aria-pressed',String(light));
+  }
+  try{localStorage.setItem('mep-theme',light?'light':'dark')}catch{}
+}
+applyColorTheme(localStorage.getItem('mep-theme')==='light'?'light':'dark');
+$('#themeButton').addEventListener('click',()=>{
+  const next=document.body.classList.contains('light')?'dark':'light';
+  applyColorTheme(next);
+  announce(next==='light'?'Light theme enabled':'Dark theme enabled');
+});
 $('#searchOpen').addEventListener('click',()=>{$('#searchDialog').showModal();$('#globalSearch').focus()});$('#searchClose').addEventListener('click',()=>$('#searchDialog').close());
 
 function openIndexDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open('lifeos-manual-explorer',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('index'))req.result.createObjectStore('index')};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
@@ -1041,12 +1059,12 @@ async function openLiveSearchResult(vehicle,pageId,title) {
     const favoriteKey=liveSaveKey('favorite'),bookmarkKey=liveSaveKey('bookmark');
     if(favorite){
       const active=!!favoriteKey&&saved.has(favoriteKey);
-      favorite.textContent=active?'★':'☆';favorite.setAttribute('aria-pressed',String(active));
+      favorite.textContent=active?'★ Favorite':'☆ Favorite';favorite.setAttribute('aria-pressed',String(active));
       favorite.setAttribute('aria-label',active?'Remove this page from favorites':'Save this page as a favorite');
     }
     if(bookmark){
       const active=!!bookmarkKey&&saved.has(bookmarkKey);
-      bookmark.textContent=active?'⚑':'⚐';bookmark.setAttribute('aria-pressed',String(active));
+      bookmark.textContent=active?'⚑ Bookmark':'⚐ Bookmark';bookmark.setAttribute('aria-pressed',String(active));
       bookmark.setAttribute('aria-label',active?'Remove this page bookmark':'Bookmark this page');
     }
   }
@@ -1059,7 +1077,7 @@ async function openLiveSearchResult(vehicle,pageId,title) {
       return {kind:parts[0],vehicleId:decodeURIComponent(parts[1]),pageId:parts[2]};
     }).filter(Boolean);
     if(!entries.length){
-      host.append(safeText('p','No saved factory pages yet. Open a real manual page and use the star or bookmark control.','empty-state'));
+      host.append(safeText('p','No saved factory pages yet. Use Favorite for quick access or Bookmark to mark a page for later.','empty-state'));
       return;
     }
     entries.forEach(entry=>{
