@@ -1040,8 +1040,13 @@ async function openLiveSearchResult(vehicle,pageId,title) {
     toolbarActions.insertBefore(readerBack,toc||toolbarActions.firstChild);
     readerBack.addEventListener('click',()=>{
       const vehicleName=selectedVehicle?titleFromFolder(selectedVehicle.name):'Vehicles';
-      const level=activeTocPath.at(-1)?.title||vehicleName;
-      setMobileView('library',level,'Choose a factory page from the current section.');
+      // Return to the exact menu that contained the page. Do not reset the
+      // TOC path to its root; the current path is the user's navigation trail.
+      const parent=activeTocPath.at(-1)||null;
+      const level=parent?.title||vehicleName;
+      renderHierarchicalToc();
+      renderTocChildren(parent);
+      setMobileView('library',level,'Choose a factory page from this section.');
       restoreNavigationHighlight();
       if(window.matchMedia('(max-width: 700px)').matches){
         document.querySelector('.document-panel')?.scrollIntoView({block:'start',behavior:'smooth'});
