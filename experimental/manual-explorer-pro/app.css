@@ -847,6 +847,11 @@ body.light .tree-child{color:#535c68}
 
 
 /* Canonical iPhone pass — aligned to the six-screen reference. */
+.brand-emblem { display:block; width:54px; height:48px; flex:0 0 54px; }
+.brand-copy { display:block; min-width:0; }
+.brand-copy strong { color:#fff; font:700 22px 'Barlow Condensed'; letter-spacing:.2px; }
+.brand-copy b { display:inline; margin-left:5px; color:var(--accent); font:700 22px 'Barlow Condensed'; }
+.brand-copy small { display:block; margin-top:2px; font:11px 'IBM Plex Sans'; color:#c5c9ce; letter-spacing:0; }
 @media (max-width:700px) {
   :root {
     --mobile-bg:#101416;
@@ -944,6 +949,10 @@ body.light .tree-child{color:#535c68}
   body[data-mobile-view="vehicles"] .vehicle-item small { color:#b1bbc2; font-size:9px; }
   body[data-mobile-view="vehicles"] .vehicle-item .chevron { color:var(--mobile-orange); font-size:20px; }
   body[data-mobile-view="vehicles"] .vehicle-panel .manual-tree { display:none; }
+  body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .manual-tree { display:grid; }
+  body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .vehicle-list,
+  body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .panel-title:first-child,
+  body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .panel-divider { display:none; }
   body[data-mobile-view="library"] .page-heading,
   body[data-mobile-view="library"] .stats,
   body[data-mobile-view="library"] .home-garage,
