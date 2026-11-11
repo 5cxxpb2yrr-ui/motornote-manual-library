@@ -619,3 +619,19 @@ body{background:var(--bg);color:var(--text)}
   .reader-actions{gap:6px}
   .reader-back-button{min-height:36px;padding:0 10px;font-size:12px}
 }
+
+
+/* Planned workspace tools are visibly unavailable rather than dead-looking links. */
+.more-actions button:disabled,
+#addVehicle:disabled{
+  opacity:.48;
+  cursor:not-allowed;
+  filter:saturate(.55);
+}
+.more-actions button:disabled small{
+  margin-left:auto;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
