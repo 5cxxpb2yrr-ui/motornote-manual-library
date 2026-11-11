@@ -1126,3 +1126,44 @@ body.light .tree-child{color:#535c68}
   .recent-page-arrow { margin-left:auto;color:var(--accent);font-size:22px; }
   .reader-actions button:disabled { opacity:.38;cursor:not-allowed; }
 }
+
+
+/* Landscape phones: keep the fixed bottom dock from covering TOC entries. */
+@media (max-width:700px) and (orientation:landscape) {
+  .workspace {
+    padding-bottom:calc(72px + env(safe-area-inset-bottom));
+  }
+  .mobile-nav {
+    min-height:48px;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    padding:4px 8px calc(4px + env(safe-area-inset-bottom));
+  }
+  .mobile-nav button {
+    min-height:38px;
+    grid-template-columns:auto auto;
+    grid-auto-flow:column;
+    align-content:center;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    font-size:10px;
+  }
+  .mobile-nav button span {
+    font-size:16px;
+    line-height:1;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .manual-tree {
+    max-height:calc(100dvh - 180px);
+    min-height:0;
+    overflow-y:auto;
+    overflow-x:hidden;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:12px;
+    scroll-padding-bottom:12px;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .toc-menu-entry {
+    min-height:54px;
+    flex-shrink:0;
+  }
+}
