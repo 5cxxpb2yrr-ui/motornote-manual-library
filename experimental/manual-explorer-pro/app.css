@@ -1167,3 +1167,37 @@ body.light .tree-child{color:#535c68}
     flex-shrink:0;
   }
 }
+
+
+/* Final landscape overrides: canonical mobile dock uses fixed height/display rules. */
+@media (max-width:700px) and (orientation:landscape) {
+  .mobile-nav {
+    display:grid !important;
+    height:48px !important;
+    min-height:48px !important;
+    max-height:48px !important;
+    z-index:6 !important;
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    align-items:center;
+    padding:3px 8px calc(3px + env(safe-area-inset-bottom)) !important;
+  }
+  .mobile-nav button {
+    display:flex;
+    min-height:38px;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:2px;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .manual-tree {
+    max-height:calc(100dvh - 118px) !important;
+    padding-bottom:calc(76px + env(safe-area-inset-bottom)) !important;
+    scroll-padding-bottom:calc(76px + env(safe-area-inset-bottom));
+    overflow-y:auto !important;
+    overscroll-behavior-y:contain;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .toc-menu-entry {
+    min-height:56px;
+    scroll-margin-bottom:76px;
+  }
+}
