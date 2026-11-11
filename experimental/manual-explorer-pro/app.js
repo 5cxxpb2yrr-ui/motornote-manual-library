@@ -2,10 +2,11 @@ const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s
 const docs=[{id:'engine-overview',title:'Engine Mechanical — Overview',kind:'General information · Service procedure'},{id:'engine-specs',title:'Engine Mechanical Specifications',kind:'Specifications · Reference'},{id:'engine-removal',title:'Engine Assembly — Removal',kind:'Repair procedure · 12 steps'},{id:'engine-install',title:'Engine Assembly — Installation',kind:'Repair procedure · 9 steps'}];
 const vehicles={scion:'Scion xB Manuals',subaru:'Subaru Crosstrek Manuals',toyota:'Toyota Tacoma Manuals',ford:'Ford F-150 Manuals'};
 const MANUAL_SITE='https://motornote-manual-library.phillipstg.workers.dev/';
+let manualPageRequestId=0;
 let selected=0;let searchGeneration=0;let indexPromise=null;
-const saved=new Set(JSON.parse(localStorage.getItem('mep-saved')||'[]'));
+const saved=new Set((()=>{try{const value=JSON.parse(localStorage.getItem('mep-saved')||'[]');return Array.isArray(value)?value.filter(key=>typeof key==='string'&&key.split('|').length===3):[]}catch{return[]}})());
 function announce(message){const toast=$('#toast');toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2100)}
-function renderSaved(){ $('#savedCount').textContent=String(saved.size).padStart(2,'0');localStorage.setItem('mep-saved',JSON.stringify([...saved]));}
+function renderSaved(){ $('#savedCount').textContent=String(saved.size).padStart(2,'0');try{localStorage.setItem('mep-saved',JSON.stringify([...saved]))}catch{}}
 function selectDoc(index){selected=(index+docs.length)%docs.length;const d=docs[selected];$('#readerTitle').textContent=d.title;$$('.document-item').forEach((el,i)=>el.classList.toggle('selected',i===selected));const key='favorite:'+d.id;const bookmark='bookmark:'+d.id;$('#favoriteButton').setAttribute('aria-pressed',String(saved.has(key)));$('#bookmarkButton').setAttribute('aria-pressed',String(saved.has(bookmark)));$('#readerContent').innerHTML='<div class="procedure-label">DEMO REFERENCE / '+String(selected+1).padStart(2,'0')+'</div><h3>'+d.title+'</h3><p>This is sample interface content, not a factory procedure. In the connected version, the original manual page, diagrams, specifications, warnings and navigation will be displayed here.</p><div class="notice"><strong>Factory information placeholder</strong><p>Vehicle-specific instructions and safety information will be loaded from the selected manual source.</p></div><h3>Reference details</h3><ul><li>'+d.kind+'</li><li>Vehicle: 2006 Scion xB</li><li>Engine: 1NZ-FE · 1.5L</li></ul>';$('#reader').focus({preventScroll:true});}
 function toggleSaved(kind){const key=kind+':'+docs[selected].id;if(saved.has(key))saved.delete(key);else saved.add(key);renderSaved();selectDoc(selected);announce(saved.has(key)?(kind==='favorite'?'Added to favorites':'Bookmark saved'):(kind==='favorite'?'Removed from favorites':'Bookmark removed'))}
 $$('.document-item').forEach((el,i)=>el.addEventListener('click',()=>selectDoc(i)));
@@ -26,7 +27,7 @@ function applyColorTheme(theme){
   }
   try{localStorage.setItem('mep-theme',light?'light':'dark')}catch{}
 }
-applyColorTheme(localStorage.getItem('mep-theme')==='light'?'light':'dark');
+let initialTheme='dark';try{if(localStorage.getItem('mep-theme')==='light')initialTheme='light'}catch{}applyColorTheme(initialTheme);
 $('#themeButton').addEventListener('click',()=>{
   const next=document.body.classList.contains('light')?'dark':'light';
   applyColorTheme(next);
@@ -37,8 +38,9 @@ $('#searchOpen').addEventListener('click',()=>{$('#searchDialog').showModal();$(
 function openIndexDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open('lifeos-manual-explorer',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('index'))req.result.createObjectStore('index')};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
 async function cachedGet(key){try{const db=await openIndexDb();return await new Promise((resolve,reject)=>{const tx=db.transaction('index','readonly');const req=tx.objectStore('index').get(key);req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}catch{return null}}
 async function cachedPut(key,value){try{const db=await openIndexDb();await new Promise((resolve,reject)=>{const tx=db.transaction('index','readwrite');tx.objectStore('index').put(value,key);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}catch{/* Search remains usable without local caching. */}}
+async function cachedClear(){try{const db=await openIndexDb();await new Promise((resolve,reject)=>{const tx=db.transaction('index','readwrite');tx.objectStore('index').clear();tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}catch{/* Search remains usable without local caching. */}}
 async function getJson(url){const response=await fetch(url,{headers:{Accept:'application/json'}});if(!response.ok)throw new Error('Search service returned '+response.status);return response.json()}
-async function loadSearchIndex(){if(indexPromise)return indexPromise;indexPromise=(async()=>{const manifest=await getJson('/api/search-index');if(!manifest||!Array.isArray(manifest.shards))throw new Error('Search index manifest is invalid');const all=[];let cursor=0;async function worker(){while(cursor<manifest.shards.length){const item=manifest.shards[cursor++];let records=await cachedGet(item.key);if(!Array.isArray(records)){records=await getJson('/api/search-index?file='+encodeURIComponent(item.key.split('/').pop()));await cachedPut(item.key,records)}all.push(...records)}}await Promise.all(Array.from({length:Math.min(4,manifest.shards.length)},worker));return{manifest,records:all}})().catch(error=>{indexPromise=null;throw error});return indexPromise}
+async function loadSearchIndex(){if(indexPromise)return indexPromise;indexPromise=(async()=>{const manifest=await getJson('/api/search-index');if(!manifest||!Array.isArray(manifest.shards))throw new Error('Search index manifest is invalid');const version=manifest.generatedAt||String(manifest.version||'v1');const cachedVersion=await cachedGet('__manifest_version');if(cachedVersion!==version){await cachedClear();await cachedPut('__manifest_version',version)}const count=$('#indexedPageTotal');if(count&&Number.isFinite(manifest.documentCount))count.textContent=manifest.documentCount.toLocaleString();const all=[];let cursor=0;async function worker(){while(cursor<manifest.shards.length){const item=manifest.shards[cursor++];const cacheKey=version+':'+item.key;let records=await cachedGet(cacheKey);if(!Array.isArray(records)){records=await getJson('/api/search-index?file='+encodeURIComponent(item.key.split('/').pop()));await cachedPut(cacheKey,records)}all.push(...records)}}await Promise.all(Array.from({length:Math.min(4,manifest.shards.length)},worker));return{manifest,records:all}})().catch(error=>{indexPromise=null;throw error});return indexPromise}
 function safeText(tag,value,className){const node=document.createElement(tag);node.textContent=value||'';if(className)node.className=className;return node}
 function renderSearchResults(matches,query){
   const results=$('#searchResults');results.replaceChildren();
@@ -87,7 +89,7 @@ async function runManualSearch(value,generation){
   }
 }
 $('#globalSearch').addEventListener('input',e=>{const generation=++searchGeneration;runManualSearch(e.target.value,generation)});
-$('#filterInput').addEventListener('input',e=>{$$('.document-item').forEach(el=>el.hidden=!el.textContent.toLowerCase().includes(e.target.value.toLowerCase()))});
+$('#filterInput').addEventListener('input',e=>{const list=$('#documentList'),items=[...list.querySelectorAll('.document-item')],query=e.target.value.trim().toLowerCase();let visible=0;items.forEach(item=>{const match=!query||item.textContent.toLowerCase().includes(query);item.hidden=!match;if(match)visible++});let empty=list.querySelector('.filter-empty-state');if(query&&items.length&&!visible){if(!empty){empty=safeText('p','No factory pages match that filter. Try another term or clear the filter.','empty-state filter-empty-state');list.append(empty)}}else empty?.remove()});
 $('#addVehicle').addEventListener('click',()=>announce('Vehicle profile creation is planned for the next prototype milestone.'));
 
 renderSaved();selectDoc(0);
@@ -122,6 +124,7 @@ $('#moreSettings').addEventListener('click',()=>{ $('#moreDialog').close();$('#t
 
 // Screen-state controller for the canonical iPhone flow.
 function setMobileView(view,title,hint){
+  if(view!=='reader')manualPageRequestId++;
   document.body.dataset.mobileView=view;
   $$('[data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===view||(view==='library'&&button.dataset.mobile==='vehicles')||(view==='reader'&&button.dataset.mobile==='vehicles')));
   if(title)$('#mobileContextTitle').textContent=title;
@@ -223,7 +226,12 @@ function renderLiveGarage(catalog){
   }
   $('#vehicleManualTitle').textContent='R2 MANUAL LIBRARY';
   $('#homeAllVehicles').textContent='View all →';
-  $('#homeContextHint')?.remove();
+  if(!allVehicles.length){
+    list.replaceChildren(safeText('p','No vehicles are currently published in the manual catalog.','empty-state'));
+    home.replaceChildren(safeText('p','No vehicles are currently published in the manual catalog.','empty-state'));
+    const status=$('#libraryStatus');if(status)status.textContent='EMPTY';
+    return;
+  }
   announce('Loaded '+allVehicles.length+' vehicle entries from the R2 manual library.');
 }
 function openLiveVehicle(vehicle){
@@ -244,7 +252,13 @@ async function loadLiveGarage(){
     renderLiveGarage(catalog);
   }catch(error){
     const status=$('#libraryStatus'); if(status) status.textContent='OFFLINE';
-    host.replaceChildren(safeText('p','Unable to load the live R2 catalog. '+error.message,'empty-state'));
+    const message='Unable to load the live R2 catalog. '+error.message;
+    for(const target of [host,$('#homeVehicleGrid')]){
+      if(!target)continue;
+      target.replaceChildren(safeText('p',message,'empty-state'));
+      const retry=document.createElement('button');retry.type='button';retry.className='subtle-button';retry.textContent='Retry catalog';
+      retry.addEventListener('click',loadLiveGarage);target.append(retry);
+    }
     announce('R2 vehicle catalog could not be loaded.');
   }
 }
@@ -317,6 +331,9 @@ function cleanManualFragment(html, key) {
   return main ? main.innerHTML : '<p>Manual page content is empty.</p>';
 }
 async function showLiveManualPage(vehicle, pageId, title) {
+  const requestId=++manualPageRequestId;
+  activeLivePage=null;
+  renderLivePagination();
   const key = manualKey(vehicle, 'pages/' + pageId + '.html');
   $('#readerTitle').textContent = title || 'Manual page ' + pageId;
   $('#readerContent').innerHTML = '<p class="empty-state">Loading factory manual page…</p>';
@@ -324,9 +341,15 @@ async function showLiveManualPage(vehicle, pageId, title) {
   setMobileView('reader', title || 'Manual viewer', titleFromFolder(vehicle.name));
   try {
     const html = await fetchManualHtml(key);
+    if(requestId!==manualPageRequestId)return;
     $('#readerContent').innerHTML = cleanManualFragment(html, key);
     $('#readerContent').querySelectorAll('[data-manual-page]').forEach(link => {
-      const open = () => showLiveManualPage(vehicle, link.dataset.manualPage, link.textContent.trim());
+      const open = async () => {
+        const targetPageId=link.dataset.manualPage;
+        const path=findTocPathForPage(liveManualTree,targetPageId);
+        if(path){activeTocPath=path.slice(0,-1);renderHierarchicalToc();renderTocChildren(activeTocPath.at(-1)||null)}
+        await showLiveManualPage(vehicle,targetPageId,link.textContent.trim());
+      };
       link.addEventListener('click', open);
       link.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); } });
     });
@@ -336,7 +359,11 @@ async function showLiveManualPage(vehicle, pageId, title) {
     $('#reader').focus({ preventScroll: true });
     announce('Loaded factory manual page: ' + (title || pageId));
   } catch (error) {
-    $('#readerContent').replaceChildren(safeText('p','Unable to load this factory manual page. '+error.message,'empty-state'));
+    if(requestId!==manualPageRequestId)return;
+    const message=safeText('p','Unable to load this factory manual page. '+error.message,'empty-state');
+    const retry=document.createElement('button');retry.type='button';retry.className='subtle-button';retry.textContent='Retry page load';
+    retry.addEventListener('click',()=>showLiveManualPage(vehicle,pageId,title));
+    $('#readerContent').replaceChildren(message,retry);
   }
 }
 let liveManualGroups = [];
@@ -552,23 +579,7 @@ if (recentCardOld) {
   const footerLabel = $('.reader-footer span');
   if (footerLabel) footerLabel.textContent = 'R2 FACTORY READER';
 
-  // If the Pages Function route is unavailable, read the same object directly
-  // from the public read-only R2 Worker instead of leaving the TOC blank.
-  const fetchManualHtmlViaPages = fetchManualHtml;
-  fetchManualHtml = async function(key) {
-    try {
-      return await fetchManualHtmlViaPages(key);
-    } catch (pagesError) {
-      const directUrl = MANUAL_SITE + key.split('/').map(encodeURIComponent).join('/');
-      try {
-        const response = await fetch(directUrl, { headers: { Accept: 'text/html' } });
-        if (!response.ok) throw new Error('R2 Worker returned ' + response.status);
-        return await response.text();
-      } catch (workerError) {
-        throw new Error('Pages API: ' + pagesError.message + ' · R2 Worker: ' + workerError.message);
-      }
-    }
-  };
+  // Manual pages are read through the same-origin Pages Function route.
 
   // Persist a recent entry only after a real R2 page has loaded successfully.
   const showPageBeforeRecent = showLiveManualPage;
@@ -657,7 +668,6 @@ loadLiveManualIndex = async function(vehicle) {
   } catch (error) {
     $('.manual-tree').replaceChildren(safeText('p', 'Unable to load factory sections. ' + error.message, 'empty-state'));
     $('#documentList').replaceChildren(safeText('p', 'Unable to load the factory table of contents. ' + error.message, 'empty-state'));
-    $('#listFootnote')?.replaceChildren();
   }
 };
 
@@ -733,7 +743,10 @@ liveNextButton.addEventListener('click', () => {
 const showLiveManualPageWithDockedReader = showLiveManualPage;
 showLiveManualPage = async function(vehicle, pageId, title) {
   activeLiveVehicle = vehicle;
-  await showLiveManualPageWithDockedReader(vehicle, pageId, title);
+  const pageLoad=showLiveManualPageWithDockedReader(vehicle, pageId, title);
+  const requestId=manualPageRequestId;
+  await pageLoad;
+  if(requestId!==manualPageRequestId)return;
   const content = $('#readerContent');
   if (content && !content.querySelector('.empty-state')) {
     activeLivePage = { pageId: String(pageId), title: title || 'Manual page ' + pageId };
@@ -999,6 +1012,7 @@ async function openLiveSearchResult(vehicle,pageId,title) {
   }
   function openSearch(){
     if(!searchDialog)return;
+    manualPageRequestId++;
     viewBeforeSearch=document.body.dataset.mobileView||'home';
     if(!searchDialog.open)searchDialog.showModal();
     restoreNavigationHighlight();
@@ -1095,6 +1109,7 @@ async function openLiveSearchResult(vehicle,pageId,title) {
       row.append(label,open);host.append(row);
     });
   }
+  renderFavorites=renderLiveFavorites;
   function renderLiveSaved(){
     byId('savedCount').textContent=String(saved.size).padStart(2,'0');
     try{localStorage.setItem('mep-saved',JSON.stringify([...saved]));}catch{}
@@ -1148,88 +1163,4 @@ async function openLiveSearchResult(vehicle,pageId,title) {
   };
   searchDialog?.addEventListener('close',restoreNavigationHighlight);
   restoreNavigationHighlight();
-})();
-
-
-// Desktop reader idle state: show the five most recently opened factory pages.
-(function installRecentPagesReaderPanel(){
-  const readHistory=()=>{
-    try{
-      const raw=JSON.parse(localStorage.getItem('mep-recent-manuals')||'[]');
-      return Array.isArray(raw)?raw.filter(item=>item&&item.vehicleId&&item.pageId&&item.title).slice(0,5):[];
-    }catch{return [];}
-  };
-  const writeHistory=entry=>{
-    const next=[entry,...readHistory().filter(item=>!(item.vehicleId===entry.vehicleId&&String(item.pageId)===String(entry.pageId)))].slice(0,5);
-    try{localStorage.setItem('mep-recent-manuals',JSON.stringify(next));}catch{}
-    return next;
-  };
-  function findVehicle(id){
-    return liveCatalog?.manuals?.flatMap(manual=>manual.vehicles.map(item=>({...item,manualId:manual.id,make:manual.make}))).find(item=>item.id===id)||null;
-  }
-  function showRecentPages(){
-    if(window.matchMedia('(max-width:700px)').matches)return;
-    activeLivePage=null;
-    $('#readerTitle').textContent='Recently Viewed';
-    const meta=$('.reader-meta');
-    if(meta)meta.replaceChildren(safeText('span','FACTORY MANUAL'),safeText('span','LAST 5 PAGES'));
-    const content=$('#readerContent');
-    if(!content)return;
-    content.replaceChildren();
-    const history=readHistory();
-    if(!history.length){
-      content.append(safeText('p','Your five most recently opened factory pages will appear here. Select a page from the center panel to get started.','empty-state'));
-    }else{
-      const intro=safeText('p','Continue where you left off. Select any page to reopen it.','recent-pages-intro');
-      content.append(intro);
-      const list=document.createElement('div');list.className='recent-pages-list';
-      history.forEach((entry,index)=>{
-        const button=document.createElement('button');button.type='button';button.className='recent-page-item';
-        button.append(safeText('span',String(index+1).padStart(2,'0'),'recent-page-number'));
-        const details=document.createElement('span');details.className='recent-page-details';
-        details.append(safeText('b',entry.title),safeText('small',entry.vehicleName+' · Factory page '+entry.pageId));
-        button.append(details,safeText('span','›','recent-page-arrow'));
-        button.addEventListener('click',()=>{
-          const vehicle=findVehicle(entry.vehicleId);
-          if(vehicle)openLiveSearchResult(vehicle,entry.pageId,entry.title);
-          else announce('That vehicle is not available in the current manual catalog.');
-        });
-        list.append(button);
-      });
-      content.append(list);
-    }
-    const footer=$('.reader-footer span');
-    if(footer)footer.textContent='RECENTLY VIEWED · '+history.length+' OF 5';
-    $('#favoriteButton').setAttribute('aria-pressed','false');
-    $('#bookmarkButton').setAttribute('aria-pressed','false');
-    $('#favoriteButton').disabled=true;$('#bookmarkButton').disabled=true;
-    livePreviousButton.disabled=true;liveNextButton.disabled=true;
-    const status=$('.reader-page-status');if(status)status.textContent='RECENT FACTORY PAGES';
-  }
-  function enableReaderActions(){
-    $('#favoriteButton').disabled=false;$('#bookmarkButton').disabled=false;
-  }
-  const priorShowPage=showLiveManualPage;
-  showLiveManualPage=async function(vehicle,pageId,title){
-    await priorShowPage(vehicle,pageId,title);
-    const content=$('#readerContent');
-    if(content&&!content.querySelector('.empty-state')){
-      writeHistory({vehicleId:vehicle.id,vehicleName:titleFromFolder(vehicle.name),pageId:String(pageId),title:title||'Manual page '+pageId});
-      enableReaderActions();
-    }
-  };
-  const priorOpenVehicle=openLiveVehicle;
-  openLiveVehicle=async function(vehicle){
-    const result=await priorOpenVehicle(vehicle);
-    showRecentPages();
-    return result;
-  };
-  const priorBackClick=readerBack?.onclick;
-  if(readerBack){
-    readerBack.addEventListener('click',()=>{
-      // Back returns to the current section; no page remains selected.
-      showRecentPages();
-    });
-  }
-  showRecentPages();
 })();

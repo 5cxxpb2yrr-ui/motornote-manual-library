@@ -15,17 +15,21 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
   }
 
   const key = `search-index/v1/${requested}`;
-  const object = await env.MANUALS.get(key);
-  if (!object) return new Response("Search index not found", { status: 404 });
+  try {
+    const object = await env.MANUALS.get(key);
+    if (!object) return new Response("Search index not found", { status: 404 });
 
-  const headers = new Headers({
+    const headers = new Headers({
     "Content-Type": "application/json; charset=utf-8",
     "Cache-Control": requested === "manifest.json"
       ? "public, max-age=60"
       : "public, max-age=300",
     "X-Content-Type-Options": "nosniff",
   });
-  object.writeHttpMetadata(headers);
-  headers.set("Content-Type", "application/json; charset=utf-8");
-  return new Response(object.body, { headers });
+    object.writeHttpMetadata(headers);
+    headers.set("Content-Type", "application/json; charset=utf-8");
+    return new Response(object.body, { headers });
+  } catch {
+    return Response.json({ error: "Unable to read the search index" }, { status: 503 });
+  }
 };
