@@ -1296,3 +1296,76 @@ body.light .tree-child{color:#535c68}
   body[data-mobile-view="favorites"] .explorer-layout { display:none !important; }
   body[data-mobile-view="favorites"] .favorites-screen { display:block !important; }
 }
+
+
+/* Manual browse: show TOC and page results together on mobile.
+   Portrait stacks them; short landscape places them side by side. */
+@media (max-width:700px) {
+  body[data-mobile-view="library"] .page-heading,
+  body[data-mobile-view="library"] .stats,
+  body[data-mobile-view="library"] .home-garage,
+  body[data-mobile-view="library"] .reader-panel { display:none !important; }
+  body[data-mobile-view="library"] .explorer-layout {
+    display:flex !important;
+    flex-direction:column;
+    gap:10px;
+  }
+  body[data-mobile-view="library"] .vehicle-panel,
+  body[data-mobile-view="library"] .document-panel {
+    display:block !important;
+    width:100%;
+    min-width:0;
+    max-height:none;
+    overflow:visible;
+    padding:11px;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .vehicle-list,
+  body[data-mobile-view="library"] .vehicle-panel .panel-title:first-child,
+  body[data-mobile-view="library"] .vehicle-panel .panel-divider { display:none !important; }
+  body[data-mobile-view="library"] .vehicle-panel .manual-tree {
+    display:grid !important;
+    grid-template-columns:1fr;
+    gap:6px;
+    max-height:34dvh;
+    overflow-y:auto !important;
+    padding:0 2px 8px 0;
+    margin-top:5px;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .toc-menu-entry {
+    display:flex;
+    align-items:center;
+    min-height:48px;
+    padding:8px 10px;
+  }
+  body[data-mobile-view="library"] .document-panel .document-list {
+    display:grid;
+    gap:6px;
+    max-height:38dvh;
+    overflow-y:auto;
+    padding:4px 0 10px;
+  }
+  body[data-mobile-view="library"] .document-panel .list-footnote {
+    margin-top:8px;
+  }
+}
+@media (orientation:landscape) and (max-height:500px) {
+  body[data-mobile-view="library"] .explorer-layout {
+    display:grid !important;
+    grid-template-columns:minmax(220px, .85fr) minmax(260px, 1.15fr);
+    align-items:start;
+    gap:10px;
+  }
+  body[data-mobile-view="library"] .vehicle-panel,
+  body[data-mobile-view="library"] .document-panel {
+    max-height:calc(100dvh - 116px);
+    overflow:hidden;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .manual-tree {
+    max-height:calc(100dvh - 190px);
+    overflow-y:auto !important;
+  }
+  body[data-mobile-view="library"] .document-panel .document-list {
+    max-height:calc(100dvh - 245px);
+    overflow-y:auto;
+  }
+}
