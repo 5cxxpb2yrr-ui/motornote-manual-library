@@ -1369,3 +1369,55 @@ body.light .tree-child{color:#535c68}
     overflow-y:auto;
   }
 }
+
+
+/* FINAL responsive browse correction.
+   Keep exactly two browse panels visible: TOC + factory page list.
+   The reader is a separate focused view after a page is selected. */
+@media (max-width:700px) {
+  body[data-mobile-view="library"] .mobile-context { display:none !important; }
+  body[data-mobile-view="library"] .explorer-layout {
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+  }
+  body[data-mobile-view="library"] .vehicle-panel,
+  body[data-mobile-view="library"] .document-panel {
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+  }
+  body[data-mobile-view="library"] .reader-panel { display:none !important; }
+}
+@media (orientation:landscape) and (max-height:600px) and (max-width:1200px) {
+  body[data-mobile-view="library"] .mobile-context,
+  body[data-mobile-view="library"] .page-heading,
+  body[data-mobile-view="library"] .stats,
+  body[data-mobile-view="library"] .home-garage { display:none !important; }
+  body[data-mobile-view="library"] .explorer-layout {
+    display:grid !important;
+    grid-template-columns:minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+    align-items:start !important;
+    gap:10px !important;
+    width:100% !important;
+    max-width:none !important;
+  }
+  body[data-mobile-view="library"] .vehicle-panel,
+  body[data-mobile-view="library"] .document-panel {
+    display:block !important;
+    width:auto !important;
+    min-width:0 !important;
+    max-width:none !important;
+    height:calc(100dvh - 118px) !important;
+    max-height:calc(100dvh - 118px) !important;
+    overflow:hidden !important;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .manual-tree,
+  body[data-mobile-view="library"] .document-panel .document-list {
+    max-height:calc(100dvh - 210px) !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain;
+  }
+  body[data-mobile-view="library"] .reader-panel { display:none !important; }
+}
