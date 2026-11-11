@@ -320,11 +320,8 @@ async function showLiveManualPage(vehicle, pageId, title) {
   const key = manualKey(vehicle, 'pages/' + pageId + '.html');
   $('#readerTitle').textContent = title || 'Manual page ' + pageId;
   $('#readerContent').innerHTML = '<p class="empty-state">Loading factory manual page…</p>';
-  // Keep the three-panel desktop workspace stable. Only switch to the
-  // focused reader screen on phone-sized layouts.
-  if (window.matchMedia('(max-width: 700px)').matches) {
-    setMobileView('reader', title || 'Manual viewer', titleFromFolder(vehicle.name));
-  }
+  // Reader is a focused mobile screen at every viewport width.
+  setMobileView('reader', title || 'Manual viewer', titleFromFolder(vehicle.name));
   try {
     const html = await fetchManualHtml(key);
     $('#readerContent').innerHTML = cleanManualFragment(html, key);
@@ -835,8 +832,10 @@ function ensureTocDrilldownControls() {
     back.addEventListener('click',()=>{
       if(!activeTocPath.length)return;
       activeTocPath=activeTocPath.slice(0,-1);
+      const parent=activeTocPath.at(-1)||null;
       renderHierarchicalToc();
-      renderTocChildren(activeTocPath.at(-1)||null);
+      renderTocChildren(parent);
+      setMobileView('vehicles',parent?.title||titleFromFolder(selectedVehicle.name),'Choose a manual section.');
     });
   }
   let crumbs=$('#tocBreadcrumbs');
@@ -880,28 +879,24 @@ function renderHierarchicalToc() {
 }
 async function openTocNode(node) {
   if(!node)return;
-  if(node.children?.length){
-    activeTocPath=[...activeTocPath,node];
-    renderHierarchicalToc();
-    renderTocChildren(node);
-    setMobileView('library',node.title,'Choose a factory page from this section.');
-    // On portrait, move the page list into view after the section is selected.
-    // In landscape it is already docked beside the TOC.
-    if(window.matchMedia('(orientation:portrait) and (max-width:700px)').matches){
-      document.querySelector('.document-panel')?.scrollIntoView({block:'start',behavior:'smooth'});
-    }
-    return;
-  }
-  if(node.pageId&&selectedVehicle){
+  if(node.pageId&&!node.children?.length&&selectedVehicle){
     showLiveManualPage(selectedVehicle,node.pageId,node.title);
     return;
   }
-  activeTocPath=[...activeTocPath,node];
+  if(node.children?.length){
+    activeTocPath=[...activeTocPath,node];
+  } else {
+    activeTocPath=[...activeTocPath,node];
+  }
   renderHierarchicalToc();
   renderTocChildren(node);
-  setMobileView('library',node.title,'Choose a factory page from this section.');
-  if(window.matchMedia('(orientation:portrait) and (max-width:700px)').matches){
-    document.querySelector('.document-panel')?.scrollIntoView({block:'start',behavior:'smooth'});
+  // Portrait is a drill-down flow: folders stay in the TOC screen;
+  // terminal folders advance to their page list. Landscape shows both panes.
+  const hasSubfolders=(node.children||[]).some(child=>Array.isArray(child.children)&&child.children.length>0);
+  setMobileView(hasSubfolders?'vehicles':'library',node.title,
+    hasSubfolders?'Choose a subsection.':'Choose a factory page from this section.');
+  if(window.matchMedia('(orientation:landscape) and (max-height:600px)').matches){
+    document.querySelector('.document-panel .document-list')?.scrollTo({top:0,behavior:'smooth'});
   }
 }
 function renderTocChildren(node) {
@@ -952,7 +947,7 @@ loadLiveManualIndex = async function(vehicle) {
     if(!liveManualTree.length)throw new Error('No factory sections or page links were found.');
     renderHierarchicalToc();
     renderTocChildren(null);
-    setMobileView('library',titleFromFolder(vehicle.name),'Choose a factory section to continue.');
+    setMobileView('vehicles',titleFromFolder(vehicle.name),'Choose a factory section to continue.');
     const count=liveManualTree.reduce((total,node)=>total+tocLeafPages(node).length,0);
     announce('Loaded factory contents with '+count.toLocaleString()+' linked pages.');
   }catch(error){
@@ -967,7 +962,7 @@ openLiveVehicle = async function(vehicle) {
   activeLiveVehicle=vehicle;
   activeLivePage=null;
   const title=titleFromFolder(vehicle.name);
-  setMobileView('library',title,'Loading factory contents from R2.');
+  setMobileView('vehicles',title,'Loading factory contents from R2.');
   $$('.vehicle-item').forEach(item=>item.classList.toggle('selected',item.dataset.liveHref===vehicle.href));
   $('.vehicle-panel').classList.add('show-toc');
   $('#vehicleManualTitle').textContent=title;
