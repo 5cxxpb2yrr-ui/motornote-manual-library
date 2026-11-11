@@ -960,3 +960,164 @@ async function openLiveSearchResult(vehicle,pageId,title) {
   }
   showLiveManualPage(vehicle,pageId,title);
 }
+
+
+// Navigation audit fixes: explicit reader return, real-page favorites, and wired controls.
+(function installNavigationAuditFixes(){
+  const byId=id=>document.getElementById(id);
+  const searchDialog=byId('searchDialog');
+  const globalSearch=byId('globalSearch');
+  let viewBeforeSearch=document.body.dataset.mobileView||'home';
+  function restoreNavigationHighlight(){
+    const view=document.body.dataset.mobileView||'home';
+    const mobileView=(view==='library'||view==='reader')?'vehicles':view;
+    document.querySelectorAll('.mobile-nav [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===mobileView));
+    document.querySelectorAll('.rail-link[data-view]').forEach(button=>{
+      const key=button.dataset.view==='dashboard'?'home':button.dataset.view==='saved'?'favorites':button.dataset.view;
+      button.classList.toggle('active',key===view);
+    });
+  }
+  function openSearch(){
+    if(!searchDialog)return;
+    viewBeforeSearch=document.body.dataset.mobileView||'home';
+    if(!searchDialog.open)searchDialog.showModal();
+    restoreNavigationHighlight();
+    document.querySelectorAll('.mobile-nav [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile==='search'));
+    document.querySelectorAll('.rail-link[data-view]').forEach(button=>button.classList.toggle('active',button.dataset.view==='search'));
+    globalSearch?.focus();
+  }
+  // Replace controls that had no action, or whose old listener opened the same dialog twice.
+  for(const id of ['searchOpen','searchOpenFallback','dashboardSearch']){
+    const old=byId(id); if(!old)continue;
+    const fresh=old.cloneNode(true); old.replaceWith(fresh);
+    fresh.addEventListener('click',openSearch);
+  }
+  const searchClose=byId('searchClose');
+  searchDialog?.addEventListener('close',()=>{
+    const restore=viewBeforeSearch;
+    if(restore==='search')document.body.dataset.mobileView='home';
+    restoreNavigationHighlight();
+  });
+  // The filter glyph is an action, not decoration: focus the section filter.
+  byId('listFilter')?.addEventListener('click',()=>{
+    const input=byId('filterInput');
+    if(input){input.focus();input.scrollIntoView({block:'nearest',behavior:'smooth'});announce('Type to filter the current manual section.');}
+  });
+  // The workspace avatar opens the same secondary-tools drawer as More.
+  document.querySelector('.avatar')?.addEventListener('click',()=>{
+    const dialog=byId('moreDialog');if(dialog&&!dialog.open)dialog.showModal();
+  });
+
+  // Add an unmistakable Back control to the reader. On phones it returns to the
+  // exact TOC drill-down level; on desktop it keeps the three-panel workspace.
+  const toolbarActions=document.querySelector('.reader-actions');
+  let readerBack=byId('readerBackButton');
+  if(toolbarActions&&!readerBack){
+    readerBack=document.createElement('button');
+    readerBack.type='button';readerBack.id='readerBackButton';
+    readerBack.className='subtle-button reader-back-button';
+    readerBack.textContent='← Back';readerBack.hidden=true;
+    const toc=byId('tocOpen');
+    toolbarActions.insertBefore(readerBack,toc||toolbarActions.firstChild);
+    readerBack.addEventListener('click',()=>{
+      const vehicleName=selectedVehicle?titleFromFolder(selectedVehicle.name):'Vehicles';
+      const level=activeTocPath.at(-1)?.title||vehicleName;
+      setMobileView('library',level,'Choose a factory page from the current section.');
+      restoreNavigationHighlight();
+      if(window.matchMedia('(max-width: 700px)').matches){
+        document.querySelector('.document-panel')?.scrollIntoView({block:'start',behavior:'smooth'});
+      }
+    });
+  }
+
+  // Bind favorites/bookmarks to the actual live vehicle + factory page, not demo docs.
+  function liveSaveKey(kind){
+    if(!activeLiveVehicle||!activeLivePage)return null;
+    return [kind,encodeURIComponent(activeLiveVehicle.id),String(activeLivePage.pageId)].join('|');
+  }
+  function syncLiveSaveButtons(){
+    const favorite=byId('favoriteButton'),bookmark=byId('bookmarkButton');
+    const favoriteKey=liveSaveKey('favorite'),bookmarkKey=liveSaveKey('bookmark');
+    if(favorite){
+      const active=!!favoriteKey&&saved.has(favoriteKey);
+      favorite.textContent=active?'★':'☆';favorite.setAttribute('aria-pressed',String(active));
+      favorite.setAttribute('aria-label',active?'Remove this page from favorites':'Save this page as a favorite');
+    }
+    if(bookmark){
+      const active=!!bookmarkKey&&saved.has(bookmarkKey);
+      bookmark.textContent=active?'⚑':'⚐';bookmark.setAttribute('aria-pressed',String(active));
+      bookmark.setAttribute('aria-label',active?'Remove this page bookmark':'Bookmark this page');
+    }
+  }
+  function renderLiveFavorites(){
+    const host=byId('favoritesList');if(!host)return;
+    host.replaceChildren();
+    const entries=[...saved].map(key=>{
+      const parts=key.split('|');
+      if(parts.length!==3)return null;
+      return {kind:parts[0],vehicleId:decodeURIComponent(parts[1]),pageId:parts[2]};
+    }).filter(Boolean);
+    if(!entries.length){
+      host.append(safeText('p','No saved factory pages yet. Open a real manual page and use the star or bookmark control.','empty-state'));
+      return;
+    }
+    entries.forEach(entry=>{
+      const vehicle=liveCatalog?.manuals?.flatMap(manual=>manual.vehicles.map(item=>({...item,manualId:manual.id,make:manual.make}))).find(item=>item.id===entry.vehicleId);
+      const page=liveManualTree?findTocPathForPage(liveManualTree,entry.pageId):null;
+      const title=page?.at(-1)?.title||('Factory page '+entry.pageId);
+      const row=document.createElement('div');row.className='favorite-entry';
+      const label=safeText('span',title+' · '+(vehicle?titleFromFolder(vehicle.name):'Vehicle unavailable')+' · '+(entry.kind==='favorite'?'Favorite':'Bookmark'));
+      const open=document.createElement('button');open.type='button';open.textContent='Open';open.disabled=!vehicle;
+      open.addEventListener('click',()=>openLiveSearchResult(vehicle,entry.pageId,title));
+      row.append(label,open);host.append(row);
+    });
+  }
+  function renderLiveSaved(){
+    byId('savedCount').textContent=String(saved.size).padStart(2,'0');
+    try{localStorage.setItem('mep-saved',JSON.stringify([...saved]));}catch{}
+    renderLiveFavorites();
+  }
+  function toggleLiveSaved(kind){
+    const key=liveSaveKey(kind);
+    if(!key){announce('Open a factory manual page before saving it.');return;}
+    if(saved.has(key))saved.delete(key);else saved.add(key);
+    renderLiveSaved();syncLiveSaveButtons();
+    announce(saved.has(key)?(kind==='favorite'?'Factory page added to Favorites':'Factory page bookmarked'):(kind==='favorite'?'Favorite removed':'Bookmark removed'));
+  }
+  for(const [id,kind] of [['favoriteButton','favorite'],['bookmarkButton','bookmark']]){
+    const old=byId(id);if(!old)continue;
+    const fresh=old.cloneNode(true);old.replaceWith(fresh);
+    fresh.addEventListener('click',()=>toggleLiveSaved(kind));
+  }
+  renderSaved=renderLiveSaved;
+  renderLiveSaved();
+
+  // Wrap the final live-page renderer so every route (TOC, search, recent, links,
+  // Previous/Next) updates the same reader controls and navigation context.
+  const previousFinalPageRenderer=showLiveManualPage;
+  showLiveManualPage=async function(vehicle,pageId,title){
+    if(readerBack)readerBack.hidden=false;
+    await previousFinalPageRenderer(vehicle,pageId,title);
+    const content=byId('readerContent');
+    if(content&&!content.querySelector('.empty-state')){
+      syncLiveSaveButtons();
+      renderLivePagination();
+    }
+  };
+  const previousFinalVehicleOpener=openLiveVehicle;
+  openLiveVehicle=async function(vehicle){
+    if(readerBack)readerBack.hidden=true;
+    return previousFinalVehicleOpener(vehicle);
+  };
+
+  // Keep search and primary-nav highlighting truthful while a modal is open.
+  const previousActivateView=activateView;
+  activateView=function(view){
+    const normalized=view==='dashboard'?'home':view==='saved'?'favorites':view;
+    if(normalized==='search')openSearch();
+    else previousActivateView(view);
+    restoreNavigationHighlight();
+  };
+  searchDialog?.addEventListener('close',restoreNavigationHighlight);
+  restoreNavigationHighlight();
+})();
