@@ -635,3 +635,73 @@ body{background:var(--bg);color:var(--text)}
   letter-spacing:.08em;
   text-transform:uppercase;
 }
+
+
+/* Theme and reader actions: make light mode comprehensive and icon actions explicit. */
+body.light .topbar,
+body.light .rail,
+body.light .mobile-nav{
+  background:#f7f8fa;
+  border-color:#d8dde5;
+}
+body.light .brand,
+body.light .rail-link,
+body.light .mobile-nav button{color:var(--text)}
+body.light .rail-link.active,
+body.light .mobile-nav button.active{color:#a85b00;background:#ff980018}
+body.light .stats .stat-card{
+  background:linear-gradient(135deg,#fff,#f1f3f6);
+  border-color:var(--line);
+}
+body.light .home-vehicle-card{
+  background:linear-gradient(160deg,#fff,#f5f6f7);
+  border-color:#dfe3e8;
+}
+body.light .connection-card,
+body.light .home-section-title,
+body.light .favorites-screen,
+body.light .mobile-context{color:var(--text)}
+body.light .reader-content p,
+body.light .reader-content li{color:#444}
+body.light .reader-content h1,
+body.light .reader-content h2,
+body.light .reader-content h3,
+body.light .reader-content strong{color:#20242b}
+body.light .search-dialog,
+body.light .drawer-dialog{
+  background:#fff;
+  color:#20242b;
+  border-color:#d4d9e1;
+}
+body.light .search-dialog .icon-button,
+body.light .drawer-dialog .icon-button{background:#f0f2f5}
+body.light .toast{background:#fff;color:#20242b;border-color:#bd741a}
+body.light .reader-meta,
+body.light .reader-footer{border-color:var(--line)}
+body.light .reader-footer{background:#fff}
+body.light .notice{background:#fff4e5}
+body.light .spec-grid div{background:#f0f2f5}
+body.light .favorite-entry{background:#f5f6f8;border-color:#dfe3e8}
+body.light .tree-item,
+body.light .tree-child{color:#535c68}
+.save-action{
+  min-height:36px;
+  padding:0 11px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  white-space:nowrap;
+  font-size:11px;
+  font-weight:600;
+}
+.save-action[aria-pressed="true"]{
+  color:var(--accent);
+  border-color:var(--accent);
+  background:rgba(255,152,0,.10);
+}
+.theme-toggle{font-size:18px;line-height:1}
+@media(max-width:700px){
+  .reader-actions{gap:5px}
+  .reader-actions .save-action{min-height:34px;padding:0 8px;font-size:10px}
+}
