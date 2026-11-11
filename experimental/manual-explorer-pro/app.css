@@ -1201,3 +1201,98 @@ body.light .tree-child{color:#535c68}
     scroll-margin-bottom:76px;
   }
 }
+
+
+/* Short landscape phones must stay in the mobile navigation layout.
+   iPhones can be wider than 700 CSS px when rotated, so width alone is
+   not a reliable mobile breakpoint. */
+@media (orientation:landscape) and (max-height:500px) {
+  .rail { display:none !important; }
+  .app-shell { min-height:calc(100dvh - 52px); }
+  .topbar { height:52px; padding:0 12px; }
+  .brand { font-size:13px; }
+  .brand-mark { width:29px; height:29px; }
+  .workspace { padding:10px 12px 64px; }
+  .mobile-nav {
+    position:fixed !important;
+    display:grid !important;
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    left:0; right:0; bottom:0;
+    height:46px !important;
+    min-height:46px !important;
+    max-height:46px !important;
+    z-index:20 !important;
+    padding:2px 8px !important;
+    background:rgba(16,22,26,.98);
+    border-top:1px solid #354047;
+  }
+  .mobile-nav button { min-height:40px; padding:2px; gap:1px; }
+  .mobile-nav button span { font-size:17px; line-height:1; }
+
+  .explorer-layout { display:block !important; }
+  body[data-mobile-view="home"] .page-heading,
+  body[data-mobile-view="home"] .stats,
+  body[data-mobile-view="home"] .explorer-layout { display:none !important; }
+  body[data-mobile-view="home"] .home-garage { display:block !important; }
+
+  body[data-mobile-view="vehicles"] .page-heading,
+  body[data-mobile-view="vehicles"] .stats,
+  body[data-mobile-view="vehicles"] .home-garage,
+  body[data-mobile-view="vehicles"] .document-panel,
+  body[data-mobile-view="vehicles"] .reader-panel { display:none !important; }
+  body[data-mobile-view="vehicles"] .vehicle-panel { display:block !important; }
+
+  body[data-mobile-view="library"] .page-heading,
+  body[data-mobile-view="library"] .stats,
+  body[data-mobile-view="library"] .home-garage,
+  body[data-mobile-view="library"] .document-panel,
+  body[data-mobile-view="library"] .reader-panel { display:none !important; }
+  body[data-mobile-view="library"] .vehicle-panel {
+    display:block !important;
+    max-height:calc(100dvh - 112px);
+    overflow-y:auto;
+    padding:9px 11px;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .vehicle-list,
+  body[data-mobile-view="library"] .vehicle-panel .panel-title:first-child,
+  body[data-mobile-view="library"] .vehicle-panel .panel-divider { display:none !important; }
+  body[data-mobile-view="library"] .vehicle-panel .manual-tree {
+    display:grid !important;
+    grid-template-columns:1fr;
+    gap:5px;
+    max-height:none !important;
+    overflow:visible !important;
+    margin-top:4px;
+    padding:0 0 8px;
+  }
+  body[data-mobile-view="library"] .vehicle-panel .toc-menu-entry {
+    min-height:46px;
+    padding:7px 10px;
+    display:flex;
+    align-items:center;
+  }
+  body[data-mobile-view="library"] .vehicle-panel #tocBreadcrumbs { margin:2px 0 5px; }
+  body[data-mobile-view="library"] .vehicle-panel .toc-crumb-button { padding:4px 7px; }
+
+  body[data-mobile-view="reader"] .page-heading,
+  body[data-mobile-view="reader"] .stats,
+  body[data-mobile-view="reader"] .home-garage,
+  body[data-mobile-view="reader"] .vehicle-panel,
+  body[data-mobile-view="reader"] .document-panel { display:none !important; }
+  body[data-mobile-view="reader"] .reader-panel {
+    display:flex !important;
+    min-height:calc(100dvh - 112px);
+    max-height:calc(100dvh - 112px);
+    overflow:hidden;
+  }
+  body[data-mobile-view="reader"] .reader-content {
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:12px 14px 18px;
+  }
+  body[data-mobile-view="favorites"] .page-heading,
+  body[data-mobile-view="favorites"] .stats,
+  body[data-mobile-view="favorites"] .home-garage,
+  body[data-mobile-view="favorites"] .explorer-layout { display:none !important; }
+  body[data-mobile-view="favorites"] .favorites-screen { display:block !important; }
+}
