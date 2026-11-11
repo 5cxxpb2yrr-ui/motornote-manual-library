@@ -1049,9 +1049,7 @@ async function openLiveSearchResult(vehicle,pageId,title) {
       renderTocChildren(parent);
       setMobileView('library',level,'Choose a factory page from this section.');
       restoreNavigationHighlight();
-      if(window.matchMedia('(max-width: 700px)').matches){
-        document.querySelector('.document-panel')?.scrollIntoView({block:'start',behavior:'smooth'});
-      }
+      // The portrait page-list screen is already the focused view; no panel jump.
     });
   }
 
