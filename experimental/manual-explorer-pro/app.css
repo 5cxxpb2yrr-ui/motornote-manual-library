@@ -1105,3 +1105,24 @@ body.light .tree-child{color:#535c68}
   body[data-mobile-view="library"] .vehicle-panel #tocBreadcrumbs { display:flex;flex-wrap:wrap;gap:5px; }
   body[data-mobile-view="library"] .vehicle-panel .toc-crumb-button { color:#f4f5f6; }
 }
+
+
+/* Recently viewed idle state for the docked desktop reader. */
+@media (min-width:701px) {
+  .recent-pages-intro { color:var(--muted);font-size:12px;line-height:1.6;margin:0 0 16px; }
+  .recent-pages-list { display:grid;gap:9px; }
+  .recent-page-item {
+    display:flex;align-items:center;gap:13px;width:100%;min-height:68px;
+    padding:12px 14px;text-align:left;color:var(--text);
+    background:var(--panel2);border:1px solid var(--line);border-radius:9px;
+  }
+  .recent-page-item:hover,.recent-page-item:focus-visible {
+    border-color:var(--accent);background:#ff980012;
+  }
+  .recent-page-number { color:var(--accent);font:600 12px 'IBM Plex Mono'; }
+  .recent-page-details { display:grid;gap:5px;min-width:0; }
+  .recent-page-details b { font-size:12px;white-space:normal; }
+  .recent-page-details small { color:var(--muted);font-size:10px; }
+  .recent-page-arrow { margin-left:auto;color:var(--accent);font-size:22px; }
+  .reader-actions button:disabled { opacity:.38;cursor:not-allowed; }
+}
