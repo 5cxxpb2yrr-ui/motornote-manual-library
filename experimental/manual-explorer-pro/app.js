@@ -1114,8 +1114,13 @@ async function openLiveSearchResult(vehicle,pageId,title) {
   const previousActivateView=activateView;
   activateView=function(view){
     const normalized=view==='dashboard'?'home':view==='saved'?'favorites':view;
-    if(normalized==='search')openSearch();
-    else previousActivateView(view);
+    if(normalized==='search'){
+      openSearch();
+      document.querySelectorAll('.mobile-nav [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile==='search'));
+      document.querySelectorAll('.rail-link[data-view]').forEach(button=>button.classList.toggle('active',button.dataset.view==='search'));
+      return;
+    }
+    previousActivateView(view);
     restoreNavigationHighlight();
   };
   searchDialog?.addEventListener('close',restoreNavigationHighlight);
