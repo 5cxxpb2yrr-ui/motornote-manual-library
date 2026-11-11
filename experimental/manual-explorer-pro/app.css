@@ -1597,3 +1597,30 @@ body[data-mobile-view="reader"] .reader-footer { flex:0 0 auto; }
   .workspace { max-width:680px !important; }
   .mobile-context { display:block !important; }
 }
+
+
+/* Vehicle picker remains available until a vehicle is actually opened. */
+body[data-mobile-view="vehicles"] .vehicle-panel:not(.show-toc) .vehicle-list {
+  display:grid !important;
+}
+body[data-mobile-view="vehicles"] .vehicle-panel:not(.show-toc) .panel-title:first-child {
+  display:flex !important;
+}
+body[data-mobile-view="vehicles"] .vehicle-panel:not(.show-toc) .panel-divider {
+  display:block !important;
+}
+body[data-mobile-view="vehicles"] .vehicle-panel:not(.show-toc) .manual-tree {
+  display:none !important;
+}
+body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .vehicle-list,
+body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .panel-title:first-child,
+body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .panel-divider {
+  display:none !important;
+}
+body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .manual-tree {
+  display:grid !important;
+}
+@media (orientation:landscape) and (max-height:600px) and (max-width:1200px) {
+  body[data-mobile-view="vehicles"] .vehicle-panel:not(.show-toc) .manual-tree { display:none !important; }
+  body[data-mobile-view="vehicles"] .vehicle-panel:not(.show-toc) .vehicle-list { display:grid !important; }
+}
