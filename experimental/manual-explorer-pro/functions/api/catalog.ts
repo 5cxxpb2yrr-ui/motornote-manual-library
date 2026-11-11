@@ -18,14 +18,17 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
     const manuals = await Promise.all(manualPrefixes.map(async (prefix) => {
       const manualId = prefix.slice("manuals/".length).replace(/\/$/, "");
       const folders = await env.MANUALS.list({ prefix, delimiter: "/", limit: 1000 });
-      const vehicles = (folders.delimitedPrefixes || []).map((vehiclePrefix) => {
-        const name = vehiclePrefix.slice(prefix.length).replace(/\/$/, "");
-        return {
-          id: vehiclePrefix,
-          name,
-          href: "https://motornote-manual-library.phillipstg.workers.dev/" + vehiclePrefix.split("/").map(encodeURIComponent).join("/") + "index.html"
-        };
-      });
+      const vehicles = (folders.delimitedPrefixes || [])
+        .map((vehiclePrefix) => {
+          const name = vehiclePrefix.slice(prefix.length).replace(/\/$/, "");
+          return {
+            id: vehiclePrefix,
+            name,
+            href: "https://motornote-manual-library.phillipstg.workers.dev/" + vehiclePrefix.split("/").map(encodeURIComponent).join("/") + "index.html"
+          };
+        })
+        // Exclude the temporary Scion workflow-test folder from the garage.
+        .filter((vehicle) => vehicle.name.trim().toLowerCase() !== "tmp");
       const meta = summary.manuals?.find((item) => item.id === manualId);
       return {
         id: manualId,
@@ -35,11 +38,14 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
       };
     }));
 
+    const visibleManuals = manuals.filter((manual) => manual.vehicles.length > 0);
+    const visibleFileCount = visibleManuals.reduce((total, manual) => total + manual.fileCount, 0);
+
     return Response.json({
       generatedAt: summary.generated_at || null,
-      manualCount: manuals.length,
-      fileCount: summary.file_count || 0,
-      manuals
+      manualCount: visibleManuals.length,
+      fileCount: visibleFileCount,
+      manuals: visibleManuals
     }, {
       headers: {
         "Cache-Control": "public, max-age=60",
