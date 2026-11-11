@@ -705,3 +705,142 @@ body.light .tree-child{color:#535c68}
   .reader-actions{gap:5px}
   .reader-actions .save-action{min-height:34px;padding:0 8px;font-size:10px}
 }
+
+
+/* Mobile light theme: override the dark-only surfaces declared in the
+   original mobile layout. Keep every content surface on the same palette. */
+@media(max-width:700px){
+  body.light{
+    background:#f3f5f7;
+    color:#202630;
+    color-scheme:light;
+  }
+  body.light .workspace{background:#f3f5f7}
+  body.light .page-heading h1,
+  body.light .page-heading h1 span{color:#202630}
+  body.light .subhead{color:#657080}
+  body.light .eyebrow{color:#b65d0b}
+  body.light .stat-card{
+    background:linear-gradient(145deg,#fff,#f0f2f5);
+    border-color:#dce1e7;
+    box-shadow:0 5px 16px #18212b0a;
+  }
+  body.light .stat-card>span,
+  body.light .stat-card small{color:#687382}
+  body.light .stat-card strong{color:#202630}
+  body.light .panel,
+  body.light .vehicle-panel,
+  body.light .document-panel,
+  body.light .reader-panel{
+    background:#fff;
+    color:#202630;
+    border-color:#dce1e7;
+    box-shadow:0 5px 18px #18212b0a;
+  }
+  body.light .panel-title h2,
+  body.light .reader-toolbar h2,
+  body.light .reader-content h3{color:#202630}
+  body.light .vehicle-item,
+  body.light .document-item{
+    color:#28313d;
+    border-color:transparent;
+    border-bottom-color:#e7eaee;
+  }
+  body.light .vehicle-item b,
+  body.light .document-item b{color:#28313d}
+  body.light .vehicle-item small,
+  body.light .document-item small{color:#707b89}
+  body.light .vehicle-item.selected,
+  body.light .document-item.selected,
+  body.light .tree-child.active{
+    background:#fff2e5;
+    border-color:#f2b77e;
+    color:#8b4708;
+  }
+  body.light .tree-item,
+  body.light .tree-child{color:#535e6c}
+  body.light .manual-tree .tree-item.active{
+    background:#fff2e5;
+    border-color:#f2b77e;
+    color:#8b4708;
+  }
+  body.light .inline-search,
+  body.light .global-search{
+    background:#f5f6f8;
+    border-color:#dce1e7;
+  }
+  body.light .inline-search input,
+  body.light .global-search input{color:#202630}
+  body.light .reader-panel{background:#fff}
+  body.light .reader-toolbar{
+    background:#fff;
+    border-color:#e0e4e9;
+  }
+  body.light .reader-meta{
+    background:#f5f6f8;
+    color:#657080;
+    border-color:#e0e4e9;
+  }
+  body.light .reader-content{
+    background:#fff;
+    color:#252d38;
+  }
+  body.light .reader-content p,
+  body.light .reader-content li{color:#394352}
+  body.light .reader-content h1,
+  body.light .reader-content h2,
+  body.light .reader-content h3,
+  body.light .reader-content strong{color:#202630}
+  body.light .reader-content a{color:#a65308}
+  body.light .reader-content table th{
+    background:#edf0f4;
+    color:#202630;
+  }
+  body.light .reader-content table td{
+    background:#fff;
+    color:#394352;
+    border-color:#dce1e7;
+  }
+  body.light .reader-content table tr:nth-child(even) td{
+    background:#f7f8fa;
+  }
+  body.light .notice{
+    background:#fff5e9;
+    border-color:#f0c18e;
+    border-left-color:#e18a2b;
+  }
+  body.light .notice strong{color:#9c4c08}
+  body.light .spec-grid div{background:#f0f2f5}
+  body.light .spec-grid small{color:#697585}
+  body.light .spec-grid b{color:#202630}
+  body.light .reader-footer{
+    background:#f7f8fa;
+    border-color:#e0e4e9;
+  }
+  body.light .reader-footer .subtle-button{
+    background:#fff;
+    color:#344052;
+    border-color:#d7dde5;
+  }
+  body.light .drawer-dialog,
+  body.light .search-dialog{
+    background:#fff;
+    color:#202630;
+    border-color:#d4dbe4;
+  }
+  body.light .drawer-dialog .dialog-head h2,
+  body.light .search-dialog .dialog-head h2{color:#202630}
+  body.light .filter-chip{color:#536071}
+  body.light .filter-chip.active{color:#a65308}
+  body.light .mobile-nav{
+    background:#fff;
+    border-top-color:#dce1e7;
+    box-shadow:0 -5px 18px #18212b0a;
+  }
+  body.light .mobile-nav button{color:#687382}
+  body.light .mobile-nav button.active{
+    color:#a65308;
+    background:transparent;
+  }
+  body.light .toast{background:#fff;color:#202630}
+}
