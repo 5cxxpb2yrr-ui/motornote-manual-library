@@ -884,6 +884,12 @@ async function openTocNode(node) {
     activeTocPath=[...activeTocPath,node];
     renderHierarchicalToc();
     renderTocChildren(node);
+    setMobileView('library',node.title,'Choose a factory page from this section.');
+    // On portrait, move the page list into view after the section is selected.
+    // In landscape it is already docked beside the TOC.
+    if(window.matchMedia('(orientation:portrait) and (max-width:700px)').matches){
+      document.querySelector('.document-panel')?.scrollIntoView({block:'start',behavior:'smooth'});
+    }
     return;
   }
   if(node.pageId&&selectedVehicle){
@@ -893,6 +899,10 @@ async function openTocNode(node) {
   activeTocPath=[...activeTocPath,node];
   renderHierarchicalToc();
   renderTocChildren(node);
+  setMobileView('library',node.title,'Choose a factory page from this section.');
+  if(window.matchMedia('(orientation:portrait) and (max-width:700px)').matches){
+    document.querySelector('.document-panel')?.scrollIntoView({block:'start',behavior:'smooth'});
+  }
 }
 function renderTocChildren(node) {
   const list=$('#documentList');
