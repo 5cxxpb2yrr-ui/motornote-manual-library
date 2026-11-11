@@ -972,9 +972,10 @@ async function openLiveSearchResult(vehicle,pageId,title) {
     const view=document.body.dataset.mobileView||'home';
     const mobileView=(view==='library'||view==='reader')?'vehicles':view;
     document.querySelectorAll('.mobile-nav [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===mobileView));
+    const railView=view==='reader'?'library':view;
     document.querySelectorAll('.rail-link[data-view]').forEach(button=>{
       const key=button.dataset.view==='dashboard'?'home':button.dataset.view==='saved'?'favorites':button.dataset.view;
-      button.classList.toggle('active',key===view);
+      button.classList.toggle('active',key===railView);
     });
   }
   function openSearch(){
