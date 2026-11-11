@@ -1421,3 +1421,179 @@ body.light .tree-child{color:#535c68}
   }
   body[data-mobile-view="library"] .reader-panel { display:none !important; }
 }
+
+
+/* MOBILE-ONLY PRODUCT DIRECTION
+   Desktop three-panel presentation is archived. The same focused mobile
+   navigation is used at every width; short landscape gets a two-pane browser. */
+.rail { display:none !important; }
+.app-shell { display:block !important; min-height:100dvh !important; }
+.workspace {
+  width:100% !important;
+  max-width:760px !important;
+  margin:0 auto !important;
+  padding:14px 14px calc(86px + env(safe-area-inset-bottom)) !important;
+}
+.topbar {
+  position:sticky !important;
+  top:0 !important;
+  height:62px !important;
+  padding:0 14px !important;
+  gap:10px !important;
+}
+.top-search { display:flex !important; flex:1 1 auto; min-width:0; max-width:420px; }
+.connection { display:none !important; }
+.avatar { display:none !important; }
+.mobile-nav {
+  position:fixed !important;
+  z-index:30 !important;
+  left:0 !important; right:0 !important; bottom:0 !important;
+  display:grid !important;
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  height:auto !important; min-height:62px !important; max-height:none !important;
+  padding:6px 6px calc(6px + env(safe-area-inset-bottom)) !important;
+  background:rgba(16,22,26,.97) !important;
+  border-top:1px solid #354047 !important;
+  backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+}
+.mobile-nav button {
+  display:grid !important;
+  grid-auto-flow:row !important;
+  justify-items:center !important;
+  align-content:center !important;
+  gap:3px !important;
+  min-width:0 !important; min-height:44px !important;
+  padding:3px 1px !important;
+  font-size:9px !important;
+}
+.mobile-nav button span { font-size:19px !important; line-height:1.1 !important; }
+.explorer-layout {
+  display:block !important;
+  width:100% !important;
+  max-width:none !important;
+}
+.explorer-layout > .panel { width:100% !important; min-width:0 !important; }
+body[data-mobile-view="home"] .explorer-layout,
+body[data-mobile-view="vehicles"] .document-panel,
+body[data-mobile-view="vehicles"] .reader-panel,
+body[data-mobile-view="library"] .vehicle-panel,
+body[data-mobile-view="library"] .reader-panel,
+body[data-mobile-view="reader"] .vehicle-panel,
+body[data-mobile-view="reader"] .document-panel,
+body[data-mobile-view="favorites"] .explorer-layout { display:none !important; }
+body[data-mobile-view="vehicles"] .explorer-layout,
+body[data-mobile-view="library"] .explorer-layout,
+body[data-mobile-view="reader"] .explorer-layout { display:block !important; }
+body[data-mobile-view="vehicles"] .vehicle-panel,
+body[data-mobile-view="library"] .document-panel,
+body[data-mobile-view="reader"] .reader-panel { display:block !important; }
+body[data-mobile-view="reader"] .reader-panel { display:flex !important; }
+body[data-mobile-view="vehicles"] .vehicle-panel {
+  max-height:calc(100dvh - 154px);
+  overflow:hidden;
+}
+body[data-mobile-view="vehicles"] .vehicle-panel .vehicle-list,
+body[data-mobile-view="vehicles"] .vehicle-panel .panel-title:first-child,
+body[data-mobile-view="vehicles"] .vehicle-panel .panel-divider { display:none !important; }
+body[data-mobile-view="vehicles"] .vehicle-panel .manual-tree {
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:7px !important;
+  max-height:calc(100dvh - 255px) !important;
+  overflow-y:auto !important;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  padding:0 2px 12px 0 !important;
+}
+body[data-mobile-view="vehicles"] .vehicle-panel .toc-menu-entry {
+  display:flex !important;
+  align-items:center;
+  min-height:54px;
+  padding:10px 12px;
+  border:1px solid #354047;
+  border-radius:12px;
+  background:linear-gradient(110deg,#222b30,#192126);
+  color:#f4f5f6;
+}
+body[data-mobile-view="vehicles"] .vehicle-panel #tocBreadcrumbs {
+  display:flex !important; flex-wrap:wrap; gap:5px;
+  margin:4px 0 9px;
+}
+body[data-mobile-view="vehicles"] .vehicle-panel #tocBackButton { display:inline-flex !important; }
+body[data-mobile-view="library"] .document-panel {
+  max-height:calc(100dvh - 154px);
+  overflow:hidden;
+}
+body[data-mobile-view="library"] .document-panel .document-list {
+  max-height:calc(100dvh - 290px) !important;
+  overflow-y:auto !important;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
+body[data-mobile-view="reader"] .reader-panel {
+  min-height:calc(100dvh - 150px) !important;
+  max-height:calc(100dvh - 150px) !important;
+  overflow:hidden !important;
+}
+body[data-mobile-view="reader"] .reader-content {
+  flex:1 1 auto;
+  min-height:0;
+  overflow:auto !important;
+  -webkit-overflow-scrolling:touch;
+}
+body[data-mobile-view="reader"] .reader-footer { flex:0 0 auto; }
+.mobile-context { display:block; }
+
+/* Landscape mobile: keep TOC and page list visible together, independently scrollable. */
+@media (orientation:landscape) and (max-height:600px) and (max-width:1200px) {
+  .topbar { height:50px !important; }
+  .brand-emblem { width:34px !important; height:34px !important; flex-basis:34px !important; }
+  .brand-copy strong { font-size:16px !important; }
+  .brand-copy b { font-size:14px !important; }
+  .brand-copy small { display:none !important; }
+  .workspace { max-width:1200px !important; padding:8px 10px 58px !important; }
+  .mobile-nav { min-height:46px !important; padding:2px 6px !important; }
+  .mobile-nav button { min-height:40px !important; grid-auto-flow:column !important; gap:6px !important; }
+  .mobile-nav button span { font-size:16px !important; }
+  body[data-mobile-view="vehicles"] .explorer-layout,
+  body[data-mobile-view="library"] .explorer-layout {
+    display:grid !important;
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) !important;
+    align-items:start !important;
+    gap:9px !important;
+  }
+  body[data-mobile-view="vehicles"] .vehicle-panel,
+  body[data-mobile-view="library"] .vehicle-panel,
+  body[data-mobile-view="vehicles"] .document-panel,
+  body[data-mobile-view="library"] .document-panel {
+    display:block !important;
+    height:calc(100dvh - 112px) !important;
+    max-height:calc(100dvh - 112px) !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+    padding:9px !important;
+  }
+  body[data-mobile-view="vehicles"] .document-panel,
+  body[data-mobile-view="library"] .document-panel { display:block !important; }
+  body[data-mobile-view="vehicles"] .vehicle-panel .vehicle-list,
+  body[data-mobile-view="vehicles"] .vehicle-panel .panel-title:first-child,
+  body[data-mobile-view="vehicles"] .vehicle-panel .panel-divider { display:none !important; }
+  body[data-mobile-view="vehicles"] .vehicle-panel .manual-tree,
+  body[data-mobile-view="library"] .vehicle-panel .manual-tree {
+    max-height:calc(100dvh - 220px) !important;
+    overflow-y:auto !important;
+  }
+  body[data-mobile-view="vehicles"] .document-panel .document-list,
+  body[data-mobile-view="library"] .document-panel .document-list {
+    max-height:calc(100dvh - 215px) !important;
+    overflow-y:auto !important;
+  }
+  body[data-mobile-view="vehicles"] .reader-panel,
+  body[data-mobile-view="library"] .reader-panel { display:none !important; }
+}
+
+/* Keep the mobile design centered and readable on larger portrait screens. */
+@media (min-width:701px) and (orientation:portrait) {
+  .workspace { max-width:680px !important; }
+  .mobile-context { display:block !important; }
+}
