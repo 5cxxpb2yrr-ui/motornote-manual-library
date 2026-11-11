@@ -1146,3 +1146,87 @@ async function openLiveSearchResult(vehicle,pageId,title) {
   searchDialog?.addEventListener('close',restoreNavigationHighlight);
   restoreNavigationHighlight();
 })();
+
+
+// Desktop reader idle state: show the five most recently opened factory pages.
+(function installRecentPagesReaderPanel(){
+  const readHistory=()=>{
+    try{
+      const raw=JSON.parse(localStorage.getItem('mep-recent-manuals')||'[]');
+      return Array.isArray(raw)?raw.filter(item=>item&&item.vehicleId&&item.pageId&&item.title).slice(0,5):[];
+    }catch{return [];}
+  };
+  const writeHistory=entry=>{
+    const next=[entry,...readHistory().filter(item=>!(item.vehicleId===entry.vehicleId&&String(item.pageId)===String(entry.pageId)))].slice(0,5);
+    try{localStorage.setItem('mep-recent-manuals',JSON.stringify(next));}catch{}
+    return next;
+  };
+  function findVehicle(id){
+    return liveCatalog?.manuals?.flatMap(manual=>manual.vehicles.map(item=>({...item,manualId:manual.id,make:manual.make}))).find(item=>item.id===id)||null;
+  }
+  function showRecentPages(){
+    if(window.matchMedia('(max-width:700px)').matches)return;
+    activeLivePage=null;
+    $('#readerTitle').textContent='Recently Viewed';
+    const meta=$('.reader-meta');
+    if(meta)meta.replaceChildren(safeText('span','FACTORY MANUAL'),safeText('span','LAST 5 PAGES'));
+    const content=$('#readerContent');
+    if(!content)return;
+    content.replaceChildren();
+    const history=readHistory();
+    if(!history.length){
+      content.append(safeText('p','Your five most recently opened factory pages will appear here. Select a page from the center panel to get started.','empty-state'));
+    }else{
+      const intro=safeText('p','Continue where you left off. Select any page to reopen it.','recent-pages-intro');
+      content.append(intro);
+      const list=document.createElement('div');list.className='recent-pages-list';
+      history.forEach((entry,index)=>{
+        const button=document.createElement('button');button.type='button';button.className='recent-page-item';
+        button.append(safeText('span',String(index+1).padStart(2,'0'),'recent-page-number'));
+        const details=document.createElement('span');details.className='recent-page-details';
+        details.append(safeText('b',entry.title),safeText('small',entry.vehicleName+' · Factory page '+entry.pageId));
+        button.append(details,safeText('span','›','recent-page-arrow'));
+        button.addEventListener('click',()=>{
+          const vehicle=findVehicle(entry.vehicleId);
+          if(vehicle)openLiveSearchResult(vehicle,entry.pageId,entry.title);
+          else announce('That vehicle is not available in the current manual catalog.');
+        });
+        list.append(button);
+      });
+      content.append(list);
+    }
+    const footer=$('.reader-footer span');
+    if(footer)footer.textContent='RECENTLY VIEWED · '+history.length+' OF 5';
+    $('#favoriteButton').setAttribute('aria-pressed','false');
+    $('#bookmarkButton').setAttribute('aria-pressed','false');
+    $('#favoriteButton').disabled=true;$('#bookmarkButton').disabled=true;
+    livePreviousButton.disabled=true;liveNextButton.disabled=true;
+    const status=$('.reader-page-status');if(status)status.textContent='RECENT FACTORY PAGES';
+  }
+  function enableReaderActions(){
+    $('#favoriteButton').disabled=false;$('#bookmarkButton').disabled=false;
+  }
+  const priorShowPage=showLiveManualPage;
+  showLiveManualPage=async function(vehicle,pageId,title){
+    await priorShowPage(vehicle,pageId,title);
+    const content=$('#readerContent');
+    if(content&&!content.querySelector('.empty-state')){
+      writeHistory({vehicleId:vehicle.id,vehicleName:titleFromFolder(vehicle.name),pageId:String(pageId),title:title||'Manual page '+pageId});
+      enableReaderActions();
+    }
+  };
+  const priorOpenVehicle=openLiveVehicle;
+  openLiveVehicle=async function(vehicle){
+    const result=await priorOpenVehicle(vehicle);
+    showRecentPages();
+    return result;
+  };
+  const priorBackClick=readerBack?.onclick;
+  if(readerBack){
+    readerBack.addEventListener('click',()=>{
+      // Back returns to the current section; no page remains selected.
+      showRecentPages();
+    });
+  }
+  showRecentPages();
+})();
