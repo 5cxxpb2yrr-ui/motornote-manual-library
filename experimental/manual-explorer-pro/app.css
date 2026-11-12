@@ -1640,3 +1640,34 @@ body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .manual-tree {
   background:transparent !important;
   border-radius:0 !important;
 }
+
+
+/* Section-based manual file types */
+.reader-content .manual-pdf-frame {
+  display: block;
+  width: 100%;
+  min-height: min(72vh, 900px);
+  border: 0;
+  background: #101a2c;
+}
+.reader-content .manual-page-image {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.reader-content .manual-plain-text {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 16px;
+  border: 1px solid var(--line, rgba(120,160,220,.2));
+  border-radius: 12px;
+  background: rgba(10,18,34,.72);
+  color: inherit;
+  font: 13px/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
