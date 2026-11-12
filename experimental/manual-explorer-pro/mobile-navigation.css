@@ -1,5 +1,5 @@
 /* Mobile-only styling for the opt-in drill-down navigation preview. */
-@media (max-width: 700px) {
+@media (max-width: 700px), (orientation: landscape) and (max-height: 600px) {
   :root {
     --mn-mobile-bg: #050b18;
     --mn-mobile-panel: #091426;
@@ -80,10 +80,72 @@
   .reader-content table { max-width: 100%; }
 }
 
-@media (min-width: 701px) {
+@media (min-width: 701px) and (orientation: portrait), (min-width: 1201px) {
   .mobile-drill-nav, .mobile-reader-back { display: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .mobile-drill-row { transition: none !important; }
+}
+
+
+/* One mobile drill-down column in both orientations.
+   Desktop/tablet two-panel rules are intentionally superseded in this preview. */
+@media (max-width: 700px), (orientation: landscape) and (max-height: 600px) {
+  body[data-mobile-view="library"] .explorer-layout {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  body[data-mobile-view="library"] .vehicle-panel {
+    display: none !important;
+  }
+  body[data-mobile-view="library"] .document-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: calc(100dvh - 150px) !important;
+    overflow: hidden !important;
+    padding: 10px !important;
+  }
+  body[data-mobile-view="library"] .document-panel > .panel-title {
+    flex: 0 0 auto;
+    padding-top: 8px;
+  }
+  body[data-mobile-view="library"] .document-panel .inline-search {
+    flex: 0 0 auto;
+  }
+  body[data-mobile-view="library"] .document-panel .document-list {
+    display: grid !important;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  body[data-mobile-view="library"] .document-panel .list-footnote {
+    flex: 0 0 auto;
+    margin: 8px 4px 2px;
+  }
+  body[data-mobile-view="library"] .reader-panel {
+    display: none !important;
+  }
+  body[data-mobile-view="reader"] .vehicle-panel,
+  body[data-mobile-view="reader"] .document-panel {
+    display: none !important;
+  }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  body[data-mobile-view="library"] .document-panel {
+    height: calc(100dvh - 112px) !important;
+    max-height: calc(100dvh - 112px) !important;
+  }
+  body[data-mobile-view="library"] .document-panel .document-list {
+    padding-bottom: 12px;
+  }
 }
