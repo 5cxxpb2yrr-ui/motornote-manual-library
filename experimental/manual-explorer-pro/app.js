@@ -721,7 +721,10 @@ function renderLivePagination() {
   const footer = $('.reader-footer');
   if (!footer) return;
   const pages = liveManualGroups[activeManualGroup]?.pages || [];
-  const index = activeLivePage ? pages.findIndex(page => page.pageId === activeLivePage.pageId) : -1;
+  const activePageId = String(activeLivePage?.pageId || '').match(/(?:^|\\/)pages\\/(\\d+)\\.html$/i)?.[1]
+    || String(activeLivePage?.pageId || '').match(/^(\\d+)$/)?.[1]
+    || null;
+  const index = activePageId ? pages.findIndex(page => String(page.pageId) === activePageId) : -1;
   const previous = livePreviousButton;
   const next = liveNextButton;
   previous.disabled = !activeLiveVehicle || index <= 0;
@@ -730,9 +733,11 @@ function renderLivePagination() {
   next.title = next.disabled ? 'No next page in this section' : pages[index + 1].title;
   const status = footer.querySelector('.reader-page-status') || document.createElement('span');
   status.className = 'reader-page-status';
+  const shortPageLabel = activePageId || String(activeLivePage?.file || activeLivePage?.pageId || '').split('/').pop().replace(/\\.html?$/i, '');
   status.textContent = index >= 0
-    ? 'FACTORY PAGE ' + activeLivePage.pageId + ' · ' + (index + 1) + ' OF ' + pages.length
-    : activeLivePage ? 'FACTORY PAGE ' + activeLivePage.pageId : 'SELECT A FACTORY PAGE';
+    ? 'FACTORY PAGE ' + shortPageLabel + ' · ' + (index + 1) + ' OF ' + pages.length
+    : activeLivePage ? 'FACTORY PAGE ' + shortPageLabel : 'SELECT A FACTORY PAGE';
+  status.setAttribute('title', activeLivePage?.title || 'Factory page position');
   const center = footer.querySelector('span');
   if (center) center.replaceWith(status); else footer.insertBefore(status, next);
 }
