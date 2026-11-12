@@ -721,8 +721,8 @@ function renderLivePagination() {
   const footer = $('.reader-footer');
   if (!footer) return;
   const pages = liveManualGroups[activeManualGroup]?.pages || [];
-  const activePageId = String(activeLivePage?.pageId || '').match(/(?:^|\\/)pages\\/(\\d+)\\.html$/i)?.[1]
-    || String(activeLivePage?.pageId || '').match(/^(\\d+)$/)?.[1]
+  const activePageId = String(activeLivePage?.pageId || '').match(/(?:^|\/)pages\/(\d+)\.html$/i)?.[1]
+    || String(activeLivePage?.pageId || '').match(/^(\d+)$/)?.[1]
     || null;
   const index = activePageId ? pages.findIndex(page => String(page.pageId) === activePageId) : -1;
   const previous = livePreviousButton;
@@ -743,8 +743,8 @@ function renderLivePagination() {
 }
 function currentLivePageIndex() {
   const pages = liveManualGroups[activeManualGroup]?.pages || [];
-  const pageId = String(activeLivePage?.pageId || '').match(/(?:^|\\/)pages\\/(\\d+)\\.html$/i)?.[1]
-    || String(activeLivePage?.pageId || '').match(/^(\\d+)$/)?.[1];
+  const pageId = String(activeLivePage?.pageId || '').match(/(?:^|\/)pages\/(\d+)\.html$/i)?.[1]
+    || String(activeLivePage?.pageId || '').match(/^(\d+)$/)?.[1];
   return pageId ? pages.findIndex(page => String(page.pageId) === pageId) : -1;
 }
 livePreviousButton.addEventListener('click', () => {
