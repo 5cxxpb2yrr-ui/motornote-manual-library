@@ -1231,9 +1231,12 @@ function resolveSectionReference(baseKey, href) {
   if (!href || /^(?:https?:|mailto:|javascript:|data:|blob:)/i.test(href)) return null;
   try {
     const baseUrl = new URL('https://manual-assets.invalid/' + baseKey.split('/').map(encodeURIComponent).join('/'));
+    if (href.startsWith('#')) return null;
     const resolved = new URL(href, baseUrl);
     if (resolved.origin !== baseUrl.origin) return null;
     const key = decodeURIComponent(resolved.pathname.replace(/^\/+/, ''));
+    const manualRoot = baseKey.split('/').slice(0, 2).join('/') + '/';
+    if (!key.startsWith(manualRoot)) return null;
     if (!key || key.split('/').some(part => !part || part === '.' || part === '..')) return null;
     if (!/\.(?:html?|md|txt|pdf|png|svg|json)$/i.test(key)) return null;
     return key;
@@ -1265,7 +1268,7 @@ function cleanSectionHtml(html, key) {
       link.removeAttribute('href');
       link.setAttribute('role', 'button');
       link.setAttribute('tabindex', '0');
-    } else {
+    } else if (!(link.getAttribute('href') || '').startsWith('#')) {
       link.removeAttribute('href');
       link.removeAttribute('role');
     }
@@ -1396,8 +1399,11 @@ showLiveManualPage = async function(vehicle, fileKey, title) {
   $('#readerContent').replaceChildren(safeText('p', 'Loading ' + fileName + '…', 'empty-state'));
   setMobileView('reader', displayTitle, titleFromFolder(vehicle.name) + ' · ' + fileName);
   try {
-    const response = await fetchSectionObject(key);
+    const extension = key.split('.').pop().toLowerCase();
+    const response = ['pdf', 'png', 'svg'].includes(extension) ? null : await fetchSectionObject(key);
     if (requestId !== manualPageRequestId) return;
+    const readerBack = $('#readerBackButton');
+    if (readerBack) readerBack.hidden = false;
     await renderSectionFile(response, key, displayTitle, requestId);
     if (requestId !== manualPageRequestId) return;
     activeLivePage = { pageId: key, title: displayTitle, file: fileName };
