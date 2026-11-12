@@ -2175,3 +2175,16 @@ button,.btn,.rail-link,.mobile-nav button,.vehicle-item,.document-item,
   .vehicle-item:hover,.document-item:hover,.tree-item:hover,.tree-child:hover,
   .subtle-button:hover,.icon-button:hover { border-color:var(--accent) !important; }
 }
+/* Final legibility pass: secondary labels remain readable at phone size. */
+.eyebrow,.connection,.reader-meta,.list-footnote,.dialog-note,
+.library-overview-card summary small,.library-overview-card .overview-count,
+.stat-card>span,.stat-card small,.brand small { font-size:12px !important; }
+.reader-crumb-button,.toc-crumb-button { min-height:40px;padding:8px 7px;display:inline-flex;align-items:center; }
+@media(max-width:700px) {
+  .page-heading h1 { font-size:30px; }
+  .subhead,.mobile-context p:last-child,.favorites-intro,.empty-state { font-size:14px !important; }
+  .reader-meta,.reader-footer span { font-size:12px !important; }
+  .connection { font-size:11px !important; }
+  .library-overview-card summary small,.library-overview-card .overview-count { font-size:11px !important; }
+  .list-footnote { font-size:11px !important; }
+}
