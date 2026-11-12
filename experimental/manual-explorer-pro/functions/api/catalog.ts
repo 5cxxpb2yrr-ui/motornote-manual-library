@@ -16,18 +16,18 @@ function countFiles(node: TreeNode | TreeNode[]): number {
   if (Array.isArray(node)) return node.reduce((total, child) => total + countFiles(child), 0);
   const children = childrenOf(node);
   if (children.length) return children.reduce((total, child) => total + countFiles(child), 0);
-  return typeof node.file === "string" && node.file.length > 0 ? 1 : 0;
+  return [node.file, (node as any).filename, (node as any).fileName].some(value => typeof value === "string" && value.length > 0) ? 1 : 0;
 }
 
 function makeFromVehicleName(name: string): string {
-  const match = name.match(/^\\d{4}\\s+([^\\s]+)/);
-  return match?.[1] || name.split(/\\s+/)[0] || "Vehicle";
+  const match = name.match(/^\d{4}\s+([^\s]+)/);
+  return match?.[1] || name.split(/\s+/)[0] || "Vehicle";
 }
 
 export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
   try {
     const root = await env.MANUALS.list({ delimiter: "/", limit: 1000 });
-    const vehiclePrefixes = root.delimitedPrefixes || [];
+    const vehiclePrefixes = (root.delimitedPrefixes || []).filter(prefix => /^\d{4}\s/.test(prefix.replace(/\/$/, "")));
     const manuals = [];
 
     for (const vehiclePrefix of vehiclePrefixes) {
