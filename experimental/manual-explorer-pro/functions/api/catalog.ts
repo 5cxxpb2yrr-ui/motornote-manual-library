@@ -1,51 +1,83 @@
 interface Env { MANUALS: R2Bucket; }
 
-interface ManualSummary {
-  generated_at?: string;
-  manual_count?: number;
-  file_count?: number;
-  manuals?: Array<{ id: string; make: string; file_count: number }>;
+type TreeNode = {
+  file?: string;
+  c?: TreeNode[];
+  children?: TreeNode[];
+  sections?: TreeNode[];
+};
+
+function childrenOf(node: TreeNode | TreeNode[]): TreeNode[] {
+  if (Array.isArray(node)) return node;
+  return node.c || node.children || node.sections || [];
+}
+
+function countFiles(node: TreeNode | TreeNode[]): number {
+  if (Array.isArray(node)) return node.reduce((total, child) => total + countFiles(child), 0);
+  const children = childrenOf(node);
+  if (children.length) return children.reduce((total, child) => total + countFiles(child), 0);
+  return typeof node.file === "string" && node.file.length > 0 ? 1 : 0;
+}
+
+function makeFromVehicleName(name: string): string {
+  const match = name.match(/^\\d{4}\\s+([^\\s]+)/);
+  return match?.[1] || name.split(/\\s+/)[0] || "Vehicle";
 }
 
 export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
   try {
-    const summaryObject = await env.MANUALS.get("index/summary.json");
-    if (!summaryObject) return Response.json({ error: "R2 catalog summary is missing" }, { status: 503 });
-    const summary = await summaryObject.json<ManualSummary>();
+    const root = await env.MANUALS.list({ delimiter: "/", limit: 1000 });
+    const vehiclePrefixes = root.delimitedPrefixes || [];
+    const manuals = [];
 
-    const root = await env.MANUALS.list({ prefix: "manuals/", delimiter: "/", limit: 1000 });
-    const manualPrefixes = root.delimitedPrefixes || [];
-    const manuals = await Promise.all(manualPrefixes.map(async (prefix) => {
-      const manualId = prefix.slice("manuals/".length).replace(/\/$/, "");
-      const folders = await env.MANUALS.list({ prefix, delimiter: "/", limit: 1000 });
-      const vehicles = (folders.delimitedPrefixes || [])
-        .map((vehiclePrefix) => {
-          const name = vehiclePrefix.slice(prefix.length).replace(/\/$/, "");
-          return {
-            id: vehiclePrefix,
-            name,
-            href: "https://motornote-manual-library.phillipstg.workers.dev/" + vehiclePrefix.split("/").map(encodeURIComponent).join("/") + "index.html"
-          };
-        })
-        // Exclude the temporary Scion workflow-test folder from the garage.
-        .filter((vehicle) => vehicle.name.trim().toLowerCase() !== "tmp");
-      const meta = summary.manuals?.find((item) => item.id === manualId);
-      return {
-        id: manualId,
-        make: meta?.make || manualId.split("-")[0],
-        fileCount: meta?.file_count || 0,
-        vehicles
-      };
-    }));
+    for (const vehiclePrefix of vehiclePrefixes) {
+      const vehicleName = vehiclePrefix.replace(/\\/$/, "");
+      const manualListing = await env.MANUALS.list({
+        prefix: vehiclePrefix,
+        delimiter: "/",
+        limit: 1000
+      });
 
-    const visibleManuals = manuals.filter((manual) => manual.vehicles.length > 0);
-    const visibleFileCount = visibleManuals.reduce((total, manual) => total + manual.fileCount, 0);
+      for (const manualPrefix of manualListing.delimitedPrefixes || []) {
+        const manualName = manualPrefix.slice(vehiclePrefix.length).replace(/\\/$/, "");
+        const treeObject = await env.MANUALS.get(manualPrefix + "tree.json");
+        let fileCount = 0;
+        if (treeObject) {
+          try {
+            const tree = await treeObject.json<TreeNode>();
+            fileCount = countFiles(tree);
+          } catch {
+            fileCount = 0;
+          }
+        }
 
+        const vehicleId = manualPrefix.replace(/\\/$/, "");
+        manuals.push({
+          id: manualName,
+          make: makeFromVehicleName(vehicleName),
+          fileCount,
+          vehicles: [{
+            id: vehicleId,
+            name: vehicleName,
+            href: vehicleId + "/",
+            fileCount
+          }]
+        });
+      }
+    }
+
+    manuals.sort((a, b) =>
+      a.make.localeCompare(b.make) ||
+      a.vehicles[0].name.localeCompare(b.vehicles[0].name) ||
+      a.id.localeCompare(b.id)
+    );
+
+    const fileCount = manuals.reduce((total, manual) => total + manual.fileCount, 0);
     return Response.json({
-      generatedAt: summary.generated_at || null,
-      manualCount: visibleManuals.length,
-      fileCount: visibleFileCount,
-      manuals: visibleManuals
+      generatedAt: new Date().toISOString(),
+      manualCount: manuals.length,
+      fileCount,
+      manuals
     }, {
       headers: {
         "Cache-Control": "public, max-age=60",
@@ -53,6 +85,9 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
       }
     });
   } catch (error) {
-    return Response.json({ error: "Unable to read the R2 manual catalog", detail: error instanceof Error ? error.message : "Unknown error" }, { status: 503 });
+    return Response.json({
+      error: "Unable to read the section-based R2 manual catalog",
+      detail: error instanceof Error ? error.message : "Unknown error"
+    }, { status: 503 });
   }
 };
