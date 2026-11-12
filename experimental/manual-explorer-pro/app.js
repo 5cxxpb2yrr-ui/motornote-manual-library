@@ -1416,13 +1416,63 @@ tocLeafPages = function(node, out=[]) {
   });
   return out;
 };
+function sectionNavigationView(node) {
+  const children = node?.children || liveManualTree || [];
+  const hasSubfolders = children.some(child =>
+    Array.isArray(child.children) && child.children.length > 0
+  );
+  return node && !hasSubfolders ? 'library' : 'vehicles';
+}
+function navigateToSectionPath(path) {
+  activeTocPath = path.slice();
+  const target = activeTocPath.at(-1) || null;
+  renderHierarchicalToc();
+  renderTocChildren(target);
+  const view = sectionNavigationView(target);
+  setMobileView(view, target?.title || titleFromFolder(selectedVehicle.name),
+    target ? 'Choose a factory file from this section.' : 'Choose a factory manual section.');
+}
+function renderSectionBreadcrumbs() {
+  const vehicleLabel = titleFromFolder(selectedVehicle?.name || 'Vehicle');
+  const segments = [{ label: vehicleLabel, path: [] }];
+  activeTocPath.forEach((node, index) => segments.push({
+    label: node.title,
+    path: activeTocPath.slice(0, index + 1)
+  }));
+  const render = (host, className) => {
+    if (!host) return;
+    host.replaceChildren();
+    segments.forEach((segment, index) => {
+      if (index) host.append(safeText('span', ' / ', 'reader-crumb-separator'));
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = className;
+      button.textContent = segment.label;
+      if (index === segments.length - 1) button.setAttribute('aria-current', 'location');
+      button.addEventListener('click', () => navigateToSectionPath(segment.path));
+      host.append(button);
+    });
+  };
+  render($('#crumb'), 'reader-crumb-button');
+  const toolbar = document.querySelector('.reader-toolbar > div:first-of-type');
+  if (toolbar) {
+    let trail = $('#readerBreadcrumbs');
+    if (!trail) {
+      trail = document.createElement('nav');
+      trail.id = 'readerBreadcrumbs';
+      trail.setAttribute('aria-label', 'Manual location');
+      toolbar.append(trail);
+    }
+    render(trail, 'reader-crumb-button');
+  }
+}
 renderTocChildren = function(node) {
   const list = $('#documentList');
   if (!list) return;
   const pages = tocLeafPages(node || { children: liveManualTree });
   list.replaceChildren();
   if (!pages.length) {
-    list.append(safeText('p', 'Choose a section to see its files here.', 'empty-state'));
+    list.append(safeText('p', 'Choose a section to see its factory files here.', 'empty-state'));
   } else {
     pages.forEach(page => {
       const item = document.createElement('button');
@@ -1438,8 +1488,7 @@ renderTocChildren = function(node) {
   }
   const title = node?.title || 'Factory contents';
   $('#sectionTitle').textContent = title + ' · Files';
-  const pathLabels = [titleFromFolder(selectedVehicle.name), ...activeTocPath.map(item => item.title)];
-  $('#crumb').textContent = pathLabels.join(' / ').toUpperCase();
+  renderSectionBreadcrumbs();
   liveManualGroups = [{ title, pages }];
   activeManualGroup = 0;
   $('.list-footnote').textContent = 'SECTION FILES · ' + pages.length.toLocaleString() + ' FILES';
@@ -1468,6 +1517,7 @@ showLiveManualPage = async function(vehicle, fileKey, title) {
     await renderSectionFile(response, key, displayTitle, requestId);
     if (requestId !== manualPageRequestId) return;
     activeLivePage = { pageId: key, title: displayTitle, file: fileName };
+    renderSectionBreadcrumbs();
     renderLivePagination();
     const favoriteKey = ['favorite', encodeURIComponent(vehicle.id), key].join('|');
     const bookmarkKey = ['bookmark', encodeURIComponent(vehicle.id), key].join('|');
