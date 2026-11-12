@@ -919,6 +919,38 @@ async function openTocNode(node) {
     document.querySelector('.document-panel .document-list')?.scrollTo({top:0,behavior:'smooth'});
   }
 }
+function renderReaderBreadcrumbs() {
+  const host=$('#crumb');
+  if(!host || !selectedVehicle)return;
+  host.replaceChildren();
+  const vehicleLabel=titleFromFolder(selectedVehicle.name);
+  const segments=[{label:vehicleLabel,path:[]}];
+  activeTocPath.forEach((node,index)=>segments.push({
+    label:node.title,
+    path:activeTocPath.slice(0,index+1)
+  }));
+  segments.forEach((segment,index)=>{
+    if(index)host.append(safeText('span',' / ','reader-crumb-separator'));
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='reader-crumb-button';
+    button.textContent=segment.label;
+    if(index===segments.length-1)button.setAttribute('aria-current','location');
+    button.addEventListener('click',()=>{
+      activeTocPath=segment.path.slice();
+      const target=activeTocPath.at(-1)||null;
+      renderHierarchicalToc();
+      renderTocChildren(target);
+      const children=target?.children||liveManualTree||[];
+      const hasSubfolders=children.some(child=>Array.isArray(child.children)&&child.children.length>0);
+      setMobileView(target&&!hasSubfolders?'library':'vehicles',
+        target?.title||vehicleLabel,
+        target?'Choose a factory page from this section.':'Choose a factory manual section.');
+      restoreNavigationHighlight();
+    });
+    host.append(button);
+  });
+}
 function renderTocChildren(node) {
   const list=$('#documentList');
   if(!list)return;
@@ -939,8 +971,7 @@ function renderTocChildren(node) {
   }
   const title=node?.title||'Factory contents';
   $('#sectionTitle').textContent=title+' · Pages';
-  const pathLabels=[titleFromFolder(selectedVehicle.name),...activeTocPath.map(item=>item.title)];
-  $('#crumb').textContent=pathLabels.join(' / ').toUpperCase();
+  renderReaderBreadcrumbs();
   liveManualGroups=[{title,pages}];
   activeManualGroup=0;
   $('.list-footnote').textContent='FACTORY PAGES · '+pages.length.toLocaleString()+' PAGES IN THIS SECTION';
