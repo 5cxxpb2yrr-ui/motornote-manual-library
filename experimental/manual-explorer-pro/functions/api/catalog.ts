@@ -17,8 +17,8 @@ function childrenOf(node: TreeNode | TreeNode[]): TreeNode[] {
 function countFiles(node: TreeNode | TreeNode[]): number {
   if (Array.isArray(node)) return node.reduce((total, child) => total + countFiles(child), 0);
   const children = childrenOf(node);
-  if (children.length) return children.reduce((total, child) => total + countFiles(child), 0);
-  return [node.file, node.filename, node.fileName].some(value => typeof value === "string" && value.length > 0) ? 1 : 0;
+  const ownFile = [node.file, node.filename, node.fileName].some(value => typeof value === "string" && value.length > 0) ? 1 : 0;
+  return ownFile + children.reduce((total, child) => total + countFiles(child), 0);
 }
 
 function makeFromVehicleName(name: string): string {
