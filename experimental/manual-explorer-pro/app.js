@@ -1057,21 +1057,28 @@ async function openLiveSearchResult(vehicle,pageId,title) {
     readerBack=document.createElement('button');
     readerBack.type='button';readerBack.id='readerBackButton';
     readerBack.className='subtle-button reader-back-button';
-    readerBack.textContent='← Back';readerBack.hidden=true;
-    const toc=byId('tocOpen');
-    toolbarActions.insertBefore(readerBack,toc||toolbarActions.firstChild);
+    readerBack.textContent='‹';readerBack.setAttribute('aria-label','Back to manual navigation');
+    readerBack.hidden=true;
+    const toolbar=document.querySelector('.reader-toolbar');
+    if(toolbar)toolbar.insertBefore(readerBack,toolbar.firstChild);
     readerBack.addEventListener('click',()=>{
       const vehicleName=selectedVehicle?titleFromFolder(selectedVehicle.name):'Vehicles';
-      // Return to the exact menu that contained the page. Do not reset the
-      // TOC path to its root; the current path is the user's navigation trail.
       const parent=activeTocPath.at(-1)||null;
       const level=parent?.title||vehicleName;
       renderHierarchicalToc();
       renderTocChildren(parent);
       setMobileView('library',level,'Choose a factory page from this section.');
       restoreNavigationHighlight();
-      // The portrait page-list screen is already the focused view; no panel jump.
     });
+  }
+  let readerSearch=byId('readerSearchButton');
+  if(toolbarActions&&!readerSearch){
+    readerSearch=document.createElement('button');
+    readerSearch.type='button';readerSearch.id='readerSearchButton';
+    readerSearch.className='subtle-button reader-search-button';
+    readerSearch.textContent='⌕';readerSearch.setAttribute('aria-label','Search manuals');
+    toolbarActions.insertBefore(readerSearch,byId('bookmarkButton')||toolbarActions.firstChild);
+    readerSearch.addEventListener('click',openSearch);
   }
 
   // Bind favorites/bookmarks to the actual live vehicle + factory page, not demo docs.
