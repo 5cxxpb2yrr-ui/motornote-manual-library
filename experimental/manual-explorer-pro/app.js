@@ -18,6 +18,8 @@ function applyColorTheme(theme){
   const light=theme==='light';
   document.body.classList.toggle('light',light);
   document.documentElement.style.colorScheme=light?'light':'dark';
+  const themeMeta=document.querySelector('meta[name="theme-color"]');
+  if(themeMeta)themeMeta.setAttribute('content',light?'#f1f3f5':'#101820');
   const button=$('#themeButton');
   if(button){
     button.textContent=light?'☀':'☾';
