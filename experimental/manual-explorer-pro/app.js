@@ -866,7 +866,7 @@ function ensureTocDrilldownControls() {
   if(!back.dataset.bound){
     back.dataset.bound='true';
     back.addEventListener('click',()=>{
-      if(!activeTocPath.length)return;
+      if(!activeTocPath.length){setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');return;}
       activeTocPath=activeTocPath.slice(0,-1);
       const parent=activeTocPath.at(-1)||null;
       renderHierarchicalToc();
@@ -887,7 +887,7 @@ function renderHierarchicalToc() {
   const host=$('.manual-tree');
   const crumbs=$('#tocBreadcrumbs');
   const back=$('#tocBackButton');
-  if(back)back.hidden=activeTocPath.length===0;
+  if(back)back.hidden=!selectedVehicle;
   if(crumbs){
     crumbs.replaceChildren();
     const root=document.createElement('button');root.type='button';root.className='toc-crumb-button';root.textContent=vehicleName;
