@@ -1624,3 +1624,19 @@ body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .manual-tree {
   body[data-mobile-view="vehicles"] .vehicle-panel:not(.show-toc) .manual-tree { display:none !important; }
   body[data-mobile-view="vehicles"] .vehicle-panel:not(.show-toc) .vehicle-list { display:grid !important; }
 }
+
+/* Source navigation glyphs are icons, not full-width manual illustrations. */
+.reader-content img.manual-icon-asset {
+  display:inline-block !important;
+  width:24px !important;
+  height:24px !important;
+  min-width:24px !important;
+  max-width:24px !important;
+  min-height:24px !important;
+  max-height:24px !important;
+  margin:0 5px 0 0 !important;
+  vertical-align:middle;
+  object-fit:contain !important;
+  background:transparent !important;
+  border-radius:0 !important;
+}
