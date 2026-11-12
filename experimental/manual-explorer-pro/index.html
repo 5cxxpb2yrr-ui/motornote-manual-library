@@ -13,7 +13,7 @@
   <a class="skip-link" href="#reader">Skip to manual content</a>
   <header class="topbar">
     <a class="brand" href="./" aria-label="LifeOS Manual Explorer Pro home"><svg class="brand-emblem" viewBox="0 0 64 64" aria-hidden="true"><path d="M13 21h8l5-8h16l5 8h5a5 5 0 0 1 5 5v20a5 5 0 0 1-5 5H16a5 5 0 0 1-5-5V26a5 5 0 0 1 2-5Z" fill="none" stroke="#ff8618" stroke-width="4" stroke-linejoin="round"/><path d="M24 21v-7m16 7v-7M22 32h20m-16 0v10m12-10v10" fill="none" stroke="#ff8618" stroke-width="4" stroke-linecap="round"/><path d="M29 42h6" stroke="#ff8618" stroke-width="4" stroke-linecap="round"/></svg><span class="brand-copy"><strong>LifeOS</strong><b>Manual Explorer</b><small>Service Manuals · Knowledge · Repairs</small></span></a>
-    <button class="top-search" id="searchOpen" type="button"><span>⌕</span> Search manuals, procedures, DTCs, or keywords…</button>
+    <button class="icon-button search-trigger" id="searchOpen" type="button" aria-label="Search manuals" title="Search manuals">⌕</button>
     <div class="top-actions"><span class="connection"><i></i> R2 INDEX READY</span><button class="icon-button theme-toggle" id="themeButton" type="button" aria-label="Switch to light theme" title="Switch to light theme" aria-pressed="false">☾</button><button class="avatar" type="button" aria-label="Workspace menu">LP</button></div>
   </header>
   <div class="app-shell">
@@ -28,10 +28,6 @@
     <main class="workspace">
       <section class="page-heading">
         <div><p class="eyebrow">GARAGE / TECHNICAL KNOWLEDGE</p><h1>Manual Explorer <span>Pro</span></h1><p class="subhead">Your vehicles. Your manuals. One connected workspace.</p></div>
-        <button class="primary-button" id="searchOpenFallback" type="button"><span>⌕</span> Search manuals</button>
-      </section>
-      <section class="dashboard-search" aria-label="Search manuals">
-        <button class="dashboard-search-button" id="dashboardSearch" type="button"><span>⌕</span> Search manuals, vehicles, or procedures…</button>
       </section>
       <section class="mobile-context" id="mobileContext" aria-live="polite"><p class="eyebrow">LIFEOS GARAGE</p><h2 id="mobileContextTitle">Your garage</h2><p id="mobileContextHint">Choose a vehicle or continue where you left off.</p></section>
       <section class="home-garage" id="homeGarage" aria-label="Your vehicles"><div class="home-section-title"><div><p class="eyebrow">YOUR GARAGE</p><h2>Vehicles</h2></div><button class="subtle-button" id="homeAllVehicles" type="button">See all →</button></div><div class="home-vehicle-grid" id="homeVehicleGrid"><div class="garage-loading"><span class="garage-pulse"></span>Loading your vehicle library…</div></div>
