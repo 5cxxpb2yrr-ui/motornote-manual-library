@@ -858,9 +858,10 @@ function ensureTocDrilldownControls() {
   let back=$('#tocBackButton');
   if(!back){
     back=document.createElement('button');
-    back.type='button';back.id='tocBackButton';back.className='subtle-button toc-back-button';
+    back.type='button';back.id='tocBackButton';back.className='toc-back-button';
     back.textContent='← Back';back.hidden=true;
-    host.append(back);
+    const heading=$('.manual-tree-heading');
+    if(heading)heading.insertBefore(back,heading.firstChild);
     back.addEventListener('click',()=>{
       if(!activeTocPath.length)return;
       activeTocPath=activeTocPath.slice(0,-1);
@@ -1383,7 +1384,7 @@ loadLiveManualIndex = async function(vehicle) {
   activeManualGroup = 0;
   renderLivePagination();
   $('#documentList').replaceChildren(safeText('p', 'Loading the section index…', 'empty-state'));
-  $('.manual-tree').replaceChildren(safeText('p', 'Reading section tree from R2…', 'empty-state'));
+  $('.manual-tree').replaceChildren();
   try {
     const treeFiles = Array.isArray(vehicle.treeFiles) ? vehicle.treeFiles : [];
     if (!treeFiles.length) throw new Error('No section tree files are registered for this vehicle.');
