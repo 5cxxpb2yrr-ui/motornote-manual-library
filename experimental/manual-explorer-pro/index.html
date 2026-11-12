@@ -33,21 +33,26 @@
       <section class="dashboard-search" aria-label="Search manuals">
         <button class="dashboard-search-button" id="dashboardSearch" type="button"><span>⌕</span> Search manuals, vehicles, or procedures…</button>
       </section>
-      <section class="connection-card" aria-label="Manual library connection">
-        <span class="connection-icon">↗</span>
-        <span><b>R2 Manual Library Connected</b><small>motornote-manual-library · Live factory content</small></span>
-        <span class="connection-chevron">›</span>
-      </section>
-      <section class="stats dashboard-stats" aria-label="Library overview">
-        <article class="stat-card"><span>VEHICLES</span><strong id="vehicleTotal">—</strong><small>In your garage</small></article>
-        <article class="stat-card"><span>MANUALS</span><strong id="manualTotal">—</strong><small>Available libraries</small></article>
-        <article class="stat-card"><span>INDEXED PAGES</span><strong id="indexedPageTotal">45,768</strong><small>Searchable procedures</small></article>
-        <article class="stat-card"><span>FAVORITES</span><strong id="savedCount">00</strong><small>Saved references</small></article>
-        <article class="stat-card"><span>RECENT</span><strong id="recentCount">—</strong><small>Recently opened</small></article>
-        <article class="stat-card"><span>LIBRARY STATUS</span><strong class="status-text" id="libraryStatus">ONLINE</strong><small>R2 content available</small></article>
-      </section>
       <section class="mobile-context" id="mobileContext" aria-live="polite"><p class="eyebrow">LIFEOS GARAGE</p><h2 id="mobileContextTitle">Your garage</h2><p id="mobileContextHint">Choose a vehicle or continue where you left off.</p></section>
-      <section class="home-garage" id="homeGarage" aria-label="Your vehicles"><div class="home-section-title"><div><p class="eyebrow">YOUR GARAGE</p><h2>Vehicles</h2></div><button class="subtle-button" id="homeAllVehicles" type="button">See all →</button></div><div class="home-vehicle-grid" id="homeVehicleGrid"><div class="garage-loading"><span class="garage-pulse"></span>Loading your vehicle library…</div></div><div class="home-section-title recent-title"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Recent manuals</h2></div></div><button class="recent-manual-card" id="recentManual"><span>▤</span><span><b>Engine Mechanical — Overview</b><small>2006 Scion xB · Service information</small></span><span>›</span></button></section>
+      <section class="home-garage" id="homeGarage" aria-label="Your vehicles"><div class="home-section-title"><div><p class="eyebrow">YOUR GARAGE</p><h2>Vehicles</h2></div><button class="subtle-button" id="homeAllVehicles" type="button">See all →</button></div><div class="home-vehicle-grid" id="homeVehicleGrid"><div class="garage-loading"><span class="garage-pulse"></span>Loading your vehicle library…</div></div>
+        <details class="library-overview-card">
+          <summary><span><b>LIBRARY OVERVIEW</b><small>Connection and activity summary</small></span><span class="overview-count">06 INDICATORS</span></summary>
+          <div class="library-overview-content">
+            <section class="connection-card" aria-label="Manual library connection">
+            <span class="connection-icon">↗</span>
+            <span><b>R2 Manual Library Connected</b><small>motornote-manual-library · Live factory content</small></span>
+            <span class="connection-chevron">›</span>
+            </section>
+            <section class="stats dashboard-stats" aria-label="Library overview">
+            <article class="stat-card"><span>VEHICLES</span><strong id="vehicleTotal">—</strong><small>In your garage</small></article>
+            <article class="stat-card"><span>MANUALS</span><strong id="manualTotal">—</strong><small>Available libraries</small></article>
+            <article class="stat-card"><span>INDEXED PAGES</span><strong id="indexedPageTotal">45,768</strong><small>Searchable procedures</small></article>
+            <article class="stat-card"><span>FAVORITES</span><strong id="savedCount">00</strong><small>Saved references</small></article>
+            <article class="stat-card"><span>RECENT</span><strong id="recentCount">—</strong><small>Recently opened</small></article>
+            <article class="stat-card"><span>LIBRARY STATUS</span><strong class="status-text" id="libraryStatus">ONLINE</strong><small>R2 content available</small></article>
+            </section>
+          </div>
+        </details><div class="home-section-title recent-title"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Recent manuals</h2></div></div><button class="recent-manual-card" id="recentManual"><span>▤</span><span><b>Engine Mechanical — Overview</b><small>2006 Scion xB · Service information</small></span><span>›</span></button></section>
       <section class="favorites-screen" id="favoritesScreen" aria-label="Saved references"><p class="eyebrow">YOUR LIBRARY</p><h2>Favorites & bookmarks</h2><p class="favorites-intro">Saved procedures stay on this device and are available here.</p><div id="favoritesList" aria-live="polite"></div></section>
       <div class="explorer-layout">
         <aside class="panel vehicle-panel" aria-label="Vehicle and manual navigation">
