@@ -1,45 +1,58 @@
 # LifeOS Manual Explorer Pro — Experimental
 
-This directory is an isolated interface prototype. It does not replace or modify the Phoenix production site.
+This is the isolated preview of Manual Explorer Pro. Work only on branch feat/manual-explorer-pro; it does not replace the Phoenix production site.
 
-## Preview locally
+## Current implementation
 
-Open `index.html` in a browser, or serve this directory with any static HTTP server. No build step or dependencies are required.
+- Mobile-first vehicle and manual selection.
+- Single-column section drill-down with Back and breadcrumb navigation.
+- R2-backed section tree loading.
+- Exact filename resolution from each tree leaf.
+- HTML, Markdown, text, PDF, PNG, and SVG reader support.
+- Local favorites and bookmarks.
+- Universal search index built from the section-based R2 corpus.
+- Light/dark theme and accessible navigation controls.
 
-## Current prototype
+## Canonical R2 layout
 
-- Responsive desktop three-pane workspace.
-- Mobile-first stacked navigation and reader layout.
-- Vehicle selector and manual section navigation.
-- Document list filtering and sample search.
-- Local browser favorites and bookmarks.
-- Light/dark theme toggle.
-- Accessible landmarks, labels, focus handling, live announcements, and reduced-motion support.
+The bucket root contains vehicle folders. Each vehicle contains manual folders. Each manual has one tree.json; page objects live inside their section folders.
 
-## Explicit limitations
+    2006 Scion xB/
+      Repair Manual/
+        tree.json
+        Engine Mechanical/
+          EM-01 Engine Removal.md
+          EM-02 Engine Installation.pdf
+        Fuel System/
+          FS-01 Fuel Pressure Test.html
 
-All vehicle and procedure data in this prototype is illustrative. Search is a local demonstration against four sample entries; it is not connected to AI Search or the live manual corpus. Vehicle creation, GitHub authentication, Nomie integration, synchronization, and offline manual downloads are not implemented.
+The tree file is stored at Vehicle Name/Manual Name/tree.json. Folder nodes use n for the displayed folder name and c for child nodes. A file leaf uses n for its display title and file for the exact filename, including its extension:
 
-## Isolation rules
+    {
+      "title": "Repair Manual",
+      "c": [
+        {
+          "n": "Engine Mechanical",
+          "c": [
+            {
+              "n": "Engine Removal",
+              "file": "EM-01 Engine Removal.md"
+            }
+          ]
+        }
+      ]
+    }
 
-- Develop only on `feat/manual-explorer-pro`.
-- Keep `main`, the Phoenix site Worker, the existing R2 bucket, and the production publishing workflows unchanged.
-- Do not point experimental publishing at the production R2 bucket.
-- Any future deployment must use a separate preview hostname and separate storage/configuration.
-- Reuse the existing manual corpus through read-only access until the preview infrastructure is explicitly provisioned.
+That leaf resolves to 2006 Scion xB/Repair Manual/Engine Mechanical/EM-01 Engine Removal.md. The reader does not infer a filename from the title or a numeric page ID.
 
-## Next milestones
+The catalog discovers vehicle/manual folders from R2 and counts file leaves in each tree. The file API validates the vehicle-rooted key and serves only supported file extensions. It is read-only.
 
-1. Validate this visual prototype and interaction model.
-2. Connect the existing manual corpus in read-only mode.
-3. Add persistent vehicle profiles, favorites, bookmarks, and notes.
-4. Integrate search through a secure server-side proxy.
-5. Evaluate selective offline caching.
-6. Validate Nomie 6 integration against its actual supported APIs.
+## Search index
 
+Run scripts/build_r2_search_index.py with the R2 credentials already used for the manual bucket. It indexes section-based HTML, Markdown, text, PDF, PNG, and SVG files and publishes only to search-index/v1/. HTML, Markdown, and text are indexed by content; binary formats are searchable by their exact filename.
 
-## Cloudflare Pages preview
+## Cloudflare preview
 
-The isolated Pages project is `lifeos-manual-explorer-pro`. Its project root is this directory, and its only R2 binding is `MANUALS` to the existing `motornote-manual-site` bucket. Production deployments are disabled; preview builds are limited to `feat/manual-explorer-pro` and this directory.
+The Cloudflare Pages project is lifeos-manual-explorer-pro. Its root is this directory, and its R2 binding is MANUALS to motornote-manual-site. Production deployments remain disabled; preview deployments are limited to feat/manual-explorer-pro.
 
-Preview build trigger verified after isolating this Pages project to the experimental branch.
+No manual files are copied or migrated by the application changes. The bucket must contain the section folders, each manual's tree.json, and the exact file objects referenced by its leaves before end-to-end reader testing can pass.
