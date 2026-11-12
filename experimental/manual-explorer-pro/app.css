@@ -1944,3 +1944,81 @@ body[data-mobile-view="home"] .home-vehicle-card .home-car-icon { font-size:28px
   .library-overview-card summary { padding:9px 10px; }
   .library-overview-card .overview-count { font-size:8px; }
 }
+
+/* Reference-style mobile drill-down: one navigation level at a time in both orientations. */
+@media (max-width:1200px) {
+  body[data-mobile-view="vehicles"] .explorer-layout,
+  body[data-mobile-view="library"] .explorer-layout {
+    display:block !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:0 !important;
+  }
+  body[data-mobile-view="vehicles"] .vehicle-panel {
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    max-height:calc(100dvh - 150px) !important;
+    overflow:hidden !important;
+  }
+  body[data-mobile-view="vehicles"] .document-panel {
+    display:none !important;
+  }
+  body[data-mobile-view="vehicles"] .vehicle-panel .manual-tree {
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:5px !important;
+    max-height:calc(100dvh - 255px) !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  body[data-mobile-view="library"] .vehicle-panel {
+    display:none !important;
+  }
+  body[data-mobile-view="library"] .document-panel {
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    max-height:calc(100dvh - 150px) !important;
+    overflow:hidden !important;
+  }
+  body[data-mobile-view="library"] .document-panel .document-list {
+    max-height:calc(100dvh - 275px) !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  .toc-breadcrumbs {
+    display:flex !important;
+    flex-wrap:wrap;
+    gap:4px;
+    margin:5px 0 10px;
+  }
+  #readerBreadcrumbs {
+    display:flex;
+    align-items:center;
+    gap:3px;
+    max-width:100%;
+    margin-top:5px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scrollbar-width:none;
+    white-space:nowrap;
+    -webkit-overflow-scrolling:touch;
+  }
+  #readerBreadcrumbs::-webkit-scrollbar { display:none; }
+  #readerBreadcrumbs .reader-crumb-button {
+    flex:0 0 auto;
+    color:#aeb8bf;
+    font:10px/1.3 'IBM Plex Sans',sans-serif;
+    text-decoration:none;
+  }
+  #readerBreadcrumbs .reader-crumb-button[aria-current="location"] {
+    color:#ff9a3d;
+    font-weight:600;
+  }
+  #readerBreadcrumbs .reader-crumb-separator {
+    color:#64717a;
+    font-size:9px;
+  }
+}
