@@ -25,10 +25,10 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
     key.length > 0 &&
     key.length <= 1200 &&
     !key.startsWith("/") &&
-    !key.includes("\\\\") &&
-    !/[\\u0000-\\u001f\\u007f]/.test(key) &&
+    !key.includes("\\") &&
+    !/[\u0000-\u001f\u007f]/.test(key) &&
     segments.every(segment => segment.length > 0 && segment !== "." && segment !== "..") &&
-    /\\.(html?|md|txt|pdf|png|svg|json)$/i.test(key);
+    segments.length >= 3 &&\n    /^\\d{4}\\s/.test(segments[0]) &&\n    /\.(html?|md|txt|pdf|png|svg|json)$/i.test(key);
 
   if (!valid) {
     return Response.json({ error: "Invalid manual file key" }, { status: 400 });
