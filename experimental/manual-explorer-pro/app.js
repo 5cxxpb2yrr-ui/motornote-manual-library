@@ -317,7 +317,7 @@ function cleanManualFragment(html, key) {
     // Source navigation glyphs live in /icons/ and must not inherit
     // full-width illustration sizing in the manual reader.
     try {
-      if (/(?:^|\\/)icons\\//i.test(new URL(img.src).pathname)) {
+      if (new URL(img.src).pathname.toLowerCase().includes('/icons/')) {
         img.classList.add('manual-icon-asset');
       }
     } catch {}
