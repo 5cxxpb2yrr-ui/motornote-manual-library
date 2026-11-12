@@ -1851,3 +1851,17 @@ body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .manual-tree {
     white-space:nowrap !important;
   }
 }
+
+/* Reader location trail: each segment returns to that drill-down level. */
+#crumb { display:flex;align-items:center;flex-wrap:wrap;gap:3px; }
+.reader-crumb-button {
+  appearance:none;border:0;background:transparent;color:var(--muted);
+  padding:0;font:inherit;letter-spacing:inherit;text-transform:inherit;
+  cursor:pointer;text-align:left;text-decoration:underline;
+  text-decoration-color:transparent;text-underline-offset:3px;
+}
+.reader-crumb-button:hover,
+.reader-crumb-button:focus-visible {
+  color:var(--accent);text-decoration-color:currentColor;outline:none;
+}
+.reader-crumb-separator { color:var(--muted);white-space:pre; }
