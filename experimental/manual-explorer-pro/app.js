@@ -1245,7 +1245,7 @@ function resolveSectionReference(baseKey, href) {
     const manualRoot = baseKey.split('/').slice(0, 2).join('/') + '/';
     if (!key.startsWith(manualRoot)) return null;
     if (!key || key.split('/').some(part => !part || part === '.' || part === '..')) return null;
-    if (!/\.(?:html?|md|txt|pdf|png|svg|json)$/i.test(key)) return null;
+    if (!/\.(?:html?|md|txt|pdf|png|jpe?g|gif|webp|svg|json|css)$/i.test(key)) return null;
     return key;
   } catch {
     return null;
@@ -1301,7 +1301,7 @@ async function renderSectionFile(response, key, title, requestId) {
     host.append(frame);
     return;
   }
-  if (extension === 'png' || extension === 'svg') {
+  if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'].includes(extension)) {
     const image = document.createElement('img');
     image.className = 'manual-page-image';
     image.alt = title || key.split('/').pop();
