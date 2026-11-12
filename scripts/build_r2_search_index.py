@@ -96,31 +96,40 @@ def parse_page(s3, key: str) -> dict[str, Any] | None:
     raw = response["Body"].read()
     if not raw:
         return None
-    encoding = "utf-8"
-    try:
-        source = raw.decode(encoding)
-    except UnicodeDecodeError:
-        source = raw.decode("utf-8", errors="replace")
-    parser = PageText()
-    try:
-        parser.feed(source)
-        parser.close()
-    except Exception:
+    extension = key.rsplit(".", 1)[-1].lower()
+    source = raw.decode("utf-8", errors="replace")
+    if extension in {"html", "htm"}:
+        parser = PageText()
+        try:
+            parser.feed(source)
+            parser.close()
+        except Exception:
+            return None
+        title = clean(" ".join(parser.title_parts))
+        text = clean(" ".join(parser.text_parts))
+    else:
+        title = clean(os.path.splitext(os.path.basename(key))[0])
+        if extension in {"md", "txt"}:
+            searchable = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", source)
+            searchable = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", searchable)
+            searchable = re.sub(r"[#*_>|]", " ", searchable)
+            searchable = searchable.replace(chr(96), " ")
+            text = clean(searchable)
+        else:
+            # Binary formats are searchable by their exact stored filename.
+            text = title
+    if not text and not title:
         return None
-    title = clean(" ".join(parser.title_parts))
-    text = clean(" ".join(parser.text_parts))
-    if not text:
-        return None
-    manual_id = key.split("/", 2)[1] if key.count("/") >= 2 else "unknown"
+    parts = key.split("/")
+    manual_id = "/".join(parts[:2]) if len(parts) >= 2 else "unknown"
     return {
         "id": hashlib.sha1(key.encode("utf-8")).hexdigest(),
         "manualId": manual_id,
         "path": key,
-        "title": title or key.rsplit("/", 1)[-1],
+        "title": title or os.path.basename(key),
         "text": text,
         "bytes": len(raw),
     }
-
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -134,10 +143,15 @@ def main() -> int:
     s3 = make_s3()
     paginator = s3.get_paginator("list_objects_v2")
     keys: list[str] = []
-    for page in paginator.paginate(Bucket=BUCKET, Prefix="manuals/"):
+    for page in paginator.paginate(Bucket=BUCKET):
         for item in page.get("Contents", []):
             key = item["Key"]
-            if "/pages/" in key and key.lower().endswith((".html", ".htm")):
+            parts = key.split("/")
+            if (
+                len(parts) >= 4
+                and re.match(r"^\d{4}\s", parts[0])
+                and key.lower().endswith((".html", ".htm", ".md", ".txt", ".pdf", ".png", ".svg"))
+            ):
                 keys.append(key)
                 if args.limit and len(keys) >= args.limit:
                     break
@@ -178,7 +192,7 @@ def main() -> int:
     manifest = {
         "version": 1,
         "generatedAt": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(),
-        "source": "R2 manuals/*/pages/*.html",
+        "source": "R2 Vehicle/Manual/Section/* (HTML, Markdown, text, PDF, PNG, SVG)",
         "documentCount": len(records),
         "failedPages": failures,
         "shardCount": len(shards),
