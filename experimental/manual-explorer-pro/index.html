@@ -48,7 +48,7 @@
             <article class="stat-card"><span>LIBRARY STATUS</span><strong class="status-text" id="libraryStatus">ONLINE</strong><small>R2 content available</small></article>
             </section>
           </div>
-        </details><div class="home-section-title recent-title"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Recent manuals</h2></div></div><button class="recent-manual-card" id="recentManual"><span>▤</span><span><b>Engine Mechanical — Overview</b><small>2006 Scion xB · Service information</small></span><span>›</span></button></section>
+        </details><div class="home-section-title recent-title"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Recent manuals</h2></div></div><button class="recent-manual-card" id="recentManual" type="button" hidden aria-label="Open recently viewed factory page"></button></section>
       <section class="favorites-screen" id="favoritesScreen" aria-label="Saved references"><p class="eyebrow">YOUR LIBRARY</p><h2>Favorites & bookmarks</h2><p class="favorites-intro">Saved procedures stay on this device and are available here.</p><div id="favoritesList" aria-live="polite"></div></section>
       <div class="explorer-layout">
         <aside class="panel vehicle-panel" aria-label="Vehicle and manual navigation">
@@ -86,7 +86,15 @@
       </div>
     </main>
   </div>
-  <nav class="mobile-nav" aria-label="Primary navigation"><button class="active" data-mobile="home"><span>⌂</span>Home</button><button data-mobile="vehicles"><span>▣</span>Vehicles</button><button data-mobile="search"><span>⌕</span>Search</button><button data-mobile="favorites"><span>☆</span>Favorites</button><button data-mobile="more"><span>•••</span>More</button></nav>
+  <div class="mobile-fab" id="mobileFab">
+<div class="mobile-fab-menu" id="mobileFabMenu" hidden aria-label="Quick navigation">
+<button type="button" data-mobile="home"><span>⌂</span>Home</button>
+<button type="button" data-mobile="vehicles"><span>▣</span>Vehicles</button>
+<button type="button" data-mobile="favorites"><span>☆</span>Favorites</button>
+<button type="button" data-mobile="more"><span>•••</span>More</button>
+</div>
+<button class="mobile-fab-trigger" id="mobileFabToggle" type="button" aria-label="Open navigation" aria-expanded="false">＋</button>
+</div>
   <dialog id="searchDialog" class="search-dialog" aria-labelledby="searchTitle"><div class="dialog-head"><div><p class="eyebrow">UNIVERSAL MANUAL SEARCH</p><h2 id="searchTitle">Find a procedure</h2></div><button class="icon-button" id="searchClose" aria-label="Close search">×</button></div><label class="global-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Try “water pump”, “torque specs”…" autocomplete="off"></label><div class="search-filters"><button class="filter-chip active">All manuals</button><button class="filter-chip">Scion</button><button class="filter-chip">Subaru</button></div><div class="search-results" id="searchResults" aria-live="polite"><p class="empty-state">Search across your technical library. Results will appear here.</p></div><p class="dialog-note">EXPERIMENTAL · R2 INDEX SEARCH</p></dialog>
   <dialog id="tocDialog" class="drawer-dialog" aria-labelledby="tocTitle"><div class="dialog-head"><div><p class="eyebrow">CURRENT VEHICLE</p><h2 id="tocTitle">Table of contents</h2></div><button class="icon-button" id="tocClose" type="button" aria-label="Close table of contents">×</button></div><div id="tocDrawerContent" class="toc-drawer-content"></div></dialog><dialog id="moreDialog" class="drawer-dialog" aria-labelledby="moreTitle"><div class="dialog-head"><div><p class="eyebrow">WORKSPACE</p><h2 id="moreTitle">More</h2></div><button class="icon-button" id="moreClose" type="button" aria-label="Close more menu">×</button></div><div class="more-actions"><button type="button" id="moreNotes" disabled>Notes <small>Coming soon</small></button><button type="button" id="moreMaintenance" disabled>Maintenance <small>Coming soon</small></button><button type="button" id="moreSync" disabled>GitHub sync <small>Coming soon</small></button><button type="button" id="moreSettings">Settings <span>›</span></button></div></dialog><div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
