@@ -1,6 +1,7 @@
 interface Env { MANUALS: R2Bucket; }
 
 type TreeNode = {
+  title?: string;
   p?: number | string;
   file?: string;
   filename?: string;
