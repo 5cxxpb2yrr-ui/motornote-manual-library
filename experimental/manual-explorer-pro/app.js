@@ -280,6 +280,16 @@ function activateView(view){
     return;
   }
   if(normalized==='favorites')renderFavorites();
+  if(normalized==='vehicles'){
+    // Vehicles always means the vehicle picker, never a stale selected tree.
+    selectedVehicle=null;
+    activeLiveVehicle=null;
+    activeLivePage=null;
+    activeTocPath=[];
+    liveManualTree=[];
+    $('.vehicle-panel').classList.remove('show-toc');
+    $('.manual-tree').replaceChildren();
+  }
   const labels={home:['Your garage','Choose a vehicle or continue where you left off.'],vehicles:[selectedVehicle?titleFromFolder(selectedVehicle.name):'Vehicles','Choose a vehicle to browse its manuals.'],library:[$('#sectionTitle').textContent,'Manual pages in this section.'],reader:[$('#readerTitle').textContent,'Factory manual reference.'],favorites:['Favorites','Your saved procedures and references.']};
   const info=labels[normalized]||labels.home;
   setMobileView(normalized,info[0],info[1]);
