@@ -314,6 +314,13 @@ function cleanManualFragment(html, key) {
     img.loading = 'lazy';
     img.decoding = 'async';
     img.alt = img.alt || 'Factory manual illustration';
+    // Source navigation glyphs live in /icons/ and must not inherit
+    // full-width illustration sizing in the manual reader.
+    try {
+      if (/(?:^|\\/)icons\\//i.test(new URL(img.src).pathname)) {
+        img.classList.add('manual-icon-asset');
+      }
+    } catch {}
   });
   parsed.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href') || '';
