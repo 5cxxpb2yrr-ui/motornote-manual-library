@@ -741,14 +741,20 @@ function renderLivePagination() {
   const center = footer.querySelector('span');
   if (center) center.replaceWith(status); else footer.insertBefore(status, next);
 }
+function currentLivePageIndex() {
+  const pages = liveManualGroups[activeManualGroup]?.pages || [];
+  const pageId = String(activeLivePage?.pageId || '').match(/(?:^|\\/)pages\\/(\\d+)\\.html$/i)?.[1]
+    || String(activeLivePage?.pageId || '').match(/^(\\d+)$/)?.[1];
+  return pageId ? pages.findIndex(page => String(page.pageId) === pageId) : -1;
+}
 livePreviousButton.addEventListener('click', () => {
   const pages = liveManualGroups[activeManualGroup]?.pages || [];
-  const index = pages.findIndex(page => page.pageId === activeLivePage?.pageId);
+  const index = currentLivePageIndex();
   if (index > 0) showLiveManualPage(activeLiveVehicle, pages[index - 1].pageId, pages[index - 1].title);
 });
 liveNextButton.addEventListener('click', () => {
   const pages = liveManualGroups[activeManualGroup]?.pages || [];
-  const index = pages.findIndex(page => page.pageId === activeLivePage?.pageId);
+  const index = currentLivePageIndex();
   if (index >= 0 && index < pages.length - 1) showLiveManualPage(activeLiveVehicle, pages[index + 1].pageId, pages[index + 1].title);
 });
 
