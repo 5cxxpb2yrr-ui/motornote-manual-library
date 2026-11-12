@@ -1338,11 +1338,12 @@ loadLiveManualIndex = async function(vehicle) {
     if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
     const roots = sectionTreeNodes(tree, vehicle);
     if (!roots.length) throw new Error('tree.json contains no navigation nodes.');
+    const count = sectionFileCount(roots);
+    if (!count) throw new Error('This tree has no exact file references. Rebuild its page leaves with a file value such as "EM-01 Engine Removal.md".');
     liveManualTree = roots;
     renderHierarchicalToc();
     renderTocChildren(null);
     setMobileView('vehicles', titleFromFolder(vehicle.name), 'Choose a manual section to continue.');
-    const count = sectionFileCount(roots);
     announce('Loaded section tree with ' + count.toLocaleString() + ' exact file references.');
   } catch (error) {
     if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
