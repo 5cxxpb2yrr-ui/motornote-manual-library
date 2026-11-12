@@ -351,7 +351,7 @@ async function showLiveManualPage(vehicle, pageId, title) {
     const html = await fetchManualHtml(key);
     if(requestId!==manualPageRequestId)return;
     $('#readerContent').innerHTML = cleanManualFragment(html, key);
-    $$('#readerContent').querySelectorAll('[data-manual-page]').forEach(link => {
+    $('#readerContent').querySelectorAll('[data-manual-page]').forEach(link => {
       const open = async () => {
         const targetPageId=link.dataset.manualPage;
         const path=findTocPathForPage(liveManualTree,targetPageId);
@@ -361,7 +361,7 @@ async function showLiveManualPage(vehicle, pageId, title) {
       link.addEventListener('click', open);
       link.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); } });
     });
-    $$('#readerContent').querySelectorAll('a').forEach(link => {
+    $('#readerContent').querySelectorAll('a').forEach(link => {
       if (!link.dataset.manualPage) link.removeAttribute('role');
     });
     $('#reader').focus({ preventScroll: true });
