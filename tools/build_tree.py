@@ -27,7 +27,10 @@ def clean_label(value: str) -> str:
 def exact_filename(href: str) -> str | None:
     if not href or href.startswith(("#", "javascript:", "mailto:", "data:")):
         return None
-    path = unquote(urlsplit(href).path)
+    parsed = urlsplit(href)
+    if parsed.scheme or parsed.netloc:
+        return None
+    path = unquote(parsed.path)
     if not path or "\\" in path:
         return None
     filename = PurePosixPath(path).name
@@ -57,8 +60,8 @@ class IndexTreeParser(HTMLParser):
             node = {"n": ""}
             self.list_stack[-1].append(node)
             self.item_stack.append(node)
-        elif tag == "a" and self.item_stack:
-            self.link_href = attributes.get("href")
+        elif tag in {"a", "area"} and self.item_stack:
+            self.link_href = attributes.get("href") or attributes.get("data-href") or attributes.get("data-url")
 
     def handle_data(self, data: str) -> None:
         if self.item_stack:
