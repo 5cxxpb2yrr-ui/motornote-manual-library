@@ -1242,7 +1242,7 @@ function resolveSectionReference(baseKey, href) {
     const resolved = new URL(href, baseUrl);
     if (resolved.origin !== baseUrl.origin) return null;
     const key = decodeURIComponent(resolved.pathname.replace(/^\/+/, ''));
-    const manualRoot = baseKey.split('/').slice(0, 2).join('/') + '/';
+    const manualRoot = baseKey.split('/').slice(0, 3).join('/') + '/';
     if (!key.startsWith(manualRoot)) return null;
     if (!key || key.split('/').some(part => !part || part === '.' || part === '..')) return null;
     if (!/\.(?:html?|md|txt|pdf|png|jpe?g|gif|webp|svg|json|css)$/i.test(key)) return null;
