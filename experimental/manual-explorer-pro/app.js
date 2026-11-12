@@ -1352,8 +1352,9 @@ loadLiveManualIndex = async function(vehicle) {
   }
 };
 tocLeafPages = function(node, out=[]) {
-  if (node?.fileKey) out.push({ pageId: String(node.fileKey), title: node.title, file: node.file });
-  (node?.children || []).forEach(child => tocLeafPages(child, out));
+  (node?.children || []).forEach(child => {
+    if (child?.fileKey) out.push({ pageId: String(child.fileKey), title: child.title, file: child.file });
+  });
   return out;
 };
 renderTocChildren = function(node) {
