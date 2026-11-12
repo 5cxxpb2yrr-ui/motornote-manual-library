@@ -56,3 +56,12 @@ Run scripts/build_r2_search_index.py with the R2 credentials already used for th
 The Cloudflare Pages project is lifeos-manual-explorer-pro. Its root is this directory, and its R2 binding is MANUALS to motornote-manual-site. Production deployments remain disabled; preview deployments are limited to feat/manual-explorer-pro.
 
 No manual files are copied or migrated by the application changes. The bucket must contain the section folders, each manual's tree.json, and the exact file objects referenced by its leaves before end-to-end reader testing can pass.
+
+
+## Build exact-filename navigation trees
+
+From a manual's extracted index page, run:
+
+    python tools/build_tree.py 2.html "Repair and Diagnosis" > tree.json
+
+The builder copies the final filename from each supported local link into the leaf's file field. It does not convert numeric page IDs into guessed filenames. If the index still links to numbered legacy pages, update the source links to the real section-based filenames before generating the tree. Upload the resulting tree.json to Vehicle Name/Manual Name/tree.json.
