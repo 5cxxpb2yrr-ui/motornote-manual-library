@@ -1190,7 +1190,7 @@ function sectionChildren(node) {
 }
 function safeSectionFile(value) {
   if (typeof value !== 'string' || !value.trim()) return null;
-  const file = value.trim();
+  const file = value;
   if (file.startsWith('/') || file.includes('\\') || /[\u0000-\u001f\u007f]/.test(file)) return null;
   const parts = file.split('/');
   if (parts.some(part => !part || part === '.' || part === '..')) return null;
