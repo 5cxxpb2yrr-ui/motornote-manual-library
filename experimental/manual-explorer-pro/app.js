@@ -1400,12 +1400,12 @@ showLiveManualPage = async function(vehicle, fileKey, title) {
   $('#readerTitle').textContent = displayTitle;
   $('#readerContent').replaceChildren(safeText('p', 'Loading ' + fileName + '…', 'empty-state'));
   setMobileView('reader', displayTitle, titleFromFolder(vehicle.name) + ' · ' + fileName);
+  const readerBack = $('#readerBackButton');
+  if (readerBack) readerBack.hidden = false;
   try {
     const extension = key.split('.').pop().toLowerCase();
     const response = ['pdf', 'png', 'svg'].includes(extension) ? null : await fetchSectionObject(key);
     if (requestId !== manualPageRequestId) return;
-    const readerBack = $('#readerBackButton');
-    if (readerBack) readerBack.hidden = false;
     await renderSectionFile(response, key, displayTitle, requestId);
     if (requestId !== manualPageRequestId) return;
     activeLivePage = { pageId: key, title: displayTitle, file: fileName };
