@@ -3,16 +3,11 @@ const docs=[{id:'engine-overview',title:'Engine Mechanical — Overview',kind:'G
 const vehicles={scion:'Scion xB Manuals',subaru:'Subaru Crosstrek Manuals',toyota:'Toyota Tacoma Manuals',ford:'Ford F-150 Manuals'};
 const MANUAL_SITE='https://motornote-manual-library.phillipstg.workers.dev/';
 let manualPageRequestId=0;
-let selected=0;let searchGeneration=0;let indexPromise=null;
+let searchGeneration=0;let indexPromise=null;
 const saved=new Set((()=>{try{const value=JSON.parse(localStorage.getItem('mep-saved')||'[]');return Array.isArray(value)?value.filter(key=>typeof key==='string'&&key.split('|').length===3):[]}catch{return[]}})());
 function announce(message){const toast=$('#toast');toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2100)}
 function renderSaved(){ $('#savedCount').textContent=String(saved.size).padStart(2,'0');try{localStorage.setItem('mep-saved',JSON.stringify([...saved]))}catch{}}
-function selectDoc(index){selected=(index+docs.length)%docs.length;const d=docs[selected];$('#readerTitle').textContent=d.title;$$('.document-item').forEach((el,i)=>el.classList.toggle('selected',i===selected));const key='favorite:'+d.id;const bookmark='bookmark:'+d.id;$('#favoriteButton').setAttribute('aria-pressed',String(saved.has(key)));$('#bookmarkButton').setAttribute('aria-pressed',String(saved.has(bookmark)));$('#readerContent').innerHTML='<div class="procedure-label">DEMO REFERENCE / '+String(selected+1).padStart(2,'0')+'</div><h3>'+d.title+'</h3><p>This is sample interface content, not a factory procedure. In the connected version, the original manual page, diagrams, specifications, warnings and navigation will be displayed here.</p><div class="notice"><strong>Factory information placeholder</strong><p>Vehicle-specific instructions and safety information will be loaded from the selected manual source.</p></div><h3>Reference details</h3><ul><li>'+d.kind+'</li><li>Vehicle: 2006 Scion xB</li><li>Engine: 1NZ-FE · 1.5L</li></ul>';$('#reader').focus({preventScroll:true});}
 function toggleSaved(kind){const key=kind+':'+docs[selected].id;if(saved.has(key))saved.delete(key);else saved.add(key);renderSaved();selectDoc(selected);announce(saved.has(key)?(kind==='favorite'?'Added to favorites':'Bookmark saved'):(kind==='favorite'?'Removed from favorites':'Bookmark removed'))}
-$$('.document-item').forEach((el,i)=>el.addEventListener('click',()=>selectDoc(i)));
-$('#favoriteButton').addEventListener('click',()=>toggleSaved('favorite'));$('#bookmarkButton').addEventListener('click',()=>toggleSaved('bookmark'));
-$('#previousDoc').addEventListener('click',()=>selectDoc(selected-1));$('#nextDoc').addEventListener('click',()=>selectDoc(selected+1));
-$$('.vehicle-item').forEach(el=>el.addEventListener('click',()=>{$$('.vehicle-item').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');$('#vehicleManualTitle').textContent=vehicles[el.dataset.vehicle];announce('Vehicle changed: '+el.querySelector('b').textContent+'. Sample pages remain selected.');}));
 // Factory section navigation is generated from the selected vehicle index.
 function applyColorTheme(theme){
   const light=theme==='light';
@@ -94,7 +89,7 @@ $('#globalSearch').addEventListener('input',e=>{const generation=++searchGenerat
 $('#filterInput').addEventListener('input',e=>{const list=$('#documentList'),items=[...list.querySelectorAll('.document-item')],query=e.target.value.trim().toLowerCase();let visible=0;items.forEach(item=>{const match=!query||item.textContent.toLowerCase().includes(query);item.hidden=!match;if(match)visible++});let empty=list.querySelector('.filter-empty-state');if(query&&items.length&&!visible){if(!empty){empty=safeText('p','No factory pages match that filter. Try another term or clear the filter.','empty-state filter-empty-state');list.append(empty)}}else empty?.remove()});
 $('#addVehicle').addEventListener('click',()=>announce('Vehicle profile creation is planned for the next prototype milestone.'));
 
-renderSaved();selectDoc(0);
+renderSaved();
 
 
 // Mobile navigation follows the five-tab LifeOS model. Secondary tools stay in drawers.
@@ -1573,3 +1568,28 @@ openLiveSearchResult = async function(vehicle, fileKey, title) {
   }
   showLiveManualPage(vehicle, fileKey, title);
 };
+
+// Final mobile FAB binding: replace any stale prototype listeners with one live handler.
+(function bindLiveFab(){
+  const toggle=document.getElementById('mobileFabToggle');
+  const menu=document.getElementById('mobileFabMenu');
+  if(!toggle||!menu)return;
+  const freshToggle=toggle.cloneNode(true);toggle.replaceWith(freshToggle);
+  freshToggle.addEventListener('click',()=>{
+    menu.hidden=!menu.hidden;
+    freshToggle.setAttribute('aria-expanded',String(!menu.hidden));
+    freshToggle.setAttribute('aria-label',menu.hidden?'Open navigation':'Close navigation');
+    freshToggle.textContent=menu.hidden?'＋':'×';
+  });
+  menu.querySelectorAll('button[data-mobile]').forEach(button=>{
+    const fresh=button.cloneNode(true);button.replaceWith(fresh);
+    fresh.addEventListener('click',()=>{
+      const view=fresh.dataset.mobile;
+      menu.hidden=true;
+      freshToggle.setAttribute('aria-expanded','false');
+      freshToggle.setAttribute('aria-label','Open navigation');
+      freshToggle.textContent='＋';
+      activateView(view);
+    });
+  });
+})();
