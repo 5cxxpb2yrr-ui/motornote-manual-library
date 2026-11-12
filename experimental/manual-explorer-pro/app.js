@@ -141,7 +141,7 @@ function renderFavorites(){
 }
 const originalRenderSaved=renderSaved;
 renderSaved=function(){originalRenderSaved();renderFavorites()};
-$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
+$$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
   const tab=button.dataset.mobile;
   const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');
   if(menu)menu.hidden=true;
@@ -283,7 +283,7 @@ function activateView(view){
   const labels={home:['Your garage','Choose a vehicle or continue where you left off.'],vehicles:[selectedVehicle?titleFromFolder(selectedVehicle.name):'Vehicles','Choose a vehicle to browse its manuals.'],library:[$('#sectionTitle').textContent,'Manual pages in this section.'],reader:[$('#readerTitle').textContent,'Factory manual reference.'],favorites:['Favorites','Your saved procedures and references.']};
   const info=labels[normalized]||labels.home;
   setMobileView(normalized,info[0],info[1]);
-  $('.mobile-fab-menu [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===normalized));
+  $$('.mobile-fab-menu [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===normalized));
   $$('.rail-link').forEach(button=>button.classList.toggle('active',(button.dataset.view==='dashboard'?'home':button.dataset.view==='saved'?'favorites':button.dataset.view)===normalized));
 }
 $$('[data-view]').forEach(button=>button.addEventListener('click',()=>activateView(button.dataset.view)));
@@ -351,7 +351,7 @@ async function showLiveManualPage(vehicle, pageId, title) {
     const html = await fetchManualHtml(key);
     if(requestId!==manualPageRequestId)return;
     $('#readerContent').innerHTML = cleanManualFragment(html, key);
-    $('#readerContent').querySelectorAll('[data-manual-page]').forEach(link => {
+    $$('#readerContent').querySelectorAll('[data-manual-page]').forEach(link => {
       const open = async () => {
         const targetPageId=link.dataset.manualPage;
         const path=findTocPathForPage(liveManualTree,targetPageId);
@@ -361,7 +361,7 @@ async function showLiveManualPage(vehicle, pageId, title) {
       link.addEventListener('click', open);
       link.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); } });
     });
-    $('#readerContent').querySelectorAll('a').forEach(link => {
+    $$('#readerContent').querySelectorAll('a').forEach(link => {
       if (!link.dataset.manualPage) link.removeAttribute('role');
     });
     $('#reader').focus({ preventScroll: true });
