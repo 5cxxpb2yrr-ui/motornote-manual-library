@@ -2,6 +2,8 @@ interface Env { MANUALS: R2Bucket; }
 
 type TreeNode = {
   file?: string;
+  filename?: string;
+  fileName?: string;
   c?: TreeNode[];
   children?: TreeNode[];
   sections?: TreeNode[];
@@ -16,7 +18,7 @@ function countFiles(node: TreeNode | TreeNode[]): number {
   if (Array.isArray(node)) return node.reduce((total, child) => total + countFiles(child), 0);
   const children = childrenOf(node);
   if (children.length) return children.reduce((total, child) => total + countFiles(child), 0);
-  return [node.file, (node as any).filename, (node as any).fileName].some(value => typeof value === "string" && value.length > 0) ? 1 : 0;
+  return [node.file, node.filename, node.fileName].some(value => typeof value === "string" && value.length > 0) ? 1 : 0;
 }
 
 function makeFromVehicleName(name: string): string {
@@ -27,11 +29,12 @@ function makeFromVehicleName(name: string): string {
 export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
   try {
     const root = await env.MANUALS.list({ delimiter: "/", limit: 1000 });
-    const vehiclePrefixes = (root.delimitedPrefixes || []).filter(prefix => /^\d{4}\s/.test(prefix.replace(/\/$/, "")));
+    const vehiclePrefixes = (root.delimitedPrefixes || [])
+      .filter(prefix => /^\d{4}\s/.test(prefix.replace(/\/$/, "")));
     const manuals = [];
 
     for (const vehiclePrefix of vehiclePrefixes) {
-      const vehicleName = vehiclePrefix.replace(/\\/$/, "");
+      const vehicleName = vehiclePrefix.replace(/\/$/, "");
       const manualListing = await env.MANUALS.list({
         prefix: vehiclePrefix,
         delimiter: "/",
@@ -39,7 +42,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
       });
 
       for (const manualPrefix of manualListing.delimitedPrefixes || []) {
-        const manualName = manualPrefix.slice(vehiclePrefix.length).replace(/\\/$/, "");
+        const manualName = manualPrefix.slice(vehiclePrefix.length).replace(/\/$/, "");
         const treeObject = await env.MANUALS.get(manualPrefix + "tree.json");
         let fileCount = 0;
         if (treeObject) {
@@ -51,7 +54,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
           }
         }
 
-        const vehicleId = manualPrefix.replace(/\\/$/, "");
+        const vehicleId = manualPrefix.replace(/\/$/, "");
         manuals.push({
           id: manualName,
           make: makeFromVehicleName(vehicleName),
