@@ -97,7 +97,10 @@ def parse_page(s3, key: str) -> dict[str, Any] | None:
     if not raw:
         return None
     extension = key.rsplit(".", 1)[-1].lower()
-    source = raw.decode("utf-8", errors="replace")
+    if extension in {"html", "htm", "md", "txt"}:
+        source = raw.decode("utf-8", errors="replace")
+    else:
+        source = ""
     if extension in {"html", "htm"}:
         parser = PageText()
         try:
@@ -133,7 +136,7 @@ def parse_page(s3, key: str) -> dict[str, Any] | None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--limit", type=int, default=0, help="Index at most N pages (0 = all).")
+    parser.add_argument("--limit", type=int, default=0, help="Index at most N manual files (0 = all).")
     parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--shard-size", type=int, default=500)
     args = parser.parse_args()
@@ -158,7 +161,7 @@ def main() -> int:
         if args.limit and len(keys) >= args.limit:
             break
 
-    print(f"Found {len(keys):,} HTML procedure pages in R2.", flush=True)
+    print(f"Found {len(keys):,} section-based manual files in R2.", flush=True)
     records: list[dict[str, Any]] = []
     failures = 0
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
