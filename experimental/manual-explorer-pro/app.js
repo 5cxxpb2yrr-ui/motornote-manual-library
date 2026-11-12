@@ -862,6 +862,9 @@ function ensureTocDrilldownControls() {
     back.textContent='← Back';back.hidden=true;
     const heading=$('.manual-tree-heading');
     if(heading)heading.insertBefore(back,heading.firstChild);
+  }
+  if(!back.dataset.bound){
+    back.dataset.bound='true';
     back.addEventListener('click',()=>{
       if(!activeTocPath.length)return;
       activeTocPath=activeTocPath.slice(0,-1);
