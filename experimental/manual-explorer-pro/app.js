@@ -542,81 +542,80 @@ showLiveManualPage = async function(vehicle, pageId, title) {
 $('#dashboardSearch')?.addEventListener('click',()=>activateView('search'));
 
 
-// Productionize the prototype's "Recent manuals" surface and harden R2 index loading.
-// The old static card and initial reader content were sample data, not a real page.
-const recentCardOld = $('#recentManual');
-if (recentCardOld) {
-  const recentCard = recentCardOld.cloneNode(true);
-  recentCardOld.replaceWith(recentCard);
-  const recentHost = recentCard.parentElement;
-  let recentEmpty = $('#recentManualEmpty');
-  if (!recentEmpty) {
-    recentEmpty = document.createElement('p');
-    recentEmpty.id = 'recentManualEmpty';
-    recentEmpty.className = 'empty-state';
-    recentEmpty.textContent = 'No factory pages opened yet. Select a vehicle and open a page to see it here.';
-    recentCard.insertAdjacentElement('afterend', recentEmpty);
-  }
-  const readRecent = () => {
-    try { return JSON.parse(localStorage.getItem('mep-recent-manual') || 'null'); }
-    catch { return null; }
-  };
-  const renderRecentManual = () => {
-    const recent = readRecent();
-    const valid = recent && recent.vehicleId && recent.pageId && recent.title;
-    recentCard.hidden = !valid;
-    recentEmpty.hidden = !!valid;
-    const count = $('#recentCount');
-    if (count) count.textContent = valid ? '01' : '00';
-    if (!valid) return;
-    recentCard.replaceChildren();
-    recentCard.append(safeText('span', '▤'));
-    const details = document.createElement('span');
-    details.append(safeText('b', recent.title), safeText('small', recent.vehicleName + ' · Factory manual'));
-    recentCard.append(details, safeText('span', '›'));
-  };
-  recentCard.addEventListener('click', () => {
-    const recent = readRecent();
-    const vehicle = liveCatalog?.manuals?.flatMap(manual => manual.vehicles.map(item => ({...item, manualId: manual.id, make: manual.make})))
-      .find(item => item.id === recent?.vehicleId);
-    if (!vehicle || !recent) {
-      announce('Select the vehicle again to reopen this recent page.');
-      return;
-    }
-    openLiveSearchResult(vehicle, recent.pageId, recent.title);
-  });
-  renderRecentManual();
-
-  // Do not present the sample procedure as if it were a factory page.
-  $('#readerTitle').textContent = 'Select a factory manual page';
-  $('#readerContent').replaceChildren(safeText('p', 'Choose a vehicle, open its factory table of contents, and select a page. Real manual content will appear here.', 'empty-state'));
-  const meta = $('.reader-meta');
-  if (meta) meta.replaceChildren(safeText('span', 'FACTORY MANUAL'), safeText('span', 'LIVE R2 CONTENT'));
-  const readerEyebrow = $('.reader-toolbar .eyebrow');
-  if (readerEyebrow) readerEyebrow.firstChild.textContent = 'FACTORY MANUAL ';
-  const footerLabel = $('.reader-footer span');
-  if (footerLabel) footerLabel.textContent = 'R2 FACTORY READER';
-
-  // Manual pages are read through the same-origin Pages Function route.
-
-  // Persist a recent entry only after a real R2 page has loaded successfully.
-  const showPageBeforeRecent = showLiveManualPage;
-  showLiveManualPage = async function(vehicle, pageId, title) {
-    await showPageBeforeRecent(vehicle, pageId, title);
-    const content = $('#readerContent');
-    if (content && !content.querySelector('.empty-state')) {
-      const recent = {
-        vehicleId: vehicle.id,
-        vehicleName: titleFromFolder(vehicle.name),
-        pageId: String(pageId),
-        title: title || 'Manual page ' + pageId
-      };
-      try { localStorage.setItem('mep-recent-manual', JSON.stringify(recent)); } catch {}
-      renderRecentManual();
-    }
-  };
+// Recent factory pages live in a dedicated History modal, not on the garage screen.
+function readRecentHistory() {
+  try {
+    const value = JSON.parse(localStorage.getItem('mep-recent-history') || '[]');
+    return Array.isArray(value) ? value.filter(item => item && item.vehicleId && item.pageId && item.title) : [];
+  } catch { return []; }
 }
+function renderRecentManual() {
+  const host = $('#recentManualList');
+  const history = readRecentHistory();
+  const count = $('#recentCount');
+  if (count) count.textContent = String(history.length).padStart(2, '0');
+  if (!host) return;
+  host.replaceChildren();
+  if (!history.length) {
+    host.append(safeText('p', 'No factory pages opened yet. Open a manual page and it will appear here.', 'empty-state'));
+    return;
+  }
+  history.forEach((recent, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'recent-history-item';
+    button.append(safeText('span', '▤', 'recent-history-icon'));
+    const details = document.createElement('span');
+    details.append(safeText('b', recent.title), safeText('small', (recent.vehicleName || 'Vehicle') + ' · Factory page'));
+    button.append(details, safeText('span', '›', 'recent-history-arrow'));
+    button.addEventListener('click', () => {
+      const vehicle = liveCatalog?.manuals?.flatMap(manual => manual.vehicles.map(item => ({...item, manualId: manual.id, make: manual.make})))
+        .find(item => item.id === recent.vehicleId);
+      if (!vehicle) {
+        announce('This vehicle is not in the current live catalog.');
+        return;
+      }
+      $('#historyDialog').close();
+      openLiveSearchResult(vehicle, recent.pageId, recent.title);
+    });
+    host.append(button);
+  });
+}
+function recordRecentManual(vehicle, pageId, title) {
+  const recent = {
+    vehicleId: vehicle.id,
+    vehicleName: titleFromFolder(vehicle.name),
+    pageId: String(pageId),
+    title: title || 'Manual page ' + pageId
+  };
+  const history = readRecentHistory().filter(item => !(item.vehicleId === recent.vehicleId && item.pageId === recent.pageId));
+  history.unshift(recent);
+  try {
+    localStorage.setItem('mep-recent-history', JSON.stringify(history.slice(0, 20)));
+    localStorage.setItem('mep-recent-manual', JSON.stringify(recent));
+  } catch {}
+  renderRecentManual();
+}
+$('#historyOpen')?.addEventListener('click', () => {
+  renderRecentManual();
+  $('#historyDialog').showModal();
+});
+$('#historyClose')?.addEventListener('click', () => $('#historyDialog').close());
+const legacyRecent = (() => { try { return JSON.parse(localStorage.getItem('mep-recent-manual') || 'null'); } catch { return null; } })();
+if (legacyRecent?.vehicleId && legacyRecent?.pageId && legacyRecent?.title && !readRecentHistory().length) {
+  try { localStorage.setItem('mep-recent-history', JSON.stringify([legacyRecent])); } catch {}
+}
+renderRecentManual();
 
+// Do not present the sample procedure as if it were a factory page.
+$('#readerTitle').textContent = 'Select a factory manual page';
+$('#readerContent').replaceChildren(safeText('p', 'Choose a vehicle, open its factory table of contents, and select a page. Real manual content will appear here.', 'empty-state'));
+const meta = $('.reader-meta');
+if (meta) meta.replaceChildren(safeText('span', 'FACTORY MANUAL'), safeText('span', 'LIVE R2 CONTENT'));
+const readerEyebrow = $('.reader-toolbar .eyebrow');
+if (readerEyebrow) readerEyebrow.firstChild.textContent = 'FACTORY MANUAL ';
+const footerLabel = $('.reader-footer span');
+if (footerLabel) footerLabel.textContent = 'R2 FACTORY READER';
 
 // More tolerant factory-index parser: handle linked lists, image-map areas,
 // data-href navigation and relative numeric page links in older manual exports.
@@ -1561,12 +1560,7 @@ showLiveManualPage = async function(vehicle, fileKey, title) {
       bookmark.setAttribute('aria-pressed', String(active));
     }
     try {
-      localStorage.setItem('mep-recent-manual', JSON.stringify({
-        vehicleId: vehicle.id,
-        vehicleName: titleFromFolder(vehicle.name),
-        pageId: key,
-        title: displayTitle
-      }));
+      recordRecentManual(vehicle, key, displayTitle);
     } catch {}
     announce('Opened ' + fileName);
   } catch (error) {
