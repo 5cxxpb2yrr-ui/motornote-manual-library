@@ -2220,3 +2220,35 @@ button,.btn,.rail-link,.mobile-nav button,.vehicle-item,.document-item,
   .top-actions { gap:8px; }
   .search-trigger,.theme-toggle { width:44px !important; height:44px !important; }
 }
+
+
+/* Compact vehicle header: back action left, selected vehicle right. */
+.manual-tree-heading {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  min-width:0;
+  padding:12px 14px;
+  border-bottom:1px solid var(--border);
+}
+.manual-tree-heading h2 {
+  margin:0;
+  min-width:0;
+  text-align:right;
+  font-size:15px;
+  line-height:1.2;
+  font-weight:700;
+}
+.manual-tree-heading .toc-back-button {
+  flex:0 0 auto;
+  min-height:36px;
+  padding:4px 0;
+  border:0;
+  background:transparent;
+  color:var(--accent);
+  font:inherit;
+  font-weight:650;
+  cursor:pointer;
+}
+.manual-tree-heading .toc-back-button[hidden] { display:none; }
