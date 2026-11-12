@@ -2,7 +2,7 @@
 (() => {
   'use strict';
 
-  const mobile = window.matchMedia('(max-width: 700px)');
+  const mobile = window.matchMedia('(max-width: 700px), (orientation: landscape) and (max-height: 600px)');
   let stack = [];
   let vehicleId = null;
   let busy = false;
