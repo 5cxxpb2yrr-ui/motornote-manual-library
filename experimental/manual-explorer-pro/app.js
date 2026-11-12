@@ -146,12 +146,17 @@ function renderFavorites(){
 }
 const originalRenderSaved=renderSaved;
 renderSaved=function(){originalRenderSaved();renderFavorites()};
-$$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
+$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
   const tab=button.dataset.mobile;
+  const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');
+  if(menu)menu.hidden=true;
+  if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');toggle.textContent='＋';}
   if(tab==='home')setMobileView('home','Your garage','Choose a vehicle or continue where you left off.');
   if(tab==='vehicles')setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
   if(tab==='favorites'){renderFavorites();setMobileView('favorites','Favorites','Your saved procedures and references.')}
 }));
+$('#mobileFabToggle')?.addEventListener('click',()=>{const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');if(!menu||!toggle)return;menu.hidden=!menu.hidden;toggle.setAttribute('aria-expanded',String(!menu.hidden));toggle.setAttribute('aria-label',menu.hidden?'Open navigation':'Close navigation');toggle.textContent=menu.hidden?'＋':'×';});
+document.addEventListener('click',event=>{const fab=$('#mobileFab');if(fab&&!fab.contains(event.target)){const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');if(menu)menu.hidden=true;if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');toggle.textContent='＋';}}});
 $$('[data-home-vehicle]').forEach(button=>button.addEventListener('click',()=>{
   setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
   const target=$('.vehicle-item[data-vehicle="'+button.dataset.homeVehicle+'"]');
@@ -283,7 +288,7 @@ function activateView(view){
   const labels={home:['Your garage','Choose a vehicle or continue where you left off.'],vehicles:[selectedVehicle?titleFromFolder(selectedVehicle.name):'Vehicles','Choose a vehicle to browse its manuals.'],library:[$('#sectionTitle').textContent,'Manual pages in this section.'],reader:[$('#readerTitle').textContent,'Factory manual reference.'],favorites:['Favorites','Your saved procedures and references.']};
   const info=labels[normalized]||labels.home;
   setMobileView(normalized,info[0],info[1]);
-  $$('.mobile-nav button').forEach(button=>button.classList.toggle('active',button.dataset.mobile===normalized));
+  $('.mobile-fab-menu [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===normalized));
   $$('.rail-link').forEach(button=>button.classList.toggle('active',(button.dataset.view==='dashboard'?'home':button.dataset.view==='saved'?'favorites':button.dataset.view)===normalized));
 }
 $$('[data-view]').forEach(button=>button.addEventListener('click',()=>activateView(button.dataset.view)));
@@ -1057,7 +1062,7 @@ async function openLiveSearchResult(vehicle,pageId,title) {
   function restoreNavigationHighlight(){
     const view=document.body.dataset.mobileView||'home';
     const mobileView=(view==='library'||view==='reader')?'vehicles':view;
-    document.querySelectorAll('.mobile-nav [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===mobileView));
+    document.querySelectorAll('.mobile-fab-menu [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===mobileView));
     const railView=view==='reader'?'library':view;
     document.querySelectorAll('.rail-link[data-view]').forEach(button=>{
       const key=button.dataset.view==='dashboard'?'home':button.dataset.view==='saved'?'favorites':button.dataset.view;
@@ -1070,11 +1075,11 @@ async function openLiveSearchResult(vehicle,pageId,title) {
     viewBeforeSearch=document.body.dataset.mobileView||'home';
     if(!searchDialog.open)searchDialog.showModal();
     restoreNavigationHighlight();
-    document.querySelectorAll('.mobile-nav [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile==='search'));
+    document.querySelectorAll('.mobile-fab-menu [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile==='search'));
     document.querySelectorAll('.rail-link[data-view]').forEach(button=>button.classList.toggle('active',button.dataset.view==='search'));
   }
   // Replace controls that had no action, or whose old listener opened the same dialog twice.
-  for(const id of ['searchOpen','searchOpenFallback','dashboardSearch']){
+  for(const id of ['searchOpen','dashboardSearch']){
     const old=byId(id); if(!old)continue;
     const fresh=old.cloneNode(true); old.replaceWith(fresh);
     fresh.addEventListener('click',openSearch);
@@ -1214,7 +1219,7 @@ async function openLiveSearchResult(vehicle,pageId,title) {
     const normalized=view==='dashboard'?'home':view==='saved'?'favorites':view;
     if(normalized==='search'){
       openSearch();
-      document.querySelectorAll('.mobile-nav [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile==='search'));
+      document.querySelectorAll('.mobile-fab-menu [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile==='search'));
       document.querySelectorAll('.rail-link[data-view]').forEach(button=>button.classList.toggle('active',button.dataset.view==='search'));
       return;
     }
