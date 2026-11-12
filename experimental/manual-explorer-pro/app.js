@@ -57,10 +57,10 @@ function renderSearchResults(matches,query){
     button.addEventListener('click',()=>{
       const vehicles=liveCatalog?.manuals?.flatMap(manual=>manual.vehicles)||[];
       const vehicle=vehicles.find(item=>record.path.startsWith(item.id));
-      const pageId=record.path.match(/\/pages\/(\d+)\.html?$/i)?.[1];
-      if(!vehicle||!pageId){announce('Could not match this result to a vehicle in the live catalog.');return}
+      const fileKey=record.path;
+      if(!vehicle||!fileKey){announce('Could not match this result to a vehicle in the live catalog.');return}
       $('#searchDialog').close();
-      openLiveSearchResult(vehicle,pageId,record.title||'Manual page '+pageId);
+      openLiveSearchResult(vehicle,fileKey,record.title||fileKey.split('/').pop());
     });
     results.append(button);
   }
@@ -1171,3 +1171,279 @@ async function openLiveSearchResult(vehicle,pageId,title) {
   searchDialog?.addEventListener('close',restoreNavigationHighlight);
   restoreNavigationHighlight();
 })();
+
+
+// Section-based R2 layout: Vehicle/Manual/Section/Exact Filename.
+// The filename in tree.json is authoritative; never synthesize it from a title or ID.
+const SECTION_MANUAL_API = '/api/manual-page?key=';
+function sectionObjectUrl(key) {
+  return SECTION_MANUAL_API + encodeURIComponent(key);
+}
+async function fetchSectionObject(key) {
+  const response = await fetch(sectionObjectUrl(key), { headers: { Accept: '*/*' } });
+  if (!response.ok) throw new Error('Manual file request returned ' + response.status + ' for ' + key);
+  return response;
+}
+function sectionChildren(node) {
+  if (Array.isArray(node)) return node;
+  return node?.c || node?.children || node?.sections || [];
+}
+function safeSectionFile(value) {
+  if (typeof value !== 'string' || !value.trim()) return null;
+  const file = value.trim();
+  if (file.startsWith('/') || file.includes('\\') || /[\u0000-\u001f\u007f]/.test(file)) return null;
+  const parts = file.split('/');
+  if (parts.some(part => !part || part === '.' || part === '..')) return null;
+  return file;
+}
+function sectionTreeNodes(input, vehicle, parentFolders=[]) {
+  return sectionChildren(input).map(raw => {
+    const title = String(raw.n ?? raw.title ?? raw.name ?? 'Untitled section').trim() || 'Untitled section';
+    const rawFile = raw.file ?? raw.filename ?? raw.fileName ?? null;
+    const exactFile = safeSectionFile(rawFile);
+    let fileKey = null;
+    if (exactFile) {
+      const vehicleRoot = vehicle.id.replace(/\/$/, '') + '/';
+      const relative = exactFile.startsWith(vehicleRoot)
+        ? exactFile
+        : exactFile.includes('/')
+          ? exactFile
+          : [...parentFolders, exactFile].join('/');
+      fileKey = relative.startsWith(vehicleRoot) ? relative : manualKey(vehicle, relative);
+    }
+    const children = sectionTreeNodes(raw, vehicle, [...parentFolders, title]);
+    return {
+      id: raw.id || 'section-' + Math.random().toString(36).slice(2),
+      title,
+      file: exactFile,
+      fileKey,
+      pageId: fileKey,
+      assetUrl: raw.assetUrl || null,
+      children
+    };
+  });
+}
+function sectionFileCount(nodes) {
+  return (nodes || []).reduce((total, node) =>
+    total + (node.fileKey ? 1 : 0) + sectionFileCount(node.children || []), 0);
+}
+function resolveSectionReference(baseKey, href) {
+  if (!href || /^(?:https?:|mailto:|javascript:|data:|blob:)/i.test(href)) return null;
+  try {
+    const baseUrl = new URL('https://manual-assets.invalid/' + baseKey.split('/').map(encodeURIComponent).join('/'));
+    const resolved = new URL(href, baseUrl);
+    if (resolved.origin !== baseUrl.origin) return null;
+    const key = decodeURIComponent(resolved.pathname.replace(/^\/+/, ''));
+    if (!key || key.split('/').some(part => !part || part === '.' || part === '..')) return null;
+    if (!/\.(?:html?|md|txt|pdf|png|svg|json)$/i.test(key)) return null;
+    return key;
+  } catch {
+    return null;
+  }
+}
+function cleanSectionHtml(html, key) {
+  const parsed = new DOMParser().parseFromString(html, 'text/html');
+  parsed.querySelectorAll('script,iframe,object,embed,form,button,base,meta').forEach(node => node.remove());
+  parsed.querySelectorAll('*').forEach(node => [...node.attributes].forEach(attr => {
+    if (attr.name.toLowerCase().startsWith('on')) node.removeAttribute(attr.name);
+  }));
+  parsed.querySelectorAll('img').forEach(img => {
+    const source = img.getAttribute('src');
+    const assetKey = resolveSectionReference(key, source);
+    if (assetKey) img.src = sectionObjectUrl(assetKey);
+    else img.removeAttribute('src');
+    img.removeAttribute('srcset');
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.alt = img.alt || 'Factory manual illustration';
+    if (/\/icons\//i.test(assetKey || '')) img.classList.add('manual-icon-asset');
+  });
+  parsed.querySelectorAll('a[href]').forEach(link => {
+    const targetKey = resolveSectionReference(key, link.getAttribute('href') || '');
+    if (targetKey) {
+      link.dataset.manualFile = targetKey;
+      link.removeAttribute('href');
+      link.setAttribute('role', 'button');
+      link.setAttribute('tabindex', '0');
+    } else {
+      link.removeAttribute('href');
+      link.removeAttribute('role');
+    }
+  });
+  parsed.querySelectorAll('[src],[srcset]').forEach(node => {
+    if (node.tagName !== 'IMG') {
+      node.removeAttribute('src');
+      node.removeAttribute('srcset');
+    }
+  });
+  const main = parsed.querySelector('.main') || parsed.body;
+  return main ? main.innerHTML : '<p>Manual file is empty.</p>';
+}
+async function renderSectionFile(response, key, title, requestId) {
+  const host = $('#readerContent');
+  const extension = key.split('.').pop().toLowerCase();
+  host.replaceChildren();
+  if (extension === 'pdf') {
+    const frame = document.createElement('iframe');
+    frame.className = 'manual-pdf-frame';
+    frame.title = title || key.split('/').pop();
+    frame.src = sectionObjectUrl(key);
+    host.append(frame);
+    return;
+  }
+  if (extension === 'png' || extension === 'svg') {
+    const image = document.createElement('img');
+    image.className = 'manual-page-image';
+    image.alt = title || key.split('/').pop();
+    image.src = sectionObjectUrl(key);
+    host.append(image);
+    return;
+  }
+  if (extension === 'md' || extension === 'txt') {
+    const pre = document.createElement('pre');
+    pre.className = 'manual-plain-text';
+    pre.textContent = await response.text();
+    if (requestId === manualPageRequestId) host.replaceChildren(pre);
+    return;
+  }
+  const html = await response.text();
+  if (requestId !== manualPageRequestId) return;
+  host.innerHTML = cleanSectionHtml(html, key);
+  host.querySelectorAll('[data-manual-file]').forEach(link => {
+    const open = () => showLiveManualPage(selectedVehicle, link.dataset.manualFile, link.textContent.trim() || link.dataset.manualFile.split('/').pop());
+    link.addEventListener('click', open);
+    link.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); }
+    });
+  });
+}
+loadLiveManualIndex = async function(vehicle) {
+  const requestId = ++tocLoadRequestId;
+  selectedVehicle = vehicle;
+  activeLiveVehicle = vehicle;
+  activeTocPath = [];
+  activeLivePage = null;
+  liveManualGroups = [];
+  activeManualGroup = 0;
+  renderLivePagination();
+  $('#documentList').replaceChildren(safeText('p', 'Loading the section index…', 'empty-state'));
+  $('.manual-tree').replaceChildren(safeText('p', 'Reading section tree from R2…', 'empty-state'));
+  try {
+    const key = manualKey(vehicle, 'tree.json');
+    const response = await fetchSectionObject(key);
+    const tree = await response.json();
+    if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
+    const roots = sectionTreeNodes(tree, vehicle);
+    if (!roots.length) throw new Error('tree.json contains no navigation nodes.');
+    liveManualTree = roots;
+    renderHierarchicalToc();
+    renderTocChildren(null);
+    setMobileView('vehicles', titleFromFolder(vehicle.name), 'Choose a manual section to continue.');
+    const count = sectionFileCount(roots);
+    announce('Loaded section tree with ' + count.toLocaleString() + ' exact file references.');
+  } catch (error) {
+    if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
+    $('.manual-tree').replaceChildren(safeText('p', 'Unable to read the section tree. ' + error.message, 'empty-state'));
+    $('#documentList').replaceChildren(safeText('p', 'This manual needs a tree.json at ' + manualKey(vehicle, 'tree.json') + '.', 'empty-state'));
+  }
+};
+tocLeafPages = function(node, out=[]) {
+  if (node?.fileKey) out.push({ pageId: String(node.fileKey), title: node.title, file: node.file });
+  (node?.children || []).forEach(child => tocLeafPages(child, out));
+  return out;
+};
+renderTocChildren = function(node) {
+  const list = $('#documentList');
+  if (!list) return;
+  const pages = tocLeafPages(node || { children: liveManualTree });
+  list.replaceChildren();
+  if (!pages.length) {
+    list.append(safeText('p', 'Choose a section to see its files here.', 'empty-state'));
+  } else {
+    pages.forEach(page => {
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'document-item';
+      item.append(iconNode(sectionIcon(page.title), 'doc-icon'));
+      const details = document.createElement('span');
+      details.append(safeText('b', page.title), safeText('small', page.file));
+      item.append(details, safeText('span', '›', 'doc-arrow'));
+      item.addEventListener('click', () => showLiveManualPage(selectedVehicle, page.pageId, page.title));
+      list.append(item);
+    });
+  }
+  const title = node?.title || 'Factory contents';
+  $('#sectionTitle').textContent = title + ' · Files';
+  const pathLabels = [titleFromFolder(selectedVehicle.name), ...activeTocPath.map(item => item.title)];
+  $('#crumb').textContent = pathLabels.join(' / ').toUpperCase();
+  liveManualGroups = [{ title, pages }];
+  activeManualGroup = 0;
+  $('.list-footnote').textContent = 'SECTION FILES · ' + pages.length.toLocaleString() + ' FILES';
+  $('#filterInput').value = '';
+  renderLivePagination();
+};
+showLiveManualPage = async function(vehicle, fileKey, title) {
+  const requestId = ++manualPageRequestId;
+  selectedVehicle = vehicle;
+  activeLiveVehicle = vehicle;
+  activeLivePage = null;
+  renderLivePagination();
+  const vehicleRoot = vehicle.id.replace(/\/$/, '') + '/';
+  const key = String(fileKey).startsWith(vehicleRoot) ? String(fileKey) : manualKey(vehicle, String(fileKey));
+  const fileName = key.split('/').pop();
+  const displayTitle = title || fileName;
+  $('#readerTitle').textContent = displayTitle;
+  $('#readerContent').replaceChildren(safeText('p', 'Loading ' + fileName + '…', 'empty-state'));
+  setMobileView('reader', displayTitle, titleFromFolder(vehicle.name) + ' · ' + fileName);
+  try {
+    const response = await fetchSectionObject(key);
+    if (requestId !== manualPageRequestId) return;
+    await renderSectionFile(response, key, displayTitle, requestId);
+    if (requestId !== manualPageRequestId) return;
+    activeLivePage = { pageId: key, title: displayTitle, file: fileName };
+    renderLivePagination();
+    const favoriteKey = ['favorite', encodeURIComponent(vehicle.id), key].join('|');
+    const bookmarkKey = ['bookmark', encodeURIComponent(vehicle.id), key].join('|');
+    const favorite = $('#favoriteButton');
+    const bookmark = $('#bookmarkButton');
+    if (favorite) {
+      const active = saved.has(favoriteKey);
+      favorite.textContent = active ? '★ Favorite' : '☆ Favorite';
+      favorite.setAttribute('aria-pressed', String(active));
+    }
+    if (bookmark) {
+      const active = saved.has(bookmarkKey);
+      bookmark.textContent = active ? '⚑ Bookmark' : '⚐ Bookmark';
+      bookmark.setAttribute('aria-pressed', String(active));
+    }
+    try {
+      localStorage.setItem('mep-recent-manual', JSON.stringify({
+        vehicleId: vehicle.id,
+        vehicleName: titleFromFolder(vehicle.name),
+        pageId: key,
+        title: displayTitle
+      }));
+    } catch {}
+    announce('Opened ' + fileName);
+  } catch (error) {
+    if (requestId !== manualPageRequestId) return;
+    const message = safeText('p', 'Unable to open ' + fileName + '. ' + error.message, 'empty-state');
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.className = 'subtle-button';
+    retry.textContent = 'Retry file';
+    retry.addEventListener('click', () => showLiveManualPage(vehicle, key, displayTitle));
+    $('#readerContent').replaceChildren(message, retry);
+  }
+};
+openLiveSearchResult = async function(vehicle, fileKey, title) {
+  await openLiveVehicle(vehicle);
+  if (selectedVehicle?.id !== vehicle.id) return;
+  const path = findTocPathForPage(liveManualTree, fileKey);
+  if (path) {
+    activeTocPath = path.slice(0, -1);
+    renderHierarchicalToc();
+    renderTocChildren(activeTocPath.at(-1) || null);
+  }
+  showLiveManualPage(vehicle, fileKey, title);
+};
