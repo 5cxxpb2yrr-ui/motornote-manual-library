@@ -7,7 +7,12 @@ const CONTENT_TYPES: Record<string, string> = {
   ".txt": "text/plain; charset=utf-8",
   ".pdf": "application/pdf",
   ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".gif": "image/gif",
+  ".webp": "image/webp",
   ".svg": "image/svg+xml",
+  ".css": "text/css; charset=utf-8",
   ".json": "application/json; charset=utf-8"
 };
 
@@ -28,9 +33,11 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
     !key.includes("\\") &&
     !/[\u0000-\u001f\u007f]/.test(key) &&
     segments.every(segment => segment.length > 0 && segment !== "." && segment !== "..") &&
-    segments.length >= 3 &&
-    /^\d{4}\s/.test(segments[0]) &&
-    /\.(html?|md|txt|pdf|png|svg|json)$/i.test(key);
+    segments.length >= 4 &&
+    segments[0] === "manuals" &&
+    /^[a-z0-9][a-z0-9-]*$/i.test(segments[1]) &&
+    segments[2].length > 0 &&
+    /\.(html?|md|txt|pdf|png|jpe?g|gif|webp|svg|css|json)$/i.test(key);
 
   if (!valid) {
     return Response.json({ error: "Invalid manual file key" }, { status: 400 });
