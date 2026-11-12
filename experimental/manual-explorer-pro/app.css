@@ -1889,3 +1889,58 @@ body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .manual-tree {
   .reader-footer .subtle-button { padding-left:5px !important;padding-right:5px !important;font-size:11px !important; }
   .reader-footer .reader-page-status { font-size:8px !important;letter-spacing:0 !important; }
 }
+
+
+/* Home hierarchy: search -> vehicles -> collapsed library overview. */
+body[data-mobile-view="home"] .home-garage { display:block !important; margin-top:2px; }
+body[data-mobile-view="home"] .dashboard-stats { display:none; }
+body[data-mobile-view="home"] .home-section-title { margin:12px 0 10px; }
+body[data-mobile-view="home"] .home-section-title h2 { font-size:25px; }
+body[data-mobile-view="home"] .home-vehicle-grid { grid-template-columns:repeat(2,minmax(0,1fr));gap:10px; }
+body[data-mobile-view="home"] .home-vehicle-card {
+  min-height:104px;align-content:start;padding:13px;border-color:#3b4144;
+  background:linear-gradient(145deg,#22272a,#191e21);color:#f2f4f5;
+}
+body[data-mobile-view="home"] .home-vehicle-card b { font-size:14px; }
+body[data-mobile-view="home"] .home-vehicle-card small { font-size:10px; }
+body[data-mobile-view="home"] .home-vehicle-card .home-car-icon { font-size:28px; }
+.library-overview-card {
+  margin:12px 0 18px;overflow:hidden;border:1px solid #3b4144;border-radius:10px;
+  background:linear-gradient(145deg,#202528,#171d20);color:#e9edef;
+}
+.library-overview-card summary {
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  min-height:54px;padding:10px 13px;cursor:pointer;list-style:none;
+}
+.library-overview-card summary::-webkit-details-marker { display:none; }
+.library-overview-card summary::after { content:'＋';color:#ff8a1f;font-size:20px;line-height:1; }
+.library-overview-card[open] summary::after { content:'−'; }
+.library-overview-card summary>span:first-child { display:grid;gap:3px; }
+.library-overview-card summary b {
+  color:#ff9a3d;font:600 12px 'IBM Plex Sans',sans-serif;letter-spacing:.8px;
+}
+.library-overview-card summary small { color:#aeb8bf;font-size:10px; }
+.library-overview-card .overview-count {
+  margin-left:auto;color:#9ba6ad;font:10px 'IBM Plex Mono',monospace;letter-spacing:.4px;
+}
+.library-overview-content { padding:0 10px 10px; }
+.library-overview-content .connection-card { min-height:54px;margin:0 0 9px;padding:8px 10px; }
+.library-overview-content .connection-icon { width:30px;height:30px;font-size:19px; }
+.library-overview-content .connection-card b { font-size:11px; }
+.library-overview-content .connection-card small { font-size:9px; }
+.library-overview-content .dashboard-stats {
+  display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:0;
+}
+.library-overview-content .dashboard-stats .stat-card {
+  min-height:67px;padding:8px 10px;border:1px solid #343d42;border-radius:8px;
+  background:linear-gradient(145deg,#252c30,#1b2226);
+}
+.library-overview-content .dashboard-stats .stat-card>span { font-size:8px; }
+.library-overview-content .dashboard-stats .stat-card strong { font-size:22px; }
+.library-overview-content .dashboard-stats .stat-card small { font-size:9px; }
+.library-overview-content .dashboard-stats .status-text { font-size:17px !important; }
+@media(max-width:360px) {
+  .library-overview-content .dashboard-stats { grid-template-columns:1fr; }
+  .library-overview-card summary { padding:9px 10px; }
+  .library-overview-card .overview-count { font-size:8px; }
+}
