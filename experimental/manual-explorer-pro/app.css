@@ -1671,3 +1671,183 @@ body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .manual-tree {
   color: inherit;
   font: 13px/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
 }
+
+
+/* Focused mobile reader: remove the app shell while a factory page is open. */
+@media (max-width:1200px) {
+  body[data-mobile-view="reader"] {
+    height:100dvh !important;
+    min-height:100dvh !important;
+    overflow:hidden !important;
+    background:#fff !important;
+  }
+  body[data-mobile-view="reader"] .topbar,
+  body[data-mobile-view="reader"] .mobile-nav,
+  body[data-mobile-view="reader"] .page-heading,
+  body[data-mobile-view="reader"] .stats,
+  body[data-mobile-view="reader"] .dashboard-search,
+  body[data-mobile-view="reader"] .connection-card,
+  body[data-mobile-view="reader"] .home-garage,
+  body[data-mobile-view="reader"] .mobile-context,
+  body[data-mobile-view="reader"] .favorites-screen,
+  body[data-mobile-view="reader"] .vehicle-panel,
+  body[data-mobile-view="reader"] .document-panel {
+    display:none !important;
+  }
+  body[data-mobile-view="reader"] .app-shell,
+  body[data-mobile-view="reader"] .workspace,
+  body[data-mobile-view="reader"] .explorer-layout {
+    display:block !important;
+    width:100% !important;
+    height:100dvh !important;
+    min-height:0 !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:hidden !important;
+  }
+  body[data-mobile-view="reader"] .reader-panel {
+    display:flex !important;
+    flex-direction:column !important;
+    width:100% !important;
+    height:100dvh !important;
+    min-height:0 !important;
+    max-height:100dvh !important;
+    margin:0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    overflow:hidden !important;
+    background:#171e22 !important;
+  }
+  body[data-mobile-view="reader"] .reader-toolbar {
+    flex:0 0 auto !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:9px !important;
+    min-height:calc(50px + env(safe-area-inset-top)) !important;
+    padding:calc(4px + env(safe-area-inset-top)) calc(9px + env(safe-area-inset-right)) 4px calc(9px + env(safe-area-inset-left)) !important;
+    background:#171e22 !important;
+    border-bottom:1px solid #354047 !important;
+  }
+  body[data-mobile-view="reader"] .reader-back-button {
+    display:grid !important;
+    place-items:center !important;
+    flex:0 0 34px !important;
+    width:34px !important;
+    height:36px !important;
+    min-height:36px !important;
+    padding:0 !important;
+    border:0 !important;
+    background:transparent !important;
+    color:#ff8a1f !important;
+    font-size:34px !important;
+    line-height:1 !important;
+  }
+  body[data-mobile-view="reader"] .reader-toolbar > div:first-of-type {
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  body[data-mobile-view="reader"] .reader-toolbar .eyebrow,
+  body[data-mobile-view="reader"] .reader-meta,
+  body[data-mobile-view="reader"] #favoriteButton,
+  body[data-mobile-view="reader"] #tocOpen {
+    display:none !important;
+  }
+  body[data-mobile-view="reader"] .reader-toolbar h2 {
+    margin:0 !important;
+    overflow:hidden !important;
+    color:#f4f5f6 !important;
+    font:600 18px/1.2 'IBM Plex Sans',sans-serif !important;
+    text-overflow:ellipsis !important;
+    white-space:nowrap !important;
+  }
+  body[data-mobile-view="reader"] .reader-actions {
+    display:flex !important;
+    flex:0 0 auto !important;
+    align-items:center !important;
+    gap:5px !important;
+  }
+  body[data-mobile-view="reader"] #readerSearchButton,
+  body[data-mobile-view="reader"] #bookmarkButton {
+    display:grid !important;
+    place-items:center !important;
+    width:34px !important;
+    height:36px !important;
+    min-height:36px !important;
+    padding:0 !important;
+    border:0 !important;
+    background:transparent !important;
+    color:#d7dce0 !important;
+    font-size:22px !important;
+  }
+  body[data-mobile-view="reader"] #bookmarkButton[aria-pressed="true"] {
+    color:#ff8a1f !important;
+  }
+  body[data-mobile-view="reader"] .reader-content {
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:12px calc(12px + env(safe-area-inset-right)) 20px calc(12px + env(safe-area-inset-left)) !important;
+    overflow:auto !important;
+    overscroll-behavior:contain !important;
+    -webkit-overflow-scrolling:touch !important;
+    background:#fff !important;
+    color:#171b25 !important;
+  }
+  body[data-mobile-view="reader"] .reader-content h1,
+  body[data-mobile-view="reader"] .reader-content h2,
+  body[data-mobile-view="reader"] .reader-content h3,
+  body[data-mobile-view="reader"] .reader-content h4,
+  body[data-mobile-view="reader"] .reader-content p,
+  body[data-mobile-view="reader"] .reader-content li,
+  body[data-mobile-view="reader"] .reader-content td,
+  body[data-mobile-view="reader"] .reader-content th {
+    color:#171b25 !important;
+  }
+  body[data-mobile-view="reader"] .reader-content img {
+    max-width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer {
+    position:relative !important;
+    z-index:2 !important;
+    display:flex !important;
+    flex:0 0 auto !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:6px !important;
+    min-height:48px !important;
+    margin:0 !important;
+    padding:5px calc(9px + env(safe-area-inset-right)) calc(5px + env(safe-area-inset-bottom)) calc(9px + env(safe-area-inset-left)) !important;
+    background:#171e22 !important;
+    border-top:1px solid #354047 !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer .subtle-button {
+    min-height:34px !important;
+    padding:6px 9px !important;
+    border:0 !important;
+    border-radius:7px !important;
+    background:transparent !important;
+    color:#f4f5f6 !important;
+    font-size:12px !important;
+    white-space:nowrap !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer #nextDoc {
+    color:#ff8a1f !important;
+    font-weight:700 !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer .reader-page-status {
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    text-align:center !important;
+    color:#aeb8bf !important;
+    font:10px 'IBM Plex Mono',monospace !important;
+    letter-spacing:.3px !important;
+    white-space:nowrap !important;
+  }
+}
