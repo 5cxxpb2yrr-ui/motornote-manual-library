@@ -866,7 +866,20 @@ function ensureTocDrilldownControls() {
   if(!back.dataset.bound){
     back.dataset.bound='true';
     back.addEventListener('click',()=>{
-      if(!activeTocPath.length){setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');return;}
+      if(!activeTocPath.length){
+        // At the vehicle's root, Back returns to the vehicle picker so another
+        // manual can be selected; do not leave the old tree overlay active.
+        selectedVehicle=null;
+        activeLiveVehicle=null;
+        activeLivePage=null;
+        liveManualTree=[];
+        activeTocPath=[];
+        $('.vehicle-panel').classList.remove('show-toc');
+        $('.manual-tree').replaceChildren();
+        $('#documentList').replaceChildren(safeText('p','Choose a vehicle to browse its factory manual.','empty-state'));
+        setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
+        return;
+      }
       activeTocPath=activeTocPath.slice(0,-1);
       const parent=activeTocPath.at(-1)||null;
       renderHierarchicalToc();
