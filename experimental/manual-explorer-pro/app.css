@@ -2278,3 +2278,24 @@ button,.btn,.rail-link,.mobile-nav button,.vehicle-item,.document-item,
 @media (hover: hover) and (pointer: fine) and (min-width:701px) {
   .mobile-fab { display:none !important; }
 }
+
+
+/* Header history shortcut and recent-manuals modal. */
+.top-quick-actions { display:flex;align-items:center;gap:6px;flex:0 0 auto; }
+.history-trigger svg { width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round; }
+.history-dialog { width:min(560px,calc(100vw - 28px)); }
+.recent-manual-list { display:grid;gap:8px;max-height:min(58dvh,520px);overflow:auto;padding:14px 0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch; }
+.recent-history-item { display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);color:var(--text);text-align:left;cursor:pointer; }
+.recent-history-item>span:nth-child(2) { display:grid;gap:4px;min-width:0;flex:1; }
+.recent-history-item b { font-size:14px;line-height:1.35; }
+.recent-history-item small { color:var(--muted);font-size:12px;line-height:1.35; }
+.recent-history-icon,.recent-history-arrow { color:var(--accent2);font-size:20px; }
+.recent-history-arrow { font-size:24px; }
+@media(max-width:700px) {
+  .top-quick-actions { gap:4px; }
+  .history-dialog { position:fixed;inset:auto 0 0;margin:0;width:100%;max-width:none;max-height:88dvh;border-radius:16px 16px 0 0;padding:22px 17px calc(20px + env(safe-area-inset-bottom)); }
+  .history-dialog[open] { animation:rise .18s ease-out; }
+}
+@media(hover:hover) {
+  .recent-history-item:hover { border-color:var(--accent); }
+}
