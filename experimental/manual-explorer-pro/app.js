@@ -1207,7 +1207,11 @@ function sectionTreeNodes(input, vehicle, parentFolders=[]) {
   return sectionChildren(input).map(raw => {
     const title = String(raw.n ?? raw.title ?? raw.name ?? 'Untitled section').trim() || 'Untitled section';
     const rawFile = raw.file ?? raw.filename ?? raw.fileName ?? null;
-    const exactFile = safeSectionFile(rawFile);
+    const pageNumber = Number(raw.p);
+    const pageFile = Number.isInteger(pageNumber) && pageNumber > 0
+      ? 'pages/' + pageNumber + '.html'
+      : null;
+    const exactFile = safeSectionFile(rawFile || pageFile);
     let fileKey = null;
     if (exactFile) {
       const vehicleRoot = vehicle.id.replace(/\/$/, '') + '/';
@@ -1339,23 +1343,29 @@ loadLiveManualIndex = async function(vehicle) {
   $('#documentList').replaceChildren(safeText('p', 'Loading the section index…', 'empty-state'));
   $('.manual-tree').replaceChildren(safeText('p', 'Reading section tree from R2…', 'empty-state'));
   try {
-    const key = manualKey(vehicle, 'tree.json');
-    const response = await fetchSectionObject(key);
-    const tree = await response.json();
+    const treeFiles = Array.isArray(vehicle.treeFiles) ? vehicle.treeFiles : [];
+    if (!treeFiles.length) throw new Error('No section tree files are registered for this vehicle.');
+    const trees = await Promise.all(treeFiles.map(async entry => {
+      const response = await fetchSectionObject(entry.key);
+      return { entry, tree: await response.json() };
+    }));
     if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
-    const roots = sectionTreeNodes(tree, vehicle);
-    if (!roots.length) throw new Error('tree.json contains no navigation nodes.');
+    const roots = trees.flatMap(({ entry, tree }) => sectionTreeNodes([{
+      n: tree.title || entry.title,
+      c: sectionChildren(tree)
+    }], vehicle));
+    if (!roots.length) throw new Error('The registered section trees contain no navigation nodes.');
     const count = sectionFileCount(roots);
-    if (!count) throw new Error('This tree has no exact file references. Rebuild its page leaves with a file value such as "EM-01 Engine Removal.md".');
+    if (!count) throw new Error('The section trees contain no usable page references.');
     liveManualTree = roots;
     renderHierarchicalToc();
     renderTocChildren(null);
     setMobileView('vehicles', titleFromFolder(vehicle.name), 'Choose a manual section to continue.');
-    announce('Loaded section tree with ' + count.toLocaleString() + ' exact file references.');
+    announce('Loaded ' + trees.length + ' section trees with ' + count.toLocaleString() + ' exact page references.');
   } catch (error) {
     if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
-    $('.manual-tree').replaceChildren(safeText('p', 'Unable to read the section tree. ' + error.message, 'empty-state'));
-    $('#documentList').replaceChildren(safeText('p', 'This manual needs a tree.json at ' + manualKey(vehicle, 'tree.json') + '.', 'empty-state'));
+    $('.manual-tree').replaceChildren(safeText('p', 'Unable to read the section trees. ' + error.message, 'empty-state'));
+    $('#documentList').replaceChildren(safeText('p', 'The R2 catalog must register the section tree files for this vehicle.', 'empty-state'));
   }
 };
 tocLeafPages = function(node, out=[]) {
