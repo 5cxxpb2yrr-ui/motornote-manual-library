@@ -93,13 +93,16 @@ def make_s3():
 
 def parse_page(s3, key: str) -> dict[str, Any] | None:
     response = s3.get_object(Bucket=BUCKET, Key=key)
-    raw = response["Body"].read()
-    if not raw:
-        return None
     extension = key.rsplit(".", 1)[-1].lower()
     if extension in {"html", "htm", "md", "txt"}:
+        raw = response["Body"].read()
+        if not raw:
+            return None
         source = raw.decode("utf-8", errors="replace")
+        byte_count = len(raw)
     else:
+        byte_count = int(response.get("ContentLength", 0))
+        response["Body"].close()
         source = ""
     if extension in {"html", "htm"}:
         parser = PageText()
@@ -131,7 +134,7 @@ def parse_page(s3, key: str) -> dict[str, Any] | None:
         "path": key,
         "title": title or os.path.basename(key),
         "text": text,
-        "bytes": len(raw),
+        "bytes": byte_count,
     }
 
 def main() -> int:
