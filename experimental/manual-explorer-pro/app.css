@@ -2269,3 +2269,12 @@ button,.btn,.rail-link,.mobile-nav button,.vehicle-item,.document-item,
 .manual-tree-heading .toc-back-button { min-height:42px;font-size:17px;line-height:1.2;font-weight:750; }
 .manual-tree-heading h2 { font-size:17px; }
 #tocBreadcrumbs { margin-top:2px !important;padding-top:0 !important; }
+
+/* The floating navigation is a touch control, not a narrow-screen-only control.
+   Keep it visible on phones in landscape where CSS viewport width exceeds 700px. */
+@media (pointer: coarse) {
+  .mobile-fab { display:flex !important; position:fixed; z-index:1000; }
+}
+@media (hover: hover) and (pointer: fine) and (min-width:701px) {
+  .mobile-fab { display:none !important; }
+}
