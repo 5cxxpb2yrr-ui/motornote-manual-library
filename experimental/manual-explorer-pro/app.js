@@ -35,7 +35,7 @@ $('#themeButton').addEventListener('click',()=>{
   applyColorTheme(next);
   announce(next==='light'?'Light theme enabled':'Dark theme enabled');
 });
-$('#searchOpen').addEventListener('click',()=>{$('#searchDialog').showModal();$('#globalSearch').focus()});$('#searchClose').addEventListener('click',()=>$('#searchDialog').close());
+$('#searchOpen').addEventListener('click',()=>$('#searchDialog').showModal());$('#searchClose').addEventListener('click',()=>$('#searchDialog').close());
 
 function openIndexDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open('lifeos-manual-explorer',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('index'))req.result.createObjectStore('index')};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
 async function cachedGet(key){try{const db=await openIndexDb();return await new Promise((resolve,reject)=>{const tx=db.transaction('index','readonly');const req=tx.objectStore('index').get(key);req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}catch{return null}}
@@ -273,7 +273,6 @@ function activateView(view){
   const normalized = view === 'dashboard' ? 'home' : view === 'saved' ? 'favorites' : view;
   if(normalized==='search'){
     $('#searchDialog').showModal();
-    $('#globalSearch').focus();
     return;
   }
   if(normalized==='more'){
@@ -887,12 +886,12 @@ function renderHierarchicalToc() {
   if(back)back.hidden=activeTocPath.length===0;
   if(crumbs){
     crumbs.replaceChildren();
-    const root=document.createElement('button');root.type='button';root.className='subtle-button toc-crumb-button';root.textContent=vehicleName;
+    const root=document.createElement('button');root.type='button';root.className='toc-crumb-button';root.textContent=vehicleName;
     root.addEventListener('click',()=>{activeTocPath=[];renderHierarchicalToc();renderTocChildren(null);});
     crumbs.append(root);
     activeTocPath.forEach((node,index)=>{
       crumbs.append(safeText('span','/','toc-crumb-separator'));
-      const item=document.createElement('button');item.type='button';item.className='subtle-button toc-crumb-button';item.textContent=node.title;
+      const item=document.createElement('button');item.type='button';item.className='toc-crumb-button';item.textContent=node.title;
       item.addEventListener('click',()=>{activeTocPath=activeTocPath.slice(0,index+1);renderHierarchicalToc();renderTocChildren(node);});
       crumbs.append(item);
     });
@@ -1069,7 +1068,6 @@ async function openLiveSearchResult(vehicle,pageId,title) {
     restoreNavigationHighlight();
     document.querySelectorAll('.mobile-nav [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile==='search'));
     document.querySelectorAll('.rail-link[data-view]').forEach(button=>button.classList.toggle('active',button.dataset.view==='search'));
-    globalSearch?.focus();
   }
   // Replace controls that had no action, or whose old listener opened the same dialog twice.
   for(const id of ['searchOpen','searchOpenFallback','dashboardSearch']){
@@ -1445,7 +1443,7 @@ function renderSectionBreadcrumbs() {
     if (!host) return;
     host.replaceChildren();
     segments.forEach((segment, index) => {
-      if (index) host.append(safeText('span', ' / ', 'reader-crumb-separator'));
+      if (index) host.append(safeText('span', '/', 'reader-crumb-separator'));
       const button = document.createElement('button');
       button.type = 'button';
       button.className = className;
