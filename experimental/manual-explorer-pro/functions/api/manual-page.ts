@@ -28,7 +28,9 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
     !key.includes("\\") &&
     !/[\u0000-\u001f\u007f]/.test(key) &&
     segments.every(segment => segment.length > 0 && segment !== "." && segment !== "..") &&
-    segments.length >= 3 &&\n    /^\\d{4}\\s/.test(segments[0]) &&\n    /\.(html?|md|txt|pdf|png|svg|json)$/i.test(key);
+    segments.length >= 3 &&
+    /^\d{4}\s/.test(segments[0]) &&
+    /\.(html?|md|txt|pdf|png|svg|json)$/i.test(key);
 
   if (!valid) {
     return Response.json({ error: "Invalid manual file key" }, { status: 400 });
@@ -58,6 +60,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
     object.writeHttpMetadata(headers);
     headers.set("Content-Type", type);
     headers.set("X-Content-Type-Options", "nosniff");
+    headers.set("Content-Disposition", "inline");
     return new Response(object.body, { headers });
   } catch (error) {
     return Response.json({
