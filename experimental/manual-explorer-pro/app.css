@@ -2188,3 +2188,35 @@ button,.btn,.rail-link,.mobile-nav button,.vehicle-item,.document-item,
   .library-overview-card summary small,.library-overview-card .overview-count { font-size:11px !important; }
   .list-footnote { font-size:11px !important; }
 }
+
+
+/* Compact, consistent drill-down and reader breadcrumbs. */
+.toc-crumbs, .toc-breadcrumbs, #readerBreadcrumbs, #crumb {
+  display:flex; align-items:center; flex-wrap:wrap; gap:2px; min-width:0;
+}
+.toc-crumb-button, .reader-crumb-button {
+  appearance:none !important; border:0 !important; background:transparent !important;
+  box-shadow:none !important; border-radius:0 !important; min-height:0 !important;
+  width:auto !important; padding:1px 2px !important; margin:0 !important;
+  color:var(--muted) !important; font:inherit !important; font-size:12px !important;
+  line-height:1.35 !important; letter-spacing:inherit !important; text-transform:none !important;
+  text-align:left; text-decoration:underline; text-decoration-color:transparent;
+  text-underline-offset:2px; white-space:normal;
+}
+.toc-crumb-button:hover,.toc-crumb-button:focus-visible,
+.reader-crumb-button:hover,.reader-crumb-button:focus-visible {
+  color:var(--accent) !important; text-decoration-color:currentColor; outline:none;
+}
+.toc-crumb-separator,.reader-crumb-separator {
+  display:inline-block; padding:0 1px; margin:0; color:var(--muted);
+  font-size:11px; line-height:1; white-space:pre;
+}
+/* The selected vehicle and section card already communicate location. */
+.mobile-context { display:none !important; }
+/* Search lives once in the top bar, next to the theme switch. */
+.search-trigger { width:44px !important; height:44px !important; min-width:44px; font-size:25px !important; line-height:1; }
+@media(max-width:700px) {
+  .topbar { justify-content:space-between; }
+  .top-actions { gap:8px; }
+  .search-trigger,.theme-toggle { width:44px !important; height:44px !important; }
+}
