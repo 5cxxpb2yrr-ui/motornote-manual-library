@@ -382,11 +382,23 @@ function cleanManualFragment(html, key) {
       }
     } catch {}
   });
-  // Scion page 7257 contains a rasterized instrument-panel legend. Add one
-  // verified, accessible cross-reference rather than guessing image hotspot geometry.
-  if (/scion-service-manual/i.test(key) && key.endsWith('/pages/7257.html')) {
-    const instrumentPanelImage = parsed.querySelector('img[src*="236470145.png"]');
+  // Scion page 7256 contains the instrument-panel legend as a raster image.
+  // The D 4 entry is verified against page 3214 (System Outline).
+  if (/scion-service-manual/i.test(key) && key.endsWith('/pages/7256.html')) {
+    const instrumentPanelImage = parsed.querySelector('img[src*="236689882.png"]');
     if (instrumentPanelImage && !parsed.querySelector('.manual-image-crossrefs')) {
+      const imageHost = instrumentPanelImage.closest('.oxe-image') || instrumentPanelImage.parentElement;
+      if (imageHost) {
+        imageHost.classList.add('manual-image-hotspot-host');
+        const hotspot = document.createElement('a');
+        hotspot.href = '../pages/3214.html';
+        hotspot.className = 'manual-image-hotspot';
+        hotspot.dataset.manualTitle = 'System Outline';
+        hotspot.setAttribute('aria-label', 'D 4, Door Lock Control Relay — open System Outline');
+        hotspot.title = 'D 4 — Door Lock Control Relay';
+        imageHost.append(hotspot);
+      }
+
       const crossrefs = document.createElement('div');
       crossrefs.className = 'manual-image-crossrefs';
       const kicker = document.createElement('div');
