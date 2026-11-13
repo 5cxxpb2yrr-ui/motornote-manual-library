@@ -146,14 +146,14 @@ $$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
   const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');
   if(menu)menu.hidden=true;
   if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');toggle.textContent='＋';}
-  if(tab==='home')setMobileView('home','Your garage','Choose a vehicle or continue where you left off.');
-  if(tab==='vehicles')setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
+  if(tab==='home')setMobileView('home','Your equipment','Choose equipment or continue where you left off.');
+  if(tab==='vehicles')setMobileView('vehicles','Equipment','Choose equipment to browse its manuals.');
   if(tab==='favorites'){renderFavorites();setMobileView('favorites','Favorites','Your saved procedures and references.')}
 }));
 $('#mobileFabToggle')?.addEventListener('click',()=>{const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');if(!menu||!toggle)return;menu.hidden=!menu.hidden;toggle.setAttribute('aria-expanded',String(!menu.hidden));toggle.setAttribute('aria-label',menu.hidden?'Open navigation':'Close navigation');toggle.textContent=menu.hidden?'＋':'×';});
 document.addEventListener('click',event=>{const fab=$('#mobileFab');if(fab&&!fab.contains(event.target)){const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');if(menu)menu.hidden=true;if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');toggle.textContent='＋';}}});
 $$('[data-home-vehicle]').forEach(button=>button.addEventListener('click',()=>{
-  setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
+  setMobileView('vehicles','Equipment','Choose equipment to browse its manuals.');
   const target=$('.vehicle-item[data-vehicle="'+button.dataset.homeVehicle+'"]');
   if(target)target.click();
 }));
@@ -172,11 +172,20 @@ $$('.document-item').forEach((item,index)=>item.addEventListener('click',()=>{
 // Recent manuals are opened through the History modal, not the removed dashboard card.
 $('#tocOpen').addEventListener('click',()=>setMobileView('vehicles','Table of contents','Choose a manual section.'));
 renderFavorites();
-setMobileView('home','Your garage','Choose a vehicle or continue where you left off.');
+setMobileView('home','Your equipment','Choose equipment or continue where you left off.');
 
 
 // Live garage inventory: R2 remains the source of truth.
 let liveCatalog = null;
+const equipmentDisclosure = $('#equipmentDisclosure');
+if (equipmentDisclosure) {
+  try {
+    if (localStorage.getItem('mep-equipment-collapsed') === 'true') equipmentDisclosure.open = false;
+  } catch {}
+  equipmentDisclosure.addEventListener('toggle', () => {
+    try { localStorage.setItem('mep-equipment-collapsed', String(!equipmentDisclosure.open)); } catch {}
+  });
+}
 
 function iconNode(name,className='ui-icon'){
   const paths={car:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 11 6.7 6.8A2 2 0 0 1 8.6 5.5h6.8a2 2 0 0 1 1.9 1.3L19 11l1.4 1.2c.4.3.6.8.6 1.3v4a1 1 0 0 1-1 1h-1.2a1.8 1.8 0 0 1-3.6 0H8.8a1.8 1.8 0 0 1-3.6 0H4a1 1 0 0 1-1-1v-4c0-.5.2-1 .6-1.3L5 11Z\"/><path d=\"M5 11h14M6 15h2m8 0h2\"/></svg>",engine:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 10h2l2-3h8l2 3h2v9h-3v-2H9v2H6v-4H4zM9 7V4h5v3m-4 4v3m4-3v3\"/></svg>",wrench:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14.7 6.3a5 5 0 0 0-6.4 6.4L3.5 17.5a2.1 2.1 0 0 0 3 3l4.8-4.8a5 5 0 0 0 6.4-6.4l-3 3-3.4-3.4z\"/></svg>",zap:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m13 2-9 12h7l-1 8 10-13h-7z\"/></svg>",brake:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 3.5v2m8.5 6.5h-2M12 20.5v-2M3.5 12h2\"/></svg>",gear:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m10 2-.5 2.1a8 8 0 0 0-1.8 1L5.6 4.5 3.5 8l1.7 1.4a8 8 0 0 0 0 2.1L3.5 13l2.1 3.5 2.1-.6a8 8 0 0 0 1.8 1L10 19h4l.5-2.1a8 8 0 0 0 1.8-1l2.1.6 2.1-3.5-1.7-1.5a8 8 0 0 0 0-2.1L20.5 8l-2.1-3.5-2.1.6a8 8 0 0 0-1.8-1L14 2z\"/><circle cx=\"12\" cy=\"10.5\" r=\"3\"/></svg>",book:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21zM4 5.5v15.5m4-14h8m-8 4h8\"/></svg>"};
@@ -190,9 +199,11 @@ function vehiclePhotoFor(vehicle){
 }
 function vehiclePhoto(vehicle,className){
   const wrap=document.createElement('span');wrap.className=className;
+  const type=String(vehicle.equipmentType||vehicle.type||vehicle.category||'vehicle').toLowerCase();
+  const fallback=type.includes('appliance')?'wrench':type.includes('tool')?'gear':type.includes('vehicle')||type.includes('car')?'car':'book';
   const src=vehiclePhotoFor(vehicle);
-  if(src){const img=document.createElement('img');img.src=src;img.alt=titleFromFolder(vehicle.name);img.loading='lazy';img.decoding='async';img.onerror=()=>{wrap.replaceChildren(iconNode('car','vehicle-fallback-icon'));};wrap.append(img);}
-  else wrap.append(iconNode('car','vehicle-fallback-icon'));
+  if(src){const img=document.createElement('img');img.src=src;img.alt=titleFromFolder(vehicle.name);img.loading='lazy';img.decoding='async';img.onerror=()=>{wrap.replaceChildren(iconNode(fallback,'vehicle-fallback-icon'));};wrap.append(img);}
+  else wrap.append(iconNode(fallback,'vehicle-fallback-icon'));
   return wrap;
 }
 function sectionIcon(label){
@@ -205,7 +216,19 @@ function titleFromFolder(value){
 }
 function renderLiveGarage(catalog){
   liveCatalog=catalog;
-  const allVehicles=catalog.manuals.flatMap(manual=>manual.vehicles.map(vehicle=>({...vehicle,manualId:manual.id,make:manual.make,fileCount:manual.fileCount})));
+  // Prefer the future-proof equipment collection when present. Older vehicle-only
+  // catalogs remain supported without a migration.
+  const allVehicles=Array.isArray(catalog.equipment)
+    ? catalog.equipment.map(item=>({
+        ...item,
+        manualId:item.manualId||item.manual_id||item.manuals?.[0],
+        make:item.make||item.brand||item.category||'EQUIPMENT',
+        fileCount:Number(item.fileCount??item.file_count)||0,
+        equipmentType:item.equipmentType||item.type||item.category||'equipment'
+      }))
+    : catalog.manuals.flatMap(manual=>(manual.vehicles||[]).map(vehicle=>({
+        ...vehicle,manualId:manual.id,make:manual.make,fileCount:manual.fileCount,equipmentType:vehicle.equipmentType||'vehicle'
+      })));
   $('#vehicleTotal').textContent=String(allVehicles.length).padStart(2,'0');
   $('#manualTotal').textContent=String(catalog.manualCount).padStart(2,'0');
   const status=$('#libraryStatus'); if(status) status.textContent='ONLINE';
@@ -238,12 +261,12 @@ function renderLiveGarage(catalog){
   }
   $('#vehicleManualTitle').textContent='FACTORY CONTENTS';
   if(!allVehicles.length){
-    list.replaceChildren(safeText('p','No vehicles are currently published in the manual catalog.','empty-state'));
-    home.replaceChildren(safeText('p','No vehicles are currently published in the manual catalog.','empty-state'));
+    list.replaceChildren(safeText('p','No equipment is currently published in the manual catalog.','empty-state'));
+    home.replaceChildren(safeText('p','No equipment is currently published in the manual catalog.','empty-state'));
     const status=$('#libraryStatus');if(status)status.textContent='EMPTY';
     return;
   }
-  announce('Loaded '+allVehicles.length+' vehicle entries from the R2 manual library.');
+  announce('Loaded '+allVehicles.length+' equipment entries from the R2 manual library.');
 }
 function openLiveVehicle(vehicle){
   const title=titleFromFolder(vehicle.name);
@@ -271,7 +294,7 @@ async function loadLiveGarage(){
       const retry=document.createElement('button');retry.type='button';retry.className='subtle-button';retry.textContent='Retry catalog';
       retry.addEventListener('click',loadLiveGarage);target.append(retry);
     }
-    announce('R2 vehicle catalog could not be loaded.');
+    announce('R2 equipment catalog could not be loaded.');
   }
 }
 loadLiveGarage();
@@ -300,7 +323,7 @@ function activateView(view){
     $('.vehicle-panel').classList.remove('show-toc');
     $('.manual-tree').replaceChildren();
   }
-  const labels={home:['Your garage','Choose a vehicle or continue where you left off.'],vehicles:[selectedVehicle?titleFromFolder(selectedVehicle.name):'Vehicles','Choose a vehicle to browse its manuals.'],library:[$('#sectionTitle').textContent,'Manual pages in this section.'],reader:[$('#readerTitle').textContent,'Factory manual reference.'],favorites:['Favorites','Your saved procedures and references.']};
+  const labels={home:['Your equipment','Choose equipment or continue where you left off.'],vehicles:[selectedVehicle?titleFromFolder(selectedVehicle.name):'Equipment','Choose equipment to browse its manuals.'],library:[$('#sectionTitle').textContent,'Manual pages in this section.'],reader:[$('#readerTitle').textContent,'Factory manual reference.'],favorites:['Favorites','Your saved procedures and references.']};
   const info=labels[normalized]||labels.home;
   setMobileView(normalized,info[0],info[1]);
   $$('.mobile-fab-menu [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===normalized));
@@ -910,7 +933,7 @@ function ensureTocDrilldownControls() {
         $('.vehicle-panel').classList.remove('show-toc');
         $('.manual-tree').replaceChildren();
         $('#documentList').replaceChildren(safeText('p','Choose a vehicle to browse its factory manual.','empty-state'));
-        setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
+        setMobileView('vehicles','Equipment','Choose equipment to browse its manuals.');
         return;
       }
       activeTocPath=activeTocPath.slice(0,-1);
