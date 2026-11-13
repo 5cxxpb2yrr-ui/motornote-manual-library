@@ -218,7 +218,7 @@ function renderLiveGarage(catalog){
   liveCatalog=catalog;
   // Prefer the future-proof equipment collection when present. Older vehicle-only
   // catalogs remain supported without a migration.
-  const allVehicles=Array.isArray(catalog.equipment)
+  const allEquipment=Array.isArray(catalog.equipment)
     ? catalog.equipment.map(item=>({
         ...item,
         manualId:item.manualId||item.manual_id||item.manuals?.[0],
@@ -229,15 +229,15 @@ function renderLiveGarage(catalog){
     : catalog.manuals.flatMap(manual=>(manual.vehicles||[]).map(vehicle=>({
         ...vehicle,manualId:manual.id,make:manual.make,fileCount:manual.fileCount,equipmentType:vehicle.equipmentType||'vehicle'
       })));
-  $('#vehicleTotal').textContent=String(allVehicles.length).padStart(2,'0');
+  $('#vehicleTotal').textContent=String(allEquipment.length).padStart(2,'0');
   $('#manualTotal').textContent=String(catalog.manualCount).padStart(2,'0');
   const status=$('#libraryStatus'); if(status) status.textContent='ONLINE';
   const connection=$('.connection'); if(connection) connection.textContent='R2 LIBRARY ONLINE';
   const list=$('#vehicleList');list.replaceChildren();
   const home=$('#homeVehicleGrid');home.replaceChildren();
   const collapsedIcons=$('#collapsedEquipmentIcons');if(collapsedIcons)collapsedIcons.replaceChildren();
-  const equipmentCount=$('#equipmentCount');if(equipmentCount)equipmentCount.textContent=allVehicles.length+' ITEMS';
-  for(const vehicle of allVehicles){
+  const equipmentCount=$('#equipmentCount');if(equipmentCount)equipmentCount.textContent=allEquipment.length+' ITEMS';
+  for(const vehicle of allEquipment){
     const label=titleFromFolder(vehicle.name);
     const item=document.createElement('button');item.type='button';item.className='vehicle-item';
     item.dataset.liveHref=vehicle.href;
@@ -260,13 +260,13 @@ function renderLiveGarage(catalog){
     }
   }
   $('#vehicleManualTitle').textContent='FACTORY CONTENTS';
-  if(!allVehicles.length){
+  if(!allEquipment.length){
     list.replaceChildren(safeText('p','No equipment is currently published in the manual catalog.','empty-state'));
     home.replaceChildren(safeText('p','No equipment is currently published in the manual catalog.','empty-state'));
     const status=$('#libraryStatus');if(status)status.textContent='EMPTY';
     return;
   }
-  announce('Loaded '+allVehicles.length+' equipment entries from the R2 manual library.');
+  announce('Loaded '+allEquipment.length+' equipment entries from the R2 manual library.');
 }
 function openLiveVehicle(vehicle){
   const title=titleFromFolder(vehicle.name);
