@@ -959,6 +959,16 @@ function ensureTocDrilldownControls() {
       setMobileView('vehicles',parent?.title||titleFromFolder(selectedVehicle.name),'Choose a manual section.');
     });
   }
+  const heading=$('.vehicle-panel > .manual-tree-heading');
+  if(heading){
+    heading.replaceChildren(back);
+    if(selectedVehicle){
+      const identity=vehiclePhoto(selectedVehicle,'manual-vehicle-icon');
+      identity.setAttribute('aria-hidden','true');
+      const image=identity.querySelector('img');if(image)image.alt='';
+      heading.append(identity);
+    }
+  }
   let crumbs=$('#tocBreadcrumbs');
   if(!crumbs){
     crumbs=document.createElement('nav');crumbs.id='tocBreadcrumbs';crumbs.className='toc-breadcrumbs';
@@ -968,28 +978,15 @@ function ensureTocDrilldownControls() {
 }
 function renderHierarchicalToc() {
   ensureTocDrilldownControls();
-  const vehicleName=selectedVehicle?titleFromFolder(selectedVehicle.name):'Factory manual';
   const host=$('.manual-tree');
   const crumbs=$('#tocBreadcrumbs');
   const back=$('#tocBackButton');
   if(back)back.hidden=!selectedVehicle;
-  if(crumbs){
-    crumbs.replaceChildren();
-    const root=document.createElement('button');root.type='button';root.className='toc-crumb-button';root.textContent=vehicleName;
-    root.addEventListener('click',()=>{activeTocPath=[];renderHierarchicalToc();renderTocChildren(null);});
-    crumbs.append(root);
-    activeTocPath.forEach((node,index)=>{
-      crumbs.append(safeText('span','/','toc-crumb-separator'));
-      const item=document.createElement('button');item.type='button';item.className='toc-crumb-button';item.textContent=node.title;
-      item.addEventListener('click',()=>{activeTocPath=activeTocPath.slice(0,index+1);renderHierarchicalToc();renderTocChildren(node);});
-      crumbs.append(item);
-    });
-  }
+  if(crumbs)crumbs.replaceChildren();
   if(!host)return;
   [...host.querySelectorAll('.toc-menu-entry,.manual-tree-heading')].forEach(el=>el.remove());
   const current=activeTocPath.at(-1)||null;
   const children=current?.children||liveManualTree||[];
-  host.append(safeText('div',current?.title||'FACTORY CONTENTS','manual-tree-heading'));
   children.forEach(node=>{
     const item=document.createElement('button');item.type='button';item.className='tree-item toc-menu-entry';
     item.append(iconNode(sectionIcon(node.title),'tree-section-icon'),safeText('span',node.title,'tree-section-label'));
