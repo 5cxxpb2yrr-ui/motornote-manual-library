@@ -2994,3 +2994,14 @@ body[data-mobile-view="reader"] .mobile-context { display: none !important; }
   body[data-mobile-view="reader"] .reader-actions { gap:6px !important; }
   body[data-mobile-view="reader"] .reader-actions > button { padding-inline:10px !important; }
 }
+
+/* Accessible cross-reference for rasterized factory-manual illustration legends. */
+.manual-image-crossrefs{display:flex;flex-direction:column;gap:8px;margin:12px 0 20px;padding:11px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:10px}
+.manual-crossref-kicker{font:10px 'IBM Plex Mono',monospace;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted)}
+.manual-legend-link{display:flex;align-items:center;gap:10px;min-height:48px;width:100%;padding:9px 11px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;background:#ff980012;color:var(--text);text-decoration:none;text-align:left}
+.manual-legend-link:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}
+.manual-legend-code{flex:0 0 auto;display:grid;place-items:center;min-width:38px;min-height:30px;padding:3px 6px;border-radius:5px;background:#ff980022;color:var(--accent2);font:600 12px 'IBM Plex Mono',monospace}
+.manual-legend-label{font-size:13px;font-weight:600;line-height:1.35}
+.manual-legend-action{margin-left:auto;flex:0 0 auto;color:var(--accent2);font-size:11px;font-weight:600;white-space:nowrap}
+.manual-legend-link:hover{border-color:var(--accent);background:#ff98001c}
+@media(max-width:420px){.manual-image-crossrefs{padding:10px}.manual-legend-link{gap:8px;padding:9px}.manual-legend-label{font-size:12px}.manual-legend-action{font-size:10px}}
