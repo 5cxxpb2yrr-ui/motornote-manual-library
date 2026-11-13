@@ -14,7 +14,7 @@
   <header class="topbar">
     <a class="brand" href="./" aria-label="LifeOS Manual Explorer Pro home"><svg class="brand-emblem" viewBox="0 0 64 64" aria-hidden="true"><path d="M13 21h8l5-8h16l5 8h5a5 5 0 0 1 5 5v20a5 5 0 0 1-5 5H16a5 5 0 0 1-5-5V26a5 5 0 0 1 2-5Z" fill="none" stroke="#ff8618" stroke-width="4" stroke-linejoin="round"/><path d="M24 21v-7m16 7v-7M22 32h20m-16 0v10m12-10v10" fill="none" stroke="#ff8618" stroke-width="4" stroke-linecap="round"/><path d="M29 42h6" stroke="#ff8618" stroke-width="4" stroke-linecap="round"/></svg><span class="brand-copy"><strong>LifeOS</strong><b>Manual Explorer</b><small>Service Manuals · Knowledge · Repairs</small></span></a>
     <div class="top-quick-actions"><button class="icon-button search-trigger" id="searchOpen" type="button" aria-label="Search manuals" title="Search manuals">⌕</button><button class="icon-button history-trigger" id="historyOpen" type="button" aria-label="Recent manuals" title="Recent manuals"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 2.64-6.36L3 8.3"/><path d="M3 3v5.3h5.3M12 7v5l3.5 2"/></svg></button></div>
-    <div class="top-actions"><span class="connection"><i></i> R2 INDEX READY</span><button class="icon-button theme-toggle" id="themeButton" type="button" aria-label="Switch to light theme" title="Switch to light theme" aria-pressed="false">☾</button><button class="avatar" type="button" aria-label="Workspace menu">LP</button></div>
+    <div class="top-actions"><span class="connection" aria-live="polite"><i></i> R2 CONNECTING</span><button class="icon-button theme-toggle" id="themeButton" type="button" aria-label="Switch to light theme" title="Switch to light theme" aria-pressed="false">☾</button><button class="avatar" type="button" aria-label="Workspace menu">LP</button></div>
   </header>
   <div class="app-shell">
     <aside class="rail" aria-label="Primary navigation">
@@ -42,10 +42,10 @@
             <section class="stats dashboard-stats" aria-label="Library overview">
             <article class="stat-card"><span>VEHICLES</span><strong id="vehicleTotal">—</strong><small>In your garage</small></article>
             <article class="stat-card"><span>MANUALS</span><strong id="manualTotal">—</strong><small>Available libraries</small></article>
-            <article class="stat-card"><span>INDEXED PAGES</span><strong id="indexedPageTotal">45,768</strong><small>Searchable procedures</small></article>
+            <article class="stat-card"><span>INDEXED PAGES</span><strong id="indexedPageTotal">—</strong><small>Searchable procedures</small></article>
             <article class="stat-card"><span>FAVORITES</span><strong id="savedCount">00</strong><small>Saved references</small></article>
             <article class="stat-card"><span>RECENT</span><strong id="recentCount">—</strong><small>Recently opened</small></article>
-            <article class="stat-card"><span>LIBRARY STATUS</span><strong class="status-text" id="libraryStatus">ONLINE</strong><small>R2 content available</small></article>
+            <article class="stat-card"><span>LIBRARY STATUS</span><strong class="status-text" id="libraryStatus">CONNECTING</strong><small>Checking catalog and manual content</small></article>
             </section>
           </div>
         </details>
