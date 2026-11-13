@@ -1,17 +1,23 @@
 interface Env { MANUALS: R2Bucket; }
 
-type TreeNode = {
-  title?: string;
-  p?: number | string;
-  file?: string;
-  filename?: string;
-  fileName?: string;
-  c?: TreeNode[];
-  children?: TreeNode[];
-  sections?: TreeNode[];
+type SummaryManual = {
+  id: string;
+  make: string;
+  file_count: number;
 };
 
-type TreeFile = { title: string; key: string; fileCount: number };
+type LibrarySummary = {
+  generated_at?: string;
+  file_count?: number;
+  manuals?: SummaryManual[];
+};
+
+type VehicleEntry = {
+  id: string;
+  name: string;
+  href: string;
+  fileCount: number;
+};
 
 async function mapLimit<T, R>(
   items: T[],
@@ -31,134 +37,101 @@ async function mapLimit<T, R>(
   return results;
 }
 
-function childrenOf(node: TreeNode | TreeNode[]): TreeNode[] {
-  if (Array.isArray(node)) return node;
-  return node.c || node.children || node.sections || [];
-}
-
-function countFiles(node: TreeNode | TreeNode[]): number {
-  if (Array.isArray(node)) return node.reduce((total, child) => total + countFiles(child), 0);
-  const children = childrenOf(node);
-  const pageNumber = Number(node.p);
-  const hasPage = Number.isInteger(pageNumber) && pageNumber > 0;
-  const ownFile = hasPage || [node.file, node.filename, node.fileName].some(
-    value => typeof value === "string" && value.length > 0
-  ) ? 1 : 0;
-  return ownFile + children.reduce((total, child) => total + countFiles(child), 0);
-}
-
 function folderName(prefix: string): string {
   return prefix.split("/").filter(Boolean).at(-1) || "";
 }
 
 export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
   try {
-    // Read the directory levels concurrently. The previous implementation
-    // walked every R2 prefix and tree file serially, leaving the home screen
-    // on its loading placeholder for several minutes on larger libraries.
-    const root = await env.MANUALS.list({ prefix: "manuals/", delimiter: "/", limit: 1000 });
-    const manualPrefixes = (root.delimitedPrefixes || []).filter(prefix =>
-      /^manuals\/[^/]+\/$/.test(prefix)
-    );
+    // The published corpus currently uses the original factory-site layout:
+    // manuals/<manual-id>/<vehicle>/index.html plus pages/, images/, and assets.
+    // Discover vehicle roots from R2 prefixes and require the real factory
+    // index.html. Do not require section tree.json files that this corpus lacks.
+    const summaryObject = await env.MANUALS.get("index/summary.json");
+    if (!summaryObject) {
+      return Response.json({ error: "R2 manual summary is missing" }, { status: 503 });
+    }
 
-    const manuals = await mapLimit(manualPrefixes, 4, async manualPrefix => {
-      const manualId = folderName(manualPrefix);
-      const vehiclesListing = await env.MANUALS.list({
-        prefix: manualPrefix, delimiter: "/", limit: 1000
+    const summary = await summaryObject.json<LibrarySummary>();
+    if (!Array.isArray(summary.manuals)) {
+      return Response.json({ error: "R2 manual summary is invalid" }, { status: 503 });
+    }
+
+    const manuals = await mapLimit(summary.manuals, 4, async manual => {
+      if (!manual?.id || !/^[a-z0-9][a-z0-9-]*$/i.test(manual.id)) return null;
+
+      const manualPrefix = `manuals/${manual.id}/`;
+      const listing = await env.MANUALS.list({
+        prefix: manualPrefix,
+        delimiter: "/",
+        limit: 1000
       });
-      const vehiclePrefixes = vehiclesListing.delimitedPrefixes || [];
+      const vehiclePrefixes = (listing.delimitedPrefixes || []).filter(prefix =>
+        prefix.startsWith(manualPrefix) && prefix !== manualPrefix
+      );
 
       const vehicles = await mapLimit(vehiclePrefixes, 6, async vehiclePrefix => {
-        const modelListing = await env.MANUALS.list({
-          prefix: vehiclePrefix, delimiter: "/", limit: 1000
-        });
-        const modelPrefixes = modelListing.delimitedPrefixes || [];
+        const indexKey = vehiclePrefix + "index.html";
+        const indexObject = await env.MANUALS.head(indexKey);
+        if (!indexObject) return null;
 
-        const modelResults = await mapLimit(modelPrefixes, 6, async modelPrefix => {
-          const sectionListing = await env.MANUALS.list({
-            prefix: modelPrefix, delimiter: "/", limit: 1000
-          });
-          const sectionPrefixes = sectionListing.delimitedPrefixes || [];
-
-          return mapLimit(sectionPrefixes, 8, async sectionPrefix => {
-            const sectionObjects = await env.MANUALS.list({
-              prefix: sectionPrefix, delimiter: "/", limit: 1000
-            });
-            const treeKeys = (sectionObjects.objects || [])
-              .map(object => object.key)
-              .filter(key => /-tree\.json$/i.test(key));
-
-            return mapLimit(treeKeys, 8, async key => {
-              const object = await env.MANUALS.get(key);
-              if (!object) return null;
-              try {
-                const tree = await object.json<TreeNode>();
-                return {
-                  title: tree.title || folderName(sectionPrefix),
-                  key,
-                  fileCount: countFiles(tree)
-                } satisfies TreeFile;
-              } catch {
-                return null;
-              }
-            });
-          });
-        });
-
-        const treeFiles = modelResults.flat(2).filter((tree): tree is TreeFile => tree !== null);
-        if (!treeFiles.length) return null;
-        treeFiles.sort((a, b) => a.title.localeCompare(b.title));
-
-        const matchingModelPrefix = modelPrefixes.find(prefix =>
-          treeFiles.some(tree => tree.key.startsWith(prefix))
-        );
-        const vehicleName = folderName(matchingModelPrefix || vehiclePrefix);
-        const make = vehicleName.match(/^\d{4}\s+([^\s]+)/)?.[1] || manualId.split("-")[0];
-        const fileCount = treeFiles.reduce((total, tree) => total + tree.fileCount, 0);
-
-        return {
+        const vehicle: VehicleEntry = {
           id: vehiclePrefix.replace(/\/$/, ""),
-          name: vehicleName,
+          name: folderName(vehiclePrefix),
           href: vehiclePrefix,
-          fileCount,
-          treeFiles,
-          make
+          fileCount: Number(manual.file_count) || 0
         };
+        return vehicle;
       });
 
-      const validVehicles = vehicles.filter((vehicle): vehicle is NonNullable<typeof vehicle> => vehicle !== null);
+      const validVehicles = vehicles
+        .filter((vehicle): vehicle is VehicleEntry => vehicle !== null)
+        .sort((a, b) => a.name.localeCompare(b.name));
+
       if (!validVehicles.length) return null;
-      const make = validVehicles[0].make;
+
       return {
-        id: manualId,
-        make,
-        fileCount: validVehicles.reduce((total, vehicle) => total + vehicle.fileCount, 0),
-        vehicles: validVehicles.map(({ make: _make, ...vehicle }) => vehicle)
+        id: manual.id,
+        make: String(manual.make || manual.id.split("-")[0]),
+        fileCount: Number(manual.file_count) || 0,
+        vehicles: validVehicles
       };
     });
 
-    const sortedManuals = manuals
+    const validManuals = manuals
       .filter((manual): manual is NonNullable<typeof manual> => manual !== null)
       .sort((a, b) => a.make.localeCompare(b.make) || a.id.localeCompare(b.id));
-    for (const manual of sortedManuals) {
-      manual.vehicles.sort((a, b) => a.name.localeCompare(b.name));
-    }
+
+    // Publish a category-neutral equipment collection for the home screen.
+    // Keep manuals[].vehicles[] during the transition for older clients.
+    const equipment = validManuals.flatMap(manual => manual.vehicles.map(vehicle => ({
+      ...vehicle,
+      manualId: manual.id,
+      make: manual.make,
+      fileCount: vehicle.fileCount || manual.fileCount,
+      category: "vehicle",
+      equipmentType: "vehicle"
+    })));
 
     return Response.json({
-      generatedAt: new Date().toISOString(),
-      manualCount: sortedManuals.length,
-      vehicleCount: sortedManuals.reduce((total, manual) => total + manual.vehicles.length, 0),
-      fileCount: sortedManuals.reduce((total, manual) => total + manual.fileCount, 0),
-      manuals: sortedManuals
+      generatedAt: summary.generated_at || new Date().toISOString(),
+      manualCount: validManuals.length,
+      equipmentCount: equipment.length,
+      vehicleCount: equipment.length,
+      fileCount: Number(summary.file_count) || validManuals.reduce(
+        (total, manual) => total + manual.fileCount, 0
+      ),
+      equipment,
+      manuals: validManuals
     }, {
       headers: {
-        "Cache-Control": "public, max-age=60",
+        "Cache-Control": "public, max-age=60, stale-while-revalidate=300",
         "X-Content-Type-Options": "nosniff"
       }
     });
   } catch (error) {
     return Response.json({
-      error: "Unable to read the R2 section-tree catalog",
+      error: "Unable to discover factory manuals in R2",
       detail: error instanceof Error ? error.message : "Unknown error"
     }, { status: 503 });
   }

@@ -146,18 +146,18 @@ $$('[data-mobile]').forEach(button=>button.addEventListener('click',()=>{
   const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');
   if(menu)menu.hidden=true;
   if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');toggle.textContent='＋';}
-  if(tab==='home')setMobileView('home','Your garage','Choose a vehicle or continue where you left off.');
-  if(tab==='vehicles')setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
+  if(tab==='home')setMobileView('home','Your equipment','Choose equipment or continue where you left off.');
+  if(tab==='vehicles')setMobileView('vehicles','Equipment','Choose equipment to browse its manuals.');
   if(tab==='favorites'){renderFavorites();setMobileView('favorites','Favorites','Your saved procedures and references.')}
 }));
 $('#mobileFabToggle')?.addEventListener('click',()=>{const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');if(!menu||!toggle)return;menu.hidden=!menu.hidden;toggle.setAttribute('aria-expanded',String(!menu.hidden));toggle.setAttribute('aria-label',menu.hidden?'Open navigation':'Close navigation');toggle.textContent=menu.hidden?'＋':'×';});
 document.addEventListener('click',event=>{const fab=$('#mobileFab');if(fab&&!fab.contains(event.target)){const menu=$('#mobileFabMenu'),toggle=$('#mobileFabToggle');if(menu)menu.hidden=true;if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');toggle.textContent='＋';}}});
 $$('[data-home-vehicle]').forEach(button=>button.addEventListener('click',()=>{
-  setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
+  setMobileView('vehicles','Equipment','Choose equipment to browse its manuals.');
   const target=$('.vehicle-item[data-vehicle="'+button.dataset.homeVehicle+'"]');
   if(target)target.click();
 }));
-$('#homeAllVehicles').addEventListener('click',()=>setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.'));
+
 $$('.vehicle-item').forEach(item=>item.addEventListener('click',()=>{
   const name=item.querySelector('b')?.textContent||'Selected vehicle';
   setMobileView('vehicles',name,'Choose a manual section below.');
@@ -172,11 +172,20 @@ $$('.document-item').forEach((item,index)=>item.addEventListener('click',()=>{
 // Recent manuals are opened through the History modal, not the removed dashboard card.
 $('#tocOpen').addEventListener('click',()=>setMobileView('vehicles','Table of contents','Choose a manual section.'));
 renderFavorites();
-setMobileView('home','Your garage','Choose a vehicle or continue where you left off.');
+setMobileView('home','Your equipment','Choose equipment or continue where you left off.');
 
 
 // Live garage inventory: R2 remains the source of truth.
 let liveCatalog = null;
+const equipmentDisclosure = $('#equipmentDisclosure');
+if (equipmentDisclosure) {
+  try {
+    if (localStorage.getItem('mep-equipment-collapsed') === 'true') equipmentDisclosure.open = false;
+  } catch {}
+  equipmentDisclosure.addEventListener('toggle', () => {
+    try { localStorage.setItem('mep-equipment-collapsed', String(!equipmentDisclosure.open)); } catch {}
+  });
+}
 
 function iconNode(name,className='ui-icon'){
   const paths={car:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 11 6.7 6.8A2 2 0 0 1 8.6 5.5h6.8a2 2 0 0 1 1.9 1.3L19 11l1.4 1.2c.4.3.6.8.6 1.3v4a1 1 0 0 1-1 1h-1.2a1.8 1.8 0 0 1-3.6 0H8.8a1.8 1.8 0 0 1-3.6 0H4a1 1 0 0 1-1-1v-4c0-.5.2-1 .6-1.3L5 11Z\"/><path d=\"M5 11h14M6 15h2m8 0h2\"/></svg>",engine:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 10h2l2-3h8l2 3h2v9h-3v-2H9v2H6v-4H4zM9 7V4h5v3m-4 4v3m4-3v3\"/></svg>",wrench:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14.7 6.3a5 5 0 0 0-6.4 6.4L3.5 17.5a2.1 2.1 0 0 0 3 3l4.8-4.8a5 5 0 0 0 6.4-6.4l-3 3-3.4-3.4z\"/></svg>",zap:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m13 2-9 12h7l-1 8 10-13h-7z\"/></svg>",brake:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 3.5v2m8.5 6.5h-2M12 20.5v-2M3.5 12h2\"/></svg>",gear:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m10 2-.5 2.1a8 8 0 0 0-1.8 1L5.6 4.5 3.5 8l1.7 1.4a8 8 0 0 0 0 2.1L3.5 13l2.1 3.5 2.1-.6a8 8 0 0 0 1.8 1L10 19h4l.5-2.1a8 8 0 0 0 1.8-1l2.1.6 2.1-3.5-1.7-1.5a8 8 0 0 0 0-2.1L20.5 8l-2.1-3.5-2.1.6a8 8 0 0 0-1.8-1L14 2z\"/><circle cx=\"12\" cy=\"10.5\" r=\"3\"/></svg>",book:"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21zM4 5.5v15.5m4-14h8m-8 4h8\"/></svg>"};
@@ -190,9 +199,11 @@ function vehiclePhotoFor(vehicle){
 }
 function vehiclePhoto(vehicle,className){
   const wrap=document.createElement('span');wrap.className=className;
+  const type=String(vehicle.equipmentType||vehicle.type||vehicle.category||'vehicle').toLowerCase();
+  const fallback=type.includes('appliance')?'wrench':type.includes('tool')?'gear':type.includes('vehicle')||type.includes('car')?'car':'book';
   const src=vehiclePhotoFor(vehicle);
-  if(src){const img=document.createElement('img');img.src=src;img.alt=titleFromFolder(vehicle.name);img.loading='lazy';img.decoding='async';img.onerror=()=>{wrap.replaceChildren(iconNode('car','vehicle-fallback-icon'));};wrap.append(img);}
-  else wrap.append(iconNode('car','vehicle-fallback-icon'));
+  if(src){const img=document.createElement('img');img.src=src;img.alt=titleFromFolder(vehicle.name);img.loading='lazy';img.decoding='async';img.onerror=()=>{wrap.replaceChildren(iconNode(fallback,'vehicle-fallback-icon'));};wrap.append(img);}
+  else wrap.append(iconNode(fallback,'vehicle-fallback-icon'));
   return wrap;
 }
 function sectionIcon(label){
@@ -203,15 +214,44 @@ function sectionIcon(label){
 function titleFromFolder(value){
   return value.replace(/\s+/g,' ').replace(/\bL4-/g,'L4 ').trim();
 }
+async function loadSearchIndexSummary(){
+  const count=$('#indexedPageTotal');
+  const detail=$('#libraryStatusDetail');
+  try {
+    const manifest=await getJson('/api/search-index');
+    if(!manifest||!Array.isArray(manifest.shards))throw new Error('Search index manifest is invalid');
+    if(count&&Number.isFinite(manifest.documentCount))count.textContent=manifest.documentCount.toLocaleString();
+    if(detail)detail.textContent='Catalog and search index connected';
+  } catch(error) {
+    if(count&&count.textContent==='—')count.textContent='—';
+    if(detail)detail.textContent='Catalog connected · search index unavailable';
+  }
+}
 function renderLiveGarage(catalog){
   liveCatalog=catalog;
-  const allVehicles=catalog.manuals.flatMap(manual=>manual.vehicles.map(vehicle=>({...vehicle,manualId:manual.id,make:manual.make,fileCount:manual.fileCount})));
-  $('#vehicleTotal').textContent=String(allVehicles.length).padStart(2,'0');
+  // Prefer the future-proof equipment collection when present. Older vehicle-only
+  // catalogs remain supported without a migration.
+  const allEquipment=Array.isArray(catalog.equipment)
+    ? catalog.equipment.map(item=>({
+        ...item,
+        manualId:item.manualId||item.manual_id||item.manuals?.[0],
+        make:item.make||item.brand||item.category||'EQUIPMENT',
+        fileCount:Number(item.fileCount??item.file_count)||0,
+        equipmentType:item.equipmentType||item.type||item.category||'equipment'
+      }))
+    : catalog.manuals.flatMap(manual=>(manual.vehicles||[]).map(vehicle=>({
+        ...vehicle,manualId:manual.id,make:manual.make,fileCount:manual.fileCount,equipmentType:vehicle.equipmentType||'vehicle'
+      })));
+  $('#vehicleTotal').textContent=String(allEquipment.length).padStart(2,'0');
   $('#manualTotal').textContent=String(catalog.manualCount).padStart(2,'0');
   const status=$('#libraryStatus'); if(status) status.textContent='ONLINE';
+  const statusDetail=$('#libraryStatusDetail'); if(statusDetail) statusDetail.textContent='Catalog connected · checking search index';
+  const connection=$('.connection'); if(connection) connection.textContent='R2 LIBRARY ONLINE';
   const list=$('#vehicleList');list.replaceChildren();
   const home=$('#homeVehicleGrid');home.replaceChildren();
-  for(const vehicle of allVehicles){
+  const collapsedIcons=$('#collapsedEquipmentIcons');if(collapsedIcons)collapsedIcons.replaceChildren();
+  const equipmentCount=$('#equipmentCount');if(equipmentCount)equipmentCount.textContent=allEquipment.length+' ITEMS';
+  for(const vehicle of allEquipment){
     const label=titleFromFolder(vehicle.name);
     const item=document.createElement('button');item.type='button';item.className='vehicle-item';
     item.dataset.liveHref=vehicle.href;
@@ -222,24 +262,30 @@ function renderLiveGarage(catalog){
     list.append(item);
 
     const card=document.createElement('button');card.type='button';card.className='home-vehicle-card';
+    card.setAttribute('aria-label','Open manuals for '+label);
     card.append(vehiclePhoto(vehicle,'home-car-icon vehicle-photo'),safeText('b',label),safeText('small',vehicle.make.toUpperCase()+' · '+vehicle.fileCount.toLocaleString()+' files'),safeText('span','›','home-vehicle-chevron'));
     card.addEventListener('click',()=>openLiveVehicle(vehicle));
     home.append(card);
+    if(collapsedIcons){
+      const preview=vehiclePhoto(vehicle,'collapsed-equipment-icon');
+      preview.setAttribute('aria-hidden','true');
+      const previewImage=preview.querySelector('img');if(previewImage)previewImage.alt='';
+      collapsedIcons.append(preview);
+    }
   }
-  $('#vehicleManualTitle').textContent='R2 MANUAL LIBRARY';
-  $('#homeAllVehicles').textContent='View all →';
-  if(!allVehicles.length){
-    list.replaceChildren(safeText('p','No vehicles are currently published in the manual catalog.','empty-state'));
-    home.replaceChildren(safeText('p','No vehicles are currently published in the manual catalog.','empty-state'));
+  $('#vehicleManualTitle').textContent='FACTORY CONTENTS';
+  if(!allEquipment.length){
+    list.replaceChildren(safeText('p','No equipment is currently published in the manual catalog.','empty-state'));
+    home.replaceChildren(safeText('p','No equipment is currently published in the manual catalog.','empty-state'));
     const status=$('#libraryStatus');if(status)status.textContent='EMPTY';
     return;
   }
-  announce('Loaded '+allVehicles.length+' vehicle entries from the R2 manual library.');
+  announce('Loaded '+allEquipment.length+' equipment entries from the R2 manual library.');
 }
 function openLiveVehicle(vehicle){
   const title=titleFromFolder(vehicle.name);
   selectedVehicle=vehicle;
-  setMobileView('vehicles',title,'Factory source: '+vehicle.manualId);
+  setMobileView('vehicles','Factory contents','Choose a factory section to continue.');
   $$('.vehicle-item').forEach(item=>item.classList.toggle('selected',item.dataset.liveHref===vehicle.href));
   $('.vehicle-panel').classList.add('show-toc');
   announce('Selected '+title+'. Choose a manual section to continue.');
@@ -252,8 +298,11 @@ async function loadLiveGarage(){
     const catalog=await response.json();
     if(!Array.isArray(catalog.manuals))throw new Error('R2 catalog response is invalid');
     renderLiveGarage(catalog);
+    void loadSearchIndexSummary();
   }catch(error){
     const status=$('#libraryStatus'); if(status) status.textContent='OFFLINE';
+    const statusDetail=$('#libraryStatusDetail'); if(statusDetail) statusDetail.textContent='Unable to reach the manual catalog';
+    const connection=$('.connection'); if(connection) connection.textContent='R2 LIBRARY OFFLINE';
     const message='Unable to load the live R2 catalog. '+error.message;
     for(const target of [host,$('#homeVehicleGrid')]){
       if(!target)continue;
@@ -261,7 +310,7 @@ async function loadLiveGarage(){
       const retry=document.createElement('button');retry.type='button';retry.className='subtle-button';retry.textContent='Retry catalog';
       retry.addEventListener('click',loadLiveGarage);target.append(retry);
     }
-    announce('R2 vehicle catalog could not be loaded.');
+    announce('R2 equipment catalog could not be loaded.');
   }
 }
 loadLiveGarage();
@@ -290,7 +339,7 @@ function activateView(view){
     $('.vehicle-panel').classList.remove('show-toc');
     $('.manual-tree').replaceChildren();
   }
-  const labels={home:['Your garage','Choose a vehicle or continue where you left off.'],vehicles:[selectedVehicle?titleFromFolder(selectedVehicle.name):'Vehicles','Choose a vehicle to browse its manuals.'],library:[$('#sectionTitle').textContent,'Manual pages in this section.'],reader:[$('#readerTitle').textContent,'Factory manual reference.'],favorites:['Favorites','Your saved procedures and references.']};
+  const labels={home:['Your equipment','Choose equipment or continue where you left off.'],vehicles:[selectedVehicle?titleFromFolder(selectedVehicle.name):'Equipment','Choose equipment to browse its manuals.'],library:[$('#sectionTitle').textContent,'Manual pages in this section.'],reader:[$('#readerTitle').textContent,'Factory manual reference.'],favorites:['Favorites','Your saved procedures and references.']};
   const info=labels[normalized]||labels.home;
   setMobileView(normalized,info[0],info[1]);
   $$('.mobile-fab-menu [data-mobile]').forEach(button=>button.classList.toggle('active',button.dataset.mobile===normalized));
@@ -333,6 +382,49 @@ function cleanManualFragment(html, key) {
       }
     } catch {}
   });
+  // Scion page 7256 contains the instrument-panel legend as a raster image.
+  // The D 4 entry is verified against page 3214 (System Outline).
+  if (/scion-service-manual/i.test(key) && key.endsWith('/pages/7256.html')) {
+    const instrumentPanelImage = parsed.querySelector('img[src*="236689882.png"]');
+    if (instrumentPanelImage && !parsed.querySelector('.manual-image-crossrefs')) {
+      const imageHost = instrumentPanelImage.closest('.oxe-image') || instrumentPanelImage.parentElement;
+      if (imageHost) {
+        imageHost.classList.add('manual-image-hotspot-host');
+        const hotspot = document.createElement('a');
+        hotspot.href = '../pages/3214.html';
+        hotspot.className = 'manual-image-hotspot';
+        hotspot.dataset.manualTitle = 'System Outline';
+        hotspot.setAttribute('aria-label', 'D 4, Door Lock Control Relay — open System Outline');
+        hotspot.title = 'D 4 — Door Lock Control Relay';
+        imageHost.append(hotspot);
+      }
+
+      const crossrefs = document.createElement('div');
+      crossrefs.className = 'manual-image-crossrefs';
+      const kicker = document.createElement('div');
+      kicker.className = 'manual-crossref-kicker';
+      kicker.textContent = 'Illustration reference';
+      const link = document.createElement('a');
+      link.href = '../pages/3214.html';
+      link.className = 'manual-legend-link';
+      link.dataset.manualTitle = 'System Outline';
+      link.setAttribute('aria-label', 'D 4, Door Lock Control Relay — open System Outline');
+      link.title = 'Open System Outline';
+      const code = document.createElement('span');
+      code.className = 'manual-legend-code';
+      code.textContent = 'D 4';
+      const label = document.createElement('span');
+      label.className = 'manual-legend-label';
+      label.textContent = 'Door Lock Control Relay';
+      const action = document.createElement('span');
+      action.className = 'manual-legend-action';
+      action.textContent = 'System Outline →';
+      link.append(code, label, action);
+      crossrefs.append(kicker, link);
+      (instrumentPanelImage.closest('.oxe-image') || instrumentPanelImage)
+        .insertAdjacentElement('afterend', crossrefs);
+    }
+  }
   parsed.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href') || '';
     if (/^(https?:|mailto:|javascript:)/i.test(href)) { link.removeAttribute('href'); return; }
@@ -366,7 +458,7 @@ async function showLiveManualPage(vehicle, pageId, title) {
         const targetPageId=link.dataset.manualPage;
         const path=findTocPathForPage(liveManualTree,targetPageId);
         if(path){activeTocPath=path.slice(0,-1);renderHierarchicalToc();renderTocChildren(activeTocPath.at(-1)||null)}
-        await showLiveManualPage(vehicle,targetPageId,link.textContent.trim());
+        await showLiveManualPage(vehicle,targetPageId,link.dataset.manualTitle || link.textContent.trim());
       };
       link.addEventListener('click', open);
       link.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); } });
@@ -419,8 +511,8 @@ function selectManualGroup(index,vehicle) {
 }
 async function loadLiveManualIndex(vehicle) {
  const key=manualKey(vehicle,'index.html');
- $('#documentList').replaceChildren(safeText('p','Loading the factory table of contents…','empty-state'));
- $('.manual-tree').replaceChildren(safeText('p','Reading factory section structure…','empty-state'));
+ $('#documentList').replaceChildren();
+ $('.manual-tree').replaceChildren();
  try {
   const html=await fetchManualHtml(key),parsed=new DOMParser().parseFromString(html,'text/html');
   const groups=[],byTitle=new Map();let current=null;
@@ -442,7 +534,7 @@ async function loadLiveManualIndex(vehicle) {
    if(!group.pages.some(page=>page.pageId===pageId))group.pages.push({pageId,title:pageTitle});
   }
   liveManualGroups=groups.filter(group=>group.pages.length);activeManualGroup=0;
-  $('#vehicleManualTitle').textContent=titleFromFolder(vehicle.name);
+  $('#vehicleManualTitle').textContent='FACTORY CONTENTS';
   if(!liveManualGroups.length){
    $('.manual-tree').replaceChildren(safeText('p','No factory sections or page links were found in this vehicle index.','empty-state'));
    $('#documentList').replaceChildren(safeText('p','The factory index did not expose any linked manual pages.','empty-state'));
@@ -463,7 +555,7 @@ openLiveVehicle = async function(vehicle) {
   setMobileView('library',title,'Loading factory manual sections from R2.');
   $$('.vehicle-item').forEach(item=>item.classList.toggle('selected',item.dataset.liveHref===vehicle.href));
   $('.vehicle-panel').classList.add('show-toc');
-  $('#vehicleManualTitle').textContent = title;
+  $('#vehicleManualTitle').textContent = 'FACTORY CONTENTS';
   await loadLiveManualIndex(vehicle);
 };
 
@@ -622,8 +714,8 @@ if (footerLabel) footerLabel.textContent = 'R2 FACTORY READER';
 const previousLoadLiveManualIndex = loadLiveManualIndex;
 loadLiveManualIndex = async function(vehicle) {
   const key = manualKey(vehicle, 'index.html');
-  $('#documentList').replaceChildren(safeText('p', 'Loading the factory table of contents…', 'empty-state'));
-  $('.manual-tree').replaceChildren(safeText('p', 'Reading factory section structure…', 'empty-state'));
+  $('#documentList').replaceChildren();
+  $('.manual-tree').replaceChildren();
   try {
     const html = await fetchManualHtml(key);
     const parsed = new DOMParser().parseFromString(html, 'text/html');
@@ -668,7 +760,7 @@ loadLiveManualIndex = async function(vehicle) {
     }
     liveManualGroups = groups.filter(group => group.pages.length);
     activeManualGroup = 0;
-    $('#vehicleManualTitle').textContent = titleFromFolder(vehicle.name);
+    $('#vehicleManualTitle').textContent = 'FACTORY CONTENTS';
     if (!liveManualGroups.length) {
       const linkCount = parsed.querySelectorAll('a[href],area[href],[data-href],[data-url]').length;
       $('.manual-tree').replaceChildren(safeText('p', 'The factory index loaded, but no numbered page links were detected. Index links found: ' + linkCount + '. Check this manual’s index structure.', 'empty-state'));
@@ -699,14 +791,18 @@ if (readerActions && !$('#expandReader')) {
   expandButton.id = 'expandReader';
   expandButton.className = 'icon-button reader-expand-button';
   expandButton.textContent = '⤢';
-  expandButton.setAttribute('aria-label', 'Expand manual reader');
+  expandButton.setAttribute('aria-label', 'Open this factory manual page in a new tab');
+  expandButton.setAttribute('title', 'Open page in new tab');
   expandButton.setAttribute('aria-pressed', 'false');
   readerActions.append(expandButton);
   expandButton.addEventListener('click', () => {
-    const expanded = document.body.classList.toggle('reader-expanded');
-    expandButton.setAttribute('aria-pressed', String(expanded));
-    expandButton.setAttribute('aria-label', expanded ? 'Return to page preview' : 'Expand manual reader');
-    expandButton.textContent = expanded ? '⤡' : '⤢';
+    if (!activeLiveVehicle || !activeLivePage?.pageId) {
+      announce('Open a factory manual page first.');
+      return;
+    }
+    const key = manualKey(activeLiveVehicle, 'pages/' + activeLivePage.pageId + '.html');
+    const url = new URL(key.split('/').map(encodeURIComponent).join('/'), MANUAL_SITE).href;
+    window.open(url, '_blank', 'noopener,noreferrer');
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && document.body.classList.contains('reader-expanded')) {
@@ -900,7 +996,7 @@ function ensureTocDrilldownControls() {
         $('.vehicle-panel').classList.remove('show-toc');
         $('.manual-tree').replaceChildren();
         $('#documentList').replaceChildren(safeText('p','Choose a vehicle to browse its factory manual.','empty-state'));
-        setMobileView('vehicles','Vehicles','Choose a vehicle to browse its manuals.');
+        setMobileView('vehicles','Equipment','Choose equipment to browse its manuals.');
         return;
       }
       activeTocPath=activeTocPath.slice(0,-1);
@@ -909,6 +1005,16 @@ function ensureTocDrilldownControls() {
       renderTocChildren(parent);
       setMobileView('vehicles',parent?.title||titleFromFolder(selectedVehicle.name),'Choose a manual section.');
     });
+  }
+  const heading=$('.vehicle-panel > .manual-tree-heading');
+  if(heading){
+    heading.replaceChildren(back);
+    if(selectedVehicle){
+      const identity=vehiclePhoto(selectedVehicle,'manual-vehicle-icon');
+      identity.setAttribute('aria-hidden','true');
+      const image=identity.querySelector('img');if(image)image.alt='';
+      heading.append(identity);
+    }
   }
   let crumbs=$('#tocBreadcrumbs');
   if(!crumbs){
@@ -919,28 +1025,15 @@ function ensureTocDrilldownControls() {
 }
 function renderHierarchicalToc() {
   ensureTocDrilldownControls();
-  const vehicleName=selectedVehicle?titleFromFolder(selectedVehicle.name):'Factory manual';
   const host=$('.manual-tree');
   const crumbs=$('#tocBreadcrumbs');
   const back=$('#tocBackButton');
   if(back)back.hidden=!selectedVehicle;
-  if(crumbs){
-    crumbs.replaceChildren();
-    const root=document.createElement('button');root.type='button';root.className='toc-crumb-button';root.textContent=vehicleName;
-    root.addEventListener('click',()=>{activeTocPath=[];renderHierarchicalToc();renderTocChildren(null);});
-    crumbs.append(root);
-    activeTocPath.forEach((node,index)=>{
-      crumbs.append(safeText('span','/','toc-crumb-separator'));
-      const item=document.createElement('button');item.type='button';item.className='toc-crumb-button';item.textContent=node.title;
-      item.addEventListener('click',()=>{activeTocPath=activeTocPath.slice(0,index+1);renderHierarchicalToc();renderTocChildren(node);});
-      crumbs.append(item);
-    });
-  }
+  if(crumbs)crumbs.replaceChildren();
   if(!host)return;
   [...host.querySelectorAll('.toc-menu-entry,.manual-tree-heading')].forEach(el=>el.remove());
   const current=activeTocPath.at(-1)||null;
   const children=current?.children||liveManualTree||[];
-  host.append(safeText('div',current?.title||vehicleName,'manual-tree-heading'));
   children.forEach(node=>{
     const item=document.createElement('button');item.type='button';item.className='tree-item toc-menu-entry';
     item.append(iconNode(sectionIcon(node.title),'tree-section-icon'),safeText('span',node.title,'tree-section-label'));
@@ -1050,7 +1143,7 @@ loadLiveManualIndex = async function(vehicle) {
     if(!liveManualTree.length)throw new Error('No factory sections or page links were found.');
     renderHierarchicalToc();
     renderTocChildren(null);
-    setMobileView('vehicles',titleFromFolder(vehicle.name),'Choose a factory section to continue.');
+    setMobileView('vehicles','Factory contents','Choose a factory section to continue.');
     const count=liveManualTree.reduce((total,node)=>total+tocLeafPages(node).length,0);
     announce('Loaded factory contents with '+count.toLocaleString()+' linked pages.');
   }catch(error){
@@ -1065,10 +1158,10 @@ openLiveVehicle = async function(vehicle) {
   activeLiveVehicle=vehicle;
   activeLivePage=null;
   const title=titleFromFolder(vehicle.name);
-  setMobileView('vehicles',title,'Loading factory contents from R2.');
+  setMobileView('vehicles','Factory contents','Choose a factory section to continue.');
   $$('.vehicle-item').forEach(item=>item.classList.toggle('selected',item.dataset.liveHref===vehicle.href));
   $('.vehicle-panel').classList.add('show-toc');
-  $('#vehicleManualTitle').textContent=title;
+  $('#vehicleManualTitle').textContent='FACTORY CONTENTS';
   await loadLiveManualIndex(vehicle);
 };
 async function openLiveSearchResult(vehicle,pageId,title) {
@@ -1289,11 +1382,17 @@ function sectionTreeNodes(input, vehicle, parentFolders=[]) {
   return sectionChildren(input).map(raw => {
     const title = String(raw.n ?? raw.title ?? raw.name ?? 'Untitled section').trim() || 'Untitled section';
     const rawFile = raw.file ?? raw.filename ?? raw.fileName ?? null;
+    const rawFileText = typeof rawFile === 'number' && Number.isInteger(rawFile)
+      ? String(rawFile)
+      : typeof rawFile === 'string' ? rawFile.trim() : '';
+    const legacyNumericPage = rawFileText.match(/^(\d+)(?:\.html?)?$/i);
     const pageNumber = Number(raw.p);
-    const pageFile = Number.isInteger(pageNumber) && pageNumber > 0
-      ? 'pages/' + pageNumber + '.html'
-      : null;
-    const exactFile = safeSectionFile(rawFile || pageFile);
+    const pageFile = legacyNumericPage
+      ? 'pages/' + legacyNumericPage[1] + '.html'
+      : Number.isInteger(pageNumber) && pageNumber > 0
+        ? 'pages/' + pageNumber + '.html'
+        : null;
+    const exactFile = safeSectionFile(legacyNumericPage ? pageFile : rawFile || pageFile);
     let fileKey = null;
     if (exactFile) {
       const vehicleRoot = vehicle.id.replace(/\/$/, '') + '/';
@@ -1376,154 +1475,17 @@ function cleanSectionHtml(html, key) {
   return main ? main.innerHTML : '<p>Manual file is empty.</p>';
 }
 function installManualImageZoom(host) {
-  if (!host) return;
-  host.querySelectorAll('img:not(.manual-icon-asset):not(.manual-zoom-image)').forEach(image => {
-    const mount = () => {
-      if (!image.isConnected || image.closest('.manual-zoom-shell')) return;
-      if (image.naturalWidth < 180 || image.naturalHeight < 120) return;
-      const shell = document.createElement('section');
-      shell.className = 'manual-zoom-shell';
-      shell.setAttribute('aria-label', 'Zoomable factory diagram');
-      const toolbar = document.createElement('div');
-      toolbar.className = 'manual-zoom-toolbar';
-      const zoomOut = document.createElement('button');
-      zoomOut.type = 'button'; zoomOut.className = 'manual-zoom-button';
-      zoomOut.textContent = '−'; zoomOut.setAttribute('aria-label', 'Zoom out');
-      const zoomIn = document.createElement('button');
-      zoomIn.type = 'button'; zoomIn.className = 'manual-zoom-button';
-      zoomIn.textContent = '+'; zoomIn.setAttribute('aria-label', 'Zoom in');
-      const fit = document.createElement('button');
-      fit.type = 'button'; fit.className = 'manual-zoom-fit';
-      fit.textContent = 'Fit page'; fit.setAttribute('aria-label', 'Fit entire diagram in view');
-      const status = document.createElement('span');
-      status.className = 'manual-zoom-status'; status.setAttribute('aria-live', 'polite');
-      toolbar.append(zoomOut, zoomIn, fit, status);
-      const viewport = document.createElement('div');
-      viewport.className = 'manual-zoom-viewport';
-      viewport.setAttribute('role', 'group');
-      viewport.setAttribute('aria-label', 'Diagram. Pinch to zoom and drag to pan.');
-      const parent = image.parentNode;
-      if (!parent) return;
-      parent.insertBefore(shell, image);
-      shell.append(toolbar, viewport);
-      viewport.append(image);
-      image.classList.add('manual-zoom-image');
-      let scale = 1, x = 0, y = 0, fitWidth = 0, fitHeight = 0;
-      const pointers = new Map();
-      let dragStart = null, pinchStart = null;
-      const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-      const fitDimensions = () => {
-        const vw = viewport.clientWidth, vh = viewport.clientHeight;
-        if (!vw || !vh || !image.naturalWidth || !image.naturalHeight) return false;
-        const fitScale = Math.min(vw / image.naturalWidth, vh / image.naturalHeight);
-        fitWidth = image.naturalWidth * fitScale;
-        fitHeight = image.naturalHeight * fitScale;
-        image.style.setProperty('width', fitWidth + 'px', 'important');
-        image.style.setProperty('height', fitHeight + 'px', 'important');
-        image.style.setProperty('max-width', 'none', 'important');
-        image.style.setProperty('max-height', 'none', 'important');
-        return true;
-      };
-      const limits = () => ({
-        x: Math.max(0, (fitWidth * scale - viewport.clientWidth) / 2),
-        y: Math.max(0, (fitHeight * scale - viewport.clientHeight) / 2)
-      });
-      const paint = () => {
-        const bounds = limits();
-        x = clamp(x, -bounds.x, bounds.x);
-        y = clamp(y, -bounds.y, bounds.y);
-        image.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) scale(' + scale + ')';
-        status.textContent = scale === 1 ? 'FIT PAGE' : Math.round(scale * 100) + '%';
-        zoomOut.disabled = scale <= 1.001;
-        zoomIn.disabled = scale >= 5;
-        viewport.classList.toggle('is-zoomed', scale > 1.001);
-      };
-      const fitPage = () => {
-        if (!fitDimensions()) return;
-        scale = 1; x = 0; y = 0; paint();
-      };
-      const setScale = next => {
-        const old = scale;
-        scale = clamp(next, 1, 5);
-        const ratio = scale / old;
-        x *= ratio; y *= ratio;
-        paint();
-      };
-      zoomOut.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); setScale(scale / 1.35); });
-      zoomIn.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); setScale(scale * 1.35); });
-      fit.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); fitPage(); });
-      viewport.addEventListener('pointerdown', event => {
-        if (event.pointerType === 'mouse' && event.button !== 0) return;
-        viewport.setPointerCapture?.(event.pointerId);
-        pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-        if (pointers.size === 1 && scale > 1) {
-          dragStart = { x: event.clientX, y: event.clientY, tx: x, ty: y };
-        } else if (pointers.size === 2) {
-          const points = [...pointers.values()];
-          const cx = (points[0].x + points[1].x) / 2;
-          const cy = (points[0].y + points[1].y) / 2;
-          const rect = viewport.getBoundingClientRect();
-          const centerX = cx - rect.left - viewport.clientWidth / 2;
-          const centerY = cy - rect.top - viewport.clientHeight / 2;
-          const dx = points[0].x - points[1].x, dy = points[0].y - points[1].y;
-          pinchStart = { distance: Math.hypot(dx, dy), scale, imageX: (centerX - x) / scale, imageY: (centerY - y) / scale };
-          dragStart = null;
-        }
-        event.preventDefault();
-      });
-      viewport.addEventListener('pointermove', event => {
-        if (!pointers.has(event.pointerId)) return;
-        pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-        if (pointers.size >= 2 && pinchStart) {
-          const points = [...pointers.values()];
-          const dx = points[0].x - points[1].x, dy = points[0].y - points[1].y;
-          const distance = Math.hypot(dx, dy);
-          const rect = viewport.getBoundingClientRect();
-          const cx = (points[0].x + points[1].x) / 2 - rect.left - viewport.clientWidth / 2;
-          const cy = (points[0].y + points[1].y) / 2 - rect.top - viewport.clientHeight / 2;
-          scale = clamp(pinchStart.scale * distance / Math.max(1, pinchStart.distance), 1, 5);
-          x = cx - pinchStart.imageX * scale;
-          y = cy - pinchStart.imageY * scale;
-          paint();
-        } else if (pointers.size === 1 && dragStart && scale > 1) {
-          x = dragStart.tx + event.clientX - dragStart.x;
-          y = dragStart.ty + event.clientY - dragStart.y;
-          paint();
-        }
-        event.preventDefault();
-      });
-      const endPointer = event => {
-        pointers.delete(event.pointerId);
-        if (pointers.size < 2) pinchStart = null;
-        if (pointers.size === 1 && scale > 1) {
-          const point = [...pointers.values()][0];
-          dragStart = { x: point.x, y: point.y, tx: x, ty: y };
-        } else dragStart = null;
-      };
-      viewport.addEventListener('pointerup', endPointer);
-      viewport.addEventListener('pointercancel', endPointer);
-      fit.addEventListener('dblclick', event => { event.preventDefault(); fitPage(); });
-      if (typeof ResizeObserver !== 'undefined') {
-        const observer = new ResizeObserver(() => {
-          const previousWidth = fitWidth, previousHeight = fitHeight;
-          if (!fitDimensions()) return;
-          if (scale === 1 || !previousWidth || !previousHeight) { scale = 1; x = 0; y = 0; }
-          else { x *= fitWidth / previousWidth; y *= fitHeight / previousHeight; }
-          paint();
-        });
-        observer.observe(viewport);
-      }
-      requestAnimationFrame(fitPage);
-    };
-    if (image.complete && image.naturalWidth) mount();
-    else image.addEventListener('load', mount, { once: true });
-  });
+  // Keep source illustrations inline in the manual flow. Readers can open
+  // the complete factory page in a separate browser tab for a larger view.
+  return;
 }
+
 async function renderSectionFile(response, key, title, requestId) {
   const host = $('#readerContent');
-  const extension = key.split('.').pop().toLowerCase();
+  const extension = /\.([^.\/]+)$/.exec(key)?.[1]?.toLowerCase() || '';
+  const mime = (response?.headers.get('Content-Type') || '').split(';')[0].trim().toLowerCase();
   host.replaceChildren();
-  if (extension === 'pdf') {
+  if (extension === 'pdf' || mime === 'application/pdf') {
     const frame = document.createElement('iframe');
     frame.className = 'manual-pdf-frame';
     frame.title = title || key.split('/').pop();
@@ -1531,7 +1493,7 @@ async function renderSectionFile(response, key, title, requestId) {
     host.append(frame);
     return;
   }
-  if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'].includes(extension)) {
+  if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'].includes(extension) || mime.startsWith('image/')) {
     const image = document.createElement('img');
     image.className = 'manual-page-image';
     image.alt = title || key.split('/').pop();
@@ -1540,7 +1502,7 @@ async function renderSectionFile(response, key, title, requestId) {
     installManualImageZoom(host);
     return;
   }
-  if (extension === 'md' || extension === 'txt') {
+  if (['md', 'txt'].includes(extension) || mime === 'text/plain' || mime === 'text/markdown') {
     const pre = document.createElement('pre');
     pre.className = 'manual-plain-text';
     pre.textContent = await response.text();
@@ -1569,8 +1531,8 @@ loadLiveManualIndex = async function(vehicle) {
   activeManualGroup = 0;
   liveManualTree = [];
   renderLivePagination();
-  $('#documentList').replaceChildren(safeText('p', 'Loading the factory table of contents…', 'empty-state'));
-  $('.manual-tree').replaceChildren(safeText('p', 'Loading manual sections…', 'empty-state'));
+  $('#documentList').replaceChildren();
+  $('.manual-tree').replaceChildren();
   try {
     const treeFiles = Array.isArray(vehicle.treeFiles) ? vehicle.treeFiles : [];
     let roots = [];
@@ -1603,21 +1565,31 @@ loadLiveManualIndex = async function(vehicle) {
       if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
       const parsed = new DOMParser().parseFromString(html, 'text/html');
       roots = buildHierarchicalToc(parsed);
-      if (roots.length === 1 && !roots[0].children?.length) {
-        await hydrateTocNode(roots[0], vehicle);
-      }
+      // The published Scion/Subaru manuals expose their top-level sections as
+      // links to pages/2.html, pages/3.html, etc. Hydrate each section index
+      // once so its child pages become the drill-down menu and page list.
+      roots = await Promise.all(roots.map(async node => {
+        if (node?.pageId && !node.children?.length) {
+          return hydrateTocNode(node, vehicle);
+        }
+        return node;
+      }));
       if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
       source = 'factory index';
     }
 
     if (!roots.length) throw new Error('The factory index contains no navigable sections.');
-    const count = roots.reduce((total, node) => total + tocLeafPages(node).length, 0);
+    const countLeaves = nodes => (nodes || []).reduce((total, node) => {
+      const isFile = Boolean(node?.fileKey) || Boolean(node?.pageId && !node.children?.length);
+      return total + (isFile ? 1 : countLeaves(node?.children));
+    }, 0);
+    const count = countLeaves(roots);
     if (!count) throw new Error('The factory hierarchy contains no usable page references.');
 
     liveManualTree = roots;
     renderHierarchicalToc();
     renderTocChildren(null);
-    setMobileView('vehicles', titleFromFolder(vehicle.name), 'Choose a factory section to continue.');
+    setMobileView('vehicles', 'Factory contents', 'Choose a factory section to continue.');
     announce('Loaded ' + source + ' with ' + count.toLocaleString() + ' linked factory pages.');
   } catch (error) {
     if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
@@ -1627,7 +1599,17 @@ loadLiveManualIndex = async function(vehicle) {
 };
 tocLeafPages = function(node, out=[]) {
   (node?.children || []).forEach(child => {
-    if (child?.fileKey) out.push({ pageId: String(child.fileKey), title: child.title, file: child.file });
+    if (child?.fileKey) {
+      out.push({ pageId: String(child.fileKey), title: child.title, file: child.file });
+    } else if (child?.pageId && !child.children?.length && selectedVehicle) {
+      // Legacy factory indexes identify terminal pages by numeric page ID;
+      // resolve those IDs to the exact existing R2 object path.
+      out.push({
+        pageId: manualKey(selectedVehicle, 'pages/' + child.pageId + '.html'),
+        title: child.title,
+        file: 'pages/' + child.pageId + '.html'
+      });
+    }
   });
   return out;
 };
@@ -1717,7 +1699,11 @@ showLiveManualPage = async function(vehicle, fileKey, title) {
   activeLivePage = null;
   renderLivePagination();
   const vehicleRoot = vehicle.id.replace(/\/$/, '') + '/';
-  const key = String(fileKey).startsWith(vehicleRoot) ? String(fileKey) : manualKey(vehicle, String(fileKey));
+  const requestedKey = String(fileKey).startsWith(vehicleRoot) ? String(fileKey) : manualKey(vehicle, String(fileKey));
+  // tocPageId intentionally stores the legacy numeric page ID. The R2 object
+  // itself lives at <vehicle>/pages/<id>.html, never <vehicle>/<id>.
+  const numericPage = requestedKey.match(/\/(\d+)$/);
+  let key = numericPage ? vehicleRoot + 'pages/' + numericPage[1] + '.html' : requestedKey;
   const fileName = key.split('/').pop();
   const displayTitle = title || fileName;
   $('#readerTitle').textContent = displayTitle;
@@ -1727,7 +1713,20 @@ showLiveManualPage = async function(vehicle, fileKey, title) {
   if (readerBack) readerBack.hidden = false;
   try {
     const extension = key.split('.').pop().toLowerCase();
-    const response = ['pdf', 'png', 'svg'].includes(extension) ? null : await fetchSectionObject(key);
+    let response = null;
+    if (!['pdf', 'png', 'svg'].includes(extension)) {
+      try {
+        response = await fetchSectionObject(key);
+      } catch (error) {
+        // Older search records may contain a bare numeric page ID instead of
+        // the real legacy factory path: <vehicle>/pages/<id>.html.
+        const numericPage = key.match(/\/(\d+)$/);
+        if (!numericPage) throw error;
+        const fallbackKey = vehicleRoot + 'pages/' + numericPage[1] + '.html';
+        response = await fetchSectionObject(fallbackKey);
+        key = fallbackKey;
+      }
+    }
     if (requestId !== manualPageRequestId) return;
     await renderSectionFile(response, key, displayTitle, requestId);
     if (requestId !== manualPageRequestId) return;

@@ -1,10 +1,12 @@
 # LifeOS Manual Explorer Pro — Experimental
 
-This is the isolated preview of Manual Explorer Pro. Work only on branch feat/manual-explorer-pro; it does not replace the Phoenix production site.
+ad-hoc
+
+This is the isolated preview of Manual Explorer Pro. Keep this work on the experimental repair branch until explicitly promoted; it does not replace the Phoenix production site.
 
 ## Current implementation
 
-- Mobile-first vehicle and manual selection.
+- Mobile-first equipment and manual selection; vehicles are the first supported equipment category.
 - Single-column section drill-down with Back and breadcrumb navigation.
 - R2-backed section tree loading.
 - Exact filename resolution from each tree leaf.
@@ -45,7 +47,7 @@ The tree file is stored at Vehicle Name/Manual Name/tree.json. Folder nodes use 
 
 That leaf resolves to 2006 Scion xB/Repair Manual/Engine Mechanical/EM-01 Engine Removal.md. The reader does not infer a filename from the title or a numeric page ID.
 
-The catalog discovers vehicle/manual folders from R2 and counts file leaves in each tree. The file API validates the vehicle-rooted key and serves only supported file extensions. It is read-only.
+The current catalog discovers vehicle/manual folders from R2 and publishes a category-neutral top-level `equipment[]` collection while retaining `manuals[].vehicles[]` for older clients. Equipment records carry `id`, `name`, `href`, `manualId`, `make`, `category`, `equipmentType`, and `fileCount`. Future appliance owner manuals and other equipment types can join the same collection without requiring a vehicle-specific home screen. The file API is read-only, validates manual-rooted keys, and serves supported file extensions. Bare numeric legacy page references are normalized to their real `pages/<id>.html` object path before the request.
 
 ## Search index
 
@@ -65,3 +67,21 @@ From a manual's extracted index page, run:
     python tools/build_tree.py 2.html "Repair and Diagnosis" > tree.json
 
 The builder copies the final filename from each supported local link into the leaf's file field. It does not convert numeric page IDs into guessed filenames. If the index still links to numbered legacy pages, update the source links to the real section-based filenames before generating the tree. Upload the resulting tree.json to Vehicle Name/Manual Name/tree.json.
+
+
+## Equipment library direction
+
+The home screen is an equipment library, not a vehicle-only garage. Its equipment collection can contain vehicles, appliances, tools, and other maintained assets. The current R2 catalog remains backward compatible with vehicle records; when appliance manuals are introduced, publish them through the top-level `equipment[]` collection using this shape:
+
+    {
+      "id": "manuals/appliance-manuals/kitchenaid-dishwasher",
+      "name": "KitchenAid Dishwasher",
+      "href": "manuals/appliance-manuals/kitchenaid-dishwasher/",
+      "manualId": "appliance-manuals",
+      "make": "KitchenAid",
+      "category": "appliance",
+      "equipmentType": "appliance",
+      "fileCount": 240
+    }
+
+The same reader and search flow can then open the equipment's `index.html` or its registered `treeFiles`. Keep the equipment picker on Home; do not add a separate Vehicles navigation tab.
