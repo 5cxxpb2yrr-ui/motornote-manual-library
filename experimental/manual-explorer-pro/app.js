@@ -1380,10 +1380,9 @@ function installManualImageZoom(host) {
       zoomIn.textContent = '+'; zoomIn.setAttribute('aria-label', 'Zoom in');
       const fit = document.createElement('button');
       fit.type = 'button'; fit.className = 'manual-zoom-fit';
-      fit.textContent = 'Fit page'; fit.setAttribute('aria-label', 'Reset diagram to fit page');
+      fit.textContent = 'Fit page'; fit.setAttribute('aria-label', 'Fit entire diagram in view');
       const status = document.createElement('span');
       status.className = 'manual-zoom-status'; status.setAttribute('aria-live', 'polite');
-      status.textContent = 'FIT PAGE';
       toolbar.append(zoomOut, zoomIn, fit, status);
       const viewport = document.createElement('div');
       viewport.className = 'manual-zoom-viewport';
@@ -1395,27 +1394,39 @@ function installManualImageZoom(host) {
       shell.append(toolbar, viewport);
       viewport.append(image);
       image.classList.add('manual-zoom-image');
-      let scale = 1, x = 0, y = 0;
+      let scale = 1, x = 0, y = 0, fitWidth = 0, fitHeight = 0;
       const pointers = new Map();
       let dragStart = null, pinchStart = null;
       const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-      const limits = () => {
-        const width = image.getBoundingClientRect().width / scale;
-        const height = image.getBoundingClientRect().height / scale;
-        return {
-          x: Math.max(0, (width * scale - viewport.clientWidth) / 2),
-          y: Math.max(0, (height * scale - viewport.clientHeight) / 2)
-        };
+      const fitDimensions = () => {
+        const vw = viewport.clientWidth, vh = viewport.clientHeight;
+        if (!vw || !vh || !image.naturalWidth || !image.naturalHeight) return false;
+        const fitScale = Math.min(vw / image.naturalWidth, vh / image.naturalHeight);
+        fitWidth = image.naturalWidth * fitScale;
+        fitHeight = image.naturalHeight * fitScale;
+        image.style.setProperty('width', fitWidth + 'px', 'important');
+        image.style.setProperty('height', fitHeight + 'px', 'important');
+        image.style.setProperty('max-width', 'none', 'important');
+        image.style.setProperty('max-height', 'none', 'important');
+        return true;
       };
+      const limits = () => ({
+        x: Math.max(0, (fitWidth * scale - viewport.clientWidth) / 2),
+        y: Math.max(0, (fitHeight * scale - viewport.clientHeight) / 2)
+      });
       const paint = () => {
         const bounds = limits();
         x = clamp(x, -bounds.x, bounds.x);
         y = clamp(y, -bounds.y, bounds.y);
         image.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) scale(' + scale + ')';
         status.textContent = scale === 1 ? 'FIT PAGE' : Math.round(scale * 100) + '%';
-        zoomOut.disabled = scale <= 1;
+        zoomOut.disabled = scale <= 1.001;
         zoomIn.disabled = scale >= 5;
-        viewport.classList.toggle('is-zoomed', scale > 1);
+        viewport.classList.toggle('is-zoomed', scale > 1.001);
+      };
+      const fitPage = () => {
+        if (!fitDimensions()) return;
+        scale = 1; x = 0; y = 0; paint();
       };
       const setScale = next => {
         const old = scale;
@@ -1424,7 +1435,6 @@ function installManualImageZoom(host) {
         x *= ratio; y *= ratio;
         paint();
       };
-      const fitPage = () => { scale = 1; x = 0; y = 0; paint(); };
       zoomOut.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); setScale(scale / 1.35); });
       zoomIn.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); setScale(scale * 1.35); });
       fit.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); fitPage(); });
@@ -1442,7 +1452,7 @@ function installManualImageZoom(host) {
           const centerX = cx - rect.left - viewport.clientWidth / 2;
           const centerY = cy - rect.top - viewport.clientHeight / 2;
           const dx = points[0].x - points[1].x, dy = points[0].y - points[1].y;
-          pinchStart = { distance: Math.hypot(dx, dy), scale, centerX, centerY, imageX: (centerX - x) / scale, imageY: (centerY - y) / scale };
+          pinchStart = { distance: Math.hypot(dx, dy), scale, imageX: (centerX - x) / scale, imageY: (centerY - y) / scale };
           dragStart = null;
         }
         event.preventDefault();
@@ -1475,22 +1485,23 @@ function installManualImageZoom(host) {
           const point = [...pointers.values()][0];
           dragStart = { x: point.x, y: point.y, tx: x, ty: y };
         } else dragStart = null;
-        if (!pointers.size) fitPageIfImageResized();
-      };
-      const fitPageIfImageResized = () => {
-        if (scale === 1) { x = 0; y = 0; paint(); }
       };
       viewport.addEventListener('pointerup', endPointer);
       viewport.addEventListener('pointercancel', endPointer);
-      image.addEventListener('load', () => { if (scale === 1) fitPage(); }, { once: true });
-      if (image.complete) requestAnimationFrame(fitPage);
+      fit.addEventListener('dblclick', event => { event.preventDefault(); fitPage(); });
       if (typeof ResizeObserver !== 'undefined') {
-        const observer = new ResizeObserver(() => { if (scale === 1) fitPage(); else paint(); });
+        const observer = new ResizeObserver(() => {
+          const previousWidth = fitWidth, previousHeight = fitHeight;
+          if (!fitDimensions()) return;
+          if (scale === 1 || !previousWidth || !previousHeight) { scale = 1; x = 0; y = 0; }
+          else { x *= fitWidth / previousWidth; y *= fitHeight / previousHeight; }
+          paint();
+        });
         observer.observe(viewport);
       }
-      paint();
+      requestAnimationFrame(fitPage);
     };
-    if (image.complete) mount();
+    if (image.complete && image.naturalWidth) mount();
     else image.addEventListener('load', mount, { once: true });
   });
 }
