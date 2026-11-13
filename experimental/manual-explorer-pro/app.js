@@ -729,9 +729,9 @@ $('#nextDoc').replaceWith(liveNextButton);
 
 function normalizeFactoryPageId(value) {
   const raw = String(value ?? '').trim();
-  return raw.match(/(?:^|[\\/])pages[\\/](\\d+)\\.html?(?:$|[?#])/i)?.[1]
-    || raw.match(/(?:^|[\\/])(\\d+)\\.html?(?:$|[?#])/i)?.[1]
-    || raw.match(/^(\\d+)$/)?.[1]
+  return raw.match(/(?:^|[\\/])pages[\\/](\d+)\.html?(?:$|[?#])/i)?.[1]
+    || raw.match(/(?:^|[\\/])(\d+)\.html?(?:$|[?#])/i)?.[1]
+    || raw.match(/^(\d+)$/)?.[1]
     || null;
 }
 function activeReaderPageSequence() {
@@ -763,7 +763,7 @@ function renderLivePagination() {
   const status = footer.querySelector('.reader-page-status') || document.createElement('span');
   status.className = 'reader-page-status';
   const shortPageLabel = normalizeFactoryPageId(activeLivePage?.pageId || activeLivePage?.file)
-    || String(activeLivePage?.file || activeLivePage?.pageId || '').split('/').pop().replace(/\\.html?$/i, '');
+    || String(activeLivePage?.file || activeLivePage?.pageId || '').split('/').pop().replace(/\.html?$/i, '');
   status.textContent = index >= 0
     ? 'FACTORY PAGE ' + shortPageLabel + ' · ' + (index + 1) + ' OF ' + pages.length
     : activeLivePage ? 'FACTORY PAGE ' + shortPageLabel : 'SELECT A FACTORY PAGE';
