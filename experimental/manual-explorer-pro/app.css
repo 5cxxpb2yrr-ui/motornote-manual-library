@@ -3005,3 +3005,4 @@ body[data-mobile-view="reader"] .mobile-context { display: none !important; }
 .manual-legend-action{margin-left:auto;flex:0 0 auto;color:var(--accent2);font-size:11px;font-weight:600;white-space:nowrap}
 .manual-legend-link:hover{border-color:var(--accent);background:#ff98001c}
 @media(max-width:420px){.manual-image-crossrefs{padding:10px}.manual-legend-link{gap:8px;padding:9px}.manual-legend-label{font-size:12px}.manual-legend-action{font-size:10px}}
+body.light .manual-legend-link{background:#fff8ec;border-color:#d6b17b;color:#222}body.light .manual-legend-code,body.light .manual-legend-action{color:#8b4b00}body.light .manual-legend-code{background:#ff98001a}
