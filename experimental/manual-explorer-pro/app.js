@@ -1553,33 +1553,62 @@ loadLiveManualIndex = async function(vehicle) {
   activeLivePage = null;
   liveManualGroups = [];
   activeManualGroup = 0;
+  liveManualTree = [];
   renderLivePagination();
-  $('#documentList').replaceChildren(safeText('p', 'Loading the section index…', 'empty-state'));
-  $('.manual-tree').replaceChildren();
+  $('#documentList').replaceChildren(safeText('p', 'Loading the factory table of contents…', 'empty-state'));
+  $('.manual-tree').replaceChildren(safeText('p', 'Loading manual sections…', 'empty-state'));
   try {
     const treeFiles = Array.isArray(vehicle.treeFiles) ? vehicle.treeFiles : [];
-    if (!treeFiles.length) throw new Error('No section tree files are registered for this vehicle.');
-    const trees = await Promise.all(treeFiles.map(async entry => {
-      const response = await fetchSectionObject(entry.key);
-      return { entry, tree: await response.json() };
-    }));
-    if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
-    const roots = trees.flatMap(({ entry, tree }) => sectionTreeNodes([{
-      n: tree.title || entry.title,
-      c: sectionChildren(tree)
-    }], vehicle));
-    if (!roots.length) throw new Error('The registered section trees contain no navigation nodes.');
-    const count = sectionFileCount(roots);
-    if (!count) throw new Error('The section trees contain no usable page references.');
+    let roots = [];
+    let source = '';
+
+    if (treeFiles.length) {
+      try {
+        const trees = await Promise.all(treeFiles.map(async entry => {
+          if (!entry?.key) throw new Error('A section tree is missing its object key.');
+          const response = await fetchSectionObject(entry.key);
+          return { entry, tree: await response.json() };
+        }));
+        if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
+        roots = trees.flatMap(({ entry, tree }) => sectionTreeNodes([{
+          n: tree.title || entry.title,
+          c: sectionChildren(tree)
+        }], vehicle));
+        if (roots.length && sectionFileCount(roots)) {
+          source = trees.length + ' registered section trees';
+        }
+      } catch (treeError) {
+        console.warn('Registered section trees unavailable; falling back to the factory index.', treeError);
+      }
+    }
+
+    // Older catalog entries may not expose treeFiles. The factory index remains
+    // the canonical fallback and contains the original section/page hierarchy.
+    if (!roots.length || !sectionFileCount(roots)) {
+      const html = await fetchManualHtml(manualKey(vehicle, 'index.html'));
+      if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
+      const parsed = new DOMParser().parseFromString(html, 'text/html');
+      roots = buildHierarchicalToc(parsed);
+      if (roots.length === 1 && !roots[0].children?.length) {
+        await hydrateTocNode(roots[0], vehicle);
+      }
+      if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
+      source = 'factory index';
+    }
+
+    if (!roots.length) throw new Error('The factory index contains no navigable sections.');
+    const count = roots.reduce((total, node) => total + tocLeafPages(node).length, 0);
+    if (!count) throw new Error('The factory hierarchy contains no usable page references.');
+
     liveManualTree = roots;
     renderHierarchicalToc();
     renderTocChildren(null);
-    setMobileView('vehicles', titleFromFolder(vehicle.name), 'Choose a manual section to continue.');
-    announce('Loaded ' + trees.length + ' section trees with ' + count.toLocaleString() + ' exact page references.');
+    setMobileView('vehicles', titleFromFolder(vehicle.name), 'Choose a factory section to continue.');
+    announce('Loaded ' + source + ' with ' + count.toLocaleString() + ' linked factory pages.');
   } catch (error) {
     if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
-    $('.manual-tree').replaceChildren(safeText('p', 'Unable to read the section trees. ' + error.message, 'empty-state'));
-    $('#documentList').replaceChildren(safeText('p', 'The R2 catalog must register the section tree files for this vehicle.', 'empty-state'));
+    $('.manual-tree').replaceChildren(safeText('p', 'Unable to load factory sections. ' + error.message, 'empty-state'));
+    $('#documentList').replaceChildren(safeText('p', 'The factory table of contents could not be loaded. ' + error.message, 'empty-state'));
   }
 };
 tocLeafPages = function(node, out=[]) {
