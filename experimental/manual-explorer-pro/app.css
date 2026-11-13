@@ -2393,3 +2393,175 @@ button,.btn,.rail-link,.mobile-nav button,.vehicle-item,.document-item,
     padding-bottom:110px !important;
   }
 }
+
+/* Canonical mobile reader: compact Claude-style chrome, a true reading viewport,
+   and a dedicated pager that never competes with the floating navigation. */
+@media (max-width:700px), (orientation:landscape) and (max-height:500px) {
+  body[data-mobile-view="reader"] {
+    overflow:hidden !important;
+  }
+  body[data-mobile-view="reader"] .reader-panel {
+    position:fixed !important;
+    inset:0 !important;
+    z-index:50 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    width:100vw !important;
+    height:100dvh !important;
+    min-height:0 !important;
+    max-height:100dvh !important;
+    margin:0 !important;
+    padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom) !important;
+    border:0 !important;
+    border-radius:0 !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+    background:var(--panel) !important;
+  }
+  body[data-mobile-view="reader"] .reader-toolbar {
+    display:flex !important;
+    flex:0 0 auto !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:7px !important;
+    min-width:0 !important;
+    padding:9px 14px 10px !important;
+    border-bottom:1px solid var(--line) !important;
+    background:var(--panel) !important;
+  }
+  body[data-mobile-view="reader"] .reader-toolbar > div:first-of-type {
+    display:block !important;
+    min-width:0 !important;
+    width:100% !important;
+  }
+  body[data-mobile-view="reader"] .reader-toolbar .eyebrow,
+  body[data-mobile-view="reader"] #readerBreadcrumbs {
+    display:none !important;
+  }
+  body[data-mobile-view="reader"] .reader-toolbar h2 {
+    display:block !important;
+    max-width:100% !important;
+    margin:0 !important;
+    overflow:hidden !important;
+    color:var(--text) !important;
+    font-size:clamp(17px,4.8vw,21px) !important;
+    line-height:1.2 !important;
+    font-weight:750 !important;
+    text-overflow:ellipsis !important;
+    white-space:nowrap !important;
+  }
+  body[data-mobile-view="reader"] .reader-actions {
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:7px !important;
+    width:100% !important;
+    min-width:0 !important;
+  }
+  body[data-mobile-view="reader"] .reader-actions button {
+    display:inline-flex !important;
+    flex:0 1 auto !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:44px !important;
+    min-height:40px !important;
+    padding:7px 11px !important;
+    border-radius:9px !important;
+    font-size:12px !important;
+    white-space:nowrap !important;
+  }
+  body[data-mobile-view="reader"] .reader-actions .toc-open {
+    display:inline-flex !important;
+  }
+  body[data-mobile-view="reader"] .reader-meta {
+    display:none !important;
+  }
+  body[data-mobile-view="reader"] .reader-content {
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:18px 16px calc(24px + env(safe-area-inset-bottom)) !important;
+    overflow:auto !important;
+    overscroll-behavior:contain !important;
+    -webkit-overflow-scrolling:touch !important;
+    box-sizing:border-box !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer {
+    position:relative !important;
+    inset:auto !important;
+    z-index:2 !important;
+    display:grid !important;
+    flex:0 0 auto !important;
+    grid-template-columns:minmax(0,1fr) minmax(78px,.62fr) minmax(0,1fr) !important;
+    align-items:center !important;
+    gap:8px !important;
+    width:100% !important;
+    min-height:76px !important;
+    margin:0 !important;
+    padding:9px 12px calc(9px + env(safe-area-inset-bottom)) !important;
+    border-top:1px solid var(--line) !important;
+    background:var(--panel2) !important;
+    box-sizing:border-box !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer .subtle-button {
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:52px !important;
+    margin:0 !important;
+    padding:8px 5px !important;
+    border:1px solid var(--line) !important;
+    border-radius:12px !important;
+    background:var(--panel) !important;
+    color:var(--text) !important;
+    font-size:14px !important;
+    font-weight:650 !important;
+    white-space:nowrap !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer #nextDoc:not(:disabled) {
+    border-color:var(--accent) !important;
+    background:var(--accent) !important;
+    color:#17120b !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer .reader-page-status {
+    display:block !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+    color:var(--muted) !important;
+    font:600 10px/1.35 'IBM Plex Mono',monospace !important;
+    letter-spacing:0 !important;
+    text-align:center !important;
+    text-overflow:ellipsis !important;
+    overflow-wrap:anywhere !important;
+  }
+  body[data-mobile-view="reader"] .mobile-fab {
+    display:none !important;
+  }
+}
+
+/* Landscape phones get the same fixed reader, with a tighter toolbar. */
+@media (orientation:landscape) and (max-height:500px) {
+  body[data-mobile-view="reader"] .reader-toolbar {
+    gap:5px !important;
+    padding:5px 12px 6px !important;
+  }
+  body[data-mobile-view="reader"] .reader-toolbar h2 {
+    font-size:17px !important;
+  }
+  body[data-mobile-view="reader"] .reader-actions button {
+    min-height:34px !important;
+    padding:4px 9px !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer {
+    min-height:62px !important;
+    grid-template-columns:minmax(0,1fr) minmax(72px,.6fr) minmax(0,1fr) !important;
+    padding:5px 10px !important;
+  }
+  body[data-mobile-view="reader"] .reader-footer .subtle-button {
+    min-height:44px !important;
+  }
+}
