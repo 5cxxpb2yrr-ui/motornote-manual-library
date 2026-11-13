@@ -102,13 +102,26 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
       .filter((manual): manual is NonNullable<typeof manual> => manual !== null)
       .sort((a, b) => a.make.localeCompare(b.make) || a.id.localeCompare(b.id));
 
+    // Publish a category-neutral equipment collection for the home screen.
+    // Keep manuals[].vehicles[] during the transition for older clients.
+    const equipment = validManuals.flatMap(manual => manual.vehicles.map(vehicle => ({
+      ...vehicle,
+      manualId: manual.id,
+      make: manual.make,
+      fileCount: vehicle.fileCount || manual.fileCount,
+      category: "vehicle",
+      equipmentType: "vehicle"
+    })));
+
     return Response.json({
       generatedAt: summary.generated_at || new Date().toISOString(),
       manualCount: validManuals.length,
-      vehicleCount: validManuals.reduce((total, manual) => total + manual.vehicles.length, 0),
+      equipmentCount: equipment.length,
+      vehicleCount: equipment.length,
       fileCount: Number(summary.file_count) || validManuals.reduce(
         (total, manual) => total + manual.fileCount, 0
       ),
+      equipment,
       manuals: validManuals
     }, {
       headers: {
