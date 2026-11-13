@@ -452,8 +452,8 @@ function selectManualGroup(index,vehicle) {
 }
 async function loadLiveManualIndex(vehicle) {
  const key=manualKey(vehicle,'index.html');
- $('#documentList').replaceChildren(safeText('p','Loading the factory table of contents…','empty-state'));
- $('.manual-tree').replaceChildren(safeText('p','Reading factory section structure…','empty-state'));
+ $('#documentList').replaceChildren();
+ $('.manual-tree').replaceChildren();
  try {
   const html=await fetchManualHtml(key),parsed=new DOMParser().parseFromString(html,'text/html');
   const groups=[],byTitle=new Map();let current=null;
@@ -655,8 +655,8 @@ if (footerLabel) footerLabel.textContent = 'R2 FACTORY READER';
 const previousLoadLiveManualIndex = loadLiveManualIndex;
 loadLiveManualIndex = async function(vehicle) {
   const key = manualKey(vehicle, 'index.html');
-  $('#documentList').replaceChildren(safeText('p', 'Loading the factory table of contents…', 'empty-state'));
-  $('.manual-tree').replaceChildren(safeText('p', 'Reading factory section structure…', 'empty-state'));
+  $('#documentList').replaceChildren();
+  $('.manual-tree').replaceChildren();
   try {
     const html = await fetchManualHtml(key);
     const parsed = new DOMParser().parseFromString(html, 'text/html');
@@ -1603,7 +1603,7 @@ loadLiveManualIndex = async function(vehicle) {
   activeManualGroup = 0;
   liveManualTree = [];
   renderLivePagination();
-  $('#documentList').replaceChildren(safeText('p', 'Loading the factory table of contents…', 'empty-state'));
+  $('#documentList').replaceChildren();
   $('.manual-tree').replaceChildren();
   try {
     const treeFiles = Array.isArray(vehicle.treeFiles) ? vehicle.treeFiles : [];
