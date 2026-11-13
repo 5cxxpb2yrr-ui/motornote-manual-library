@@ -791,14 +791,18 @@ if (readerActions && !$('#expandReader')) {
   expandButton.id = 'expandReader';
   expandButton.className = 'icon-button reader-expand-button';
   expandButton.textContent = '⤢';
-  expandButton.setAttribute('aria-label', 'Expand manual reader');
+  expandButton.setAttribute('aria-label', 'Open this factory manual page in a new tab');
+  expandButton.setAttribute('title', 'Open page in new tab');
   expandButton.setAttribute('aria-pressed', 'false');
   readerActions.append(expandButton);
   expandButton.addEventListener('click', () => {
-    const expanded = document.body.classList.toggle('reader-expanded');
-    expandButton.setAttribute('aria-pressed', String(expanded));
-    expandButton.setAttribute('aria-label', expanded ? 'Return to page preview' : 'Expand manual reader');
-    expandButton.textContent = expanded ? '⤡' : '⤢';
+    if (!activeLiveVehicle || !activeLivePage?.pageId) {
+      announce('Open a factory manual page first.');
+      return;
+    }
+    const key = manualKey(activeLiveVehicle, 'pages/' + activeLivePage.pageId + '.html');
+    const url = new URL(key.split('/').map(encodeURIComponent).join('/'), MANUAL_SITE).href;
+    window.open(url, '_blank', 'noopener,noreferrer');
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && document.body.classList.contains('reader-expanded')) {
@@ -1471,149 +1475,11 @@ function cleanSectionHtml(html, key) {
   return main ? main.innerHTML : '<p>Manual file is empty.</p>';
 }
 function installManualImageZoom(host) {
-  if (!host) return;
-  host.querySelectorAll('img:not(.manual-icon-asset):not(.manual-zoom-image)').forEach(image => {
-    const mount = () => {
-      if (!image.isConnected || image.closest('.manual-zoom-shell')) return;
-      if (image.naturalWidth < 180 || image.naturalHeight < 120) return;
-      const shell = document.createElement('section');
-      shell.className = 'manual-zoom-shell';
-      shell.setAttribute('aria-label', 'Zoomable factory diagram');
-      const toolbar = document.createElement('div');
-      toolbar.className = 'manual-zoom-toolbar';
-      const zoomOut = document.createElement('button');
-      zoomOut.type = 'button'; zoomOut.className = 'manual-zoom-button';
-      zoomOut.textContent = '−'; zoomOut.setAttribute('aria-label', 'Zoom out');
-      const zoomIn = document.createElement('button');
-      zoomIn.type = 'button'; zoomIn.className = 'manual-zoom-button';
-      zoomIn.textContent = '+'; zoomIn.setAttribute('aria-label', 'Zoom in');
-      const fit = document.createElement('button');
-      fit.type = 'button'; fit.className = 'manual-zoom-fit';
-      fit.textContent = 'Fit page'; fit.setAttribute('aria-label', 'Fit entire diagram in view');
-      const status = document.createElement('span');
-      status.className = 'manual-zoom-status'; status.setAttribute('aria-live', 'polite');
-      toolbar.append(zoomOut, zoomIn, fit, status);
-      const viewport = document.createElement('div');
-      viewport.className = 'manual-zoom-viewport';
-      viewport.setAttribute('role', 'group');
-      viewport.setAttribute('aria-label', 'Diagram. Pinch to zoom and drag to pan.');
-      const parent = image.parentNode;
-      if (!parent) return;
-      parent.insertBefore(shell, image);
-      shell.append(toolbar, viewport);
-      viewport.append(image);
-      image.classList.add('manual-zoom-image');
-      let scale = 1, x = 0, y = 0, fitWidth = 0, fitHeight = 0;
-      const pointers = new Map();
-      let dragStart = null, pinchStart = null;
-      const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-      const fitDimensions = () => {
-        const vw = viewport.clientWidth, vh = viewport.clientHeight;
-        if (!vw || !vh || !image.naturalWidth || !image.naturalHeight) return false;
-        const fitScale = Math.min(vw / image.naturalWidth, vh / image.naturalHeight);
-        fitWidth = image.naturalWidth * fitScale;
-        fitHeight = image.naturalHeight * fitScale;
-        image.style.setProperty('width', fitWidth + 'px', 'important');
-        image.style.setProperty('height', fitHeight + 'px', 'important');
-        image.style.setProperty('max-width', 'none', 'important');
-        image.style.setProperty('max-height', 'none', 'important');
-        return true;
-      };
-      const limits = () => ({
-        x: Math.max(0, (fitWidth * scale - viewport.clientWidth) / 2),
-        y: Math.max(0, (fitHeight * scale - viewport.clientHeight) / 2)
-      });
-      const paint = () => {
-        const bounds = limits();
-        x = clamp(x, -bounds.x, bounds.x);
-        y = clamp(y, -bounds.y, bounds.y);
-        image.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) scale(' + scale + ')';
-        status.textContent = scale === 1 ? 'FIT PAGE' : Math.round(scale * 100) + '%';
-        zoomOut.disabled = scale <= 1.001;
-        zoomIn.disabled = scale >= 5;
-        viewport.classList.toggle('is-zoomed', scale > 1.001);
-      };
-      const fitPage = () => {
-        if (!fitDimensions()) return;
-        scale = 1; x = 0; y = 0; paint();
-      };
-      const setScale = next => {
-        const old = scale;
-        scale = clamp(next, 1, 5);
-        const ratio = scale / old;
-        x *= ratio; y *= ratio;
-        paint();
-      };
-      zoomOut.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); setScale(scale / 1.35); });
-      zoomIn.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); setScale(scale * 1.35); });
-      fit.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); fitPage(); });
-      viewport.addEventListener('pointerdown', event => {
-        if (event.pointerType === 'mouse' && event.button !== 0) return;
-        viewport.setPointerCapture?.(event.pointerId);
-        pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-        if (pointers.size === 1 && scale > 1) {
-          dragStart = { x: event.clientX, y: event.clientY, tx: x, ty: y };
-        } else if (pointers.size === 2) {
-          const points = [...pointers.values()];
-          const cx = (points[0].x + points[1].x) / 2;
-          const cy = (points[0].y + points[1].y) / 2;
-          const rect = viewport.getBoundingClientRect();
-          const centerX = cx - rect.left - viewport.clientWidth / 2;
-          const centerY = cy - rect.top - viewport.clientHeight / 2;
-          const dx = points[0].x - points[1].x, dy = points[0].y - points[1].y;
-          pinchStart = { distance: Math.hypot(dx, dy), scale, imageX: (centerX - x) / scale, imageY: (centerY - y) / scale };
-          dragStart = null;
-        }
-        event.preventDefault();
-      });
-      viewport.addEventListener('pointermove', event => {
-        if (!pointers.has(event.pointerId)) return;
-        pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-        if (pointers.size >= 2 && pinchStart) {
-          const points = [...pointers.values()];
-          const dx = points[0].x - points[1].x, dy = points[0].y - points[1].y;
-          const distance = Math.hypot(dx, dy);
-          const rect = viewport.getBoundingClientRect();
-          const cx = (points[0].x + points[1].x) / 2 - rect.left - viewport.clientWidth / 2;
-          const cy = (points[0].y + points[1].y) / 2 - rect.top - viewport.clientHeight / 2;
-          scale = clamp(pinchStart.scale * distance / Math.max(1, pinchStart.distance), 1, 5);
-          x = cx - pinchStart.imageX * scale;
-          y = cy - pinchStart.imageY * scale;
-          paint();
-        } else if (pointers.size === 1 && dragStart && scale > 1) {
-          x = dragStart.tx + event.clientX - dragStart.x;
-          y = dragStart.ty + event.clientY - dragStart.y;
-          paint();
-        }
-        event.preventDefault();
-      });
-      const endPointer = event => {
-        pointers.delete(event.pointerId);
-        if (pointers.size < 2) pinchStart = null;
-        if (pointers.size === 1 && scale > 1) {
-          const point = [...pointers.values()][0];
-          dragStart = { x: point.x, y: point.y, tx: x, ty: y };
-        } else dragStart = null;
-      };
-      viewport.addEventListener('pointerup', endPointer);
-      viewport.addEventListener('pointercancel', endPointer);
-      fit.addEventListener('dblclick', event => { event.preventDefault(); fitPage(); });
-      if (typeof ResizeObserver !== 'undefined') {
-        const observer = new ResizeObserver(() => {
-          const previousWidth = fitWidth, previousHeight = fitHeight;
-          if (!fitDimensions()) return;
-          if (scale === 1 || !previousWidth || !previousHeight) { scale = 1; x = 0; y = 0; }
-          else { x *= fitWidth / previousWidth; y *= fitHeight / previousHeight; }
-          paint();
-        });
-        observer.observe(viewport);
-      }
-      requestAnimationFrame(fitPage);
-    };
-    if (image.complete && image.naturalWidth) mount();
-    else image.addEventListener('load', mount, { once: true });
-  });
+  // Keep source illustrations inline in the manual flow. Readers can open
+  // the complete factory page in a separate browser tab for a larger view.
+  return;
 }
+
 async function renderSectionFile(response, key, title, requestId) {
   const host = $('#readerContent');
   const extension = /\.([^.\/]+)$/.exec(key)?.[1]?.toLowerCase() || '';
