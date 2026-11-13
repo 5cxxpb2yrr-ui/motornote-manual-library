@@ -1,5 +1,5 @@
 # MotorNote Manual Library
-
+ad-hoc
 Private, version-controlled source library for MotorNote service-manual retrieval.
 
 ## Add a manual
