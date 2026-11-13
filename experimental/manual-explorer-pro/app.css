@@ -3006,3 +3006,11 @@ body[data-mobile-view="reader"] .mobile-context { display: none !important; }
 .manual-legend-link:hover{border-color:var(--accent);background:#ff98001c}
 @media(max-width:420px){.manual-image-crossrefs{padding:10px}.manual-legend-link{gap:8px;padding:9px}.manual-legend-label{font-size:12px}.manual-legend-action{font-size:10px}}
 body.light .manual-legend-link{background:#fff8ec;border-color:#d6b17b;color:#222}body.light .manual-legend-code,body.light .manual-legend-action{color:#8b4b00}body.light .manual-legend-code{background:#ff98001a}
+
+/* Transparent tap target aligned to D 4 on the Scion page-7256 illustration. */
+.manual-image-hotspot-host{position:relative}
+.manual-image-hotspot{position:absolute;z-index:2;left:51.5%;top:65.2%;width:28%;height:2.5%;display:block;border:1px dashed #ff9800a8;border-radius:4px;background:#ff980010;cursor:pointer}
+.manual-image-hotspot:hover,.manual-image-hotspot:focus-visible{background:#ff980033;border:2px solid var(--accent);outline:2px solid var(--accent2);outline-offset:2px}
+.manual-image-hotspot:focus-visible{z-index:4}
+body.light .manual-image-hotspot{border-color:#8b4b00;background:#ff980018}
+body.light .manual-image-hotspot:hover,body.light .manual-image-hotspot:focus-visible{background:#ff980033;border-color:#8b4b00;outline-color:#8b4b00}
