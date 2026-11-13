@@ -2657,3 +2657,81 @@ button,.btn,.rail-link,.mobile-nav button,.vehicle-item,.document-item,
   body[data-mobile-view="reader"] .reader-footer { grid-template-columns:minmax(0,1fr) minmax(76px,auto) minmax(0,1fr) !important;column-gap:5px !important; }
   body[data-mobile-view="reader"] .reader-footer .reader-page-status { font-size:9px !important; }
 }
+
+
+/* Home screen: library summary first, then the vehicle cards in the same
+   scrollable view. Vehicle selection opens the manual TOC directly. */
+@media(max-width:700px) {
+  body[data-mobile-view="home"] .home-garage {
+    display:flex !important;
+    flex-direction:column !important;
+    gap:0 !important;
+    width:100% !important;
+    margin-top:8px !important;
+  }
+  body[data-mobile-view="home"] .library-overview-card {
+    order:0 !important;
+    margin:0 0 20px !important;
+  }
+  body[data-mobile-view="home"] .home-section-title {
+    display:flex !important;
+    order:1 !important;
+    margin:0 0 10px !important;
+  }
+  body[data-mobile-view="home"] .home-vehicle-grid {
+    display:grid !important;
+    order:2 !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:10px !important;
+    width:100% !important;
+  }
+  body[data-mobile-view="home"] .home-vehicle-card {
+    display:grid !important;
+    grid-template-columns:96px minmax(0,1fr) 18px !important;
+    grid-template-rows:auto auto !important;
+    align-items:center !important;
+    column-gap:14px !important;
+    row-gap:4px !important;
+    min-height:112px !important;
+    padding:12px !important;
+    text-align:left !important;
+    border:1px solid #3b4a54 !important;
+    border-radius:17px !important;
+    background:#202d38 !important;
+    color:#f3f5f6 !important;
+  }
+  body[data-mobile-view="home"] .home-vehicle-card .home-car-icon {
+    grid-column:1 !important;
+    grid-row:1 / span 2 !important;
+    display:block !important;
+    width:96px !important;
+    height:84px !important;
+    margin:0 !important;
+    overflow:hidden !important;
+    border-radius:12px !important;
+    background:#18232c !important;
+  }
+  body[data-mobile-view="home"] .home-vehicle-card>b {
+    grid-column:2 !important;
+    grid-row:1 !important;
+    align-self:end !important;
+    margin:0 !important;
+    font-size:16px !important;
+    line-height:1.25 !important;
+  }
+  body[data-mobile-view="home"] .home-vehicle-card>small {
+    grid-column:2 !important;
+    grid-row:2 !important;
+    align-self:start !important;
+    margin:0 !important;
+    font-size:13px !important;
+    color:#b8c2ca !important;
+  }
+  body[data-mobile-view="home"] .home-vehicle-chevron {
+    grid-column:3 !important;
+    grid-row:1 / span 2 !important;
+    color:#ffad55 !important;
+    font-size:25px !important;
+    justify-self:center !important;
+  }
+}
