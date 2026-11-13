@@ -1605,15 +1605,21 @@ loadLiveManualIndex = async function(vehicle) {
       if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
       const parsed = new DOMParser().parseFromString(html, 'text/html');
       roots = buildHierarchicalToc(parsed);
-      if (roots.length === 1 && !roots[0].children?.length) {
-        await hydrateTocNode(roots[0], vehicle);
-      }
+      // The published Scion/Subaru manuals expose their top-level sections as
+      // links to pages/2.html, pages/3.html, etc. Hydrate each section index
+      // once so its child pages become the drill-down menu and page list.
+      roots = await Promise.all(roots.map(async node => {
+        if (node?.pageId && !node.children?.length) {
+          return hydrateTocNode(node, vehicle);
+        }
+        return node;
+      }));
       if (requestId !== tocLoadRequestId || selectedVehicle?.id !== vehicle.id) return;
       source = 'factory index';
     }
 
     if (!roots.length) throw new Error('The factory index contains no navigable sections.');
-    const count = roots.reduce((total, node) => total + tocLeafPages(node).length, 0);
+    const count = tocLeafPages({ children: roots }).length;
     if (!count) throw new Error('The factory hierarchy contains no usable page references.');
 
     liveManualTree = roots;
@@ -1629,7 +1635,17 @@ loadLiveManualIndex = async function(vehicle) {
 };
 tocLeafPages = function(node, out=[]) {
   (node?.children || []).forEach(child => {
-    if (child?.fileKey) out.push({ pageId: String(child.fileKey), title: child.title, file: child.file });
+    if (child?.fileKey) {
+      out.push({ pageId: String(child.fileKey), title: child.title, file: child.file });
+    } else if (child?.pageId && !child.children?.length && selectedVehicle) {
+      // Legacy factory indexes identify terminal pages by numeric page ID;
+      // resolve those IDs to the exact existing R2 object path.
+      out.push({
+        pageId: manualKey(selectedVehicle, 'pages/' + child.pageId + '.html'),
+        title: child.title,
+        file: 'pages/' + child.pageId + '.html'
+      });
+    }
   });
   return out;
 };
