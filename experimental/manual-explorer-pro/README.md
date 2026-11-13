@@ -45,7 +45,7 @@ The tree file is stored at Vehicle Name/Manual Name/tree.json. Folder nodes use 
 
 That leaf resolves to 2006 Scion xB/Repair Manual/Engine Mechanical/EM-01 Engine Removal.md. The reader does not infer a filename from the title or a numeric page ID.
 
-The current catalog discovers vehicle/manual folders from R2 and publishes a category-neutral top-level `equipment[]` collection while retaining `manuals[].vehicles[]` for older clients. Equipment records carry `id`, `name`, `href`, `manualId`, `make`, `category`, `equipmentType`, and `fileCount`. Future appliance owner manuals and other equipment types can join the same collection without requiring a vehicle-specific home screen. The file API is read-only, validates manual-rooted keys, and serves supported extensions plus extensionless factory objects using the MIME type stored in R2.
+The current catalog discovers vehicle/manual folders from R2 and publishes a category-neutral top-level `equipment[]` collection while retaining `manuals[].vehicles[]` for older clients. Equipment records carry `id`, `name`, `href`, `manualId`, `make`, `category`, `equipmentType`, and `fileCount`. Future appliance owner manuals and other equipment types can join the same collection without requiring a vehicle-specific home screen. The file API is read-only, validates manual-rooted keys, and serves supported file extensions. Bare numeric legacy page references are normalized to their real `pages/<id>.html` object path before the request.
 
 ## Search index
 
