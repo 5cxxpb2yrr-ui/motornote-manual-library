@@ -475,7 +475,7 @@ async function loadLiveManualIndex(vehicle) {
    if(!group.pages.some(page=>page.pageId===pageId))group.pages.push({pageId,title:pageTitle});
   }
   liveManualGroups=groups.filter(group=>group.pages.length);activeManualGroup=0;
-  $('#vehicleManualTitle').textContent=titleFromFolder(vehicle.name);
+  $('#vehicleManualTitle').textContent='FACTORY CONTENTS';
   if(!liveManualGroups.length){
    $('.manual-tree').replaceChildren(safeText('p','No factory sections or page links were found in this vehicle index.','empty-state'));
    $('#documentList').replaceChildren(safeText('p','The factory index did not expose any linked manual pages.','empty-state'));
@@ -701,7 +701,7 @@ loadLiveManualIndex = async function(vehicle) {
     }
     liveManualGroups = groups.filter(group => group.pages.length);
     activeManualGroup = 0;
-    $('#vehicleManualTitle').textContent = titleFromFolder(vehicle.name);
+    $('#vehicleManualTitle').textContent = 'FACTORY CONTENTS';
     if (!liveManualGroups.length) {
       const linkCount = parsed.querySelectorAll('a[href],area[href],[data-href],[data-url]').length;
       $('.manual-tree').replaceChildren(safeText('p', 'The factory index loaded, but no numbered page links were detected. Index links found: ' + linkCount + '. Check this manual’s index structure.', 'empty-state'));
@@ -973,7 +973,7 @@ function renderHierarchicalToc() {
   [...host.querySelectorAll('.toc-menu-entry,.manual-tree-heading')].forEach(el=>el.remove());
   const current=activeTocPath.at(-1)||null;
   const children=current?.children||liveManualTree||[];
-  host.append(safeText('div',current?.title||vehicleName,'manual-tree-heading'));
+  host.append(safeText('div',current?.title||'FACTORY CONTENTS','manual-tree-heading'));
   children.forEach(node=>{
     const item=document.createElement('button');item.type='button';item.className='tree-item toc-menu-entry';
     item.append(iconNode(sectionIcon(node.title),'tree-section-icon'),safeText('span',node.title,'tree-section-label'));
