@@ -2353,13 +2353,12 @@ button,.btn,.rail-link,.mobile-nav button,.vehicle-item,.document-item,
 .manual-tree-heading h2 { font-size:17px; }
 #tocBreadcrumbs { margin-top:2px !important;padding-top:0 !important; }
 
-/* The floating navigation is a touch control, not a narrow-screen-only control.
-   Keep it visible on phones in landscape where CSS viewport width exceeds 700px. */
-@media (pointer: coarse) {
+/* FAB visibility follows the navigation layout, not pointer type.
+   Compact layouts are narrow viewports and short landscape screens. */
+.mobile-fab { display:none !important; }
+@media (max-width:700px), (orientation:landscape) and (max-height:500px) {
   .mobile-fab { display:flex !important; position:fixed; z-index:1000; }
-}
-@media (hover: hover) and (pointer: fine) and (min-width:701px) {
-  .mobile-fab { display:none !important; }
+  .mobile-nav { display:none !important; }
 }
 
 
