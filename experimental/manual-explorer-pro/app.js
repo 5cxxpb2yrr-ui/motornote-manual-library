@@ -727,46 +727,60 @@ const liveNextButton = $('#nextDoc').cloneNode(true);
 $('#previousDoc').replaceWith(livePreviousButton);
 $('#nextDoc').replaceWith(liveNextButton);
 
+function normalizeFactoryPageId(value) {
+  const raw = String(value ?? '').trim();
+  return raw.match(/(?:^|[\\/])pages[\\/](\\d+)\\.html?(?:$|[?#])/i)?.[1]
+    || raw.match(/(?:^|[\\/])(\\d+)\\.html?(?:$|[?#])/i)?.[1]
+    || raw.match(/^(\\d+)$/)?.[1]
+    || null;
+}
+function activeReaderPageSequence() {
+  const pages = liveManualGroups[activeManualGroup]?.pages || [];
+  const seen = new Set();
+  return pages.filter(page => {
+    const id = normalizeFactoryPageId(page?.pageId);
+    if (!id || seen.has(id)) return false;
+    seen.add(id);
+    return true;
+  });
+}
+function currentLivePageIndex() {
+  const pages = activeReaderPageSequence();
+  const activeId = normalizeFactoryPageId(activeLivePage?.pageId || activeLivePage?.file);
+  return activeId ? pages.findIndex(page => normalizeFactoryPageId(page.pageId) === activeId) : -1;
+}
 function renderLivePagination() {
   const footer = $('.reader-footer');
   if (!footer) return;
-  const pages = liveManualGroups[activeManualGroup]?.pages || [];
-  const activePageId = String(activeLivePage?.pageId || '').match(/(?:^|\/)pages\/(\d+)\.html$/i)?.[1]
-    || String(activeLivePage?.pageId || '').match(/^(\d+)$/)?.[1]
-    || null;
-  const index = activePageId ? pages.findIndex(page => String(page.pageId) === activePageId) : -1;
+  const pages = activeReaderPageSequence();
+  const index = currentLivePageIndex();
   const previous = livePreviousButton;
   const next = liveNextButton;
   previous.disabled = !activeLiveVehicle || index <= 0;
   next.disabled = !activeLiveVehicle || index < 0 || index >= pages.length - 1;
-  previous.title = previous.disabled ? 'No previous page in this section' : pages[index - 1].title;
-  next.title = next.disabled ? 'No next page in this section' : pages[index + 1].title;
+  previous.title = previous.disabled ? 'No previous page in this section' : 'Previous: ' + pages[index - 1].title;
+  next.title = next.disabled ? 'No next page in this section' : 'Next: ' + pages[index + 1].title;
   const status = footer.querySelector('.reader-page-status') || document.createElement('span');
   status.className = 'reader-page-status';
-  const shortPageLabel = activePageId || String(activeLivePage?.file || activeLivePage?.pageId || '').split('/').pop().replace(/\\.html?$/i, '');
+  const shortPageLabel = normalizeFactoryPageId(activeLivePage?.pageId || activeLivePage?.file)
+    || String(activeLivePage?.file || activeLivePage?.pageId || '').split('/').pop().replace(/\\.html?$/i, '');
   status.textContent = index >= 0
     ? 'FACTORY PAGE ' + shortPageLabel + ' · ' + (index + 1) + ' OF ' + pages.length
     : activeLivePage ? 'FACTORY PAGE ' + shortPageLabel : 'SELECT A FACTORY PAGE';
   status.setAttribute('title', activeLivePage?.title || 'Factory page position');
   const center = footer.querySelector('span');
-  if (center) center.replaceWith(status); else footer.insertBefore(status, next);
+  if (center && center !== status) center.replaceWith(status);
+  else if (!center) footer.insertBefore(status, next);
 }
-function currentLivePageIndex() {
-  const pages = liveManualGroups[activeManualGroup]?.pages || [];
-  const pageId = String(activeLivePage?.pageId || '').match(/(?:^|\/)pages\/(\d+)\.html$/i)?.[1]
-    || String(activeLivePage?.pageId || '').match(/^(\d+)$/)?.[1];
-  return pageId ? pages.findIndex(page => String(page.pageId) === pageId) : -1;
+async function navigateLivePage(offset) {
+  const pages = activeReaderPageSequence();
+  const index = currentLivePageIndex();
+  const target = pages[index + offset];
+  if (!activeLiveVehicle || !target || index < 0) return;
+  await showLiveManualPage(activeLiveVehicle, target.pageId, target.title);
 }
-livePreviousButton.addEventListener('click', () => {
-  const pages = liveManualGroups[activeManualGroup]?.pages || [];
-  const index = currentLivePageIndex();
-  if (index > 0) showLiveManualPage(activeLiveVehicle, pages[index - 1].pageId, pages[index - 1].title);
-});
-liveNextButton.addEventListener('click', () => {
-  const pages = liveManualGroups[activeManualGroup]?.pages || [];
-  const index = currentLivePageIndex();
-  if (index >= 0 && index < pages.length - 1) showLiveManualPage(activeLiveVehicle, pages[index + 1].pageId, pages[index + 1].title);
-});
+livePreviousButton.addEventListener('click', () => navigateLivePage(-1));
+liveNextButton.addEventListener('click', () => navigateLivePage(1));
 
 const showLiveManualPageWithDockedReader = showLiveManualPage;
 showLiveManualPage = async function(vehicle, pageId, title) {
