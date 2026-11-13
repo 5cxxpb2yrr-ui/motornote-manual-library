@@ -382,6 +382,37 @@ function cleanManualFragment(html, key) {
       }
     } catch {}
   });
+  // Scion page 7257 contains a rasterized instrument-panel legend. Add one
+  // verified, accessible cross-reference rather than guessing image hotspot geometry.
+  if (/scion-service-manual/i.test(key) && /\\/pages\\/7257\\.html$/i.test(key)) {
+    const instrumentPanelImage = parsed.querySelector('img[src*="236470145.png"]');
+    if (instrumentPanelImage && !parsed.querySelector('.manual-image-crossrefs')) {
+      const crossrefs = document.createElement('div');
+      crossrefs.className = 'manual-image-crossrefs';
+      const kicker = document.createElement('div');
+      kicker.className = 'manual-crossref-kicker';
+      kicker.textContent = 'Illustration reference';
+      const link = document.createElement('a');
+      link.href = '../pages/3214.html';
+      link.className = 'manual-legend-link';
+      link.dataset.manualTitle = 'System Outline';
+      link.setAttribute('aria-label', 'D 4, Door Lock Control Relay — open System Outline');
+      link.title = 'Open System Outline';
+      const code = document.createElement('span');
+      code.className = 'manual-legend-code';
+      code.textContent = 'D 4';
+      const label = document.createElement('span');
+      label.className = 'manual-legend-label';
+      label.textContent = 'Door Lock Control Relay';
+      const action = document.createElement('span');
+      action.className = 'manual-legend-action';
+      action.textContent = 'System Outline →';
+      link.append(code, label, action);
+      crossrefs.append(kicker, link);
+      (instrumentPanelImage.closest('.oxe-image') || instrumentPanelImage)
+        .insertAdjacentElement('afterend', crossrefs);
+    }
+  }
   parsed.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href') || '';
     if (/^(https?:|mailto:|javascript:)/i.test(href)) { link.removeAttribute('href'); return; }
@@ -415,7 +446,7 @@ async function showLiveManualPage(vehicle, pageId, title) {
         const targetPageId=link.dataset.manualPage;
         const path=findTocPathForPage(liveManualTree,targetPageId);
         if(path){activeTocPath=path.slice(0,-1);renderHierarchicalToc();renderTocChildren(activeTocPath.at(-1)||null)}
-        await showLiveManualPage(vehicle,targetPageId,link.textContent.trim());
+        await showLiveManualPage(vehicle,targetPageId,link.dataset.manualTitle || link.textContent.trim());
       };
       link.addEventListener('click', open);
       link.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); } });
