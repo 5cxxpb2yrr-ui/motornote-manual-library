@@ -16,16 +16,23 @@ const CONTENT_TYPES: Record<string, string> = {
   ".json": "application/json; charset=utf-8"
 };
 
-function contentType(key: string): string {
+function contentType(key: string): string | null {
   const lower = key.toLowerCase();
   const extension = Object.keys(CONTENT_TYPES).find(ext => lower.endsWith(ext));
-  return extension ? CONTENT_TYPES[extension] : "application/octet-stream";
+  return extension ? CONTENT_TYPES[extension] : null;
 }
 
 export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
   const url = new URL(request.url);
   const key = url.searchParams.get("key") || "";
   const segments = key.split("/");
+  const finalSegment = segments.at(-1) || "";
+  const hasSupportedExtension = /\.(html?|md|txt|pdf|png|jpe?g|gif|webp|svg|css|json)$/i.test(key);
+  // Some factory indexes reference numbered objects such as ".../1512"
+  // without a filename extension. R2 metadata supplies their real MIME type.
+  const isExtensionlessFactoryFile =
+    !finalSegment.includes(".") &&
+    /^[a-z0-9][a-z0-9 _()&-]*$/i.test(finalSegment);
   const valid =
     key.length > 0 &&
     key.length <= 1200 &&
@@ -37,7 +44,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
     segments[0] === "manuals" &&
     /^[a-z0-9][a-z0-9-]*$/i.test(segments[1]) &&
     segments[2].length > 0 &&
-    /\.(html?|md|txt|pdf|png|jpe?g|gif|webp|svg|css|json)$/i.test(key);
+    (hasSupportedExtension || isExtensionlessFactoryFile);
 
   if (!valid) {
     return Response.json({ error: "Invalid manual file key" }, { status: 400 });
@@ -49,23 +56,26 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
 
     const type = contentType(key);
     const headers = new Headers({
-      "Content-Type": type,
       "Cache-Control": key.toLowerCase().endsWith("/tree.json")
         ? "public, max-age=60"
         : "public, max-age=300",
       "X-Content-Type-Options": "nosniff",
       "Content-Disposition": "inline"
     });
+    if (type) headers.set("Content-Type", type);
 
-    if (type.startsWith("text/html")) {
+    // Preserve the R2 object's stored MIME type for extensionless factory files.
+    object.writeHttpMetadata(headers);
+    if (type) headers.set("Content-Type", type);
+    if (!headers.has("Content-Type")) headers.set("Content-Type", "application/octet-stream");
+
+    if (headers.get("Content-Type")?.toLowerCase().startsWith("text/html")) {
       headers.set(
         "Content-Security-Policy",
         "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline';"
       );
     }
 
-    object.writeHttpMetadata(headers);
-    headers.set("Content-Type", type);
     headers.set("X-Content-Type-Options", "nosniff");
     headers.set("Content-Disposition", "inline");
     return new Response(object.body, { headers });
