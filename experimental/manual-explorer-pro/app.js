@@ -1777,7 +1777,11 @@ showLiveManualPage = async function(vehicle, fileKey, title) {
   activeLivePage = null;
   renderLivePagination();
   const vehicleRoot = vehicle.id.replace(/\/$/, '') + '/';
-  let key = String(fileKey).startsWith(vehicleRoot) ? String(fileKey) : manualKey(vehicle, String(fileKey));
+  const requestedKey = String(fileKey).startsWith(vehicleRoot) ? String(fileKey) : manualKey(vehicle, String(fileKey));
+  // tocPageId intentionally stores the legacy numeric page ID. The R2 object
+  // itself lives at <vehicle>/pages/<id>.html, never <vehicle>/<id>.
+  const numericPage = requestedKey.match(/\/(\d+)$/);
+  let key = numericPage ? vehicleRoot + 'pages/' + numericPage[1] + '.html' : requestedKey;
   const fileName = key.split('/').pop();
   const displayTitle = title || fileName;
   $('#readerTitle').textContent = displayTitle;
