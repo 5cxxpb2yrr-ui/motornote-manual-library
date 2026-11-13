@@ -214,6 +214,19 @@ function sectionIcon(label){
 function titleFromFolder(value){
   return value.replace(/\s+/g,' ').replace(/\bL4-/g,'L4 ').trim();
 }
+async function loadSearchIndexSummary(){
+  const count=$('#indexedPageTotal');
+  const detail=$('#libraryStatusDetail');
+  try {
+    const manifest=await getJson('/api/search-index');
+    if(!manifest||!Array.isArray(manifest.shards))throw new Error('Search index manifest is invalid');
+    if(count&&Number.isFinite(manifest.documentCount))count.textContent=manifest.documentCount.toLocaleString();
+    if(detail)detail.textContent='Catalog and search index connected';
+  } catch(error) {
+    if(count&&count.textContent==='—')count.textContent='—';
+    if(detail)detail.textContent='Catalog connected · search index unavailable';
+  }
+}
 function renderLiveGarage(catalog){
   liveCatalog=catalog;
   // Prefer the future-proof equipment collection when present. Older vehicle-only
@@ -232,6 +245,7 @@ function renderLiveGarage(catalog){
   $('#vehicleTotal').textContent=String(allEquipment.length).padStart(2,'0');
   $('#manualTotal').textContent=String(catalog.manualCount).padStart(2,'0');
   const status=$('#libraryStatus'); if(status) status.textContent='ONLINE';
+  const statusDetail=$('#libraryStatusDetail'); if(statusDetail) statusDetail.textContent='Catalog connected · checking search index';
   const connection=$('.connection'); if(connection) connection.textContent='R2 LIBRARY ONLINE';
   const list=$('#vehicleList');list.replaceChildren();
   const home=$('#homeVehicleGrid');home.replaceChildren();
@@ -284,8 +298,10 @@ async function loadLiveGarage(){
     const catalog=await response.json();
     if(!Array.isArray(catalog.manuals))throw new Error('R2 catalog response is invalid');
     renderLiveGarage(catalog);
+    void loadSearchIndexSummary();
   }catch(error){
     const status=$('#libraryStatus'); if(status) status.textContent='OFFLINE';
+    const statusDetail=$('#libraryStatusDetail'); if(statusDetail) statusDetail.textContent='Unable to reach the manual catalog';
     const connection=$('.connection'); if(connection) connection.textContent='R2 LIBRARY OFFLINE';
     const message='Unable to load the live R2 catalog. '+error.message;
     for(const target of [host,$('#homeVehicleGrid')]){
