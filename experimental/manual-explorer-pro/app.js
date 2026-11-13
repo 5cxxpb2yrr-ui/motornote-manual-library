@@ -384,7 +384,7 @@ function cleanManualFragment(html, key) {
   });
   // Scion page 7257 contains a rasterized instrument-panel legend. Add one
   // verified, accessible cross-reference rather than guessing image hotspot geometry.
-  if (/scion-service-manual/i.test(key) && /\\/pages\\/7257\\.html$/i.test(key)) {
+  if (/scion-service-manual/i.test(key) && key.endsWith('/pages/7257.html')) {
     const instrumentPanelImage = parsed.querySelector('img[src*="236470145.png"]');
     if (instrumentPanelImage && !parsed.querySelector('.manual-image-crossrefs')) {
       const crossrefs = document.createElement('div');
