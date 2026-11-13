@@ -1619,7 +1619,11 @@ loadLiveManualIndex = async function(vehicle) {
     }
 
     if (!roots.length) throw new Error('The factory index contains no navigable sections.');
-    const count = tocLeafPages({ children: roots }).length;
+    const countLeaves = nodes => (nodes || []).reduce((total, node) => {
+      const isFile = Boolean(node?.fileKey) || Boolean(node?.pageId && !node.children?.length);
+      return total + (isFile ? 1 : countLeaves(node?.children));
+    }, 0);
+    const count = countLeaves(roots);
     if (!count) throw new Error('The factory hierarchy contains no usable page references.');
 
     liveManualTree = roots;
