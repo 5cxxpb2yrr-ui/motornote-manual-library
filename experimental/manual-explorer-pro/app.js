@@ -169,7 +169,7 @@ $$('.tree-child,.tree-item').forEach(item=>item.addEventListener('click',()=>{
 $$('.document-item').forEach((item,index)=>item.addEventListener('click',()=>{
   if(item.dataset.doc){setMobileView('reader',docs[index]?.title||'Manual viewer','2006 Scion xB · Factory manual reference')}
 }));
-$('#recentManual').addEventListener('click',()=>{selectDoc(0);setMobileView('reader','Manual viewer','Recently opened · 2006 Scion xB')});
+// Recent manuals are opened through the History modal, not the removed dashboard card.
 $('#tocOpen').addEventListener('click',()=>setMobileView('vehicles','Table of contents','Choose a manual section.'));
 renderFavorites();
 setMobileView('home','Your garage','Choose a vehicle or continue where you left off.');
