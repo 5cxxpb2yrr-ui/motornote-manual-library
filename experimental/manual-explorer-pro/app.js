@@ -222,7 +222,7 @@ function renderLiveGarage(catalog){
     list.append(item);
 
     const card=document.createElement('button');card.type='button';card.className='home-vehicle-card';
-    card.append(vehiclePhoto(vehicle,'home-car-icon vehicle-photo'),safeText('b',label),safeText('small',vehicle.make.toUpperCase()+' · Factory manual'));
+    card.append(vehiclePhoto(vehicle,'home-car-icon vehicle-photo'),safeText('b',label),safeText('small',vehicle.make.toUpperCase()+' · '+vehicle.fileCount.toLocaleString()+' files'),safeText('span','›','home-vehicle-chevron'));
     card.addEventListener('click',()=>openLiveVehicle(vehicle));
     home.append(card);
   }
