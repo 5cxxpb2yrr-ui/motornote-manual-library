@@ -11,6 +11,26 @@ type TreeNode = {
   sections?: TreeNode[];
 };
 
+type TreeFile = { title: string; key: string; fileCount: number };
+
+async function mapLimit<T, R>(
+  items: T[],
+  limit: number,
+  mapper: (item: T) => Promise<R>
+): Promise<R[]> {
+  const results = new Array<R>(items.length);
+  let next = 0;
+  const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (true) {
+      const index = next++;
+      if (index >= items.length) return;
+      results[index] = await mapper(items[index]);
+    }
+  });
+  await Promise.all(workers);
+  return results;
+}
+
 function childrenOf(node: TreeNode | TreeNode[]): TreeNode[] {
   if (Array.isArray(node)) return node;
   return node.c || node.children || node.sections || [];
@@ -33,115 +53,103 @@ function folderName(prefix: string): string {
 
 export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
   try {
+    // Read the directory levels concurrently. The previous implementation
+    // walked every R2 prefix and tree file serially, leaving the home screen
+    // on its loading placeholder for several minutes on larger libraries.
     const root = await env.MANUALS.list({ prefix: "manuals/", delimiter: "/", limit: 1000 });
     const manualPrefixes = (root.delimitedPrefixes || []).filter(prefix =>
       /^manuals\/[^/]+\/$/.test(prefix)
     );
 
-    const manualsById = new Map<string, {
-      id: string;
-      make: string;
-      fileCount: number;
-      vehicles: Array<{
-        id: string;
-        name: string;
-        href: string;
-        fileCount: number;
-        treeFiles: Array<{ title: string; key: string; fileCount: number }>;
-      }>;
-    }>();
-
-    for (const manualPrefix of manualPrefixes) {
+    const manuals = await mapLimit(manualPrefixes, 4, async manualPrefix => {
       const manualId = folderName(manualPrefix);
       const vehiclesListing = await env.MANUALS.list({
-        prefix: manualPrefix,
-        delimiter: "/",
-        limit: 1000
+        prefix: manualPrefix, delimiter: "/", limit: 1000
       });
+      const vehiclePrefixes = vehiclesListing.delimitedPrefixes || [];
 
-      for (const vehiclePrefix of vehiclesListing.delimitedPrefixes || []) {
+      const vehicles = await mapLimit(vehiclePrefixes, 6, async vehiclePrefix => {
         const modelListing = await env.MANUALS.list({
-          prefix: vehiclePrefix,
-          delimiter: "/",
-          limit: 1000
+          prefix: vehiclePrefix, delimiter: "/", limit: 1000
         });
+        const modelPrefixes = modelListing.delimitedPrefixes || [];
 
-        const treeFiles: Array<{ title: string; key: string; fileCount: number }> = [];
-        for (const modelPrefix of modelListing.delimitedPrefixes || []) {
+        const modelResults = await mapLimit(modelPrefixes, 6, async modelPrefix => {
           const sectionListing = await env.MANUALS.list({
-            prefix: modelPrefix,
-            delimiter: "/",
-            limit: 1000
+            prefix: modelPrefix, delimiter: "/", limit: 1000
           });
+          const sectionPrefixes = sectionListing.delimitedPrefixes || [];
 
-          for (const sectionPrefix of sectionListing.delimitedPrefixes || []) {
+          return mapLimit(sectionPrefixes, 8, async sectionPrefix => {
             const sectionObjects = await env.MANUALS.list({
-              prefix: sectionPrefix,
-              delimiter: "/",
-              limit: 1000
+              prefix: sectionPrefix, delimiter: "/", limit: 1000
             });
             const treeKeys = (sectionObjects.objects || [])
               .map(object => object.key)
               .filter(key => /-tree\.json$/i.test(key));
 
-            for (const key of treeKeys) {
+            return mapLimit(treeKeys, 8, async key => {
               const object = await env.MANUALS.get(key);
-              if (!object) continue;
+              if (!object) return null;
               try {
                 const tree = await object.json<TreeNode>();
-                treeFiles.push({
+                return {
                   title: tree.title || folderName(sectionPrefix),
                   key,
                   fileCount: countFiles(tree)
-                });
+                } satisfies TreeFile;
               } catch {
-                // Ignore unreadable tree files; valid trees remain available.
+                return null;
               }
-            }
-          }
-        }
+            });
+          });
+        });
 
-        if (!treeFiles.length) continue;
+        const treeFiles = modelResults.flat(2).filter((tree): tree is TreeFile => tree !== null);
+        if (!treeFiles.length) return null;
         treeFiles.sort((a, b) => a.title.localeCompare(b.title));
 
-        const vehicleName = folderName(
-          (modelListing.delimitedPrefixes || []).find(prefix =>
-            treeFiles.some(tree => tree.key.startsWith(prefix))
-          ) || vehiclePrefix
+        const matchingModelPrefix = modelPrefixes.find(prefix =>
+          treeFiles.some(tree => tree.key.startsWith(prefix))
         );
+        const vehicleName = folderName(matchingModelPrefix || vehiclePrefix);
         const make = vehicleName.match(/^\d{4}\s+([^\s]+)/)?.[1] || manualId.split("-")[0];
-        let manual = manualsById.get(manualId);
-        if (!manual) {
-          manual = { id: manualId, make, fileCount: 0, vehicles: [] };
-          manualsById.set(manualId, manual);
-        }
-
         const fileCount = treeFiles.reduce((total, tree) => total + tree.fileCount, 0);
-        manual.fileCount += fileCount;
-        manual.vehicles.push({
+
+        return {
           id: vehiclePrefix.replace(/\/$/, ""),
           name: vehicleName,
           href: vehiclePrefix,
           fileCount,
-          treeFiles
-        });
-      }
-    }
+          treeFiles,
+          make
+        };
+      });
 
-    const manuals = [...manualsById.values()]
-      .filter(manual => manual.vehicles.length > 0)
+      const validVehicles = vehicles.filter((vehicle): vehicle is NonNullable<typeof vehicle> => vehicle !== null);
+      if (!validVehicles.length) return null;
+      const make = validVehicles[0].make;
+      return {
+        id: manualId,
+        make,
+        fileCount: validVehicles.reduce((total, vehicle) => total + vehicle.fileCount, 0),
+        vehicles: validVehicles.map(({ make: _make, ...vehicle }) => vehicle)
+      };
+    });
+
+    const sortedManuals = manuals
+      .filter((manual): manual is NonNullable<typeof manual> => manual !== null)
       .sort((a, b) => a.make.localeCompare(b.make) || a.id.localeCompare(b.id));
-
-    for (const manual of manuals) {
+    for (const manual of sortedManuals) {
       manual.vehicles.sort((a, b) => a.name.localeCompare(b.name));
     }
 
     return Response.json({
       generatedAt: new Date().toISOString(),
-      manualCount: manuals.length,
-      vehicleCount: manuals.reduce((total, manual) => total + manual.vehicles.length, 0),
-      fileCount: manuals.reduce((total, manual) => total + manual.fileCount, 0),
-      manuals
+      manualCount: sortedManuals.length,
+      vehicleCount: sortedManuals.reduce((total, manual) => total + manual.vehicles.length, 0),
+      fileCount: sortedManuals.reduce((total, manual) => total + manual.fileCount, 0),
+      manuals: sortedManuals
     }, {
       headers: {
         "Cache-Control": "public, max-age=60",
