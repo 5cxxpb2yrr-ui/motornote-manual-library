@@ -1322,11 +1322,17 @@ function sectionTreeNodes(input, vehicle, parentFolders=[]) {
   return sectionChildren(input).map(raw => {
     const title = String(raw.n ?? raw.title ?? raw.name ?? 'Untitled section').trim() || 'Untitled section';
     const rawFile = raw.file ?? raw.filename ?? raw.fileName ?? null;
+    const rawFileText = typeof rawFile === 'number' && Number.isInteger(rawFile)
+      ? String(rawFile)
+      : typeof rawFile === 'string' ? rawFile.trim() : '';
+    const legacyNumericPage = rawFileText.match(/^(\d+)(?:\.html?)?$/i);
     const pageNumber = Number(raw.p);
-    const pageFile = Number.isInteger(pageNumber) && pageNumber > 0
-      ? 'pages/' + pageNumber + '.html'
-      : null;
-    const exactFile = safeSectionFile(rawFile || pageFile);
+    const pageFile = legacyNumericPage
+      ? 'pages/' + legacyNumericPage[1] + '.html'
+      : Number.isInteger(pageNumber) && pageNumber > 0
+        ? 'pages/' + pageNumber + '.html'
+        : null;
+    const exactFile = safeSectionFile(legacyNumericPage ? pageFile : rawFile || pageFile);
     let fileKey = null;
     if (exactFile) {
       const vehicleRoot = vehicle.id.replace(/\/$/, '') + '/';
@@ -1771,7 +1777,7 @@ showLiveManualPage = async function(vehicle, fileKey, title) {
   activeLivePage = null;
   renderLivePagination();
   const vehicleRoot = vehicle.id.replace(/\/$/, '') + '/';
-  const key = String(fileKey).startsWith(vehicleRoot) ? String(fileKey) : manualKey(vehicle, String(fileKey));
+  let key = String(fileKey).startsWith(vehicleRoot) ? String(fileKey) : manualKey(vehicle, String(fileKey));
   const fileName = key.split('/').pop();
   const displayTitle = title || fileName;
   $('#readerTitle').textContent = displayTitle;
@@ -1781,7 +1787,20 @@ showLiveManualPage = async function(vehicle, fileKey, title) {
   if (readerBack) readerBack.hidden = false;
   try {
     const extension = key.split('.').pop().toLowerCase();
-    const response = ['pdf', 'png', 'svg'].includes(extension) ? null : await fetchSectionObject(key);
+    let response = null;
+    if (!['pdf', 'png', 'svg'].includes(extension)) {
+      try {
+        response = await fetchSectionObject(key);
+      } catch (error) {
+        // Older search records may contain a bare numeric page ID instead of
+        // the real legacy factory path: <vehicle>/pages/<id>.html.
+        const numericPage = key.match(/\/(\d+)$/);
+        if (!numericPage) throw error;
+        const fallbackKey = vehicleRoot + 'pages/' + numericPage[1] + '.html';
+        response = await fetchSectionObject(fallbackKey);
+        key = fallbackKey;
+      }
+    }
     if (requestId !== manualPageRequestId) return;
     await renderSectionFile(response, key, displayTitle, requestId);
     if (requestId !== manualPageRequestId) return;
