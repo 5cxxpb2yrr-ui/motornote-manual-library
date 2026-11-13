@@ -1,5 +1,7 @@
 # LifeOS Manual Explorer Pro — Experimental
 
+ad-hoc
+
 This is the isolated preview of Manual Explorer Pro. Keep this work on the experimental repair branch until explicitly promoted; it does not replace the Phoenix production site.
 
 ## Current implementation
