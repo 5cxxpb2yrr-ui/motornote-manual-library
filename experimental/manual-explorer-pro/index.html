@@ -19,7 +19,7 @@
   <div class="app-shell">
     <aside class="rail" aria-label="Primary navigation">
       <button class="rail-link active" data-view="dashboard" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><small>Overview</small></button>
-      <button class="rail-link" data-view="vehicles"><span class="nav-icon" aria-hidden="true">▣</span><small>Vehicles</small></button>
+      
       <button class="rail-link" data-view="library"><span class="nav-icon" aria-hidden="true">▤</span><small>Library</small></button>
       <button class="rail-link" data-view="search"><span>⌕</span><small>Search</small></button>
       <button class="rail-link" data-view="saved"><span>☆</span><small>Saved</small></button>
@@ -27,9 +27,9 @@
     </aside>
     <main class="workspace">
       <section class="page-heading">
-        <div><p class="eyebrow">GARAGE / TECHNICAL KNOWLEDGE</p><h1>Manual Explorer <span>Pro</span></h1><p class="subhead">Your vehicles. Your manuals. One connected workspace.</p></div>
+        <div><p class="eyebrow">GARAGE / TECHNICAL KNOWLEDGE</p><h1>Manual Explorer <span>Pro</span></h1><p class="subhead">Your equipment. Your manuals. One connected workspace.</p></div>
       </section>
-      <section class="mobile-context" id="mobileContext" aria-live="polite"><p class="eyebrow">LIFEOS GARAGE</p><h2 id="mobileContextTitle">Your garage</h2><p id="mobileContextHint">Choose a vehicle or continue where you left off.</p></section>
+      <section class="mobile-context" id="mobileContext" aria-live="polite"><p class="eyebrow">TECHNICAL LIBRARY</p><h2 id="mobileContextTitle">Your equipment</h2><p id="mobileContextHint">Choose an item or continue where you left off.</p></section>
       <section class="home-garage" id="homeGarage" aria-label="Your library and vehicles">
         <details class="library-overview-card">
           <summary><span><b>LIBRARY OVERVIEW</b><small>Connection and activity summary</small></span><span class="overview-count">06 INDICATORS</span></summary>
@@ -40,7 +40,7 @@
             <span class="connection-chevron">›</span>
             </section>
             <section class="stats dashboard-stats" aria-label="Library overview">
-            <article class="stat-card"><span>VEHICLES</span><strong id="vehicleTotal">—</strong><small>In your garage</small></article>
+            <article class="stat-card"><span>EQUIPMENT</span><strong id="vehicleTotal">—</strong><small>In your garage</small></article>
             <article class="stat-card"><span>MANUALS</span><strong id="manualTotal">—</strong><small>Available libraries</small></article>
             <article class="stat-card"><span>INDEXED PAGES</span><strong id="indexedPageTotal">—</strong><small>Searchable procedures</small></article>
             <article class="stat-card"><span>FAVORITES</span><strong id="savedCount">00</strong><small>Saved references</small></article>
@@ -49,13 +49,20 @@
             </section>
           </div>
         </details>
-        <div class="home-section-title"><div><p class="eyebrow">YOUR GARAGE</p><h2>Vehicles</h2></div><button class="subtle-button" type="button" id="homeAllVehicles">View all →</button></div>
-        <div class="home-vehicle-grid" id="homeVehicleGrid"><div class="garage-loading"><span class="garage-pulse"></span>Loading your vehicle library…</div></div>
+        <details class="equipment-disclosure" id="equipmentDisclosure" open>
+          <summary class="equipment-disclosure-summary">
+            <span class="equipment-summary-copy"><span class="eyebrow">MY EQUIPMENT</span><b>Equipment library</b><small>Vehicles today · More equipment types later</small></span>
+            <span class="collapsed-equipment-icons" id="collapsedEquipmentIcons" aria-hidden="true"></span>
+            <span class="equipment-count" id="equipmentCount">— ITEMS</span>
+            <span class="equipment-disclosure-chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="home-vehicle-grid" id="homeVehicleGrid"><div class="garage-loading"><span class="garage-pulse"></span>Loading your equipment library…</div></div>
+        </details>
       </section>
       <section class="favorites-screen" id="favoritesScreen" aria-label="Saved references"><p class="eyebrow">YOUR LIBRARY</p><h2>Favorites & bookmarks</h2><p class="favorites-intro">Saved procedures stay on this device and are available here.</p><div id="favoritesList" aria-live="polite"></div></section>
       <div class="explorer-layout">
-        <aside class="panel vehicle-panel" aria-label="Vehicle and manual navigation">
-          <div class="panel-title"><div><p class="eyebrow">YOUR GARAGE</p><h2>Vehicles</h2></div><button class="subtle-button" type="button" id="addVehicle" disabled title="Vehicle creation is coming soon">＋ Add · Soon</button></div>
+        <aside class="panel vehicle-panel" aria-label="Factory contents navigation">
+          <div class="panel-title"><div><p class="eyebrow">FACTORY NAVIGATION</p><h2>Contents</h2></div><button class="subtle-button" type="button" id="addVehicle" disabled title="Adding equipment is coming soon">＋ Add · Soon</button></div>
           <div class="vehicle-list" id="vehicleList" aria-live="polite"></div>
           <div class="panel-divider"></div>
           <div class="manual-tree-heading"><button class="toc-back-button" id="tocBackButton" type="button" hidden>← Back</button><h2 id="vehicleManualTitle">2006 Scion xB</h2></div>
@@ -79,7 +86,7 @@
   <div class="mobile-fab" id="mobileFab">
 <div class="mobile-fab-menu" id="mobileFabMenu" hidden aria-label="Quick navigation">
 <button type="button" data-mobile="home"><span>⌂</span>Home</button>
-<button type="button" data-mobile="vehicles"><span>▣</span>Vehicles</button>
+
 <button type="button" data-mobile="favorites"><span>☆</span>Favorites</button>
 <button type="button" data-mobile="more"><span>•••</span>More</button>
 </div>
