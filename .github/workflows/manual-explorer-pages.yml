@@ -1,6 +1,12 @@
 name: Manual Explorer Pages Preview
 
 on:
+  push:
+    branches:
+      - fix/manual-explorer-r2-catalog-20261113
+    paths:
+      - "experimental/manual-explorer-pro/**"
+      - ".github/workflows/manual-explorer-pages.yml"
   workflow_dispatch:
 
 permissions:
