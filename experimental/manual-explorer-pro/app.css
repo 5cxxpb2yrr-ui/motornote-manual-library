@@ -2381,3 +2381,15 @@ button,.btn,.rail-link,.mobile-nav button,.vehicle-item,.document-item,
 @media(hover:hover) {
   .recent-history-item:hover { border-color:var(--accent); }
 }
+
+
+/* In the reader, lift the FAB clear of the sticky Previous / Next pager.
+   Reserve a little reading space beneath it so the control does not obscure text. */
+@media (max-width:700px), (orientation:landscape) and (max-height:500px) {
+  body[data-mobile-view="reader"] .mobile-fab {
+    bottom:calc(88px + env(safe-area-inset-bottom)) !important;
+  }
+  body[data-mobile-view="reader"] .reader-content {
+    padding-bottom:110px !important;
+  }
+}
