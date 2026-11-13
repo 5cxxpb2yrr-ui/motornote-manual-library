@@ -1642,6 +1642,89 @@ body[data-mobile-view="vehicles"] .vehicle-panel.show-toc .manual-tree {
 }
 
 
+/* Fit-first zoom controls for factory diagrams and scanned manual pages. */
+.reader-content .manual-zoom-shell {
+  width:100%;
+  max-width:100%;
+  margin:16px 0 22px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  background:#0b1420;
+}
+.reader-content .manual-zoom-toolbar {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-height:54px;
+  padding:6px 9px;
+  border-bottom:1px solid #344555;
+  background:#172535;
+}
+.reader-content .manual-zoom-button,
+.reader-content .manual-zoom-fit {
+  display:inline-grid;
+  place-items:center;
+  min-width:44px;
+  min-height:42px;
+  padding:6px 12px;
+  border:1px solid #53677a;
+  border-radius:8px;
+  background:#26394b;
+  color:#f4f7fa;
+  font:600 18px/1 'IBM Plex Sans',sans-serif;
+  cursor:pointer;
+}
+.reader-content .manual-zoom-fit { min-width:88px;font-size:12px; }
+.reader-content .manual-zoom-button:disabled { opacity:.4;cursor:default; }
+.reader-content .manual-zoom-status {
+  margin-left:auto;
+  color:#d4e0e9;
+  font:600 10px/1 'IBM Plex Mono',monospace;
+  letter-spacing:.6px;
+}
+.reader-content .manual-zoom-viewport {
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:100%;
+  height:min(64dvh,680px);
+  min-height:240px;
+  overflow:hidden;
+  background:#0b1420;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.reader-content .manual-zoom-viewport.is-zoomed { cursor:grab; }
+.reader-content .manual-zoom-viewport.is-zoomed:active { cursor:grabbing; }
+.reader-content .manual-zoom-image {
+  display:block;
+  max-width:100% !important;
+  max-height:100% !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 !important;
+  border-radius:0 !important;
+  object-fit:contain !important;
+  transform-origin:center center;
+  will-change:transform;
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:none;
+}
+body.light .reader-content .manual-zoom-shell { border-color:#c7d0d9;background:#edf1f5; }
+body.light .reader-content .manual-zoom-toolbar { background:#e4ebf1;border-color:#c7d0d9; }
+body.light .reader-content .manual-zoom-button,
+body.light .reader-content .manual-zoom-fit { background:#fff;color:#243444;border-color:#b7c3ce; }
+body.light .reader-content .manual-zoom-status { color:#34495b; }
+body.light .reader-content .manual-zoom-viewport { background:#e9eef3; }
+@media(max-width:700px) {
+  .reader-content .manual-zoom-viewport { height:min(62dvh,620px);min-height:220px; }
+  .reader-content .manual-zoom-toolbar { min-height:56px;padding:6px 8px; }
+  .reader-content .manual-zoom-button,.reader-content .manual-zoom-fit { min-height:44px; }
+}
+
 /* Section-based manual file types */
 .reader-content .manual-pdf-frame {
   display: block;
