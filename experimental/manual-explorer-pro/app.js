@@ -209,6 +209,7 @@ function renderLiveGarage(catalog){
   $('#vehicleTotal').textContent=String(allVehicles.length).padStart(2,'0');
   $('#manualTotal').textContent=String(catalog.manualCount).padStart(2,'0');
   const status=$('#libraryStatus'); if(status) status.textContent='ONLINE';
+  const connection=$('.connection'); if(connection) connection.textContent='R2 LIBRARY ONLINE';
   const list=$('#vehicleList');list.replaceChildren();
   const home=$('#homeVehicleGrid');home.replaceChildren();
   for(const vehicle of allVehicles){
@@ -254,6 +255,7 @@ async function loadLiveGarage(){
     renderLiveGarage(catalog);
   }catch(error){
     const status=$('#libraryStatus'); if(status) status.textContent='OFFLINE';
+    const connection=$('.connection'); if(connection) connection.textContent='R2 LIBRARY OFFLINE';
     const message='Unable to load the live R2 catalog. '+error.message;
     for(const target of [host,$('#homeVehicleGrid')]){
       if(!target)continue;
