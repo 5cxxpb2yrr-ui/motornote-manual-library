@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import posixpath
 import sys
 from collections import Counter
 from html.parser import HTMLParser
@@ -18,7 +17,7 @@ from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
 
 SKIP_SCHEMES = {"http", "https", "mailto", "tel", "javascript", "data", "blob", "ftp"}
-REFERENCE_ATTRS = {"href", "src", "poster", "action", "formaction"}
+REFERENCE_ATTRS = {"href", "src", "poster", "action", "formaction", "cite", "background"}
 
 
 class References(HTMLParser):
@@ -40,6 +39,16 @@ class References(HTMLParser):
             value = values.get(attr, "").strip()
             if value:
                 self.refs.append((attr, value))
+        srcset = values.get("srcset", "").strip()
+        # srcset candidates are comma-separated; data-URI srcsets are left
+        # alone because their payload itself may contain commas.
+        if srcset and not srcset.lower().startswith("data:"):
+            for candidate in srcset.split(","):
+                url = candidate.strip().split()
+                if url:
+                    self.refs.append(("srcset", url[0]))
+        if tag.lower() in {"object", "embed"} and values.get("data", "").strip():
+            self.refs.append(("data", values["data"].strip()))
 
 
 def load_html(path: Path) -> References:
