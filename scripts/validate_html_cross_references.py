@@ -15,7 +15,7 @@ import sys
 from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import unquote, urljoin, urlsplit
 
 SKIP_SCHEMES = {"http", "https", "mailto", "tel", "javascript", "data", "blob", "ftp"}
 REFERENCE_ATTRS = {"href", "src", "poster", "action", "formaction"}
@@ -53,34 +53,22 @@ def load_html(path: Path) -> References:
 
 
 def normalized_target(root: Path, source: Path, raw_url: str, base_href: str | None) -> tuple[Path | None, str, str | None]:
-    parsed = urlsplit(raw_url.strip())
+    page_url = "/" + source.relative_to(root).as_posix()
+    effective_base = urljoin(page_url, base_href) if base_href else page_url
+    resolved_url = urljoin(effective_base, raw_url.strip())
+    parsed = urlsplit(resolved_url)
     if parsed.scheme.lower() in SKIP_SCHEMES or parsed.netloc:
         return None, "", None
-    if parsed.scheme and parsed.scheme.lower() not in SKIP_SCHEMES:
+    if parsed.scheme:
         return None, "", None
 
     raw_path = unquote(parsed.path)
-    if not raw_path:
-        target = source
-    elif raw_path.startswith("/"):
-        target = root / raw_path.lstrip("/")
-    else:
-        base = source.parent
-        if base_href:
-            base_parsed = urlsplit(base_href)
-            if not base_parsed.scheme and not base_parsed.netloc:
-                base_path = unquote(base_parsed.path)
-                if base_path.startswith("/"):
-                    base = root / base_path.lstrip("/")
-                elif base_path:
-                    base = root / base_path if (root / base_path).is_dir() else source.parent / base_path
-        target = base / raw_path
-
+    target = root / raw_path.lstrip("/") if raw_path else source
     try:
         resolved = target.resolve(strict=False)
         resolved.relative_to(root.resolve())
     except (OSError, ValueError):
-        return None, parsed.fragment, "reference escapes the published site root"
+        return None, unquote(parsed.fragment), "reference escapes the published site root"
     if resolved.is_dir():
         for index_name in ("index.html", "index.htm"):
             candidate = resolved / index_name
