@@ -25,6 +25,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Validate all manual HTML cross-references
+        run: python scripts/validate_manual_links.py
       - name: Install AWS CLI
         run: python -m pip install --disable-pip-version-check awscli
       - name: Full rebuild and reconcile R2
