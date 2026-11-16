@@ -1,4 +1,3 @@
-import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -25,7 +24,7 @@ class HTMLCrossReferenceValidationTests(unittest.TestCase):
     def test_valid_relative_root_and_asset_references_pass(self):
         (self.root / "manuals" / "chapter" / "index.html").write_text(
             '<a href="procedure.html#torque">Procedure</a>'
-            '<img src="../../../assets/diagram.png">'
+            '<img src="../../assets/diagram.png">'
             '<a href="/manuals/chapter/procedure.html">Root path</a>',
             encoding="utf-8",
         )
@@ -38,11 +37,16 @@ class HTMLCrossReferenceValidationTests(unittest.TestCase):
 
     def test_missing_page_and_anchor_are_reported(self):
         (self.root / "manuals" / "chapter" / "index.html").write_text(
-            '<a href="missing.html#nowhere">Broken</a>', encoding="utf-8"
+            '<a href="missing.html#nowhere">Broken page</a>'
+            '<a href="existing.html#nowhere">Broken anchor</a>', encoding="utf-8"
+        )
+        (self.root / "manuals" / "chapter" / "existing.html").write_text(
+            '<p>No matching anchor</p>', encoding="utf-8"
         )
         report = self.run_validation()
         self.assertEqual(report["status"], "failed")
         self.assertEqual(report["error_counts_by_type"]["missing-target"], 1)
+        self.assertEqual(report["error_counts_by_type"]["missing-anchor"], 1)
 
     def test_duplicate_ids_are_reported(self):
         (self.root / "manuals" / "chapter" / "index.html").write_text(
