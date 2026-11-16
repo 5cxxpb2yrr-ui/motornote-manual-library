@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import shutil
 import sys
 import tempfile
 import unittest
@@ -50,7 +51,7 @@ class ManualLinkValidationTests(unittest.TestCase):
         self.assertIn("404.html", errors[0])
 
     def test_root_asset_falls_back_to_worker_asset_source(self) -> None:
-        (self.root / "assets").rmdir()
+        shutil.rmtree(self.root / "assets")
         (self.root / "site-worker" / "assets").mkdir(parents=True)
         (self.root / "site-worker" / "assets" / "app.js").write_text("", encoding="utf-8")
         source = self.root / "manuals" / "demo" / "pages" / "1.html"
