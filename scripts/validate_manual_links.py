@@ -84,7 +84,9 @@ def resolve_target(root: Path, source: Path, reference: str) -> Path | None:
         target = target.resolve()
         target.relative_to(root.resolve())
     except (OSError, ValueError):
-        return None
+        # A local URL that escapes the published root is still a broken
+        # reference, not an external URL to silently ignore.
+        return root / "__outside_site_root__" / target.name
 
     if target.is_dir():
         for index_name in ("index.html", "index.htm"):
