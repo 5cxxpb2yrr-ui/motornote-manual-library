@@ -123,6 +123,12 @@ def main() -> int:
         print(f"Created {landing_pages:,} make landing pages where needed.")
         decorated = decorate_manual_pages(stage)
         print(f"Applied the shared Phoenix mobile shell to {decorated:,} manual HTML pages.")
+        # Validate the exact staged site before any object is uploaded to R2.
+        subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "validate_html_cross_references.py"),
+             str(stage), "--report", str(ROOT / "html-cross-reference-report.json")],
+            check=True,
+        )
         (stage / "index.html").write_text(site_index(), encoding="utf-8")
         files = [p for p in stage.rglob("*") if p.is_file()]
         count = len(files); total = sum(p.stat().st_size for p in files)

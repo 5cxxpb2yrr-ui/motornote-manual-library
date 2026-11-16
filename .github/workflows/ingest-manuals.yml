@@ -12,6 +12,8 @@ on:
     paths:
       - "scripts/ingest_manuals.py"
       - "tests/**"
+      - "scripts/validate_html_cross_references.py"
+      - "scripts/publish_manual_site.py"
       - ".github/workflows/ingest-manuals.yml"
   workflow_dispatch:
     inputs:
@@ -133,6 +135,16 @@ jobs:
           R2_ACCOUNT_ID: "3481a3f4006a12f337ceb86104d0816b"
           R2_BUCKET: motornote-manual-site
         run: python scripts/publish_manual_site.py
+
+
+      - name: Upload HTML cross-reference validation report
+        if: always() && hashFiles('html-cross-reference-report.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-cross-reference-validation
+          path: html-cross-reference-report.json
+          if-no-files-found: ignore
+          retention-days: 30
 
       - name: Preview MotorNote retrieval sync
         if: github.event_name == 'workflow_dispatch' && inputs.sync_to_retrieval != true && inputs.full_backfill != true
