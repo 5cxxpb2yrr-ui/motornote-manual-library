@@ -29,7 +29,7 @@ The experimental app lives in this directory and on branch \`feat/lifeos-manual-
 - GitHub credentials and vendor keys must be configured as Cloudflare secrets before those integrations can be exercised. No secrets are committed.
 - Live vendor price APIs are not connected. Vendor search links are not live prices.
 - Manual-listed prices are shown as undated source data, never as current quotes.
-- Offline support caches pages and shards after they have been fetched. A complete asset-aware download manager is still needed for guaranteed offline diagrams and all manual styling.
+- The full search corpus is persisted in IndexedDB after the first online search. Manual HTML pages and their proxied diagrams/styles are cached as the user opens them. The MVP does not automatically download every page in a manual; pages not previously opened still require a connection.
 - Procedure references point into the factory corpus. Extracted facts retain source paths; they are not presented as independently validated repair instructions.
 - GitHub sync merges by record key with local values taking precedence. A full conflict-resolution UI remains future work.
 
