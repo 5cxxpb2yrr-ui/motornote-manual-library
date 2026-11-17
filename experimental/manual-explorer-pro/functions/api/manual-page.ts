@@ -5,14 +5,27 @@ const ROOTS = [
 ];
 const ALLOWED = /\.(html?|json|md|txt|pdf|png|jpe?g|svg)$/i;
 const SITE = "https://motornote-manual-library.phillipstg.workers.dev/";
+function rewriteInternalLinks(html:string,key:string) {
+  const pageUrl=SITE+key;
+  return html.replace(/<a\b([^>]*?)href=(["'])(.*?)\2([^>]*)>/gi,(match,before,quote,href,after)=>{
+    if(!href || href.startsWith("#") || /^(https?:|mailto:|tel:|data:|javascript:)/i.test(href))return match;
+    try {
+      const target=new URL(href,pageUrl);
+      const targetKey=decodeURIComponent(target.pathname.replace(/^\/+/,""));
+      if(!ROOTS.some(root=>targetKey.startsWith(root)) || !/\.(html?|pdf)$/i.test(targetKey))return match;
+      return "<a"+before+"href=\\"/api/manual-page?key="+encodeURIComponent(targetKey)+"\\""+after+">";
+    } catch { return match; }
+  });
+}
 function cleanHtml(html: string, key: string) {
   const base = SITE + key.slice(0,key.lastIndexOf("/") + 1);
-  const safe = html
+  let safe = html
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,"")
     .replace(/<(iframe|object|embed|form|button)\b[^>]*>[\s\S]*?<\/\1>/gi,"")
     .replace(/\s+on[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi,"")
     .replace(/<meta\b[^>]*http-equiv\s*=\s*["']?refresh["']?[^>]*>/gi,"")
     .replace(/\s+(href|src)\s*=\s*(["'])\s*javascript:[^"']*\2/gi,"");
+  safe= rewriteInternalLinks(safe,key);
   const policy = "<meta http-equiv=\\"Content-Security-Policy\\" content=\\"default-src 'none'; img-src https://motornote-manual-library.phillipstg.workers.dev data:; style-src 'unsafe-inline' https://motornote-manual-library.phillipstg.workers.dev; font-src https://motornote-manual-library.phillipstg.workers.dev data:; base-uri https://motornote-manual-library.phillipstg.workers.dev; form-action 'none'; frame-ancestors 'self'\\">";
   const baseTag = "<base href=\\"" + base + "\\">";
   return /<head[^>]*>/i.test(safe) ? safe.replace(/<head[^>]*>/i,match=>match+baseTag+policy) : "<!doctype html><head>"+baseTag+policy+"</head>"+safe;
