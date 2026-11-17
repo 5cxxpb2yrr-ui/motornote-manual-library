@@ -7,7 +7,7 @@ import { searchRecords } from "./lib/search";
 import { extractOemRows, type ExtractedOemRow } from "./lib/oem";
 import PartsSheet from "./components/PartsSheet";
 import type { ManualLink, SearchRecord, TreeNode, Vehicle } from "./types";
-import { activate } from "./lib/nomie";
+import { activate, sync as syncGitHub } from "./lib/nomie";
 
 let searchIndexPromise: Promise<SearchRecord[]> | undefined;
 async function loadAllSearchRecords(): Promise<SearchRecord[]> {
@@ -81,6 +81,7 @@ export default function App() {
   const [patError, setPatError] = useState("");
   const [githubBusy, setGithubBusy] = useState(false);
   const [installationStatus, setInstallationStatus] = useState("");
+  const [syncStatus, setSyncStatus] = useState("");
   const [offline, setOffline] = useState(!navigator.onLine);
 
   useEffect(() => {
@@ -184,6 +185,11 @@ export default function App() {
       setInstallationStatus(data.installed ? "Installed · "+(data.permissions?.contents || "contents permission") : (data.error || "GitHub App is not configured"));
     } catch { setInstallationStatus("Unable to reach the GitHub App validation endpoint."); }
   }
+  async function syncGitHubData() {
+    setSyncStatus("Syncing…");
+    try { await syncGitHub(); setSyncStatus("Synced to private repository"); }
+    catch(error) { setSyncStatus(error instanceof Error ? error.message : "Sync failed"); }
+  }
   async function disconnectGitHub() {
     await fetch("/api/auth/github/logout", {method:"POST"});
     setGithubStatus({authenticated:false});
@@ -220,7 +226,8 @@ export default function App() {
     <header className="topbar">
       <div className="brand-mark"><Wrench size={19}/><span>LifeOS <b>Manual Explorer</b></span></div>
       <div className="top-status">{offline ? <><CloudOff size={15}/> Offline</> : <><span className="pulse"/> {status}</>}</div>
-      {githubStatus.authenticated ? <button className="github-status" onClick={() => void disconnectGitHub()} title="Disconnect GitHub"><Github size={15}/>{githubStatus.login} · {githubStatus.canWrite?"Sync access":"Read only"} ×</button> : <button className="github-connect" onClick={() => setGithubOpen(true)}><Github size={15}/> Connect GitHub</button>}
+      {githubStatus.authenticated ? <div className="github-actions"><span className="github-status"><Github size={15}/>{githubStatus.login} · {githubStatus.canWrite?"Write access":"Read only"}</span>{githubStatus.canWrite&&<button className="github-sync" onClick={()=>void syncGitHubData()}>Sync</button>}<button className="github-disconnect" onClick={()=>void disconnectGitHub()}>Disconnect</button></div> : <button className="github-connect" onClick={() => setGithubOpen(true)}><Github size={15}/> Connect GitHub</button>}
+      {syncStatus&&<span className="sync-status">{syncStatus}</span>}
       <button className="search-button" onClick={() => setSearchOpen(true)}><Search size={17}/> Search manuals</button>
     </header>
     <div className="layout">
