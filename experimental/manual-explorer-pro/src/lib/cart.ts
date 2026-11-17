@@ -11,8 +11,8 @@ export function validateCart(cart: RepairCart, requiredPartIds: string[], requir
   }
   return { valid: errors.length === 0, errors, warnings };
 }
-export function createCartLine(name: string, relationship: RepairCartLine["relationship"] = "required"): RepairCartLine {
-  return { id: crypto.randomUUID(), name: name.trim(), quantity: 1, relationship };
+export function createCartLine(name: string, relationship?: RepairCartLine["relationship"]): RepairCartLine {
+  return { id: crypto.randomUUID(), name: name.trim(), quantity: 1, ...(relationship?{relationship}:{}) };
 }
 function csv(value:unknown) {
   const text=value==null?"":String(value);
@@ -21,7 +21,7 @@ function csv(value:unknown) {
 export function serializeShoppingList(vehicle:Vehicle,cart:RepairCart,format:ShoppingListFormat):string {
   const items=[...cart.parts,...cart.tools].map(line=>({
     Part:line.name,OEM:line.oem||"",Vendor:line.vendor||"",Price:line.price??"",
-    Quantity:line.quantity,DirectLink:line.url||"",Relationship:line.relationship,Source:line.sourcePath||"",Verification:line.verification||"unverified"
+    Quantity:line.quantity,DirectLink:line.url||"",Relationship:line.relationship||"unclassified",Source:line.sourcePath||"",Verification:line.verification||"unverified"
   }));
   if(format==="json")return JSON.stringify({vehicle:{id:vehicle.id,year:vehicle.year,make:vehicle.make,model:vehicle.model},procedureId:cart.procedureId,items},null,2);
   const columns=["Part","OEM","Vendor","Price","Quantity","DirectLink","Relationship","Source","Verification"];
