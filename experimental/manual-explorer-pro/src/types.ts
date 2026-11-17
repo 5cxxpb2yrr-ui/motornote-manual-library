@@ -18,7 +18,7 @@ export interface PartRelationship {
   evidence: Array<{ sourcePath: string; quote: string }>;
 }
 export interface RepairCartLine {
-  id: string; name: string; quantity: number; relationship: RelationshipType;
+  id: string; name: string; quantity: number; relationship?: RelationshipType;
   oem?: string; vendor?: string; price?: number; url?: string;
   sourcePath?: string; confidence?: number; verification?: "unverified" | "verified";
 }
