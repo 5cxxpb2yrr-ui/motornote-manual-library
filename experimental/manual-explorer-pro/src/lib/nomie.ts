@@ -124,7 +124,7 @@ export async function importData(data:Record<string,unknown>) {
     const tx=db.transaction(store,"readwrite");
     for(const record of records) {
       if(record&&typeof record==="object"&&"key" in record&&"value" in record) {
-        await tx.store.put((record as {value:never}).value,(record as {key:IDBValidKey}).key);
+        await tx.store.put((record as {value:never}).value,String((record as {key:unknown}).key));
       }
     }
     await tx.done;
