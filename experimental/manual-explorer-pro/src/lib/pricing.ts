@@ -68,15 +68,15 @@ export function searchLinkAdapter(name: string, url: (partNumber:string)=>string
   };
 }
 export const vendorSearchAdapters = [
-  searchLinkAdapter("RockAuto",number=>"https://www.rockauto.com/en/partsearch/?partnum="+number),
-  searchLinkAdapter("PartsGeek",number=>"https://www.partsgeek.com/search.html?query="+number),
-  searchLinkAdapter("ToyotaPartsDeal",number=>"https://www.toyotapartsdeal.com/search/?q="+number),
-  searchLinkAdapter("Subaru Parts",number=>"https://www.subarupartsdeal.com/search/?q="+number),
+  searchLinkAdapter("RockAuto",()=> "https://www.rockauto.com/en/partsearch/"),
+  searchLinkAdapter("PartsGeek",()=> "https://www.partsgeek.com/"),
+  searchLinkAdapter("ToyotaPartsDeal",()=> "https://www.toyotapartsdeal.com/"),
+  searchLinkAdapter("Subaru Parts",()=> "https://www.subarupartsdeal.com/"),
   searchLinkAdapter("NAPA",number=>"https://www.napaonline.com/en/search?text="+number),
-  searchLinkAdapter("O'Reilly",number=>"https://www.oreillyauto.com/search?q="+number),
-  searchLinkAdapter("AutoZone",number=>"https://www.autozone.com/searchresult?searchText="+number),
-  searchLinkAdapter("Partsouq",number=>"https://partsouq.com/en/search/all?q="+number),
-  searchLinkAdapter("Amayama",number=>"https://www.amayama.com/en/catalogs/search?query="+number),
+  searchLinkAdapter("O'Reilly",()=> "https://www.oreillyauto.com/"),
+  searchLinkAdapter("AutoZone",()=> "https://www.autozone.com/"),
+  searchLinkAdapter("Partsouq",()=> "https://partsouq.com/en/search/all"),
+  searchLinkAdapter("Amayama",()=> "https://www.amayama.com/en"),
   searchLinkAdapter("eBay",number=>"https://www.ebay.com/sch/i.html?_nkw="+number),
   searchLinkAdapter("Amazon",number=>"https://www.amazon.com/s?k="+number)
 ];
