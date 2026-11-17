@@ -128,11 +128,21 @@ export default function App() {
       const found = OWNED_VEHICLES.find(item => item.id === detail.vehicleId);
       if (found) void selectVehicle(found);
     };
+    const pageListener = (event: Event) => {
+      const detail = (event as CustomEvent<{key:string}>).detail;
+      const found = OWNED_VEHICLES.find(item => detail.key.startsWith(item.manualRoot));
+      if(found)void selectVehicle(found).then(()=>loadPage(detail.key,detail.key.split("/").pop()||"Manual page"));
+    };
+    const launchListener = () => setView("home");
     window.addEventListener("online", online); window.addEventListener("offline", offlineEvent);
     window.addEventListener("lifeos:open-manual", manualListener);
+    window.addEventListener("lifeos:open-page", pageListener);
+    window.addEventListener("lifeos:nomie-launch", launchListener);
     return () => {
       window.removeEventListener("online", online); window.removeEventListener("offline", offlineEvent);
       window.removeEventListener("lifeos:open-manual", manualListener);
+      window.removeEventListener("lifeos:open-page", pageListener);
+      window.removeEventListener("lifeos:nomie-launch", launchListener);
     };
   }, []);
 
