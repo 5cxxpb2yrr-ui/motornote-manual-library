@@ -10,7 +10,7 @@ The MVP includes:
 - Normalized \`VendorPrice\` model.
 - Adapter interface.
 - Cache and concurrency limiter.
-- Search-link adapters for eBay, Amazon, and PartsGeek.
+- Vendor catalog-link adapters for eBay, Amazon, and PartsGeek.
 
 It does **not** claim live vendor prices. Search-link results contain no price and are explicitly marked \`search-link\`. Live prices require authorized vendor APIs and credentials supplied as server-side environment secrets.
 
