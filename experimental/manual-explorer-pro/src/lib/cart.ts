@@ -43,3 +43,9 @@ export function serializeShoppingList(vehicle:Vehicle,cart:RepairCart,format:Sho
     ""
   ].join("\n");
 }
+export function calculateCartTotals(cart:RepairCart) {
+  const items=[...cart.parts,...cart.tools];
+  const priced=items.filter(item=>typeof item.price==="number"&&Number.isFinite(item.price));
+  const subtotal=priced.reduce((sum,item)=>sum+(item.price||0)*item.quantity,0);
+  return {subtotal,pricedItemCount:priced.length,unpricedItemCount:items.length-priced.length,complete:items.length>0&&priced.length===items.length};
+}
