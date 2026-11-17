@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { BookOpen, CarFront, ChevronRight, CloudOff, Download, Search, Star, Wrench, X } from "lucide-react";
+import { BookOpen, CarFront, ChevronRight, CloudOff, Download, Search, Star, Wrench, X, ShoppingCart } from "lucide-react";
 import { OWNED_VEHICLES } from "./data/vehicles";
 import { cachePage, getDatabase, listFavorites, readCachedPage, saveFavorite, saveRecent } from "./lib/db";
 import { searchRecords } from "./lib/search";
+import { extractOemRows, type ExtractedOemRow } from "./lib/oem";
+import PartsSheet from "./components/PartsSheet";
 import type { ManualLink, SearchRecord, TreeNode, Vehicle } from "./types";
 import { activate } from "./lib/nomie";
 
@@ -19,7 +21,7 @@ async function loadAllSearchRecords(): Promise<SearchRecord[]> {
       if (!result.ok) throw new Error("Search shard unavailable: " + file);
       return result.json() as Promise<SearchRecord[]>;
     }));
-    return shards.flat();
+    return shards.flat().filter(row => OWNED_VEHICLES.some(vehicle => row.path.startsWith(vehicle.manualRoot)));
   })().catch(error => { searchIndexPromise = undefined; throw error; });
   return searchIndexPromise;
 }
@@ -62,6 +64,8 @@ export default function App() {
   const [activeKey, setActiveKey] = useState("");
   const [activeTitle, setActiveTitle] = useState("");
   const [activeHtml, setActiveHtml] = useState("");
+  const [oemRows, setOemRows] = useState<ExtractedOemRow[]>([]);
+  const [partsOpen, setPartsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [records, setRecords] = useState<SearchRecord[]>([]);
   const [results, setResults] = useState<SearchRecord[]>([]);
@@ -100,7 +104,7 @@ export default function App() {
   }, []);
 
   async function selectVehicle(next: Vehicle) {
-    setVehicle(next); setView("library"); setActiveHtml(""); setActiveKey(""); setManualLinks([]);
+    setVehicle(next); setView("library"); setActiveHtml(""); setActiveKey(""); setManualLinks([]); setOemRows([]);
     try {
       if (next.treeKeys.length) {
         const trees = await Promise.all(next.treeKeys.map(key => getManualFile(key) as Promise<TreeNode>));
@@ -121,10 +125,10 @@ export default function App() {
     setActiveKey(key); setActiveTitle(title); setView("library");
     try {
       const html = await getManualFile(key) as string;
-      setActiveHtml(html); await cachePage(key, html, title); await saveRecent(key, title);
+      setActiveHtml(html); setOemRows(extractOemRows(html, key)); await cachePage(key, html, title); await saveRecent(key, title);
     } catch {
       const cached = await readCachedPage(key);
-      if (cached) { setActiveHtml(cached.html); setStatus("Offline · showing cached factory page"); }
+      if (cached) { setActiveHtml(cached.html); setOemRows(extractOemRows(cached.html, key)); setStatus("Offline · showing cached factory page"); }
       else setActiveHtml("<main><h2>Page not available offline</h2><p>Open this page once while online to save it on this device.</p></main>");
     }
   }
@@ -156,10 +160,15 @@ export default function App() {
     const link = document.createElement("a"); link.href = url; link.download = "lifeos-repair-shopping-list.txt"; link.click(); URL.revokeObjectURL(url);
   }
 
-  function openSearchResult(result: SearchRecord) {
+  async function openSearchResult(result: SearchRecord) {
     const found = OWNED_VEHICLES.find(item => result.path.startsWith(item.manualRoot));
     if (!found) return;
-    setVehicle(found); void loadPage(result.path, result.title); setSearchOpen(false);
+    await selectVehicle(found); await loadPage(result.path, result.title); setSearchOpen(false);
+  }
+
+  function addOemPart(part: ExtractedOemRow) {
+    setCartItems(old => [...old, part.partName + " — OEM " + part.partNumber + " (manual source; verify fitment)"]);
+    setPartsOpen(false);
   }
 
   return <div className="app-shell">
@@ -196,12 +205,12 @@ export default function App() {
             </button>)}
             {!visibleLinks.length&&<p className="empty">Loading factory contents or no navigation entries were found.</p>}
           </section><section className="reader">
-            <div className="reader-head"><div><p className="eyebrow">MANUAL VIEWER</p><h2>{activeTitle||"Select a procedure"}</h2></div>{activeKey&&<button className="icon-button" onClick={()=>void toggleFavorite()} aria-label="Toggle favorite"><Star size={18} fill={saved?"currentColor":"none"}/></button>}</div>
+            <div className="reader-head"><div><p className="eyebrow">MANUAL VIEWER</p><h2>{activeTitle||"Select a procedure"}</h2></div>{activeKey&&<div className="reader-actions"><button className="outline-button" onClick={()=>setPartsOpen(true)}><ShoppingCart size={15}/> Parts ({oemRows.length})</button><button className="icon-button" onClick={()=>void toggleFavorite()} aria-label="Toggle favorite"><Star size={18} fill={saved?"currentColor":"none"}/></button></div>}</div>
             {activeHtml?<iframe title={activeTitle} className="manual-frame" sandbox="allow-same-origin" srcDoc={activeHtml}/>:<div className="reader-empty"><BookOpen size={34}/><p>Choose a factory manual page to open it here.</p></div>}
           </section></div>
         </section>}
         {view==="search" && <section><p className="eyebrow">UNIVERSAL SEARCH</p><h1>Find a procedure</h1><input className="large-search" value={query} onChange={event=>void runSearch(event.target.value)} placeholder="water pump · fuel injector · vehicle:subaru"/><div className="result-list">{results.slice(0,100).map(result=><button key={result.path} onClick={()=>openSearchResult(result)}><b>{result.title}</b><small>{result.path}</small><p>{result.text.slice(0,180)}</p></button>)}</div>{query&&!results.length&&<p className="empty">No matching indexed pages. Search coverage depends on the published R2 index.</p>}</section>}
-        {view==="saved" && <section><p className="eyebrow">YOUR LIBRARY</p><h1>Favorites</h1>{favorites.map(item=><button className="saved-row" key={item.key} onClick={()=>{const found=OWNED_VEHICLES.find(v=>v.id===item.vehicleId);if(found)setVehicle(found);void loadPage(item.key,item.title)}}><Star size={17}/><span>{item.title}<small>{item.key}</small></span></button>)}{!favorites.length&&<p className="empty">Save a factory page with the star control to find it here.</p>}</section>}
+        {view==="saved" && <section><p className="eyebrow">YOUR LIBRARY</p><h1>Favorites</h1>{favorites.map(item=><button className="saved-row" key={item.key} onClick={async()=>{const found=OWNED_VEHICLES.find(v=>v.id===item.vehicleId);if(found)await selectVehicle(found);await loadPage(item.key,item.title);}}><Star size={17}/><span>{item.title}<small>{item.key}</small></span></button>)}{!favorites.length&&<p className="empty">Save a factory page with the star control to find it here.</p>}</section>}
         {view==="cart" && <section><p className="eyebrow">REPAIR WORKFLOW</p><h1>Repair cart</h1><p className="lede">Build a shopping list from a procedure. OEM numbers and prices are only shown when verified from a source.</p><div className="cart-add"><input id="part-name" placeholder="Part or tool name"/><button onClick={()=>{const input=document.querySelector<HTMLInputElement>("#part-name");if(input?.value.trim()){setCartItems(old=>[...old,input.value.trim()]);input.value=""}}}>Add item</button></div>{cartItems.map((item,index)=><div className="cart-row" key={index}><span>{item}</span><button onClick={()=>setCartItems(old=>old.filter((_,i)=>i!==index))}>Remove</button></div>)}<button className="primary-button" onClick={()=>void exportShoppingList()} disabled={!cartItems.length}><Download size={16}/> Export shopping list</button></section>}
       </main>
     </div>
@@ -210,6 +219,7 @@ export default function App() {
       <input autoFocus className="large-search" value={query} onChange={event=>void runSearch(event.target.value)} placeholder="water pump · section:engine · vehicle:scion"/>
       <div className="result-list">{results.slice(0,40).map(result=><button key={result.path} onClick={()=>openSearchResult(result)}><b>{result.title}</b><small>{result.path}</small></button>)}</div>
     </Dialog.Content></Dialog.Portal></Dialog.Root>
+    <PartsSheet open={partsOpen} onOpenChange={setPartsOpen} parts={oemRows} onAdd={addOemPart}/>
     <footer className="footer"><span>LifeOS Manual Explorer Pro · MVP</span><span>{offline?"Offline cache":"R2 manual library"} · {catalog?.vehicles.length ?? 2} owned vehicles</span></footer>
   </div>;
 }
