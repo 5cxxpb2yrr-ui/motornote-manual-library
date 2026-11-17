@@ -19,7 +19,7 @@ The experimental app lives in this directory and on branch \`feat/lifeos-manual-
 - Source-linked procedure library for both vehicles, including Subaru EyeSight camera removal, adjustment, shim adjustment, and initialization references.
 - Evidence extraction for procedure steps, warnings, torque specifications, tools, consumables, part mentions, and OEM table rows.
 - Explicit Subaru trim mismatch warnings; extracted OEM rows remain marked unverified.
-- Local favorites and repair list with TXT export.
+- Local favorites and repair list with JSON, CSV, Markdown, and TXT exports.
 - Nomie 6 plugin adapter, widget registration, launch event, tracker selection, and repair-note capture.
 - GitHub App OAuth with PKCE/state, encrypted HttpOnly sessions, PAT validation, installation discovery/token minting, user-data sync, and HMAC-verified webhook receiver.
 - Vendor adapter contract, bounded concurrency, timeout handling, cache, and search-link adapters.
