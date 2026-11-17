@@ -1,4 +1,4 @@
-import { setSessionCookie, validateRepository, type GitHubEnv, type GitHubSession } from "../../../../_lib/github-auth";
+import { setSessionCookie, validateRepository, type GitHubEnv, type GitHubSession } from "../../../_lib/github-auth";
 export const onRequestPost: PagesFunction<GitHubEnv> = async ({request,env}) => {
   try {
     const body=await request.json() as {token?:string};
