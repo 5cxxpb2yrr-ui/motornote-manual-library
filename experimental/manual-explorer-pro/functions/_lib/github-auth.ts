@@ -6,6 +6,8 @@ export interface GitHubEnv {
   GITHUB_PRIVATE_KEY_PATH?: string;
   GITHUB_INSTALLATION_ID?: string;
   GITHUB_REPOSITORY_ID?: string;
+  GITHUB_CALLBACK_URL?: string;
+  GITHUB_WEBHOOK_SECRET?: string;
   SESSION_SECRET?: string;
 }
 export interface GitHubSession {
@@ -104,8 +106,7 @@ export async function validateRepository(token: string) {
     "/repos/"+OWNER+"/"+REPO,token
   );
   if(repo.full_name.toLowerCase()!==OWNER+"/"+REPO) throw new Error("Authenticated account did not resolve the configured repository");
-  if(!repo.permissions?.pull) throw new Error("GitHub account does not have read access to "+OWNER+"/"+REPO);
-  return {repository:repo.full_name,private:repo.private,canRead:true,canWrite:Boolean(repo.permissions.push)};
+  return {repository:repo.full_name,private:repo.private,canRead:true,canWrite:Boolean(repo.permissions?.push)};
 }
 export async function refreshOAuthSession(session: GitHubSession, env: GitHubEnv): Promise<GitHubSession> {
   if(session.authType!=="github-app-user" || !session.refreshToken || !env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET) return session;
@@ -177,6 +178,6 @@ export async function createInstallationToken(env: GitHubEnv) {
     }
   );
   const access=await validateRepository(token.token);
-  return {installationId:installation.id,expiresAt:token.expires_at,permissions:token.permissions,repositories:token.repositories||[],access};
+  return {token:token.token,installationId:installation.id,expiresAt:token.expires_at,permissions:token.permissions,repositories:token.repositories||[],access};
 }
 export { OWNER as GITHUB_OWNER, REPO as GITHUB_REPOSITORY, SESSION_COOKIE };
