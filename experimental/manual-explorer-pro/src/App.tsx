@@ -253,6 +253,12 @@ export default function App() {
     await selectVehicle(found); await loadPage(result.path, result.title); setSearchOpen(false);
   }
 
+  function addDetectedPart(part: import("./lib/extraction").DetectedPart) {
+    if(!part.relationship)return;
+    setCartItems(old=>[...old,createCartLine(part.part.replace(/-/g," "),part.relationship)]);
+    setPartsOpen(false);
+  }
+
   function addOemPart(part: ExtractedOemRow) {
     setCartItems(old => [...old, {...createCartLine(part.partName,"required"),oem:part.partNumber}]);
     setPartsOpen(false);
@@ -320,7 +326,7 @@ export default function App() {
       <input autoFocus className="large-search" value={query} onChange={event=>void runSearch(event.target.value)} placeholder="water pump · section:engine · vehicle:scion"/>
       <div className="result-list">{results.slice(0,40).map(result=><button key={result.path} onClick={()=>openSearchResult(result)}><b>{result.title}</b><small>{result.path}</small></button>)}</div>
     </Dialog.Content></Dialog.Portal></Dialog.Root>
-    <PartsSheet open={partsOpen} onOpenChange={setPartsOpen} parts={oemRows} onAdd={addOemPart}/>
+    <PartsSheet open={partsOpen} onOpenChange={setPartsOpen} parts={oemRows} detected={procedureFacts?.detectedParts||[]} onAdd={addOemPart} onAddDetected={addDetectedPart}/>
     <ProcedureSheet open={procedureOpen} onOpenChange={setProcedureOpen} facts={procedureFacts}/>
     <Dialog.Root open={githubOpen} onOpenChange={setGithubOpen}><Dialog.Portal><Dialog.Overlay className="dialog-overlay"/><Dialog.Content className="search-dialog">
       <div className="dialog-head"><div><p className="eyebrow">OPTIONAL ACCOUNT CONNECTION</p><Dialog.Title>Connect GitHub</Dialog.Title></div><Dialog.Close className="icon-button" aria-label="Close GitHub connection"><X/></Dialog.Close></div>
