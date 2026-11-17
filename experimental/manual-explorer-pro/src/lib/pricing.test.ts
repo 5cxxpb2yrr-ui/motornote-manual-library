@@ -15,7 +15,7 @@ describe("pricing aggregation",()=>{
   it("returns a vendor search link without pretending it is a live price",async()=>{
     const adapter=searchLinkAdapter("MockVendor",number=>"https://vendor.example/search?q="+number);
     const result=await adapter.search("16100-29157");
-    expect(result[0].source).toBe("search-link");
+    expect(result[0].source).toBe("catalog-link");
     expect(result[0].price).toBeUndefined();
   });
   it("times out a slow vendor without blocking the other adapters",async()=>{
