@@ -6,4 +6,8 @@ describe("VehicleSummary visual snapshot",()=>{
     const markup=renderToStaticMarkup(<VehicleSummary vehicle={OWNED_VEHICLES[0]}/>);
     expect(markup).toMatchInlineSnapshot('"<article class="vehicle-summary"><h2>2006 Scion xB</h2><p>1NZ-FE</p></article>"');
   });
+  it("renders the Subaru Limited with AWD and EyeSight",()=>{
+    const markup=renderToStaticMarkup(<VehicleSummary vehicle={OWNED_VEHICLES[1]}/>);
+    expect(markup).toMatchInlineSnapshot('"<article class="vehicle-summary"><h2>2019 Subaru Crosstrek Limited</h2><p>FB20D · AWD · EyeSight</p></article>"');
+  });
 });
