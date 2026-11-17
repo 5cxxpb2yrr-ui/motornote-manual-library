@@ -1,4 +1,4 @@
-import { createInstallationToken, type GitHubEnv } from "../../../../_lib/github-auth";
+import { createInstallationToken, type GitHubEnv } from "../../../_lib/github-auth";
 export const onRequestGet: PagesFunction<GitHubEnv> = async ({env}) => {
   try {
     const result=await createInstallationToken(env);
