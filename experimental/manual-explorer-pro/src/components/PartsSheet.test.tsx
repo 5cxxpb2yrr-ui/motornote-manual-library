@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import PartsSheet from "./PartsSheet";
 describe("PartsSheet",()=>{
   it("shows OEM evidence as unverified and distinguishes an undated source price",()=>{
-    render(<PartsSheet open={true} onOpenChange={()=>undefined} onAdd={()=>undefined} parts={[{
+    render(<PartsSheet open={true} onOpenChange={()=>undefined} onAdd={()=>undefined} onAddDetected={()=>undefined} detected={[]} parts={[{
       partName:"Water Pump",manufacturer:"SCI",partNumber:"161002915683",listedPrice:92.34,
       notes:"Includes gasket",sourcePath:"manuals/scion/pages/1238.html",confidence:0.98,verification:"unverified"
     }]}/>);
