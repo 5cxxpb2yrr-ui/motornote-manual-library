@@ -13,7 +13,7 @@ declare global { interface Window { NomiePlugin?:new(details:Record<string,unkno
 const metadata={
   name:"LifeOS Manual Explorer",emoji:"🛠️",
   description:"Browse factory service information, save procedures, and plan repairs.",
-  uses:["createNote","selectTrackable"],version:"1.0.0",
+  uses:["createNote","onLaunch","selectTrackables"],version:"1.0.0",
   addToCaptureMenu:true,addToMoreMenu:true,addToWidgets:true
 };
 let instance:NomiePluginInstance|null=null;
