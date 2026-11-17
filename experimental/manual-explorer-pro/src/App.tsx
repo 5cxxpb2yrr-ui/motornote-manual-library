@@ -255,12 +255,12 @@ export default function App() {
 
   function addDetectedPart(part: import("./lib/extraction").DetectedPart) {
     if(!part.relationship)return;
-    setCartItems(old=>[...old,createCartLine(part.part.replace(/-/g," "),part.relationship)]);
+    const line=createCartLine(part.part.replace(/-/g," "),part.relationship);line.sourcePath=part.evidence[0]?.sourcePath;line.confidence=part.confidence;line.verification="unverified";setCartItems(old=>[...old,line]);
     setPartsOpen(false);
   }
 
   function addOemPart(part: ExtractedOemRow) {
-    setCartItems(old => [...old, {...createCartLine(part.partName,"required"),oem:part.partNumber}]);
+    setCartItems(old => [...old, {...createCartLine(part.partName,"required"),oem:part.partNumber,sourcePath:part.sourcePath,confidence:part.confidence,verification:"unverified"}]);
     setPartsOpen(false);
   }
 
