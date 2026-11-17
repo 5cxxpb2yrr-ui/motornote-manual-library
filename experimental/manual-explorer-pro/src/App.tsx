@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { BookOpen, CarFront, ChevronRight, CloudOff, Download, Search, Star, Wrench, X, ShoppingCart, Github } from "lucide-react";
 import { OWNED_VEHICLES } from "./data/vehicles";
+import { proceduresForVehicle } from "./data/procedures";
 import { cachePage, getDatabase, listFavorites, readCachedPage, saveFavorite, saveRecent } from "./lib/db";
 import { searchRecords } from "./lib/search";
 import { extractOemRows, type ExtractedOemRow } from "./lib/oem";
@@ -84,7 +85,7 @@ export default function App() {
   const [favorites, setFavorites] = useState<Array<{key:string;title:string;vehicleId:string}>>([]);
   const [cartItems, setCartItems] = useState<string[]>([]);
   const [status, setStatus] = useState("Connecting to manual library…");
-  const [view, setView] = useState<"home"|"library"|"search"|"saved"|"cart">("home");
+  const [view, setView] = useState<"home"|"library"|"procedures"|"search"|"saved"|"cart">("home");
   const [searchOpen, setSearchOpen] = useState(false);
   const [githubOpen, setGithubOpen] = useState(false);
   const [githubStatus, setGithubStatus] = useState<{authenticated:boolean;login?:string;canWrite?:boolean}>({authenticated:false});
@@ -259,8 +260,8 @@ export default function App() {
     <div className="layout">
       <aside className="sidebar">
         <p className="eyebrow">WORKSPACE</p>
-        {(["home","library","search","saved","cart"] as const).map(item => <button key={item} className={view===item?"nav-item active":"nav-item"} onClick={() => setView(item)}>
-          {item==="home"?"⌂":item==="library"?"▤":item==="search"?"⌕":item==="saved"?"☆":"▣"} <span>{item==="home"?"Overview":item==="library"?"Manuals":item==="search"?"Search":item==="saved"?"Favorites":"Repair cart"}</span>
+        {(["home","library","procedures","search","saved","cart"] as const).map(item => <button key={item} className={view===item?"nav-item active":"nav-item"} onClick={() => setView(item)}>
+          {item==="home"?"⌂":item==="library"?"▤":item==="procedures"?"⚙":item==="search"?"⌕":item==="saved"?"☆":"▣"} <span>{item==="home"?"Overview":item==="library"?"Manuals":item==="procedures"?"Procedures":item==="search"?"Search":item==="saved"?"Favorites":"Repair cart"}</span>
         </button>)}
         <div className="sidebar-divider"/><p className="eyebrow">OWNED VEHICLES</p>
         {OWNED_VEHICLES.map(item => <button key={item.id} className={"vehicle-choice "+(vehicle.id===item.id?"selected":"")} onClick={() => void selectVehicle(item)}>
@@ -288,7 +289,8 @@ export default function App() {
             {variantWarning&&<div className="variant-warning"><b>Vehicle variant warning</b><span>{variantWarning} Verify applicability to your Crosstrek Limited before using this information.</span></div>}{activeHtml?<iframe ref={readerFrame} onLoad={handleReaderLoad} title={activeTitle} className="manual-frame" sandbox="allow-same-origin" srcDoc={activeHtml}/>:<div className="reader-empty"><BookOpen size={34}/><p>Choose a factory manual page to open it here.</p></div>}
           </section></div>
         </section>}
-        {view==="search" && <section><p className="eyebrow">UNIVERSAL SEARCH</p><h1>Find a procedure</h1><input className="large-search" value={query} onChange={event=>void runSearch(event.target.value)} placeholder="water pump · fuel injector · vehicle:subaru"/><div className="result-list">{results.slice(0,100).map(result=><button key={result.path} onClick={()=>openSearchResult(result)}><b>{result.title}</b><small>{result.path}</small>{result.text.toLowerCase().includes("different variant/trim than selected")&&<em className="variant-flag">Variant applicability warning</em>}<p>{result.text.slice(0,180)}</p></button>)}</div>{query&&!results.length&&<p className="empty">No matching indexed pages. Search coverage depends on the published R2 index.</p>}</section>}
+        {view==="procedures" && <section><div className="section-heading"><div><p className="eyebrow">SOURCE-LINKED REPAIR KNOWLEDGE</p><h1>Procedure Library</h1><p>{vehicle.year} {vehicle.make} {vehicle.model} · {vehicle.engine}</p></div><button className="outline-button" onClick={()=>setView("home")}>Garage</button></div><div className="procedure-grid">{proceduresForVehicle(vehicle.id).map(procedure=><button className="procedure-card" key={procedure.id} onClick={()=>void loadPage(vehicle.manualRoot+procedure.sourcePages[0],procedure.title)}><span className="card-kicker">{procedure.system}</span><h3>{procedure.title}</h3><small>{procedure.sourcePages.length} source page{procedure.sourcePages.length===1?"":"s"} · {procedure.status}</small><div className="procedure-tags">{procedure.applicability==="confirm-trim"&&<span>Confirm trim</span>}{procedure.requiresCalibration&&<span>Calibration</span>}</div></button>)}</div>{!proceduresForVehicle(vehicle.id).length&&<p className="empty">No source-linked procedures are listed for this vehicle yet.</p>}</section>}
+      {view==="search" && <section><p className="eyebrow">UNIVERSAL SEARCH</p><h1>Find a procedure</h1><input className="large-search" value={query} onChange={event=>void runSearch(event.target.value)} placeholder="water pump · fuel injector · vehicle:subaru"/><div className="result-list">{results.slice(0,100).map(result=><button key={result.path} onClick={()=>openSearchResult(result)}><b>{result.title}</b><small>{result.path}</small>{result.text.toLowerCase().includes("different variant/trim than selected")&&<em className="variant-flag">Variant applicability warning</em>}<p>{result.text.slice(0,180)}</p></button>)}</div>{query&&!results.length&&<p className="empty">No matching indexed pages. Search coverage depends on the published R2 index.</p>}</section>}
         {view==="saved" && <section><p className="eyebrow">YOUR LIBRARY</p><h1>Favorites</h1>{favorites.map(item=><button className="saved-row" key={item.key} onClick={async()=>{const found=OWNED_VEHICLES.find(v=>v.id===item.vehicleId);if(found)await selectVehicle(found);await loadPage(item.key,item.title);}}><Star size={17}/><span>{item.title}<small>{item.key}</small></span></button>)}{!favorites.length&&<p className="empty">Save a factory page with the star control to find it here.</p>}</section>}
         {view==="cart" && <section><p className="eyebrow">REPAIR WORKFLOW</p><h1>Repair cart</h1><p className="lede">Build a shopping list from a procedure. OEM numbers and prices are only shown when verified from a source.</p><div className="cart-add"><input id="part-name" placeholder="Part or tool name"/><button onClick={()=>{const input=document.querySelector<HTMLInputElement>("#part-name");if(input?.value.trim()){setCartItems(old=>[...old,input.value.trim()]);input.value=""}}}>Add item</button></div>{cartItems.map((item,index)=><div className="cart-row" key={index}><span>{item}</span><button onClick={()=>setCartItems(old=>old.filter((_,i)=>i!==index))}>Remove</button></div>)}<button className="primary-button" onClick={()=>void exportShoppingList()} disabled={!cartItems.length}><Download size={16}/> Export shopping list</button></section>}
       </main>
