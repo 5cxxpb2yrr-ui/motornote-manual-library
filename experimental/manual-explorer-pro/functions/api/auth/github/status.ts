@@ -1,4 +1,4 @@
-import { getSession, refreshOAuthSession, setSessionCookie, type GitHubEnv } from "../../../../_lib/github-auth";
+import { getSession, refreshOAuthSession, setSessionCookie, type GitHubEnv } from "../../../_lib/github-auth";
 export const onRequestGet: PagesFunction<GitHubEnv> = async ({request,env}) => {
   try {
     let session=await getSession(request,env);
