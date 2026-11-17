@@ -5,7 +5,7 @@ import { OWNED_VEHICLES } from "./data/vehicles";
 import { cachePage, getDatabase, listFavorites, readCachedPage, saveFavorite, saveRecent } from "./lib/db";
 import { searchRecords } from "./lib/search";
 import type { ManualLink, SearchRecord, TreeNode, Vehicle } from "./types";
-import { activate, openManual } from "./lib/nomie";
+import { activate } from "./lib/nomie";
 
 type Catalog = { vehicles: Vehicle[]; searchIndex: { available: boolean; documentCount: number } };
 function flattenTree(nodes: TreeNode[], section: string, vehicle: Vehicle): ManualLink[] {
