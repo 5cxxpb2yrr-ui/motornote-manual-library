@@ -18,10 +18,11 @@ const DICTIONARY = [
 ] as const;
 
 function inferRelationship(context: string, partId: string): RelationshipType | undefined {
-  if (/\\b(tool|special service tool|sst)\\b/i.test(context)) return "tool";
-  if (partId === "coolant" || /\\b(fluid|grease|sealant|lubricant)\\b/i.test(context)) return "consumable";
-  if (/\\b(recommended|if necessary|as required)\\b/i.test(context)) return "recommended";
-  if (/\\b(replace|renew|install new|must be replaced)\\b/i.test(context)) return "required";
+  const lower=context.toLowerCase();
+  if (lower.includes("special service tool") || lower.includes("sst") || lower.includes("tool")) return "tool";
+  if (partId === "coolant" || lower.includes("fluid") || lower.includes("grease") || lower.includes("sealant") || lower.includes("lubricant")) return "consumable";
+  if (lower.includes("recommended") || lower.includes("if necessary") || lower.includes("as required")) return "recommended";
+  if (lower.includes("remove") || lower.includes("replace") || lower.includes("renew") || lower.includes("install a new") || lower.includes("install new") || lower.includes("must be replaced")) return "required";
   return undefined;
 }
 
