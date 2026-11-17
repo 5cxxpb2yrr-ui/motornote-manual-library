@@ -82,16 +82,12 @@ export async function getSession(request: Request, env: GitHubEnv) {
   return value?unseal<GitHubSession>(value,env):null;
 }
 export async function githubFetch<T>(path: string, token: string, init: RequestInit = {}): Promise<T> {
-  const response=await fetch("https://api.github.com"+path,{
-    ...init,
-    headers:{
-      Accept:"application/vnd.github+json",
-      Authorization:"Bearer "+token,
-      "X-GitHub-Api-Version":API_VERSION,
-      "User-Agent":"LifeOS-Manual-Explorer-Pro",
-      ...(init.headers||{})
-    }
-  });
+  const headers=new Headers(init.headers);
+  headers.set("Accept","application/vnd.github+json");
+  headers.set("Authorization","Bearer "+token);
+  headers.set("X-GitHub-Api-Version",API_VERSION);
+  headers.set("User-Agent","LifeOS-Manual-Explorer-Pro");
+  const response=await fetch("https://api.github.com"+path,{...init,headers});
   const body=await response.text();
   let data: unknown;
   try { data=body?JSON.parse(body):{}; } catch { data={message:body}; }
