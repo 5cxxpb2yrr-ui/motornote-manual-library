@@ -6,7 +6,7 @@ export function validateCart(cart: RepairCart, requiredPartIds: string[], requir
   for (const id of requiredPartIds) if (!present.has(id)) errors.push("Missing required part: " + id);
   for (const id of requiredToolIds) if (!present.has(id)) errors.push("Missing required tool: " + id);
   for (const line of [...cart.parts, ...cart.tools]) {
-    if (!line.oem) warnings.push("OEM number not verified for " + line.name);
+    if (!line.oem || line.verification !== "verified") warnings.push("OEM number or vehicle fitment not verified for " + line.name);
     if (line.price == null || !line.url) warnings.push("Vendor price/link unavailable for " + line.name);
   }
   return { valid: errors.length === 0, errors, warnings };
@@ -21,10 +21,10 @@ function csv(value:unknown) {
 export function serializeShoppingList(vehicle:Vehicle,cart:RepairCart,format:ShoppingListFormat):string {
   const items=[...cart.parts,...cart.tools].map(line=>({
     Part:line.name,OEM:line.oem||"",Vendor:line.vendor||"",Price:line.price??"",
-    Quantity:line.quantity,DirectLink:line.url||"",Relationship:line.relationship
+    Quantity:line.quantity,DirectLink:line.url||"",Relationship:line.relationship,Source:line.sourcePath||"",Verification:line.verification||"unverified"
   }));
   if(format==="json")return JSON.stringify({vehicle:{id:vehicle.id,year:vehicle.year,make:vehicle.make,model:vehicle.model},procedureId:cart.procedureId,items},null,2);
-  const columns=["Part","OEM","Vendor","Price","Quantity","DirectLink","Relationship"];
+  const columns=["Part","OEM","Vendor","Price","Quantity","DirectLink","Relationship","Source","Verification"];
   if(format==="csv")return [columns.map(csv).join(","),...items.map(item=>columns.map(column=>csv(item[column as keyof typeof item])).join(","))].join("\n");
   if(format==="markdown")return [
     "# Repair Shopping List",
@@ -39,7 +39,7 @@ export function serializeShoppingList(vehicle:Vehicle,cart:RepairCart,format:Sho
     "LifeOS Manual Explorer Pro — Repair Shopping List",
     "Vehicle: "+vehicle.year+" "+vehicle.make+" "+vehicle.model,
     "",
-    ...items.map((item,index)=>(index+1)+". "+item.Part+" × "+item.Quantity+(item.OEM?" · OEM "+item.OEM:"")+(item.Vendor?" · "+item.Vendor:"")+(item.Price!==""?" · $"+item.Price:"")+(item.DirectLink?" · "+item.DirectLink:"")),
+    ...items.map((item,index)=>(index+1)+". "+item.Part+" × "+item.Quantity+(item.OEM?" · OEM "+item.OEM:"")+(item.Vendor?" · "+item.Vendor:"")+(item.Price!==""?" · $"+item.Price:"")+(item.DirectLink?" · "+item.DirectLink:"")+(item.Source?" · Source "+item.Source:"")+(item.Verification==="verified"?" · Verified":" · Unverified")),
     ""
   ].join("\n");
 }
