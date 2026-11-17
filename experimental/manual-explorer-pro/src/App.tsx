@@ -6,6 +6,8 @@ import { cachePage, getDatabase, listFavorites, readCachedPage, saveFavorite, sa
 import { searchRecords } from "./lib/search";
 import { extractOemRows, type ExtractedOemRow } from "./lib/oem";
 import PartsSheet from "./components/PartsSheet";
+import ProcedureSheet from "./components/ProcedureSheet";
+import { extractProcedureFacts, type ProcedureFacts } from "./lib/procedure-extractor";
 import type { ManualLink, SearchRecord, TreeNode, Vehicle } from "./types";
 import { activate, sync as syncGitHub } from "./lib/nomie";
 
@@ -72,6 +74,8 @@ export default function App() {
   const [activeHtml, setActiveHtml] = useState("");
   const [oemRows, setOemRows] = useState<ExtractedOemRow[]>([]);
   const [variantWarning, setVariantWarning] = useState("");
+  const [procedureFacts, setProcedureFacts] = useState<ProcedureFacts|null>(null);
+  const [procedureOpen, setProcedureOpen] = useState(false);
   const readerFrame = useRef<HTMLIFrameElement>(null);
   const [partsOpen, setPartsOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -123,7 +127,7 @@ export default function App() {
   }, []);
 
   async function selectVehicle(next: Vehicle) {
-    setVehicle(next); setView("library"); setActiveHtml(""); setActiveKey(""); setManualLinks([]); setOemRows([]); setVariantWarning("");
+    setVehicle(next); setView("library"); setActiveHtml(""); setActiveKey(""); setManualLinks([]); setOemRows([]); setVariantWarning(""); setProcedureFacts(null);
     try {
       if (next.treeKeys.length) {
         const trees = await Promise.all(next.treeKeys.map(key => getManualFile(key) as Promise<TreeNode>));
@@ -144,10 +148,10 @@ export default function App() {
     setActiveKey(key); setActiveTitle(title); setView("library");
     try {
       const html = await getManualFile(key) as string;
-      setActiveHtml(html); setOemRows(extractOemRows(html, key)); setVariantWarning(getVariantWarning(html)); await cachePage(key, html, title); await saveRecent(key, title);
+      setActiveHtml(html); setOemRows(extractOemRows(html, key)); setVariantWarning(getVariantWarning(html)); setProcedureFacts(extractProcedureFacts(html,key)); await cachePage(key, html, title); await saveRecent(key, title);
     } catch {
       const cached = await readCachedPage(key);
-      if (cached) { setActiveHtml(cached.html); setOemRows(extractOemRows(cached.html, key)); setVariantWarning(getVariantWarning(cached.html)); setStatus("Offline · showing cached factory page"); }
+      if (cached) { setActiveHtml(cached.html); setOemRows(extractOemRows(cached.html, key)); setVariantWarning(getVariantWarning(cached.html)); setProcedureFacts(extractProcedureFacts(cached.html,key)); setStatus("Offline · showing cached factory page"); }
       else setActiveHtml("<main><h2>Page not available offline</h2><p>Open this page once while online to save it on this device.</p></main>");
     }
   }
@@ -163,7 +167,7 @@ export default function App() {
       const title=doc?.title || doc?.querySelector("h1")?.textContent?.trim() || key.split("/").pop() || "Manual page";
       setActiveKey(key);setActiveTitle(title);
       const html=doc?.documentElement?.outerHTML;
-      if(html){setVariantWarning(getVariantWarning(html));setOemRows(extractOemRows(html,key));void saveRecent(key,title);}
+      if(html){setVariantWarning(getVariantWarning(html));setOemRows(extractOemRows(html,key));setProcedureFacts(extractProcedureFacts(html,key));void saveRecent(key,title);}
     } catch { /* sandboxed external navigation is intentionally ignored */ }
   }
 
@@ -280,7 +284,7 @@ export default function App() {
             </button>)}
             {!visibleLinks.length&&<p className="empty">Loading factory contents or no navigation entries were found.</p>}
           </section><section className="reader">
-            <div className="reader-head"><div><p className="eyebrow">MANUAL VIEWER</p><h2>{activeTitle||"Select a procedure"}</h2></div>{activeKey&&<div className="reader-actions"><button className="outline-button" disabled={Boolean(variantWarning)} title={variantWarning||"View parts extracted from this source page"} onClick={()=>setPartsOpen(true)}><ShoppingCart size={15}/> Parts ({oemRows.length})</button><button className="icon-button" onClick={()=>void toggleFavorite()} aria-label="Toggle favorite"><Star size={18} fill={saved?"currentColor":"none"}/></button></div>}</div>
+            <div className="reader-head"><div><p className="eyebrow">MANUAL VIEWER</p><h2>{activeTitle||"Select a procedure"}</h2></div>{activeKey&&<div className="reader-actions"><button className="outline-button" onClick={()=>setProcedureOpen(true)} title="View extracted steps, torque and cautions"><Wrench size={15}/> Details</button><button className="outline-button" disabled={Boolean(variantWarning)} title={variantWarning||"View parts extracted from this source page"} onClick={()=>setPartsOpen(true)}><ShoppingCart size={15}/> Parts ({oemRows.length})</button><button className="icon-button" onClick={()=>void toggleFavorite()} aria-label="Toggle favorite"><Star size={18} fill={saved?"currentColor":"none"}/></button></div>}</div>
             {variantWarning&&<div className="variant-warning"><b>Vehicle variant warning</b><span>{variantWarning} Verify applicability to your Crosstrek Limited before using this information.</span></div>}{activeHtml?<iframe ref={readerFrame} onLoad={handleReaderLoad} title={activeTitle} className="manual-frame" sandbox="allow-same-origin" srcDoc={activeHtml}/>:<div className="reader-empty"><BookOpen size={34}/><p>Choose a factory manual page to open it here.</p></div>}
           </section></div>
         </section>}
@@ -295,6 +299,7 @@ export default function App() {
       <div className="result-list">{results.slice(0,40).map(result=><button key={result.path} onClick={()=>openSearchResult(result)}><b>{result.title}</b><small>{result.path}</small></button>)}</div>
     </Dialog.Content></Dialog.Portal></Dialog.Root>
     <PartsSheet open={partsOpen} onOpenChange={setPartsOpen} parts={oemRows} onAdd={addOemPart}/>
+    <ProcedureSheet open={procedureOpen} onOpenChange={setProcedureOpen} facts={procedureFacts}/>
     <Dialog.Root open={githubOpen} onOpenChange={setGithubOpen}><Dialog.Portal><Dialog.Overlay className="dialog-overlay"/><Dialog.Content className="search-dialog">
       <div className="dialog-head"><div><p className="eyebrow">OPTIONAL ACCOUNT CONNECTION</p><Dialog.Title>Connect GitHub</Dialog.Title></div><Dialog.Close className="icon-button" aria-label="Close GitHub connection"><X/></Dialog.Close></div>
       <p className="parts-caveat">Browsing manuals and using local favorites do not require an account. Connect GitHub only when you want to synchronize repair data with your private repository.</p>
