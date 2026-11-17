@@ -1,8 +1,19 @@
 import * as Dialog from "@radix-ui/react-dialog";
+import { useEffect, useState } from "react";
 import { ShoppingCart, X } from "lucide-react";
 import type { ExtractedOemRow } from "../lib/oem";
 import type { DetectedPart } from "../lib/extraction";
+import { vendorSearchAdapters, type VendorPrice } from "../lib/pricing";
 interface Props { open:boolean; onOpenChange:(open:boolean)=>void; parts:ExtractedOemRow[]; detected:DetectedPart[]; onAdd:(part:ExtractedOemRow)=>void; onAddDetected:(part:DetectedPart)=>void; }
+function VendorLinks({term}:{term:string}) {
+  const [links,setLinks]=useState<VendorPrice[]>([]);
+  useEffect(()=>{
+    let active=true;
+    void Promise.all(vendorSearchAdapters.map(adapter=>adapter.search(term))).then(results=>{if(active)setLinks(results.flat());});
+    return()=>{active=false;};
+  },[term]);
+  return <div className="vendor-links"><small>Vendor catalog search · no live price quote</small><div>{links.map(link=><a key={link.vendor} href={link.url} target="_blank" rel="noopener noreferrer">{link.vendor}</a>)}</div></div>;
+}
 export default function PartsSheet({open,onOpenChange,parts,detected,onAdd,onAddDetected}:Props) {
   return <Dialog.Root open={open} onOpenChange={onOpenChange}>
     <Dialog.Portal><Dialog.Overlay className="dialog-overlay"/>
@@ -13,14 +24,14 @@ export default function PartsSheet({open,onOpenChange,parts,detected,onAdd,onAdd
           <div><b>{part.partName}</b><small>{part.manufacturer||"Manufacturer not stated"} · OEM label: {part.partNumber}</small>
             <small>Source-listed price: {part.listedPrice==null?"Not listed":"$"+part.listedPrice.toFixed(2)+" (undated; not a live quote)"}</small>
             {part.notes&&<small>{part.notes}</small>}
-            <small>Confidence {Math.round(part.confidence*100)}% · not independently verified · {part.sourcePath.split("/").pop()}</small>
+            <small>Confidence {Math.round(part.confidence*100)}% · not independently verified · {part.sourcePath.split("/").pop()}</small><VendorLinks term={part.partNumber}/>
           </div>
           <button onClick={()=>onAdd(part)}><ShoppingCart size={15}/> Add</button>
         </article>)}</section>}
         {detected.length>0&&<section className="parts-group"><h3>Parts detected in procedure text</h3>{detected.map((part,index)=><article className="part-row" key={part.part+index}>
           <div><b>{part.part.replace(/-/g," ")}</b><small>{part.relationship||"Relationship not established"} · {Math.round(part.confidence*100)}% extraction confidence</small>
             {part.evidence[0]&&<small>Evidence: “{part.evidence[0].quote}”</small>}
-            <small>No OEM fitment or price is implied by this text match.</small>
+            <small>No OEM fitment or price is implied by this text match.</small><VendorLinks term={part.part.replace(/-/g," ")}/>
           </div>
           <button disabled={!part.relationship} onClick={()=>onAddDetected(part)}><ShoppingCart size={15}/> Add</button>
         </article>)}</section>}
