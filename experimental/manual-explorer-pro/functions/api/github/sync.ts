@@ -31,6 +31,7 @@ export const onRequestGet: PagesFunction<GitHubEnv> = async ({request,env}) => {
   try {
     let session=await getSession(request,env);
     if(!session)return Response.json({error:"Connect GitHub to sync your repair data."},{status:401,headers:{"Cache-Control":"no-store"}});
+    const originalSession=session;
     const refreshed=await refreshOAuthSession(session,env);
     const headers=new Headers({"Cache-Control":"no-store"});
     if(refreshed!==originalSession)headers.append("Set-Cookie",await setSessionCookie(refreshed,env));
@@ -67,7 +68,7 @@ export const onRequestPost: PagesFunction<GitHubEnv> = async ({request,env}) => 
       method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)
     });
     const headers=new Headers({"Cache-Control":"no-store"});
-    if(refreshed!==session)headers.append("Set-Cookie",await setSessionCookie(refreshed,env));
+    if(refreshed!==originalSession)headers.append("Set-Cookie",await setSessionCookie(refreshed,env));
     return new Response(JSON.stringify({synced:true,owner:session.login,path,updatedAt:payload.updatedAt}),{headers});
   } catch(error) {
     return Response.json({error:error instanceof Error?error.message:"GitHub sync write failed"},{status:502,headers:{"Cache-Control":"no-store"}});
