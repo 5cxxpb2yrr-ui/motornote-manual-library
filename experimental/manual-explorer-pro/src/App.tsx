@@ -3,6 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { BookOpen, CarFront, ChevronRight, CloudOff, Download, Search, Star, Wrench, X, ShoppingCart, Github } from "lucide-react";
 import { OWNED_VEHICLES } from "./data/vehicles";
 import { proceduresForVehicle } from "./data/procedures";
+import { buildProcedurePartsGraph } from "./lib/parts-graph";
 import { cachePage, getDatabase, listFavorites, readCachedPage, saveFavorite, saveRecent } from "./lib/db";
 import { searchRecords } from "./lib/search";
 import { extractOemRows, type ExtractedOemRow } from "./lib/oem";
@@ -194,14 +195,25 @@ export default function App() {
     } catch { setStatus("Offline mode · previously cached pages remain available"); }
   }
 
+  function applyProcedureContext(html:string,key:string) {
+    const facts=extractProcedureFacts(html,key);
+    setOemRows(extractOemRows(html,key));
+    setVariantWarning(getVariantWarning(html));
+    setProcedureFacts(facts);
+    const pageVehicle=OWNED_VEHICLES.find(item=>key.startsWith(item.manualRoot))||vehicle;
+    const procedure=proceduresForVehicle(pageVehicle.id).find(item=>item.sourcePages.some(page=>key.endsWith(page)));
+    const graph=buildProcedurePartsGraph(pageVehicle,procedure,facts);
+    void getDatabase().then(db=>db.put("relationships",graph,key)).catch(()=>undefined);
+  }
+
   async function loadPage(key: string, title: string) {
     setActiveKey(key); setActiveTitle(title); setView("library");
     try {
       const html = await getManualFile(key) as string;
-      setActiveHtml(html); setOemRows(extractOemRows(html, key)); setVariantWarning(getVariantWarning(html)); setProcedureFacts(extractProcedureFacts(html,key)); await cachePage(key, html, title); await saveRecent(key, title);
+      setActiveHtml(html); applyProcedureContext(html,key); await cachePage(key, html, title); await saveRecent(key, title);
     } catch {
       const cached = await readCachedPage(key);
-      if (cached) { setActiveHtml(cached.html); setOemRows(extractOemRows(cached.html, key)); setVariantWarning(getVariantWarning(cached.html)); setProcedureFacts(extractProcedureFacts(cached.html,key)); setStatus("Offline · showing cached factory page"); }
+      if (cached) { setActiveHtml(cached.html); applyProcedureContext(cached.html,key); setStatus("Offline · showing cached factory page"); }
       else setActiveHtml("<main><h2>Page not available offline</h2><p>Open this page once while online to save it on this device.</p></main>");
     }
   }
@@ -217,7 +229,7 @@ export default function App() {
       const title=doc?.title || doc?.querySelector("h1")?.textContent?.trim() || key.split("/").pop() || "Manual page";
       setActiveKey(key);setActiveTitle(title);
       const html=doc?.documentElement?.outerHTML;
-      if(html){setVariantWarning(getVariantWarning(html));setOemRows(extractOemRows(html,key));setProcedureFacts(extractProcedureFacts(html,key));void saveRecent(key,title);}
+      if(html){applyProcedureContext(html,key);void saveRecent(key,title);}
     } catch { /* sandboxed external navigation is intentionally ignored */ }
   }
 
