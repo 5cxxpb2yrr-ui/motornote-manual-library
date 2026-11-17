@@ -1,6 +1,6 @@
 # Repair cart
 
-The MVP repair list is local-first and can be exported as TXT. Cart validation primitives live in \`src/lib/cart.ts\`.
+The MVP repair list is local-first, persisted per vehicle in IndexedDB, and exports JSON, CSV, Markdown, and TXT. Cart validation primitives live in \`src/lib/cart.ts\`.
 
 Validation reports:
 - Missing required parts.
