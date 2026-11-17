@@ -1,23 +1,39 @@
 # LifeOS Manual Explorer Pro
 
-MVP-first automotive service-information workspace for two owned vehicles only:
-- 2006 Scion xB — 1NZ-FE
-- 2019 Subaru Crosstrek Limited — FB20D, AWD, EyeSight
+A mobile-first automotive repair knowledge workspace built around the two owned vehicles only:
 
-Develop on \`feat/lifeos-manual-explorer-pro-mvp\`. The production Phoenix manual library is not changed. R2 remains the read-only source of factory content.
+- **2006 Scion xB** — 1NZ-FE
+- **2019 Subaru Crosstrek Limited** — FB20D, AWD, EyeSight
 
-## MVP foundation
+The experimental app lives in this directory and on branch \`feat/lifeos-manual-explorer-pro-mvp\`. It does not modify the production Phoenix manual experience. R2 remains the read-only source for factory manual content.
 
-- React + TypeScript application.
-- Exact two-vehicle allowlist and regression test.
-- R2 catalog, manual-page, and search-index APIs.
-- Reader support for legacy Scion numbered pages and Subaru section-tree navigation.
-- IndexedDB stores for manuals, pages, vehicles, parts, relationships, favorites, bookmarks, notes, recents, settings, searches, viewer/TOC state, carts, pricing cache, GitHub state, and search records.
-- Page cache, local favorites, offline fallback, basic repair shopping-list export.
-- Nomie 6 plugin adapter using the documented iframe plugin SDK shape.
-- Jest tests for the vehicle allowlist and search matching.
+## Implemented MVP
 
-## Run locally
+- React + TypeScript + Vite PWA shell.
+- Strict two-vehicle allowlist and regression tests.
+- R2 catalog and manual-page APIs for Scion numbered HTML and Subaru JSON section trees.
+- Manual viewer with same-reader internal page navigation.
+- Search against the live R2 index: 45,768 documents across 92 shards, filtered to the two owned vehicle roots.
+- IndexedDB schema for manuals, pages, vehicles, parts, relationships, favorites, bookmarks, notes, recents, settings, searches, viewer/TOC state, carts, pricing cache, GitHub state, and search records.
+- Service-worker caching for the app shell, manual API responses, catalog, and search shards.
+- Source-linked procedure library for both vehicles, including Subaru EyeSight camera removal, adjustment, shim adjustment, and initialization references.
+- Evidence extraction for procedure steps, warnings, torque specifications, tools, consumables, part mentions, and OEM table rows.
+- Explicit Subaru trim mismatch warnings; extracted OEM rows remain marked unverified.
+- Local favorites and repair list with TXT export.
+- Nomie 6 plugin adapter, widget registration, launch event, tracker selection, and repair-note capture.
+- GitHub App OAuth with PKCE/state, encrypted HttpOnly sessions, PAT validation, installation discovery/token minting, user-data sync, and HMAC-verified webhook receiver.
+- Vendor adapter contract, bounded concurrency, timeout handling, cache, and search-link adapters.
+
+## Deliberate MVP boundaries
+
+- GitHub credentials and vendor keys must be configured as Cloudflare secrets before those integrations can be exercised. No secrets are committed.
+- Live vendor price APIs are not connected. Vendor search links are not live prices.
+- Manual-listed prices are shown as undated source data, never as current quotes.
+- Offline support caches pages and shards after they have been fetched. A complete asset-aware download manager is still needed for guaranteed offline diagrams and all manual styling.
+- Procedure references point into the factory corpus. Extracted facts retain source paths; they are not presented as independently validated repair instructions.
+- GitHub sync merges by record key with local values taking precedence. A full conflict-resolution UI remains future work.
+
+## Local setup
 
 \`\`\`sh
 npm install
@@ -27,31 +43,24 @@ npm run typecheck
 npm run build
 \`\`\`
 
-Bind the existing R2 bucket as \`MANUALS\` in the preview Pages project. Never attach a writable publishing workflow to the application preview.
+Copy \`.dev.vars.example\` to \`.dev.vars\` for local server-side GitHub configuration. Never commit the copied file. Bind the existing \`motornote-manual-site\` R2 bucket as \`MANUALS\`.
 
-## Source layout
+## Key source files
 
-- \`src/data/vehicles.ts\`: owned vehicle allowlist.
+- \`src/data/vehicles.ts\`: only the two owned vehicles.
+- \`src/data/procedures.ts\`: source-linked procedure references.
 - \`src/lib/db.ts\`: IndexedDB schema and persistence.
-- \`src/lib/search.ts\`: offline-capable query parsing and ranking.
-- \`src/lib/cart.ts\`: repair-cart validation primitives.
-- \`src/lib/nomie.ts\`: Nomie iframe-plugin adapter.
-- \`functions/api/\`: read-only R2 endpoints.
+- \`src/lib/search.ts\`: query parsing, all-term matching, and ranking.
+- \`src/lib/procedure-extractor.ts\`: source-backed procedure fact extraction.
+- \`src/lib/extraction.ts\` and \`src/lib/oem.ts\`: part and OEM table extraction.
+- \`src/lib/cart.ts\`: repair-cart validation.
+- \`src/lib/pricing.ts\`: vendor adapter and aggregation primitives.
+- \`src/lib/nomie.ts\`: Nomie 6 plugin adapter and export/import/sync.
+- \`functions/api/\`: R2, GitHub auth, sync, and webhook endpoints.
+- \`docs/\`: setup, deployment, plugin, auth, parts, cart, and pricing guidance.
 
 ## Security and data integrity
 
-GitHub App private keys, OAuth secrets, installation tokens, PATs, and vendor API keys remain server-side. The browser bundle must never receive them. Manual routes are allowlisted to the two owned-vehicle prefixes. No sample vehicle outside the allowlist is seeded.
+GitHub App private keys, OAuth client secrets, session encryption secret, installation tokens, PATs, webhook secrets, and vendor API keys remain server-side. The browser receives only connection status. Manual routes are allowlisted to the two owned-vehicle prefixes.
 
-OEM part numbers, torque values, EyeSight calibration targets, and vendor prices are not fabricated. They must be linked to a source page or returned by an authorized vendor API, with evidence and verification state retained.
-
-## Nomie compatibility
-
-Nomie 6 plugins are hosted iframe pages communicating through the official \`nomie-plugin.js\` postMessage bridge. This adapter uses documented registration, storage, launch, capture/menu, and widget capabilities. It does not invent separate undocumented Dashboard, Tracker, or Context Menu APIs.
-
-## Roadmap
-
-1. MVP: vehicle/manual browsing, reader, search, local cache, favorites, repair-list export.
-2. Knowledge layer: source-backed procedures, part relationships, confidence extraction, Subaru EyeSight references.
-3. GitHub: OAuth/App installation flow, repo permission checks, server-side sessions, sync.
-4. Pricing: compliant vendor adapters, cached quotes, direct purchase links.
-5. Hardening: full offline sync controls, JSON/CSV/Markdown exports, import validation, accessibility, E2E and snapshot tests.
+Do not invent OEM numbers, torque values, EyeSight calibration targets, tool requirements, or live prices. Keep evidence, source page, confidence, and verification status with every extracted fact.
