@@ -9,6 +9,7 @@ export default function ProcedureSheet({open,onOpenChange,facts}:Props) {
         <header className="dialog-head"><div><p className="eyebrow">FACTORY PROCEDURE EVIDENCE</p><Dialog.Title>Procedure details</Dialog.Title></div><Dialog.Close className="icon-button" aria-label="Close procedure details"><X/></Dialog.Close></header>
         {!facts&&<p className="empty">Open a factory manual page to extract its procedure details.</p>}
         {facts&&<>
+          {facts.requiresCalibration&&<div className="variant-warning"><b>Calibration / initialization requirement</b><span>This source page references a camera adjustment or initialization operation. Follow the complete Subaru EyeSight procedure and required scan-tool instructions before returning the vehicle to service.</span></div>}
           {facts.variantMismatch&&<div className="variant-warning"><b>Vehicle variant warning</b><span>This page explicitly identifies a different trim. Do not apply it to the selected vehicle without confirming applicability.</span></div>}
           {facts.warnings.length>0&&<section className="fact-section"><h3><AlertTriangle size={16}/> Warnings and notes</h3>{facts.warnings.map((item,index)=><p className={"fact-warning "+item.type} key={index}><b>{item.type.toUpperCase()}</b> {item.text}</p>)}</section>}
           {facts.steps.length>0&&<section className="fact-section"><h3>Procedure steps</h3><ol>{facts.steps.map((step,index)=><li key={index}>{step}</li>)}</ol></section>}
