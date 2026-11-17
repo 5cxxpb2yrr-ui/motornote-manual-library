@@ -7,6 +7,23 @@ import { searchRecords } from "./lib/search";
 import type { ManualLink, SearchRecord, TreeNode, Vehicle } from "./types";
 import { activate } from "./lib/nomie";
 
+let searchIndexPromise: Promise<SearchRecord[]> | undefined;
+async function loadAllSearchRecords(): Promise<SearchRecord[]> {
+  if (!searchIndexPromise) searchIndexPromise = (async () => {
+    const response = await fetch("/api/search-index");
+    if (!response.ok) throw new Error("Search index is not available (" + response.status + ")");
+    const manifest = await response.json() as { shards?: Array<{ key: string }> };
+    const shards = await Promise.all((manifest.shards || []).map(async shard => {
+      const file = shard.key.split("/").pop() || "";
+      const result = await fetch("/api/search-index?file=" + encodeURIComponent(file));
+      if (!result.ok) throw new Error("Search shard unavailable: " + file);
+      return result.json() as Promise<SearchRecord[]>;
+    }));
+    return shards.flat();
+  })().catch(error => { searchIndexPromise = undefined; throw error; });
+  return searchIndexPromise;
+}
+
 type Catalog = { vehicles: Vehicle[]; searchIndex: { available: boolean; documentCount: number } };
 function flattenTree(nodes: TreeNode[], section: string, vehicle: Vehicle): ManualLink[] {
   const output: ManualLink[] = [];
@@ -116,18 +133,12 @@ export default function App() {
     setQuery(value);
     if (!value.trim()) { setResults([]); return; }
     try {
-      const response = await fetch("/api/search-index");
-      if (response.ok) {
-        const manifest = await response.json() as { shards?: Array<{key:string}> };
-        const shards = await Promise.all((manifest.shards || []).map(async shard => {
-          const file = shard.key.split("/").pop() || "";
-          const shardResponse = await fetch("/api/search-index?file=" + encodeURIComponent(file));
-          return shardResponse.ok ? shardResponse.json() as Promise<SearchRecord[]> : [];
-        }));
-        const all = shards.flat(); setRecords(all); setResults(searchRecords(all, value)); return;
-      }
-    } catch { /* use the device's last cached index */ }
-    setResults(searchRecords(records, value));
+      const all = records.length ? records : await loadAllSearchRecords();
+      setRecords(all);
+      setResults(searchRecords(all, value));
+    } catch {
+      setResults(searchRecords(records, value));
+    }
   }
 
   const visibleLinks = useMemo(() => manualLinks.slice(0, 1000), [manualLinks]);
