@@ -24,7 +24,7 @@
 
 ## Search
 
-The published R2 manifest currently reports 45,768 documents in 92 shards. The client loads the manifest and shards once, filters records to the two owned-vehicle roots, and applies all-term matching plus \`vehicle:\` and \`section:\` filters. The service worker caches successful manual and search API responses. First full search requires downloading the shards; a future sync screen should make this download explicit and report its storage size.
+The published R2 manifest currently reports 45,768 documents in 92 shards. The client loads the manifest and shards once, filters records to the two owned-vehicle roots, and applies all-term matching plus \`vehicle:\` and \`section:\` filters. The service worker caches successful manual pages, proxied diagrams/styles, and search API responses. The complete search corpus is also persisted in IndexedDB after first load. Manual pages are cached as visited; the MVP does not bulk-download the entire manual corpus.
 
 ## GitHub security
 
