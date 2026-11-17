@@ -6,10 +6,11 @@ import { proceduresForVehicle } from "./data/procedures";
 import { cachePage, getDatabase, listFavorites, readCachedPage, saveFavorite, saveRecent } from "./lib/db";
 import { searchRecords } from "./lib/search";
 import { extractOemRows, type ExtractedOemRow } from "./lib/oem";
+import { createCartLine, serializeShoppingList, validateCart, type ShoppingListFormat } from "./lib/cart";
 import PartsSheet from "./components/PartsSheet";
 import ProcedureSheet from "./components/ProcedureSheet";
 import { extractProcedureFacts, type ProcedureFacts } from "./lib/procedure-extractor";
-import type { ManualLink, SearchRecord, TreeNode, Vehicle } from "./types";
+import type { ManualLink, SearchRecord, TreeNode, Vehicle, RepairCart, RepairCartLine } from "./types";
 import { activate, sync as syncGitHub } from "./lib/nomie";
 
 let searchIndexPromise: Promise<SearchRecord[]> | undefined;
@@ -83,7 +84,7 @@ export default function App() {
   const [records, setRecords] = useState<SearchRecord[]>([]);
   const [results, setResults] = useState<SearchRecord[]>([]);
   const [favorites, setFavorites] = useState<Array<{key:string;title:string;vehicleId:string}>>([]);
-  const [cartItems, setCartItems] = useState<string[]>([]);
+  const [cartItems, setCartItems] = useState<RepairCartLine[]>([]);
   const [status, setStatus] = useState("Connecting to manual library…");
   const [view, setView] = useState<"home"|"library"|"procedures"|"search"|"saved"|"cart">("home");
   const [searchOpen, setSearchOpen] = useState(false);
@@ -116,6 +117,14 @@ export default function App() {
   useEffect(() => {
     void fetch("/api/auth/github/status").then(response => response.json()).then(setGithubStatus).catch(() => undefined);
   }, []);
+
+  useEffect(() => {
+    void getDatabase().then(db=>db.get("repairCarts","active")).then(saved=>{if(saved)setCartItems([...saved.parts,...saved.tools]);}).catch(()=>undefined);
+  }, []);
+  useEffect(() => {
+    const cart:RepairCart={vehicleId:vehicle.id,procedureId:activeKey||"manual",parts:cartItems.filter(item=>item.relationship!=="tool"),tools:cartItems.filter(item=>item.relationship==="tool")};
+    void getDatabase().then(db=>db.put("repairCarts",cart,"active")).catch(()=>undefined);
+  }, [cartItems,vehicle.id,activeKey]);
 
   useEffect(() => {
     void fetch("/api/catalog").then(async response => {
@@ -221,10 +230,12 @@ export default function App() {
     await fetch("/api/auth/github/logout", {method:"POST"});
     setGithubStatus({authenticated:false});
   }
-  async function exportShoppingList() {
-    const lines = ["LifeOS Manual Explorer Pro — Repair Shopping List", "Vehicle: " + vehicle.year + " " + vehicle.make + " " + vehicle.model, "", ...cartItems.map((item, index) => (index + 1) + ". " + item)];
-    const url = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/plain" }));
-    const link = document.createElement("a"); link.href = url; link.download = "lifeos-repair-shopping-list.txt"; link.click(); URL.revokeObjectURL(url);
+  async function downloadShoppingList(format:ShoppingListFormat) {
+    const cart:RepairCart={vehicleId:vehicle.id,procedureId:activeKey||"manual",parts:cartItems.filter(item=>item.relationship!=="tool"),tools:cartItems.filter(item=>item.relationship==="tool")};
+    const content=serializeShoppingList(vehicle,cart,format);
+    const mime=format==="json"?"application/json":format==="csv"?"text/csv":format==="markdown"?"text/markdown":"text/plain";
+    const url=URL.createObjectURL(new Blob([content],{type:mime}));
+    const link=document.createElement("a");link.href=url;link.download="lifeos-repair-shopping-list."+format;link.click();URL.revokeObjectURL(url);
   }
 
   async function openSearchResult(result: SearchRecord) {
@@ -234,7 +245,7 @@ export default function App() {
   }
 
   function addOemPart(part: ExtractedOemRow) {
-    setCartItems(old => [...old, part.partName + " — OEM " + part.partNumber + " (manual source; verify fitment)"]);
+    setCartItems(old => [...old, {...createCartLine(part.partName,"required"),oem:part.partNumber}]);
     setPartsOpen(false);
   }
 
@@ -292,7 +303,7 @@ export default function App() {
         {view==="procedures" && <section><div className="section-heading"><div><p className="eyebrow">SOURCE-LINKED REPAIR KNOWLEDGE</p><h1>Procedure Library</h1><p>{vehicle.year} {vehicle.make} {vehicle.model} · {vehicle.engine}</p></div><button className="outline-button" onClick={()=>setView("home")}>Garage</button></div><div className="procedure-grid">{proceduresForVehicle(vehicle.id).map(procedure=><button className="procedure-card" key={procedure.id} onClick={()=>void loadPage(vehicle.manualRoot+procedure.sourcePages[0],procedure.title)}><span className="card-kicker">{procedure.system}</span><h3>{procedure.title}</h3><small>{procedure.sourcePages.length} source page{procedure.sourcePages.length===1?"":"s"} · {procedure.status}</small><div className="procedure-tags">{procedure.applicability==="confirm-trim"&&<span>Confirm trim</span>}{procedure.requiresCalibration&&<span>Calibration</span>}</div></button>)}</div>{!proceduresForVehicle(vehicle.id).length&&<p className="empty">No source-linked procedures are listed for this vehicle yet.</p>}</section>}
       {view==="search" && <section><p className="eyebrow">UNIVERSAL SEARCH</p><h1>Find a procedure</h1><input className="large-search" value={query} onChange={event=>void runSearch(event.target.value)} placeholder="water pump · fuel injector · vehicle:subaru"/><div className="result-list">{results.slice(0,100).map(result=><button key={result.path} onClick={()=>openSearchResult(result)}><b>{result.title}</b><small>{result.path}</small>{result.text.toLowerCase().includes("different variant/trim than selected")&&<em className="variant-flag">Variant applicability warning</em>}<p>{result.text.slice(0,180)}</p></button>)}</div>{query&&!results.length&&<p className="empty">No matching indexed pages. Search coverage depends on the published R2 index.</p>}</section>}
         {view==="saved" && <section><p className="eyebrow">YOUR LIBRARY</p><h1>Favorites</h1>{favorites.map(item=><button className="saved-row" key={item.key} onClick={async()=>{const found=OWNED_VEHICLES.find(v=>v.id===item.vehicleId);if(found)await selectVehicle(found);await loadPage(item.key,item.title);}}><Star size={17}/><span>{item.title}<small>{item.key}</small></span></button>)}{!favorites.length&&<p className="empty">Save a factory page with the star control to find it here.</p>}</section>}
-        {view==="cart" && <section><p className="eyebrow">REPAIR WORKFLOW</p><h1>Repair cart</h1><p className="lede">Build a shopping list from a procedure. OEM numbers and prices are only shown when verified from a source.</p><div className="cart-add"><input id="part-name" placeholder="Part or tool name"/><button onClick={()=>{const input=document.querySelector<HTMLInputElement>("#part-name");if(input?.value.trim()){setCartItems(old=>[...old,input.value.trim()]);input.value=""}}}>Add item</button></div>{cartItems.map((item,index)=><div className="cart-row" key={index}><span>{item}</span><button onClick={()=>setCartItems(old=>old.filter((_,i)=>i!==index))}>Remove</button></div>)}<button className="primary-button" onClick={()=>void exportShoppingList()} disabled={!cartItems.length}><Download size={16}/> Export shopping list</button></section>}
+        {view==="cart" && <section><p className="eyebrow">REPAIR WORKFLOW</p><h1>Repair cart</h1><p className="lede">Build a shopping list from a procedure. OEM numbers and prices are only shown when verified from a source.</p><div className="cart-add"><input id="part-name" placeholder="Part or tool name"/><button onClick={()=>{const input=document.querySelector<HTMLInputElement>("#part-name");if(input?.value.trim()){setCartItems(old=>[...old,createCartLine(input.value.trim())]);input.value=""}}}>Add item</button></div>{cartItems.map((item,index)=><div className="cart-row" key={item.id}><span>{item.name}<small>{item.oem?"OEM "+item.oem:"OEM not verified"} · {item.relationship}</small></span><button onClick={()=>setCartItems(old=>old.filter((_,i)=>i!==index))}>Remove</button></div>)}{cartItems.length>0&&<div className="cart-validation"><b>{validateCart({vehicleId:vehicle.id,procedureId:activeKey||"manual",parts:cartItems.filter(item=>item.relationship!=="tool"),tools:cartItems.filter(item=>item.relationship==="tool")},[],[]).warnings.length} verification warnings</b><small>Confirm OEM fitment and current vendor pricing before purchase.</small></div>}<div className="export-actions"><button onClick={()=>void downloadShoppingList("txt")} disabled={!cartItems.length}>TXT</button><button onClick={()=>void downloadShoppingList("csv")} disabled={!cartItems.length}>CSV</button><button onClick={()=>void downloadShoppingList("markdown")} disabled={!cartItems.length}>Markdown</button><button onClick={()=>void downloadShoppingList("json")} disabled={!cartItems.length}>JSON</button></div></section>}
       </main>
     </div>
     <Dialog.Root open={searchOpen} onOpenChange={setSearchOpen}><Dialog.Portal><Dialog.Overlay className="dialog-overlay"/><Dialog.Content className="search-dialog">
