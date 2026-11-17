@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { BookOpen, CarFront, ChevronRight, CloudOff, Download, Search, Star, Wrench, X, ShoppingCart, Github } from "lucide-react";
+import { BookOpen, CarFront, ChevronRight, CloudOff, Search, Star, Wrench, X, ShoppingCart, Github } from "lucide-react";
 import { OWNED_VEHICLES } from "./data/vehicles";
 import { proceduresForVehicle } from "./data/procedures";
 import { buildProcedurePartsGraph } from "./lib/parts-graph";
@@ -20,7 +20,7 @@ async function loadAllSearchRecords(): Promise<SearchRecord[]> {
     const db=await getDatabase();
     let cached:SearchRecord[]=[];
     try { cached=await db.getAll("searchRecords"); } catch { /* storage may be unavailable */ }
-    let manifest:{shards?:Array<{key:string}>;documentCount?:number}|null=null;
+    let manifest:{shards?:Array<{key:string}>;documentCount?:number};
     try {
       const response=await fetch("/api/search-index");
       if(!response.ok)throw new Error("Search index is not available ("+response.status+")");
