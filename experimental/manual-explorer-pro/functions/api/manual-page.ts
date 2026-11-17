@@ -67,7 +67,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
   const headers = new Headers({ "X-Content-Type-Options":"nosniff", "Cache-Control":"public, max-age=300" });
   if (ext==="html" || ext==="htm") {
     headers.set("Content-Type","text/html; charset=utf-8");
-    headers.set("Content-Security-Policy","default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'self' https://motornote-manual-library.phillipstg.workers.dev; form-action 'none'; frame-ancestors 'self'; sandbox allow-same-origin");
+    headers.set("Content-Security-Policy","default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'self' https://motornote-manual-library.phillipstg.workers.dev; form-action 'none'; frame-ancestors 'self' https://open-nomie.github.io https://6.nomie.app https://n6.nomie.app https://n6-dev.nomie.app; sandbox allow-same-origin");
     return new Response(cleanHtml(await object.text(),key),{headers});
   }
   if(ext==="css") {
