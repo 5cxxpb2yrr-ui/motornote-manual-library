@@ -20,7 +20,7 @@ export interface PartRelationship {
 export interface RepairCartLine {
   id: string; name: string; quantity: number; relationship?: RelationshipType;
   oem?: string; vendor?: string; price?: number; url?: string;
-  sourcePath?: string; confidence?: number; verification?: "unverified" | "verified";
+  sourcePath?: string; partId?: string; confidence?: number; verification?: "unverified" | "verified";
 }
 export interface RepairCart { vehicleId: Vehicle["id"]; procedureId: string; parts: RepairCartLine[]; tools: RepairCartLine[]; }
 export interface CartValidation { valid: boolean; warnings: string[]; errors: string[]; }
