@@ -12,7 +12,7 @@ function VendorLinks({term}:{term:string}) {
     void Promise.all(vendorSearchAdapters.map(adapter=>adapter.search(term))).then(results=>{if(active)setLinks(results.flat());});
     return()=>{active=false;};
   },[term]);
-  return <div className="vendor-links"><small>Vendor catalog search · no live price quote</small><div>{links.map(link=><a key={link.vendor} href={link.url} target="_blank" rel="noopener noreferrer">{link.vendor}</a>)}</div></div>;
+  return <div className="vendor-links"><small>Vendor catalog links · no live price quote</small><div>{links.map(link=><a key={link.vendor} href={link.url} target="_blank" rel="noopener noreferrer">{link.vendor}</a>)}</div></div>;
 }
 export default function PartsSheet({open,onOpenChange,parts,detected,onAdd,onAddDetected}:Props) {
   return <Dialog.Root open={open} onOpenChange={onOpenChange}>
