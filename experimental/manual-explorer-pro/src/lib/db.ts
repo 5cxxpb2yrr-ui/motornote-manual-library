@@ -26,7 +26,7 @@ export function getDatabase() {
       const stores = [
         "manuals","pages","vehicles","parts","relationships","favorites","bookmarks","notes",
         "recents","settings","searches","viewerState","tocState","repairCarts","pricingCache","github","searchRecords"
-      ];
+      ] as const;
       for (const store of stores) if (!db.objectStoreNames.contains(store)) db.createObjectStore(store);
     }
   });
