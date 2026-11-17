@@ -1,0 +1,38 @@
+name: Manual Explorer Pro CI
+
+on:
+  push:
+    branches:
+      - feat/lifeos-manual-explorer-pro-mvp
+    paths:
+      - "experimental/manual-explorer-pro/**"
+      - ".github/workflows/manual-explorer-pro-ci.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "experimental/manual-explorer-pro/**"
+      - ".github/workflows/manual-explorer-pro-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: experimental/manual-explorer-pro
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Jest tests
+        run: npm test
+      - name: TypeScript validation
+        run: npm run typecheck
+      - name: Production build
+        run: npm run build
