@@ -1,26 +1,40 @@
 # Nomie 6 plugin setup
 
-The app is a hosted iframe plugin, not a native Nomie bundle. It loads the official \`nomie-plugin.js\` bridge and registers a capture-menu entry, More-menu entry, and dashboard widget.
+LifeOS Manual Explorer is a hosted iframe plugin using Nomie's official \`nomie-plugin.js\` bridge. The plugin registers a Capture-menu entry, More-menu entry, and a Dashboard widget.
 
 ## Install
 
-1. Deploy a stable HTTPS preview URL for this branch.
+1. Wait for the feature branch preview deployment to complete.
 2. In Nomie 6, open **More → Plugins → + / Add Custom Plugin**.
 3. Paste the stable branch preview URL for this app.
 4. Install the plugin.
-5. Add the Manual Explorer widget from Nomie's dashboard widget picker.
+5. Add **Manual Explorer** from Nomie's Dashboard widget picker.
 
-Do not use an ephemeral deployment URL for the permanent plugin registration; use the stable branch alias or the final production domain after release.
+Use the stable branch alias after it has been verified. Do not use a short-lived deployment hash URL for permanent registration.
 
-## Permissions
+## Declared permissions
 
 The plugin declares:
-- \`createNote\` for recording repair notes in Nomie.
+- \`createNote\` to save repair notes in Nomie.
 - \`onLaunch\` for launch lifecycle notifications.
-- \`selectTrackables\` for the user-initiated trackable picker.
+- \`selectTrackables\` for the user-initiated tracker picker.
+- \`getTrackableInput\` for user-requested tracker values.
 
-It does not request location access. Browsing manuals does not require a Nomie or GitHub account.
+It does not request location access. Manual browsing does not require a Nomie or GitHub account.
 
-## Widget
+## Registration and storage
 
-The plugin registers a \`lifeos-manual-explorer\` widget in Nomie plugin storage. Nomie passes the selected widget identifier through \`widgetindex\`; the app renders a compact garage view in that mode.
+The plugin initializes Nomie storage inside \`onRegistered\`, then registers the widget definition in the \`widgets\` storage key. Widget definitions include Nomie's required \`widgetid\`, \`name\`, and \`emoji\` fields.
+
+Nomie passes a \`widgetindex\` query parameter when it opens the selected widget. The app detects that mode and renders the compact garage view.
+
+## Supported bridge actions
+
+- Open the app or a specific manual page from a plugin action.
+- Search the indexed manuals.
+- Select a tracker or request tracker input.
+- Save a repair note using \`createNote\`.
+- Open the full Nomie note editor.
+- Export, import, and sync LifeOS plugin data.
+
+GitHub authentication remains optional for local browsing and repair-cart use.
