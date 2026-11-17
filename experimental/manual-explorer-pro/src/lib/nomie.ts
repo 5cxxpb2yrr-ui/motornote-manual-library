@@ -18,7 +18,7 @@ const metadata={
   id:"lifeos-manual-explorer",author:"LifeOS",
   name:"LifeOS Manual Explorer",emoji:"🛠️",
   description:"Browse factory service information, save procedures, and plan repairs.",
-  uses:["createNote","onLaunch","selectTrackables"],version:"1.0.0",
+  uses:["createNote","onLaunch","selectTrackables","getTrackableInput"],version:"1.0.0",
   addToCaptureMenu:true,addToMoreMenu:true,addToWidgets:true
 };
 let instance:NomiePluginInstance|null=null;
