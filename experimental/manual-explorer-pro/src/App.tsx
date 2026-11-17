@@ -146,7 +146,7 @@ export default function App() {
   }, []);
 
   async function selectVehicle(next: Vehicle) {
-    setVehicle(next); setView("library"); setActiveHtml(""); setActiveKey(""); setManualLinks([]); setOemRows([]); setVariantWarning(""); setProcedureFacts(null);
+    setCartLoaded(false); setVehicle(next); setView("library"); setActiveHtml(""); setActiveKey(""); setManualLinks([]); setOemRows([]); setVariantWarning(""); setProcedureFacts(null);
     try {
       if (next.treeKeys.length) {
         const trees = await Promise.all(next.treeKeys.map(key => getManualFile(key) as Promise<TreeNode>));
