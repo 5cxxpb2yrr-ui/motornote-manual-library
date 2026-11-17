@@ -20,28 +20,28 @@ function rewriteInternalLinks(html:string,key:string) {
   return html.replace(/<a\b([^>]*?)href=(["'])(.*?)\2([^>]*)>/gi,(match,before,quote,href,after)=>{
     const proxied=proxiedAssetUrl(href,key);
     if(!proxied || !/\.(html?|pdf)$/i.test(new URL(href,SITE+key).pathname))return match;
-    return "<a"+before+"href=\\""+proxied+"\\""+after+">";
+    return `<a${before}href="${proxied}"${after}>`;
   });
 }
 function rewriteHtmlAssets(html:string,key:string) {
   let output=html.replace(/<(img|source)\b([^>]*?)src=(["'])(.*?)\3([^>]*)>/gi,(match,tag,before,quote,src,after)=>{
     const proxied=proxiedAssetUrl(src,key);
-    return proxied?"<"+tag+before+"src=\\""+proxied+"\\""+after+">":match;
+    return proxied?`<${tag}${before}src="${proxied}"${after}>`:match;
   });
   output=output.replace(/<link\b([^>]*?)href=(["'])(.*?)\2([^>]*)>/gi,(match,before,quote,href,after)=>{
     if(!/\.css(?:$|[?#])/i.test(href))return match;
     const proxied=proxiedAssetUrl(href,key);
-    return proxied?"<link"+before+"href=\\""+proxied+"\\""+after+">":match;
+    return proxied?`<link${before}href="${proxied}"${after}>`:match;
   });
   return output.replace(/url\((["']?)([^)"']+)\1\)/gi,(match,quote,source)=>{
     const proxied=proxiedAssetUrl(source.trim(),key);
-    return proxied?"url(\\""+proxied+"\\")":match;
+    return proxied?`url("${proxied}")`:match;
   });
 }
 function rewriteCssUrls(css:string,key:string) {
   return css.replace(/url\((["']?)([^)"']+)\1\)/gi,(match,quote,source)=>{
     const proxied=proxiedAssetUrl(source.trim(),key);
-    return proxied?"url(\\""+proxied+"\\")":match;
+    return proxied?`url("${proxied}")`:match;
   });
 }
 function cleanHtml(html: string, key: string) {
@@ -54,8 +54,8 @@ function cleanHtml(html: string, key: string) {
     .replace(/\s+(href|src)\s*=\s*(["'])\s*javascript:[^"']*\2/gi,"");
   safe=rewriteInternalLinks(safe,key);
   safe=rewriteHtmlAssets(safe,key);
-  const policy = "<meta http-equiv=\\"Content-Security-Policy\\" content=\\"default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'self' https://motornote-manual-library.phillipstg.workers.dev; form-action 'none'; frame-ancestors 'self'\\">";
-  const baseTag = "<base href=\\"" + base + "\\">";
+  const policy = `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'self' https://motornote-manual-library.phillipstg.workers.dev; form-action 'none'; frame-ancestors 'self'">`;
+  const baseTag = `<base href="${base}">`;
   return /<head[^>]*>/i.test(safe) ? safe.replace(/<head[^>]*>/i,match=>match+baseTag+policy) : "<!doctype html><head>"+baseTag+policy+"</head>"+safe;
 }
 export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
