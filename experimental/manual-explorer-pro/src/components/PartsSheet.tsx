@@ -1,26 +1,22 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { ExternalLink, ShoppingCart, X } from "lucide-react";
-import type { RepairCartLine, RelationshipType } from "../types";
-
-interface Props {
-  open: boolean; onOpenChange: (open:boolean)=>void;
-  groups: Record<RelationshipType,RepairCartLine[]>;
-  onAdd: (line:RepairCartLine)=>void;
-}
-const labels: RelationshipType[] = ["required","recommended","consumable","tool"];
-export default function PartsSheet({open,onOpenChange,groups,onAdd}:Props) {
+import { ShoppingCart, X } from "lucide-react";
+import type { ExtractedOemRow } from "../lib/oem";
+interface Props { open:boolean; onOpenChange:(open:boolean)=>void; parts:ExtractedOemRow[]; onAdd:(part:ExtractedOemRow)=>void; }
+export default function PartsSheet({open,onOpenChange,parts,onAdd}:Props) {
   return <Dialog.Root open={open} onOpenChange={onOpenChange}>
     <Dialog.Portal><Dialog.Overlay className="dialog-overlay"/>
       <Dialog.Content className="parts-sheet">
-        <header className="dialog-head"><div><p className="eyebrow">PROCEDURE PARTS</p><Dialog.Title>Related parts & tools</Dialog.Title></div><Dialog.Close className="icon-button" aria-label="Close parts"><X/></Dialog.Close></header>
-        {labels.map(group=><section className="parts-group" key={group}><h3>{group}</h3>
-          {groups[group].map(line=><article className="part-row" key={line.id}>
-            <div><b>{line.name}</b><small>{line.oem ? "OEM "+line.oem : "OEM number not verified"} · {line.vendor && line.price != null ? line.vendor+" · $"+line.price.toFixed(2) : "No verified live price"}</small></div>
-            {line.url&&<a href={line.url} target="_blank" rel="noreferrer" aria-label={"Open vendor link for "+line.name}><ExternalLink size={16}/></a>}
-            <button onClick={()=>onAdd(line)}><ShoppingCart size={15}/> Add</button>
-          </article>)}
-          {!groups[group].length&&<p className="empty">No source-backed items identified.</p>}
-        </section>)}
+        <header className="dialog-head"><div><p className="eyebrow">SOURCE-EXTRACTED PARTS</p><Dialog.Title>Parts listed in this manual page</Dialog.Title></div><Dialog.Close className="icon-button" aria-label="Close parts"><X/></Dialog.Close></header>
+        <p className="parts-caveat">These values are transcribed from the cited manual page. OEM fitment and any listed price remain unverified until checked against an authoritative catalog or current vendor source.</p>
+        {parts.map((part,index)=><article className="part-row" key={part.sourcePath+part.partNumber+index}>
+          <div><b>{part.partName}</b><small>{part.manufacturer||"Manufacturer not stated"} · OEM label: {part.partNumber}</small>
+            <small>Source-listed price: {part.listedPrice==null?"Not listed":"$"+part.listedPrice.toFixed(2)+" (undated; not a live quote)"}</small>
+            {part.notes&&<small>{part.notes}</small>}
+            <small>Confidence {Math.round(part.confidence*100)}% · not independently verified · {part.sourcePath.split("/").pop()}</small>
+          </div>
+          <button onClick={()=>onAdd(part)}><ShoppingCart size={15}/> Add</button>
+        </article>)}
+        {!parts.length&&<p className="empty">No OEM parts table was found on this page. Open a Parts Information page or inspect the procedure's linked parts section.</p>}
       </Dialog.Content>
     </Dialog.Portal>
   </Dialog.Root>;
