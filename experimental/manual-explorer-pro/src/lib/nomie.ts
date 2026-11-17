@@ -38,7 +38,7 @@ export async function activate() {
     }
     plugin.storage?.setItem?.("lifeos-manual-explorer-version","1.0.0");
   });
-  plugin.onLaunch?.(()=>window.dispatchEvent(new CustomEvent("lifeos:nomie-launch")));
+  plugin.onLaunch?.(()=>{window.dispatchEvent(new CustomEvent("lifeos:nomie-launch"));});
   return {supported:true};
 }
 export function deactivate() { instance=null; }
