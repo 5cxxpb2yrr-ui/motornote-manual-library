@@ -2,7 +2,7 @@ import type { CartValidation, RepairCart, RepairCartLine, Vehicle } from "../typ
 export type ShoppingListFormat="json"|"csv"|"markdown"|"txt";
 export function validateCart(cart: RepairCart, requiredPartIds: string[], requiredToolIds: string[]): CartValidation {
   const errors: string[] = [], warnings: string[] = [];
-  const present = new Set([...cart.parts, ...cart.tools].map(line => line.id));
+  const present = new Set([...cart.parts, ...cart.tools].map(line => line.partId||line.id));
   for (const id of requiredPartIds) if (!present.has(id)) errors.push("Missing required part: " + id);
   for (const id of requiredToolIds) if (!present.has(id)) errors.push("Missing required tool: " + id);
   for (const line of [...cart.parts, ...cart.tools]) {
