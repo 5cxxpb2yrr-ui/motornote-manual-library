@@ -13,7 +13,7 @@ self.addEventListener("fetch", event => {
     const cached = await cache.match(request);
     try {
       const fresh = await fetch(request);
-      if (fresh.ok && (fresh.headers.get("content-type") || "").includes("text/html") || fresh.ok && url.pathname === "/api/catalog" || fresh.ok && url.pathname.startsWith("/api/search-index")) await cache.put(request, fresh.clone());
+      if (fresh.ok && (url.pathname.startsWith("/api/manual-page") || url.pathname === "/api/catalog" || url.pathname.startsWith("/api/search-index"))) await cache.put(request, fresh.clone());
       return fresh;
     } catch (error) {
       if (cached) return cached;
