@@ -54,7 +54,7 @@ function cleanHtml(html: string, key: string) {
     .replace(/\s+(href|src)\s*=\s*(["'])\s*javascript:[^"']*\2/gi,"");
   safe=rewriteInternalLinks(safe,key);
   safe=rewriteHtmlAssets(safe,key);
-  const policy = "<meta http-equiv=\\"Content-Security-Policy\\" content=\\"default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'self' https://motornote-manual-library.workers.dev; form-action 'none'; frame-ancestors 'self'\\">";
+  const policy = "<meta http-equiv=\\"Content-Security-Policy\\" content=\\"default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'self' https://motornote-manual-library.phillipstg.workers.dev; form-action 'none'; frame-ancestors 'self'\\">";
   const baseTag = "<base href=\\"" + base + "\\">";
   return /<head[^>]*>/i.test(safe) ? safe.replace(/<head[^>]*>/i,match=>match+baseTag+policy) : "<!doctype html><head>"+baseTag+policy+"</head>"+safe;
 }
@@ -67,7 +67,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
   const headers = new Headers({ "X-Content-Type-Options":"nosniff", "Cache-Control":"public, max-age=300" });
   if (ext==="html" || ext==="htm") {
     headers.set("Content-Type","text/html; charset=utf-8");
-    headers.set("Content-Security-Policy","default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'self' https://motornote-manual-library.workers.dev; form-action 'none'; frame-ancestors 'self'; sandbox allow-same-origin");
+    headers.set("Content-Security-Policy","default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'self' https://motornote-manual-library.phillipstg.workers.dev; form-action 'none'; frame-ancestors 'self'; sandbox allow-same-origin");
     return new Response(cleanHtml(await object.text(),key),{headers});
   }
   if(ext==="css") {
