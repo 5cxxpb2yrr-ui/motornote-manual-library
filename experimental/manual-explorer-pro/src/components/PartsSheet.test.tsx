@@ -10,6 +10,6 @@ describe("PartsSheet",()=>{
     expect(screen.getByText("Water Pump")).toBeInTheDocument();
     expect(screen.getByText(/undated; not a live quote/)).toBeInTheDocument();
     expect(screen.getByText(/not independently verified/)).toBeInTheDocument();
-    expect(await screen.findByRole("link",{name:"RockAuto"})).toHaveAttribute("href",expect.stringContaining("161002915683"));
+    expect(await screen.findByRole("link",{name:"RockAuto"})).toHaveAttribute("href","https://www.rockauto.com/en/partsearch/");
   });
 });
