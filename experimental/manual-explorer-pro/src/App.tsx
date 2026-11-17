@@ -58,6 +58,7 @@ async function getManualFile(key: string): Promise<string | TreeNode> {
 }
 
 export default function App() {
+  const widgetIndex = new URLSearchParams(window.location.search).get("widgetindex");
   const [catalog, setCatalog] = useState<Catalog | null>(null);
   const [vehicle, setVehicle] = useState<Vehicle>(OWNED_VEHICLES[0]);
   const [manualLinks, setManualLinks] = useState<ManualLink[]>([]);
@@ -194,6 +195,14 @@ export default function App() {
     setCartItems(old => [...old, part.partName + " — OEM " + part.partNumber + " (manual source; verify fitment)"]);
     setPartsOpen(false);
   }
+
+  if (widgetIndex) return <main className="nomie-widget">
+    <div className="nomie-widget-head"><Wrench size={17}/><b>LifeOS Garage</b><span>Manuals</span></div>
+    {OWNED_VEHICLES.map(item=><button key={item.id} onClick={()=>void selectVehicle(item)}>
+      <CarFront size={18}/><span><b>{item.year} {item.make} {item.model}</b><small>{item.engine} · Open manual</small></span><ChevronRight size={15}/>
+    </button>)}
+    <small className="nomie-widget-foot">{offline?"Offline cache":"Manual library"} · Local-first</small>
+  </main>;
 
   return <div className="app-shell">
     <header className="topbar">
