@@ -11,6 +11,7 @@ on:
   pull_request:
     paths:
       - "scripts/ingest_manuals.py"
+      - "scripts/validate_manual_links.py"
       - "tests/**"
       - "scripts/validate_html_cross_references.py"
       - "scripts/publish_manual_site.py"
@@ -56,8 +57,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Test manual HTML cleanup
+      - name: Test manual HTML cleanup and link validator
         run: python -m unittest discover -s tests -v
+      - name: Validate all manual HTML cross-references
+        run: python scripts/validate_manual_links.py
 
   ingest:
     if: github.event_name == 'release' || github.ref == 'refs/heads/main'
@@ -109,6 +112,9 @@ jobs:
           else
             python scripts/ingest_manuals.py
           fi
+
+      - name: Validate all manual HTML cross-references before publishing
+        run: python scripts/validate_manual_links.py
 
       - name: Commit extracted manuals and search index
         if: github.event_name != 'workflow_dispatch' || inputs.full_backfill != true

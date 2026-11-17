@@ -8,6 +8,7 @@ on:
       - "index/**"
       - "site-worker/assets/**"
       - "scripts/publish_manual_delta.py"
+      - "scripts/validate_manual_links.py"
 
 permissions:
   contents: read
@@ -33,6 +34,8 @@ jobs:
           sudo apt-get install -y git-lfs
           git lfs install
           python -m pip install --disable-pip-version-check awscli
+      - name: Validate all manual HTML cross-references
+        run: python scripts/validate_manual_links.py
       - name: Validate browser search and publisher code
         run: |
           node --check site-worker/assets/phoenix.js
