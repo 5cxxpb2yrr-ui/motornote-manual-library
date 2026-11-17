@@ -16,16 +16,37 @@ import { activate, sync as syncGitHub } from "./lib/nomie";
 let searchIndexPromise: Promise<SearchRecord[]> | undefined;
 async function loadAllSearchRecords(): Promise<SearchRecord[]> {
   if (!searchIndexPromise) searchIndexPromise = (async () => {
-    const response = await fetch("/api/search-index");
-    if (!response.ok) throw new Error("Search index is not available (" + response.status + ")");
-    const manifest = await response.json() as { shards?: Array<{ key: string }> };
-    const shards = await Promise.all((manifest.shards || []).map(async shard => {
-      const file = shard.key.split("/").pop() || "";
-      const result = await fetch("/api/search-index?file=" + encodeURIComponent(file));
-      if (!result.ok) throw new Error("Search shard unavailable: " + file);
+    const db=await getDatabase();
+    let cached:SearchRecord[]=[];
+    try { cached=await db.getAll("searchRecords"); } catch { /* storage may be unavailable */ }
+    let manifest:{shards?:Array<{key:string}>;documentCount?:number}|null=null;
+    try {
+      const response=await fetch("/api/search-index");
+      if(!response.ok)throw new Error("Search index is not available ("+response.status+")");
+      manifest=await response.json();
+    } catch(error) {
+      if(cached.length)return cached.filter(row=>OWNED_VEHICLES.some(vehicle=>row.path.startsWith(vehicle.manualRoot)));
+      throw error;
+    }
+    if(cached.length>0&&manifest.documentCount===cached.length) {
+      return cached.filter(row=>OWNED_VEHICLES.some(vehicle=>row.path.startsWith(vehicle.manualRoot)));
+    }
+    const shards=await Promise.all((manifest.shards||[]).map(async shard=>{
+      const file=shard.key.split("/").pop()||"";
+      const result=await fetch("/api/search-index?file="+encodeURIComponent(file));
+      if(!result.ok)throw new Error("Search shard unavailable: "+file);
       return result.json() as Promise<SearchRecord[]>;
     }));
-    return shards.flat().filter(row => OWNED_VEHICLES.some(vehicle => row.path.startsWith(vehicle.manualRoot)));
+    const records=shards.flat();
+    try {
+      const tx=db.transaction("searchRecords","readwrite");
+      await tx.store.clear();
+      for(let offset=0;offset<records.length;offset+=400) {
+        await Promise.all(records.slice(offset,offset+400).map(record=>tx.store.put(record,record.path)));
+      }
+      await tx.done;
+    } catch { /* CacheStorage still holds the downloaded shards for offline use */ }
+    return records.filter(row=>OWNED_VEHICLES.some(vehicle=>row.path.startsWith(vehicle.manualRoot)));
   })().catch(error => { searchIndexPromise = undefined; throw error; });
   return searchIndexPromise;
 }
