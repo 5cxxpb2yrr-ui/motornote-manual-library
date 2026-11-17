@@ -85,6 +85,7 @@ export default function App() {
   const [results, setResults] = useState<SearchRecord[]>([]);
   const [favorites, setFavorites] = useState<Array<{key:string;title:string;vehicleId:string}>>([]);
   const [cartItems, setCartItems] = useState<RepairCartLine[]>([]);
+  const [cartLoaded, setCartLoaded] = useState(false);
   const [status, setStatus] = useState("Connecting to manual library…");
   const [view, setView] = useState<"home"|"library"|"procedures"|"search"|"saved"|"cart">("home");
   const [searchOpen, setSearchOpen] = useState(false);
@@ -119,12 +120,20 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    void getDatabase().then(db=>db.get("repairCarts","active")).then(saved=>{if(saved)setCartItems([...saved.parts,...saved.tools]);}).catch(()=>undefined);
-  }, []);
+    let cancelled=false;
+    setCartLoaded(false);
+    void getDatabase().then(db=>db.get("repairCarts",vehicle.id)).then(saved=>{
+      if(cancelled)return;
+      setCartItems(saved?[...saved.parts,...saved.tools]:[]);
+      setCartLoaded(true);
+    }).catch(()=>{if(!cancelled)setCartLoaded(true);});
+    return()=>{cancelled=true;};
+  }, [vehicle.id]);
   useEffect(() => {
+    if(!cartLoaded)return;
     const cart:RepairCart={vehicleId:vehicle.id,procedureId:activeKey||"manual",parts:cartItems.filter(item=>item.relationship!=="tool"),tools:cartItems.filter(item=>item.relationship==="tool")};
-    void getDatabase().then(db=>db.put("repairCarts",cart,"active")).catch(()=>undefined);
-  }, [cartItems,vehicle.id,activeKey]);
+    void getDatabase().then(db=>db.put("repairCarts",cart,vehicle.id)).catch(()=>undefined);
+  }, [cartItems,vehicle.id,activeKey,cartLoaded]);
 
   useEffect(() => {
     void fetch("/api/catalog").then(async response => {
