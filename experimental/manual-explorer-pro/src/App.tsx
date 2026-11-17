@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { BookOpen, CarFront, ChevronRight, CloudOff, Download, Search, Star, Wrench, X, ShoppingCart } from "lucide-react";
+import { BookOpen, CarFront, ChevronRight, CloudOff, Download, Search, Star, Wrench, X, ShoppingCart, Github } from "lucide-react";
 import { OWNED_VEHICLES } from "./data/vehicles";
 import { cachePage, getDatabase, listFavorites, readCachedPage, saveFavorite, saveRecent } from "./lib/db";
 import { searchRecords } from "./lib/search";
@@ -74,6 +74,11 @@ export default function App() {
   const [status, setStatus] = useState("Connecting to manual library…");
   const [view, setView] = useState<"home"|"library"|"search"|"saved"|"cart">("home");
   const [searchOpen, setSearchOpen] = useState(false);
+  const [githubOpen, setGithubOpen] = useState(false);
+  const [githubStatus, setGithubStatus] = useState<{authenticated:boolean;login?:string;canWrite?:boolean}>({authenticated:false});
+  const [patToken, setPatToken] = useState("");
+  const [patError, setPatError] = useState("");
+  const [githubBusy, setGithubBusy] = useState(false);
   const [offline, setOffline] = useState(!navigator.onLine);
 
   useEffect(() => {
@@ -91,6 +96,10 @@ export default function App() {
       window.removeEventListener("online", online); window.removeEventListener("offline", offlineEvent);
       window.removeEventListener("lifeos:open-manual", manualListener);
     };
+  }, []);
+
+  useEffect(() => {
+    void fetch("/api/auth/github/status").then(response => response.json()).then(setGithubStatus).catch(() => undefined);
   }, []);
 
   useEffect(() => {
@@ -154,6 +163,21 @@ export default function App() {
     else await saveFavorite(activeKey, activeTitle, vehicle.id);
     setFavorites(await listFavorites());
   }
+  async function connectWithPat() {
+    setGithubBusy(true); setPatError("");
+    try {
+      const response = await fetch("/api/auth/github/pat", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({token:patToken}) });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "GitHub token validation failed");
+      setGithubStatus({authenticated:true,login:data.login,canWrite:data.canWrite});
+      setPatToken(""); setGithubOpen(false);
+    } catch(error) { setPatError(error instanceof Error ? error.message : "Unable to connect GitHub"); }
+    finally { setGithubBusy(false); }
+  }
+  async function disconnectGitHub() {
+    await fetch("/api/auth/github/logout", {method:"POST"});
+    setGithubStatus({authenticated:false});
+  }
   async function exportShoppingList() {
     const lines = ["LifeOS Manual Explorer Pro — Repair Shopping List", "Vehicle: " + vehicle.year + " " + vehicle.make + " " + vehicle.model, "", ...cartItems.map((item, index) => (index + 1) + ". " + item)];
     const url = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/plain" }));
@@ -175,6 +199,7 @@ export default function App() {
     <header className="topbar">
       <div className="brand-mark"><Wrench size={19}/><span>LifeOS <b>Manual Explorer</b></span></div>
       <div className="top-status">{offline ? <><CloudOff size={15}/> Offline</> : <><span className="pulse"/> {status}</>}</div>
+      {githubStatus.authenticated ? <button className="github-status" onClick={() => void disconnectGitHub()} title="Disconnect GitHub"><Github size={15}/>{githubStatus.login} · {githubStatus.canWrite?"Sync access":"Read only"} ×</button> : <button className="github-connect" onClick={() => setGithubOpen(true)}><Github size={15}/> Connect GitHub</button>}
       <button className="search-button" onClick={() => setSearchOpen(true)}><Search size={17}/> Search manuals</button>
     </header>
     <div className="layout">
@@ -220,6 +245,12 @@ export default function App() {
       <div className="result-list">{results.slice(0,40).map(result=><button key={result.path} onClick={()=>openSearchResult(result)}><b>{result.title}</b><small>{result.path}</small></button>)}</div>
     </Dialog.Content></Dialog.Portal></Dialog.Root>
     <PartsSheet open={partsOpen} onOpenChange={setPartsOpen} parts={oemRows} onAdd={addOemPart}/>
+    <Dialog.Root open={githubOpen} onOpenChange={setGithubOpen}><Dialog.Portal><Dialog.Overlay className="dialog-overlay"/><Dialog.Content className="search-dialog">
+      <div className="dialog-head"><div><p className="eyebrow">OPTIONAL ACCOUNT CONNECTION</p><Dialog.Title>Connect GitHub</Dialog.Title></div><Dialog.Close className="icon-button" aria-label="Close GitHub connection"><X/></Dialog.Close></div>
+      <p className="parts-caveat">Browsing manuals and using local favorites do not require an account. Connect GitHub only when you want to synchronize repair data with your private repository.</p>
+      <a className="github-oauth-link" href="/api/auth/github/login"><Github size={17}/> Continue with GitHub App</a>
+      <div className="pat-connect"><label htmlFor="github-pat">Or use a fine-grained Personal Access Token</label><input id="github-pat" type="password" autoComplete="off" value={patToken} onChange={event=>setPatToken(event.target.value)} placeholder="github_pat_…"/><button className="primary-button" disabled={!patToken.trim()||githubBusy} onClick={()=>void connectWithPat()}>{githubBusy?"Checking…":"Validate token"}</button>{patError&&<p className="auth-error">{patError}</p>}</div>
+    </Dialog.Content></Dialog.Portal></Dialog.Root>
     <footer className="footer"><span>LifeOS Manual Explorer Pro · MVP</span><span>{offline?"Offline cache":"R2 manual library"} · {catalog?.vehicles.length ?? 2} owned vehicles</span></footer>
   </div>;
 }
