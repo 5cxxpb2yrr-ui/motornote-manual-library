@@ -78,7 +78,7 @@ function linksFromHtml(html: string, vehicle: Vehicle, section: string): ManualL
 }
 function getVariantWarning(html:string) {
   const text=new DOMParser().parseFromString(html,"text/html").body.textContent||"";
-  const match=text.match(/WARNING:\\s*This page is about the [^.]*different variant\\/trim than selected\\./i);
+  const match=text.match(/WARNING:\s*This page is about the [^.]*different variant\/trim than selected\./i);
   return match?.[0] || "";
 }
 async function getManualFile(key: string): Promise<string | TreeNode> {
