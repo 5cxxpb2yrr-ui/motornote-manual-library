@@ -7,11 +7,15 @@ export interface NomiePluginInstance {
   storage?: { init?:()=>Promise<void>; getItem?:(key:string)=>unknown; setItem?:(key:string,value:unknown)=>void };
   createNote?: (note:string|{note:string})=>Promise<unknown>;
   selectTrackable?: (type?:"tracker"|"context"|"person")=>Promise<unknown>;
+  selectTrackables?: (type?:"tracker"|"context"|"person"|null,multiple?:boolean)=>Promise<unknown[]>;
+  getTrackable?: (tag:string)=>Promise<unknown>;
   getTrackableInput?: (tag:string)=>Promise<unknown>;
+  openNoteEditor?: (note:string|{note:string})=>Promise<unknown>;
   prefs?: {theme?:string};
 }
 declare global { interface Window { NomiePlugin?:new(details:Record<string,unknown>)=>NomiePluginInstance; } }
 const metadata={
+  id:"lifeos-manual-explorer",author:"LifeOS",
   name:"LifeOS Manual Explorer",emoji:"🛠️",
   description:"Browse factory service information, save procedures, and plan repairs.",
   uses:["createNote","onLaunch","selectTrackables"],version:"1.0.0",
@@ -21,17 +25,20 @@ let instance:NomiePluginInstance|null=null;
 export async function activate() {
   if(!window.NomiePlugin)return {supported:false,reason:"Nomie plugin SDK is not available in this host."};
   instance=new window.NomiePlugin(metadata);
-  await instance.storage?.init?.();
-  const widgets=instance.storage?.getItem?.("widgets");
-  const widgetList=Array.isArray(widgets)?widgets as Array<{widgetid?:string;name?:string;emoji?:string}>:[];
-  if(!widgetList.some(widget=>widget.widgetid==="lifeos-manual-explorer")) {
-    instance.storage?.setItem?.("widgets",[
-      ...widgetList,
-      {widgetid:"lifeos-manual-explorer",name:"Manual Explorer",emoji:"🛠️",config:{view:"garage"}}
-    ]);
-  }
-  instance.onLaunch?.(()=>window.dispatchEvent(new CustomEvent("lifeos:nomie-launch")));
-  instance.onRegistered?.(()=>instance?.storage?.setItem?.("lifeos-manual-explorer-version","1.0.0"));
+  const plugin=instance;
+  plugin.onRegistered?.(async()=>{
+    await plugin.storage?.init?.();
+    const widgets=plugin.storage?.getItem?.("widgets");
+    const widgetList=Array.isArray(widgets)?widgets as Array<{widgetid?:string;name?:string;emoji?:string}>:[];
+    if(!widgetList.some(widget=>widget.widgetid==="lifeos-manual-explorer")) {
+      plugin.storage?.setItem?.("widgets",[
+        ...widgetList,
+        {widgetid:"lifeos-manual-explorer",name:"Manual Explorer",emoji:"🛠️",config:{view:"garage"}}
+      ]);
+    }
+    plugin.storage?.setItem?.("lifeos-manual-explorer-version","1.0.0");
+  });
+  plugin.onLaunch?.(()=>window.dispatchEvent(new CustomEvent("lifeos:nomie-launch")));
   return {supported:true};
 }
 export function deactivate() { instance=null; }
@@ -102,6 +109,10 @@ export function openPage(key:string) {
   window.dispatchEvent(new CustomEvent("lifeos:open-page",{detail:{key}}));
 }
 export async function selectRepairTracker() { return instance?.selectTrackable?.("tracker"); }
+export async function selectRepairTrackers(multiple=true) { return instance?.selectTrackables?.("tracker",multiple); }
+export async function getRepairTrackable(tag:string) { return instance?.getTrackable?.(tag); }
+export async function getRepairTrackerInput(tag:string) { return instance?.getTrackableInput?.(tag); }
+export async function openRepairNoteEditor(note:string) { return instance?.openNoteEditor?.(note); }
 export async function logRepairEvent(note:string) {
   if(!instance?.createNote)throw new Error("Nomie is not connected");
   return instance.createNote(note);
