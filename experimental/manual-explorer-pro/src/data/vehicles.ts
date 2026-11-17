@@ -1,3 +1,4 @@
+export type VehicleId = "2006-scion-xb" | "2019-subaru-crosstrek-limited";
 import type { Vehicle } from "../types";
 export const OWNED_VEHICLES: Vehicle[] = [
   {
