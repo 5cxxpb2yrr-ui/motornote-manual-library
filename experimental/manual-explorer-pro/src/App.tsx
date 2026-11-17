@@ -80,6 +80,7 @@ export default function App() {
   const [patToken, setPatToken] = useState("");
   const [patError, setPatError] = useState("");
   const [githubBusy, setGithubBusy] = useState(false);
+  const [installationStatus, setInstallationStatus] = useState("");
   const [offline, setOffline] = useState(!navigator.onLine);
 
   useEffect(() => {
@@ -175,6 +176,14 @@ export default function App() {
     } catch(error) { setPatError(error instanceof Error ? error.message : "Unable to connect GitHub"); }
     finally { setGithubBusy(false); }
   }
+  async function testAppInstallation() {
+    setInstallationStatus("Checking GitHub App installation…");
+    try {
+      const response = await fetch("/api/auth/github/installation");
+      const data = await response.json();
+      setInstallationStatus(data.installed ? "Installed · "+(data.permissions?.contents || "contents permission") : (data.error || "GitHub App is not configured"));
+    } catch { setInstallationStatus("Unable to reach the GitHub App validation endpoint."); }
+  }
   async function disconnectGitHub() {
     await fetch("/api/auth/github/logout", {method:"POST"});
     setGithubStatus({authenticated:false});
@@ -198,7 +207,10 @@ export default function App() {
 
   if (widgetIndex) return <main className="nomie-widget">
     <div className="nomie-widget-head"><Wrench size={17}/><b>LifeOS Garage</b><span>Manuals</span></div>
-    {OWNED_VEHICLES.map(item=><button key={item.id} onClick={()=>void selectVehicle(item)}>
+    {view==="library" ? <><button className="widget-back" onClick={()=>setView("home")}>← Garage</button>
+      {manualLinks.slice(0,6).map(link=><button key={link.key} onClick={()=>void loadPage(link.key,link.title)}><BookOpen size={16}/><span><b>{link.title}</b><small>Page {link.pageNumber}</small></span><ChevronRight size={14}/></button>)}
+      {activeHtml&&<><p className="widget-active-title">{activeTitle}</p><iframe title={activeTitle} sandbox="allow-same-origin" srcDoc={activeHtml}/></>}
+    </> : OWNED_VEHICLES.map(item=><button key={item.id} onClick={()=>void selectVehicle(item)}>
       <CarFront size={18}/><span><b>{item.year} {item.make} {item.model}</b><small>{item.engine} · Open manual</small></span><ChevronRight size={15}/>
     </button>)}
     <small className="nomie-widget-foot">{offline?"Offline cache":"Manual library"} · Local-first</small>
@@ -258,7 +270,7 @@ export default function App() {
       <div className="dialog-head"><div><p className="eyebrow">OPTIONAL ACCOUNT CONNECTION</p><Dialog.Title>Connect GitHub</Dialog.Title></div><Dialog.Close className="icon-button" aria-label="Close GitHub connection"><X/></Dialog.Close></div>
       <p className="parts-caveat">Browsing manuals and using local favorites do not require an account. Connect GitHub only when you want to synchronize repair data with your private repository.</p>
       <a className="github-oauth-link" href="/api/auth/github/login"><Github size={17}/> Continue with GitHub App</a>
-      <div className="pat-connect"><label htmlFor="github-pat">Or use a fine-grained Personal Access Token</label><input id="github-pat" type="password" autoComplete="off" value={patToken} onChange={event=>setPatToken(event.target.value)} placeholder="github_pat_…"/><button className="primary-button" disabled={!patToken.trim()||githubBusy} onClick={()=>void connectWithPat()}>{githubBusy?"Checking…":"Validate token"}</button>{patError&&<p className="auth-error">{patError}</p>}</div>
+      <div className="pat-connect"><button className="outline-button" onClick={()=>void testAppInstallation()}>Test GitHub App installation</button>{installationStatus&&<p className="auth-status">{installationStatus}</p>}<label htmlFor="github-pat">Or use a fine-grained Personal Access Token</label><input id="github-pat" type="password" autoComplete="off" value={patToken} onChange={event=>setPatToken(event.target.value)} placeholder="github_pat_…"/><button className="primary-button" disabled={!patToken.trim()||githubBusy} onClick={()=>void connectWithPat()}>{githubBusy?"Checking…":"Validate token"}</button>{patError&&<p className="auth-error">{patError}</p>}</div>
     </Dialog.Content></Dialog.Portal></Dialog.Root>
     <footer className="footer"><span>LifeOS Manual Explorer Pro · MVP</span><span>{offline?"Offline cache":"R2 manual library"} · {catalog?.vehicles.length ?? 2} owned vehicles</span></footer>
   </div>;
