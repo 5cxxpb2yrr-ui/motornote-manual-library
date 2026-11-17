@@ -1,4 +1,5 @@
-import type { CartValidation, RepairCart, RepairCartLine } from "../types";
+import type { CartValidation, RepairCart, RepairCartLine, Vehicle } from "../types";
+export type ShoppingListFormat="json"|"csv"|"markdown"|"txt";
 export function validateCart(cart: RepairCart, requiredPartIds: string[], requiredToolIds: string[]): CartValidation {
   const errors: string[] = [], warnings: string[] = [];
   const present = new Set([...cart.parts, ...cart.tools].map(line => line.id));
@@ -12,4 +13,33 @@ export function validateCart(cart: RepairCart, requiredPartIds: string[], requir
 }
 export function createCartLine(name: string, relationship: RepairCartLine["relationship"] = "required"): RepairCartLine {
   return { id: crypto.randomUUID(), name: name.trim(), quantity: 1, relationship };
+}
+function csv(value:unknown) {
+  const text=value==null?"":String(value);
+  return '"'+text.replace(/"/g,'""')+'"';
+}
+export function serializeShoppingList(vehicle:Vehicle,cart:RepairCart,format:ShoppingListFormat):string {
+  const items=[...cart.parts,...cart.tools].map(line=>({
+    Part:line.name,OEM:line.oem||"",Vendor:line.vendor||"",Price:line.price??"",
+    Quantity:line.quantity,DirectLink:line.url||"",Relationship:line.relationship
+  }));
+  if(format==="json")return JSON.stringify({vehicle:{id:vehicle.id,year:vehicle.year,make:vehicle.make,model:vehicle.model},procedureId:cart.procedureId,items},null,2);
+  const columns=["Part","OEM","Vendor","Price","Quantity","DirectLink","Relationship"];
+  if(format==="csv")return [columns.map(csv).join(","),...items.map(item=>columns.map(column=>csv(item[column as keyof typeof item])).join(","))].join("\n");
+  if(format==="markdown")return [
+    "# Repair Shopping List",
+    "",
+    "Vehicle: "+vehicle.year+" "+vehicle.make+" "+vehicle.model,
+    "",
+    "| "+columns.join(" | ")+" |",
+    "| "+columns.map(()=> "---").join(" | ")+" |",
+    ...items.map(item=>"| "+columns.map(column=>String(item[column as keyof typeof item]??"").replace(/\|/g,"\\|")).join(" | ")+" |")
+  ].join("\n");
+  return [
+    "LifeOS Manual Explorer Pro — Repair Shopping List",
+    "Vehicle: "+vehicle.year+" "+vehicle.make+" "+vehicle.model,
+    "",
+    ...items.map((item,index)=>(index+1)+". "+item.Part+" × "+item.Quantity+(item.OEM?" · OEM "+item.OEM:"")+(item.Vendor?" · "+item.Vendor:"")+(item.Price!==""?" · $"+item.Price:"")+(item.DirectLink?" · "+item.DirectLink:"")),
+    ""
+  ].join("\n");
 }
