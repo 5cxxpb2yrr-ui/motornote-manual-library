@@ -23,7 +23,7 @@ let database: ReturnType<typeof openDB<LifeOSDB>> | undefined;
 export function getDatabase() {
   if (!database) database = openDB<LifeOSDB>("lifeos_manuals", 1, {
     upgrade(db) {
-      const stores: Array<keyof LifeOSDB> = [
+      const stores = [
         "manuals","pages","vehicles","parts","relationships","favorites","bookmarks","notes",
         "recents","settings","searches","viewerState","tocState","repairCarts","pricingCache","github","searchRecords"
       ];
