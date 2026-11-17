@@ -14,6 +14,11 @@ describe("repair cart validation", () => {
     expect(result.warnings.length).toBeGreaterThan(0);
   });
 
+  it("matches required parts using stable part IDs",()=>{
+    const cartWithPump:RepairCart={...cart,parts:[{id:"row-uuid",partId:"water-pump",name:"Water Pump",quantity:1,relationship:"required"}]};
+    expect(validateCart(cartWithPump,["water-pump"],[]).valid).toBe(true);
+  });
+
   it("does not invent totals for unpriced parts",()=>{
     const result=calculateCartTotals({...cart,parts:[{id:"pump",name:"Water Pump",quantity:2,relationship:"required"}]});
     expect(result.subtotal).toBe(0);
