@@ -23,7 +23,7 @@ export function serializeShoppingList(vehicle:Vehicle,cart:RepairCart,format:Sho
     Part:line.name,OEM:line.oem||"",Vendor:line.vendor||"",Price:line.price??"",
     Quantity:line.quantity,DirectLink:line.url||"",Relationship:line.relationship||"unclassified",Source:line.sourcePath||"",Verification:line.verification||"unverified"
   }));
-  if(format==="json")return JSON.stringify({vehicle:{id:vehicle.id,year:vehicle.year,make:vehicle.make,model:vehicle.model},procedureId:cart.procedureId,items},null,2);
+  if(format==="json")return JSON.stringify({vehicle:{id:vehicle.id,year:vehicle.year,make:vehicle.make,model:vehicle.model},procedureId:cart.procedureId,totals:calculateCartTotals(cart),items},null,2);
   const columns=["Part","OEM","Vendor","Price","Quantity","DirectLink","Relationship","Source","Verification"];
   if(format==="csv")return [columns.map(csv).join(","),...items.map(item=>columns.map(column=>csv(item[column as keyof typeof item])).join(","))].join("\n");
   if(format==="markdown")return [
