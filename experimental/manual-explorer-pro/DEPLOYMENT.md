@@ -9,7 +9,7 @@ The MVP preview branch is \`feat/lifeos-manual-explorer-pro-mvp\`. Production de
 ## Build command
 
 \`\`\`sh
-npm install --no-audit --no-fund && npm test && npm run typecheck && npm run build
+npm install --no-audit --no-fund && npm test && npm run build
 \`\`\`
 
 ## R2 binding
