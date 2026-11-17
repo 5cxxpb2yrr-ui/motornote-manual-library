@@ -1,7 +1,7 @@
 import { getDatabase } from "./db";
 export interface VendorPrice {
   vendor: string; partNumber: string; price?: number; currency: "USD";
-  url: string; availability?: string; checkedAt: string; source: "api" | "search-link";
+  url: string; availability?: string; checkedAt: string; source: "api" | "catalog-link";
 }
 export interface VendorAdapter { name: string; search(partNumber: string): Promise<VendorPrice[]>; }
 export interface PricingOptions { timeoutMs?: number; maxConcurrent?: number; cacheTtlSeconds?: number; }
@@ -63,7 +63,7 @@ export function searchLinkAdapter(name: string, url: (partNumber:string)=>string
     name,
     async search(partNumber) {
       return [{ vendor:name, partNumber, currency:"USD", url:url(encodeURIComponent(partNumber)),
-        checkedAt:new Date().toISOString(), source:"search-link" }];
+        checkedAt:new Date().toISOString(), source:"catalog-link" }];
     }
   };
 }
