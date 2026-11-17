@@ -1,4 +1,4 @@
-import { getSession, githubFetch, refreshOAuthSession, setSessionCookie, type GitHubEnv } from "../../_lib/github-auth";
+import { createInstallationToken, getSession, githubFetch, refreshOAuthSession, setSessionCookie, type GitHubEnv } from "../../_lib/github-auth";
 const OWNER="5cxxpb2yrr-ui", REPO="motornote-manual-library";
 const ALLOWED_STORES=["favorites","bookmarks","notes","recents","settings","repairCarts"] as const;
 type SyncPayload={schemaVersion:number;owner:string;updatedAt:string;data:Record<string,unknown>};
@@ -49,7 +49,13 @@ export const onRequestPost: PagesFunction<GitHubEnv> = async ({request,env}) => 
     const refreshed=await refreshOAuthSession(session,env);
     const originalSession=session;
     session=refreshed;
-    if(!session.canWrite)return Response.json({error:"This GitHub connection is read-only. Grant Contents: write or use a write-enabled fine-grained token."},{status:403});
+    let writeToken=session.token;
+    let canWrite=session.canWrite;
+    try {
+      const installation=await createInstallationToken(env);
+      if(installation.permissions.contents==="write"){writeToken=installation.token;canWrite=true;}
+    } catch { /* fall back to the user's OAuth/PAT permissions */ }
+    if(!canWrite)return Response.json({error:"This GitHub connection is read-only. Grant Contents: write or install the LifeOS GitHub App with Contents: write."},{status:403});
     const input=await request.json() as {data?:Record<string,unknown>};
     if(!input.data || typeof input.data!=="object" || Array.isArray(input.data))return Response.json({error:"Sync data must be an object."},{status:400});
     const safeData:Record<string,unknown>={};
@@ -64,7 +70,7 @@ export const onRequestPost: PagesFunction<GitHubEnv> = async ({request,env}) => 
     const path=userPath(session.login);
     const remote=await loadRemote(session.token,path);
     const body={message:"Sync LifeOS Manual Explorer data for "+session.login,content:encodeBase64(serialized),branch:"main",...(remote.sha?{sha:remote.sha}:{})};
-    await githubFetch("/repos/"+OWNER+"/"+REPO+"/contents/"+path,session.token,{
+    await githubFetch("/repos/"+OWNER+"/"+REPO+"/contents/"+path,writeToken,{
       method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)
     });
     const headers=new Headers({"Cache-Control":"no-store"});
