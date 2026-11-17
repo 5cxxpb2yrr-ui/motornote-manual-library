@@ -1,5 +1,6 @@
 import { OWNED_VEHICLES } from "../data/vehicles";
 import { searchRecords } from "./search";
+import type { SearchRecord } from "../types";
 export interface NomiePluginInstance {
   onLaunch?: (callback:()=>void|Promise<void>)=>void;
   onRegistered?: (callback:()=>void|Promise<void>)=>void;
@@ -64,18 +65,35 @@ export async function sync() {
   }
   return write.json();
 }
+let nomieSearchCache:Promise<SearchRecord[]>|undefined;
+async function loadNomieSearchRecords():Promise<SearchRecord[]> {
+  if(!nomieSearchCache)nomieSearchCache=(async()=>{
+    const db=await import("./db").then(module=>module.getDatabase());
+    let cached:SearchRecord[]=[];
+    try{cached=await db.getAll("searchRecords");}catch{/* offline browser storage may be unavailable */}
+    if(cached.length)return cached.filter(record=>OWNED_VEHICLES.some(vehicle=>record.path.startsWith(vehicle.manualRoot)));
+    const response=await fetch("/api/search-index");
+    if(!response.ok)throw new Error("Search index is unavailable: "+response.status);
+    const manifest=await response.json() as {shards?:Array<{key:string}>};
+    const shards=await Promise.all((manifest.shards||[]).map(async shard=>{
+      const file=shard.key.split("/").pop()||"";
+      const result=await fetch("/api/search-index?file="+encodeURIComponent(file));
+      if(!result.ok)throw new Error("Search shard unavailable: "+file);
+      return result.json() as Promise<SearchRecord[]>;
+    }));
+    const records=shards.flat();
+    try{
+      const tx=db.transaction("searchRecords","readwrite");
+      await tx.store.clear();
+      for(let offset=0;offset<records.length;offset+=400)await Promise.all(records.slice(offset,offset+400).map(record=>tx.store.put(record,record.path)));
+      await tx.done;
+    }catch{/* Service Worker shard cache remains available for offline use */}
+    return records.filter(record=>OWNED_VEHICLES.some(vehicle=>record.path.startsWith(vehicle.manualRoot)));
+  })().catch(error=>{nomieSearchCache=undefined;throw error;});
+  return nomieSearchCache;
+}
 export async function search(query:string) {
-  const response=await fetch("/api/search-index");
-  if(!response.ok)throw new Error("Search index is unavailable: "+response.status);
-  const manifest=await response.json() as {shards?:Array<{key:string}>};
-  const shards=await Promise.all((manifest.shards||[]).map(async shard=>{
-    const file=shard.key.split("/").pop()||"";
-    const result=await fetch("/api/search-index?file="+encodeURIComponent(file));
-    if(!result.ok)return [];
-    return result.json() as Promise<Array<{title:string;path:string;text:string}>>;
-  }));
-  const records=shards.flat().filter(record=>OWNED_VEHICLES.some(vehicle=>record.path.startsWith(vehicle.manualRoot)));
-  return searchRecords(records,query);
+  return searchRecords(await loadNomieSearchRecords(),query);
 }
 export function openManual(vehicleId:string) {
   window.dispatchEvent(new CustomEvent("lifeos:open-manual",{detail:{vehicleId}}));
