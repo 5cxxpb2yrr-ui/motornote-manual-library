@@ -33,7 +33,7 @@ export const onRequestGet: PagesFunction<GitHubEnv> = async ({request,env}) => {
     if(!session)return Response.json({error:"Connect GitHub to sync your repair data."},{status:401,headers:{"Cache-Control":"no-store"}});
     const refreshed=await refreshOAuthSession(session,env);
     const headers=new Headers({"Cache-Control":"no-store"});
-    if(refreshed!==session)headers.append("Set-Cookie",await setSessionCookie(refreshed,env));
+    if(refreshed!==originalSession)headers.append("Set-Cookie",await setSessionCookie(refreshed,env));
     session=refreshed;
     const path=userPath(session.login),remote=await loadRemote(session.token,path);
     return new Response(JSON.stringify({exists:Boolean(remote.data),data:remote.data?.data||{},updatedAt:remote.data?.updatedAt||null}),{headers});
@@ -46,6 +46,7 @@ export const onRequestPost: PagesFunction<GitHubEnv> = async ({request,env}) => 
     let session=await getSession(request,env);
     if(!session)return Response.json({error:"Connect GitHub to sync your repair data."},{status:401});
     const refreshed=await refreshOAuthSession(session,env);
+    const originalSession=session;
     session=refreshed;
     if(!session.canWrite)return Response.json({error:"This GitHub connection is read-only. Grant Contents: write or use a write-enabled fine-grained token."},{status:403});
     const input=await request.json() as {data?:Record<string,unknown>};
