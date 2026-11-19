@@ -62,8 +62,8 @@ def decorate_manual_pages(stage: Path) -> int:
 
     def strip_stylesheet_tag(match: re.Match[str]) -> str:
         tag = match.group(0)
-        rel = re.search(r"""\\brel\\s*=\\s*(['"])(.*?)\\1""", tag, flags=re.IGNORECASE)
-        href = re.search(r"""\\bhref\\s*=\\s*(['"])(.*?)\\1""", tag, flags=re.IGNORECASE)
+        rel = re.search(r"""\brel\s*=\s*(['"])(.*?)\1""", tag, flags=re.IGNORECASE)
+        href = re.search(r"""\bhref\s*=\s*(['"])(.*?)\1""", tag, flags=re.IGNORECASE)
         rel_value = rel.group(2).lower() if rel else ""
         href_value = href.group(2).lower().split("?", 1)[0] if href else ""
         if "stylesheet" in rel_value.split() or href_value.endswith(".css"):
@@ -83,27 +83,27 @@ def decorate_manual_pages(stage: Path) -> int:
         # Strip every archive-provided stylesheet source: linked CSS, embedded
         # style blocks, and inline style attributes. Phoenix assets are the
         # single styling authority for both Scion and Subaru manual pages.
-        source = re.sub(r"<style\\b[^>]*>[\\s\\S]*?</style\\s*>", "", source, flags=re.IGNORECASE)
-        source = re.sub(r"<link\\b[^>]*>", strip_stylesheet_tag, source, flags=re.IGNORECASE)
+        source = re.sub(r"<style\b[^>]*>[\s\S]*?</style\s*>", "", source, flags=re.IGNORECASE)
+        source = re.sub(r"<link\b[^>]*>", strip_stylesheet_tag, source, flags=re.IGNORECASE)
         source = re.sub(
-            r"""\\sstyle\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+)""",
+            r"""\sstyle\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)""",
             "",
             source,
             flags=re.IGNORECASE,
         )
         source = re.sub(
-            r"""<script\\b(?=[^>]*\\bsrc\\s*=\\s*(['"])/assets/phoenix\\.js\\1)[^>]*>\\s*</script\\s*>""",
+            r"""<script\b(?=[^>]*\bsrc\s*=\s*(['"])/assets/phoenix\.js\1)[^>]*>\s*</script\s*>""",
             "",
             source,
             flags=re.IGNORECASE,
         )
 
-        if re.search(r"</head\\s*>", source, flags=re.IGNORECASE):
-            source = re.sub(r"</head\\s*>", head_assets + "</head>", source, count=1, flags=re.IGNORECASE)
+        if re.search(r"</head\s*>", source, flags=re.IGNORECASE):
+            source = re.sub(r"</head\s*>", head_assets + "</head>", source, count=1, flags=re.IGNORECASE)
         else:
             source = head_assets + source
-        if re.search(r"</body\\s*>", source, flags=re.IGNORECASE):
-            source = re.sub(r"</body\\s*>", script + "</body>", source, count=1, flags=re.IGNORECASE)
+        if re.search(r"</body\s*>", source, flags=re.IGNORECASE):
+            source = re.sub(r"</body\s*>", script + "</body>", source, count=1, flags=re.IGNORECASE)
         else:
             source += script
         page.write_text(source, encoding="utf-8")
