@@ -270,7 +270,7 @@ def extract_to_staging(archive: Path, staging: Path) -> list[Path]:
         metadata_skipped = 0
 
         for member in members:
-            raw_parts = PurePosixPath(member.filename.replace("\\\\", "/")).parts
+            raw_parts = PurePosixPath(member.filename.replace("\\", "/")).parts
             if any(part in SKIP_PARTS for part in raw_parts):
                 metadata_skipped += 1
                 continue
