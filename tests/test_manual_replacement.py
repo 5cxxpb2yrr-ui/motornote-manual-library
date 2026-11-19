@@ -1,10 +1,11 @@
 import sys
 import tempfile
 import unittest
+import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from ingest_manuals import wrap_flat_archive_in_vehicle_folder
+from ingest_manuals import extract_to_staging, wrap_flat_archive_in_vehicle_folder
 from publish_manual_site import decorate_manual_pages, remove_manual_css_files
 
 
@@ -31,6 +32,25 @@ class ManualReplacementTests(unittest.TestCase):
             self.assertTrue((vehicle / "images" / "diagram.gif").is_file())
             self.assertTrue((vehicle / "style.css").is_file())
             self.assertFalse((staging / "pages").exists())
+
+    def test_extraction_skips_macos_metadata_files(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            archive = root / "scion-service-manual.zip"
+            with zipfile.ZipFile(archive, "w") as bundle:
+                bundle.writestr(
+                    "index.html",
+                    "<html><head><title>Free Service Manual for the 2006 Scion xB Standard ~ LEMON Manuals</title></head></html>",
+                )
+                bundle.writestr("pages/1.html", "<html><body><h1>Manual page</h1></body></html>")
+                bundle.writestr("__MACOSX/._style.css", "AppleDouble metadata")
+            staging = root / "staging"
+
+            extracted = extract_to_staging(archive, staging)
+
+            self.assertTrue((staging / "2006 Scion xB Standard" / "pages" / "1.html").is_file())
+            self.assertFalse((staging / "__MACOSX").exists())
+            self.assertEqual(len(extracted), 2)
 
     def test_archive_with_existing_vehicle_folder_is_not_wrapped_again(self):
         with tempfile.TemporaryDirectory() as temp:
