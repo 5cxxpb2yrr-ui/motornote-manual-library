@@ -7,6 +7,7 @@ Existing manuals remain in place when another archive is ingested.
 from __future__ import annotations
 
 import hashlib
+from html import unescape
 from html.parser import HTMLParser
 
 import json
@@ -195,6 +196,65 @@ def clean_manual_html(path: Path) -> bool:
     return True
 
 
+def wrap_flat_archive_in_vehicle_folder(staging: Path) -> str | None:
+    """Place flat ZIP contents under the vehicle folder named by its root index.
+
+    Some archives already contain a vehicle directory; those are left untouched.
+    Flat archives with a root index.html are wrapped so R2 keeps the same
+    manuals/<manual-id>/<vehicle>/... layout used by the viewer.
+    """
+    root_index = staging / "index.html"
+    if not root_index.is_file():
+        return None
+
+    if any(
+        child.is_dir() and any((child / name).is_file() for name in ("index.html", "index.htm"))
+        for child in staging.iterdir()
+    ):
+        return None
+
+    try:
+        source = root_index.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        raise ValueError(f"Cannot read root manual index {root_index}: {exc}") from exc
+
+    title_match = re.search(r"<title\\b[^>]*>([\\s\\S]*?)</title\\s*>", source, flags=re.IGNORECASE)
+    if not title_match:
+        raise ValueError("Flat manual archive has index.html but no title identifying its vehicle.")
+
+    title = unescape(re.sub(r"<[^>]+>", " ", title_match.group(1)))
+    title = re.sub(r"\\s+", " ", title).strip()
+    vehicle_match = re.search(
+        r"\\bfor\\s+(?:the\\s+)?(.+?)(?:\\s*[~|–—]\\s*|$)",
+        title,
+        flags=re.IGNORECASE,
+    )
+    if not vehicle_match:
+        raise ValueError(f"Cannot infer the vehicle folder from manual title: {title!r}")
+
+    vehicle_folder = re.sub(r"\\s+", " ", vehicle_match.group(1)).strip()
+    if (
+        not re.match(r"^\\d{4}\\s+", vehicle_folder)
+        or not re.search(r"\\b(?:Scion|Subaru)\\b", vehicle_folder, flags=re.IGNORECASE)
+        or len(PurePosixPath(vehicle_folder).parts) != 1
+        or vehicle_folder in {"", ".", ".."}
+    ):
+        raise ValueError(f"Unsafe or unrecognized vehicle folder inferred from title: {vehicle_folder!r}")
+
+    destination = staging / vehicle_folder
+    if destination.exists():
+        raise ValueError(f"Vehicle folder already exists in flat archive: {vehicle_folder!r}")
+
+    destination.mkdir()
+    for child in list(staging.iterdir()):
+        if child == destination:
+            continue
+        shutil.move(str(child), str(destination / child.name))
+
+    print(f"Wrapped flat manual archive under vehicle folder: {vehicle_folder}")
+    return vehicle_folder
+
+
 def extract_to_staging(archive: Path, staging: Path) -> list[Path]:
     if staging.exists():
         shutil.rmtree(staging)
@@ -244,6 +304,12 @@ def extract_to_staging(archive: Path, staging: Path) -> list[Path]:
             if written != member.file_size:
                 raise ValueError(f"Truncated archive member: {member.filename!r}.")
             extracted.append(target)
+
+    # Flat archives (such as the replacement Scion xB Standard ZIP) have
+    # pages/, images/, and index.html at their root. Wrap those files under the
+    # vehicle folder identified by index.html before cataloging or publishing.
+    wrap_flat_archive_in_vehicle_folder(staging)
+    extracted = [path for path in staging.rglob("*") if path.is_file()]
 
     # Clean mirror chrome in HTML while the archive is still staged. The original
     # archive remains untouched if extraction or cleanup fails.
