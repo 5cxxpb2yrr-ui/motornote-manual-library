@@ -6,10 +6,13 @@ Private, version-controlled source library for MotorNote service-manual retrieva
 
 1. Put a ZIP in `incoming/` and upload it using Git LFS. The 277 MB Subaru archive exceeds GitHub's 100 MB ordinary Git-file limit.
 2. Name it with its make prefix: `subaru-...` or `scion-...` (for example, `subaru-service-manual.zip`).
-3. Push the ZIP to `main`.
-4. The **Ingest service manuals** workflow extracts it into `manuals/<archive-name>/`, removes the ZIP from the working tree, and rebuilds the indexes under `index/`.
+3. For a complete replacement, keep the existing manual identity in the filename: use `scion-service-manual.zip` to replace the Scion corpus or `subaru-service-manual.zip` to replace Subaru. A differently named archive creates a separate manual instead of replacing the existing one.
+4. Push the ZIP to `main`.
+5. The **Ingest service manuals** workflow validates and stages the replacement, rebuilds the catalog across **all** manuals (including the unchanged Subaru HTML), and republishes the complete R2 site.
 
 Extracted PDFs and common image formats are tracked with Git LFS. Git LFS storage and bandwidth quotas apply. Removing a ZIP from the working tree does not erase its previous Git LFS object or Git history.
+
+The publisher preserves the manual's HTML, page, image, and navigation paths. Styling is supplied exclusively by `site-worker/assets/phoenix.css` and `phoenix.js`; CSS files, embedded style blocks, and inline styles from uploaded ZIPs are not used in the published site. A flat ZIP with a root `index.html` is placed under the vehicle folder identified by its title (for example, `2006 Scion xB Standard/`).
 
 ## Search data
 

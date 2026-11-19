@@ -49,8 +49,9 @@ def site_index() -> str:
 
 
 def decorate_manual_pages(stage: Path) -> int:
-    """Add the shared mobile shell without rewriting the original manual content."""
+    """Apply the repository-owned Phoenix theme, never archive-provided CSS."""
     import re
+
     head_assets = (
         '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
         '<meta name="theme-color" content="#050b18">'
@@ -58,6 +59,19 @@ def decorate_manual_pages(stage: Path) -> int:
     )
     script = '<script src="/assets/phoenix.js" defer></script>'
     count = 0
+
+    def strip_stylesheet_tag(match: re.Match[str]) -> str:
+        tag = match.group(0)
+        rel = re.search(r"""\brel\s*=\s*(['"])(.*?)\1""", tag, flags=re.IGNORECASE)
+        href = re.search(r"""\bhref\s*=\s*(['"])(.*?)\1""", tag, flags=re.IGNORECASE)
+        rel_value = rel.group(2).lower() if rel else ""
+        href_value = href.group(2).lower().split("?", 1)[0] if href else ""
+        if "stylesheet" in rel_value.split() or href_value.endswith(".css"):
+            return ""
+        if href_value == "/assets/phoenix.css":
+            return ""
+        return tag
+
     for page in (stage / "manuals").rglob("*"):
         if not page.is_file() or page.suffix.lower() not in {".html", ".htm"}:
             continue
@@ -65,20 +79,49 @@ def decorate_manual_pages(stage: Path) -> int:
             source = page.read_text(encoding="utf-8")
         except (UnicodeDecodeError, OSError):
             continue
-        if "phoenix.css" in source:
-            continue
-        if re.search(r"</head\s*>", source, flags=re.I):
-            source = re.sub(r"</head\s*>", head_assets + "</head>", source, count=1, flags=re.I)
+
+        # Strip every archive-provided stylesheet source: linked CSS, embedded
+        # style blocks, and inline style attributes. Phoenix assets are the
+        # single styling authority for both Scion and Subaru manual pages.
+        source = re.sub(r"<style\b[^>]*>[\s\S]*?</style\s*>", "", source, flags=re.IGNORECASE)
+        source = re.sub(r"<link\b[^>]*>", strip_stylesheet_tag, source, flags=re.IGNORECASE)
+        source = re.sub(
+            r"""\sstyle\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)""",
+            "",
+            source,
+            flags=re.IGNORECASE,
+        )
+        source = re.sub(
+            r"""<script\b(?=[^>]*\bsrc\s*=\s*(['"])/assets/phoenix\.js\1)[^>]*>\s*</script\s*>""",
+            "",
+            source,
+            flags=re.IGNORECASE,
+        )
+
+        if re.search(r"</head\s*>", source, flags=re.IGNORECASE):
+            source = re.sub(r"</head\s*>", head_assets + "</head>", source, count=1, flags=re.IGNORECASE)
         else:
             source = head_assets + source
-        if re.search(r"</body\s*>", source, flags=re.I):
-            source = re.sub(r"</body\s*>", script + "</body>", source, count=1, flags=re.I)
+        if re.search(r"</body\s*>", source, flags=re.IGNORECASE):
+            source = re.sub(r"</body\s*>", script + "</body>", source, count=1, flags=re.IGNORECASE)
         else:
             source += script
         page.write_text(source, encoding="utf-8")
         count += 1
     return count
 
+
+def remove_manual_css_files(stage: Path) -> int:
+    """Keep ZIP CSS in source control, but never publish or load it from R2."""
+    removed = 0
+    manuals_root = stage / "manuals"
+    if not manuals_root.is_dir():
+        return removed
+    for path in manuals_root.rglob("*"):
+        if path.is_file() and path.suffix.lower() == ".css":
+            path.unlink()
+            removed += 1
+    return removed
 
 def ensure_manual_landing_pages(stage: Path) -> int:
     """Create lightweight make landing pages only when a manual has no index."""
@@ -92,7 +135,8 @@ def ensure_manual_landing_pages(stage: Path) -> int:
         )
         if not pages:
             continue
-        target = "/" + urllib.parse.quote(pages[0].relative_to(stage).as_posix(), safe="/")
+        preferred = next((p for p in pages if p.name.lower() in {"index.html", "index.htm"}), None)
+        target = "/" + urllib.parse.quote((preferred or pages[0]).relative_to(stage).as_posix(), safe="/")
         label = folder.name.replace("-", " ").replace("_", " ").title()
         page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -122,7 +166,9 @@ def main() -> int:
         landing_pages = ensure_manual_landing_pages(stage)
         print(f"Created {landing_pages:,} make landing pages where needed.")
         decorated = decorate_manual_pages(stage)
-        print(f"Applied the shared Phoenix mobile shell to {decorated:,} manual HTML pages.")
+        print(f"Applied the repository-owned Phoenix theme to {decorated:,} manual HTML pages.")
+        removed_css = remove_manual_css_files(stage)
+        print(f"Excluded {removed_css:,} archive-provided CSS file(s) from the published site.")
         # Validate the exact staged site before any object is uploaded to R2.
         subprocess.run(
             [sys.executable, str(ROOT / "scripts" / "validate_html_cross_references.py"),
