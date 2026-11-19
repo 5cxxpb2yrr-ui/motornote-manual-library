@@ -218,24 +218,24 @@ def wrap_flat_archive_in_vehicle_folder(staging: Path) -> str | None:
     except (OSError, UnicodeError) as exc:
         raise ValueError(f"Cannot read root manual index {root_index}: {exc}") from exc
 
-    title_match = re.search(r"<title\\b[^>]*>([\\s\\S]*?)</title\\s*>", source, flags=re.IGNORECASE)
+    title_match = re.search(r"<title\b[^>]*>([\s\S]*?)</title\s*>", source, flags=re.IGNORECASE)
     if not title_match:
         raise ValueError("Flat manual archive has index.html but no title identifying its vehicle.")
 
     title = unescape(re.sub(r"<[^>]+>", " ", title_match.group(1)))
-    title = re.sub(r"\\s+", " ", title).strip()
+    title = re.sub(r"\s+", " ", title).strip()
     vehicle_match = re.search(
-        r"\\bfor\\s+(?:the\\s+)?(.+?)(?:\\s*[~|–—]\\s*|$)",
+        r"\bfor\s+(?:the\s+)?(.+?)(?:\s*[~|–—]\s*|$)",
         title,
         flags=re.IGNORECASE,
     )
     if not vehicle_match:
         raise ValueError(f"Cannot infer the vehicle folder from manual title: {title!r}")
 
-    vehicle_folder = re.sub(r"\\s+", " ", vehicle_match.group(1)).strip()
+    vehicle_folder = re.sub(r"\s+", " ", vehicle_match.group(1)).strip()
     if (
-        not re.match(r"^\\d{4}\\s+", vehicle_folder)
-        or not re.search(r"\\b(?:Scion|Subaru)\\b", vehicle_folder, flags=re.IGNORECASE)
+        not re.match(r"^\d{4}\s+", vehicle_folder)
+        or not re.search(r"\b(?:Scion|Subaru)\b", vehicle_folder, flags=re.IGNORECASE)
         or len(PurePosixPath(vehicle_folder).parts) != 1
         or vehicle_folder in {"", ".", ".."}
     ):
