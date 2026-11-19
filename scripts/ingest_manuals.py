@@ -267,8 +267,13 @@ def extract_to_staging(archive: Path, staging: Path) -> list[Path]:
         if len(members) > MAX_FILES:
             raise ValueError(f"{archive.name}: too many files ({len(members)}).")
         seen: set[str] = set()
+        metadata_skipped = 0
 
         for member in members:
+            raw_parts = PurePosixPath(member.filename.replace("\\\\", "/")).parts
+            if any(part in SKIP_PARTS for part in raw_parts):
+                metadata_skipped += 1
+                continue
             rel = safe_member_path(member.filename)
             key = str(rel).casefold()
             if key in seen:
@@ -304,6 +309,9 @@ def extract_to_staging(archive: Path, staging: Path) -> list[Path]:
             if written != member.file_size:
                 raise ValueError(f"Truncated archive member: {member.filename!r}.")
             extracted.append(target)
+
+    if metadata_skipped:
+        print(f"{archive.name}: skipped {metadata_skipped:,} macOS/archive metadata file(s).")
 
     # Flat archives (such as the replacement Scion xB Standard ZIP) have
     # pages/, images/, and index.html at their root. Wrap those files under the
