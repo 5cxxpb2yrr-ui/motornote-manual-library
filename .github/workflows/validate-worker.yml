@@ -1,11 +1,15 @@
-name: Validate manual retrieval and site workers
+name: Validate manual retrieval, site workers, and publisher
 
 on:
   pull_request:
     paths:
       - "worker/**"
       - "site-worker/**"
+      - "scripts/manual_site_publisher.py"
       - "scripts/publish_manual_site.py"
+      - "scripts/publish_manual_delta.py"
+      - "scripts/validate_html_cross_references.py"
+      - "tests/**"
       - ".github/workflows/validate-worker.yml"
 
 permissions:
@@ -14,21 +18,30 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out pull request
         uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Run publisher safety tests
+        run: python -m unittest discover -s tests -p 'test_manual_site_publisher.py' -v
+      - name: Compile publisher and validator
+        run: python -m py_compile scripts/manual_site_publisher.py scripts/publish_manual_site.py scripts/publish_manual_delta.py scripts/validate_html_cross_references.py
       - name: Check retrieval Worker JavaScript syntax
         run: node --input-type=module --check < worker/src/index.js
       - name: Check site Worker JavaScript syntax
         run: node --input-type=module --check < site-worker/src/index.js
       - name: Check Phoenix browser JavaScript syntax
         run: node --check site-worker/assets/phoenix.js
-      - name: Compile publisher
-        run: python -m py_compile scripts/publish_manual_site.py
       - name: Validate Wrangler configurations
         run: |
           node -e 'JSON.parse(require("node:fs").readFileSync("worker/wrangler.jsonc", "utf8"))'
