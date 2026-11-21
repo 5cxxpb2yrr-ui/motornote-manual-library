@@ -281,23 +281,32 @@ def aws(args: list[str], *, capture: bool = False) -> subprocess.CompletedProces
 
 
 def list_remote_keys(bucket: str, endpoint: str) -> set[str]:
+    """List every visible managed object, following all R2 pagination tokens."""
     keys: set[str] = set()
     for prefix in (*MANAGED_PREFIXES, *sorted(MANAGED_ASSET_KEYS), "index.html"):
-        result = aws(
-            [
+        continuation_token: str | None = None
+        while True:
+            command = [
                 "s3api", "list-objects-v2",
                 "--bucket", bucket,
                 "--prefix", prefix,
                 "--endpoint-url", endpoint,
                 "--output", "json",
-            ],
-            capture=True,
-        )
-        payload = json.loads(result.stdout or "{}")
-        for item in payload.get("Contents") or []:
-            key = item.get("Key")
-            if isinstance(key, str) and is_managed_key(key):
-                keys.add(key)
+            ]
+            if continuation_token:
+                command.extend(["--continuation-token", continuation_token])
+            result = aws(command, capture=True)
+            payload = json.loads(result.stdout or "{}")
+            for item in payload.get("Contents") or []:
+                key = item.get("Key")
+                if isinstance(key, str) and is_managed_key(key):
+                    keys.add(key)
+            if not payload.get("IsTruncated"):
+                break
+            next_token = payload.get("NextContinuationToken")
+            if not isinstance(next_token, str) or not next_token or next_token == continuation_token:
+                raise RuntimeError(f"R2 returned a truncated listing without a valid next token for prefix {prefix!r}.")
+            continuation_token = next_token
     return keys
 
 
