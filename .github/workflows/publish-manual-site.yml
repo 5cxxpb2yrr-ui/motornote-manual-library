@@ -73,3 +73,12 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check awscli
           python scripts/manual_site_publisher.py --mode publish
+
+      - name: Upload HTML cross-reference validation report
+        if: always() && hashFiles('html-cross-reference-report.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-cross-reference-validation
+          path: html-cross-reference-report.json
+          if-no-files-found: ignore
+          retention-days: 30
