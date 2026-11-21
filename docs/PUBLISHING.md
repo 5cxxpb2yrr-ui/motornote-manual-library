@@ -43,3 +43,5 @@ The publisher never removes local .previous-* directories or source ZIPs. It als
 This workflow publishes static site objects only. It does not deploy either Cloudflare Worker, change Worker secrets, or modify AI Search. Worker deployments remain a separate, explicit operation.
 
 The old script names remain only as compatibility shims for existing cleanup tests; executing either legacy publisher entry point exits before any R2 operation.
+
+The publisher explicitly allowlists only phoenix.css and phoenix.js under the R2 assets path. Adding another published asset requires a deliberate allowlist and test change.
