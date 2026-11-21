@@ -24,7 +24,7 @@ Scanned/image-only pages will not yield searchable text yet; OCR and diagram-awa
 
 ## Private browser library
 
-After ingestion, GitHub Actions builds the landing page and syncs extracted manuals, images, scripts, and search indexes directly to the private Cloudflare R2 bucket using its S3-compatible API. A Cloudflare Worker serves the site and Cloudflare Access protects the website.
+After ingestion, GitHub Actions builds and validates a staged site, then publishes it to the private Cloudflare R2 bucket with the repository-owned publisher. A Cloudflare Worker serves the site and Cloudflare Access protects the website.
 
 - **Manual website:** https://motornote-manual-library.phillipstg.workers.dev
 - **Storage:** private R2 bucket `motornote-manual-site`
@@ -37,4 +37,4 @@ Create an R2 API token with **Object Read & Write** permission, scoped only to `
 - `R2_ACCESS_KEY_ID`
 - `R2_SECRET_ACCESS_KEY`
 
-The Cloudflare account ID is already configured in the workflow. The secret key is used only by GitHub Actions and is never written into the repository. The workflow uses `aws s3 sync --delete` against the R2 S3 endpoint, avoiding the Workers.dev edge that rejected the previous uploads with HTTP 403 / error 1010.
+The Cloudflare account ID is already configured in the workflow. The secret key is used only by GitHub Actions and is never written into the repository. The publisher does not use bucket-wide `sync --delete`. It uploads first, then removes only stale visible objects inside its explicitly managed paths: `manuals/`, `index/`, `index.html`, and the two Phoenix assets. Hidden backups and unrelated R2 objects are protected. The **Publish MotorNote manual site (controlled)** workflow is manual-dispatch only and defaults to dry-run; production publish requires the `main` branch and an exact confirmation phrase. ZIP ingestion also invokes this same safe publisher after its catalog rebuild.

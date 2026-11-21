@@ -26,7 +26,7 @@ The dry run builds the complete staging site and runs scripts/validate_html_cros
 
 ## Controlled production publish
 
-The GitHub Actions workflow "Publish MotorNote manual site (controlled)" is manual-dispatch only. Its default mode is dry-run. To publish:
+The GitHub Actions workflow "Publish MotorNote manual site (controlled)" is manual-dispatch only. Its default mode is dry-run. The existing "Ingest service manuals" workflow also invokes this same publisher after a successful ZIP ingestion and catalog rebuild. To publish:
 
 1. Run the workflow on main.
 2. Select mode publish.
