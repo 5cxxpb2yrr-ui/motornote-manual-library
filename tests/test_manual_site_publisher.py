@@ -43,6 +43,9 @@ class ManualSitePublisherTests(unittest.TestCase):
         (self.root / "site-worker" / "assets" / "phoenix.js").write_text(
             "/* Phoenix behavior */", encoding="utf-8"
         )
+        (self.root / "site-worker" / "assets" / "unmanaged.svg").write_text(
+            "<svg/>", encoding="utf-8"
+        )
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -57,7 +60,13 @@ class ManualSitePublisherTests(unittest.TestCase):
         self.assertNotIn("manuals/scion-service-manual/archive.css", keys)
         self.assertIn("assets/phoenix.css", keys)
         self.assertIn("assets/phoenix.js", keys)
+        self.assertNotIn("assets/unmanaged.svg", keys)
         self.assertNotIn("Previous Scion", (stage / "index.html").read_text())
+
+    def test_missing_manual_catalog_fails_closed(self) -> None:
+        (self.root / "index" / "catalog.json").unlink()
+        with self.assertRaisesRegex(RuntimeError, "index/catalog.json is required"):
+            build_site(self.root, self.root / "stage", validate=False)
 
     def test_phoenix_theme_is_applied_and_breadcrumb_is_preserved(self) -> None:
         stage = self.root / "stage"
@@ -76,6 +85,7 @@ class ManualSitePublisherTests(unittest.TestCase):
         self.assertTrue(is_managed_key("manuals/scion/page.html"))
         self.assertTrue(is_managed_key("index/catalog.json"))
         self.assertTrue(is_managed_key("assets/phoenix.css"))
+        self.assertFalse(is_managed_key("assets/unmanaged.svg"))
         self.assertFalse(is_managed_key("manuals/.previous-scion/page.html"))
         self.assertFalse(is_managed_key("manuals/scion/.cache/page.html"))
         self.assertFalse(is_managed_key("other-app/data.json"))

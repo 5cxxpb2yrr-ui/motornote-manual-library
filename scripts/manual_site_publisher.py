@@ -22,8 +22,9 @@ import urllib.parse
 from pathlib import Path, PurePosixPath
 from typing import Iterable
 
-MANAGED_PREFIXES = ("manuals/", "index/", "assets/")
+MANAGED_PREFIXES = ("manuals/", "index/")
 MANAGED_ROOT_FILES = frozenset({"index.html"})
+MANAGED_ASSET_KEYS = frozenset({"assets/phoenix.css", "assets/phoenix.js"})
 ALLOWED_BUCKET = "motornote-manual-site"
 PHOENIX_ASSETS = ("phoenix.css", "phoenix.js")
 
@@ -43,7 +44,7 @@ def safe_relative(relative: str | Path) -> bool:
 def is_managed_key(key: str) -> bool:
     if not safe_relative(key) or hidden_path(key):
         return False
-    return key in MANAGED_ROOT_FILES or key.startswith(MANAGED_PREFIXES)
+    return key in MANAGED_ROOT_FILES or key in MANAGED_ASSET_KEYS or key.startswith(MANAGED_PREFIXES)
 
 
 def iter_source_files(root: Path, *, skip_css: bool = False) -> Iterable[Path]:
@@ -205,12 +206,21 @@ def build_site(root: Path, stage: Path, *, validate: bool = True) -> dict:
 
     stage.mkdir(parents=True, exist_ok=True)
     copied_manuals = copy_filtered_tree(manuals_source, stage / "manuals", skip_css=True)
-    copy_filtered_tree(root / "index", stage / "index")
-    copy_filtered_tree(root / "site-worker" / "assets", stage / "assets")
+    index_source = root / "index"
+    if not index_source.is_dir() or not (index_source / "catalog.json").is_file():
+        raise RuntimeError("index/catalog.json is required; refusing to publish a site without its manual catalog.")
+    if not any(iter_source_files(index_source)):
+        raise RuntimeError("The index directory contains no visible publishable files.")
+    copy_filtered_tree(index_source, stage / "index")
 
+    assets_source = root / "site-worker" / "assets"
     for name in PHOENIX_ASSETS:
-        if not (stage / "assets" / name).is_file():
+        source = assets_source / name
+        if not source.is_file():
             raise RuntimeError(f"Required repository-owned Phoenix asset is missing: {name}")
+        target = stage / "assets" / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
 
     generated = 0
     for folder in sorted((stage / "manuals").iterdir(), key=lambda item: item.name.lower()):
@@ -265,7 +275,7 @@ def aws(args: list[str], *, capture: bool = False) -> subprocess.CompletedProces
 
 def list_remote_keys(bucket: str, endpoint: str) -> set[str]:
     keys: set[str] = set()
-    for prefix in (*MANAGED_PREFIXES, "index.html"):
+    for prefix in (*MANAGED_PREFIXES, *sorted(MANAGED_ASSET_KEYS), "index.html"):
         result = aws(
             [
                 "s3api", "list-objects-v2",

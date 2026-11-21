@@ -7,7 +7,7 @@ The publisher writes only to the motornote-manual-site R2 bucket and owns exactl
 - index.html
 - manuals/**
 - index/**
-- assets/**
+- assets/phoenix.css and assets/phoenix.js
 
 It does not use bucket-wide aws s3 sync --delete. Uploads complete before stale-object cleanup begins. Cleanup is limited to stale visible keys inside the owned roots. Hidden paths, including .previous-* backups, are never uploaded or deleted. Objects outside the owned roots are never deleted.
 
@@ -32,7 +32,7 @@ The GitHub Actions workflow "Publish MotorNote manual site (controlled)" is manu
 2. Select mode publish.
 3. Enter the exact confirmation PUBLISH_MOTORNOTE_MANUAL_SITE.
 
-The workflow checks that the selected ref is main before accessing R2 credentials. It checks out Git LFS content, validates the staged site, uploads manuals/, index/, and assets/ without deletion flags, uploads the generated root index.html, then removes only stale visible keys in the four owned roots.
+The workflow checks that the selected ref is main before accessing R2 credentials. It checks out Git LFS content, validates the staged site, uploads manuals/, index/, and assets/ without deletion flags, uploads the generated root index.html, then removes only stale visible keys in the owned paths.
 
 ## Rollback and backups
 
