@@ -74,12 +74,13 @@ jobs:
               print(f"{name}\t{asset['url']}\t{digest}\t{size}")
           PY
 
-          while IFS=$'\t' read -r name asset_url expected_sha expected_size; do
-            curl -fL \
-              -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/octet-stream" \
-              "$asset_url" \
-              -o "incoming/$name"
+          gh release download "rebuild-corpus-source-20261121" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern "scion-service-manual.zip" \
+            --pattern "subaru-service-manual.zip" \
+            --dir incoming
+
+          while IFS=$'\\t' read -r name asset_url expected_sha expected_size; do
             actual_size="$(wc -c < "incoming/$name" | tr -d ' ')"
             actual_sha="$(sha256sum "incoming/$name" | cut -d ' ' -f 1)"
             test "$actual_size" = "$expected_size"
