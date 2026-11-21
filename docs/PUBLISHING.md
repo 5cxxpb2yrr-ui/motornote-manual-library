@@ -32,7 +32,7 @@ The GitHub Actions workflow "Publish MotorNote manual site (controlled)" is manu
 2. Select mode publish.
 3. Enter the exact confirmation PUBLISH_MOTORNOTE_MANUAL_SITE.
 
-The workflow checks that the selected ref is main before accessing R2 credentials. It checks out Git LFS content, validates the staged site, uploads manuals/, index/, and assets/ without deletion flags, uploads the generated root index.html, then removes only stale visible keys in the owned paths.
+The workflow checks that the selected ref is main before accessing R2 credentials. Direct pushes to manuals/, index/, or either Phoenix asset use the incremental workflow: it validates the full staged site, then publishes only changed allowlisted objects. The incremental workflow ignores the ingestion bot (which already performs a full publish) and refuses changesets over 1,000 paths. It checks out Git LFS content, validates the staged site, uploads manuals/, index/, and assets/ without deletion flags, uploads the generated root index.html, then removes only stale visible keys in the owned paths.
 
 ## Rollback and backups
 

@@ -454,6 +454,8 @@ def publish_delta(root: Path, env: dict[str, str]) -> tuple[int, int]:
 
         for relative in changed:
             source = root / relative
+            if source.is_symlink():
+                raise RuntimeError(f"Symlinks are not allowed in incremental publish sources: {relative}")
             if relative.startswith("manuals/"):
                 parts = PurePosixPath(relative).parts
                 if len(parts) < 3:
@@ -511,10 +513,16 @@ def publish_delta(root: Path, env: dict[str, str]) -> tuple[int, int]:
 
         for slug in sorted(manual_folders):
             folder = root / "manuals" / slug
-            if not folder.is_dir():
-                continue
             landing_key = f"manuals/{slug}/index.html"
-            if any((folder / name).is_file() for name in ("index.html", "index.htm")):
+            if not folder.is_dir():
+                deletes.add(landing_key)
+                continue
+            if folder.is_symlink():
+                raise RuntimeError(f"Symlinked manual folders are not allowed: {folder}")
+            if (folder / "index.html").is_file():
+                continue
+            if (folder / "index.htm").is_file():
+                deletes.add(landing_key)
                 continue
             landing = render_manual_landing(folder, root)
             if landing is None:
