@@ -41,3 +41,5 @@ The publisher never removes local .previous-* directories or source ZIPs. It als
 ## Worker deployment
 
 This workflow publishes static site objects only. It does not deploy either Cloudflare Worker, change Worker secrets, or modify AI Search. Worker deployments remain a separate, explicit operation.
+
+The old script names remain only as compatibility shims for existing cleanup tests; executing either legacy publisher entry point exits before any R2 operation.
