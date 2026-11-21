@@ -1,0 +1,43 @@
+# MotorNote manual-site publishing
+
+## Scope
+
+The publisher writes only to the motornote-manual-site R2 bucket and owns exactly these object roots:
+
+- index.html
+- manuals/**
+- index/**
+- assets/**
+
+It does not use bucket-wide aws s3 sync --delete. Uploads complete before stale-object cleanup begins. Cleanup is limited to stale visible keys inside the owned roots. Hidden paths, including .previous-* backups, are never uploaded or deleted. Objects outside the owned roots are never deleted.
+
+## Styling and navigation
+
+The repository's site-worker/assets/phoenix.css and phoenix.js are the only application styling assets. Manual CSS files, style blocks, and inline style attributes from imported archives are excluded from published manual pages. The HTML content and breadcrumb navigation are retained. Source manual directories and ZIP archives are not modified.
+
+## Local validation
+
+Run:
+
+    python -m unittest discover -s tests -p 'test_manual_site_publisher.py' -v
+    python scripts/manual_site_publisher.py --mode dry-run
+
+The dry run builds the complete staging site and runs scripts/validate_html_cross_references.py. It does not read R2 credentials or contact Cloudflare.
+
+## Controlled production publish
+
+The GitHub Actions workflow "Publish MotorNote manual site (controlled)" is manual-dispatch only. Its default mode is dry-run. To publish:
+
+1. Run the workflow on main.
+2. Select mode publish.
+3. Enter the exact confirmation PUBLISH_MOTORNOTE_MANUAL_SITE.
+
+The workflow checks that the selected ref is main before accessing R2 credentials. It checks out Git LFS content, validates the staged site, uploads manuals/, index/, and assets/ without deletion flags, uploads the generated root index.html, then removes only stale visible keys in the four owned roots.
+
+## Rollback and backups
+
+The publisher never removes local .previous-* directories or source ZIPs. It also protects hidden backup keys already present in R2 from automated cleanup. To roll back a release, restore the prior repository version of the affected files and run the controlled publish again. Do not use a bucket-wide delete or sync operation.
+
+## Worker deployment
+
+This workflow publishes static site objects only. It does not deploy either Cloudflare Worker, change Worker secrets, or modify AI Search. Worker deployments remain a separate, explicit operation.

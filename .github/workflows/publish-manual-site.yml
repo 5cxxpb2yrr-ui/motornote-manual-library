@@ -1,13 +1,27 @@
-name: Full rebuild of private manual website
+name: Publish MotorNote manual site (controlled)
 
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "Dry-run validates the full site without contacting R2. Publish writes to the production manual-site bucket."
+        required: true
+        type: choice
+        options:
+          - dry-run
+          - publish
+        default: dry-run
+      confirmation:
+        description: "Required only for production publish: PUBLISH_MOTORNOTE_MANUAL_SITE"
+        required: false
+        type: string
+        default: ""
 
 permissions:
   contents: read
 
 concurrency:
-  group: manual-site-publish
+  group: motornote-manual-site-production
   cancel-in-progress: false
 
 jobs:
@@ -15,23 +29,47 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
+      - name: Verify production authorization
+        if: inputs.mode == 'publish'
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "::error::Production publishing is allowed only from main."
+            exit 1
+          fi
+          if [ "$CONFIRMATION" != "PUBLISH_MOTORNOTE_MANUAL_SITE" ]; then
+            echo "::error::Exact production confirmation is required."
+            exit 1
+          fi
+
       - name: Check out complete manual corpus with Git LFS
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.sha }}
           lfs: true
           fetch-depth: 1
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install AWS CLI
-        run: python -m pip install --disable-pip-version-check awscli
-      - name: Full rebuild and reconcile R2
+
+      - name: Run publisher safety tests
+        run: python -m unittest discover -s tests -p 'test_manual_site_publisher.py' -v
+
+      - name: Validate and preview the site
+        if: inputs.mode == 'dry-run'
+        run: python scripts/manual_site_publisher.py --mode dry-run
+
+      - name: Publish validated site to Cloudflare R2
+        if: inputs.mode == 'publish'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: auto
           R2_ACCOUNT_ID: "3481a3f4006a12f337ceb86104d0816b"
           R2_BUCKET: motornote-manual-site
-        run: python scripts/publish_manual_site.py
+        run: |
+          python -m pip install --disable-pip-version-check awscli
+          python scripts/manual_site_publisher.py --mode publish
