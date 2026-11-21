@@ -3,8 +3,8 @@ name: Rebuild MotorNote corpus (PR dry-run only)
 on:
   workflow_dispatch:
     inputs:
-      source_release:
-        description: "GitHub Release tag containing scion-service-manual.zip and subaru-service-manual.zip"
+      source_release_id:
+        description: "ID of the draft release containing the two verified source ZIPs"
         required: true
         type: string
 
@@ -28,17 +28,64 @@ jobs:
           lfs: true
           fetch-depth: 1
 
-      - name: Download the two source archives from the selected release
+      - name: Verify the draft release and download its exact source archives
         env:
           GH_TOKEN: ${{ github.token }}
-          SOURCE_RELEASE: ${{ inputs.source_release }}
+          SOURCE_RELEASE_ID: ${{ inputs.source_release_id }}
         run: |
+          set -euo pipefail
           mkdir -p incoming
-          gh release download "$SOURCE_RELEASE" --repo "$GITHUB_REPOSITORY" --dir incoming --pattern "scion-service-manual.zip" --clobber
-          gh release download "$SOURCE_RELEASE" --repo "$GITHUB_REPOSITORY" --dir incoming --pattern "subaru-service-manual.zip" --clobber
-          test -s incoming/scion-service-manual.zip
-          test -s incoming/subaru-service-manual.zip
-          ls -lh incoming/*.zip
+          curl -fsSL \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/releases/$SOURCE_RELEASE_ID" \
+            -o /tmp/source-release.json
+
+          python - <<'PY' > /tmp/source-assets.tsv
+          import json
+          from pathlib import Path
+
+          release = json.loads(Path("/tmp/source-release.json").read_text())
+          if release.get("draft") is not True:
+              raise SystemExit("Refusing to use a published release; source release must remain a draft.")
+          if release.get("tag_name") != "rebuild-corpus-source-20261121":
+              raise SystemExit(f"Unexpected source release tag: {release.get('tag_name')!r}")
+
+          expected = {
+              "scion-service-manual.zip": (
+                  126059381,
+                  "3875bc9151c041d92559e7649870ac77d34d5c5378fd94c4b1e1dc0c477092b6",
+              ),
+              "subaru-service-manual.zip": (
+                  277626510,
+                  "78f1fc6d415b61bd3d3ff0ba2cd02acad309237c7305aeabb89be01914ed6a91",
+              ),
+          }
+          assets = {asset["name"]: asset for asset in release.get("assets", [])}
+          if set(assets) != set(expected):
+              raise SystemExit(f"Release assets do not match the two expected archives: {sorted(assets)}")
+
+          for name, (size, digest) in expected.items():
+              asset = assets[name]
+              if asset.get("state") != "uploaded" or asset.get("size") != size:
+                  raise SystemExit(f"Unexpected upload state or size for {name}: {asset}")
+              if asset.get("digest") != f"sha256:{digest}":
+                  raise SystemExit(f"SHA-256 mismatch in release metadata for {name}")
+              print(f"{name}\t{asset['url']}\t{digest}\t{size}")
+          PY
+
+          while IFS=$'\t' read -r name asset_url expected_sha expected_size; do
+            curl -fL \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/octet-stream" \
+              "$asset_url" \
+              -o "incoming/$name"
+            actual_size="$(wc -c < "incoming/$name" | tr -d ' ')"
+            actual_sha="$(sha256sum "incoming/$name" | cut -d ' ' -f 1)"
+            test "$actual_size" = "$expected_size"
+            test "$actual_sha" = "$expected_sha"
+            echo "Verified $name ($actual_size bytes, SHA-256 $actual_sha)"
+          done < /tmp/source-assets.tsv
 
       - name: Set up Python
         uses: actions/setup-python@v5
