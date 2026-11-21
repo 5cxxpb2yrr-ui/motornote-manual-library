@@ -38,3 +38,5 @@ Create an R2 API token with **Object Read & Write** permission, scoped only to `
 - `R2_SECRET_ACCESS_KEY`
 
 The Cloudflare account ID is already configured in the workflow. The secret key is used only by GitHub Actions and is never written into the repository. The publisher does not use bucket-wide `sync --delete`. Small direct commits to manuals, index, or Phoenix assets use the incremental publisher, which uploads only changed objects and deletes only explicitly deleted allowlisted keys. A controlled full rebuild uploads the staged site first, then removes only stale visible objects inside its explicitly managed paths: `manuals/`, `index/`, `index.html`, and the two Phoenix assets. Hidden backups and unrelated R2 objects are protected. The **Publish MotorNote manual site (controlled)** workflow is manual-dispatch only and defaults to dry-run; production publish requires the `main` branch and an exact confirmation phrase. ZIP ingestion also invokes this same safe publisher after its catalog rebuild.
+
+Incremental publishing refuses changesets larger than 1,000 paths; use the controlled full-site workflow for complete manual re-indexes or large replacements.
