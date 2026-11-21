@@ -18,7 +18,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 90
     steps:
       - name: Check out pull request
         uses: actions/checkout@v4
@@ -46,3 +46,5 @@ jobs:
         run: |
           node -e 'JSON.parse(require("node:fs").readFileSync("worker/wrangler.jsonc", "utf8"))'
           node -e 'JSON.parse(require("node:fs").readFileSync("site-worker/wrangler.jsonc", "utf8"))'
+      - name: Build and validate the complete staged manual site
+        run: python scripts/manual_site_publisher.py --mode dry-run
