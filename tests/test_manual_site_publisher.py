@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import json
+import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from scripts.manual_site_publisher import (
@@ -10,6 +13,7 @@ from scripts.manual_site_publisher import (
     is_managed_key,
     parse_git_name_status,
     plan_deletions,
+    list_remote_keys,
 )
 
 
@@ -118,6 +122,35 @@ class ManualSitePublisherTests(unittest.TestCase):
         changed, deleted = parse_git_name_status(output)
         self.assertEqual(changed, ["manuals/scion/new.png", "manuals/scion/page.html"])
         self.assertEqual(deleted, ["index/old.json", "manuals/scion/old.png"])
+
+    def test_remote_key_listing_follows_all_pagination_pages(self) -> None:
+        responses = [
+            {"IsTruncated": True, "NextContinuationToken": "page-2",
+             "Contents": [{"Key": "manuals/scion/page-1.html"}]},
+            {"IsTruncated": False,
+             "Contents": [{"Key": "manuals/scion/page-2.html"}]},
+            {"IsTruncated": False, "Contents": []},
+            {"IsTruncated": False, "Contents": []},
+            {"IsTruncated": False, "Contents": []},
+            {"IsTruncated": False, "Contents": []},
+        ]
+        calls = []
+
+        def fake_aws(args, *, capture=False):
+            calls.append(args)
+            payload = responses.pop(0)
+            return subprocess.CompletedProcess(args, 0, json.dumps(payload), "")
+
+        with patch("scripts.manual_site_publisher.aws", side_effect=fake_aws):
+            keys = list_remote_keys("motornote-manual-site", "https://example.r2.cloudflarestorage.com")
+
+        self.assertEqual(keys, {
+            "manuals/scion/page-1.html",
+            "manuals/scion/page-2.html",
+        })
+        self.assertIn("--continuation-token", calls[1])
+        self.assertEqual(calls[1][calls[1].index("--continuation-token") + 1], "page-2")
+        self.assertEqual(responses, [])
 
     def test_deletion_plan_only_removes_stale_visible_managed_objects(self) -> None:
         local = {
