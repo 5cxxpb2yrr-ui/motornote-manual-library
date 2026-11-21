@@ -30,7 +30,7 @@ jobs:
     timeout-minutes: 360
     steps:
       - name: Verify production authorization
-        if: inputs.mode == 'publish'
+        if: ${{ inputs.mode == 'publish' }}
         env:
           CONFIRMATION: ${{ inputs.confirmation }}
         run: |
@@ -59,11 +59,11 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_manual_site_publisher.py' -v
 
       - name: Validate and preview the site
-        if: inputs.mode == 'dry-run'
+        if: ${{ inputs.mode == 'dry-run' }}
         run: python scripts/manual_site_publisher.py --mode dry-run
 
       - name: Publish validated site to Cloudflare R2
-        if: inputs.mode == 'publish'
+        if: ${{ inputs.mode == 'publish' }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
@@ -75,7 +75,7 @@ jobs:
           python scripts/manual_site_publisher.py --mode publish
 
       - name: Upload HTML cross-reference validation report
-        if: always() && hashFiles('html-cross-reference-report.json') != ''
+        if: ${{ always() && hashFiles('html-cross-reference-report.json') != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: html-cross-reference-validation

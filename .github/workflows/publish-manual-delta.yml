@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   publish-delta:
-    if: github.actor != 'github-actions[bot]'
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -44,8 +44,8 @@ jobs:
 
       - name: Publish only changed objects to Cloudflare R2
         env:
-          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
-          GITHUB_SHA: ${{ github.sha }}
+          MOTORNOTE_EVENT_BEFORE: ${{ github.event.before }}
+          MOTORNOTE_SHA: ${{ github.sha }}
           AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: auto
@@ -54,7 +54,7 @@ jobs:
         run: python scripts/manual_site_publisher.py --mode delta
 
       - name: Upload HTML cross-reference validation report
-        if: always() && hashFiles('html-cross-reference-report.json') != ''
+        if: ${{ always() && hashFiles('html-cross-reference-report.json') != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: html-cross-reference-validation

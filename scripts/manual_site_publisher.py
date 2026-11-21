@@ -2,7 +2,7 @@
 """Build and safely publish the private MotorNote manual site to Cloudflare R2.
 
 The publisher owns only these R2 keys: index.html, manuals/**, index/**,
-and assets/**. It never performs bucket-wide deletion. Hidden source paths
+and assets/phoenix.css and assets/phoenix.js. It never performs bucket-wide deletion. Hidden source paths
 (including .previous-* backups) are excluded from builds and protected from
 deletion. Manual ZIP stylesheets are never copied or applied; Phoenix assets
 are the single visual styling authority.
@@ -380,8 +380,10 @@ def parse_git_name_status(output: str) -> tuple[list[str], list[str]]:
         if len(fields) < 2:
             continue
         status = fields[0]
-        if status.startswith(("R", "C")) and len(fields) >= 3:
+        if status.startswith("R") and len(fields) >= 3:
             deleted.add(fields[1])
+            changed.add(fields[2])
+        elif status.startswith("C") and len(fields) >= 3:
             changed.add(fields[2])
         elif status == "D":
             deleted.add(fields[1])
@@ -401,8 +403,8 @@ def allowed_delta_path(relative: str) -> bool:
 
 
 def git_changed_paths(env: dict[str, str]) -> tuple[list[str], list[str]]:
-    before = env.get("GITHUB_EVENT_BEFORE", "")
-    after = env.get("GITHUB_SHA", "")
+    before = env.get("MOTORNOTE_EVENT_BEFORE", "")
+    after = env.get("MOTORNOTE_SHA", "")
     if not before or not after or not before.strip("0"):
         raise RuntimeError("A valid push before/after SHA is required; use the controlled full publisher for an initial publish.")
     result = subprocess.run(
