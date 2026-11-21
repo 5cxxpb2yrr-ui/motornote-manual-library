@@ -26,13 +26,15 @@ The dry run builds the complete staging site and runs scripts/validate_html_cros
 
 ## Controlled production publish
 
-The GitHub Actions workflow "Publish MotorNote manual site (controlled)" is manual-dispatch only. Its default mode is dry-run. It offers three modes: dry-run validates the full staged site without contacting R2; delta requires the last published commit SHA in base_sha, validates the full site, then uploads only changed visible allowlisted objects and deletes only explicitly deleted keys; publish rebuilds and uploads the complete site. Both delta and publish require the selected ref to be main and the exact confirmation PUBLISH_MOTORNOTE_MANUAL_SITE. Changesets over 1,000 paths fail closed in delta mode. The existing "Ingest service manuals" workflow invokes the full publisher automatically after successful ZIP ingestion and catalog rebuild. To publish:
+The GitHub Actions workflow "Publish MotorNote manual site (controlled)" is manual-dispatch only and defaults to dry-run. It offers three modes:
 
-1. Run the workflow on main.
-2. Select mode publish.
-3. Enter the exact confirmation PUBLISH_MOTORNOTE_MANUAL_SITE.
+1. **dry-run** — validates the full staged site without contacting R2.
+2. **delta** — requires `base_sha`, the last successfully published commit SHA. It validates the full site, then uploads only changed visible allowlisted objects and deletes only explicitly deleted keys. Changesets over 1,000 paths fail closed.
+3. **publish** — rebuilds and uploads the complete site, then removes stale visible keys inside the managed paths.
 
-The workflow checks that the selected ref is main before accessing R2 credentials. Direct pushes to manuals/, index/, or either Phoenix asset use the incremental workflow: it validates the full staged site, then publishes only changed allowlisted objects. The incremental workflow ignores the ingestion bot (which already performs a full publish) and refuses changesets over 1,000 paths. It checks out Git LFS content, validates the staged site, uploads manuals/, index/, and assets/ without deletion flags, uploads the generated root index.html, then removes only stale visible keys in the owned paths.
+Both production modes require the selected ref to be `main` and the exact confirmation `PUBLISH_MOTORNOTE_MANUAL_SITE`. After a successful publish, retain that run's commit SHA as the next delta mode's `base_sha`.
+
+Direct commits to manuals/, index/, or Phoenix assets do not automatically publish. Run the controlled workflow manually: dry-run first, then delta for a small change or publish for a complete rebuild. The "Ingest service manuals" workflow invokes the full publisher automatically after successful ZIP ingestion and catalog rebuild.
 
 ## Rollback and backups
 
