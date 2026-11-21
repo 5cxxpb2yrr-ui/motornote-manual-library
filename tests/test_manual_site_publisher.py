@@ -4,7 +4,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.manual_site_publisher import build_site, is_managed_key, plan_deletions
+from scripts.manual_site_publisher import (
+    allowed_delta_path,
+    build_site,
+    is_managed_key,
+    parse_git_name_status,
+    plan_deletions,
+)
 
 
 class ManualSitePublisherTests(unittest.TestCase):
@@ -91,6 +97,27 @@ class ManualSitePublisherTests(unittest.TestCase):
         self.assertFalse(is_managed_key("other-app/data.json"))
         self.assertFalse(is_managed_key("../outside.txt"))
         self.assertFalse(is_managed_key("manuals\\scion\\page.html"))
+
+    def test_delta_path_allowlist_excludes_hidden_and_unowned_assets(self) -> None:
+        self.assertTrue(allowed_delta_path("manuals/scion/page.html"))
+        self.assertTrue(allowed_delta_path("manuals/scion/archive.css"))
+        self.assertTrue(allowed_delta_path("index/catalog.json"))
+        self.assertTrue(allowed_delta_path("site-worker/assets/phoenix.css"))
+        self.assertTrue(allowed_delta_path("site-worker/assets/phoenix.js"))
+        self.assertFalse(allowed_delta_path("manuals/.previous-scion/page.html"))
+        self.assertFalse(allowed_delta_path("manuals/scion/.cache/page.html"))
+        self.assertFalse(allowed_delta_path("site-worker/assets/unmanaged.svg"))
+        self.assertFalse(allowed_delta_path("other-app/data.json"))
+
+    def test_git_name_status_parser_handles_modifications_deletions_and_renames(self) -> None:
+        output = (
+            "M\tmanuals/scion/page.html\n"
+            "D\tindex/old.json\n"
+            "R100\tmanuals/scion/old.png\tmanuals/scion/new.png\n"
+        )
+        changed, deleted = parse_git_name_status(output)
+        self.assertEqual(changed, ["manuals/scion/new.png", "manuals/scion/page.html"])
+        self.assertEqual(deleted, ["index/old.json", "manuals/scion/old.png"])
 
     def test_deletion_plan_only_removes_stale_visible_managed_objects(self) -> None:
         local = {

@@ -27,6 +27,7 @@ MANAGED_ROOT_FILES = frozenset({"index.html"})
 MANAGED_ASSET_KEYS = frozenset({"assets/phoenix.css", "assets/phoenix.js"})
 ALLOWED_BUCKET = "motornote-manual-site"
 PHOENIX_ASSETS = ("phoenix.css", "phoenix.js")
+MAX_DELTA_PATHS = 1000
 
 
 def hidden_path(relative: str | Path) -> bool:
@@ -136,20 +137,26 @@ def manual_html_pages(folder: Path) -> list[Path]:
     ]
 
 
-def make_manual_landing(folder: Path, stage: Path) -> bool:
+def render_manual_landing(folder: Path, site_root: Path) -> str | None:
     if any((folder / name).is_file() for name in ("index.html", "index.htm")):
-        return False
+        return None
     pages = manual_html_pages(folder)
     if not pages:
-        return False
-    target = "/" + urllib.parse.quote(pages[0].relative_to(stage).as_posix(), safe="/")
+        return None
+    target = "/" + urllib.parse.quote(pages[0].relative_to(site_root).as_posix(), safe="/")
     label = folder.name.replace("-", " ").replace("_", " ").title()
-    page = f"""<!doctype html>
+    return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">{phoenix_head_assets()}<title>{html.escape(label)} · MotorNote</title></head>
 <body><main class="mn-page-shell"><section class="mn-hero"><div class="mn-kicker">PHOENIX SYSTEMS · FACTORY REFERENCE</div>
 <h1>{html.escape(label)}</h1><p>Open the factory manual or search across the indexed service information.</p>
 <a class="mn-manual-card" href="{html.escape(target, quote=True)}"><span class="mn-make-icon" aria-hidden="true">▤</span><span><strong>Open manual</strong><small>Continue to the original chapter navigation</small></span><span class="mn-count">→</span></a></section></main>
 <script src="/assets/phoenix.js" defer></script></body></html>"""
+
+
+def make_manual_landing(folder: Path, stage: Path) -> bool:
+    page = render_manual_landing(folder, stage)
+    if page is None:
+        return False
     (folder / "index.html").write_text(page, encoding="utf-8")
     return True
 
@@ -324,7 +331,7 @@ def delete_stale_objects(bucket: str, endpoint: str, stale: list[str]) -> int:
     return deleted
 
 
-def publish_site(stage: Path, manifest: dict, env: dict[str, str]) -> tuple[int, int]:
+def r2_configuration(env: dict[str, str]) -> tuple[str, str]:
     account_id = env.get("R2_ACCOUNT_ID", "")
     bucket = env.get("R2_BUCKET", ALLOWED_BUCKET)
     if not re.fullmatch(r"[0-9a-fA-F]{32}", account_id):
@@ -333,7 +340,11 @@ def publish_site(stage: Path, manifest: dict, env: dict[str, str]) -> tuple[int,
         raise RuntimeError(f"Refusing to publish to unexpected bucket {bucket!r}. Expected {ALLOWED_BUCKET!r}.")
     if not env.get("AWS_ACCESS_KEY_ID") or not env.get("AWS_SECRET_ACCESS_KEY"):
         raise RuntimeError("R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY credentials are required.")
-    endpoint = f"https://{account_id}.r2.cloudflarestorage.com"
+    return bucket, f"https://{account_id}.r2.cloudflarestorage.com"
+
+
+def publish_site(stage: Path, manifest: dict, env: dict[str, str]) -> tuple[int, int]:
+    bucket, endpoint = r2_configuration(env)
 
     # Upload first, without --delete. A failed upload can never trigger cleanup.
     for directory in ("manuals", "index", "assets"):
@@ -360,14 +371,207 @@ def publish_site(stage: Path, manifest: dict, env: dict[str, str]) -> tuple[int,
     return len(local_keys), deleted
 
 
+def parse_git_name_status(output: str) -> tuple[list[str], list[str]]:
+    """Parse git diff --name-status, including renames, into changed/deleted paths."""
+    changed: set[str] = set()
+    deleted: set[str] = set()
+    for line in output.splitlines():
+        fields = line.split("\t")
+        if len(fields) < 2:
+            continue
+        status = fields[0]
+        if status.startswith(("R", "C")) and len(fields) >= 3:
+            deleted.add(fields[1])
+            changed.add(fields[2])
+        elif status == "D":
+            deleted.add(fields[1])
+        else:
+            changed.add(fields[1])
+    return sorted(changed), sorted(deleted)
+
+
+def allowed_delta_path(relative: str) -> bool:
+    if not safe_relative(relative) or hidden_path(relative):
+        return False
+    if relative.startswith(("manuals/", "index/")):
+        return is_managed_key(relative)
+    if relative.startswith("site-worker/assets/"):
+        return relative.removeprefix("site-worker/") in MANAGED_ASSET_KEYS
+    return False
+
+
+def git_changed_paths(env: dict[str, str]) -> tuple[list[str], list[str]]:
+    before = env.get("GITHUB_EVENT_BEFORE", "")
+    after = env.get("GITHUB_SHA", "")
+    if not before or not after or not before.strip("0"):
+        raise RuntimeError("A valid push before/after SHA is required; use the controlled full publisher for an initial publish.")
+    result = subprocess.run(
+        ["git", "diff", "--name-status", "--find-renames", before, after],
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    changed, deleted = parse_git_name_status(result.stdout)
+    return (
+        sorted(path for path in changed if allowed_delta_path(path)),
+        sorted(path for path in deleted if allowed_delta_path(path)),
+    )
+
+
+def publish_delta(root: Path, env: dict[str, str]) -> tuple[int, int]:
+    changed, deleted = git_changed_paths(env)
+    if not changed and not deleted:
+        print("No visible manual, index, or Phoenix asset changes; nothing to publish.")
+        return 0, 0
+
+    total_paths = len(set(changed) | set(deleted))
+    if total_paths > MAX_DELTA_PATHS:
+        raise RuntimeError(
+            f"{total_paths:,} changed paths exceed the incremental limit of {MAX_DELTA_PATHS:,}. "
+            "Use the controlled full-site workflow instead."
+        )
+    if not (root / "index" / "catalog.json").is_file():
+        raise RuntimeError("index/catalog.json is required; refusing incremental publish without the manual catalog.")
+    if not (root / "manuals").is_dir():
+        raise RuntimeError("The manuals directory is missing.")
+
+    lfs_paths = [
+        path for path in changed
+        if path.startswith(("manuals/", "index/")) and (root / path).is_file()
+    ]
+    for offset in range(0, len(lfs_paths), 100):
+        subprocess.run(
+            ["git", "lfs", "pull", "--include", ",".join(lfs_paths[offset:offset + 100]), "--exclude", ""],
+            check=True,
+        )
+
+    with tempfile.TemporaryDirectory(prefix="motornote-manual-delta-") as temporary:
+        stage = Path(temporary)
+        uploads: set[str] = set()
+        deletes: set[str] = set()
+        manual_folders: set[str] = set()
+        manual_changed = False
+
+        for relative in changed:
+            source = root / relative
+            if relative.startswith("manuals/"):
+                parts = PurePosixPath(relative).parts
+                if len(parts) < 3:
+                    continue
+                slug = parts[1]
+                if source.suffix.lower() == ".css":
+                    deletes.add(relative)
+                    continue
+                manual_changed = True
+                manual_folders.add(slug)
+                if not source.is_file():
+                    deletes.add(relative)
+                    continue
+                target = stage / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(source, target)
+                if target.suffix.lower() in {".html", ".htm"}:
+                    decorate_html_page(target)
+                uploads.add(relative)
+
+            elif relative.startswith("index/"):
+                if source.is_file():
+                    target = stage / relative
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(source, target)
+                    uploads.add(relative)
+                else:
+                    deletes.add(relative)
+
+            elif relative.startswith("site-worker/assets/"):
+                key = relative.removeprefix("site-worker/")
+                if not source.is_file():
+                    raise RuntimeError(f"Required Phoenix asset cannot be deleted: {key}")
+                target = stage / key
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(source, target)
+                uploads.add(key)
+
+        for relative in deleted:
+            if relative.startswith("manuals/"):
+                parts = PurePosixPath(relative).parts
+                if len(parts) < 3:
+                    continue
+                if PurePosixPath(relative).suffix.lower() == ".css":
+                    deletes.add(relative)
+                    continue
+                manual_changed = True
+                manual_folders.add(parts[1])
+                deletes.add(relative)
+            elif relative.startswith("index/"):
+                deletes.add(relative)
+            elif relative.startswith("site-worker/assets/"):
+                key = relative.removeprefix("site-worker/")
+                raise RuntimeError(f"Required Phoenix asset cannot be deleted: {key}")
+
+        for slug in sorted(manual_folders):
+            folder = root / "manuals" / slug
+            if not folder.is_dir():
+                continue
+            landing_key = f"manuals/{slug}/index.html"
+            if any((folder / name).is_file() for name in ("index.html", "index.htm")):
+                continue
+            landing = render_manual_landing(folder, root)
+            if landing is None:
+                deletes.add(landing_key)
+                continue
+            target = stage / landing_key
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(landing, encoding="utf-8")
+            uploads.add(landing_key)
+            deletes.discard(landing_key)
+
+        if manual_changed:
+            root_index = render_site_index(root / "manuals", root)
+            target = stage / "index.html"
+            target.write_text(root_index, encoding="utf-8")
+            uploads.add("index.html")
+
+        for key in uploads:
+            if not is_managed_key(key):
+                raise RuntimeError(f"Refusing to upload an object outside the R2 allowlist: {key}")
+        for key in deletes:
+            if not is_managed_key(key):
+                raise RuntimeError(f"Refusing to delete an object outside the R2 allowlist: {key}")
+
+        bucket, endpoint = r2_configuration(env)
+
+        # Upload every changed object first. Deletes happen only after all uploads succeed.
+        for key in sorted(uploads):
+            source = stage / key
+            aws(
+                [
+                    "s3", "cp", str(source), f"s3://{bucket}/{key}",
+                    "--only-show-errors", "--endpoint-url", endpoint,
+                ]
+            )
+
+        stale = sorted(deletes - uploads)
+        deleted_count = delete_stale_objects(bucket, endpoint, stale)
+        print(
+            f"Incremental publish complete: {len(uploads):,} objects uploaded, "
+            f"{deleted_count:,} objects deleted."
+        )
+        print("Only changed visible allowlisted paths were touched; hidden backups and unrelated R2 keys were preserved.")
+        return len(uploads), deleted_count
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=("dry-run", "publish"), default="dry-run")
+    parser.add_argument("--mode", choices=("dry-run", "publish", "delta"), default="dry-run")
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     args = parser.parse_args()
     root = args.root.resolve()
 
     try:
+        if args.mode == "delta":
+            publish_delta(root, dict(os.environ))
+            return 0
         with tempfile.TemporaryDirectory(prefix="motornote-manual-site-") as temporary:
             stage = Path(temporary) / "site"
             manifest = build_site(root, stage, validate=True)
