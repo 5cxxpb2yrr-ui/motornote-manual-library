@@ -378,7 +378,7 @@ def main() -> int:
                 f"{manifest['decorated_manual_html_pages']:,} HTML pages decorated, "
                 f"{manifest['generated_manual_landing_pages']:,} landing pages generated."
             )
-            print("R2 ownership: index.html, manuals/**, index/**, assets/**")
+            print("R2 ownership: index.html, manuals/**, index/**, assets/phoenix.css, assets/phoenix.js")
             print("Hidden paths and archive CSS excluded; Phoenix assets are repository-owned.")
             if args.mode == "dry-run":
                 print("Dry run only. No R2 credentials were read and no remote objects were changed.")
