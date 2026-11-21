@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Compatibility helpers for existing tests and scripts; publishing is retired here."""
+"""Compatibility helpers for tests; publishing is retired in this module.
+
+All build and R2 publication logic lives in manual_site_publisher.py.
+"""
 from pathlib import Path
 
 from manual_site_publisher import decorate_html_page
