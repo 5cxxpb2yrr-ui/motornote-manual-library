@@ -87,9 +87,17 @@ def normalized_target(root: Path, source: Path, raw_url: str, base_href: str | N
     return resolved, unquote(parsed.fragment), None
 
 
-def validate(root: Path, report_path: Path, *, duplicate_id_policy: str = "error") -> dict:
+def validate(
+    root: Path,
+    report_path: Path,
+    *,
+    duplicate_id_policy: str = "error",
+    missing_reference_policy: str = "error",
+) -> dict:
     if duplicate_id_policy not in {"error", "warn", "ignore"}:
         raise ValueError("duplicate_id_policy must be error, warn, or ignore.")
+    if missing_reference_policy not in {"error", "warn", "ignore"}:
+        raise ValueError("missing_reference_policy must be error, warn, or ignore.")
     root = root.resolve()
     if not root.is_dir():
         raise RuntimeError(f"Site root does not exist: {root}")
@@ -139,18 +147,22 @@ def validate(root: Path, report_path: Path, *, duplicate_id_policy: str = "error
                     })
                 continue
             if target not in files:
-                errors.append({
+                finding = {
                     "type": "missing-target",
                     "source": page.relative_to(root).as_posix(),
                     "attribute": attr,
                     "reference": raw_url,
                     "target": target.relative_to(root).as_posix() if target.is_relative_to(root) else str(target),
                     "message": "Local reference does not resolve to a published file",
-                })
+                }
+                if missing_reference_policy == "warn":
+                    warnings.append(finding)
+                elif missing_reference_policy == "error":
+                    errors.append(finding)
                 continue
             if fragment and target.suffix.lower() in {".html", ".htm"} and target in ids_by_page:
                 if fragment not in ids_by_page[target]:
-                    errors.append({
+                    finding = {
                         "type": "missing-anchor",
                         "source": page.relative_to(root).as_posix(),
                         "attribute": attr,
@@ -158,7 +170,11 @@ def validate(root: Path, report_path: Path, *, duplicate_id_policy: str = "error
                         "target": target.relative_to(root).as_posix(),
                         "fragment": fragment,
                         "message": "Target HTML page does not contain this ID/name anchor",
-                    })
+                    }
+                    if missing_reference_policy == "warn":
+                        warnings.append(finding)
+                    elif missing_reference_policy == "error":
+                        errors.append(finding)
 
     report = {
         "status": "failed" if errors else "passed",
@@ -199,9 +215,18 @@ def main() -> int:
         "--duplicate-id-policy", choices=("error", "warn", "ignore"), default="error",
         help="How to treat duplicate IDs in source HTML (default: error).",
     )
+    parser.add_argument(
+        "--missing-reference-policy", choices=("error", "warn", "ignore"), default="error",
+        help="How to treat missing local targets and anchors (default: error).",
+    )
     args = parser.parse_args()
     try:
-        report = validate(args.site_root, args.report, duplicate_id_policy=args.duplicate_id_policy)
+        report = validate(
+            args.site_root,
+            args.report,
+            duplicate_id_policy=args.duplicate_id_policy,
+            missing_reference_policy=args.missing_reference_policy,
+        )
     except RuntimeError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2

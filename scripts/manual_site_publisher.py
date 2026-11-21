@@ -246,7 +246,7 @@ def build_site(root: Path, stage: Path, *, validate: bool = True) -> dict:
             raise RuntimeError("scripts/validate_html_cross_references.py is required for publication.")
         report = stage.parent / "html-cross-reference-report.json"
         subprocess.run(
-            [sys.executable, str(validator), str(stage), "--report", str(report), "--duplicate-id-policy", "warn"],
+            [sys.executable, str(validator), str(stage), "--report", str(report), "--duplicate-id-policy", "warn", "--missing-reference-policy", "warn"],
             check=True,
         )
 

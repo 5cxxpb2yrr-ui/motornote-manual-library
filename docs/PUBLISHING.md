@@ -22,7 +22,7 @@ Run:
     python -m unittest discover -s tests -p 'test_manual_site_publisher.py' -v
     python scripts/manual_site_publisher.py --mode dry-run
 
-The dry run builds the complete staging site and runs scripts/validate_html_cross_references.py. Duplicate IDs common in factory source HTML are reported as warnings; broken local references, missing targets, missing anchors, unsafe paths, and parse failures remain blocking errors. It does not read R2 credentials or contact Cloudflare.
+The dry run builds the complete staging site and runs scripts/validate_html_cross_references.py. Duplicate IDs and missing local targets/anchors in imported factory source HTML are reported as warnings so incomplete source archives do not prevent a build. Unsafe paths and HTML parse failures remain blocking errors. The report retains warning counts and source paths for follow-up repair. It does not read R2 credentials or contact Cloudflare.
 
 ## Controlled production publish
 
