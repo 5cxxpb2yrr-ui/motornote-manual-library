@@ -139,7 +139,7 @@ jobs:
 
 
       - name: Upload HTML cross-reference validation report
-        if: always() && hashFiles('html-cross-reference-report.json') != ''
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: html-cross-reference-validation

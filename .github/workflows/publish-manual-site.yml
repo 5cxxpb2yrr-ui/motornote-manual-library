@@ -55,11 +55,20 @@ jobs:
             exit 1
           fi
 
-      - name: Check out complete manual corpus and history
+      - name: Check out manual corpus for delta mode
+        if: ${{ inputs.mode == 'delta' }}
         uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
-          lfs: ${{ inputs.mode != 'delta' }}
+          lfs: false
+          fetch-depth: 0
+
+      - name: Check out manual corpus for dry-run or full publish
+        if: ${{ inputs.mode != 'delta' }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          lfs: true
           fetch-depth: 0
 
       - name: Set up Python
@@ -101,7 +110,7 @@ jobs:
           python scripts/manual_site_publisher.py --mode publish
 
       - name: Upload HTML cross-reference validation report
-        if: ${{ always() && hashFiles('html-cross-reference-report.json') != '' }}
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: html-cross-reference-validation
