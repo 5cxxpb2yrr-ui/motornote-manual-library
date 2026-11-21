@@ -47,3 +47,5 @@ The old script names remain only as compatibility shims for existing cleanup tes
 The publisher explicitly allowlists only phoenix.css and phoenix.js under the R2 assets path. Adding another published asset requires a deliberate allowlist and test change.
 
 Warnings remain visible in the JSON validation report with their source file, reference, and target; they are not silently discarded.
+
+Direct commits to manuals/ or index/ do not automatically start a site publish. Use the controlled workflow's dry-run first, then its confirmed publish mode when the intended corpus is on main.
