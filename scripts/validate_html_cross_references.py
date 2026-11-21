@@ -87,7 +87,9 @@ def normalized_target(root: Path, source: Path, raw_url: str, base_href: str | N
     return resolved, unquote(parsed.fragment), None
 
 
-def validate(root: Path, report_path: Path) -> dict:
+def validate(root: Path, report_path: Path, *, duplicate_id_policy: str = "error") -> dict:
+    if duplicate_id_policy not in {"error", "warn", "ignore"}:
+        raise ValueError("duplicate_id_policy must be error, warn, or ignore.")
     root = root.resolve()
     if not root.is_dir():
         raise RuntimeError(f"Site root does not exist: {root}")
@@ -96,6 +98,7 @@ def validate(root: Path, report_path: Path) -> dict:
     html_files = sorted((p for p in files if p.suffix.lower() in {".html", ".htm"}), key=str)
     parsed_docs: dict[Path, References] = {}
     errors: list[dict[str, str]] = []
+    warnings: list[dict[str, str]] = []
     checked = 0
 
     for page in html_files:
@@ -109,13 +112,17 @@ def validate(root: Path, report_path: Path) -> dict:
         counts = Counter(doc.ids)
         ids_by_page[page] = set(doc.ids)
         for anchor, count in counts.items():
-            if count > 1:
-                errors.append({
+            if count > 1 and duplicate_id_policy != "ignore":
+                finding = {
                     "type": "duplicate-id",
                     "source": page.relative_to(root).as_posix(),
                     "target": anchor,
                     "message": f"ID/name anchor appears {count} times",
-                })
+                }
+                if duplicate_id_policy == "warn":
+                    warnings.append(finding)
+                else:
+                    errors.append(finding)
 
     for page, doc in parsed_docs.items():
         for attr, raw_url in doc.refs:
@@ -161,14 +168,19 @@ def validate(root: Path, report_path: Path) -> dict:
         "errors": errors,
         "error_count": len(errors),
         "error_counts_by_type": dict(Counter(item["type"] for item in errors)),
+        "warnings": warnings,
+        "warning_count": len(warnings),
+        "warning_counts_by_type": dict(Counter(item["type"] for item in warnings)),
     }
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(
         f"HTML cross-reference validation: {report['status']} — "
         f"{len(html_files):,} HTML pages, {checked:,} local references, "
-        f"{len(errors):,} errors."
+        f"{len(errors):,} errors, {len(warnings):,} warnings."
     )
+    print(f"Error counts by type: {report['error_counts_by_type']}")
+    print(f"Warning counts by type: {report['warning_counts_by_type']}")
     print(f"Full report: {report_path}")
     for error in errors[:100]:
         location = error.get("source", "<unknown>")
@@ -183,9 +195,13 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("site_root", type=Path, help="Exact staged directory that will be published")
     parser.add_argument("--report", type=Path, default=Path("html-cross-reference-report.json"))
+    parser.add_argument(
+        "--duplicate-id-policy", choices=("error", "warn", "ignore"), default="error",
+        help="How to treat duplicate IDs in source HTML (default: error).",
+    )
     args = parser.parse_args()
     try:
-        report = validate(args.site_root, args.report)
+        report = validate(args.site_root, args.report, duplicate_id_policy=args.duplicate_id_policy)
     except RuntimeError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2
