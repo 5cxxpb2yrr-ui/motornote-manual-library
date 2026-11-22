@@ -1,0 +1,41 @@
+name: Reconcile manual catalog against source tree
+
+on:
+  push:
+    branches:
+      - audit/catalog-reconciliation-20261122
+
+permissions:
+  contents: read
+
+concurrency:
+  group: motornote-catalog-reconciliation
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out committed manuals and hydrate Git LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Reconcile catalog paths, sizes, hashes, and publisher exclusions
+        run: python scripts/reconcile_manual_catalog.py
+
+      - name: Upload full reconciliation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: manual-catalog-reconciliation
+          path: catalog-reconciliation-report.json
+          if-no-files-found: error
+          retention-days: 30
