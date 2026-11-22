@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
-      - name: Check out committed manuals without downloading large Git LFS objects
+      - name: Check out committed manuals and hydrate Git LFS objects
         uses: actions/checkout@v4
         with:
-          lfs: false
+          lfs: true
           fetch-depth: 1
 
       - name: Set up Python
