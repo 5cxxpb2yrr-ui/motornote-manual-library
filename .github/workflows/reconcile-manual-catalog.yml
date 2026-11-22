@@ -1,0 +1,62 @@
+name: Reconcile manual catalog against source tree
+
+on:
+  push:
+    branches:
+      - audit/catalog-reconciliation-20261122
+
+permissions:
+  contents: write
+
+concurrency:
+  group: motornote-catalog-reconciliation
+  cancel-in-progress: true
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out committed manuals and hydrate Git LFS objects
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild catalog from committed manuals without re-extracting ZIPs
+        run: python scripts/rebuild_catalog_from_tree.py
+
+      - name: Commit regenerated catalog and summary to this review branch
+        run: |
+          git add index/catalog.json index/pages.jsonl index/summary.json
+          if git diff --cached --quiet; then
+            echo "The committed catalog already matches the current manuals tree."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Rebuild manual catalog from committed source tree"
+            git push origin "HEAD:audit/catalog-reconciliation-20261122"
+          fi
+
+      - name: Run publisher safety tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Reconcile catalog paths, sizes, hashes, and publisher exclusions
+        run: python scripts/reconcile_manual_catalog.py
+
+      - name: Validate complete staged site without publishing
+        run: python scripts/manual_site_publisher.py --mode dry-run
+
+      - name: Upload full reconciliation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: manual-catalog-reconciliation
+          path: catalog-reconciliation-report.json
+          if-no-files-found: error
+          retention-days: 30
