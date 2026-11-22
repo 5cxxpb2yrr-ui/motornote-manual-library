@@ -30,7 +30,7 @@ jobs:
 
       - name: Verify the draft release and download its exact source archives
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.MANUAL_SOURCE_TOKEN }}
           SOURCE_RELEASE_ID: ${{ inputs.source_release_id }}
         run: |
           set -euo pipefail
