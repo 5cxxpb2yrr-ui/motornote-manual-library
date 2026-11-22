@@ -14,6 +14,7 @@ on:
       - "tests/**"
       - "scripts/validate_html_cross_references.py"
       - "scripts/publish_manual_site.py"
+      - "scripts/manual_site_publisher.py"
       - ".github/workflows/ingest-manuals.yml"
   workflow_dispatch:
     inputs:
@@ -134,11 +135,11 @@ jobs:
           AWS_DEFAULT_REGION: auto
           R2_ACCOUNT_ID: "3481a3f4006a12f337ceb86104d0816b"
           R2_BUCKET: motornote-manual-site
-        run: python scripts/publish_manual_site.py
+        run: python scripts/manual_site_publisher.py --mode publish
 
 
       - name: Upload HTML cross-reference validation report
-        if: always() && hashFiles('html-cross-reference-report.json') != ''
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: html-cross-reference-validation

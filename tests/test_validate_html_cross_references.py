@@ -55,6 +55,29 @@ class HTMLCrossReferenceValidationTests(unittest.TestCase):
         report = self.run_validation()
         self.assertEqual(report["error_counts_by_type"]["duplicate-id"], 1)
 
+    def test_missing_page_and_anchor_can_be_reported_as_warnings(self):
+        (self.root / "manuals" / "chapter" / "index.html").write_text(
+            '<a href="missing.html#nowhere">Broken page</a>'
+            '<a href="existing.html#nowhere">Broken anchor</a>', encoding="utf-8"
+        )
+        (self.root / "manuals" / "chapter" / "existing.html").write_text(
+            '<p>No matching anchor</p>', encoding="utf-8"
+        )
+        report = validate(self.root, self.report, missing_reference_policy="warn")
+        self.assertEqual(report["status"], "passed")
+        self.assertEqual(report["error_count"], 0)
+        self.assertEqual(report["warning_counts_by_type"]["missing-target"], 1)
+        self.assertEqual(report["warning_counts_by_type"]["missing-anchor"], 1)
+
+    def test_duplicate_ids_can_be_reported_as_warnings(self):
+        (self.root / "manuals" / "chapter" / "index.html").write_text(
+            '<div id="repeat"></div><section id="repeat"></section>', encoding="utf-8"
+        )
+        report = validate(self.root, self.report, duplicate_id_policy="warn")
+        self.assertEqual(report["status"], "passed")
+        self.assertEqual(report["error_count"], 0)
+        self.assertEqual(report["warning_counts_by_type"]["duplicate-id"], 1)
+
     def test_external_links_are_not_checked_as_local_files(self):
         (self.root / "manuals" / "chapter" / "index.html").write_text(
             '<a href="https://example.com/remote">External</a>'
