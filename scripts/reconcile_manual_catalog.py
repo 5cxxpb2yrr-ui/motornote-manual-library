@@ -83,11 +83,26 @@ def main() -> int:
                 "catalog": expected_size, "actual": actual_size,
             })
         with path.open("rb") as handle:
-            prefix = handle.read(200)
+            prefix = handle.read(1024)
+        expected_hash = entry.get("sha256")
         if prefix.startswith(b"version https://git-lfs.github.com/spec/v1"):
             lfs_pointers.append(relative)
+            pointer_text = prefix.decode("ascii", errors="replace")
+            oid_match = __import__("re").search(r"^oid sha256:([0-9a-f]{64})$", pointer_text, __import__("re").M)
+            size_match = __import__("re").search(r"^size ([0-9]+)$", pointer_text, __import__("re").M)
+            pointer_hash = oid_match.group(1) if oid_match else None
+            pointer_size = int(size_match.group(1)) if size_match else None
+            if expected_hash and pointer_hash != expected_hash.lower():
+                metadata_mismatches.append({
+                    "path": relative, "field": "sha256_lfs_pointer",
+                    "catalog": expected_hash, "actual": pointer_hash,
+                })
+            if expected_size is not None and pointer_size != expected_size:
+                metadata_mismatches.append({
+                    "path": relative, "field": "bytes_lfs_pointer",
+                    "catalog": expected_size, "actual": pointer_size,
+                })
             continue
-        expected_hash = entry.get("sha256")
         if expected_hash:
             actual_hash = sha256_file(path)
             if expected_hash.lower() != actual_hash.lower():
@@ -172,7 +187,7 @@ def main() -> int:
             print(json.dumps(item, sort_keys=True))
     print(f"\nFull machine-readable report: {REPORT.name}")
     return 1 if (missing_from_tree or missing_from_catalog or metadata_mismatches
-                 or duplicate_catalog_paths or lfs_pointers or catalog_ids != actual_ids) else 0
+                 or duplicate_catalog_paths or catalog_ids != actual_ids) else 0
 
 
 if __name__ == "__main__":
