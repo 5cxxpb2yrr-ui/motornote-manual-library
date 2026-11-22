@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: motornote-catalog-reconciliation
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   reconcile:
