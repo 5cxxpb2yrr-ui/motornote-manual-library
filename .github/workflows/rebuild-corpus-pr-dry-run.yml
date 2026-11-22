@@ -91,13 +91,21 @@ jobs:
             --pattern "subaru-service-manual.zip" \
             --dir incoming
 
-          while IFS= do
-            actual_size="$(wc -c < "incoming/$name" | tr -d ' ')"
-            actual_sha="$(sha256sum "incoming/$name" | cut -d ' ' -f 1)"
-            test "$actual_size" = "$expected_size"
-            test "$actual_sha" = "$expected_sha"
-            echo "Verified $name ($actual_size bytes, SHA-256 $actual_sha)"
-          done < /tmp/source-assets.tsv
+          for name in scion-service-manual.zip subaru-service-manual.zip; do
+            test -s "incoming/$name"
+          done
+
+          scion_size="$(wc -c < incoming/scion-service-manual.zip | tr -d ' ')"
+          scion_sha="$(sha256sum incoming/scion-service-manual.zip | cut -d ' ' -f 1)"
+          test "$scion_size" = "126059381"
+          test "$scion_sha" = "3875bc9151c041d92559e7649870ac77d34d5c5378fd94c4b1e1dc0c477092b6"
+          echo "Verified scion-service-manual.zip ($scion_size bytes, SHA-256 $scion_sha)"
+
+          subaru_size="$(wc -c < incoming/subaru-service-manual.zip | tr -d ' ')"
+          subaru_sha="$(sha256sum incoming/subaru-service-manual.zip | cut -d ' ' -f 1)"
+          test "$subaru_size" = "277626510"
+          test "$subaru_sha" = "78f1fc6d415b61bd3d3ff0ba2cd02acad309237c7305aeabb89be01914ed6a91"
+          echo "Verified subaru-service-manual.zip ($subaru_size bytes, SHA-256 $subaru_sha)"
 
       - name: Set up Python
         uses: actions/setup-python@v5
