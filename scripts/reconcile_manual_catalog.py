@@ -77,13 +77,14 @@ def main() -> int:
         path = actual_by_path[relative]
         actual_size = path.stat().st_size
         expected_size = entry.get("bytes")
-        if expected_size is not None and expected_size != actual_size:
+        with path.open("rb") as handle:
+            prefix = handle.read(1024)
+        is_lfs_pointer = prefix.startswith(b"version https://git-lfs.github.com/spec/v1")
+        if not is_lfs_pointer and expected_size is not None and expected_size != actual_size:
             metadata_mismatches.append({
                 "path": relative, "field": "bytes",
                 "catalog": expected_size, "actual": actual_size,
             })
-        with path.open("rb") as handle:
-            prefix = handle.read(1024)
         expected_hash = entry.get("sha256")
         if prefix.startswith(b"version https://git-lfs.github.com/spec/v1"):
             lfs_pointers.append(relative)
