@@ -1,0 +1,168 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Inspection Procedure — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Inspection Procedure</h1><div id="S02067092012006081300000">
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>DTC P0011 or P0012 may be set when foreign objects in the engine oil are caught in some parts of the system. The DTC will remain set even if the system returns to normal after a short time.<br>Foreign objects are filtered out by the oil filter.</span></div>
+  <p>HINT:</p>
+  <p>Reed freeze frame data using the intelligent tester. Freeze frame data records the engine condition when malfunctions are detected. When troubleshooting, freeze frame data can help determine if the vehicle was moving or stationary, if the engine was warmed up or not, if the air-fuel ratio was lean or rich, and other data from the time the malfunction occurred.</p>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">CHECK ANY OTHER DTCS OUTPUT (IN ADDITION TO DTC P0011 OR P0012) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the tester ON.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DTC INFO / CURRENT CODES.</li>
+        <li>Read DTCs.<p><span class="clsEmphBOLD">Result </span></p><a name="S32528252742006081300000"></a><div class="clsTableTitle">RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Display (DTC Output)</th>
+                <th align="left" class="clsCellNormal">Proceed to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">P0011 or P0012</td>
+                <td align="left" class="clsCellNormal">A</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">P0011 or P0012 and other DTCs</td>
+                <td align="left" class="clsCellNormal">B</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>HINT:</p>
+          <p>If any DTCs other than P0011 or P0012 are output, troubleshoot those DTCs first.</p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">B: GO TO  <a href="../pages/7933.html">DTC CHART</a>  </span></p>
+      <p><span class="clsEmphBOLD">A: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">PERFORM ACTIVE TEST BY INTELLIGENT TESTER (OPERATE OCV) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Start the engine and turn the tester ON.</li>
+        <li>Warm up the engine.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / ACTIVE TEST / VVT CTRL B1.</li>
+        <li>Check the engine speed while operating the Oil Control Valve (OCV) using the tester.<p><span class="clsEmphBOLD">OK </span></p><a name="S08913390332006081300000"></a><div class="clsTableTitle">TESTER OPERATION SPECIFIED CONDITION</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Tester Operation</th>
+                <th align="left" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">OCV OFF</td>
+                <td align="left" class="clsCellNormal">Normal engine speed</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">OCV ON</td>
+                <td align="left" class="clsCellNormal">Engine idles roughly or stalls (soon after OCV switched from OFF to ON)</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: Go to step   <a class="clsListItemLink" href="#S40992007402006081300000" location="/api/article/getcontent?articleId=A00241918_S40992007402006081300000_LSTITM">4</a> </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK WHETHER DTC OUTPUT RECURS (DTC P0011 OR P0012) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the tester ON.</li>
+        <li>Clear DTCs (see <a href="../pages/7928.html">DTC CHECK / CLEAR</a> 
+
+).</li>
+        <li>Start the engine and warm it up.</li>
+        <li>Switch the ECM from normal mode to check mode using the tester (see <a href="../pages/7930.html">CHECK MODE PROCEDURE</a> 
+
+).</li>
+        <li>Drive the vehicle for more than 10 minutes.</li>
+        <li>Read DTCs using the tester.<p><span class="clsEmphBOLD">OK: No DTC output. </span></p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: Go to step 4 </span></p>
+      <p><span class="clsEmphBOLD">OK: END </span></p>
+    </li>
+    <li><a name="S40992007402006081300000"></a><span class="clsEmphBOLD">CHECK VALVE TIMING (CHECK TIMING CHAIN FOR LOOSENESS AND JUMPED) </span><ol class="LOWERALPHA">
+        <li>Remove the cylinder head cover (see 
+
+<a href="../pages/7909.html">REMOVAL</a>
+
+).</li>
+        <li>Turn the crankshaft pulley, then align its groove with the timing mark &quot;0&quot; of the timing chain cover.</li>
+        <li>Check that both timing marks on the camshaft timing sprocket and camshaft timing gear are facing upward as shown in the illustration.<p>If not, turn the crankshaft 1 revolution (360°), then align the marks as above.</p>
+          <div class="imageHolder" id="container_G04225386">
+            <div class="imageHeader"><a name="S34997653032006081300000"></a><span class="imageCaption">Fig 1: Removing Cylinder Head Cover</span></div><img alt="G04225386" src="../images/G04225386.gif" name="G04225386"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p><span class="clsEmphBOLD">OK: The timing marks on the camshaft timing gears are aligned with the timing chain cover surface. </span></p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: ADJUST VALVE TIMING </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">INSPECT CAMSHAFT TIMING OIL CONTROL VALVE ASSEMBLY (OCV) </span><ol class="LOWERALPHA">
+        <li>Remove the OCV (see <a href="../pages/7913.html#Camshaft%20Timing%20Oil%20Control%20Valve%20Assembly/">CAMSHAFT TIMING OIL CONTROL VALVE ASSEMBLY</a> 
+
+).</li>
+        <li>Measure the resistance between the terminals of the OCV.<p><span class="clsEmphBOLD">Standard resistance: 6.9 to 7.9 Ω at 20°C (68°F) </span></p>
+        </li>
+        <li>Apply the positive battery voltage to terminal 1 and negative battery voltage to terminal 2. Check the valve operation.<div class="imageHolder" id="container_G04225387">
+            <div class="imageHeader"><a name="S04775158772006081300000"></a><span class="imageCaption">Fig 2: Inspecting Camshaft Timing Oil Control Valve Assembly</span></div><img alt="G04225387" src="../images/G04225387.gif" name="G04225387"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p><span class="clsEmphBOLD">OK: Valve moves quickly. </span></p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPLACE CAMSHAFT TIMING OIL CONTROL VALVE ASSEMBLY </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">INSPECT OIL CONTROL VALVE FILTER </span><ol class="LOWERALPHA">
+        <li>Remove the generator (see 
+
+<a href="../pages/7910.html">REMOVAL</a>
+
+).</li>
+        <li>Remove the OCV filter (see 
+
+
+
+).</li>
+        <li>Check that the filter is not clogged.<div class="imageHolder" id="container_G04225388">
+            <div class="imageHeader"><a name="S20623802952006081300000"></a><span class="imageCaption">Fig 3: Inspecting Oil Control Valve Filter</span></div><img alt="G04225388" src="../images/G04225388.gif" name="G04225388"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p><span class="clsEmphBOLD">OK: Filter is not clogged. </span></p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: CLEAN OIL CONTROL VALVE FILTER </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">REPLACE CAMSHAFT TIMING GEAR ASSEMBLY </span><ol class="LOWERALPHA">
+        <li>Replace the camshaft timing gear assembly (see 
+
+<a href="../pages/8403.html">REMOVAL</a>
+
+).</li>
+      </ol>
+      <p><span class="clsEmphBOLD">NEXT </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK IF DTC OUTPUT RECURS </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the tester ON.</li>
+        <li>Clear DTCs (see <a href="../pages/7928.html">DTC CHECK / CLEAR</a> 
+
+).</li>
+        <li>Start the engine and warm it up.</li>
+        <li>Switch the ECM from normal mode to check mode using the tester (see <a href="../pages/7930.html">CHECK MODE PROCEDURE</a> 
+
+).</li>
+        <li>Drive the vehicle for more than 10 minutes.</li>
+        <li>Confirm that no DTC is set using the tester.<p><span class="clsEmphBOLD">Standard: No DTC output. </span></p>
+          <p>HINT:</p>
+          <p>DTC P0011 or P0012 is output when foreign objects in engine oil are caught in some parts of the system. These codes will stay registered even if the system returns to normal after a short time. These foreign objects are then captured by the oil filter, thus eliminating the source of the problem.</p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">OK: SYSTEM OK </span></p>
+      <p><span class="clsEmphBOLD">NG: REPLACE ECM </span></p>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

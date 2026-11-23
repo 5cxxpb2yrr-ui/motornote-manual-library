@@ -1,0 +1,408 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Inspection Procedure — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Inspection Procedure</h1><div id="S25861775872006081300000">
+  <p>HINT:</p>
+  <ul class="BULLET">
+    <li>If any DTCs other than the misfire DTCs are output, troubleshoot those DTCs first.</li>
+    <li>Read freeze frame data using the intelligent tester. Freeze frame data records the engine condition when malfunctions are detected. When troubleshooting, freeze frame data can help determine if the vehicle was moving or stationary, if the engine was warmed up or not, if the air-fuel ratio was lean or rich, and other data from the time the malfunction occurred.</li>
+    <li>If the misfire does not recur when the vehicle is brought to the workshop, reproduce the conditions stored in the freeze frame data.</li>
+    <li>If the misfire still cannot be reproduced even though the conditions stored in the freeze frame data have been duplicated, one of the following factors is considered to be a possible cause of the problem:<ol class="LOWERALPHA">
+        <li>The in the fuel tank is low.</li>
+        <li>Improper fuel is used.</li>
+        <li>The ignition plugs have been contaminated.</li>
+        <li>The problem is complex.</li>
+      </ol>
+    </li>
+    <li>After finishing repairs, check the misfire counts of the cylinders (CYL #1, #2, #3 and #4).</li>
+    <li>Be sure to confirm that no misfiring cylinder DTCs are set again by conducting the confirmation driving pattern after repairs.</li>
+    <li>For 6 and 8 cylinder engines, the ECM intentionally does not set the specific misfiring cylinder DTCs at high engine RPM. If misfires occur only in high engine RPM areas, only DTC P0300 is set.<p>In the event of DTC P0300 being present, perform the following operations:</p>
+      <ol class="LOWERALPHA">
+        <li>Clear the DTC (see <a href="../pages/7928.html">DTC CHECK / CLEAR</a> 
+
+).</li>
+        <li>Start the engine and conduct the confirmation driving pattern.</li>
+        <li>Read the misfiring rates of each cylinder or DTC(s) using the tester.</li>
+        <li>Repair the cylinder(s) that has a high misfiring rate or is indicated by the DTC.</li>
+        <li>After finishing repairs, conduct the confirmation driving pattern again in order to verify that DTC P0300 is not set.</li>
+      </ol>
+    </li>
+    <li>When one of SHORT FT #1, LONG FT #1 in the freeze frame data is outside the range of +-20%, the air-fuel ratio may be rich (-20% or less) or lean (+20% or more).</li>
+    <li>When the COOLANT TEMP in the freeze frame data is less than 75°C (167°F), the misfires have occurred only while warming up the engine.</li>
+  </ul>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">CHECK ANY OTHER DTCS OUTPUT (IN ADDITION TO MISFIRE DTCS) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the tester ON.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DTC INFO / CURRENT CODES.</li>
+        <li>Read DTCs (see <a href="../pages/7928.html">DTC CHECK / CLEAR</a> 
+
+).<p><span class="clsEmphBOLD">Result </span></p><a name="S28655281622006081300000"></a><div class="clsTableTitle">RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Display (DTC Output)</th>
+                <th align="center" class="clsCellNormal">Proceed to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">P0300, P0301, P0302, P0303 and/or P0304</td>
+                <td align="center" class="clsCellNormal">A</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">P0300, P0301, P0302, P0303 and/or P0304 and other DTCs</td>
+                <td align="center" class="clsCellNormal">B</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>HINT:</p>
+          <p>If any other DTCs besides P0300, P0301, P0302, P0303 and P0304 are output, perform troubleshooting for those DTCs first.</p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">B: GO TO  <a href="../pages/7933.html">DTC CHART</a>  </span></p>
+      <p><span class="clsEmphBOLD">A: Go to Next Step </span></p>
+    </li>
+    <li><a name="S08305174512006081300000"></a><span class="clsEmphBOLD">READ VALUE OF INTELLIGENT TESTER (MISFIRE RPM, MISFIRE LOAD) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the tester ON.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DATA LIST / MISFIRE / MISFIRE RPM and MISFIRE LOAD.</li>
+        <li>Read and note the MISFIRE RPM and the MISFIRE LOAD (engine load) values.<p>HINT:</p>
+          <p>The MISFIRE RPM and MISFIRE LOAD indicate the vehicle conditions under which the misfire occurred.</p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NEXT </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK VENTILATION HOSE CONNECTIONS </span><p><span class="clsEmphBOLD">OK: Ventilation hose is connected correctly, and is not damaged. </span></p>
+      <p><span class="clsEmphBOLD">NG: REPAIR OR REPLACE VENTILATION HOSE </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK MISFIRE COUNT (CYL #1, #2, #3, #4) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the tester ON.</li>
+        <li>Clear DTC (see <a href="../pages/7928.html">DTC CHECK / CLEAR</a> 
+
+).</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DATA LIST / MISFIRE / CYL #1, #2, #3 and #4.</li>
+        <li>Allow the engine to idle.</li>
+        <li>Read each value of CYL #1 to #4 displayed on the tester. If no misfire counts occur in any cylinders, perform the following operations:<ol class="ARABICNUM">
+            <li>Move the gear selector lever to the D position.</li>
+            <li>Repeat steps (c) and (d) above.</li>
+            <li>Check the CYL #1 to #4.</li>
+            <li>If misfire counts are still not displayed, repeat (e) and then check the misfire counts again.</li>
+          </ol>
+        </li>
+        <li>Drive the vehicle with the MISFIRE RPM and MISFIRE LOAD noted in step  <a class="clsListItemLink" href="#S08305174512006081300000" location="/api/article/getcontent?articleId=A00241918_S08305174512006081300000_LSTITM">2</a>.</li>
+        <li>Read the CYL #1 to #4 or DTCs displayed on the tester.<p><span class="clsEmphBOLD">Result </span></p><a name="S04530832842006081300000"></a><div class="clsTableTitle">RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Misfire Count</th>
+                <th align="center" class="clsCellNormal">Proceed to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">1 or 2 cylinders have misfire counts</td>
+                <td align="center" class="clsCellNormal">A</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">3 cylinders or more have misfire counts</td>
+                <td align="center" class="clsCellNormal">B</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">B: Go to step   <a class="clsListItemLink" href="#S05106973642006081300000" location="/api/article/getcontent?articleId=A00241918_S05106973642006081300000_LSTITM">13</a> </span></p>
+      <p><span class="clsEmphBOLD">A: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK SPARK PLUG </span><ol class="LOWERALPHA">
+        <li>Remove the No. 2 cylinder head cover (see 
+
+<a href="../pages/8403.html">REMOVAL</a>
+
+).</li>
+        <li>Remove the ignition coil and the spark plug of misfire cylinder.</li>
+        <li>Measure the spark plug electrode gap.<p><span class="clsEmphBOLD">Standard gap: 0.7 to 0.8 mm (0.028 to 0.032 in.) </span></p>
+          <p><span class="clsEmphBOLD">Maximum electrode gap: 1.16 mm (0.046 in.) </span></p>
+        </li>
+        <li>Check the electrode for carbon deposits.<p><span class="clsEmphBOLD">Recommended spark plug </span></p><a name="S11978836322006081300000"></a><div class="clsTableTitle">RECOMMENDED SPARK PLUGS</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Manufacturer</th>
+                <th align="left" class="clsCellNormal">Product</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">DENSO</td>
+                <td align="left" class="clsCellNormal">K16R-U</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">NGK</td>
+                <td align="left" class="clsCellNormal">BKR5EYA</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="imageHolder" id="container_G04225558">
+            <div class="imageHeader"><a name="S29141528412006081300000"></a><span class="imageCaption">Fig 1: Checking Spark Plug</span></div><img alt="G04225558" src="../images/G04225558.gif" name="G04225558"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>If the electrode gap is larger than the standard, replace the spark plug. Do not adjust the electrode gap.</span></div>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPLACE SPARK PLUG </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK SPARK AND IGNITION </span><ol class="LOWERALPHA">
+        <li>Disconnect the injector connectors to prevent the engine starting.</li>
+        <li>Install the spark plug to the ignition coil.</li>
+        <li>Attach the spark plug to the cylinder head cover.</li>
+        <li>Crank the engine within 2 seconds and check the spark.<p><span class="clsEmphBOLD">OK: Spark jumps across electrode gap. </span></p>
+          <div class="imageHolder" id="container_G04225559">
+            <div class="imageHeader"><a name="S17574609682006081300000"></a><span class="imageCaption">Fig 2: Disconnecting Injector Connectors To Prevent Engine Starting</span></div><img alt="G04225559" src="../images/G04225559.gif" name="G04225559"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: Go to step   <a class="clsListItemLink" href="#S40642581252006081300000" location="/api/article/getcontent?articleId=A00241918_S40642581252006081300000_LSTITM">8</a> </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK CYLINDER COMPRESSION PRESSURE OF MISFIRING CYLINDER </span><ol class="LOWERALPHA">
+        <li>Measure the cylinder compression pressure of the misfiring cylinder.</li>
+      </ol>
+      <p><span class="clsEmphBOLD">OK: Go to step   <a class="clsListItemLink" href="#S13596046702006081300000" location="/api/article/getcontent?articleId=A00241918_S13596046702006081300000_LSTITM">9</a> </span></p>
+      <p><span class="clsEmphBOLD">NG: REPAIR OR REPLACE MALFUNCTIONING PARTS </span></p>
+    </li>
+    <li><a name="S40642581252006081300000"></a><span class="clsEmphBOLD">CHANGE TO NORMAL SPARK PLUG AND CHECK SPARK OF MISFIRING CYLINDER </span><ol class="LOWERALPHA">
+        <li>Change to a normal spark plug.</li>
+        <li>Perform a spark test.<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Always disconnect each injector connector.</span></div>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Do not crank the engine for more than 2 seconds.</span></div>
+          <ol class="ARABICNUM">
+            <li>Install the spark plug to the ignition coil and connect the ignition coil connector.</li>
+            <li>Disconnect the injector connector.</li>
+            <li>Ground the spark plug.</li>
+            <li>Check if sparks occur while the engine is being cranked.<p><span class="clsEmphBOLD">OK: Spark jumps across electrode gap. </span></p>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPLACE IGNITION COIL, THEN CONFIRM THAT THERE IS NO MISFIRE </span></p>
+      <p><span class="clsEmphBOLD">OK: REPLACE SPARK PLUG </span></p>
+    </li>
+    <li><a name="S13596046702006081300000"></a><span class="clsEmphBOLD">INSPECT ECM TERMINAL OF MISFIRING CYLINDER (#10, #20, #30 AND/OR #40 VOLTAGE) </span><ol class="LOWERALPHA">
+        <li>Turn the ignition switch ON.</li>
+        <li>Measure the voltage of the E5 and E6 ECM connectors.<p><span class="clsEmphBOLD">Standard voltage </span></p><a name="S37694510412006081300000"></a><div class="clsTableTitle">TESTER CONNECTION - SPECIFIED CONDITION</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Tester Connection</th>
+                <th align="center" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">#10 (E6-6) - E01 (E5-7)</td>
+                <td align="center" class="clsCellNormal">9 to 14 V</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">#20 (E6-5) - E01 (E5-7)</td>
+                <td align="center" class="clsCellNormal">9 to 14 V</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">#30 (E6-2) - E01 (E5-7)</td>
+                <td align="center" class="clsCellNormal">9 to 14 V</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">#40 (E6-1) - E01 (E5-7)</td>
+                <td align="center" class="clsCellNormal">9 to 14 V</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="imageHolder" id="container_G04225560">
+            <div class="imageHeader"><a name="S02346441442006081300000"></a><span class="imageCaption">Fig 3: Measuring Voltage Of E5 And E6 ECM Connectors</span></div><img alt="G04225560" src="../images/G04225560.gif" name="G04225560"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">OK: Go to step   <a class="clsListItemLink" href="#S37888822102006081300000" location="/api/article/getcontent?articleId=A00241918_S37888822102006081300000_LSTITM">11</a> </span></p>
+      <p><span class="clsEmphBOLD">NG: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK HARNESS AND CONNECTOR (INJECTOR - ECM) </span><ol class="LOWERALPHA">
+        <li>Disconnect the injector connector (of the misfire cylinder).<div class="imageHolder" id="container_G04225561">
+            <div class="imageHeader"><a name="S04849542262006081300000"></a><span class="imageCaption">Fig 4: Disconnecting Injector Connector</span></div><img alt="G04225561" src="../images/G04225561.gif" name="G04225561"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+        <li>Disconnect the E6 ECM connector.</li>
+        <li>Turn the ignition switch ON.</li>
+        <li>Measure the resistance and voltage between the injector and the ECM connector terminals.<p><span class="clsEmphBOLD">Standard voltage </span></p><a name="S36433179032006081300000"></a><div class="clsTableTitle">TESTER CONNECTION - SPECIFIED CONDITION</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Tester Connection</th>
+                <th align="center" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">I6-1 - Body ground</td>
+                <td align="center" class="clsCellNormal">11 to 14 V</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">I7-1 - Body ground</td>
+                <td align="center" class="clsCellNormal">11 to 14 V</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">I8-1 - Body ground</td>
+                <td align="center" class="clsCellNormal">11 to 14 V</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">I9-1 - Body ground</td>
+                <td align="center" class="clsCellNormal">11 to 14 V</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="imageHolder" id="container_G04225562">
+            <div class="imageHeader"><a name="S17752780822006081300000"></a><span class="imageCaption">Fig 5: Measuring Resistance And Voltage Between Injector And ECM Connector Terminals</span></div><img alt="G04225562" src="../images/G04225562.gif" name="G04225562"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+        <li>Measure the resistance of the wire harness side connectors.<p><span class="clsEmphBOLD">Standard resistance </span></p><a name="S19361455162006081300000"></a><div class="clsTableTitle">TESTER CONNECTION - SPECIFIED CONDITION</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Cylinder</th>
+                <th align="left" class="clsCellNormal">Tester Connection</th>
+                <th align="left" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">No. 1</td>
+                <td align="left" class="clsCellNormal">I6-2 - Body ground</td>
+                <td align="left" class="clsCellNormal">10 kΩ or higher</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">No. 1</td>
+                <td align="left" class="clsCellNormal">I6-2 - #10 (E6-6)</td>
+                <td align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">No. 2</td>
+                <td align="left" class="clsCellNormal">I7-2 - Body ground</td>
+                <td align="left" class="clsCellNormal">10 kΩ or higher</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">No. 2</td>
+                <td align="left" class="clsCellNormal">I7-2 - #20 (E6-5)</td>
+                <td align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">No. 3</td>
+                <td align="left" class="clsCellNormal">I8-2 - Body ground</td>
+                <td align="left" class="clsCellNormal">10 kΩ or higher</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">No. 3</td>
+                <td align="left" class="clsCellNormal">I8-2 - #30 (E6-2)</td>
+                <td align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">No. 4</td>
+                <td align="left" class="clsCellNormal">I9-2 - Body ground</td>
+                <td align="left" class="clsCellNormal">10 kΩ or higher</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">No. 4</td>
+                <td align="left" class="clsCellNormal">I9-2 - #40 (E6-1)</td>
+                <td align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPAIR OR REPLACE HARNESS OR CONNECTOR </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><a name="S37888822102006081300000"></a><span class="clsEmphBOLD">CHECK FUEL INJECTOR OF MISFIRING CYLINDER </span><ol class="LOWERALPHA">
+        <li>Check the injector injection (whether fuel volume is high or low, and whether injection pattern is poor).</li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPLACE FUEL INJECTOR </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK VALVE CLEARANCE OF MISFIRING CYLINDER </span><p><span class="clsEmphBOLD">NG: ADJUST VALVE CLEARANCE </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><a name="S05106973642006081300000"></a><span class="clsEmphBOLD">CHECK AIR INDUCTION SYSTEM </span><ol class="LOWERALPHA">
+        <li>Check the air induction system for vacuum leaks.<p><span class="clsEmphBOLD">OK: No leakage from air induction system. </span></p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPAIR OR REPLACE AIR INDUCTION SYSTEM </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK VALVE TIMING </span><ol class="LOWERALPHA">
+        <li>Remove the cylinder head cover (see 
+
+<a href="../pages/7909.html">REMOVAL</a>
+
+).</li>
+        <li>Turn the crankshaft pulley, then align its groove with the timing mark &quot;0&quot; of the timing chain cover.</li>
+        <li>Check that both timing marks on the camshaft timing sprocket and camshaft timing gear are facing upward as shown in the illustration.<p>If not, turn the crankshaft 1 revolution (360°), then align the marks as above.</p>
+          <div class="imageHolder" id="container_G04225563">
+            <div class="imageHeader"><a name="S05784561872006081300000"></a><span class="imageCaption">Fig 6: Checking Valve Timing</span></div><img alt="G04225563" src="../images/G04225563.gif" name="G04225563"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p><span class="clsEmphBOLD">OK: Timing marks on camshaft timing gears are aligned with timing chain cover surface. </span></p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: ADJUST VALVE TIMING </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK FUEL PRESSURE </span><ol class="LOWERALPHA">
+        <li>Check the fuel pressure (see 
+
+<a href="../pages/8356.html">ON-VEHICLE INSPECTION</a>
+
+).</li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: CHECK AND REPLACE FUEL PUMP, PRESSURE REGULATOR, FUEL PIPE LINE AND FILTER </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">READ VALUE OF INTELLIGENT TESTER (COOLANT TEMP) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the tester ON.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DATA LIST / PRIMARY / COOLANT TEMP.</li>
+        <li>Read the COOLANT TEMP twice when the engine is both cold and warmed up.<p><span class="clsEmphBOLD">Standard: With cold engine: Same as ambient air temperature. </span></p>
+          <p><span class="clsEmphBOLD">With warm engine: 75°C to 95°C (167°F to 203°F). </span></p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPLACE ENGINE COOLANT TEMPERATURE SENSOR </span></p>
+      <p><span class="clsEmphBOLD">OK: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">READ VALUE OF INTELLIGENT TESTER (MAF) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the tester ON.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DATA LIST / PRIMARY / MAF and COOLANT TEMP.</li>
+        <li>Allow the engine to idle until the COOLANT TEMP reaches 75°C (167°F) or more.</li>
+        <li>Read the MAF with the engine in an idling condition and at an engine speed of 2,500 rpm.<p><span class="clsEmphBOLD">Standard: MAF while engine idling: Between 1.4 g/sec. and 2.3 g/sec. (shift position: N; A/C: OFF). </span></p>
+          <p><span class="clsEmphBOLD">MAF at engine speed of 2,500 rpm: 5.4 g/sec. to 7.9 g/sec. (shift position: N; A/C: OFF). </span></p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPLACE MASS AIR FLOW METER </span></p>
+      <p><span class="clsEmphBOLD">OK: CHECK FOR INTERMITTENT PROBLEMS </span></p>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

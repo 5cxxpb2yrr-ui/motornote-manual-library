@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Oxygen Sensor/Air Fuel Ratio Sensor Drive Cycle 15 — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Oxygen Sensor/Air Fuel Ratio Sensor Drive Cycle 15</h1><div id="S20521866992013032500000">
+  <div class="imageHolder" id="container_G00494836">
+    <div class="imageHeader"><a name="S22253938902013032500000"></a><span class="imageCaption">Fig 1: Drive Cycle Pattern 15 (1 Of 2)</span></div><img alt="G00494836" src="../images/G00494836.png" name="G00494836"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <div class="imageHolder" id="container_G00494836">
+    <div class="imageHeader"><a name="S33266563292013032500000"></a><span class="imageCaption">Fig 2: Drive Cycle Pattern 15 (2 Of 2)</span></div><img alt="G00494836" src="../images/G00494836.png" name="G00494836"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <ol class="ARABICNUM">
+    <li>Connect the Techstream to the DLC3.</li>
+    <li>Turn the power switch on (IG).</li>
+    <li>Turn the Techstream on.</li>
+    <li>Clear the DTCs (even if no DTCs are stored, perform the clear DTC procedure).</li>
+    <li>Turn the power switch off and wait for 30 seconds.</li>
+    <li>Turn the power switch on (IG) and turn the Techstream on.</li>
+    <li>Put the engine in inspection mode (maintenance mode).</li>
+    <li>Start the engine, and warm it up until the engine coolant temperature reaches 75°C (167°F) or higher [A].</li>
+    <li>On the Techstream, enter the following menus to check the fuel-cut status: Powertrain / Engine and ECT / Data List / Primary / Idle Fuel Cut.</li>
+    <li>Drive the vehicle at between 75 and 120 km/h (47 and 75 mph) for at least 10 minutes [B].<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing the confirmation driving pattern, obey all speed limits and traffic laws.</span></div>
+    </li>
+    <li>Move the shift lever in B [C].</li>
+    <li>Accelerate the vehicle to 75 km/h (47 mph) or more by depressing the accelerator pedal for at least 10 seconds [D].</li>
+    <li>Soon after performing step [D] above, release the accelerator pedal for at least 4 seconds without depressing the brake pedal in order to execute fuel-cut control [E].<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Fuel-cut control is executed when the accelerator pedal is released while the vehicle is moving at 35 km/h (22 mph) or slower (Fuel-cut control is prohibited when the engine speed decreases to 1000 rpm or lower).</span></div>
+    </li>
+    <li>Allow the vehicle to decelerate until the vehicle speed decreases to less than 10 km/h (6 mph).</li>
+    <li>Repeat steps [C] through [E] above at least 3 times in one driving cycle.</li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Trouble Codes [F].</li>
+    <li>Read the pending DTCs.<ul class="BULLET">
+        <li>If a pending DTC is output, the system is malfunctioning.</li>
+        <li>If a pending DTC is not output, perform the following procedure.</li>
+      </ul>
+    </li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Utility / All Readiness.</li>
+    <li>Input the DTC: P2195 or P2196.</li>
+    <li>Check the DTC judgment result.<a name="S18798667102013032500000"></a><div class="clsTableTitle">JUDGMENT RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="" width="146px">
+          <col span="1" id="" width="250px">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th valign="TOP" align="center" class="clsCellNormal">TECHSTREAM DISPLY</th>
+            <th valign="TOP" align="center" class="clsCellNormal">DESCRIPTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">NORMAL</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment completed</li>
+                <li>System normal</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">ABNORMAL</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment completed</li>
+                <li>System abnormal</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">INCOMPLETE</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment not completed</li>
+                <li>Perform driving pattern after confirming DTC enabling conditions</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">UNKNOWN</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>Unable to perform DTC judgment</li>
+                <li>Number of DTCs which do not fulfill DTC preconditions has reached ECU's memory limit</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="BULLET">
+        <li>If the judgment result shows NORMAL, the system is normal.</li>
+        <li>If the judgment result shows ABNORMAL, the system has a malfunction.</li>
+        <li>If the judgment result shows INCOMPLETE or UNKNOWN, perform steps [B] through [E].</li>
+      </ul>
+    </li>
+    <li>If no pending DTC is output, perform a universal trip and check for permanent DTCs.<ul class="BULLET">
+        <li>If a permanent DTC is output, the system is malfunctioning.</li>
+        <li>If no permanent DTC is output, the system is normal.</li>
+      </ul>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

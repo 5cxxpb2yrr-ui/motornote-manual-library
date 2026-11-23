@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Fail-Safe Chart — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Fail-Safe Chart</h1><div id="S17517480922006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">FAIL-SAFE FUNCTION </span><ol class="LOWERALPHA">
+        <li>When communication fails in any of the CAN bus lines (communication lines) due to a short circuit or for another reason, the fail-safe function, which is specified for each system, operates to prevent the system from malfunctioning.</li>
+        <li>The fail-safe function activates on each system when communication is impossible. (For further details, refer to the relevant systems of each part.)<a name="S31129039442006081300000"></a><div class="clsTableTitle">FAIL-SAFE CHART</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" width="57px" align="left">
+              <col span="1" id="COL2" width="92px" align="left">
+              <col span="1" id="COL3" width="75px" align="left">
+              <col span="1" id="COL4" width="87px" align="left">
+              <col span="1" id="COL5" width="71px" align="left">
+              <col span="1" id="COL6" width="120px" align="left">
+              <col span="1" id="COL7" width="195px" align="left">
+              <col span="1" id="COL8" width="131px" align="left">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td valign="BOTTOM" align="left" class="clsCellNormal">ECM</td>
+                <td valign="BOTTOM" align="left" class="clsCellNormal">Skid Control ECU</td>
+                <td valign="BOTTOM" align="left" class="clsCellNormal">Steering Sensor</td>
+                <td valign="BOTTOM" align="left" class="clsCellNormal">Yaw Rate Sensor</td>
+                <td valign="BOTTOM" align="left" class="clsCellNormal">A/C Amplifier</td>
+                <td valign="BOTTOM" align="left" class="clsCellNormal">Normal condition</td>
+                <td valign="BOTTOM" align="left" class="clsCellNormal">Conditions when communication is impossible</td>
+                <td valign="BOTTOM" align="left" class="clsCellNormal">DTC detection (Driver detectable)</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">B</td>
+                <td valign="TOP" align="left" class="clsCellNormal">A</td>
+                <td valign="TOP" align="left" class="clsCellNormal">B</td>
+                <td valign="TOP" align="left" class="clsCellNormal">B</td>
+                <td valign="TOP" align="left" class="clsCellNormal">-</td>
+                <td valign="TOP" align="left" class="clsCellNormal">VSC Control (Controls driving force while VSC is in operation)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">VSC function stops</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Detectable (Light comes on)</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">B</td>
+                <td valign="TOP" align="left" class="clsCellNormal">A</td>
+                <td valign="TOP" align="left" class="clsCellNormal">-</td>
+                <td valign="TOP" align="left" class="clsCellNormal">-</td>
+                <td valign="TOP" align="left" class="clsCellNormal">-</td>
+                <td valign="TOP" align="left" class="clsCellNormal">TRC control (Activation control and engine torque control usage during acceleration slip)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">TRC function stops</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Detectable (Light comes on)</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">B</td>
+                <td valign="TOP" align="left" class="clsCellNormal">-</td>
+                <td valign="TOP" align="left" class="clsCellNormal">-</td>
+                <td valign="TOP" align="left" class="clsCellNormal">-</td>
+                <td valign="TOP" align="left" class="clsCellNormal">A</td>
+                <td valign="TOP" align="left" class="clsCellNormal">A/C and PTC heater control</td>
+                <td valign="TOP" align="left" class="clsCellNormal">A/C control stops PTC heater control stops</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Not Detectable (Detected when A/C is not effective)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>HINT:</p>
+          <ul class="BULLET">
+            <li>Fail-safe function operation during an A-B communication error is shown in the above chart.</li>
+            <li>A: Main control system<p>B: Related system</p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

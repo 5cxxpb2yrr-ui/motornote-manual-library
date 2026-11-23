@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>System Description — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>System Description</h1><div id="S08222071202006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">BRIEF DESCRIPTION </span><ol class="LOWERALPHA">
+        <li>The Controller Area Network (CAN) is a serial data communication system for real time applications. It is a vehicle multiplex communication system which has a high communication speed (500 kbps) and the ability to detect malfunctions.</li>
+        <li>By pairing the CANH and CANL bus lines, the CAN performs the communication based on the differential voltage.</li>
+        <li>Many ECUs (sensors) installed on the vehicle operate by sharing information and communicating with each other.</li>
+        <li>The CAN has 2 resistors of 120 Ω which are necessary to communicate with the main bus line.</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">DEFINITION OF TERMS </span><ol class="LOWERALPHA">
+        <li>Main bus line<ol class="ARABICNUM">
+            <li>The main bus line is a wire harness between the two terminus circuits on the bus (communication line). This is the main bus in the CAN communication system.</li>
+          </ol>
+        </li>
+        <li>Sub bus line<ol class="ARABICNUM">
+            <li>The sub bus line is a wire harness which diverges from the main bus line to an ECU or sensor.</li>
+          </ol>
+        </li>
+        <li>Terminus circuit<ol class="ARABICNUM">
+            <li>The terminus circuit is a circuit which is placed to convert communication current of the CAN communication into bus voltage. It consists of a resistor and condenser. Two terminus circuits are necessary on a bus.</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">ECUS OR SENSORS WHICH COMMUNICATE THROUGH CAN COMMUNICATION SYSTEM </span><ol class="LOWERALPHA">
+        <li>Skid Control ECU</li>
+        <li>Yaw Rate Sensor</li>
+        <li>Steering Sensor</li>
+        <li>ECM</li>
+        <li>A/C Amplifier</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">DIAGNOSTIC CODES FOR CAN COMMUNICATION SYSTEM </span><ol class="LOWERALPHA">
+        <li>DTCs for the CAN communication system are as follows: U0073/94 (C1223/43), U0100/65, U0123/62, U0124/95 (C1223/43), U0126/63, B1499.</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">REMARKS FOR TROUBLESHOOTING </span><ol class="LOWERALPHA">
+        <li>Trouble in the CAN bus (communication line) can be checked from the DLC3 (except when there is a wire break other than in the sub bus line of the DLC3).</li>
+        <li>DTCs of the CAN communication system can be checked using the intelligent tester via the CAN VIM.</li>
+        <li>The CAN communication system cannot detect trouble in the sub bus line of the DLC3 even though the DLC3 is also connected to the CAN communication system.</li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

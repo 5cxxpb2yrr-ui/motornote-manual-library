@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>EGR Drive Cycle 2 — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>EGR Drive Cycle 2</h1><div id="S14552072652014011500000">
+  <div class="imageHolder" id="container_G00535191">
+    <div class="imageHeader"><a name="S01527779732014011500000"></a><span class="imageCaption">Fig 1: Drive Cycle Pattern 2</span></div><img alt="G00535191" src="../images/G00535191.png" name="G00535191"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <ol class="ARABICNUM">
+    <li>Connect the Techstream to the DLC3.</li>
+    <li>Turn the engine switch on (IG) and turn the Techstream on.</li>
+    <li>Clear the DTCs (even if no DTCs are stored, perform the clear DTC procedure).</li>
+    <li>Turn the engine switch off and wait for 30 seconds.</li>
+    <li>Turn the engine switch on (IG) and turn the Techstream on [A].</li>
+    <li>Start the engine and warm it up until the engine coolant temperature reaches 75°C (167°F) or higher [B].<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The A/C switch and all accessory switches should be off and the shift lever should be in P or N.</span></div>
+    </li>
+    <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing the confirmation driving pattern, obey all speed limits and traffic laws.</span></div>
+    <li>Drive the vehicle at 60 km/h (37 mph) for 5 minutes or more [C].</li>
+    <li>Idle the engine for 30 seconds or more [D].</li>
+    <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing the confirmation driving pattern, obey all speed limits and traffic laws.</span></div>
+    <li>Drive the vehicle at 60 km/h (37 mph) and shift the transmission to 2nd gear [E].</li>
+    <li>Perform fuel cut operation for 5 seconds or more with the accelerator pedal fully released [F].<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>When &quot;Idle Fuel Cut&quot; in the Data List is ON, fuel cut is operating.</span></div>
+    </li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Monitor / Current Monitor / Exhaust Gas Recirculation/VVT / Current [G].</li>
+    <li>Check that the Exhaust Gas Recirculation/VVT / Current monitor is Complete.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>If the monitor is Incomplete, perform the driving pattern again.</span></div>
+    </li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Monitor / Current Monitor / Exhaust Gas Recirculation/VVT / Details / EGR FLOW INSUFFICIENCY / Details.</li>
+    <li>Check the test Details (EGR FLOW INSUFFICIENCY). <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Make sure that the values are between MIN and MAX.</span></div>
+    </li>
+    <li>If the monitor is still Incomplete, perform the following procedure.</li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Trouble Codes.</li>
+    <li>Read the pending DTCs.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>If a pending DTC is output, the system is malfunctioning.</li>
+            <li>If a pending DTC is not output, perform the following procedure.</li>
+          </ul></span></div>
+    </li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Utility / All Readiness.</li>
+    <li>Input the DTC: P0401.</li>
+    <li>Check the DTC judgment result.<a name="S09232825262014011500000"></a><div class="clsTableTitle">JUDGMENT RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="" width="146px">
+          <col span="1" id="" width="250px">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th valign="TOP" align="center" class="clsCellNormal">TECHSTREAM DISPLY</th>
+            <th valign="TOP" align="center" class="clsCellNormal">DESCRIPTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">NORMAL</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment completed</li>
+                <li>System normal</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">ABNORMAL</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment completed</li>
+                <li>System abnormal</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">INCOMPLETE</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment not completed</li>
+                <li>Perform driving pattern after confirming DTC enabling conditions</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">UNKNOWN</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>Unable to perform DTC judgment</li>
+                <li>Number of DTCs which do not fulfill DTC preconditions has reached ECU's memory limit</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>If the judgment result shows NORMAL, the system is normal.</li>
+            <li>If the judgment result shows ABNORMAL, the system has a malfunction.</li>
+            <li>If the judgment result shows INCOMPLETE or UNKNOWN, perform steps [C] through [F].</li>
+          </ul></span></div>
+    </li>
+    <li>If the judgment result is INCOMPLETE or N/A and no pending DTC is output, perform a universal trip and check for permanent DTCs.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>If a permanent DTC is output, the system is malfunctioning.</li>
+            <li>If no permanent DTC is output, the system is normal.</li>
+          </ul></span></div>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

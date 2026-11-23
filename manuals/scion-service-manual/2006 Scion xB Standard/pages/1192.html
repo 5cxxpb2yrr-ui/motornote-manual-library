@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC C1232/32 Stuck in Deceleration Sensor; DTC C1234/34 Yaw Rate Sensor Malfunction; DTC C1243/43 Acceleration Sensor Stuck Malfunction; DTC C1244/44 Open or Short in Deceleration Sensor Circuit; DTC C1245/45 Acceleration Sensor Output Malfunction; DTC C1279/79 Acceleration Sensor Output Voltage Malfunction (Test Mode DTC); DTC C1381/97 Yaw Rate and / or Acceleration Sensor Power Supply Voltage Malfunction: Description — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>DTC C1232/32 Stuck in Deceleration Sensor; DTC C1234/34 Yaw Rate Sensor Malfunction; DTC C1243/43 Acceleration Sensor Stuck Malfunction; DTC C1244/44 Open or Short in Deceleration Sensor Circuit; DTC C1245/45 Acceleration Sensor Output Malfunction; DTC C1279/79 Acceleration Sensor Output Voltage Malfunction (Test Mode DTC); DTC C1381/97 Yaw Rate and / or Acceleration Sensor Power Supply Voltage Malfunction: Description</h1><div id="S23876987632006081300000">
+  <p>The deceleration sensor is built into the yaw rate sensor.</p>
+  <p>The yaw rate sensor signal is sent to the skid control ECU through the CAN communication system.</p>
+  <p>When there is a malfunction in communication, it will be detected by the diagnosis function.</p>
+  <p>DTC C1279/79 can be deleted when the deceleration sensor sends a deceleration sensor signal or the test mode ends. DTC C1279/79 is output only in the test mode.</p><a name="S20420793142006081300000"></a><div class="clsTableTitle">DETECTION CONDITION CHART</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">DTC No.</th>
+        <th align="left" class="clsCellNormal">DTC Detection Condition</th>
+        <th align="left" class="clsCellNormal">Trouble Area</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">C1232/32</td>
+        <td align="left" class="clsCellNormal">While vehicle speed becomes 0 km/h (0 mph) from 30 km/h (18 mph), the condition that GL1 and GL2 signals of ECU terminals do not change to 0.04 V or less occurs 16 times in a row</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Yaw rate sensor (Deceleration sensor)</li>
+            <li>Yaw rate sensor (Deceleration sensor) circuit</li>
+            <li>Wire harness</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">C1234/34</td>
+        <td align="left" class="clsCellNormal">Yaw rate sensor malfunction signal is received</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Yaw rate sensor</li>
+            <li>Yaw rate sensor circuit</li>
+            <li>Wire harness</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">C1243/43</td>
+        <td align="left" class="clsCellNormal">While the vehicle speed changes from 30 km/h (19 mph) to 0 km/h (0 mph), the condition that either GL1 or GL2 does not change occurs 16 times in a row</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Yaw rate sensor</li>
+            <li>Yaw rate sensor circuit</li>
+            <li>Wire harness for deceleration sensor system</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">C1244/44</td>
+        <td align="left" class="clsCellNormal">Either condition (1 or 2) is detected:<br><ol class="ARABICNUM">
+            <li>While the vehicle is not running, the condition that the difference between GL1 and GL2 once became 0.6 G or more but has not become below 0.4 G since then continues for 60 seconds or more</li>
+            <li>Data malfunction signal is received from G sensor</li>
+          </ol>
+        </td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Yaw rate sensor</li>
+            <li>Yaw rate sensor circuit</li>
+            <li>Wire harness</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">C1245/45</td>
+        <td align="left" class="clsCellNormal">With vehicle speed at 30 km/h (19 mph) or more, the condition that the difference between acceleration and deceleration values of computation from deceleration sensor and vehicle speed becomes more than 0.35 G continues for 60 seconds or more</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Yaw rate sensor</li>
+            <li>Yaw rate sensor circuit</li>
+            <li>Wire harness for deceleration sensor system</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">C1381/97</td>
+        <td align="left" class="clsCellNormal">With vehicle speed at 3 km/h (2 mph) or more, malfunction signal of deceleration sensor battery has been received constantly for 10 seconds or more</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Battery</li>
+            <li>Power source circuit</li>
+            <li>Charging system</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">C1279/79</td>
+        <td align="left" class="clsCellNormal">Detected only during test mode</td>
+        <td align="left" class="clsCellNormal">Deceleration sensor</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><script src="../script.js"></script></body></html>

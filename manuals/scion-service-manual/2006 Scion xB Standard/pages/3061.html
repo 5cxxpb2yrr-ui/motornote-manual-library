@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P0120 Throttle / Pedal Position Sensor / Switch &quot;A&quot; Circuit; DTC P0122 Throttle / Pedal Position Sensor / Switch &quot;A&quot; Circuit Low Input; DTC P0123 Throttle / Pedal Position Sensor / Switch &quot;A&quot; Circuit High Input: Description — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>DTC P0120 Throttle / Pedal Position Sensor / Switch &quot;A&quot; Circuit; DTC P0122 Throttle / Pedal Position Sensor / Switch &quot;A&quot; Circuit Low Input; DTC P0123 Throttle / Pedal Position Sensor / Switch &quot;A&quot; Circuit High Input: Description</h1><div id="S15357137772006081300000">
+  <div class="imageHolder" id="container_G04225428">
+    <div class="imageHeader"><a name="S39831145962006081300000"></a><span class="imageCaption">Fig 1: Throttle Position Sensor Description</span></div><img alt="G04225428" src="../images/G04225428.gif" name="G04225428"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <p>HINT:</p>
+  <p>These DTCs relate to the Throttle Position (TP) sensor.</p>
+  <p>The TP sensor is mounted on the throttle body and detects the throttle valve opening angle.</p>
+  <p>When the throttle valve is fully closed, the sensor transmits a signal voltage of approximately 0.3 to 1.0 V to terminal VTA of the ECM. This signal voltage increases in proportion to the opening angle of the throttle valve, reaching approximately 3.2 to 4.9 V when the throttle valve is fully open.</p>
+  <p>The ECM determines the vehicle driving conditions from these signals and uses this information in functions such as air-fuel ratio correction, power increase correction and fuel cut control.</p><a name="S10057524742006081300000"></a><div class="clsTableTitle">DTC DETECTION CONDITION AND TROUBLE AREA</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="center">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="center" class="clsCellNormal">DTC No.</th>
+        <th align="center" class="clsCellNormal">DTC Detection Condition</th>
+        <th align="center" class="clsCellNormal">Trouble Area</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center" class="clsCellNormal">P0120</td>
+        <td align="left" class="clsCellNormal">VTA less than 0.14 V, or VTA more than 4.91 V for 5 seconds or more (1 trip detection logic)</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Throttle Position (TP) sensor</li>
+            <li>ECM</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">P0122</td>
+        <td align="left" class="clsCellNormal">VTA stays less than 0.14 V for 5 seconds or more<br>(1 trip detection logic)</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>TP sensor</li>
+            <li>Short in VTA circuit</li>
+            <li>Open in VC circuit</li>
+            <li>ECM</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">P0123</td>
+        <td align="left" class="clsCellNormal">VTA stays more than 4.91 V for 5 seconds or more<br>(1 trip detection logic)</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>TP sensor</li>
+            <li>Open in VTA circuit</li>
+            <li>Open in E2 circuit</li>
+            <li>Short between VC and VTA circuits</li>
+            <li>ECM</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>HINT:</p>
+  <ul class="BULLET">
+    <li>Fail-safe mode: When any of these DTCs are set, the ECM enters fail-safe mode. During fail-safe mode, the ECM cuts fuel intermittently. Fail-safe mode continues until a pass condition is detected and the ignition switch is turned OFF.</li>
+    <li>When any of these DTCs are set, check the throttle valve opening angle using the intelligent tester.</li>
+  </ul><a name="S18335049772006081300000"></a><div class="clsTableTitle">THROTTLE VALVE OPENING ANGLE</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">Throttle Valve Fully</th>
+        <th align="left" class="clsCellNormal">Closed Throttle Valve Fully Open</th>
+        <th align="left" class="clsCellNormal">Trouble Area</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">0%</td>
+        <td align="left" class="clsCellNormal">0%</td>
+        <td align="left" class="clsCellNormal">VC circuit open<br>VTA circuit open or short</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Approximately 100%</td>
+        <td align="left" class="clsCellNormal">Approximately 100%</td>
+        <td align="left" class="clsCellNormal">E2 circuit open</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><script src="../script.js"></script></body></html>

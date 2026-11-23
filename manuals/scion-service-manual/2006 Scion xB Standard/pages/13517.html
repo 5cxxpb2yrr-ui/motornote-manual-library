@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Freeze Frame Data — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Freeze Frame Data</h1><div id="S04104040122006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">FREEZE FRAME DATA </span><p>HINT:</p>
+      <ul class="BULLET">
+        <li>When a DTC is detected or the ABS operates, the skid control ECU stores the current vehicle (sensor) state as freeze frame data.</li>
+        <li>The skid control ECU stores the number of times (maximum: 31) the ignition switch has been turned from OFF to ON since the last time the ABS was activated. However, if the vehicle is stopped, the vehicle is driven at 7 km/h (4.3 mph) or less, or a DTC is detected, the ECU will not count the next time the ignition switch is turned from OFF to ON.</li>
+        <li>Freeze frame data at the time the ABS operates: The skid control ECU stores data or updates stored data when the ABS operates. This data is erased when the ECU stores data at the time a DTC is detected.</li>
+        <li>Freeze frame data at the time a DTC is detected: When the skid control ECU stores data at the time a DTC is detected, the data will not be updated until the data is cleared.</li>
+      </ul>
+      <ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON.</li>
+        <li>From the display on the tester, select FREEZE FRAME DATA.<a name="S01697269692006081300000"></a><div class="clsTableTitle">MEASUREMENT ITEM REFERENCE VALUE</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" width="190px" align="left">
+              <col span="1" id="COL2" width="331px" align="left">
+              <col span="1" id="COL3" width="307px" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th valign="BOTTOM" align="left" class="clsCellNormal">Intelligent tester display</th>
+                <th valign="BOTTOM" align="left" class="clsCellNormal">Measurement item</th>
+                <th valign="BOTTOM" align="left" class="clsCellNormal">Reference value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">VEHICLE SPD</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Vehicle speed</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Speed indication on meter</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">STOP LIGHT SW</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Stop light switch signal</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Stop light switch ON: ON<br>Stop light switch OFF: OFF</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal"># IG ON</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Number of ignition switch OFF to ON operations after memorizing freeze frame data</td>
+                <td valign="TOP" align="left" class="clsCellNormal">0 to 31</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">MAS CYL PRESS</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Master cylinder pressure sensor reading</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Brake pedal released: 0.3 to 0.9 V<br>Brake pedal depressed: 0.8 to 4.5 V</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">MASS PRESS GRADE</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Master cylinder pressure sensor change</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Min.: -30 MPa/s<br>Max.: 200 MPa/s</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">SYSTEM</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Information about system / mode status</td>
+                <td valign="TOP" align="left" class="clsCellNormal">No system activated: NO SYS<br>ABS operating: ABS<br>Fail-safe mode activated: FAIL SF</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">YAW RATE</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Yaw rate sensor reading</td>
+                <td valign="TOP" align="left" class="clsCellNormal">-100 to 100</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">STEERING ANG</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Steering angle sensor reading</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Left turn: Increase<br>Right turn: Drop</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">THROTTLE</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Throttle position sensor reading</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Release accelerator pedal: Approx. 0 deg.<br>Depress accelerator pedal: Approx. 90 deg.</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">G (RIGHT &amp; LEFT)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Forward and rearward gravitational force (G)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Min.: -1.869<br>Max.: 1.869</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">G (BACK &amp; FORTH)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Forward and rearward gravitational force (G)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Min.: -1.869<br>Max.: 1.869</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">VSC (TRAC) OFF SW</td>
+                <td valign="TOP" align="left" class="clsCellNormal">VSC OFF switch signal</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Traction OFF switch ON: OFF, OFF: ON</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">SHIFT POSITION</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Shift lever position</td>
+                <td valign="TOP" align="left" class="clsCellNormal">FAIL<br>P*, N*<br>R<br>D<br>2<br>L</td>
+              </tr>
+              <tr>
+                <td colspan="3" valign="TOP" align="left" class="clsCellNormal">HINT:<br>*: The A/C switch is OFF and all accessory switches are OFF.</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

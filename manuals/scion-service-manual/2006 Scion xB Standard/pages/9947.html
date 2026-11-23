@@ -1,0 +1,682 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>TECHSTREAM Ecu Flash Reprogramming Procedure (S-SB-0015-14 REV1) — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>TECHSTREAM Ecu Flash Reprogramming Procedure (S-SB-0015-14 REV1)</h1><div class="other-warning other-variant"><b>WARNING:</b> This page is about the xB Automatic, which is a different variant/trim than selected.</div>Publication date: 2015-05-26<br>Reference number: S-SB-0015-14 REV1<br>Supersedes refnos: S-SB-0015-14<br><br><div id="bulletin" class="infoObjPrint articlePrintSelection">
+    <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>TECHSTREAM ECU FLASH REPROGRAMMING PROCEDURE</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body style="bgcolor:white; text:black; ">
+    <h2>TECHSTREAM ECU FLASH REPROGRAMMING PROCEDURE</h2>
+    <h2>TECHNICAL SERVICE BULLETIN</h2>
+    <div id="idTecHead">Reference Number(s): S-SB-0015-14 Rev1, Date of Issue: 
+				May 26, 2015<br><table class="" cellspacing="0">
+        <tr>
+          <td class="clsTDescTitle">SCION:</td>
+          <td>2004 - 2016 FR-S, iA, iM, iQ, iQ EV, tC, xA, xB, xD</td>
+        </tr>
+        <tr>
+          <td class="clsTDescTitle">SERVICE CATEGORY:</td>
+          <td>Engine/Hybrid System</td>
+        </tr>
+        <tr>
+          <td class="clsTDescTitle">SECTION:</td>
+          <td>Engine Control</td>
+        </tr>
+        <tr>
+          <td class="clsTDescTitle">COPYRIGHT:</td>
+          <td>© 2018 Toyota, USA License Agreement TMS1002</td>
+        </tr>
+      </table>Superceded Bulletin(s): S-SB-0015-14, Date of Issue: 
+			June 6, 2014</div><h3>APPLICABILITY</h3>
+    <a name="S31830120292015061100000"></a><div class="clsTableTitle">APPLICABILITY</div><br><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="left" class="clsCellNoRight">YEAR(S)</th>
+          <th valign="BOTTOM" align="left" class="clsCellNoRight">MODEL(S)</th>
+          <th valign="BOTTOM" align="left" class="clsCellNormal">ADDITIONAL INFORMATION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="left" class="clsCellNoRight">2004 - 2016</td>
+          <td valign="TOP" align="left" class="clsCellNoRight">FR-S, iA, iM, iQ, iQ EV, tC, xA, xB, xD</td>
+          <td valign="TOP" align="left" class="clsCellNormal"> </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>REVISION NOTICE May 26, 2015 Rev1:<ul class="BULLET">
+          <li>Applicability has been updated to include 2016 model year Scion vehicles.</li>
+        </ul><br>Any previous printed versions of this bulletin should be discarded.</span></div>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>SUPERSESSION NOTICE The information contained in this bulletin supersedes SB No. S-SB-0003-10.<ul class="BULLET">
+          <li>Applicability has been updated to include 2015 model year Scion vehicles.</li>
+        </ul><br>Service Bulletin No. S-SB-0003-10 is Obsolete and any printed versions should be discarded. Be sure to review the entire content of this bulletin before proceeding.</span></div><h3>INTRODUCTION</h3>
+    
+    <p>Flash reprogramming allows the ECU software to be updated without replacing the ECU. Flash calibration updates for specific vehicle models/ECUs are released as field-fix procedures described in individual Service Bulletins. This bulletin details the Techstream ECU flash reprogramming process and outlines use of the Technical Information System (TIS) and the Calibration Update Wizard (CUW). Flash calibration updates can only be applied to the vehicle/ECU combination for which they are intended. ECUs have internal security that will not allow them to be programmed with another ECU's information.</p>
+    <p><span class="clsEmphBOLD">ECU </span></p>
+    <p>Electronic Control Unit (ECU) is a Toyota term used to describe integrated computerized devices responsible for managing the operation of a system or subsystem. For the purposes of this bulletin, the term &quot;ECU&quot; is used as a generic label for the following SAE J1930 standard references:</p>
+    <ul class="BULLET">
+      <li><span class="clsEmphBOLD">Powertrain Control Module (PCM) </span></li>
+      <li><span class="clsEmphBOLD">Engine Control Module (ECM) </span></li>
+      <li><span class="clsEmphBOLD">Transmission Control Module (TCM) </span></li>
+      <li><span class="clsEmphBOLD">Or any other Toyota specific control unit </span></li>
+    </ul><h3>WARRANTY INFORMATION</h3>
+    <a name="S24794889842014061700000"></a><div class="clsTableTitle">WARRANTY INFORMATION</div><br><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">OP CODE</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">DESCRIPTION</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">TIME</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">OFP</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">T1</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">T2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">N/A</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Not Applicable to Warranty</td>
+          <td valign="TOP" align="center" class="clsCellNormal">-</td>
+          <td valign="TOP" align="center" class="clsCellNormal">-</td>
+          <td valign="TOP" align="center" class="clsCellNormal">-</td>
+          <td valign="TOP" align="center" class="clsCellNormal">-</td>
+        </tr>
+      </tbody>
+    </table><h3>PARTS INFORMATION</h3>
+    <a name="S08334005982015061100000"></a><div class="clsTableTitle">PARTS INFORMATION</div><br><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">PART NUMBER</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">PART NAME</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">QTY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">00451-00001-LBL</td>
+          <td valign="TOP" align="center" class="clsCellNormal">Authorized Modification Labels</td>
+          <td valign="TOP" align="center" class="clsCellNormal">1</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Authorized Modification Labels may be ordered in packages of 25 from the Materials Distribution Center (MDC) through <span class="clsEmphITAL">Dealer Daily - Dealer Support Materials Orders </span>
+
+.</span></div><h3>REQUIRED TOOLS &amp; EQUIPMENT</h3>
+    <a name="S11308175942014061700000"></a><div class="clsTableTitle">REQUIRED TOOLS &amp; EQUIPMENT</div><br><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">REQUIRED EQUIPMENT</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">SUPPLIER</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">PART NUMBER</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">QTY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Techstream 2.0<a class="clsFootnoteLink" href="#S14967626782015061100000"><sup>(1)</sup></a></td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">ADE</td>
+          <td valign="TOP" align="center" class="clsCellNormal">TS2UNIT</td>
+          <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">1</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Techstream Lite</td>
+          <td valign="TOP" align="center" class="clsCellNormal">TSLITEPDLR01</td>
+        </tr>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">Techstream Lite (Green Cable)</td>
+          <td valign="TOP" align="center" class="clsCellNormal">TSLITEP2DLR01</td>
+        </tr>
+        <tr class="clsFootnoteRow">
+          <td colspan="4" valign="TOP" align="left" class="clsCellNormal">
+            <table class="clsFootnoteTable" width="100%">
+              <tr valign="top">
+                <td width="10px"><a name="S14967626782015061100000"><sup>(1)</sup></a></td>
+                <td>Essential SST.</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+          <li>Only ONE of the Techstream units listed above is required.</li>
+          <li>Software version 10.10.018 or later is required.</li>
+          <li>Additional Techstream units may be ordered by calling Approved Dealer Equipment (ADE) at 1-800-368-6787.</li>
+          <li>The Diagnostic Tester is NOT recommended for flash reprogramming. Please use Techstream or an approved J2534 interface to perform flash reprogramming updates. Visit <span class="clsEmphBOLD">techinfo.toyota.com </span>
+
+ for more information regarding J2534 reprogramming.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978242">
+                      <div class="imageHeader"><a name="S41019285742015061100000"></a></div><img alt="G09978242" src="../images/G09978242.png" name="G09978242"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul></span></div><a name="S00370941982015061100000"></a><div class="clsTableTitle">REQUIRED TOOLS &amp; EQUIPMENT</div><br><table cellspacing="0" class="clsArticleTable">
+      <colgroup></colgroup>
+      <thead>
+        <tr class="clsTblHead">
+          <th valign="BOTTOM" align="center" class="clsCellNormal">SPECIAL SERVICE TOOLS (SST)</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">PART NUMBER</th>
+          <th valign="BOTTOM" align="center" class="clsCellNormal">QTY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign="TOP" align="center" class="clsCellNormal">GR8 Battery Diagnostic Station<a class="clsFootnoteLink" href="#S32821161232015061100000"><sup>(1)</sup></a></td>
+          <td valign="TOP" align="center" class="clsCellNormal"><span class="clsEmphBOLD">00002-MCGR8 </span></td>
+          <td valign="TOP" align="center" class="clsCellNormal">1</td>
+        </tr>
+        <tr class="clsFootnoteRow">
+          <td colspan="3" valign="TOP" align="left" class="clsCellNormal">
+            <table class="clsFootnoteTable" width="100%">
+              <tr valign="top">
+                <td width="10px"><a name="S32821161232015061100000"><sup>(1)</sup></a></td>
+                <td>Essential SST.</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Additional SSTs may be ordered by calling 1-800-933-8335.</span></div><h3>TECHSTREAM PREPARATION</h3>
+    
+    <p><span class="clsEmphBOLD">Selecting the Correct VIM. </span></p>
+    <p>Techstream software requires a VIM selection before it can be used for reprogramming.</p>
+    <p>Perform the following:</p>
+    <ol class="ARABICNUM">
+      <li>Select <span class="clsEmphITAL">Setup </span>
+
+ from the Techstream Main Menu screen.</li>
+      <li>Select <span class="clsEmphITAL">VIM Select </span>
+
+ from the Setup drop down menu.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+          <colgroup></colgroup>
+          <tbody>
+            <tr>
+              <td valign="TOP" align="left" class="clsCellNormal">
+                <div class="imageHolder" id="container_G09978243">
+                  <div class="imageHeader"><a name="S17058694712015061100000"></a></div><img alt="G09978243" src="../images/G09978243.jpeg" name="G09978243"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>Select the correct Interface Setup from the drop down list.<ul class="BULLET">
+          <li>If using Techstream 2.0, select <span class="clsEmphITAL">MongoosePro MFC </span>
+
+.</li>
+          <li>If using Techstream Lite, select <span class="clsEmphITAL">Mongoose MFC, MongoosePro MFC, or MongoosePro MFC2 </span>
+
+ (green) depending on the cable being used.</li>
+        </ul>
+        <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Mongoose Driver MUST be installed before Mongoose selections will be available. See <span class="clsEmphITAL">TIS - Diagnostics - Scantool page for additional information </span>
+
+.</span></div>
+      </li>
+      <li>Click OK.</li>
+    </ol><h3>PROCESS OVERVIEW</h3>
+    
+    <p>Techstream ECU flash reprogramming is a 4-step process:</p>
+    <ol class="ARABICNUM">
+      <li>Verify the vehicle's applicability for recalibration and locate desired calibration file by performing the Techstream Health Check function.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Techstream will automatically search TIS for the appropriate Service Bulletin using the current Calibration ID from the vehicle. Calibration file links can be found embedded in the corresponding Service Bulletin.</span></div>
+      </li>
+      <li>Connect the GR8 Battery Diagnostic Station using &quot;Power Supply Mode&quot; only.<p>The GR8 Battery Diagnostic Station includes a Power Supply Mode to help maintain battery voltage at 13.5 volts during ECU reprogramming.</p>
+        <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>ECU damage may occur if the correct battery charger mode setting is NOT used.<br>Refer to <span class="clsEmphBOLD">Vehicle Reprogramming Tips </span>
+
+ for other approved Chargers, located on TIS, <span class="clsEmphITAL">Diagnostics - Calibrations - Reference Documents </span>
+
+.</span></div>
+      </li>
+      <li>Locate appropriate calibration ID and reprogram the vehicle ECU with Techstream.<p>Techstream uses the Calibration Update Wizard (CUW) application to open calibration files and facilitate the ECU flash reprogramming process.</p>
+      </li>
+      <li>Attach the Authorized Vehicle Modification Label.<p>Modifications to ECU calibrations MUST be recorded and properly displayed on the vehicle using the Authorized Modification Label.</p>
+      </li>
+    </ol><h3>OPERATION PROCEDURE</h3>
+    
+    <ol class="ARABICNUM">
+      <li>Verify the vehicle's applicability for recalibration and locate desired calibration file.<ol class="UPPERALPHA">
+          <li>Connect Techstream and establish a vehicle connection.</li>
+          <li>Click the <span class="clsEmphITAL">Health Check </span>
+
+ button on the <span class="clsEmphITAL">System Select </span>
+
+ tab.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978244">
+                      <div class="imageHeader"><a name="S06641611962015061100000"></a></div><img alt="G09978244" src="../images/G09978244.png" name="G09978244"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Choose desired ECU group(s) in the <span class="clsEmphITAL">Health Check </span>
+
+ dialog box.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978245">
+                      <div class="imageHeader"><a name="S40668787042015061100000"></a></div><img alt="G09978245" src="../images/G09978245.jpeg" name="G09978245"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Click <span class="clsEmphITAL">Next </span>
+
+.</li>
+          <li>Click <span class="clsEmphITAL">Continue </span>
+
+ to view Health Check results.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978246">
+                      <div class="imageHeader"><a name="S00224913352015061100000"></a></div><img alt="G09978246" src="../images/G09978246.jpeg" name="G09978246"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Available calibration updates are indicated by a <span class="clsEmphBOLD">Yes </span>
+
+ link in the <span class="clsEmphITAL">Cal. Update </span>
+
+ column.<p>Click the <span class="clsEmphBOLD">Yes </span>
+
+ link to access the appropriate Service Bulletin on TIS.</p>
+            <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+                  <li>Note any DTCs stored in systems that will be flash reprogrammed.</li>
+                  <li>Clicking <span class="clsEmphBOLD">the </span>
+
+ Yes link will automatically launch TIS and perform a calibration search.</li>
+                </ul></span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978247">
+                      <div class="imageHeader"><a name="S10363451922015061100000"></a></div><img alt="G09978247" src="../images/G09978247.png" name="G09978247"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Log in to TIS. (If already logged in, skip this step.)</li>
+          <li>To review the Service Bulletin and access the calibration file, click the Service Bulletin link in the <span class="clsEmphITAL">Document Title </span>
+
+ column of the <span class="clsEmphITAL">Calibration Search Result </span>
+
+ portlet.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Only Toyota Certified Technicians and above may access calibration files.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978248">
+                      <div class="imageHeader"><a name="S20958218572015061100000"></a></div><img alt="G09978248" src="../images/G09978248.png" name="G09978248"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ol>
+      </li>
+      <li>Connect the GR8 Battery Diagnostic Station or approved power supply device.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Refer to <span class="clsEmphBOLD">Vehicle Reprogramming Tips </span>
+
+ for other approved Chargers, located on TIS, <span class="clsEmphITAL">Diagnostics - Calibrations - Reference Documents </span>
+
+.</span></div>
+        <ol class="UPPERALPHA">
+          <li>Connect the GR8 Battery Diagnostic Station to the vehicle and turn it ON.</li>
+          <li>Select Power Supply Mode by following the screen flow below.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+                  <li>ECU damage may occur if the correct battery charger and mode setting are NOT used.</li>
+                  <li>Power Supply Mode is used to maintain battery voltage at 13.5 volts while flash reprogramming the vehicle.</li>
+                  <li>For details on how to use the GR8 Battery Diagnostic Station, refer to the <span class="clsEmphBOLD">GR8 Instruction Manual </span>
+
+ located on TIS, <span class="clsEmphITAL">Diagnostics - Tools &amp; Equipment - Battery Diagnostics </span>
+
+.</li>
+                </ul></span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978249">
+                      <div class="imageHeader"><a name="S28305764062015061100000"></a></div><img alt="G09978249" src="../images/G09978249.png" name="G09978249"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ol>
+      </li>
+      <li>Click the appropriate calibration ID and reprogram the vehicle's ECU with Techstream.<ol class="UPPERALPHA">
+          <li>After reviewing the procedures outlined in the selected Service Bulletin, click the appropriate calibration ID link by matching the vehicle's current calibration ID to the Previous Calibration ID in the Calibration Identification Chart.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+                  <li>Calibration files are embedded as live links in the Service Bulletin.</li>
+                  <li>Some vehicles require special preparation - please review the selected Service Bulletin carefully.</li>
+                </ul></span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978250">
+                      <div class="imageHeader"><a name="S41764425722015061100000"></a></div><img alt="G09978250" src="../images/G09978250.png" name="G09978250"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Click Open to load calibration file information.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Techstream pulls calibration files as needed to ensure the latest calibration file is used. Do NOT save calibrations locally on the hard drive or other media.</span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978251">
+                      <div class="imageHeader"><a name="S01339229012015061100000"></a></div><img alt="G09978251" src="../images/G09978251.jpeg" name="G09978251"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Errors during the flash reprogramming process can permanently damage the vehicle ECU. Minimize the risk by following the steps below.<ul class="BULLET">
+                  <li>Battery voltage <span class="clsEmphBOLD">MUST NOT FALL BELOW 11.8 volts </span>
+
+ during reprogramming. Confirm battery voltage is higher than 11.8 volts, but be sure voltage <span class="clsEmphBOLD">DOES NOT RISE ABOVE 16.0 volts </span>
+
+ during reprogramming.</li>
+                  <li>Turn OFF all vehicle accessories (e.g. audio system, A/C, interior lights, DRL, etc.). Do NOT add to or significantly change the vehicle's electrical load while reprogramming.</li>
+                  <li>Confirm the hood is open and ensure under hood temperature does NOT exceed 158°F (70°C).</li>
+                  <li>Confirm cable connections between the vehicle and Techstream are secure.</li>
+                  <li>Do NOT disconnect or turn off Techstream or vehicle ignition during reprogramming.</li>
+                  <li>Set parking brake.</li>
+                  <li>Complete ALL flash calibration updates provided for each ECU.</li>
+                  <li>If the battery's state of charge or capacity are in question, test with SST. No. <span class="clsEmphBOLD">00002-V8150-KIT </span><span class="clsEmphITAL">&quot;Digital Battery Analyzer,&quot; </span>
+
+ and follow Service Bulletin No. <span class="clsEmphBOLD">PG001-06 </span>
+
+, <span class="clsEmphITAL">&quot;Battery Maintenance for In-Stock Vehicles &amp; Pre-Delivery,&quot; </span>
+
+ or the appropriate <span class="clsEmphITAL">&quot;Maintenance for HV &amp; Auxiliary Batteries&quot; </span>
+
+ Service Bulletin.</li>
+                  <li>The GR8 Battery Diagnostic Station MUST be used in Power Supply Mode to maintain battery voltage at 13.5 volts while flash reprogramming the vehicle. For details on how to use the GR8 Battery Diagnostic Station, refer to the <span class="clsEmphBOLD">GR8 Instruction Manual </span>
+
+ located on TIS, <span class="clsEmphITAL">Diagnostics - Tools &amp; Equipment - Battery Diagnostics </span>
+
+.</li>
+                </ul></span></div>
+          </li>
+          <li>Click <span class="clsEmphITAL">Next </span>
+
+ to start the calibration update process.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978252">
+                      <div class="imageHeader"><a name="S03657334172015061100000"></a></div><img alt="G09978252" src="../images/G09978252.jpeg" name="G09978252"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Confirm the following:<ul class="BULLET">
+              <li>PC is connected to VIM.</li>
+              <li>VIM is connected to DLC3 connector.</li>
+              <li>Ignition is ON and engine is OFF.<p>Then click <span class="clsEmphITAL">Next </span>
+
+.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="left" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G09978253">
+                          <div class="imageHeader"><a name="S08783244772015061100000"></a></div><img alt="G09978253" src="../images/G09978253.jpeg" name="G09978253"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+            </ul>
+          </li>
+          <li>Verify correct current calibration and new calibration information. Then click <span class="clsEmphITAL">Next </span>
+
+.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+                  <li>The total number of calibration IDs in the calibration file corresponds to the number of reprogrammable processors in the ECU.</li>
+                  <li>Each calibration file may contain up to three separate calibrations.</li>
+                  <li>Figure 12 shows an example of the update procedure for a two-processor ECU.</li>
+                </ul></span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978254">
+                      <div class="imageHeader"><a name="S12590234532015061100000"></a></div><img alt="G09978254" src="../images/G09978254.jpeg" name="G09978254"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Turn ignition OFF. Then click <span class="clsEmphITAL">Next </span>
+
+.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978255">
+                      <div class="imageHeader"><a name="S04190569152015061100000"></a></div><img alt="G09978255" src="../images/G09978255.jpeg" name="G09978255"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Confirm the following:<ul class="BULLET">
+              <li>Ignition is ON and engine is OFF.</li>
+              <li>Hood is open.</li>
+              <li>All accessories are OFF.</li>
+              <li>Battery voltage is above 11.8 volts.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Verify the vehicle is connected to a battery charger before continuing - If battery voltage falls below 11.8 volts, ECU damage may occur.</span></div>
+                <p>Then click <span class="clsEmphITAL">Start </span>
+
+.</p><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+                  <colgroup></colgroup>
+                  <tbody>
+                    <tr>
+                      <td valign="TOP" align="left" class="clsCellNormal">
+                        <div class="imageHolder" id="container_G09978256">
+                          <div class="imageHeader"><a name="S35211498172015061100000"></a></div><img alt="G09978256" src="../images/G09978256.jpeg" name="G09978256"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If key cycle is NOT done properly, reprogramming will stop at 10% and Cal 1 will fail to load.</span></div>
+              </li>
+            </ul>
+          </li>
+          <li>Do NOT disturb the vehicle during flash reprogramming.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+                  <li>ECU flash reprogramming may take anywhere from 3 - 30 minutes per calibration file.</li>
+                  <li>Reprogramming time will vary depending on model and ECU communication protocol. Vehicles using CAN communication protocol will reprogram much faster (2 - 7 minutes).</li>
+                </ul></span></div><a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978257">
+                      <div class="imageHeader"><a name="S03304554912015061100000"></a></div><img alt="G09978257" src="../images/G09978257.jpeg" name="G09978257"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span><ul class="BULLET">
+                  <li>If vehicle requires only ONE calibration update, then proceed to step  <a class="clsListItemLink" href="#S11076151892015061100000" location="/api/article/getcontent?articleId=_S11076151892015061100000_LSTITM">M</a> in this bulletin.</li>
+                  <li>If vehicle requires a SECOND calibration update, then continue as follows:<ul class="BULLET">
+                      <li>For serial communication vehicles, go to step I.</li>
+                      <li>For CAN communication vehicles, go to step  <a class="clsListItemLink" href="#S12081795652015061100000" location="/api/article/getcontent?articleId=_S12081795652015061100000_LSTITM">K</a>.</li>
+                    </ul>
+                  </li>
+                </ul></span></div>
+          </li>
+          <li>When Cal 1 has completed the update process, turn ignition OFF for a minimum of 10 seconds. Then click Next.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978258">
+                      <div class="imageHeader"><a name="S14128273022015061100000"></a></div><img alt="G09978258" src="../images/G09978258.jpeg" name="G09978258"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Turn ignition to the ON position. Then click <span class="clsEmphITAL">Start </span>
+
+.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978259">
+                      <div class="imageHeader"><a name="S36701170282015061100000"></a></div><img alt="G09978259" src="../images/G09978259.jpeg" name="G09978259"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>If key cycle is NOT done properly, reprogramming will stop at 10% and Cal 2 will fail to load.</span></div>
+          </li>
+          <li><a name="S12081795652015061100000"></a>Do NOT disturb the vehicle during flash reprogramming.<a name="S120817956520150611000001"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978260">
+                      <div class="imageHeader"><a name="S00382191822015061100000"></a></div><img alt="G09978260" src="../images/G09978260.jpeg" name="G09978260"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Turn ignition OFF for a minimum of 10 seconds. Then click <span class="clsEmphITAL">Next </span>
+
+.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978261">
+                      <div class="imageHeader"><a name="S28839161192015061100000"></a></div><img alt="G09978261" src="../images/G09978261.jpeg" name="G09978261"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li><a name="S11076151892015061100000"></a>Turn ignition to the ON position. Then click <span class="clsEmphITAL">Next </span>
+
+.<a name="S110761518920150611000001"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978262">
+                      <div class="imageHeader"><a name="S05303028732015061100000"></a></div><img alt="G09978262" src="../images/G09978262.jpeg" name="G09978262"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Confirm all calibrations were updated as specified in the Service Bulletin. Then click <span class="clsEmphITAL">Finish </span>
+
+.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978263">
+                      <div class="imageHeader"><a name="S07749177042015061100000"></a></div><img alt="G09978263" src="../images/G09978263.jpeg" name="G09978263"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>On some models, DTCs may set as a result of reprogramming. If DTCs are present, clear codes and run the Health Check again. Troubleshoot any remaining Current, Pending, or History codes. Permanent codes will not be cleared using Techstream. Permanent codes do not illuminate the MIL and do not require troubleshooting. They will clear during normal driving once the Universal Trip Drive Pattern is performed.</span></div>
+          </li>
+        </ol>
+      </li>
+      <li>Attach the Authorized Modifications Label.<ol class="UPPERALPHA">
+          <li>Using a permanent marker or ball point pen, complete the Authorized Modifications Label and attach to the vehicle. The Authorized Modifications Label is available through the MDC, P/N 00451-00001-LBL.<a name="1"></a><table cellspacing="0" class="clsListArticleTable">
+              <colgroup></colgroup>
+              <tbody>
+                <tr>
+                  <td valign="TOP" align="left" class="clsCellNormal">
+                    <div class="imageHolder" id="container_G09978264">
+                      <div class="imageHeader"><a name="S42699024302015061100000"></a></div><img alt="G09978264" src="../images/G09978264.png" name="G09978264"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Attach the label under the hood in the location determined by the specific Service Bulletin or Campaign.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+					</span><span>Wait 60 - 90 seconds for ink to set before handling.</span></div>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </body>
+</html>
+</div></div><script src="../script.js"></script></body></html>

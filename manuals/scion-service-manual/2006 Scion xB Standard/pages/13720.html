@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnosis System — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Diagnosis System</h1><div id="S26907670802006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">DESCRIPTION </span><p>Meter / gauge system data and the Diagnostic Trouble Codes (DTCs) can be read through the Data Link Connector 3 (DLC3) of the vehicle. When the system seems to be malfunctioning, use the intelligent tester to check for malfunctions and perform repairs.</p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK DLC3 </span><p>The vehicle's ECM uses the ISO 9141-2 communication protocol. The terminal arrangement of the DLC3 complies with SAE J1962 and matches the ISO 9141-2 format.</p>
+      <div class="imageHolder" id="container_G04229316">
+        <div class="imageHeader"><a name="S34504129742006081300000"></a><span class="imageCaption">Fig 1: Identifying DLC3 Connector Terminal</span></div><img alt="G04229316" src="../images/G04229316.gif" name="G04229316"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div><a name="S35838125052006081300000"></a><div class="clsTableTitle">TERMINAL DESCRIPTION</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+          <col span="1" id="COL4" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="left" class="clsCellNormal">Symbols (Terminal No.)</th>
+            <th align="left" class="clsCellNormal">Terminal Description</th>
+            <th align="left" class="clsCellNormal">Condition</th>
+            <th align="left" class="clsCellNormal">Specified Condition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">SIL (7) - SG (5)</td>
+            <td align="left" class="clsCellNormal">Bus &quot;+&quot; line</td>
+            <td align="left" class="clsCellNormal">During transmission</td>
+            <td align="left" class="clsCellNormal">Pulse generation</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">CG (4) - Body ground</td>
+            <td align="left" class="clsCellNormal">Chassis ground</td>
+            <td align="left" class="clsCellNormal">Always</td>
+            <td align="left" class="clsCellNormal">Below 1 Ω</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">SG (5) - Body ground</td>
+            <td align="left" class="clsCellNormal">Signal ground</td>
+            <td align="left" class="clsCellNormal">Always</td>
+            <td align="left" class="clsCellNormal">Below 1 Ω</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">BAT (16) - Body ground</td>
+            <td align="left" class="clsCellNormal">Battery</td>
+            <td align="left" class="clsCellNormal">Always</td>
+            <td align="left" class="clsCellNormal">11 to 14 V</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>If the result is not as specified, the DLC3 may have a malfunction. Repair or replace the harness and connector.</p>
+      <p>HINT:</p>
+      <p>Connect the cable of the intelligent tester (with CAN VIM) to the DLC3, turn the ignition switch ON and attempt to use the tester. If the display indicates that a communication error has occurred, there is a problem either with the vehicle or with the tester.</p>
+      <ul class="BULLET">
+        <li>If communication is normal when the tester is connected to another vehicle, inspect the DLC3 on the original vehicle.</li>
+        <li>If communication is still not possible when the tester is connected to another vehicle, the problem may be in the tester itself. Consult the Service Department listed in the tester's instruction manual.<div class="imageHolder" id="container_G04229317">
+            <div class="imageHeader"><a name="S11991682222006081300000"></a><span class="imageCaption">Fig 2: Connecting Cable Of Intelligent Tester (With Can Vim) To DLC3</span></div><img alt="G04229317" src="../images/G04229317.gif" name="G04229317"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ul>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

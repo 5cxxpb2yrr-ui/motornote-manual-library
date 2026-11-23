@@ -1,0 +1,147 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnosis System (2005/12- ) — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Diagnosis System (2005/12- )</h1><div id="S24253625812006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">DESCRIPTION </span><ol class="LOWERALPHA">
+        <li>The center airbag sensor controls the functions of the Supplemental Restraint System (SRS) on the vehicle. Data of the SRS can be read through the Data Link Connector 3 (DLC3) of the vehicle. When the system seems to be malfunctioning, use the intelligent tester to check for a malfunction and perform repairs.</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK DLC3 </span><ol class="LOWERALPHA">
+        <li>The ECU uses ISO 15765-4 for communication. The terminal arrangement of the DLC3 complies with ISO 15031-3 and matches the ISO 15765-4 format.<div class="imageHolder" id="container_G04228672">
+            <div class="imageHeader"><a name="S40263765792006081300000"></a><span class="imageCaption">Fig 1: Identifying DLC3 Connector Terminal</span></div><img alt="G04228672" src="../images/G04228672.gif" name="G04228672"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div><a name="S01079099202006081300000"></a><div class="clsTableTitle">DLC3 TERMINAL DESCRIPTION AND SPECIFIED CONDITIONS</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" width="207px" align="left">
+              <col span="1" id="COL2" width="207px" align="left">
+              <col span="1" id="COL3" width="207px" align="left">
+              <col span="1" id="COL4" width="207px" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th valign="BOTTOM" align="center" class="clsCellNormal">Symbols (Terminal No.)</th>
+                <th valign="BOTTOM" align="center" class="clsCellNormal">Terminal Description</th>
+                <th valign="BOTTOM" align="center" class="clsCellNormal">Connection</th>
+                <th valign="BOTTOM" align="center" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">SIL (7) - SG (5)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Bus &quot;+&quot; line</td>
+                <td valign="TOP" align="left" class="clsCellNormal">During transmission</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Pulse generation</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">CG (4) - Body ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Chassis ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Always</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">SG (5) - Body ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Signal ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Always</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">BAT (16) - Body ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Battery positive</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Always</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>If the result is not as specified, the DLC3 may have a malfunction. Repair or replace the harness and connector.</p>
+          <p>HINT:</p>
+          <p>Connect the cable of the intelligent tester (with CAN VIM) to the DLC3, turn the ignition switch ON and attempt to use the tester. If the display indicates that a communication error has occurred, there is a problem either with the vehicle or with the tester.</p>
+          <ul class="BULLET">
+            <li>If communication is normal when the tester is connected to another vehicle, inspect the DLC3 on the original vehicle.</li>
+            <li>If communication is still not possible when the tester is connected to another vehicle, the problem is probably in the tester itself. Consult the Service Department listed in the tester's instruction manual.<div class="imageHolder" id="container_G04228673">
+                <div class="imageHeader"><a name="S00000166402006081300000"></a><span class="imageCaption">Fig 2: Connecting Cable Of Intelligent Tester (With CAN VIM) To DLC3</span></div><img alt="G04228673" src="../images/G04228673.gif" name="G04228673"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">SYMPTOM SIMULATION </span><p>HINT:</p>
+      <p>The most difficult case in troubleshooting is when no symptoms occur. In such cases, a thorough customer problem analysis must be carried out. Then the same or similar conditions and environment in which the problem occurred should be simulated. No matter how much skill or experience a technician has, troubleshooting without confirming the problem symptoms will lead to important repairs being overlooked, mistakes and delays.</p>
+      <ol class="LOWERALPHA">
+        <li>Vibration method: When vibration seems to be the major cause.<ol class="ARABICNUM">
+            <li>Apply slight vibration with a finger to the part of the sensor considered to be the cause of the problem and check whether or not the malfunction occurs.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Applying strong vibration to relays may open relays.</span></div>
+            </li>
+            <li>Slightly shake the connector vertically and horizontally.</li>
+            <li>Slightly shake the wire harness vertically and horizontally.<p>HINT:</p>
+              <p>The connector joint and fulcrum of the vibration are the major areas that should be checked thoroughly.</p>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">FUNCTION OF SRS WARNING LIGHT </span><ol class="LOWERALPHA">
+        <li>Primary check:<ol class="ARABICNUM">
+            <li>Turn the ignition switch OFF. Wait at least 2 seconds and then turn the ignition switch ON. The SRS warning light illuminates for approximately 6 seconds and the SRS diagnosis is performed.<p>HINT:</p>
+              <p>If trouble is detected during the primary check, the SRS warning light remains on even after the primary check period (approximately 6 seconds) has elapsed.</p>
+            </li>
+          </ol>
+        </li>
+        <li>Constant check:<ol class="ARABICNUM">
+            <li>After the primary check, the center airbag sensor constantly monitors the SRS for malfunctions.<p>HINT:</p>
+              <p>If malfunctions are detected during the constant check, the center airbag sensor functions as follows:</p>
+              <ul class="BULLET">
+                <li>The SRS warning light illuminates.</li>
+                <li>The SRS warning light turns off, and then illuminates. This blinking pattern indicates the source voltage drop. After the source voltage returns to normal for 10 seconds, the SRS warning light turns off.<div class="imageHolder" id="container_G04228674">
+                    <div class="imageHeader"><a name="S28577328312006081300000"></a><span class="imageCaption">Fig 3: Identifying Slightly Shake Wire Harness Vertically And Horizontally</span></div><img alt="G04228674" src="../images/G04228674.gif" name="G04228674"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>Review:<ol class="ARABICNUM">
+            <li>When the SRS is normal:<p>The SRS warning light illuminates only during the primary check period (approximately 6 seconds after the ignition switch is turned ON).</p>
+            </li>
+            <li>When the SRS is malfunctioning, one of the following may occur:<ul class="BULLET">
+                <li>The SRS warning light remains on even after the primary check period has elapsed.</li>
+                <li>The SRS warning light turns off after the primary check, but illuminates again during the constant check.</li>
+                <li>The SRS warning light does not illuminate when turning the ignition switch from OFF to ON.</li>
+              </ul>
+              <p>HINT:</p>
+              <p>The center airbag sensor keeps the SRS warning light illuminated after an airbag has been deployed.</p>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">SRS WARNING LIGHT CHECK </span><ol class="LOWERALPHA">
+        <li>Turn the ignition switch ON, and check that the SRS warning light illuminates for approximately 6 seconds (primary check).</li>
+        <li>Check that the SRS warning light turns off approximately 6 seconds after the ignition switch is turned ON (constant check).<p>HINT:</p>
+          <p>When any of the following symptoms occur, refer to the <a href="../pages/7262.html">PROBLEM SYMPTOMS TABLE</a>  
+
+.</p>
+          <ul class="BULLET">
+            <li>The SRS warning light illuminates occasionally after the primary check period has elapsed.</li>
+            <li>The SRS warning light illuminates but a DTC is not output.</li>
+            <li>The ignition switch is turned from OFF to ON but the SRS warning light does not illuminate.<div class="imageHolder" id="container_G04228675">
+                <div class="imageHeader"><a name="S18591893722006081300000"></a><span class="imageCaption">Fig 4: Identifying SRS Warning Light Indicator</span></div><img alt="G04228675" src="../images/G04228675.gif" name="G04228675"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">RELEASE METHOD OF ACTIVATION PREVENTION MECHANISM </span><ol class="LOWERALPHA">
+        <li>The activation prevention mechanism is built into the connector for the squib circuit of the SRS. As explained in the troubleshooting section, insert a piece of paper that is the same thickness as the male terminal between the terminal and short spring to release the mechanism (refer to the illustrations below).<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Never release the mechanism on the squib side connector.</span></div>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+                <li>Do not release the mechanism unless instructed to do so in the troubleshooting procedure.</li>
+                <li>To prevent the terminal and short spring from being damaged, always use a piece of paper that is the same thickness as the male terminal.</li>
+              </ul></span></div>
+          <div class="imageHolder" id="container_G04228676">
+            <div class="imageHeader"><a name="S23087929652006081300000"></a><span class="imageCaption">Fig 5: Release Method Of Activation Prevention Mechanism - Communication Diagram</span></div><img alt="G04228676" src="../images/G04228676.gif" name="G04228676"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+    </li>
+  </ol>
+  <div class="imageHolder" id="container_G04228677">
+    <div class="imageHeader"><a name="S35912606852006081300000"></a><span class="imageCaption">Fig 6: Identifying Center Airbag Sensor Connector</span></div><img alt="G04228677" src="../images/G04228677.gif" name="G04228677"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+</div></div><script src="../script.js"></script></body></html>

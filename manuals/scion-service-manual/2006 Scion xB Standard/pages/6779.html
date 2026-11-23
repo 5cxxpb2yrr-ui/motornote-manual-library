@@ -1,0 +1,136 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnosis System — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Diagnosis System</h1><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S01318029612006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">DESCRIPTION </span><ol class="LOWERALPHA">
+        <li>When troubleshooting On-Board Diagnostic (OBD II) vehicles, the vehicle must be connected to the OBD II scan tool (complying with SAE J1987). Various data output from the vehicle's ECM can then be read.</li>
+        <li>OBD II regulations require that the vehicle's on board computer illuminate the Malfunction Indicator Lamp (MIL) on the instrument panel when the computer detects a malfunction in:<ol class="ARABICNUM">
+            <li>The emission control system/components</li>
+            <li>The power train control components (which affect vehicle emissions)<div class="imageHolder" id="container_G04227421">
+                <div class="imageHeader"><a name="S03110096062006081300000"></a><span class="imageCaption">Fig 1: Identifying Malfunction Indicator Lamp</span></div><img alt="G04227421" src="../images/G04227421.gif" name="G04227421"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+            </li>
+            <li>The computer<p>In addition, the applicable Diagnostic Trouble Codes (DTCs) prescribed by SAE J2012 are recorded in the ECM memory.</p>
+              <p>If the malfunction does not reoccur in 3 consecutive trips, the MIL turns off automatically but the DTCs remain recorded in the ECM memory.</p>
+            </li>
+          </ol>
+        </li>
+        <li>To check DTCs, connect the intelligent tester to the Data Link Connector 3 (DLC3) of the vehicle. The intelligent tester displays DTCs, the freeze frame data and a variety of the engine data.<p>The DTCs and freeze frame data can be erased with the intelligent tester (see <a href="../pages/6971.html">DTC CHECK / CLEAR</a> 
+
+).</p>
+        </li>
+        <li>The DTCs include SAE controlled codes and manufacturer controlled codes. SAE controlled codes must be set as prescribed by the SAE, while manufacturer controlled codes can be set freely by a manufacturer within the prescribed limits (see <a href="../pages/6975.html">DIAGNOSTIC TROUBLE CODE CHART</a> 
+
+).<div class="imageHolder" id="container_G04227422">
+            <div class="imageHeader"><a name="S01844483472006081300000"></a><span class="imageCaption">Fig 2: Connecting Intelligent Tester To Data Link Connector Of Vehicle</span></div><img alt="G04227422" src="../images/G04227422.gif" name="G04227422"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">NORMAL MODE AND CHECK MODE </span><ol class="LOWERALPHA">
+        <li>The diagnosis system operates in &quot;normal mode&quot; during normal vehicle use. In normal mode, &quot;2 trip detection logic&quot; is used to ensure accurate detection of malfunctions. &quot;Check mode&quot; is also available to technicians as an option. In check mode, &quot;1 trip detection logic&quot; is used for simulating malfunction symptoms and increasing the system's ability to detect malfunctions, including intermittent malfunctions.</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">TRIP DETECTION LOGIC </span><ol class="LOWERALPHA">
+        <li>When a malfunction is first detected, the malfunction is temporarily stored in the ECM memory (1st trip). If the same malfunction is detected during the next drive cycle, the MIL is illuminated (2nd trip).</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">FREEZE FRAME DATA </span><ol class="LOWERALPHA">
+        <li>Freeze frame data records the engine conditions (fuel system, calculated load, engine coolant temperature, fuel trim, engine speed, vehicle speed, etc.) when a malfunction is detected. When troubleshooting, freeze frame data can help determine if the vehicle was running or stopped, if the engine was warmed up or not, if the air-fuel ratio was lean or rich, and other data from the time the malfunction occurred.</li>
+        <li>The intelligent tester records freeze frame data in five different instances: 1) 3 times before the DTC is set, 2) once when the DTC is set, and 3) once after the DTC is set. These data can be used to simulate the vehicle's condition around the time when the malfunction occurred. The data may help find the cause of the malfunction, or judge if the DTC is being caused by a temporary malfunction or not.<div class="imageHolder" id="container_G04227423">
+            <div class="imageHeader"><a name="S26309954702006081300000"></a><span class="imageCaption">Fig 3: Freeze Frame Data Chart</span></div><img alt="G04227423" src="../images/G04227423.gif" name="G04227423"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">DATA LINK CONNECTOR 3 (DLC3) </span><ol class="LOWERALPHA">
+        <li>The vehicle's ECM uses the ISO 15765-4 for communication protocol. The terminal arrangement of the DLC3 complies with SAE J1962 and matches the ISO 15765-4 format.<div class="imageHolder" id="container_G04227424">
+            <div class="imageHeader"><a name="S22000164672006081300000"></a><span class="imageCaption">Fig 4: Identifying DLC3 Connector</span></div><img alt="G04227424" src="../images/G04227424.gif" name="G04227424"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p>HINT:</p>
+          <p>Connect the cable of the intelligent tester to the DLC3, turn the ignition switch ON and attempt to use the intelligent tester. If the screen displays UNABLE TO CONNECT TO VEHICLE, a problem exists in the vehicle side or the tester side. If communication is normal when the tester is connected to another vehicle, inspect the DLC3 on the original vehicle.</p>
+          <p>If communication is still not possible when the tester is connected to another vehicle, the problem is probably in the tester itself. Consult the Service Department listed in the tester's instruction manual.</p><a name="S38094654642006081300000"></a><div class="clsTableTitle">TERMINALS DESCRIPTION</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Symbols (Terminal No.)</th>
+                <th align="left" class="clsCellNormal">Terminal Description</th>
+                <th align="left" class="clsCellNormal">Condition</th>
+                <th align="left" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">SIL (7) - SG (5)</td>
+                <td align="left" class="clsCellNormal">Bus &quot;+&quot; line</td>
+                <td align="left" class="clsCellNormal">During transmission</td>
+                <td align="left" class="clsCellNormal">Pulse generation</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">CG (4) - Body ground</td>
+                <td align="left" class="clsCellNormal">Chassis ground</td>
+                <td align="left" class="clsCellNormal">Always</td>
+                <td align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">SG (5) - Body ground</td>
+                <td align="left" class="clsCellNormal">Signal ground</td>
+                <td align="left" class="clsCellNormal">Always</td>
+                <td align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">BAT (16) - Body ground</td>
+                <td align="left" class="clsCellNormal">Battery positive</td>
+                <td align="left" class="clsCellNormal">Always</td>
+                <td align="left" class="clsCellNormal">9 to 14 V</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">CANH (6) - CANL (14)</td>
+                <td align="left" class="clsCellNormal">HIGH-level CAN bus line</td>
+                <td align="left" class="clsCellNormal">Ignition switch OFF</td>
+                <td align="left" class="clsCellNormal">54 to 69 Ω</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">CANH (6) - Battery positive</td>
+                <td align="left" class="clsCellNormal">HIGH-level CAN bus line</td>
+                <td align="left" class="clsCellNormal">Ignition switch OFF</td>
+                <td align="left" class="clsCellNormal">1 MΩ or higher</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">CANH (6) - CG (4)</td>
+                <td align="left" class="clsCellNormal">HIGH-level CAN bus line</td>
+                <td align="left" class="clsCellNormal">Ignition switch OFF</td>
+                <td align="left" class="clsCellNormal">1 kΩ or higher</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">CANL (14) - Battery positive</td>
+                <td align="left" class="clsCellNormal">LOW-level CAN bus line</td>
+                <td align="left" class="clsCellNormal">Ignition switch OFF</td>
+                <td align="left" class="clsCellNormal">1 MΩ or higher</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">CANL (14) - CG (4)</td>
+                <td align="left" class="clsCellNormal">LOW-level CAN bus line</td>
+                <td align="left" class="clsCellNormal">Ignition switch OFF</td>
+                <td align="left" class="clsCellNormal">1 kΩ or higher</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK MIL </span><ol class="LOWERALPHA">
+        <li>Check that the MIL illuminates when turning the ignition switch ON.<p>If the MIL does not illuminate, there is a problem in the MIL circuit (see 
+
+<a href="../pages/8236.html">INSPECTION PROCEDURE</a>
+
+).</p>
+        </li>
+        <li>When the engine is started, the MIL should turn off.</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">ALL READINESS </span><ol class="LOWERALPHA">
+        <li>For this vehicle, using the intelligent tester allows readiness codes corresponding to all DTCs to be read. When the diagnosis (normal or malfunctioning) has been completed, readiness codes are set. Enter the following menus: ENHANCED OBD II / MONITOR STATUS on the intelligent tester.</li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Inspection Procedure — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Inspection Procedure</h1><div id="S13407257252006081300000">
+  <p>HINT:</p>
+  <p>Read freeze frame data using the intelligent tester. Freeze frame data records the engine conditions when malfunctions are detected. When troubleshooting, freeze frame data can help determine if the vehicle was moving or stationary, if the engine was warmed up or not, if the air-fuel ratio was lean or rich, and other data from the time the malfunction occurred.</p>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">PERFORM ACTIVE TEST BY INTELLIGENT TESTER (OPERATE OCV) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Start the engine and turn the tester ON.</li>
+        <li>Warm up the engine.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / ACTIVE TEST / VVT CTRL B1.</li>
+        <li>Check the engine speed while operating the Oil Control Valve (OCV) using the tester.<p><span class="clsEmphBOLD">OK </span></p><a name="S27265746502006081300000"></a><div class="clsTableTitle">TESTER OPERATION SPECIFIED CONDITION</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Tester Operation</th>
+                <th align="left" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">OCV OFF</td>
+                <td align="left" class="clsCellNormal">Normal engine speed</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">OCV ON</td>
+                <td align="left" class="clsCellNormal">Engine idles roughly or stalls (soon after OCV switched from OFF to ON)</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: Go to step 2 </span></p>
+      <p><span class="clsEmphBOLD">OK: CHECK FOR INTERMITTENT PROBLEMS </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">INSPECT CAMSHAFT TIMING OIL CONTROL VALVE ASSEMBLY (OCV SIGNAL) </span><ol class="LOWERALPHA">
+        <li>Disconnect the C2 OCV connector.</li>
+        <li>While idling, check the waveform between the terminals of the C2 OCV connector using an oscilloscope.<p><span class="clsEmphBOLD">Standard voltage </span></p><a name="S23266951532006081300000"></a><div class="clsTableTitle">TESTER CONNECTION - SPECIFIED CONDITION (VOLTAGE)</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Tester Connection</th>
+                <th align="left" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">OC1+ (C2-2) - OC1- (C2-1)</td>
+                <td align="left" class="clsCellNormal">Correct waveform is as shown</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="imageHolder" id="container_G04225384">
+            <div class="imageHeader"><a name="S22890526622006081300000"></a><span class="imageCaption">Fig 1: Inspecting Camshaft Timing Oil Control Valve Assembly</span></div><img alt="G04225384" src="../images/G04225384.gif" name="G04225384"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: Go to step 3 </span></p>
+      <p><span class="clsEmphBOLD">OK: REPLACE CAMSHAFT TIMING OIL CONTROL VALVE ASSEMBLY </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">INSPECT ECM (OCV SIGNAL) </span><ol class="LOWERALPHA">
+        <li>Inspect the ECM using an oscilloscope.</li>
+        <li>While idling, check the waveform between the terminals of the E5 ECM connector.<p><span class="clsEmphBOLD">Standard voltage </span></p><a name="S29358321912006081300000"></a><div class="clsTableTitle">TESTER CONNECTION - SPECIFIED CONDITION (VOLTAGE)</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Tester Connection</th>
+                <th align="left" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">OC1+ (E5-13) - OC1- (E5-12)</td>
+                <td align="left" class="clsCellNormal">Correct waveform is as shown</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="imageHolder" id="container_G04225385">
+            <div class="imageHeader"><a name="S31609987962006081300000"></a><span class="imageCaption">Fig 2: Inspecting ECM Using An Oscilloscope</span></div><img alt="G04225385" src="../images/G04225385.gif" name="G04225385"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPLACE ECM </span></p>
+      <p><span class="clsEmphBOLD">OK: REPAIR OR REPLACE HARNESS OR CONNECTOR </span></p>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>
