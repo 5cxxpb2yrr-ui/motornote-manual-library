@@ -13,7 +13,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: motornote-corpus-pr-dry-run
@@ -133,6 +133,20 @@ jobs:
 
       - name: Validate complete staged site without publishing
         run: python scripts/manual_site_publisher.py --mode dry-run
+
+      - name: Commit verified rebuilt manuals to the recovery branch
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manuals/scion-service-manual manuals/subaru-service-manual index/catalog.json index/pages.jsonl index/summary.json
+          if git diff --cached --quiet; then
+            echo "No corpus changes to commit."
+          else
+            git commit -m "Restore verified Scion and Subaru manual corpus"
+            git push origin "HEAD:refs/heads/rebuild/publishing-system-20261121"
+          fi
 
       - name: Upload HTML cross-reference validation report
         if: always()
