@@ -1,6 +1,9 @@
 name: Rebuild MotorNote corpus (PR dry-run only)
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - recovery/integrate-verified-corpus-20261123
@@ -21,7 +24,7 @@ concurrency:
 
 jobs:
   rebuild-and-validate:
-    if: github.ref == 'refs/heads/recovery/integrate-verified-corpus-20261123'
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/recovery/integrate-verified-corpus-20261123'
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
@@ -144,7 +147,7 @@ jobs:
           retention-days: 30
 
       - name: Commit verified rebuilt manuals to the clean integration branch
-        if: success()
+        if: success() && github.event_name != 'pull_request'
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
