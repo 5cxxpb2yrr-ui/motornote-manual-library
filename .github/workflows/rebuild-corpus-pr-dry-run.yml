@@ -3,7 +3,7 @@ name: Rebuild MotorNote corpus (PR dry-run only)
 on:
   push:
     branches:
-      - rebuild/publishing-system-20261121
+      - recovery/integrate-verified-corpus-20261123
   workflow_dispatch:
     inputs:
       source_release_id:
@@ -13,7 +13,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: motornote-corpus-pr-dry-run
@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   rebuild-and-validate:
-    if: github.ref == 'refs/heads/rebuild/publishing-system-20261121'
+    if: github.ref == 'refs/heads/recovery/integrate-verified-corpus-20261123'
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
@@ -142,3 +142,17 @@ jobs:
           path: html-cross-reference-report.json
           if-no-files-found: ignore
           retention-days: 30
+
+      - name: Commit verified rebuilt manuals to the clean integration branch
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manuals/scion-service-manual manuals/subaru-service-manual index/catalog.json index/pages.jsonl index/summary.json
+          if git diff --cached --quiet; then
+            echo "No corpus changes to commit."
+          else
+            git commit -m "Restore verified Scion and Subaru manual corpus"
+            git push origin "HEAD:refs/heads/recovery/integrate-verified-corpus-20261123"
+          fi
