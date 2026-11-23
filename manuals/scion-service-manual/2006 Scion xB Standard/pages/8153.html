@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Monitor Description — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Monitor Description</h1><div id="S02510266132006081300000">
+  <p>5 hours* after the ignition switch is turned OFF, the leak detection pump creates negative pressure (vacuum) in the EVAP system. The ECM monitors for leaks and actuator malfunctions based on the EVAP pressure.</p>
+  <p>HINT:</p>
+  <p>*: If the engine coolant temperature is not below 35°C (95°F) 5 hours after the ignition switch is turned OFF, the monitor check starts 2 hours later. If it is still not below 35°C (95°F) 7 hours after the ignition switch is turned OFF, the monitor check starts 2.5 hours later.</p><a name="S15833778532006081300000"></a><div class="clsTableTitle">SEQUENCE DURATION REFERENCE</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="center">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+      <col span="1" id="COL4" align="center">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="center" class="clsCellNormal">Sequence</th>
+        <th align="center" class="clsCellNormal">Operations</th>
+        <th align="center" class="clsCellNormal">Descriptions</th>
+        <th align="center" class="clsCellNormal">Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center" class="clsCellNormal">-</td>
+        <td align="left" class="clsCellNormal">ECM activation</td>
+        <td align="left" class="clsCellNormal">Activated by soak timer 5, 7 or 9.5 hours after ignition switch OFF.</td>
+        <td align="center" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">A</td>
+        <td align="left" class="clsCellNormal">Atmospheric pressure measurement</td>
+        <td align="left" class="clsCellNormal">Vent valve turned OFF (vent) and EVAP system pressure measured by ECM in order to register atmospheric pressure.<br>If pressure in EVAP system not between 70 kPa and 110 kPa (525 mmHg and 825 mmHg), ECM cancels EVAP system monitor.</td>
+        <td align="center" class="clsCellNormal">10 seconds</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">B</td>
+        <td align="left" class="clsCellNormal">First 0.02 inch leak criterion measurement</td>
+        <td align="left" class="clsCellNormal">In order to determine 0.02 inch leak criterion, leak detection pump creates negative pressure (vacuum) through reference orifice and then ECM checks if leak detection pump and vent valve operate normally.</td>
+        <td align="center" class="clsCellNormal">60 seconds</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">C</td>
+        <td align="left" class="clsCellNormal">EVAP system pressure measurement</td>
+        <td align="left" class="clsCellNormal">Vent valve turned ON (closed) to shut EVAP system. Negative pressure (vacuum) created in EVAP system, and EVAP system pressure then measured.<br>Write down measured value as it will be used in leak check. If EVAP pressure does not stabilize within 900 seconds, ECM cancels EVAP system monitor.</td>
+        <td align="center" class="clsCellNormal">900 seconds<a class="clsFootnoteLink" href="#S05866048192006081300000"><sup>(1)</sup></a></td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">D</td>
+        <td align="left" class="clsCellNormal">Purge VSV monitor</td>
+        <td align="left" class="clsCellNormal">Purge VSV opened and then EVAP system pressure measured by ECM.<br>Large increase indicates normal.</td>
+        <td align="center" class="clsCellNormal">10 seconds</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">E</td>
+        <td align="left" class="clsCellNormal">Second 0.02 inch leak criterion measurement</td>
+        <td align="left" class="clsCellNormal">After second 0.02 inch leak criterion measurement, leak check performed by comparing first and second 0.02 inch leak criterion.<br>If stabilized system pressure higher than second 0.02 inch leak criterion, ECM determines that EVAP system leaking.</td>
+        <td align="center" class="clsCellNormal">60 seconds</td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">F</td>
+        <td align="left" class="clsCellNormal">Final check</td>
+        <td align="left" class="clsCellNormal">Atmospheric pressure measured and then monitoring result recorded by ECM.</td>
+        <td align="center" class="clsCellNormal">-</td>
+      </tr>
+      <tr class="clsFootnoteRow">
+        <td colspan="4" align="left" class="clsCellNormal">
+          <table class="clsFootnoteTable" width="100%">
+            <tr valign="top">
+              <td width="10px"><a name="S05866048192006081300000"><sup>(1)</sup></a></td>
+              <td>If only a small amount of fuel is in the fuel tank, it takes longer for the EVAP pressure to stabilize.</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="imageHolder" id="container_G04225609">
+    <div class="imageHeader"><a name="S04209256352006081300000"></a><span class="imageCaption">Fig 1: Checking Atmospheric Pressure</span></div><img alt="G04225609" src="../images/G04225609.jpeg" name="G04225609"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <ol class="ARABICNUM">
+    <li>P0455: EVAP gross leak<p>In operation C, the leak detection pump creates negative pressure (vacuum) in the EVAP system and the EVAP system pressure is measured. If the stabilized system pressure is higher than [second 0.02 inch leak criterion x 0.2] (near atmospheric pressure), the ECM determines that the EVAP system has a large leakage, illuminates the MIL and sets the DTC (2 trip detection logic).</p>
+    </li>
+    <li>P0456: EVAP very small leak<p>In operation C, the leak detection pump creates negative pressure (vacuum) in the EVAP system and the EVAP system pressure is measured. If the stabilized system pressure is higher than the second 0.02 inch leak criterion, the ECM determines that the EVAP system has a small leakage, illuminates the MIL and sets the DTC (2 trip detection logic).</p>
+      <div class="imageHolder" id="container_G04225610">
+        <div class="imageHeader"><a name="S04900820252006081300000"></a><span class="imageCaption">Fig 2: Identifying EVAP Very Small Leak</span></div><img alt="G04225610" src="../images/G04225610.gif" name="G04225610"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

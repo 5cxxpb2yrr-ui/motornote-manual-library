@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>VVT Drive Cycle 1 — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>VVT Drive Cycle 1</h1><div id="S26043175102013032500000">
+  <div class="imageHolder" id="container_G00526358">
+    <div class="imageHeader"><a name="S03939265382013032500000"></a><span class="imageCaption">Fig 1: Drive Cycle Pattern 1</span></div><img alt="G00526358" src="../images/G00526358.png" name="G00526358"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <ol class="ARABICNUM">
+    <li>Connect the Techstream to the DLC3.</li>
+    <li>Turn the power switch on (IG) and turn the Techstream on.</li>
+    <li>Clear the DTCs (even if no DTCs are stored, perform the clear DTC procedure).<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>P0011 is output: Clear the DTC without using the Techstream.</li>
+            <li>P0012 is output: Clear the DTC with using the Techstream.</li>
+          </ul></span></div>
+    </li>
+    <li>Put the engine in inspection mode (maintenance mode).</li>
+    <li>Start the engine and warm it up until the engine coolant temperature reaches 75°C (167°F) or higher [B].</li>
+    <li>Accelerate the vehicle to 75 km/h (47 mph) or more by depressing the accelerator pedal for at least 10 seconds [C].<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing the confirmation driving pattern, obey all speed limits and traffic laws.</span></div>
+    </li>
+    <li>Idle the engine for 30 seconds or more [D].</li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Trouble Codes [E].</li>
+    <li>Read the pending DTCs.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>If a pending DTC is output, the system is malfunctioning.</li>
+            <li>If a pending DTC is not output, perform the following procedure.</li>
+          </ul></span></div>
+    </li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Utility / All Readiness.</li>
+    <li>Input the DTC: P0011 or P0012.</li>
+    <li>Check the DTC judgment result.<a name="S39700107342014011700000"></a><div class="clsTableTitle">JUDGMENT RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="" width="146px">
+          <col span="1" id="" width="250px">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th valign="TOP" align="center" class="clsCellNormal">TECHSTREAM DISPLY</th>
+            <th valign="TOP" align="center" class="clsCellNormal">DESCRIPTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">NORMAL</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment completed</li>
+                <li>System normal</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">ABNORMAL</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment completed</li>
+                <li>System abnormal</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">INCOMPLETE</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment not completed</li>
+                <li>Perform driving pattern after confirming DTC enabling conditions</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">UNKNOWN</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>Unable to perform DTC judgment</li>
+                <li>Number of DTCs which do not fulfill DTC preconditions has reached ECU's memory limit</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>If the judgment result shows NORMAL, the system is normal.</li>
+            <li>If the judgment result shows ABNORMAL, the system has a malfunction.</li>
+            <li>If the judgment result shows INCOMPLETE or UNKNOWN, perform steps [F] through [H].</li>
+          </ul></span></div>
+    </li>
+    <li>Accelerate the vehicle to 75 km/h (47 mph) or more by depressing the accelerator pedal for at least 10 seconds [F].<div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When performing the confirmation driving pattern, obey all speed limits and traffic laws.</span></div>
+    </li>
+    <li>Idle the engine for 30 seconds or more [G].</li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Utility / All Readiness.</li>
+    <li>Input the DTC: P0011 or P0012.</li>
+    <li>Check the DTC judgment result again [H].<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>If the judgment result shows NORMAL, the system is normal.</li>
+            <li>If the judgment result shows ABNORMAL, the system has a malfunction.</li>
+          </ul></span></div>
+    </li>
+    <li>If the judgment result is INCOMPLETE or UNKNOWN and no pending DTC is output, perform a universal trip and check for permanent DTCs.<ul class="BULLET">
+        <li>If a permanent DTC is output, the system is malfunctioning.</li>
+        <li>If no permanent DTC is output, the system is normal.</li>
+      </ul>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

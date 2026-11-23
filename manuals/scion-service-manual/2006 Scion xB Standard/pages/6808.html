@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Inspection Procedure — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Inspection Procedure</h1><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S09394656102006081300000">
+  <p>HINT:</p>
+  <p>Using the intelligent tester's DATA LIST allows switch, sensor, actuator and other item values to be read without removing any parts. Reading the DATA LIST early in troubleshooting is one way to save time.</p>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In the table below, the values listed under &quot;Normal Condition&quot; are reference values. Do not depend solely on these reference values when deciding whether a part is faulty or not.</span></div>
+  <ol class="ARABICNUM">
+    <li>Warm up the engine.</li>
+    <li>Turn the ignition switch OFF.</li>
+    <li>Connect the intelligent tester to the CAN VIM. Then connect the CAN VIM to the DLC3.</li>
+    <li>Turn the ignition switch ON.</li>
+    <li>Turn the intelligent tester ON.</li>
+    <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DATA LIST.</li>
+    <li>Follow the instructions on the tester and read the DATA LIST.<a name="S37432581192006081300000"></a><div class="clsTableTitle">DATA LIST</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+          <col span="1" id="COL4" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="left" class="clsCellNormal">Item</th>
+            <th align="left" class="clsCellNormal">Measurement Item/Range (Display)</th>
+            <th align="left" class="clsCellNormal">Normal Condition</th>
+            <th align="left" class="clsCellNormal">Diagnostic Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">AT FLUID TEMP</td>
+            <td align="left" class="clsCellNormal">ATF temperature sensor value/Min.: -40°C (-40°F)<br>Max.: 215°C (419°F)</td>
+            <td align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>After stall test: Approximately 80°C (176°F)</li>
+                <li>Equal to ambient temperature during cold soak</li>
+              </ul>
+            </td>
+            <td align="left" class="clsCellNormal">If value is -40°C (-40°F) or 215°C (419°F), ATF temperature sensor circuit is opened or short circuited</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ol>
+  <p>HINT:</p>
+  <ul class="BULLET">
+    <li>When DTC P0712 is output and the intelligent tester output is 150°C (302°F) or more, there is a short circuit.</li>
+    <li>When DTC P0713 is output and the intelligent tester output is -40°C (-40°F), there is an open circuit. Measure the resistance between terminal THO1 (OT) and the body ground.<a name="S26086450122006081300000"></a><div class="clsTableTitle">TEMPERATURE REFERENCE</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="left">
+          <col span="1" id="COL2" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="left" class="clsCellNormal">Temperature Displayed</th>
+            <th align="left" class="clsCellNormal">Malfunction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" class="clsCellNormal">-40°C (-40°F)</td>
+            <td align="left" class="clsCellNormal">Open circuit</td>
+          </tr>
+          <tr>
+            <td align="left" class="clsCellNormal">150°C (302°F) or more</td>
+            <td align="left" class="clsCellNormal">Short circuit</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+  <p>HINT:</p>
+  <p>If a circuit related to the ATF temperature sensor becomes open, P0713 is set in approximately 0.5 seconds.</p>
+  <p>It is not necessary to inspect the circuit when P0711 is set.</p>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">CHECK OTHER DTCS OUTPUT (IN ADDITION TO DTC P0711) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the CAN VIM. Then connect the CAN VIM to the DLC3.</li>
+        <li>Turn the ignition switch ON and push the intelligent tester main switch ON.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DTC INFO / CURRENT CODES.</li>
+        <li>Read the DTCs using the intelligent tester.<p><span class="clsEmphBOLD">Result </span></p><a name="S38350166642006081300000"></a><div class="clsTableTitle">RESULT REFERENCE</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Display (DTC output)</th>
+                <th align="left" class="clsCellNormal">Proceed to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">Only P0711 is output</td>
+                <td align="left" class="clsCellNormal">A</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">P0711 and other DTCs</td>
+                <td align="left" class="clsCellNormal">B</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>HINT:</p>
+          <p>If any other codes besides P0711 are output, perform troubleshooting for those DTCs first.</p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">B: GO TO </span><a href="../pages/6975.html">DTC CHART</a> </p>
+      <p><span class="clsEmphBOLD">A: Go to next step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK TRANSAXLE FLUID LEVEL </span><p><span class="clsEmphBOLD">OK: Automatic transaxle fluid level is correct. </span></p>
+      <p><span class="clsEmphBOLD">NG: ADD FLUID </span></p>
+      <p><span class="clsEmphBOLD">OK: REPLACE TRANSMISSION WIRE </span></p>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

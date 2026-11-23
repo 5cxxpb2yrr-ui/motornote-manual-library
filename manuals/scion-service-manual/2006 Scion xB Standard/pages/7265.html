@@ -1,0 +1,120 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnosis System (2005/07-2005/12) — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Diagnosis System (2005/07-2005/12)</h1><div id="S04975217442006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">CHECK DLC3 </span><div class="imageHolder" id="container_G04228668">
+        <div class="imageHeader"><a name="S34498570332006081300000"></a><span class="imageCaption">Fig 1: Identifying DLC3 Connector Terminal</span></div><img alt="G04228668" src="../images/G04228668.gif" name="G04228668"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div><a name="S40400270642006081300000"></a><div class="clsTableTitle">DLC3 TERMINAL DESCRIPTION AND SPECIFIED CONDITIONS</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" width="207px" align="left">
+          <col span="1" id="COL2" width="207px" align="left">
+          <col span="1" id="COL3" width="207px" align="left">
+          <col span="1" id="COL4" width="207px" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th valign="BOTTOM" align="center" class="clsCellNormal">Symbols (Terminal No.)</th>
+            <th valign="BOTTOM" align="center" class="clsCellNormal">Terminal Description</th>
+            <th valign="BOTTOM" align="center" class="clsCellNormal">Condition</th>
+            <th valign="BOTTOM" align="center" class="clsCellNormal">Specified Condition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">SIL (7) - SG (5)</td>
+            <td valign="TOP" align="left" class="clsCellNormal">Bus &quot;+&quot; line</td>
+            <td valign="TOP" align="left" class="clsCellNormal">During transmission</td>
+            <td valign="TOP" align="left" class="clsCellNormal">Pulse generation</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">BAT (16) - Body ground</td>
+            <td valign="TOP" align="left" class="clsCellNormal">Battery positive</td>
+            <td valign="MIDDLE" rowspan="3" align="left" class="clsCellNormal">Always</td>
+            <td valign="TOP" align="left" class="clsCellNormal">10 to 14 V</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">CG (4) - Body ground</td>
+            <td valign="TOP" align="left" class="clsCellNormal">Chassis ground</td>
+            <td valign="MIDDLE" rowspan="2" align="left" class="clsCellNormal">Below 1 Ω</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">SG (5) - Body ground</td>
+            <td valign="TOP" align="left" class="clsCellNormal">Signal ground</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>If the result is not as specified, the DLC3 may have a malfunction. Repair or replace the harness and connector.</p>
+      <p>HINT:</p>
+      <p>Connect the cable of the intelligent tester (with CAN VIM) to the DLC3, turn the ignition switch ON and attempt to use the tester. If the screen displays the message UNABLE TO CONNECT TO VEHICLE, there is a problem either with the vehicle or with the tester.</p>
+      <ul class="BULLET">
+        <li>If communication is normal when the tester is connected to another vehicle, inspect the DLC3 of the original vehicle.</li>
+        <li>If communication is still not possible when the tester is connected to another vehicle, the problem may be in the tester itself. Consult the Service Department listed in the tester's instruction manual.<div class="imageHolder" id="container_G04228669">
+            <div class="imageHeader"><a name="S20608132342006081300000"></a><span class="imageCaption">Fig 2: Connecting Cable Of Intelligent Tester (With CAN VIM) To DLC3</span></div><img alt="G04228669" src="../images/G04228669.gif" name="G04228669"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ul>
+    </li>
+    <li><span class="clsEmphBOLD">SYMPTOM SIMULATION </span><p>HINT:</p>
+      <p>The most difficult case in troubleshooting is when no symptoms occur. In such cases, a thorough customer problem analysis must be carried out. Then the same or similar conditions and environment in which the problem occurred in the customer's vehicle should be simulated. No matter how experienced or skilled a technician may be, if he proceeds to troubleshoot without confirming the problem symptoms, he will likely overlook something important and make a wrong guess at some points in the repair operation. This leads to a standstill in troubleshooting.</p>
+      <ol class="LOWERALPHA">
+        <li>Vibration method: When vibration seems to be the major cause.<p>HINT:</p>
+          <p>Perform the simulation method only during the primary check period (for approximately 6 seconds after the ignition switch is turned to the ON position).</p>
+          <ol class="ARABICNUM">
+            <li>Slightly vibrate the part of the sensor considered to be the problem cause with your fingers and check whether the malfunction occurs.<p>HINT:</p>
+              <p>Shaking the relays too strongly may result in open relays.</p>
+            </li>
+            <li>Slightly shake the connector vertically and horizontally.</li>
+            <li>Slightly shake the wire harness vertically and horizontally. The connector joint and fulcrum of the vibration are the major areas to be checked thoroughly.</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">FUNCTION OF SRS LIGHT </span><ol class="LOWERALPHA">
+        <li>Primary check<ol class="ARABICNUM">
+            <li>Turn the ignition switch to the LOCK position. Wait for at least 2 seconds, then turn the ignition switch to the ON position. The SRS warning light comes on for approximately 6 seconds and the SRS airbag system diagnosis (including the seat belt) is performed.<p>HINT:</p>
+              <p>If trouble is detected during the primary check, the SRS warning light remains on even after the primary check period (approximately 6 seconds) has elapsed.</p>
+              <div class="imageHolder" id="container_G04228670">
+                <div class="imageHeader"><a name="S26177424792006081300000"></a><span class="imageCaption">Fig 3: Identifying Slightly Shake Wire Harness Vertically And Horizontally</span></div><img alt="G04228670" src="../images/G04228670.gif" name="G04228670"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+            </li>
+          </ol>
+        </li>
+        <li>Constant check<ol class="ARABICNUM">
+            <li>After the primary check, the center airbag sensor assembly constantly monitors the SRS airbag system for trouble.<p>HINT:</p>
+              <p>If trouble is detected during the constant check, the center airbag sensor assembly functions as follows:</p>
+              <ul class="BULLET">
+                <li>The SRS warning light comes on or blinks.</li>
+                <li>The SRS warning light comes on, and then goes off. This blinking pattern indicates the source voltage drop.</li>
+                <li>The SRS warning light goes off 10 seconds after the source voltage returns to normal.</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>Review<ol class="ARABICNUM">
+            <li>When the airbag system is normal:<p>The SRS warning light comes on only during the primary check period (for approximately 6 seconds after the ignition switch is turned to the ON position).</p>
+            </li>
+            <li>When the airbag system has trouble:<ul class="BULLET">
+                <li>The SRS warning light remains on or blinks even after the primary check period has elapsed.</li>
+                <li>The SRS warning light goes off after the primary check, but comes on or blinks again during the constant check.</li>
+                <li>The SRS warning light does not come on when turning the ignition switch from the LOCK to ON position.</li>
+              </ul>
+              <p>HINT:</p>
+              <p>The center airbag sensor assembly keeps the SRS warning light on if the airbag has been deployed.</p>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">SRS WARNING LIGHT CHECK </span><ol class="LOWERALPHA">
+        <li>Turn the ignition switch to the ON position, and check that the SRS warning light comes on for approximately 6 seconds (primary check).</li>
+        <li>Check that the SRS warning light goes off approximately 6 seconds after the ignition switch is turned to the ON position (constant check).<p>HINT:</p>
+          <p>When any of the following symptoms occur, refer to the <a href="../pages/7262.html">PROBLEM SYMPTOMS TABLE</a>  
+
+.</p>
+          <ul class="BULLET">
+            <li>When the SRS warning light comes on occasionally even after the primary check period has elapsed, an open or short in the SRS warning light circuit is suspected.</li>
+            <li>When the SRS warning light comes on even when the ignition switch is in the LOCK position, trouble in the power source or combination meter assembly is suspected.</li>
+            <li>When the ignition switch is turned from the LOCK to ON position, the SRS warning light does not come on.<div class="imageHolder" id="container_G04228671">
+                <div class="imageHeader"><a name="S28085092952006081300000"></a><span class="imageCaption">Fig 4: Identifying SRS Warning Light Indicator</span></div><img alt="G04228671" src="../images/G04228671.gif" name="G04228671"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

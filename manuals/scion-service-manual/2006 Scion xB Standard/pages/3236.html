@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Inspection Procedure — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Inspection Procedure</h1><div id="S37102360912006081300000">
+  <p>HINT:</p>
+  <ul class="BULLET">
+    <li>If other DTCs relating to different systems that have terminal E2 as the ground terminal are output simultaneously, terminal E2 may have an open circuit.</li>
+    <li>Read freeze frame data using the intelligent tester. Freeze frame data records the engine condition when malfunctions are detected. When troubleshooting, freeze frame data can help determine if the vehicle was moving or stationary, if the engine was warmed up or not, if the air-fuel ratio was lean or rich, and other data from the time the malfunction occurred.</li>
+  </ul>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">CHECK POWER STEERING OIL PRESSURE SENSOR </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the tester ON.</li>
+        <li>Start the engine.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DATA LIST / PRIMARY / PS SIGNAL.</li>
+        <li>Read the value displayed on the tester.<p><span class="clsEmphBOLD">OK: Go to Next Step </span></p><a name="S14073482532006081300000"></a><div class="clsTableTitle">POWER STEERING OIL PRESSURE SENSOR CONDITION</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Condition</th>
+                <th align="center" class="clsCellNormal">Power steering oil pressure sensor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">Steering wheel locked</td>
+                <td align="center" class="clsCellNormal">ON</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">Engine is idling</td>
+                <td align="center" class="clsCellNormal">OFF</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">OK: CHECK FOR INTERMITTENT PROBLEMS </span></p>
+      <p><span class="clsEmphBOLD">NG: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK HARNESS AND CONNECTOR (ECM - POWER STEERING OIL PRESSURE SENSOR) </span><ol class="LOWERALPHA">
+        <li>Disconnect the E5 and E6 ECM connectors.<div class="imageHolder" id="container_G04225622">
+            <div class="imageHeader"><a name="S22465966512006081300000"></a><span class="imageCaption">Fig 1: Disconnecting E5 And E6 ECM Connectors</span></div><img alt="G04225622" src="../images/G04225622.gif" name="G04225622"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+        <li>Disconnect the P1 power steering oil pressure sensor connector.</li>
+        <li>Measure the resistance of the wire harness side connectors.<p><span class="clsEmphBOLD">Standard resistance (Check for open) </span></p><a name="S02142902202006081300000"></a><div class="clsTableTitle">TESTER CONNECTION - SPECIFIED CONDITIONS</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Tester Connection</th>
+                <th align="center" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">DUTY (P1-2) - PSP (E6-32)</td>
+                <td valign="MIDDLE" rowspan="3" align="center" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">VC (P1-3) - VC (E5-18)</td>
+              </tr>
+              <tr>
+                <td align="" class="clsCellNormal">E2 (P1-1) - E2 (E5-28)</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="imageHolder" id="container_G04225623">
+            <div class="imageHeader"><a name="S25160014432006081300000"></a><span class="imageCaption">Fig 2: Measuring Resistance Of Wire Harness Side Connectors</span></div><img alt="G04225623" src="../images/G04225623.gif" name="G04225623"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p><span class="clsEmphBOLD">Standard resistance (Check for short) </span></p><a name="S10156051522006081300000"></a><div class="clsTableTitle">TESTER CONNECTION - SPECIFIED CONDITIONS</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Tester Connection</th>
+                <th align="center" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">DUTY (P1-2) or PSP (E6-32) - Body ground</td>
+                <td valign="MIDDLE" rowspan="2" align="center" class="clsCellNormal">10 kΩ or higher</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">E2 (P1-1) or E2 (E5-28) - Body ground</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NG: REPAIR OR REPLACE HARNESS OR CONNECTOR </span></p>
+      <p><span class="clsEmphBOLD">OK: REPLACE POWER STEERING OIL PRESSURE SENSOR </span></p>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

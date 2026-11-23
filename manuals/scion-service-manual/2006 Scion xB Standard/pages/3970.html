@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Secondary Air Injection Drive Cycle 1 — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Secondary Air Injection Drive Cycle 1</h1><div id="S06725209342013032600000">
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span><ul class="BULLET">
+        <li>This Air Injection Check only allows technicians to operate the secondary air injection system for a maximum of 5 seconds. Furthermore, the check can only be performed up to 4 times per trip. If the test is repeated, intervals of at least 30 seconds are required between checks. While secondary air injection system operation using the Techstream is prohibited, the Techstream display indicates the prohibition (WAIT or ERROR). If ERROR is displayed on the Techstream during the test, stop the engine for 10 minutes, and then try again.</li>
+        <li>Performing Air Injection Check repeatedly may cause damage to the secondary air injection system. If it is necessary to repeat the check, leave an interval of several minutes between System Check operations to prevent the system from overheating.</li>
+        <li>When performing the Air Injection Check operation after the battery cable has been reconnected, wait for 7 minutes with the engine switch turned on (IG) or the engine running.</li>
+        <li>Turn the engine switch off when the Air Injection Check operation finishes.</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li>Start the engine and warm it up.</li>
+    <li>Turn the engine switch off.</li>
+    <li>Connect the Techstream to the DLC3.</li>
+    <li>Turn the engine switch on (IG).</li>
+    <li>Turn the Techstream on.</li>
+    <li>Clear DTCs (even if no DTCs are stored, perform the clear DTC operation).</li>
+    <li>Turn the engine switch off and wait for at least 30 seconds.</li>
+    <li>Turn the engine switch on (IG) and turn the Techstream on.</li>
+    <li>Enter the following menus: Powertrain / Engine and ECT / Utility / Air injection check / Automatic Mode.</li>
+    <li>Start the engine after the Techstream initialization is finished.</li>
+    <li>Perform the System Check operation by pressing ENTER (Next).</li>
+    <li>Perform the following to confirm the secondary air injection system pending codes: Press ENTER (Exit).</li>
+    <li>Check for pending DTCs.  OK:   No pending DTC is output.</li>
+    <li>After &quot;Air injection check&quot; is completed, check for All Readiness by entering the following menus: Powertrain / Engine and ECT / Utility / All Readiness.</li>
+    <li>Input the DTC: P0412 or P0415.</li>
+    <li>Check the DTC judgment result.<a name="S03271253222013032600000"></a><div class="clsTableTitle">JUDGMENT RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="" width="146px">
+          <col span="1" id="" width="250px">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th valign="TOP" align="center" class="clsCellNormal">TECHSTREAM DISPLY</th>
+            <th valign="TOP" align="center" class="clsCellNormal">DESCRIPTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">NORMAL</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment completed</li>
+                <li>System normal</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">ABNORMAL</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment completed</li>
+                <li>System abnormal</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">INCOMPLETE</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>DTC judgment not completed</li>
+                <li>Perform driving pattern after confirming DTC enabling conditions</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="center" class="clsCellNormal">UNKNOWN</td>
+            <td valign="TOP" align="left" class="clsCellNormal">
+              <ul class="BULLET">
+                <li>Unable to perform DTC judgment</li>
+                <li>Number of DTCs which do not fulfill DTC preconditions has reached ECU's memory limit</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="BULLET">
+        <li>If the judgment result shows NORMAL, the system is normal.</li>
+        <li>If the judgment result shows ABNORMAL, the system has a malfunction.</li>
+      </ul>
+    </li>
+    <li>If the judgment result is INCOMPLETE or UNKNOWN and no pending DTC is output, perform a universal trip and check for permanent DTCs.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+            <li>If no permanent DTC is output, the system is normal.</li>
+            <li>If a permanent DTC is output, the system is malfunctioning.</li>
+          </ul></span></div>
+    </li>
+    <li>Turn the engine switch off.</li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

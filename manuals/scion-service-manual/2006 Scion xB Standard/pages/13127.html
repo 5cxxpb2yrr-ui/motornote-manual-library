@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>System Outline — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>System Outline</h1><div id="S22175223172013102100000">
+  <p>Previous automatic transaxle have selected each gear shift using the mechanically controlled throttle hydraulic pressure, governor hydraulic pressure and lock-up hydraulic pressure. The electronically controlled transmission, however, electrically controls the line pressure and lock-up pressure etc., through the solenoid valve. Engine control module controls each solenoid valve based on the input signals from each sensor, which makes smooth driving possible by shift selection for each gear that is most appropriate to the driving conditions at that time.</p>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">Gear Shift Operation </span><p>During driving, the engine control module selects the shift for each gear which is most appropriate to the driving conditions, based on input signals from the engine coolant temp. sensor to TERMINAL THW of the engine control module, and also the input signals to TERMINAL NT+ of the engine control module from the turbine speed sensor devoted to the direct clutch. Current is then output to the electronically controlled transmission solenoid. When shifting to 1st gear, current flows from TERMINAL S1 of the engine control module to TERMINAL 5 of the electronically controlled transmission solenoid to GROUND, and from TERMINAL S2 of the engine control module to TERMINAL 10 of the electronically controlled transmission solenoid to GROUND, and continuity to solenoids No.1 and No.2 causes the shift.</p>
+      <p>For the 2nd gear, current flows from TERMINAL S1 of the engine control module to TERMINAL 5 of the electronically controlled transmission solenoid to GROUND, and continuity to the solenoid No.1 causes the shift.</p>
+      <p>For the 3rd gear, there is no continuity to either No.1 or No.2 solenoid.</p>
+      <p>Shifting into 4th gear (Overdrive) takes place when current flows from TERMINAL S2 of the engine control module to TERMINAL 10 of the electronically controlled transmission solenoid to GROUND, and continuity to the solenoid No.2 causes the shift.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Lock-Up Operation </span><p>When the engine control module judges from each signal that lock-up operation conditions have been met, current flows from TERMINAL SL of the engine control module to TERMINAL 4 of the electronically controlled transmission solenoid to GROUND, causing continuity to the lock-up solenoid and causing lock-up operation.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Clutch Pressure Control </span><p>The electronically controlled transmission solenoid is controlled by the current from TERMINAL SL of the engine control module, and controls the accumulator hydraulic pressure.</p>
+      <p>As a result, the clutch to hydraulic pressure is adjusted precisely, and allows stable shift change.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Line Pressure Control </span><p>The electronically controlled transmission solenoid is controlled by the current from TERMINAL SLT+ of the engine control module, and controls the throttle hydraulic pressure.</p>
+      <p>As a result, the line pressure can be controlled precisely, and the to hydraulic pressure is adjusted according to the shift change condition, and allows smooth shift change.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Shifting Control in Uphill/Downhill Traveling </span><p>This system determines whether the vehicle is traveling on an incline or decline from the throttle opening angle, vehicle acceleration condition and brake pedal operation, and controls the shift up to O/D to allow smooth driving.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Clutch to Clutch Control </span><p>When shifting from the 3rd gear to the 4th gear, the current from the engine control module TERMINAL ST controls the electronically controlled transmission solenoid, to control the drain orifice hydraulic pressure (Switch orifice). The electronically controlled transmission solenoid is also controlled by the current from the engine control module TERMINAL SLT+, to adjust the hydraulic pressure precisely, which ensures smooth shifting.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Stop Light SW Circuit </span><p>If the brake pedal is depressed (Stop light SW on) when driving in lock-up condition, a signal is input to TERMINAL STP of the engine control module, the engine control module operates and continuity to the lock-up solenoid is cut.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Overdrive Circuit </span><ul class="BULLET">
+        <li>Overdrive on<p>When the engine is turned on from ignition off, the engine control module turns the O/D on. When the O/D main SW is pushed while the O/D is off, a signal is input into TERMINAL ODMS of the engine control module, and the O/D is turned on by the engine control module. In this case, the engine control module controls the gear shift according to the vehicle's driving condition, using the O/D range. At this time, the O/D off indicator light is off.</p>
+        </li>
+        <li>Overdrive off<p>When the O/D main SW is pushed while the O/D is on, a signal is input into TERMINAL ODMS of the engine control module, and the O/D is turned off. At this time, the current flows through the O/D off indicator light to TERMINAL ODLP of the engine control module. As a result, the O/D off indicator light turns on, and the engine control module controls the gear shift according to the vehicle's driving condition, without using the O/D range.</p>
+        </li>
+      </ul>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

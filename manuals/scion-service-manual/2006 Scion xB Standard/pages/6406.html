@@ -1,0 +1,180 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnosis System — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Diagnosis System</h1><div id="S21596309322006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">CHECK DLC3 </span><ol class="LOWERALPHA">
+        <li>The ECU uses ISO 15765-4 for communication. The terminal arrangement of the DLC3 complies with ISO 15031-3 and matches the ISO 15765-4 format.<div class="imageHolder" id="container_G04228956">
+            <div class="imageHeader"><a name="S16128844512006081300000"></a><span class="imageCaption">Fig 1: Identifying DLC3 Connector Terminal</span></div><img alt="G04228956" src="../images/G04228956.gif" name="G04228956"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div><a name="S06836970832006081300000"></a><div class="clsTableTitle">DLC3 CONNECTOR TERMINALS DESCRIPTION</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" width="207px" align="left">
+              <col span="1" id="COL2" width="207px" align="left">
+              <col span="1" id="COL3" width="207px" align="left">
+              <col span="1" id="COL4" width="207px" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th valign="BOTTOM" align="center" class="clsCellNormal">Symbols (Terminal No.)</th>
+                <th valign="BOTTOM" align="center" class="clsCellNormal">Terminal Description</th>
+                <th valign="BOTTOM" align="center" class="clsCellNormal">Condition</th>
+                <th valign="BOTTOM" align="center" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">SIL (7) - SG (5)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Bus &quot;+&quot; line</td>
+                <td valign="TOP" align="left" class="clsCellNormal">During transmission</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Pulse generation</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">CG (4) - Body ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Chassis ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Always</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">SG (5) - Body ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Signal ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Always</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Below 1 Ω</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">BAT (16) - Body ground</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Battery positive</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Always</td>
+                <td valign="TOP" align="left" class="clsCellNormal">11 to 14 V</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">CANH (6) - CANL (14)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">HIGH-level CAN bus line</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Ignition switch OFF*</td>
+                <td valign="TOP" align="left" class="clsCellNormal">54 to 67 Ω</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">CANH (6) - Battery positive</td>
+                <td valign="TOP" align="left" class="clsCellNormal">HIGH-level CAN bus line</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Ignition switch OFF*</td>
+                <td valign="TOP" align="left" class="clsCellNormal">1 MΩ or higher</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">CANH (6) - CG (4)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">HIGH-level CAN bus line</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Ignition switch OFF*</td>
+                <td valign="TOP" align="left" class="clsCellNormal">3 MΩ or higher</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">CANL (14) - Battery positive</td>
+                <td valign="TOP" align="left" class="clsCellNormal">LOW-level CAN bus line</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Ignition switch OFF*</td>
+                <td valign="TOP" align="left" class="clsCellNormal">1 MΩ or higher</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">CANL (14) - CG (4)</td>
+                <td valign="TOP" align="left" class="clsCellNormal">LOW-level CAN bus line</td>
+                <td valign="TOP" align="left" class="clsCellNormal">Ignition switch OFF*</td>
+                <td valign="TOP" align="left" class="clsCellNormal">3 MΩ or higher</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>*: Before measuring the resistance, leave the vehicle as is for at least 1 minute and do not operate the ignition switch, any other switches or the doors.</span></div>
+          <p>If the result is not as specified, the DLC3 may have a malfunction. Repair or replace the harness and connector.</p>
+          <p>HINT:</p>
+          <p>If the display shows a communication error message when connecting the cable of the intelligent tester to the DLC3, turning the ignition switch to the ON position and operating the intelligent tester, there is a problem on the vehicle side or tool side.</p>
+          <ul class="BULLET">
+            <li>If communication is normal when the tool is connected to another vehicle, inspect the DLC3 on the original vehicle.</li>
+            <li>If communication is still not possible when the tool is connected to another vehicle, the problem is probably in the tool itself. Consult the Service Department listed in the tool's instruction manual.<div class="imageHolder" id="container_G04228957">
+                <div class="imageHeader"><a name="S29772997692006081300000"></a><span class="imageCaption">Fig 2: Connecting Cable Of Intelligent Tester (With CAN VIM) To DLC3</span></div><img alt="G04228957" src="../images/G04228957.gif" name="G04228957"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">SYMPTOM SIMULATION </span><p>HINT:</p>
+      <p>The most difficult case in troubleshooting is when no symptoms occur. In such cases, a thorough customer problem analysis must be carried out. Then the same or similar conditions and environment in which the problem occurred in the customer's vehicle should be simulated. No matter how experienced or skilled a technician may be, if he proceeds to troubleshoot without confirming the problem symptoms, he will likely overlook something important and make a wrong guess at some points in the repair operation.</p>
+      <p>This leads to a standstill in troubleshooting.</p>
+      <ol class="LOWERALPHA">
+        <li>Vibration method:<p>When vibration seems to be the major cause.</p>
+          <p>HINT:</p>
+          <p>Perform the simulation method only during the primary check period (for approximately 6 seconds after the ignition switch ON).</p>
+          <ol class="ARABICNUM">
+            <li>Slightly vibrate the part of the sensor considered to be the problem cause with your fingers and check whether the malfunction occurs.<p>HINT:</p>
+              <p>Shaking the relays too strongly may result in open relays.</p>
+            </li>
+            <li>Slightly shake the connector vertically and horizontally.</li>
+            <li>Slightly shake the wire harness vertically and horizontally.<p>The connector joint and fulcrum of the vibration are the major areas to be checked thoroughly.</p>
+              <div class="imageHolder" id="container_G04228958">
+                <div class="imageHeader"><a name="S37621114172006081300000"></a><span class="imageCaption">Fig 3: Identifying Slightly Shake Wire Harness Vertically And Horizontally</span></div><img alt="G04228958" src="../images/G04228958.gif" name="G04228958"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+            </li>
+          </ol>
+        </li>
+        <li>Simulation method for DTC B1795:<p>Turn the ignition switch from OFF to ON, hold it for 10 seconds, and then turn it back to OFF. Repeat this procedure 50 times in a now.</p>
+          <p>HINT:</p>
+          <p>DTC B1795 is output if the occupant classification ECU receives the ignition switch OFF-ON-OFF signal 50 times in a row when a malfunction occurs in the power circuit for the occupant classification system.</p>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">FUNCTION OF PASSENGER AIRBAG ON / OFF INDICATOR </span><ol class="LOWERALPHA">
+        <li>Initial check<ol class="ARABICNUM">
+            <li>Turn the ignition switch ON.</li>
+            <li>The passenger airbag ON / OFF indicator (&quot;ON&quot; and &quot;OFF&quot;) comes on for approximately 4 seconds, then goes off for approximately 2 seconds.<div class="imageHolder" id="container_G04228959">
+                <div class="imageHeader"><a name="S08997265032006081300000"></a><span class="imageCaption">Fig 4: Passenger Airbag ON / OFF Indicator Blinking Pattern</span></div><img alt="G04228959" src="../images/G04228959.gif" name="G04228959"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+              <p>HINT:</p>
+              <p>When the occupant classification system has trouble, both the SRS warning light and the passenger airbag ON / OFF indicator (&quot;OFF&quot;) come on. In this case, check the DTCs in the airbag system first.</p>
+            </li>
+            <li>Approximately 6 seconds after the ignition switch is turned ON, the passenger airbag ON / OFF indicator will operate according to the front passenger seat condition shown below.<a name="S26889571862006081300000"></a><div class="clsTableTitle">FRONT PASSENGER SEAT CONDITION</div><br><table cellspacing="0" class="clsArticleTable">
+                <colgroup>
+                  <col span="1" id="COL1" width="276px" align="left">
+                  <col span="1" id="COL2" width="276px" align="center">
+                  <col span="1" id="COL3" width="276px" align="center">
+                </colgroup>
+                <thead>
+                  <tr class="clsTblHead">
+                    <th valign="BOTTOM" align="center" class="clsCellNormal">Front Passenger Seat Condition</th>
+                    <th valign="BOTTOM" align="center" class="clsCellNormal">ON Indicator</th>
+                    <th valign="BOTTOM" align="center" class="clsCellNormal">OFF Indicator</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">Vacant</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">OFF</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">OFF</td>
+                  </tr>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">Adult is seated.</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">ON</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">OFF</td>
+                  </tr>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">Child is seated.</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">OFF</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">ON</td>
+                  </tr>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">Child restraint system is set.</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">OFF</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">ON</td>
+                  </tr>
+                  <tr>
+                    <td valign="TOP" align="left" class="clsCellNormal">Front passenger occupant classification system failure</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">OFF</td>
+                    <td valign="TOP" align="center" class="clsCellNormal">ON</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK PASSENGER AIRBAG ON / OFF INDICATOR </span><ol class="LOWERALPHA">
+        <li>Turn the ignition switch ON.</li>
+        <li>Check that the passenger airbag ON / OFF indicator (&quot;ON&quot; and &quot;OFF&quot;) comes on for approximately 4 seconds, then goes off for approximately 2 seconds.<p>HINT:</p>
+          <p>Refer to the table in the previous step regarding the passenger airbag ON / OFF indicator when the ignition switch is ON and approximately 6 seconds have elapsed.</p>
+          <div class="imageHolder" id="container_G04228960">
+            <div class="imageHeader"><a name="S14819152702006081300000"></a><span class="imageCaption">Fig 5: Identifying Passenger Airbag ON / OFF Indicator Display</span></div><img alt="G04228960" src="../images/G04228960.jpeg" name="G04228960"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diagnosis System — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Diagnosis System</h1><div id="S26229937112006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">BUS CHECK </span><ol class="LOWERALPHA">
+        <li>Select &quot;BUS CHECK&quot; from the &quot;OBD/MOBD MENU&quot; screen.<p>HINT:</p>
+          <p>The ECUs and sensors that are properly connected to the CAN communication system can be displayed using the intelligent tester via the CAN VIM.</p>
+          <div class="imageHolder" id="container_G04229888">
+            <div class="imageHeader"><a name="S25451574352006081300000"></a><span class="imageCaption">Fig 1: Intelligent Tester Display - OBD/MOBD MENU</span></div><img alt="G04229888" src="../images/G04229888.gif" name="G04229888"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+        <li>Press &quot;ENTER&quot; on the intelligent tester.<div class="imageHolder" id="container_G04229889">
+            <div class="imageHeader"><a name="S27922313402006081300000"></a><span class="imageCaption">Fig 2: Intelligent Tester Display - ENTER</span></div><img alt="G04229889" src="../images/G04229889.gif" name="G04229889"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+        <li>The screen displays the ECUs that are properly connected to the CAN communication system.<div class="imageHolder" id="container_G04229890">
+            <div class="imageHeader"><a name="S03909378782006081300000"></a><span class="imageCaption">Fig 3: Intelligent Tester Display - BUS CHECK</span></div><img alt="G04229890" src="../images/G04229890.gif" name="G04229890"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p>HINT:</p>
+          <p>There is a communication stop in the system of any properly connected ECUs that are not displayed.</p>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">DTC TABLE BY ECU </span><p>HINT:</p>
+      <ul class="BULLET">
+        <li>In the CAN communication system, CAN communication system DTCs can be displayed by the ECU using the intelligent tester.</li>
+        <li>If CAN communication system DTCs are output, the trouble cannot be determined only by checking the DTCs.<p>Perform troubleshooting according to <a href="../pages/8487.html">HOW TO PROCEED WITH TROUBLESHOOTING</a> 
+
+.</p>
+        </li>
+      </ul>
+      <ol class="LOWERALPHA">
+        <li>ECM<p>HINT:</p>
+          <p>The ECM is connected to the CAN communication system, but CAN communication system DTCs are not output.</p>
+        </li>
+        <li>SKID CONTROL ECU<p>HINT:</p>
+          <p>DTC communication uses the SIL Line.</p><a name="S40775058342006081300000"></a><div class="clsTableTitle">DETECTION ITEM CHART</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">DTC No.</th>
+                <th align="left" class="clsCellNormal">Detection Item</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">U0073/94 (C1223/43)</td>
+                <td align="left" class="clsCellNormal">Control Module Communication Bus OFF</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">U0100/65</td>
+                <td align="left" class="clsCellNormal">LOST Communication with ECM/PCM</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">U0123/62</td>
+                <td align="left" class="clsCellNormal">LOST Communication with Yaw Rate Sensor Module</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">U0124/95 (C1223/43)</td>
+                <td align="left" class="clsCellNormal">LOST Communication with Lateral Acceleration Sensor Module</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">U0126/63</td>
+                <td align="left" class="clsCellNormal">LOST Communication with Steering Angle Sensor Module</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>A/C AMPLIFIER<p>HINT:</p>
+          <p>The A/C amplifier is connected to the CAN communication system but CAN communication DTCs are not output.</p><a name="S24781756632006081300000"></a><div class="clsTableTitle">DETECTION ITEM CHART</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">DTC No.</th>
+                <th align="left" class="clsCellNormal">Detection Item</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">B1499</td>
+                <td align="left" class="clsCellNormal">LOST Communication with ECM Module</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">DTC, BUS CHECK COMBINATION TABLE </span><a name="S31369266442006081300000"></a><div class="clsTableTitle">DTC, BUS COMBINATION CHART</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" width="38px" align="left">
+          <col span="1" id="COL2" width="64px" align="left">
+          <col span="1" id="COL3" width="91px" align="left">
+          <col span="1" id="COL4" width="141px" align="left">
+          <col span="1" id="COL5" width="134px" align="left">
+          <col span="1" id="COL6" width="119px" align="left">
+          <col span="1" id="COL7" width="113px" align="left">
+          <col span="1" id="COL8" width="128px" align="left">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th valign="BOTTOM" align="left" class="clsCellNormal">-</th>
+            <th valign="BOTTOM" align="left" class="clsCellNormal">Output from</th>
+            <th valign="BOTTOM" align="left" class="clsCellNormal">Output DTC</th>
+            <th valign="BOTTOM" align="left" class="clsCellNormal">ECM COMMUNICATION STOP MODE</th>
+            <th valign="BOTTOM" align="left" class="clsCellNormal">SKID CONTROL ECU COMMUNICATION STOP MODE</th>
+            <th valign="BOTTOM" align="left" class="clsCellNormal">STEERING SENSOR COMMUNICATION STOP MODE</th>
+            <th valign="BOTTOM" align="left" class="clsCellNormal">YAW RATE SENSOR COMMUNICATION STOP MODE</th>
+            <th valign="BOTTOM" align="left" class="clsCellNormal">A/C AMPLIFIER COMMUNICATION STOP MODE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td valign="TOP" rowspan="6" align="left" class="clsCellNormal">DTC</td>
+            <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">Skid Control ECU</td>
+            <td valign="TOP" align="left" class="clsCellNormal">U0073/94 (C1223/43)</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">U0100/65</td>
+            <td valign="TOP" align="left" class="clsCellNormal">o During driving</td>
+            <td valign="TOP" align="left" class="clsCellNormal">o During driving</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">U0123/62</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">U0124/95 (C1223/43)</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">U0126/63</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">A/C Amplifier*</td>
+            <td valign="TOP" align="left" class="clsCellNormal">B1499</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+          </tr>
+          <tr>
+            <td valign="TOP" rowspan="5" align="left" class="clsCellNormal">Bus Check</td>
+            <td valign="TOP" align="left" class="clsCellNormal">ECM</td>
+            <td valign="TOP" align="left" class="clsCellNormal">-</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">Skid Control ECU</td>
+            <td valign="TOP" align="left" class="clsCellNormal">-</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">Steering Sensor</td>
+            <td valign="TOP" align="left" class="clsCellNormal">-</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">Yaw Rate Sensor</td>
+            <td valign="TOP" align="left" class="clsCellNormal">-</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+          </tr>
+          <tr>
+            <td valign="TOP" align="left" class="clsCellNormal">A/C Amplifier</td>
+            <td valign="TOP" align="left" class="clsCellNormal">-</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">x</td>
+            <td valign="TOP" align="left" class="clsCellNormal">X</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>HINT:</p>
+      <ul class="BULLET">
+        <li>x: Output<p>o: Outputs under the specified condition</p>
+          <p>X: Not output</p>
+        </li>
+        <li>*: When the BUS CHECK is performed but A/C is not displayed, refer to <a href="../pages/8482.html#Air%20Conditioning%20Amplifier%20Communication%20Stop%20Mode/">A/C AMPLIFIER COMMUNICATION STOP MODE</a> .</li>
+      </ul>
+      <ol class="LOWERALPHA">
+        <li>Perform troubleshooting according to the combination of DTCs that are output.<p>HINT:</p>
+          <ul class="BULLET">
+            <li>(see <a href="../pages/8482.html#ECM%20Communication%20Stop%20Mode/">ECM COMMUNICATION STOP MODE</a> 
+
+).</li>
+            <li>(see <a href="../pages/8482.html#Skid%20Control%20ECU%20Communication%20Stop%20Mode/">SKID CONTROL ECU COMMUNICATION STOP MODE</a> 
+
+).</li>
+            <li>(see <a href="../pages/8482.html#Steering%20Angle%20Sensor%20Communication%20Stop%20Mode/">STEERING ANGLE SENSOR COMMUNICATION STOP MODE</a> 
+
+).</li>
+            <li>(see <a href="../pages/8482.html#Yaw%20Rate%20Sensor%20Communication%20Stop%20Mode/">YAW RATE SENSOR COMMUNICATION STOP MODE</a> 
+
+).</li>
+            <li>(see <a href="../pages/8482.html#Air%20Conditioning%20Amplifier%20Communication%20Stop%20Mode/">AIR CONDITIONING AMPLIFIER COMMUNICATION STOP MODE</a> 
+
+).</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

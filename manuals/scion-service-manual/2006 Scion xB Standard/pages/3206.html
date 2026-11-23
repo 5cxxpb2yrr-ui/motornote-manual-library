@@ -1,0 +1,288 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Inspection Procedure — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Inspection Procedure</h1><div id="S14310398442006081300000">
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span><ul class="BULLET">
+        <li>When a vehicle is brought into the workshop, leave it as it is. Do not change the vehicle condition. For example, do not tighten the fuel cap.</li>
+        <li>Do not disassemble the canister pump module.</li>
+        <li>The intelligent tester is required to conduct the following diagnostic troubleshooting procedure.</li>
+      </ul></span></div>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">CONFIRM DTC AND EVAP PRESSURE </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the intelligent tester ON.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DTC INFO / CURRENT CODES.</li>
+        <li>Read the values.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DATA LIST / EVAP / VAPOR PRESS.</li>
+        <li>Read the EVAP pressure displayed on the intelligent tester.<p><span class="clsEmphBOLD">Result </span></p><a name="S12203342122006081300000"></a><div class="clsTableTitle">RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Display (DTC Output)</th>
+                <th align="center" class="clsCellNormal">Test Result</th>
+                <th align="center" class="clsCellNormal">Suspected Trouble Areas</th>
+                <th align="center" class="clsCellNormal">Proceed to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">P0451</td>
+                <td align="left" class="clsCellNormal">-</td>
+                <td align="left" class="clsCellNormal">
+                  <ul class="BULLET">
+                    <li>Canister pressure sensor</li>
+                  </ul>
+                </td>
+                <td align="center" class="clsCellNormal">A</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">P0452</td>
+                <td align="left" class="clsCellNormal">Less than 45 kPa (430 mmHg)</td>
+                <td align="left" class="clsCellNormal">
+                  <ul class="BULLET">
+                    <li>Wire harness/connector (ECM - canister pressure sensor)</li>
+                    <li>Canister pressure sensor</li>
+                    <li>Short in ECM circuit</li>
+                  </ul>
+                </td>
+                <td align="center" class="clsCellNormal">B</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">P0453</td>
+                <td align="left" class="clsCellNormal">More than 120 kPa (900 mmHg)</td>
+                <td align="left" class="clsCellNormal">
+                  <ul class="BULLET">
+                    <li>Wire harness/connector (ECM - canister pressure sensor)</li>
+                    <li>Canister pressure sensor</li>
+                    <li>Open in ECM circuit</li>
+                  </ul>
+                </td>
+                <td align="center" class="clsCellNormal">C</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">A: GO TO  <a href="../pages/7913.html#Parts%20Location/EVAP%20System/">EVAP SYSTEM</a>  </span></p>
+      <p><span class="clsEmphBOLD">C: Go to step   <a class="clsListItemLink" href="#S07238037602006081300000" location="/api/article/getcontent?articleId=A00241918_S07238037602006081300000_LSTITM">4</a> </span></p>
+      <p><span class="clsEmphBOLD">B: Go to Next Step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK HARNESS AND CONNECTOR (CANISTER PUMP MODULE - ECM) </span><ol class="LOWERALPHA">
+        <li>Turn the ignition switch OFF.</li>
+        <li>Disconnect the E3 ECM connector.</li>
+        <li>Measure the resistance between the PTMK (E3-31) terminal of the ECM connector and the body ground.<div class="imageHolder" id="container_G04225603">
+            <div class="imageHeader"><a name="S04820483522006081300000"></a><span class="imageCaption">Fig 1: Disconnecting E3 ECM Connector</span></div><img alt="G04225603" src="../images/G04225603.gif" name="G04225603"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p><span class="clsEmphBOLD">Result </span></p><a name="S24208648912006081300000"></a><div class="clsTableTitle">RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Test Results</th>
+                <th align="center" class="clsCellNormal">Suspected Trouble Areas</th>
+                <th align="center" class="clsCellNormal">Proceed to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">10 Ω or less</td>
+                <td align="left" class="clsCellNormal">
+                  <ul class="BULLET">
+                    <li>Wire harness/connector (ECM - canister pressure sensor)</li>
+                    <li>Short in canister pressure sensor circuit</li>
+                  </ul>
+                </td>
+                <td align="center" class="clsCellNormal">A</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">10 kΩ or more</td>
+                <td align="left" class="clsCellNormal">
+                  <ul class="BULLET">
+                    <li>Wire harness/connector (ECM - canister pressure sensor)</li>
+                    <li>Short in ECM circuit</li>
+                  </ul>
+                </td>
+                <td align="center" class="clsCellNormal">B</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">B: Go to step   <a class="clsListItemLink" href="#S28445161892006081300000" location="/api/article/getcontent?articleId=A00241918_S28445161892006081300000_LSTITM">7</a> </span></p>
+      <p><span class="clsEmphBOLD">A: Go to next step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK HARNESS AND CONNECTOR (CANISTER PUMP MODULE - ECM) </span><ol class="LOWERALPHA">
+        <li>Disconnect the C10 canister connector.<div class="imageHolder" id="container_G04225604">
+            <div class="imageHeader"><a name="S41677314362006081300000"></a><span class="imageCaption">Fig 2: Disconnecting C10 Canister Connector</span></div><img alt="G04225604" src="../images/G04225604.gif" name="G04225604"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+        <li>Disconnect the E3 ECM connector.</li>
+        <li>Measure the resistance between the PTMK (E3-31) terminal of the ECM connector and the body ground.<div class="imageHolder" id="container_G04225605">
+            <div class="imageHeader"><a name="S37354948492006081300000"></a><span class="imageCaption">Fig 3: Measuring Resistance Between PTMK (E3-31) Terminal</span></div><img alt="G04225605" src="../images/G04225605.gif" name="G04225605"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p><span class="clsEmphBOLD">Result </span></p><a name="S28206643652006081300000"></a><div class="clsTableTitle">RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Test Results</th>
+                <th align="center" class="clsCellNormal">Suspected Trouble Areas</th>
+                <th align="center" class="clsCellNormal">Proceed to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">10 kΩ or more</td>
+                <td align="left" class="clsCellNormal">
+                  <ul class="BULLET">
+                    <li>Short in canister pressure sensor circuit</li>
+                  </ul>
+                </td>
+                <td align="center" class="clsCellNormal">A</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">10 kΩ or less</td>
+                <td align="left" class="clsCellNormal">
+                  <ul class="BULLET">
+                    <li>Short in wire harness/connector (ECM - canister pressure sensor)</li>
+                  </ul>
+                </td>
+                <td align="center" class="clsCellNormal">B</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">B: Go to step   <a class="clsListItemLink" href="#S35468762222006081300000" location="/api/article/getcontent?articleId=A00241918_S35468762222006081300000_LSTITM">6</a> </span></p>
+      <p><span class="clsEmphBOLD">A: Go to next step </span></p>
+    </li>
+    <li><a name="S07238037602006081300000"></a><span class="clsEmphBOLD">CHECK HARNESS AND CONNECTOR (CANISTER PUMP MODULE - ECM) </span><ol class="LOWERALPHA">
+        <li>Disconnect the C10 canister connector.<div class="imageHolder" id="container_G04225606">
+            <div class="imageHeader"><a name="S00809542532006081300000"></a><span class="imageCaption">Fig 4: Disconnecting C10 Canister Connector</span></div><img alt="G04225606" src="../images/G04225606.gif" name="G04225606"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+        <li>Turn the ignition switch ON.</li>
+        <li>Measure the voltage and resistance of the canister pump module connector.<p><span class="clsEmphBOLD">Standard voltage </span></p><a name="S20881135592006081300000"></a><div class="clsTableTitle">TESTER CONNECTION - SPECIFIED CONDITIONS</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="center">
+              <col span="1" id="COL2" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Tester Connection</th>
+                <th align="center" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" class="clsCellNormal">VCC (C10-4) - Body ground</td>
+                <td align="center" class="clsCellNormal">4.5 to 5.0 V</td>
+              </tr>
+              <tr>
+                <td align="center" class="clsCellNormal">VOUT (C10-3) - Body ground</td>
+                <td align="center" class="clsCellNormal">4.5 to 5.0 V</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><span class="clsEmphBOLD">Standard resistance </span></p><a name="S10783880502006081300000"></a><div class="clsTableTitle">TESTER CONNECTION - SPECIFIED CONDITIONS</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Tester Connection</th>
+                <th align="left" class="clsCellNormal">Specified Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">SGND (C10-2) - Body ground</td>
+                <td align="left" class="clsCellNormal">100 Ω or less</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="imageHolder" id="container_G04225607">
+            <div class="imageHeader"><a name="S33150471362006081300000"></a><span class="imageCaption">Fig 5: Measuring Voltage And Resistance Of Canister Pump Module Connector</span></div><img alt="G04225607" src="../images/G04225607.gif" name="G04225607"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <p><span class="clsEmphBOLD">Result </span></p><a name="S29005848972006081300000"></a><div class="clsTableTitle">RESULT</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="center">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="center" class="clsCellNormal">Test Results</th>
+                <th align="center" class="clsCellNormal">Suspected Trouble Areas</th>
+                <th align="center" class="clsCellNormal">Proceed to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">Voltage and resistance within standard ranges</td>
+                <td align="left" class="clsCellNormal">
+                  <ul class="BULLET">
+                    <li>Open in canister pressure sensor circuit</li>
+                  </ul>
+                </td>
+                <td align="center" class="clsCellNormal">A</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">Voltage and resistance outside standard ranges</td>
+                <td align="left" class="clsCellNormal">
+                  <ul class="BULLET">
+                    <li>Open in wire harness/connector (ECM - canister pressure sensor)</li>
+                  </ul>
+                </td>
+                <td align="center" class="clsCellNormal">B</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">B: Go to step   <a class="clsListItemLink" href="#S35468762222006081300000" location="/api/article/getcontent?articleId=A00241918_S35468762222006081300000_LSTITM">6</a> </span></p>
+      <p><span class="clsEmphBOLD">A: Go to next step </span></p>
+    </li>
+    <li><span class="clsEmphBOLD">REPLACE CANISTER ASSEMBLY </span><ol class="LOWERALPHA">
+        <li>Replace the canister assembly (see 
+
+<a href="../pages/8378.html">REMOVAL</a>
+
+).<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>When replacing the canister, check the canister pump module interior and related pipes for water, fuel or other liquids. If liquids are present, check for disconnections and/or cracks in the following: 1) the pipe from the air inlet port to the canister pump module; 2) the canister filter; and 3) the fuel tank vent hose.</span></div>
+          <div class="imageHolder" id="container_G04225608">
+            <div class="imageHeader"><a name="S21586687612006081300000"></a><span class="imageCaption">Fig 6: Identifying Canister Assembly</span></div><img alt="G04225608" src="../images/G04225608.gif" name="G04225608"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NEXT: Go to step   <a class="clsListItemLink" href="#S42605259332006081300000" location="/api/article/getcontent?articleId=A00241918_S42605259332006081300000_LSTITM">8</a> </span></p>
+    </li>
+    <li><a name="S35468762222006081300000"></a><span class="clsEmphBOLD">REPAIR OR REPLACE HARNESS OR CONNECTOR </span><p>HINT:</p>
+      <p>If the exhaust tailpipe has been removed, go to the next step before reinstalling it.</p>
+      <p><span class="clsEmphBOLD">NEXT: Go to step   <a class="clsListItemLink" href="#S42605259332006081300000" location="/api/article/getcontent?articleId=A00241918_S42605259332006081300000_LSTITM">8</a> </span></p>
+    </li>
+    <li><a name="S28445161892006081300000"></a><span class="clsEmphBOLD">REPLACE ECM </span><ol class="LOWERALPHA">
+        <li>Replace the ECM (see <a href="../pages/8282.html">ON-VEHICLE INSPECTION</a> 
+
+).</li>
+      </ol>
+      <p><span class="clsEmphBOLD">NEXT: Go to step 8 </span></p>
+    </li>
+    <li><a name="S42605259332006081300000"></a><span class="clsEmphBOLD">CHECK WHETHER DTC OUTPUT RECURS (AFTER REPAIR) </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch ON and turn the intelligent tester ON.</li>
+        <li>Wait for at least 60 seconds.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / DTC INFO / PENDING CODES.<p>HINT:</p>
+          <p>If no pending DTC is displayed on the intelligent tester, the repair has been successfully completed.</p>
+        </li>
+      </ol>
+      <p><span class="clsEmphBOLD">NEXT: COMPLETED </span></p>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

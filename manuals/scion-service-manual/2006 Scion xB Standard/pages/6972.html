@@ -1,0 +1,35 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Check Mode Procedure — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Check Mode Procedure</h1><div class="other-warning other-variant"><b>WARNING:</b> This page is about a different variant/trim than selected.</div><div id="S01326665332006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">DESCRIPTION </span><ol class="LOWERALPHA">
+        <li>Check mode has a higher sensitivity to malfunctions and can detect malfunctions that normal mode cannot detect. Check mode can also detect all the malfunctions that normal mode can detect. In check mode, DTCs are detected with 1 trip detection logic.</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK MODE PROCEDURE </span><ol class="LOWERALPHA">
+        <li>Make sure that the following conditions are met:<ol class="ARABICNUM">
+            <li>Battery positive voltage 11 V or more</li>
+            <li>Throttle valve fully closed</li>
+            <li>Transaxle in the P or N position</li>
+            <li>A/C OFF</li>
+          </ol>
+        </li>
+        <li>Turn the ignition switch OFF.</li>
+        <li>Connect the intelligent tester to the CAN VIM. Then connect the CAN VIM to the DLC3.<div class="imageHolder" id="container_G04227427">
+            <div class="imageHeader"><a name="S04388358252006081300000"></a><span class="imageCaption">Fig 1: Connecting Intelligent Tester To Data Link Connector Of Vehicle</span></div><img alt="G04227427" src="../images/G04227427.gif" name="G04227427"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+        <li>Turn the ignition switch ON.</li>
+        <li>Enter the following menus: DIAGNOSIS / ENHANCED OBD II / CHECK MODE.</li>
+        <li>Change the ECM to check mode. Make sure the MIL flashes as shown in the illustration.<div class="imageHolder" id="container_G04227428">
+            <div class="imageHeader"><a name="S15626694702006081300000"></a><span class="imageCaption">Fig 2: Ignition Switch Blinking Pattern</span></div><img alt="G04227428" src="../images/G04227428.gif" name="G04227428"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>All DTCs and freeze frame data recorded will be erased if: 1) the intelligent tester is used to change the ECM from normal mode to check mode or vice versa; or 2) during check mode, the ignition switch is turned from ON to ACC or OFF.<br>Before changing to check mode, make notes of the DTCs and freeze frame data.</span></div>
+        </li>
+        <li>Start the engine. The MIL should turn off after the engine starts.</li>
+        <li>Perform &quot;MONITOR DRIVE PATTERN&quot; for the ECT test (see <a href="../pages/6967.html">MONITOR DRIVE PATTERN</a> 
+
+). (Or, simulate the conditions of the malfunction described by the customer.)</li>
+        <li>After simulating the malfunction conditions, use the intelligent tester to check the DTC and freeze frame data.</li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>
