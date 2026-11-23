@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DTC P0100 Mass or Volume Air Flow Circuit; DTC P0102 Mass or Volume Air Flow Circuit Low Input; DTC P0103 Mass or Volume Air Flow Circuit High Input: Description — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>DTC P0100 Mass or Volume Air Flow Circuit; DTC P0102 Mass or Volume Air Flow Circuit Low Input; DTC P0103 Mass or Volume Air Flow Circuit High Input: Description</h1><div id="S15560036462006081300000">
+  <p>The Mass Air Flow (MAF) meter is a sensor that measures the amount of air flowing through the valve.</p>
+  <p>The ECM uses this information to determine the fuel injection time and to provied appropriate air-fuel ratio.</p>
+  <p>Inside the MAF meter, there is a heated platinum wire which is exposed to the flow of intake air.</p>
+  <p>By applying a specific electrical current to the wire, the ECM heats it to a given temperature. The flow of incoming air cools both the wire and an internal thermistor, affecting their resistance. To maintain a constant current value, the ECM varies the voltage applied to these components in the MAF meter. The voltage level is proportional to the airflow through the sensor, and the ECM uses it to calculate the intake air volume.</p>
+  <p>The circuit is constructed so that the platinum hot wire and the temperature sensor provide a bridge circuit, and the power transistor is controlled so that the potentials of A and B remain equal to maintain the predetermined temperature.</p>
+  <p>HINT:</p>
+  <p>When any of these DTCs are set, the ECM enters fail-safe mode. During fail-safe mode, the ignition timing is calculated by the ECM according to the engine RPM and throttle valve position. Fail-safe mode continues until a pass condition is detected.</p>
+  <div class="imageHolder" id="container_G04225400">
+    <div class="imageHeader"><a name="S40297491642006081300000"></a><span class="imageCaption">Fig 1: Identifying Mass Or Volume Air Flow Circuit</span></div><img alt="G04225400" src="../images/G04225400.gif" name="G04225400"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div><a name="S41207736972006081300000"></a><div class="clsTableTitle">DTC DETECTION CONDITION AND TROUBLE AREA</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">DTC No.</th>
+        <th align="center" class="clsCellNormal">DTC Detection Condition</th>
+        <th align="center" class="clsCellNormal">Trouble Area</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">P0100</td>
+        <td align="left" class="clsCellNormal">Open or short in Mass Air Flow (MAF) meter circuit for more than 3 seconds at engine speed of less than 4,000 rpm</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Open or short in Mass Air Flow (MAF) meter circuit</li>
+            <li>MAF meter</li>
+            <li>ECM</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">P0102</td>
+        <td align="left" class="clsCellNormal">Open in Mass Air Flow (MAF) meter circuit for more than 3 seconds at engine speed of less than 4,000 rpm</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Open in MAF meter circuit</li>
+            <li>Short in MAF meter circuit</li>
+            <li>MAF meter</li>
+            <li>ECM</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">P0103</td>
+        <td align="left" class="clsCellNormal">Short in Mass Air Flow (MAF) meter circuit for more than 3 seconds at engine speed of less than 4,000 rpm</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Short in MAF meter circuit (+B circuit)</li>
+            <li>MAF meter</li>
+            <li>ECM</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>HINT:</p>
+  <p>When any of these DTCs are set, check the air-flow rate by entering the following menus on the intelligent tester: DIAGNOSIS / ENHANCED OBD II / DATA LIST / PRIMARY / MAF.</p><a name="S16831407902006081300000"></a><div class="clsTableTitle">MASS AIR FLOW RATE - MALFUNCTIONS</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="center">
+      <col span="1" id="COL2" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="center" class="clsCellNormal">Mass Air Flow Rate (g/sec.)</th>
+        <th align="center" class="clsCellNormal">Malfunctions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center" class="clsCellNormal">Approximately 0.0</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Open in Mass Air Flow (MAF) meter power source circuit</li>
+            <li>Open or short in VG circuit</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" class="clsCellNormal">271.0 or more</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>Open in EVG circuit</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><script src="../script.js"></script></body></html>

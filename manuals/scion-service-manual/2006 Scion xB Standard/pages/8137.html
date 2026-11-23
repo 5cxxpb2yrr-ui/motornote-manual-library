@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Monitor Description — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Monitor Description</h1><div id="S36133204972006081300000">
+  <p>The 2 monitors, key-off and purge flow, are used to detect malfunctions relating to DTC P0441. The keyoff monitor is initiated by the ECM internal timer, known as the soak timer, 5 hours* after the ignition switch is turned OFF. The purge flow monitor runs while the engine is running.</p>
+  <ol class="ARABICNUM">
+    <li>Key-off monitor<p>5 hours* after the ignition switch is turned OFF, the leak detection pump creates negative pressure (vacuum) in the EVAP system. The ECM monitors for leaks and actuator malfunctions based on the EVAP pressure.</p>
+      <p>HINT:</p>
+      <p>*: If the engine coolant temperature is not below 35°C (95°F) 5 hours after the ignition switch is turned OFF, the monitor check starts 2 hours later. If it is still not below 35°C (95°F) 7 hours after the ignition switch is turned OFF, the monitor check starts 2.5 hours later.</p><a name="S34812368232006081300000"></a><div class="clsTableTitle">SEQUENCE DURATION REFERENCE</div><br><table cellspacing="0" class="clsArticleTable">
+        <colgroup>
+          <col span="1" id="COL1" align="center">
+          <col span="1" id="COL2" align="left">
+          <col span="1" id="COL3" align="left">
+          <col span="1" id="COL4" align="center">
+        </colgroup>
+        <thead>
+          <tr class="clsTblHead">
+            <th align="center" class="clsCellNormal">Sequence</th>
+            <th align="center" class="clsCellNormal">Operations</th>
+            <th align="center" class="clsCellNormal">Descriptions</th>
+            <th align="center" class="clsCellNormal">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center" class="clsCellNormal">-</td>
+            <td align="left" class="clsCellNormal">ECM activation</td>
+            <td align="left" class="clsCellNormal">Activated by soak timer 5, 7 or 9.5 hours after ignition switch OFF.</td>
+            <td align="center" class="clsCellNormal">-</td>
+          </tr>
+          <tr>
+            <td align="center" class="clsCellNormal">A</td>
+            <td align="left" class="clsCellNormal">Atmospheric pressure measurement</td>
+            <td align="left" class="clsCellNormal">Vent valve turned OFF (vent) and EVAP system pressure measured by ECM in order to register atmospheric pressure. If pressure in EVAP system not between 70 kPa and 110 kPa (525 mmHg and 825 mmHg), ECM cancels EVAP system monitor.</td>
+            <td align="center" class="clsCellNormal">10 seconds</td>
+          </tr>
+          <tr>
+            <td align="center" class="clsCellNormal">B</td>
+            <td align="left" class="clsCellNormal">First 0.02 inch leak criterion measurement</td>
+            <td align="left" class="clsCellNormal">In order to determine 0.02 inch leak criterion, leak detection pump creates negative pressure (vacuum) through reference orifice and then ECM checks if leak detection pump and vent valve operate normally.</td>
+            <td align="center" class="clsCellNormal">60 seconds</td>
+          </tr>
+          <tr>
+            <td align="center" class="clsCellNormal">C</td>
+            <td align="left" class="clsCellNormal">EVAP system pressure measurement</td>
+            <td align="left" class="clsCellNormal">Vent valve turned ON (closed) to shut EVAP system.<br>Negative pressure (vacuum) created in EVAP system, and EVAP system pressure then measured.<br>Write down measured value as it will be used in leak check. If EVAP pressure does not stabilize within 900 seconds, ECM cancels EVAP system monitor.</td>
+            <td align="center" class="clsCellNormal">900 seconds<a class="clsFootnoteLink" href="#S34707840032006081300000"><sup>(1)</sup></a></td>
+          </tr>
+          <tr>
+            <td align="center" class="clsCellNormal">D</td>
+            <td align="left" class="clsCellNormal">Purge VSV monitor</td>
+            <td align="left" class="clsCellNormal">Purge VSV opened and then EVAP system pressure measured by ECM.<br>Large increase indicates normal.</td>
+            <td align="center" class="clsCellNormal">10 seconds</td>
+          </tr>
+          <tr>
+            <td align="center" class="clsCellNormal">E</td>
+            <td align="left" class="clsCellNormal">Second 0.02 inch leak criterion measurement</td>
+            <td align="left" class="clsCellNormal">After second 0.02 inch leak criterion measurement, leak check performed by comparing first and second 0.02 inch leak criterion.<br>If stabilized system pressure higher than second 0.02 inch leak criterion, ECM determines that EVAP system leaking.</td>
+            <td align="center" class="clsCellNormal">60 seconds</td>
+          </tr>
+          <tr>
+            <td align="center" class="clsCellNormal">F</td>
+            <td align="left" class="clsCellNormal">Final check</td>
+            <td align="left" class="clsCellNormal">Atmospheric pressure measured and then monitoring result recorded by ECM.</td>
+            <td align="center" class="clsCellNormal">-</td>
+          </tr>
+          <tr class="clsFootnoteRow">
+            <td colspan="4" align="left" class="clsCellNormal">
+              <table class="clsFootnoteTable" width="100%">
+                <tr valign="top">
+                  <td width="10px"><a name="S34707840032006081300000"><sup>(1)</sup></a></td>
+                  <td>If only a small amount of fuel is in the fuel tank, it takes longer for the EVAP pressure to stabilize.</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="imageHolder" id="container_G04225597">
+        <div class="imageHeader"><a name="S22658357492006081300000"></a><span class="imageCaption">Fig 1: Identifying Atmosphere Pressure Operation Chart</span></div><img alt="G04225597" src="../images/G04225597.jpeg" name="G04225597"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+      <ol class="LOWERALPHA">
+        <li>Purge VSV stuck open<p>In operation C, the leak detection pump creates negative pressure (vacuum) in the EVAP system. The EVAP system pressure is then measured by the ECM using the canister pressure sensor. If the stabilized system pressure is higher than [second 0.02 inch leak criterion x 0.2], the ECM interprets this as the purge Vacuum Switching Valve (VSV) being stuck open. The ECM illuminates the MIL and sets the DTC (2 trip detection logic).</p>
+          <div class="imageHolder" id="container_G04225598">
+            <div class="imageHeader"><a name="S01473478252006081300000"></a><span class="imageCaption">Fig 2: Identifying EVAP Pressure Purge VSV Stuck Open Graph</span></div><img alt="G04225598" src="../images/G04225598.gif" name="G04225598"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+        <li>Purge VSV stuck closed<p>In operation D, the canister pressure sensor measures the EVAP system pressure. The pressure measurement for the purge VSV monitor begins when the purge VSV is turned ON (open) after the EVAP leak check. When the measured pressure indicates an increase of 0.3 kPa (2.25 mmHg) or more, the purge VSV is functioning normally. If the pressure does not increase, the ECM interprets this as the purge VSV being stuck closed. The ECM illuminates the MIL and sets the DTC (2 trip detection logic).</p>
+          <div class="imageHolder" id="container_G04225599">
+            <div class="imageHeader"><a name="S05542101092006081300000"></a><span class="imageCaption">Fig 3: Identifying EVAP Pressure Purge VSV Stuck Closed Graph</span></div><img alt="G04225599" src="../images/G04225599.gif" name="G04225599"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+        </li>
+      </ol>
+    </li>
+    <li>Purge flow monitor<div class="imageHolder" id="container_G04225600">
+        <div class="imageHeader"><a name="S32930856442006081300000"></a><span class="imageCaption">Fig 4: Identifying Purge Flow Monitor Graph</span></div><img alt="G04225600" src="../images/G04225600.gif" name="G04225600"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+      <p>The purge flow monitor consists of the 2 step monitors. The 1st monitor is conducted every time and the 2nd monitor is activated if necessary.</p>
+      <ul class="BULLET">
+        <li>The 1st monitor<p>While the engine is running and the purge VSV is ON (open), the ECM monitors the purge flow by measuring the EVAP pressure change. If negative pressure is not created, the ECM begins the 2nd monitor.</p>
+        </li>
+        <li>The 2nd monitor<p>The vent valve is turned ON (closed) and the EVAP pressure is then measured. If the variation in the pressure is less than 0.5 kPa (3.75 mmHg), the ECM interprets this as the purge VSV being stuck closed, illuminates the MIL and sets DTC P0441 (2 trip detection logic).</p>
+        </li>
+      </ul>
+    </li>
+  </ol>
+  <p>Atmospheric pressure check:</p>
+  <p>In order to ensure reliable malfunction detection, the variation between the atmospheric pressure before and after conduction of the purge flow monitor is measured by the ECM.</p>
+</div></div><script src="../script.js"></script></body></html>

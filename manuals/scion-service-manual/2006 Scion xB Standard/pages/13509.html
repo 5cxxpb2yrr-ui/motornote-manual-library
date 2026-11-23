@@ -1,0 +1,52 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>System Description — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>System Description</h1><div id="S30721772362006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">SYSTEM DESCRIPTION </span><p>HINT:</p>
+      <p>The yaw rate sensor and deceleration sensor are combined and in a single unit. This unit communicates with the skid control ECU through the CAN communication.</p>
+      <ol class="LOWERALPHA">
+        <li>ABS (Anti-lock brake system)<p>The ABS helps prevent the wheel from locking when the brakes are applied firmly or when braking on a slippery surface.</p>
+          <p>In addition, when braking while cornering, it also controls the brake forces of the right and left wheels, helping to maintain vehicle behavior.</p>
+        </li>
+        <li>EBD (Electronic brake force distribution)<p>The EBD control utilizes the ABS, realizing proper brake force distribution between the front and rear wheels in accordance with driving conditions.</p>
+        </li>
+        <li>BA (Brake assist)<p>The primary purpose of the brake assist system is to provide an auxiliary brake force to assist the driver who cannot generate a large enough brake force during emergency braking, thus helping to maximize vehicle's brake performance.</p>
+        </li>
+        <li>TRC (Traction control)<p>The TRC system helps prevent the drive wheels from slipping if the driver presses down on the accelerator pedal excessively when starting off or accelerating on a slippery surface.</p>
+        </li>
+        <li>VSC (Vehicle stability control)<p>The VSC system helps prevent the vehicle from slipping sideways as a result of strong front wheel skid or strong rear wheel skid when cornering.</p>
+          <p><span class="clsEmphBOLD">CAN communication (square: Receiving signal from skid control ECU with actuator) </span></p><a name="S34206214022006081300000"></a><div class="clsTableTitle">CAN COMMUNICATION (square: RECEIVING SIGNAL FROM SKID CONTROL ECU WITH ACTUATOR)</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" width="414px" align="left">
+              <col span="1" id="COL2" width="414px" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th valign="BOTTOM" align="left" class="clsCellNormal">Related ECU / Parts</th>
+                <th valign="BOTTOM" align="left" class="clsCellNormal">Signal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">Steering angle sensor</td>
+                <td valign="TOP" align="left" class="clsCellNormal">square: Steering angle signal</td>
+              </tr>
+              <tr>
+                <td valign="TOP" align="left" class="clsCellNormal">Yaw rate (deceleration) sensor</td>
+                <td valign="TOP" align="left" class="clsCellNormal">square: Yaw rate signal<br>square: Deceleration sensor signal</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">ABS with EBD &amp; BA &amp; TRC &amp; VSC OPERATION </span><ol class="LOWERALPHA">
+        <li>The skid control ECU calculates vehicle stability tendency based on signals of the master cylinder pressure sensor, speed sensors, yaw rate (deceleration) sensor and steering angle sensor. The skid control ECU judges whether the control of engine output torque by the electronic control throttle and control of wheel brake pressure by the skid control ECU with actuator will start or not by the calculation results.</li>
+        <li>The SLIP indicator blinks and the VSC warning buzzer sounds to inform the driver that the VSC system is operating. The SLIP indicator also blinks when the TRC system is operating, and the operation being performed is displayed.</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">FAIL-SAFE FUNCTION </span><ol class="LOWERALPHA">
+        <li>When a failure occurs in the ABS &amp; BA &amp; TRC &amp; VSC systems, the ABS warning light and the VSC warning light turns on and ABS &amp; BA &amp; TRC &amp; VSC operations are prohibited. In addition to this, when there is a failure that disables EBD operation, the brake warning light also turns on and EBD operation is prohibited.</li>
+        <li>If some control is prohibited due to a malfunction during its operation, that control will be cut off gradually so that vehicle stability will not change suddenly.</li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

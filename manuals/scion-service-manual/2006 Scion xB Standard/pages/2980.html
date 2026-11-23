@@ -1,0 +1,603 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Checking Monitor Status — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Checking Monitor Status</h1><div id="S12078505602006081300000">
+  <p>The purpose of the monitor result (mode 06) is to allow access to the results for on-board diagnostic monitoring tests of specific components/systems that are not continuously monitored. Examples are catalyst, evaporative emission (EVAP) and thermostat.</p>
+  <p>The monitor result allows the intelligent tester to display the monitor status, test value, minimum test value and maximum test limit. These data are displayed after the vehicle has been driven to run the monitor.</p>
+  <p>When the test value is not between the minimum test limit and maximum test limit, the ECM (PCM) interprets this as a malfunction. When the component is not malfunctioning, if the difference of the test value and test limit is very small, the component will malfunction in the near future. Perform the following instructions to view the monitor status. Although these instructions refer to the Lexus/Toyota diagnostic tester, it can be checked using a generic OBD II scan tool. Refer to your scan tool operator's manual for specific procedures.</p>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">PERFORM MONITOR DRIVE PATTERN </span><ol class="LOWERALPHA">
+        <li>Connect the intelligent tester to the DLC3.</li>
+        <li>Turn the ignition switch and intelligent tester ON.</li>
+        <li>Clear the DTCs (see <a href="../pages/7928.html">DTC CHECK / CLEAR</a> 
+
+).</li>
+        <li>Run the vehicle in accordance with the applicable drive pattern described in READINESS MONITOR DRIVE PATTERN (see <a href="../pages/7924.html">READINESS MONITOR DRIVE PATTERN</a> 
+
+). DO NOT turn the ignition switch OFF.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The test results will be lost if the ignition switch is turned OFF.</span></div>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">ACCESS MONITOR RESULT </span><ol class="LOWERALPHA">
+        <li>Select from the intelligent tester menus:<p>DIAGNOSIS / ENHANCED OBD II / MONITOR INFO and MONITOR RESULT. The monitor status appears after the component name.</p>
+          <ul class="BULLET">
+            <li>INCMP: The component has not been monitored yet.</li>
+            <li>PASS: The component is functioning normally.</li>
+            <li>FAIL: The component is malfunctioning.</li>
+          </ul>
+        </li>
+        <li>Confirm that the component is either PASS or FAIL.</li>
+        <li>Select the component and press ENTER. The accuracy test value appears if the monitor status is either PASS or FAIL.</li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">CHECK COMPONENT STATUS </span><ol class="LOWERALPHA">
+        <li>Compare the test value with the minimum test limit (MIN) and maximum test limit (MAX).</li>
+        <li>If the test value is between the minimum test limit and maximum test limit, the component is functioning normally. If not, the component is malfunctioning. The test value is usually significantly higher or lower than the test limits. If the test value is on the borderline of the test limits, the component will malfunction in the near future.<p>HINT:</p>
+          <p>The monitor result might on rare occasions be PASS even if the malfunction indicator lamp (MIL) is illuminated. This indicates the system malfunctioned on a previous driving cycle. This might be caused by an intermittent problem.</p>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">MONITOR RESULT INFORMATION </span><p>If you use a generic scan tool, multiply the test value by the scaling value listed below.</p>
+      <ol class="LOWERALPHA">
+        <li>Front Heated Oxygen Sensor<p><span class="clsEmphBOLD">Bank 1 Sensor 1 </span></p><a name="S16774849062006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - FRONT HEATED OXYGEN SENSOR (BANK 1 SENSOR 1)</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">Monitor ID</th>
+                <th align="left" class="clsCellNormal">Test ID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description of Test Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$01</td>
+                <td align="left" class="clsCellNormal">$03</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">V</td>
+                <td align="left" class="clsCellNormal">Criteria of Lean sensor. O2S is Lean when voltage is lower than this value</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$01</td>
+                <td align="left" class="clsCellNormal">$04</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">V</td>
+                <td align="left" class="clsCellNormal">Criteria of Rich sensor. O2S is Rich when voltage is higher than this value</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$01</td>
+                <td align="left" class="clsCellNormal">$05</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">Seconds</td>
+                <td align="left" class="clsCellNormal">Rich - Lean switch time</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$01</td>
+                <td align="left" class="clsCellNormal">$06</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">Seconds</td>
+                <td align="left" class="clsCellNormal">Lean - Rich switch time</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$01</td>
+                <td align="left" class="clsCellNormal">$07</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.005</td>
+                <td align="left" class="clsCellNormal">V</td>
+                <td align="left" class="clsCellNormal">Minimum sensor voltage</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$01</td>
+                <td align="left" class="clsCellNormal">$08</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.005</td>
+                <td align="left" class="clsCellNormal">V</td>
+                <td align="left" class="clsCellNormal">Maximum sensor voltage</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$01</td>
+                <td align="left" class="clsCellNormal">$81</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">Seconds</td>
+                <td align="left" class="clsCellNormal">Duration while sensor voltage stuck Lean or Rich</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Rear Heated Oxygen Sensor<p><span class="clsEmphBOLD">Bank 1 Sensor 2 </span></p><a name="S05398825502006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - REAR HEATED OXYGEN SENSOR (BANK 1 SENSOR 2)</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$02</td>
+                <td align="left" class="clsCellNormal">$05</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">Seconds</td>
+                <td align="left" class="clsCellNormal">Rich - Lean switch time</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$02</td>
+                <td align="left" class="clsCellNormal">$06</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">Seconds</td>
+                <td align="left" class="clsCellNormal">Lean - Rich switch time</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$02</td>
+                <td align="left" class="clsCellNormal">$07</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">V</td>
+                <td align="left" class="clsCellNormal">Minimum sensor voltage</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$02</td>
+                <td align="left" class="clsCellNormal">$08</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">V</td>
+                <td align="left" class="clsCellNormal">Maximum sensor voltage</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$02</td>
+                <td align="left" class="clsCellNormal">$8A</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">Frequency of sensor switching</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$02</td>
+                <td align="left" class="clsCellNormal">$8B</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">Seconds</td>
+                <td align="left" class="clsCellNormal">0.35 to 0.2 V sensor switch time</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$02</td>
+                <td align="left" class="clsCellNormal">$8D</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">Seconds</td>
+                <td align="left" class="clsCellNormal">Duration that sensor voltage drops to 0.2 V during fuel cut</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Catalyst<p><span class="clsEmphBOLD">Bank 1 </span></p><a name="S15470040472006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - CATALYST (BANK 1)</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$21</td>
+                <td align="left" class="clsCellNormal">$A1</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.0003</td>
+                <td align="left" class="clsCellNormal">No dimension</td>
+                <td align="left" class="clsCellNormal">Locus length ratio of O2S sensor 1 and sensor 2</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$21</td>
+                <td align="left" class="clsCellNormal">$A2</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.0003</td>
+                <td align="left" class="clsCellNormal">No dimension</td>
+                <td align="left" class="clsCellNormal">Voltage area ratio of O2S sensor 1 and sensor 2</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$21</td>
+                <td align="left" class="clsCellNormal">$A3</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.0003</td>
+                <td align="left" class="clsCellNormal">No dimension</td>
+                <td align="left" class="clsCellNormal">Locus length ratio of O2S sensor 1 and sensor 2</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$21</td>
+                <td align="left" class="clsCellNormal">$A4</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.0003</td>
+                <td align="left" class="clsCellNormal">No dimension</td>
+                <td align="left" class="clsCellNormal">O2S frequency ratio of sensor 2 and sensor 1</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$21</td>
+                <td align="left" class="clsCellNormal">$A5</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.0003</td>
+                <td align="left" class="clsCellNormal">No dimension</td>
+                <td align="left" class="clsCellNormal">Locus length ratio of O2S sensor 1 and sensor 2</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$21</td>
+                <td align="left" class="clsCellNormal">$A6</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.0003</td>
+                <td align="left" class="clsCellNormal">No dimension</td>
+                <td align="left" class="clsCellNormal">Voltage area ratio of O2S sensor 1 and sensor 2</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>EVAP (Key-off Type)<a name="S39658555202006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - EVAP (KEY-OFF TYPE)</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$C9</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for small leak (P0456)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$CA</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for gross leak (P0455)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$CB</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for leak detection pump stuck OFF (P2401)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$CD</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for leak detection pump stuck ON (P2402)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$CE</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for vent valve stuck OFF (P2420)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$CF</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for vent valve stuck ON (P2419)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$D0</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for reference orifice low flow (P043E)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$D1</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for reference orifice high flow (P043F)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$D4</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for purge VSV stuck closed (P0441)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$D5</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for purge VSV stuck open (P0441)</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$3D</td>
+                <td align="left" class="clsCellNormal">$D7</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.01</td>
+                <td align="left" class="clsCellNormal">kPa</td>
+                <td align="left" class="clsCellNormal">Test value for purge flow insufficient (P0441)</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Oxygen Sensor Heater<p><span class="clsEmphBOLD">Bank 1 Sensor 1 </span></p><a name="S37625086992006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - OXYGEN SENSOR HEATER (BANK 1 SENSOR 1)</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$41</td>
+                <td align="left" class="clsCellNormal">$90</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">A</td>
+                <td align="left" class="clsCellNormal">Maximum sensor heater current</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><span class="clsEmphBOLD">Bank 1 Sensor 2 </span></p><a name="S18375167612006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - OXYGEN SENSOR HEATER (BANK 1 SENSOR 2)</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$42</td>
+                <td align="left" class="clsCellNormal">$90</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.001</td>
+                <td align="left" class="clsCellNormal">A</td>
+                <td align="left" class="clsCellNormal">Maximum sensor heater current</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Misfire - All Cylinders<a name="S21260724892006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - MISFIRE - ALL CYLINDERS</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$A1</td>
+                <td align="left" class="clsCellNormal">$0B</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">Exponential Weighted Moving Average (EWMA) misfire counts for last 10 driving cycles - Total</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$A1</td>
+                <td align="left" class="clsCellNormal">$0C</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">Misfire counts for last driving cycle and current driving cycle - Total</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Misfire - Cylinder 1<a name="S40925764132006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - MISFIRE - CYLINDER 1</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$A2</td>
+                <td align="left" class="clsCellNormal">$0B</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">EWMA misfire counts for last 10 driving cycles - Total</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$A2</td>
+                <td align="left" class="clsCellNormal">$0C</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">Misfire counts for last driving cycle and current driving cycle - Total</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Misfire - Cylinder 2<a name="S15869937532006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - MISFIRE - CYLINDER 2</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$A3</td>
+                <td align="left" class="clsCellNormal">$0B</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">EWMA misfire counts for last 10 driving cycles - Total</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$A3</td>
+                <td align="left" class="clsCellNormal">$0C</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">Misfire counts for last driving cycle and current driving cycle - Total</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Misfire - Cylinder 3<a name="S22264890862006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - MISFIRE - CYLINDER 3</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$A4</td>
+                <td align="left" class="clsCellNormal">$0B</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">EWMA misfire counts for last 10 driving cycles - Total</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$A4</td>
+                <td align="left" class="clsCellNormal">$0C</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">Misfire counts for last driving cycle and current driving cycle - Total</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Misfire - Cylinder 4<a name="S38873435932006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - MISFIRE - CYLINDER 4</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$A5</td>
+                <td align="left" class="clsCellNormal">$0B</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">EWMA misfire counts for last 10 driving cycles - Total</td>
+              </tr>
+              <tr>
+                <td align="left" class="clsCellNormal">$A5</td>
+                <td align="left" class="clsCellNormal">$0C</td>
+                <td align="left" class="clsCellNormal">Multiply by 1</td>
+                <td align="left" class="clsCellNormal">Time</td>
+                <td align="left" class="clsCellNormal">Misfire counts for last driving cycle and current driving cycle - Total</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>Thermostat<a name="S15920786252006081300000"></a><div class="clsTableTitle">MONITOR RESULT INFORMATION - THERMOSTAT</div><br><table cellspacing="0" class="clsArticleTable">
+            <colgroup>
+              <col span="1" id="COL1" align="left">
+              <col span="1" id="COL2" align="left">
+              <col span="1" id="COL3" align="left">
+              <col span="1" id="COL4" align="left">
+              <col span="1" id="COL5" align="left">
+            </colgroup>
+            <thead>
+              <tr class="clsTblHead">
+                <th align="left" class="clsCellNormal">MID</th>
+                <th align="left" class="clsCellNormal">TID</th>
+                <th align="left" class="clsCellNormal">Scaling</th>
+                <th align="left" class="clsCellNormal">Unit</th>
+                <th align="left" class="clsCellNormal">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" class="clsCellNormal">$E1</td>
+                <td align="left" class="clsCellNormal">$E8</td>
+                <td align="left" class="clsCellNormal">Multiply by 0.1</td>
+                <td align="left" class="clsCellNormal">°C</td>
+                <td align="left" class="clsCellNormal">ECT sensor output when estimated ECT reaches malfunction criteria</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

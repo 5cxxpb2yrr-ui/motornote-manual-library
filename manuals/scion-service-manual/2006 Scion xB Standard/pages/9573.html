@@ -1,0 +1,43 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>System Outline — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>System Outline</h1><div id="S13488006432013102100000">
+  <p>This system utilizes an engine control module and maintains overall control of the engine, transmission and so on. An outline of the engine control is explained here.</p>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">Input Signals </span><ol class="ARABICNUM">
+        <li>Engine coolant temp. signal circuit<p>The engine coolant temp. sensor detects the engine coolant temp. and has a built-in thermistor with a resistance which varies according to the engine coolant temp. thus the engine coolant temp. is input in the form of a control signal into TERMINAL THW of the engine control module.</p>
+        </li>
+        <li>Intake air temp. signal circuit<p>The intake air temp. sensor is installed in the mass air flow meter and detects the intake air temp., which is input as a control signal into TERMINAL THA of the engine control module.</p>
+        </li>
+        <li>Oxygen sensor signal circuit<p>The oxygen density in the exhaust gases is detected and input as a control signal into TERMINALS OX1A and OX1B of the engine control module.</p>
+        </li>
+        <li>RPM signal circuit<p>Camshaft position and crankshaft position are detected by the camshaft position sensor and crankshaft position sensor. Camshaft position is input as a control signal to TERMINAL G2+ of the engine control module, and engine RPM is input into TERMINAL NE+.</p>
+        </li>
+        <li>Throttle signal circuit<p>The throttle position sensor detects the throttle valve opening angle, which is input as a control signal into TERMINAL VTA1 of the engine control module.</p>
+        </li>
+        <li>Vehicle speed signal circuit<p>The vehicle speed sensor detects the vehicle speed, and the signal is input into TERMINAL SPD of the engine control module via the combination meter, from TERMINAL SP1 of the skid control ECU with actuator.</p>
+        </li>
+        <li>NSW signal circuit (A/T)<p>The Park/Neutral position SW detects whether the shift position are in neutral, parking or not, and inputs a control signal into TERMINAL NSW of the engine control module.</p>
+        </li>
+        <li>Battery signal circuit<p>Voltage is constantly applied to TERMINAL BATT of the engine control module. When the ignition SW is turned on, the voltage for engine control module start-up power supply is applied to TERMINALS +B and +B2 of the engine control module via EFI relay.</p>
+        </li>
+        <li>Starter signal circuit<p>To confirm whether the engine is cranking, the voltage applied to the starter motor during cranking is detected and the signal is input into TERMINAL STA of the engine control module as a control signal.</p>
+        </li>
+        <li>Engine knock signal circuit<p>Engine knocking is detected by knock sensor and the signal is input into TERMINAL KNK1 of the engine control module as a control signal.</p>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">Control System </span><ul class="BULLET">
+        <li>SFI system<p>The SFI system monitors the engine condition through the signals, which are input from each sensor to the engine control module. The best fuel injection volume is decided based on this data and the program memorized by the engine control module, and the control signal is output to TERMINALS #10, #20, #30 and #40 of the engine control module to operate the injector. (Inject the fuel). The SFI system produces control of fuel injection operation by the engine control module in response to the driving conditions.</p>
+        </li>
+        <li>ESA system<p>The ESA system monitors the engine condition through the signals, which are input to the engine control module from each sensor. The best ignition timing is detected according to this data and the memorized data in the engine control module, and the control signal is output to TERMINALS IGT1, IGT2, IGT3 and IGT4. This signal controls the ignition coil and igniter to provide the best ignition timing for the driving conditions.</p>
+        </li>
+        <li>IAC system<p>The IAC system increases the RPM and provides idling stability for fast idle-up when the engine is cold and when the idle speed has dropped due to electrical load, etc. The engine control module evaluates the signals from each sensor, outputs current to TERMINAL RSD, and controls the idle air control valve.</p>
+        </li>
+        <li>Fuel pump control system<p>The engine control module operation outputs to TERMINAL FC and controls the C/OPN relay. Thus controls the fuel pump drive speed in response to conditions.</p>
+        </li>
+      </ul>
+    </li>
+    <li><span class="clsEmphBOLD">Diagnosis System </span><p>With the diagnosis system, when there is a malfunctioning in the engine control module signal system, the malfunction system is recorded in the memory. The malfunctioning system can then be found by reading the display (Code) of the malfunction indicator lamp.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Fail-Safe System </span><p>When a malfunction occurs in any system, if there is a possibility of engine trouble being caused by continued control based on the signals from that system, the fail-safe system either controls the system by using data (Standard values) recorded in the engine control module memory or else stops the engine.</p>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>

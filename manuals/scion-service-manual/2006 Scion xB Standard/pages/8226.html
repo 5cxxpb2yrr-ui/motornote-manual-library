@@ -1,0 +1,94 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>EVAP System: Description — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>EVAP System: Description</h1><div id="S06777984172006081300000">
+  <div class="imageHolder" id="container_G04225641">
+    <div class="imageHeader"><a name="S12648959642006081300000"></a><span class="imageCaption">Fig 1: Identifying Evaporative Emission System Circuit (1 Of 2)</span></div><img alt="G04225641" src="../images/G04225641.gif" name="G04225641"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <div class="imageHolder" id="container_G04225642">
+    <div class="imageHeader"><a name="S22505640142006081300000"></a><span class="imageCaption">Fig 2: Identifying Evaporative Emission System Circuit (2 Of 2)</span></div><img alt="G04225642" src="../images/G04225642.gif" name="G04225642"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>In this vehicle's EVAP system, turning ON the vent valve does not seal off the EVAP system. To check for leaks in the EVAP system, disconnect the air inlet vent hose and apply pressure from the atmosphere side of the canister.</span></div>
+  <p>While the engine is running, if a predetermined condition (closed loop, etc.) is met, the purge VSV is opened by the ECM and stored fuel vapors in the canister are purged to the intake manifold. The ECM changes the duty cycle ratio of the purge VSV to control purge flow volume.</p>
+  <p>The purge flow volume is also determined by the intake manifold pressure. Atmospheric pressure is allowed into the canister through the vent valve to ensure that the purge flow is maintained when the negative pressure (vacuum) is applied to the canister.</p>
+  <p>The following 2 monitors run to confirm appropriate EVAP system operation.</p>
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">Key-off monitor </span><p>This monitor checks for Evaporative Emission (EVAP) system leaks and canister pump module malfunctions. The monitor starts 5 hours* after the ignition switch is turned OFF. More than 5 hours are required to allow the fuel to cool down to stabilize the Fuel Tank Pressure (FTP), thus making the EVAP system monitor more accurate.</p>
+      <p>The leak detection pump creates negative pressure (vacuum) in the EVAP system and the pressure is measured. Finally, the ECM monitors for leaks from the EVAP system and malfunctions in both the canister pump module and purge VSV, based on the EVAP pressure.</p>
+      <p>HINT:</p>
+      <p>*: If the engine coolant temperature is not below 35°C (95°F) 5 hours after the ignition switch is turned OFF, the monitor check starts 2 hours later. If it is still not below 35°C (95°F) 7 hours after the ignition switch is turned OFF, the monitor check starts 2.5 hours later.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Purge flow monitor </span><p>The purge flow monitor consists of the 2 monitors. The 1st monitor is conducted every time and the 2nd monitor is conducted if necessary.</p>
+      <ul class="BULLET">
+        <li>The 1st monitor<p>While the engine is running and the purge Vacuum Switching Valve (VSV) is ON (open), the ECM monitors the purge flow by measuring the EVAP pressure change. If negative pressure is not created, the ECM begins the 2nd monitor.</p>
+        </li>
+        <li>The 2nd monitor<p>The vent valve turned OFF (open) and the EVAP pressure is then measured. If the variation in the pressure is less than 0.5 kPa (3.75 mmHg), the ECM interprets this as the purge VSV being stuck closed, and illuminates the MIL and sets DTC P0441 (2 trip detection logic).</p>
+        </li>
+      </ul>
+      <p>Atmospheric pressure check:</p>
+      <p>In order to ensure reliable malfunction detection, the variation between the atmospheric pressures, before and after conduction of the purge flow monitor, is measured by the ECM.</p>
+    </li>
+  </ol>
+  <div class="imageHolder" id="container_G04225643">
+    <div class="imageHeader"><a name="S32431300812006081300000"></a><span class="imageCaption">Fig 3: Identifying EVAP Purge Flow</span></div><img alt="G04225643" src="../images/G04225643.gif" name="G04225643"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div><a name="S37155090012006081300000"></a><div class="clsTableTitle">COMPONENTS OPERATION</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="center" class="clsCellNormal">Components</th>
+        <th align="center" class="clsCellNormal">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">Canister</td>
+        <td align="left" class="clsCellNormal">Contains activated charcoal to absorb EVAP generated in fuel tank.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Cut-off valve</td>
+        <td align="left" class="clsCellNormal">Located in fuel tank. Valve floats and closes when fuel tank 100% full.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Purge Vacuum Switching Valve (VSV)</td>
+        <td align="left" class="clsCellNormal">Opens or closes line between canister and intake manifold. ECM uses purge VSV to control EVAP purge flow. In order to discharge EVAP absorbed by canister to intake manifold, ECM opens purge VSV. EVAP discharge volume to intake manifold controlled by purge VSV duty cycle ratio (current-carrying time) (open: ON; closed: OFF).</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Refueling valve</td>
+        <td align="left" class="clsCellNormal">Controls EVAP pressure from fuel tank to canister. Valve consists of diaphragm, spring and restrictor (diameter: 0.08 inch). When fuelvapor and pressure inside fuel tank increase, valve opens. While EVAP purged, valve closes and restrictor prevents large amount of vacuum from affecting pressure in fuel tank. Valve opens while refueling.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Roll-over valve</td>
+        <td align="left" class="clsCellNormal">Located in fuel tank. Valve closes by its own weight when vehicle overturns to prevent fuel from spilling out.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Soak timer</td>
+        <td align="left" class="clsCellNormal">Built into ECM. To ensure accurate EVAP monitor, measures 5 hours (+-15 min) after ignition switch OFF. This allows fuel to cool down, stabilizing Fuel Tank Pressure (FTP). When approximately 5 hours elapsed, ECM activates.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">Canister pump module</td>
+        <td align="left" class="clsCellNormal">Consists of (a) to (d) below. Canister pump module cannot be disassembled.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(a) Vent valve</td>
+        <td align="left" class="clsCellNormal">Vents and closes EVAP system. When ECM turns valve ON, EVAP system closed. When ECM turns valve OFF, EVAP system vented. Negative pressure (vacuum) created in EVAP system to check for EVAP leaks by closing purge VSV, turning vent valve ON (closed) and operating leak detection pump (refer to <a class="clsGraphicLink" name="S32489800302006081300000-S06777984172006081300000" location="/api/article/getGraphicContent?articleId=S32489800302006081300000-S06777984172006081300000" href="../images/G04225644.gif">Fig 4</a>).</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(b) Canister pressure sensor</td>
+        <td align="left" class="clsCellNormal">Indicates pressure as voltage. ECM supplies regulated 5 V to canister pressure sensor, and uses feedback from sensor to monitor EVAP system pressure (refer to <a class="clsGraphicLink" name="S11346068822006081300000-S06777984172006081300000" location="/api/article/getGraphicContent?articleId=S11346068822006081300000-S06777984172006081300000" href="../images/G04225645.jpeg">Fig 5</a>).</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(c) Leak detection pump</td>
+        <td align="left" class="clsCellNormal">Creates negative pressure (vacuum) in EVAP system for leak check.</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">(d) Reference orifice</td>
+        <td align="left" class="clsCellNormal">Has opening with 0.02 inch diameter. Vacuum produced through orifice by closing purge VSV, turning vent valve OFF and operating leak detection pump to monitor 0.02 inch leak criterion. 0.02 inch leak criterion indicates small leak of EVAP.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="imageHolder" id="container_G04225644">
+    <div class="imageHeader"><a name="S32489800302006081300000"></a><span class="imageCaption">Fig 4: Identifying Canister Pump Module</span></div><img alt="G04225644" src="../images/G04225644.gif" name="G04225644"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <div class="imageHolder" id="container_G04225645">
+    <div class="imageHeader"><a name="S11346068822006081300000"></a><span class="imageCaption">Fig 5: Identifying Canister Pump Sensor</span></div><img alt="G04225645" src="../images/G04225645.jpeg" name="G04225645"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <div class="imageHolder" id="container_G04225646">
+    <div class="imageHeader"><a name="S25427721162006081300000"></a><span class="imageCaption">Fig 6: Identifying Seak Timer Circuit</span></div><img alt="G04225646" src="../images/G04225646.gif" name="G04225646"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+</div></div><script src="../script.js"></script></body></html>

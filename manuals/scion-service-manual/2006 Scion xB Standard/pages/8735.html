@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Using Techstream — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Using Techstream</h1><div id="S28008614752011071500000">
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The system will need to be initialized when tires are replaced with tires of different pressures, tire pressure sensor and/or tire pressure monitor ECU are replaced. Set tire pressure within the specified range before initializing. When a tire pressure sensor and/or tire pressure monitor ECU are replaced, the sensor ID must be memorized by the tire pressure monitor ECU prior to system initialization. See <span class="clsEmphBOLD">Tire Pressure Sensor Registration. </span></span></div>
+  <p><span class="clsEmphBOLD">Initializing Tire Pressure Monitor System </span></p>
+  <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>When initializing the system, the present tire conditions are stored as a standard. Therefore, set tire pressures within the specified range before initializing. Perform the tire pressure adjustment after the vehicle has sufficiently cooled down. If it hasn't sufficiently cooled, increase the air pressure in the tires approximately 3-4psi (20-30kPa). DO NOT push the reset switch without adjusting tire inflation pressure of all 4 tires. Otherwise, the low tire pressure warning light may not come on even if the tire pressure is low, or it may come on when the tire inflation pressure is actually normal. If you push the reset switch while the vehicle is moving, initialization is not performed.</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The initialization mode can be terminated by making a short circuit between terminals No. 4 and 13 of the DLC3 connector.</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The initialization process is canceled if the ignition switch is turned to OFF position prior to the completion of initialization. To restart initialization, the tire pressure warning reset switch must be pressed again.</span></div>
+  <ol class="ARABICNUM">
+    <li>Turn the ignition switch on.</li>
+    <li>Press and hold the tire pressure warning reset switch for 3 seconds or more so that the tire pressure warning light blinks 3 times. See <a class="clsGraphicLink" name="S38470503002017040300000-S28008614752011071500000" location="/api/article/getGraphicContent?articleId=S38470503002017040300000-S28008614752011071500000" href="../images/G00225423.png">Fig 1</a> through <a class="clsGraphicLink" name="S26330478452016061700000-S28008614752011071500000" location="/api/article/getGraphicContent?articleId=S26330478452016061700000-S28008614752011071500000" href="../images/G00525251.png">Fig 3</a></li>
+    <li>Turn the ignition switch off, connect the Techstream to the DLC3 and turn ignition switch on and turn Techstream on.</li>
+    <li>Enter the following menus: Chassis / Tire Pressure Monitor / Data List.</li>
+    <li>Check that the initialization has been completed by confirming that the correct tire pressure data of all tires are displayed on the tester screen.</li>
+  </ol>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>It may take 2-3 minutes to update the tire pressure data. If ID registration has not occurred, DTC 2171/71 will be recorded in the ECU after 3 minutes or more. If the tire pressure values are not displayed after a few minutes, the IDs may be incorrect or the system may have a malfunction.</span></div>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>After all IDs are registered, DTC C2126/26 (Transmitter ID not Received in Main Mode) is set in the tire pressure warning ECU and the tire pressure warning light blinks for 1 minute and then stays on. When the tire pressure warning ECU successfully receives radio waves from all the transmitters whose IDs are stored in the ECU, DTC C2126/26 is deleted and the tire pressure warning light goes off.</span></div>
+  <p><span class="clsEmphBOLD">Tire Pressure Sensor Registration </span></p>
+  <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>When a tire, wheel, tire pressuresensor, or TPMS ECU are replaced, the sensor ID needs to be registered in the ECU.</span></div>
+  <ol class="ARABICNUM">
+    <li>Set the pressure of all tires to the pressure specified on the tire and loading information label.</li>
+    <li>Connect the Techstream to DLC3.</li>
+    <li>Turn the ignition switch to the ON position.</li>
+    <li>Enter the following menus: Chassis / Tire Pressure Monitor / Utility / ID Registration.</li>
+    <li>Perform the procedure displayed on the Techstream.</li>
+  </ol>
+  <div class="imageHolder" id="container_G00225423">
+    <div class="imageHeader"><a name="S38470503002017040300000"></a><span class="imageCaption">Fig 1: Locating TPM System Reset Switch (xA, xB)</span></div><img alt="G00225423" src="../images/G00225423.png" name="G00225423"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <div class="imageHolder" id="container_G05400991">
+    <div class="imageHeader"><a name="S26564835312011071500000"></a><span class="imageCaption">Fig 2: Locating TPM System Reset Switch (iQ, xD)</span></div><img alt="G05400991" src="../images/G05400991.png" name="G05400991"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+  <div class="imageHolder" id="container_G00525251">
+    <div class="imageHeader"><a name="S26330478452016061700000"></a><span class="imageCaption">Fig 3: Locating TPM System Reset Switch (iM)</span></div><img alt="G00525251" src="../images/G00525251.png" name="G00525251"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+</div></div><script src="../script.js"></script></body></html>

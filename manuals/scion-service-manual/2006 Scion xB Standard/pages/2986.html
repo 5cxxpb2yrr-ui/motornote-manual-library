@@ -1,0 +1,387 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Freeze Frame Data — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Freeze Frame Data</h1><div id="S38424404462006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">DESCRIPTION </span><p>Freeze frame data records the engine conditions (fuel system, calculated load, engine coolant temperature, fuel trim, engine speed, vehicle speed, etc.) when a malfunction is detected. When troubleshooting, freeze frame data can help determine if the vehicle was running or stopped, if the engine was warmed up or not, if the airfuel ratio was lean or rich, and other data from the time the malfunction occurred.</p>
+      <p>HINT:</p>
+      <p>If it is impossible to replicate the problem even though a DTC is detected, confirm the freeze frame data.</p>
+      <p>The ECM records engine conditions in the form of freeze frame data every 0.5 seconds. Using the intelligent tester, 5 separate sets of freeze frame data, including the data values at the time when the DTC was set, can be checked.</p>
+      <div class="imageHolder" id="container_G04225379">
+        <div class="imageHeader"><a name="S08848386302006081300000"></a><span class="imageCaption">Fig 1: Identifying Freeze Frame Data</span></div><img alt="G04225379" src="../images/G04225379.gif" name="G04225379"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+      <ul class="DASH">
+        <li>3 data sets before the DTC was set.</li>
+        <li>1 data set when the DTC was set.</li>
+        <li>1 data set after the DTC was set.<p>These data sets can be used to simulate the condition of the vehicle around the time of the occurrence of the malfunction. The data may assist in identifying of the cause of the malfunction, and in judging whether it was temporary or not.</p>
+        </li>
+      </ul>
+    </li>
+    <li><span class="clsEmphBOLD">LIST OF FREEZE FRAME DATA </span></li>
+  </ol><a name="S03524829332006081300000"></a><div class="clsTableTitle">FREEZE FRAME DATA</div><br><table cellspacing="0" class="clsArticleTable">
+    <colgroup>
+      <col span="1" id="COL1" align="left">
+      <col span="1" id="COL2" align="left">
+      <col span="1" id="COL3" align="left">
+    </colgroup>
+    <thead>
+      <tr class="clsTblHead">
+        <th align="left" class="clsCellNormal">LABEL (Intelligent Tester Display)</th>
+        <th align="left" class="clsCellNormal">Measure Item/Range</th>
+        <th align="left" class="clsCellNormal">Diagnostic Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="left" class="clsCellNormal">INJECTOR</td>
+        <td align="left" class="clsCellNormal">Injector</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">IGN ADVANCE</td>
+        <td align="left" class="clsCellNormal">Ignition advance</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CALC LOAD</td>
+        <td align="left" class="clsCellNormal">Calculated load</td>
+        <td align="left" class="clsCellNormal">Calculated load by ECM</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VEHICLE LOAD</td>
+        <td align="left" class="clsCellNormal">Vehicle load</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MAF</td>
+        <td align="left" class="clsCellNormal">Mass air flow volume</td>
+        <td align="left" class="clsCellNormal">If value approximately 0.0 g/sec.:<br><ul class="BULLET">
+            <li>Mass air flow meter power source circuit open or short</li>
+            <li>VG circuit open or short</li>
+          </ul><br>If value 160.0 g/sec. or more:<br><ul class="BULLET">
+            <li>E2G circuit open</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">ENGINE SPD</td>
+        <td align="left" class="clsCellNormal">Engine speed</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VEHICLE SPD</td>
+        <td align="left" class="clsCellNormal">Vehicle speed</td>
+        <td align="left" class="clsCellNormal">Speed indicated on speedometer</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">COOLANT TEMP</td>
+        <td align="left" class="clsCellNormal">Engine coolant temperature</td>
+        <td align="left" class="clsCellNormal">If value -40°C, sensor circuit open<br>If value 140°C or more sensor circuit shorted</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">INTAKE AIR</td>
+        <td align="left" class="clsCellNormal">Intake air temperature</td>
+        <td align="left" class="clsCellNormal">If value -40°C, sensor circuit open<br>If value 140°C or more sensor circuit shorted</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">AIR-FUEL PATIO</td>
+        <td align="left" class="clsCellNormal">Air-fuel ratio</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PURGE DENSITY</td>
+        <td align="left" class="clsCellNormal">Learning value of purge density</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">EVAP PURGE FLOW</td>
+        <td align="left" class="clsCellNormal">EVAP purge flow</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">EVAP PURGE VSV</td>
+        <td align="left" class="clsCellNormal">EVAP purge VSV duty ratio</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">KNOCK CRRT VAL</td>
+        <td align="left" class="clsCellNormal">Correction learning value of knocking</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">KNOCK FB VAL</td>
+        <td align="left" class="clsCellNormal">Feedback value of knocking</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">THROTTLE POS</td>
+        <td align="left" class="clsCellNormal">Throttle position</td>
+        <td align="left" class="clsCellNormal">Read value with ignition switch ON (Do not start engine)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">THROTTLE POS</td>
+        <td align="left" class="clsCellNormal">Throttle sensor positioning</td>
+        <td align="left" class="clsCellNormal">Read value with ignition switch ON (Do not start engine)</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">O2S B1 S1</td>
+        <td align="left" class="clsCellNormal">Heated oxygen sensor output</td>
+        <td align="left" class="clsCellNormal">Performing INJ VOL or A/F CONTROL function of ACTIVE TEST enables technician to check output voltage of sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">O2S B1 S2</td>
+        <td align="left" class="clsCellNormal">Heated oxygen sensor output</td>
+        <td align="left" class="clsCellNormal">Performing INJ VOL or A/F CONTROL function of ACTIVE TEST enables technician to check output voltage of sensor</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">TOTAL FT #1</td>
+        <td align="left" class="clsCellNormal">Total fuel trim</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">SHORT FT #1</td>
+        <td align="left" class="clsCellNormal">Short-term fuel trim</td>
+        <td align="left" class="clsCellNormal">Short-term fuel compensation used to maintain air-fuel ratio at stoichiometric air-fuel ratio</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">LONG FT #1</td>
+        <td align="left" class="clsCellNormal">Long-term fuel trim</td>
+        <td align="left" class="clsCellNormal">Overall fuel compensation carried out in longterm to compensate a continual deviation of short-term fuel trim from central valve</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">FUEL SYS #1</td>
+        <td align="left" class="clsCellNormal">Fuel system status (bank 1)</td>
+        <td align="left" class="clsCellNormal">
+          <ul class="BULLET">
+            <li>OL (Open Loop): Has not yet satisfied conditions to go closed loop</li>
+            <li>CL (Closed Loop): Using heated oxygen sensor as feedback for fuel control</li>
+            <li>OL DRIVE: Open loop due to driving conditions (fuel enrichment)</li>
+            <li>OL FAULT: Open loop due to detected system fault</li>
+            <li>CL FAULT: Closed loop but heated oxygen sensor, which used for fuel control malfunctioning</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">O2FT B1 S1</td>
+        <td align="left" class="clsCellNormal">Fuel trim at heated oxygen sensor</td>
+        <td align="left" class="clsCellNormal">Same as SHORT FT #1</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">O2FT B1 S2</td>
+        <td align="left" class="clsCellNormal">Fuel trim at heated oxygen sensor</td>
+        <td align="left" class="clsCellNormal">Same as SHORT FT #1</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">O2 LR B1 S1</td>
+        <td align="left" class="clsCellNormal">Heated oxygen sensor response time (lean to rich)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">O2 RL B1 S1</td>
+        <td align="left" class="clsCellNormal">Heated oxygen sensor response time (rich to lean)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CAT TEMP B1 S1</td>
+        <td align="left" class="clsCellNormal">Catalyst temperature</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CAT TEMP B1 S2</td>
+        <td align="left" class="clsCellNormal">Catalyst temperature</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">INI COOL TEMP</td>
+        <td align="left" class="clsCellNormal">Initial engine coolant temperature</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">INI INTAKE TEMP</td>
+        <td align="left" class="clsCellNormal">Initial intake air temperature</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">INJ VOL</td>
+        <td align="left" class="clsCellNormal">Injection volume</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PS PRESSURE</td>
+        <td align="left" class="clsCellNormal">Power steering signal (history)</td>
+        <td align="left" class="clsCellNormal">This signal status usually ON until ignition switch turned OFF</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">STARTER SIG</td>
+        <td align="left" class="clsCellNormal">Starter signal</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PS SW</td>
+        <td align="left" class="clsCellNormal">Power steering switch signal</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PS SIGNAL</td>
+        <td align="left" class="clsCellNormal">Power steering signal (history)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CTP SW</td>
+        <td align="left" class="clsCellNormal">Closed throttle position switch</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">A/C SIGNAL</td>
+        <td align="left" class="clsCellNormal">A/C signal</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">PNP SW [NSW]</td>
+        <td align="left" class="clsCellNormal">Neutral position switch signal</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">ELECT LOAD SIG</td>
+        <td align="left" class="clsCellNormal">Electrical load signal</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">STOP LIGHT SW</td>
+        <td align="left" class="clsCellNormal">Stop light switch</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">BATTERY VOLTAGE</td>
+        <td align="left" class="clsCellNormal">Battery voltage</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">ATM PRESSURE</td>
+        <td align="left" class="clsCellNormal">Atmospheric pressure</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">EVAP (Purge) VSV</td>
+        <td align="left" class="clsCellNormal">EVAP purge VSV</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">FUEL PUMP / SPD</td>
+        <td align="left" class="clsCellNormal">Fuel pump/speed status</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VVT CTRL B1</td>
+        <td align="left" class="clsCellNormal">VVT control status (bank 1)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VACUUM PUMP</td>
+        <td align="left" class="clsCellNormal">Key-off EVAP system pump status</td>
+        <td align="left" class="clsCellNormal">See <a href="../pages/8214.html">MONITOR STRATEGY</a> </td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">EVAP VENT VAL</td>
+        <td align="left" class="clsCellNormal">Key-off EVAP system vent valve status</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">FAN MOTOR</td>
+        <td align="left" class="clsCellNormal">Electric fan motor</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">TC/TE1</td>
+        <td align="left" class="clsCellNormal">TC and TE1 terminals of DLC3</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">FC IDL</td>
+        <td align="left" class="clsCellNormal">Idle fuel cut</td>
+        <td align="left" class="clsCellNormal">ON: when throttle valve fully closed and engine speed over 1,500 rpm</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">FC TAU</td>
+        <td align="left" class="clsCellNormal">FC TAU</td>
+        <td align="left" class="clsCellNormal">Fuel cut being performed under very light load to prevent engine combustion from becoming incomplete</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VVTL AIM ANGL#1</td>
+        <td align="left" class="clsCellNormal">VVT aim angle (bank 1)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VVT CHNG ANGL#1</td>
+        <td align="left" class="clsCellNormal">VVT change angle (bank 1)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">VVT OCV DUTY B1</td>
+        <td align="left" class="clsCellNormal">VVT OCV operation duty (bank 1)</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">IGNITION</td>
+        <td align="left" class="clsCellNormal">Ignition</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CYL #1</td>
+        <td align="left" class="clsCellNormal">Cylinder #1 misfire rate</td>
+        <td align="left" class="clsCellNormal">Displayed only when idling</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CYL #2</td>
+        <td align="left" class="clsCellNormal">Cylinder #2 misfire rate</td>
+        <td align="left" class="clsCellNormal">Displayed only when idling</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CYL #3</td>
+        <td align="left" class="clsCellNormal">Cylinder #3 misfire rate</td>
+        <td align="left" class="clsCellNormal">Displayed only when idling</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CYL #4</td>
+        <td align="left" class="clsCellNormal">Cylinder #4 misfire rate</td>
+        <td align="left" class="clsCellNormal">Displayed only when idling</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">CYL ALL</td>
+        <td align="left" class="clsCellNormal">All cylinder misfire rate</td>
+        <td align="left" class="clsCellNormal">Displayed only when idling</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MISFIRE RPM</td>
+        <td align="left" class="clsCellNormal">Misfire RPM</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MISFIRE LOAD</td>
+        <td align="left" class="clsCellNormal">Misfired load</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">MISFIRE MARGIN</td>
+        <td align="left" class="clsCellNormal">Misfire monitoring</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">ENG RUN TIME</td>
+        <td align="left" class="clsCellNormal">Accumulated engine running time</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">TIME DTC CLEAR</td>
+        <td align="left" class="clsCellNormal">Cumulative time after DTC cleared</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">DIST DTC CLEAR</td>
+        <td align="left" class="clsCellNormal">Accumulated distance after DTC cleared</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+      <tr>
+        <td align="left" class="clsCellNormal">WU CYC DTC CLEAR</td>
+        <td align="left" class="clsCellNormal">Warm-up cycle after DTC cleared</td>
+        <td align="left" class="clsCellNormal">-</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><script src="../script.js"></script></body></html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Readiness Monitor Drive Pattern — 2006 Scion xB Standard Service Manual ~ LEMON Manuals</title><link rel="stylesheet" href="../style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Repair manual for the 2006 Scion xB Standard, including electrical diagrams, bolt torques, and labor times."></head><body><div class="main"><h1>Readiness Monitor Drive Pattern</h1><div id="S39045994712006081300000">
+  <ol class="ARABICNUM">
+    <li><span class="clsEmphBOLD">PURPOSE OF READINESS TESTS </span><ul class="BULLET">
+        <li>The On-Board Diagnostic (OBD II) system is designed to monitor the performance of emission related components, and indicate any detected abnormalities with DTCs (Diagnostic Trouble Codes). Since various components need to be monitored during different driving conditions, the OBD II system is designed to run separate monitoring programs called Readiness Monitors.</li>
+        <li>The intelligent tester's software must be version 9.0 or newer to view the Readiness Monitor status. To view the status, enter the following menus: DIAGNOSIS / ENHANCED OBD II / MONITOR INFO / MONITOR STATUS.</li>
+        <li>When the Readiness Monitor status reads COMPL (complete), the necessary conditions have been met for running the performance tests for that Readiness Monitor.</li>
+        <li>A generic OBD II scan tool can also be used to view the Readiness Monitor status.</li>
+      </ul>
+      <p>HINT:</p>
+      <p>Many state Inspection and Maintenance (I/M) programs require a vehicle's Readiness Monitor status to show COMPL before beginning emission tests.</p>
+      <p>The Readiness Monitor will be reset to INCMPL (incomplete) if:</p>
+      <ul class="BULLET">
+        <li>The ECM has lost battery power or blown a fuse.</li>
+        <li>DTCs have been cleared.</li>
+        <li>The conditions for running the Readiness Monitor have not been met.</li>
+      </ul>
+      <p>If the Readiness Monitor status shows INCMPL, follow the appropriate Readiness Monitor Drive Pattern to change the status to COMPL.</p>
+      <div class="CAUTION"><span class="CAUTION_label">
+            CAUTION:
+          </span><span>Strictly observe posted speed limits, traffic laws, and road conditions when performing these drive patterns.</span></div>
+      <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>These drive patterns represent the fastest method of satisfying all conditions necessary to achieve complete status for each specific Readiness Monitor.<br>In the event of a drive pattern being interrupted (possibly due to factors such as traffic conditions), the drive pattern can be resumed. In most cases, the Readiness Monitor will still achieve complete status upon completion of the drive pattern.<br>To ensure completion of the Readiness Monitors, avoid sudden changes in vehicle load and speed (driving up and down hills and/or sudden acceleration).</span></div>
+    </li>
+    <li><span class="clsEmphBOLD">CATALYST MONITOR (Front Heated Oxygen Sensor Type) </span><div class="imageHolder" id="container_G04225357">
+        <div class="imageHeader"><a name="S24655535752006081300000"></a><span class="imageCaption">Fig 1: Identifying Catalyst Monitor (Front Heated Oxygen Sensor Type)</span></div><img alt="G04225357" src="../images/G04225357.gif" name="G04225357"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+      <ol class="LOWERALPHA">
+        <li>Preconditions<p>The monitor will not run unless:</p>
+          <ul class="BULLET">
+            <li>MIL is OFF.</li>
+            <li>Engine Coolant Temperature (ECT) is 75°C (167°F) or higher.</li>
+            <li>Intake Air Temperature (IAT) is -10°C (14°F) or higher.</li>
+          </ul>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>The readiness test can be completed in cold ambient conditions (less than -10°C [14°F]), if the drive pattern is repeated a second time after turning the ignition switch OFF.</span></div>
+        </li>
+        <li>Drive Pattern<ol class="ARABICNUM">
+            <li>Connect the intelligent tester to the DLC3.</li>
+            <li>Turn the ignition switch ON and turn the tester ON.</li>
+            <li>Clear DTCs (if set) (see <a href="../pages/7928.html">DTC CHECK / CLEAR</a> 
+
+).</li>
+            <li>Start the engine, and warm it up until the ECT reaches 75°C (167°F) or higher.</li>
+            <li>Drive the vehicle at between 64 km/h and 88 km/h (40 mph and 55 mph) for approximately 3 minutes.<div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Drive with smooth throttle operation and avoid sudden acceleration.<br>If the IAT was less than 10°C (50°F) when starting the engine, drive the vehicle at between 64 km/h and 88 km/h (40 mph and 55 mph) for approximately 3 additional minutes.</span></div>
+            </li>
+            <li>Drive the vehicle at between 56 km/h and 72 km/h (35 mph and 45 mph) for approximately 7 minutes.</li>
+          </ol>
+          <div class="NOTE"><span class="NOTE_label">
+            NOTE:
+          </span><span>Drive with smooth throttle operation and avoid sudden deceleration that causes the throttle to close fully.</span></div>
+        </li>
+        <li>Monitor Status<ol class="ARABICNUM">
+            <li>Check the Readiness Monitor status displayed on the tester.</li>
+            <li>If the status does not switch to COMPL (complete), make sure that the preconditions have been met, and turn the ignition switch OFF. Then, repeat steps (5) and (6) in Drive Pattern above.</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><span class="clsEmphBOLD">EVAP SYSTEM MONITOR (KEY OFF TYPE) </span><ol class="LOWERALPHA">
+        <li>Preconditions<p>The monitor will not run unless:</p>
+          <ul class="DASH">
+            <li>The fuel tank is less than 90% full.</li>
+            <li>The altitude is less than 8,000 ft (2,450 m).</li>
+            <li>The vehicle is stationary.</li>
+            <li>The engine coolant temperature is 4.4 to 35°C (40 to 95°F).</li>
+            <li>The intake air temperature is 4.4 to 35°C (40 to 95°F).</li>
+            <li>Vehicle was driven in an urban area (or on a freeway) for 10 minutes or more.</li>
+          </ul>
+        </li>
+        <li>Monitor Conditions<ol class="ARABICNUM">
+            <li>Turn the ignition switch OFF and wait for 6 hours.<p>HINT:</p>
+              <p>Do not start the engine until checking Readiness Monitor status. If the engine is started, the step described above must be repeated.</p>
+            </li>
+          </ol>
+        </li>
+        <li>Monitor Status<ol class="ARABICNUM">
+            <li>Connect the intelligent tester to the DLC3.</li>
+            <li>Turn the ignition switch ON and turn the tester ON.</li>
+            <li>Check the Readiness Monitor status displayed on the tester.</li>
+          </ol>
+        </li>
+      </ol>
+      <p>If the status does not switch to COMPL (complete), restart the engine, make sure that the preconditions have been met, and then perform the Monitor Conditions again.</p>
+    </li>
+    <li><span class="clsEmphBOLD">Heated Oxygen (HO2) Sensor Monitors (Front and Rear HO2 Sensor Type) </span><ol class="LOWERALPHA">
+        <li>Preconditions<p>The monitor will not run unless:</p>
+          <ul class="BULLET">
+            <li>2 minutes or more have elapsed since the engine was started.</li>
+            <li>The Engine Coolant Temperature (ECT) is 75°C (167°F) or more.</li>
+            <li>Cumulative driving time at a vehicle speed of 48 km/h (30 mph) or more exceeds 6 minutes.</li>
+            <li>Air-fuel ratio feedback control is performed.</li>
+            <li>Fuel cut control is performed for 8 seconds or more (for the Rear HO2 Sensor Monitor).</li>
+          </ul>
+        </li>
+        <li>Drive Pattern for Front and Rear HO2 Sensors<ol class="ARABICNUM">
+            <li>Connect the intelligent tester to the DLC3.</li>
+            <li>Turn the ignition switch ON and turn the tester ON.</li>
+            <li>Clear the DTCs (see <a href="../pages/7928.html">DTC CHECK / CLEAR</a> 
+
+).</li>
+            <li>Start the engine and warm it up until the ECT reaches 75°C (167°F) or higher.</li>
+            <li>Drive the vehicle at 48 km/h (30 mph) or more for at least 40 seconds.</li>
+            <li>Allow the engine to idle for 20 seconds or more.</li>
+            <li>Repeat steps (5) and (6) at least 8 times in 1 driving cycle.</li>
+            <li>Change the transmission to 2nd gear.</li>
+            <li>Accelerate the vehicle to 48 km/h (30 mph) or more by depressing the accelerator pedal for at least 10 seconds.</li>
+            <li>Soon after performing step (9) above, release the accelerator pedal for at least 10 seconds without depressing the brake pedal, in order to execute fuelcut control.</li>
+            <li>Allow the vehicle to decelerate until the vehicle speed declines to less than 10 km/h (6 mph).</li>
+            <li>Repeat steps from (9) through (11) above at least twice in 1 driving cycle.</li>
+          </ol>
+        </li>
+        <li>Monitor Status<ol class="ARABICNUM">
+            <li>Check the Readiness Monitor status displayed on the tester.</li>
+            <li>If the status does not switch to COMPL (complete), make sure that the preconditions have been met, and then perform steps from (4) through (12) in the Drive Pattern above.</li>
+          </ol>
+        </li>
+      </ol>
+      <div class="imageHolder" id="container_G04225358">
+        <div class="imageHeader"><a name="S34223300422006081300000"></a><span class="imageCaption">Fig 2: Identifying Catalyst Monitor (Front Heated Oxygen Sensor Type)</span></div><img alt="G04225358" src="../images/G04225358.gif" name="G04225358"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+    </li>
+    <li><span class="clsEmphBOLD">Heated Oxygen (HO2) Sensor Heater Monitors (Front and Rear HO2 Sensor Type) </span><div class="imageHolder" id="container_G04225359">
+        <div class="imageHeader"><a name="S11756668042006081300000"></a><span class="imageCaption">Fig 3: Identifying Heated Oxygen (HO2) Sensor Heater Monitors (Front And Rear HO2 Sensor Type)</span></div><img alt="G04225359" src="../images/G04225359.gif" name="G04225359"><span class="imageCourtesyNote">Courtesy of © TOYOTA, LICENSE AGREEMENT TMS1002</span></div>
+      <ol class="LOWERALPHA">
+        <li>Preconditions<p>The monitor will not run unless:</p>
+          <ul class="BULLET">
+            <li>The MIL is OFF</li>
+          </ul>
+        </li>
+        <li>Drive Pattern<ol class="ARABICNUM">
+            <li>Connect the intelligent tester to the DLC3.</li>
+            <li>Turn the ignition switch ON and turn the tester ON.</li>
+            <li>Clear the DTCs (if set) (see <a href="../pages/7928.html">DTC CHECK / CLEAR</a> 
+
+).</li>
+            <li>Start the engine.</li>
+            <li>Allow the engine to idle for 10 minutes or more.</li>
+            <li>Drive the vehicle at 40 km/h (25 mph) or more for at least 2 minutes.</li>
+          </ol>
+        </li>
+        <li>Monitor Status<ol class="ARABICNUM">
+            <li>Check the Readiness Monitor status displayed on the tester.<p>If the status does not switch to COMPL (complete), restart the engine, make sure the preconditions have been met, and repeat steps (5) and (6) described in the Drive Pattern above.</p>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div></div><script src="../script.js"></script></body></html>
