@@ -14,7 +14,7 @@ def clean(source: str) -> str:
 
 
 class ManualHTMLCleanerTests(unittest.TestCase):
-    def test_removes_mirror_breadcrumb_header_but_preserves_manual_content(self):
+    def test_preserves_mirror_breadcrumb_header_and_manual_content(self):
         source = (
             '<body><div class="theme-colors header">'
             '<span class="breadcrumb-part">Home</span> &gt;&gt; '
@@ -24,8 +24,10 @@ class ManualHTMLCleanerTests(unittest.TestCase):
             '<img src="../images/diagram.png"></div></body>'
         )
         result = clean(source)
-        self.assertNotIn("breadcrumb-part", result)
-        self.assertNotIn("Home", result)
+        self.assertIn('class="theme-colors header"', result)
+        self.assertIn('<span class="breadcrumb-part">Home</span>', result)
+        self.assertIn('href="../pages/1839.html"', result)
+        self.assertIn("Basic Inspection</a>", result)
         self.assertIn("<h1>Basic Inspection</h1>", result)
         self.assertIn("Measure resistance at 20 degrees C.", result)
         self.assertIn('../images/diagram.png', result)
