@@ -88,11 +88,11 @@ class ManualHTMLCleaner(HTMLParser):
             return
 
         classes = self.classes(attrs)
-        # The mirrored manuals wrap the breadcrumb trail in this exact
-        # theme/header container. Remove the container, not individual links,
-        # so the procedure body and its cross-references remain untouched.
-        is_mirror_breadcrumb_header = {"theme-colors", "header"}.issubset(classes)
-        if classes & self.REMOVED_CLASSES or is_mirror_breadcrumb_header:
+        # Keep the mirror's breadcrumb/header container: it contains the
+        # manual's actual Home -> Make -> Year -> Model and chapter navigation.
+        # Publisher-owned Phoenix styling replaces the archive presentation,
+        # so retaining this markup does not import the archive's visual theme.
+        if classes & self.REMOVED_CLASSES:
             self.skip_depth = 1
             return
 
