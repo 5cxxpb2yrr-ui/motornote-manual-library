@@ -158,5 +158,5 @@ jobs:
             echo "No corpus changes to commit."
           else
             git commit -m "Restore verified Scion and Subaru manual corpus"
-            git push origin "HEAD:refs/heads/recovery/integrate-verified-corpus-20261123"
+            git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
           fi
