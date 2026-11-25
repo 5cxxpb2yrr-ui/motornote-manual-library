@@ -4,6 +4,12 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "incoming/**"
+      - "manuals/**"
+      - "scripts/ingest_manuals.py"
+      - "scripts/rebuild_catalog_from_tree.py"
+      - ".github/workflows/rebuild-corpus-pr-dry-run.yml"
   push:
     branches:
       - recovery/integrate-verified-corpus-20261123
