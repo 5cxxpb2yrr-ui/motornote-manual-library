@@ -137,7 +137,12 @@ def build_manual(manual_id: str, config: dict, root: Path) -> dict:
             continue
         guide_root = crumbs[4]
         guide = guide_for_root(guide_root)
-        categories = crumbs[5:-1]
+        if re.search(r"repair\\s+and\\s+diagnosis|labor|parts\\s+and\\s+labor", guide_root, re.I):
+            categories = crumbs[5:-1]
+        else:
+            # Preserve secondary source sections such as Additional Pages as
+            # an explicit category instead of silently flattening them away.
+            categories = [guide_root, *crumbs[5:-1]]
         title = h1 or (crumbs[-1] if crumbs else "")
         if not title:
             raise SystemExit(f"ERROR: page {page_id} has no breadcrumb title or h1")
