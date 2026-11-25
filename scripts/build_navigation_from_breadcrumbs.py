@@ -137,7 +137,7 @@ def build_manual(manual_id: str, config: dict, root: Path) -> dict:
             continue
         guide_root = crumbs[4]
         guide = guide_for_root(guide_root)
-        if re.search(r"repair\\s+and\\s+diagnosis|labor|parts\\s+and\\s+labor", guide_root, re.I):
+        if re.search(r"repair\s+and\s+diagnosis|labor|parts\s+and\s+labor", guide_root, re.I):
             categories = crumbs[5:-1]
         else:
             # Preserve secondary source sections such as Additional Pages as
