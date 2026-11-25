@@ -182,7 +182,8 @@ def main() -> int:
         result = build_manual(manual_id, config, args.root)
         prefix = config["prefix"]
         for guide, tree in result["trees"].items():
-            target = args.output / f"{prefix}-{guide}.json"
+            output_name = "parts" if prefix == "scion" and guide == "labor" else guide
+            target = args.output / f"{prefix}-{output_name}.json"
             target.write_text(json.dumps(tree, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         summaries.append(result["summary"])
 
