@@ -21,12 +21,12 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          lfs: false
+          lfs: true
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -40,6 +40,40 @@ jobs:
       - name: Compile Python navigation generator, publisher, and validators
         run: |
           python -m py_compile scripts/build_navigation_from_breadcrumbs.py scripts/manual_site_publisher.py scripts/publish_manual_site.py scripts/publish_manual_delta.py scripts/validate_html_cross_references.py
+      - name: Generate navigation indexes from the full source corpus
+        run: python scripts/build_navigation_from_breadcrumbs.py
+      - name: Assert Scion page 2601 matches its source breadcrumb
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          def find_page(node, page_id, path=()):
+              for child in node.get("c", []):
+                  current = (*path, child.get("n", ""))
+                  if child.get("p") == page_id:
+                      return current
+                  if "c" in child:
+                      found = find_page(child, page_id, current)
+                      if found:
+                          return found
+              return None
+
+          tree = json.loads(Path("index/navigation/scion-repair.json").read_text())
+          expected = (
+              "Electrical",
+              "Wiring Diagrams",
+              "OEM Connector End Views",
+              "Connector List",
+              "Noise Filter (Ignition) Connector End View (N 1)",
+          )
+          actual = find_page(tree, 2601)
+          if actual != expected:
+              raise SystemExit(f"page 2601 mismatch: expected={expected!r}; actual={actual!r}")
+          print("Scion page 2601 navigation matches its source HTML breadcrumb.")
+          PY
+      - name: Validate the complete staged R2 site without publishing
+        run: python scripts/manual_site_publisher.py --mode dry-run
       - name: Validate Worker and Phoenix JavaScript syntax
         run: |
           node --input-type=module --check < worker/src/index.js
